@@ -1,0 +1,6627 @@
+MovieDB Recommendations — Amazon OA attempt, 2026-06-24
+OCR transcript of '2026-06-24 19-15-53.mp4' (42:52, silent), EDITOR PANE, 1 frame / 10 s.
+Columns: [video mm:ss | exam time remaining]. Frames identical to the previous one are collapsed.
+====================================================================================================
+
+----- 00:00  (42:02 left) -----
+def get_average_rating(request, movie_id):
+{’averagekating’: average_ratingr,
+status=200 |
+)
+except Exception as e:
+print(#'Get average rating error: {e}')
+return JsonResponse(
+{'message': ‘Server error'},
+status=500 F|
+)
+Tr
+'
+@csrf_exempt
+@require_http_methods(["GET"]) |
+@auth_middleware i
+166 def set_recommendations (requellt z
+try:
+user_id = uuid.UUID(request.user_id) I
+user_ratings = List(Rating.objects. filter (user_id=user_id) ) 7
+rated_movies = []
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1: ,
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) |
+rated_movies.append({ a
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+Hh
+
+----- 00:10  (41:52 left) -----
+)
+'
+@csrf_exempt
+@require_http_methods(["GET"])
+@auth_middleware
+166 = def jet recommendations (request) -
+try: ;
+user_id = uuid.UUID(request.user_id)
+user_ratings = lList(Rating. objects. filter (user_id=user_id) ) 1
+rated_movies = []
+for rating_obj in user_ratings: Py
+if rating_obj.rating and rating_obj.rating >= 1: a
+try: 4
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ ;
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id i
+}) '
+except Movie.DoesNotExist:
+pass I
+'
+watched_movies = []
+for rating_obj in user_ratings: 4
+if rating_obj.watched: ‘
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r[{'movie_id'] == rating_obj.movie_id),
+
+----- 00:20  (41:42 left) -----
+1 from django.urls import path
+
+from apps.movies import views
+
+app_name = 'movies'
+
+urlpatterns = [
+path('', views.get_all_movies, name='get_all_movies'),
+path('featured', views.get_featured_movies, name='get_featured_movies'),
+path('search', views.search_movies, name='search_movies'),
+path('type/<str:movie_type>', views.get_movies_by_type, name='get_movies_by_type'),
+path('<str:movie_id>', views.get_movie_by_id, name='get_movie_by_id'),
+
+]
+
+----- 00:30  (41:32 left) -----
+1 from django.urls import path |
+from apps.movies import views
+app_name = 'movies'
+urlpatterns = [
+path('', views.get_all_movies, name='get_all_movies'),
+path('featured', views.get_featured_movies, name='get_featured_movies'),
+path('search', views.search_movies, name='search_movies'),
+path('type/<str:movie_type>', views.get_movies_by_type, name='get_movies_by_type'),
+path('<str:movie_id>', views.get_movie_by_id, name='get_movie_by_id'),
+]
+
+----- 00:40  (41:22 left) -----
+1 from django.urls import path
+
+from apps.movies import views
+
+app_name = '‘movies'
+
+urlpatterns = [
+path('', views.get_all_movies, name='get_all_movies'),
+path('featured', views.get_featured_movies, name='get_featured_movies'),
+path('search', views.search_movies, name='search_movies'),
+path('type/<str:movie_type>', views.get_movies_by_type, name='get_movies_by_type'),
+path('<str:movie_id>', views.get_movie_by_id, name='get_movie_by_id'),
+
+]
+
+----- 00:50  (41:12 left) -----
+@csrf_exempt LI
+@require_http_methods(["GET"])
+@auth_middleware 5
+def get_recommendations (request):
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = List(Rating.objects.filter(user_id=user_id))
+rated_movies = [] 1
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1: rt
+try: a
+movie.= Movie.objects.get(id=rating_obj.movie_id) ‘|
+rateebuatice ‘anpent( 1
+‘movie': movie,
+‘rpating': rating_obj.rating,
+178 Q ‘movie_id': rating_obj.movie id
+i ‘
+except Movie.DoesNotExist: LI
+pass
+'
+watched_movies = []
+for rating_obj in user_ratings:
+if rating_obj.watched: |
+try: a
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+
+----- 01:00  (41:02 left) -----
+def get_average_rating(request, movie_id):
+status=500 1
+)
+s
+@csrf_exempt
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations(request) :
+try: '
+user_id = uuid.UUID(request.user_id)
+user_ratings = List(Rating.objects.filter(user_id=user_id)) 4
+rated_movies = [] by
+for rating_obj in mecrgeer alee, 7
+if rating_obj.rating and rating_obj.rating >= 1: I
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({{ I
+‘movie': movie,
+‘rating': rating_obj.rating, |
+178 Q ‘movie_id': rating_obj.movie id
+» ‘
+except Movie.DoesNotExist:
+pass '
+:
+watched_movies = [] 1
+for rating_obj in user_ratings:
+if rating_obj.watched:
+try:
+
+----- 01:10  (40:52 left) -----
+@csrf_exempt
+@require_http_methods(["GET"])
+@auth_middleware 7
+def get_recommendations(request): :
+try:
+user_id ii uuid.UUID(request.user_id)
+user_ratings = lList(Rating.objects.filter(user_id=user_id) )
+rated_movies = []
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1: ,
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) 4
+rated_movies. append ({{ J
+‘movie': movie, LK)
+"rating': rating_obj.rating, I
+178 Q ‘movie_id': rating_obj.movie id
+bp
+except Movie.DoesNotExist: I
+pass
+'
+watched_movies = []
+for rating_obj in user_ratings: :
+if rating_obj.watched:
+try: 1
+movie = Movie. objects.get(id=rating_obj.movie_id) 4
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), a
+None)
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+
+----- 01:20  (40:42 left) -----
+Nest pe oe a ae ry ea eT Lines ah ee enh cM EB os oh
+Expected API Behavior
+GET /api/ratings/recommendations/user
+Purpose Returns personalized movie recommendations based on the user's ratings and watched history.
+Auth: Required (Bearer token)
+Success sete Bor Ok)
+With recommendations:
+{
+"message": "Found 10 personalized recommendations",
+"recommendations": [
+{
+“_id": "movie_id",
+"title": "Movie Title",
+"year": 2023,
+"rating": 8.5,
+"genre": ["Action", "Thriller"],
+"description": "=..." ,
+"popularity": 95,
+"type": "movie",
+"score": 0.85,
+"source": "rated"|"watched",
+"sourceMovie": “Inception",
+"“userRating": 9
+LF
+]
+$
+
+----- 01:30  (40:32 left) -----
+Purpose Returns personalized movie recommendations based on the user's ratings and watched history.
+Auth: Required (Bearer token)
+Success Responses (200 OK)
+With recommendations:
+{
+"message": “Found 19 personalized recommendations",
+"recommendations": [
+{
+"_id": "movie_id",
+"title": "Movie Title",
+"year": 2023,
+"rating": 8.5,
+"genre": ["Action", "Thriller"],
+“descraption™: "2. 1.9),
+"popularity": 95,
+"type": "movie",
+"score": 0.85,
+"source": "rated"|"watched",
+"sourceMovie": "Inception",
+"userRating": 9
+ty
+]
+$
+No movies watched or rated yet:
+{
+"message": “Start exploring movies by rating them or marking them as watched to get personalized recommendatic
+
+----- 01:40  (40:22 left) -----
+Auth: Required (Bearer token)
+Success Responses (200 OK)
+With recommendations:
+{
+"message": "Found 10 personalized recommendations",
+"recommendations": [
+{
+"_id": "movie_id",
+"title": "Movie Title",
+"year": 2023, I
+"rating": 8.5,
+"genre": ["Action", "Thriller"],
+"description": "...",
+"popularity": 95,
+"type": “movie",
+"score": 0.85,
+"source": "rated"|"watched",
+"sourceMovie": "Inception",
+“userRating": 9
+iy
+]
+}
+No movies watched or rated yet:
+{
+"message": "Start exploring movies by rating them or marking them as watched to get personalized recommendatic
+"recommendations": []
+}
+
+----- 01:50  (40:12 left) -----
+AUNT. REQGUHEG (Deal! lOKE!))
+Success Responses (200 OK)
+With recommendations:
+{
+"message": "Found 10 personalized recommendations",
+"recommendations": [
+{
+mee Ri betel loll [ol faw= cea ho Le
+"title": "Movie Title",
+"year": 2023,
+"rating": 8.5,
+"genre": ["Action", "Thriller"],
+"description": "...",
+"popularity": 95,
+"type": "movie",
+"score": 0.85,
+"source": "rated"|"watched",
+“sourceMovie": "Inception",
+"userRating": 9
+i;
+]
+}
+No movies watched or rated yet:
+{
+"message": "Start exploring movies by rating them or marking them as watched to get personalized recommendatic
+"recommendations": []
+$
+
+----- 02:00  (40:02 left) -----
+AUNT. REQGUHEG (Deal! lOKE!))
+Success Responses (200 OK)
+With recommendations:
+{
+"message": "Found 10 personalized recommendations",
+"recommendations": [
+{
+mee Ri btei tell [o\faw= pea he Le
+"title": "Movie Title",
+"year": 2023,
+"rating": 8.5,
+"genre": ["Action", "Thriller"],
+"description": "...",
+"popularity": 95,
+"type": "movie",
+"score": 0.85,
+"source": "rated"|"watched",
+“sourceMovie": "Inception",
+"userRating": 9
+i;
+]
+}
+No movies watched or rated yet:
+{
+"message": "Start exploring movies by rating them or marking them as watched to get personalized recommendatic
+"recommendations": []
+$
+
+----- 02:30  (39:32 left) -----
+AUNT. REQGUIHEG (Deal! lOKeT))
+Success Responses (200 OK)
+With recommendations:
+{
+"message": "Found 10 personalized recommendations",
+"recommendations": [
+{
+"id": "movie_id",
+"title": "Movie Title",
+"year": 2023,
+"rating": 8.5,
+"genre": ["Action", "Thriller"],
+"description": "...",
+"popularity": 95,
+"type": "movie",
+"score": 0.85,
+"source": "rated"|"watched",
+“sourceMovie": "Inception",
+"userRating": 9
+i;
+1 I
+$
+No movies watched or rated yet:
+{
+"message": "Start exploring movies by rating them or marking them as watched to get personalized recommendatic
+"recommendations": []
+$
+
+----- 02:40  (39:22 left) -----
+Purpose Returns personalized movie recommendations based on the user's ratings and watched history.
+Auth: Required (Bearer token)
+Success Responses (200 OK)
+With recommendations:
+{
+"message": "Found 10 personalized recommendations",
+"recommendations": [
+I
+"_id": "movie_id",
+"title": "Movie Title",
+"year": 2023,
+"rating": 8.5,
+"genre": ["Action", "Thriller"],
+"description": "...",
+"popularity": 95,
+"type": "movie",
+"score": 0.85,
+"source": "rated"|"watched",
+"sourceMovie": "Inception",
+"userRating": 9
+i,
+]
+$
+No movies watched or rated yet:
+{
+"message": "Start exploring movies by rating them or marking them as watched to get personalized recommendatic
+
+----- 02:50  (39:12 left) -----
+@csrf_exempt
+@require_http_methods(["GET"])
+@auth_middleware |
+def get_recommendations (request) :
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = List(Rating. objects def Movie(*, id, title, year, duration, rating, popularity, description
+As g pateueeovess = [) created_at, updated_at)
+for rating_obj in user_ratings: def get
+if rating_obj.rating and ratin
+try: Fullname: django.db.models.query. BaseQuerySet.get
+movie = Rovieconieccs menidonarinaloniemnvield) T
+rated_movies. append({ =
+‘movie': movie, s
+‘rating': rating_obj.rating, I
+*movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist: i
+pass
+'
+watched_movies = []
+for rating_obj in user_ratings: 1
+if rating_obj.watched:
+try: 1
+movie = Movie.objects.get(id=rating_obj.movie_id) 1:
+rated_entry = next((r for r in pated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+
+----- 03:00  (39:02 left) -----
+@csrf_exempt
+@require_http_methods(["GET"])
+@auth_middleware 7
+def syle eee SES BE
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = lList(Rating.objects.filter(user_id=user_id) )
+170 « rated_movies = []
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1: ,
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) T
+rated_movies. append({ al
+‘movie': movie, i,
+‘rating': rating_obj.rating, I
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist: i
+pass
+:
+watched_movies = []
+for rating_obj in user_ratings: 1
+if rating_obj.watched:
+try: 1
+movie = Movie.objects.get(id=rating_obj.movie_id) 1:
+rated_entry = next((r for r in pated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+
+----- 03:10  (38:52 left) -----
+def get_average_rating(request, movie_id):
+PELUr vouUNcopunsc,
+{'message': ‘Server error'}, F|
+status=500
+) .
+@csrf_exempt
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request) : 1
+try:
+user_id = uuvid.UUID(request.user_id) =
+user_ratings = lList(Rating.objects.filter(user_id=user_id) ) Hy
+rated_movies = [] I i
+for rating_obj in user_ratings: I
+if rating_obj.rating and rating_obj.rating >= 1:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) I
+rated_movies. append ({{ 1
+‘movie': movie,
+‘rating': rating_obj.rating,
+178 Q ‘movie_id': rating_obj.movfielid |
+bh
+except Movie.DoesNotExist: Ly
+pass 1
+i
+watched_movies = []
+for rating_obj in user_ratings:
+if rating_obj.watched:
+
+----- 03:20  (38:42 left) -----
+def get_average_rating(request, movie_id):
+status=400
+) '
+try:
+movie = Movie.objects.get(id=movie_uuid)
+except Movie.DoesNotExist:
+return JsonResponse(
+{'message': ‘Movie not found'},
+status=404 i
+) I
+ia
+average_rating = Rating.get_average_rating(movie_uuid) |
+'
+return JsonResponse(
+{'averageRating': average_rating}!, I
+status=200
+)
+I
+except Exception as e: 1
+print(#'Get average rating error: {e}')
+return JsonResponse(
+{'message': ‘Server error'}, ;
+status=500
+) '
+'
+@csrf_exempt
+@require_http_methods(["GET"])
+Mauth middleware
+
+----- 03:30  (38:32 left) -----
+@csrf_exempt |
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request) :
+try:
+user_id = uuvid.UUID(request.user_id)
+user_ratings = List(Rating.objects. filter(user_id=user_id) )
+170 Q rated_movies = (t] I 5
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1: =
+try: 1
+movie = Movie.objects.get(id=rating_obj.movie_id) 1
+rated_movies.append({ I
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+5) !
+except Movie.DoesNotExist: 5
+pass
+'
+watched_movies = []
+for rating_obj in user_ratings: F
+if rating_obj.watched:
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+
+----- 03:40  (38:22 left) -----
+@csrf_exempt |
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request):
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = List(Rating.objects.filter(user_id=user_id) )
+170 Q rated_movies = (t] LJ
+for rating_obj in user_ratings:
+if Raffing=obj/-rating and rating_obj.rating >= 1: i=
+try: 1.
+movie = Movie.objects.get(id=rating_obj.movie_id) 1
+rated_movies.append({ I
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+5) :
+except Movie.DoesNotExist: 5
+pass
+'
+watched_movies = []
+for rating_obj in user_ratings: F
+if rating_obj.watched:
+try: ‘
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+
+----- 03:50  (38:12 left) -----
+@csrf_exempt |
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations(request) :
+try:
+user_id = uuvid.UUID(request.user_id)
+user_ratings = List(Rating.objects. filter(user_id=user_id) )
+rated_movies = [] '
+171 for rpting_obj in user_ratings:
+if pating_obj.rating and Ppating_obj.rating >= 1: T
+try: &
+movie = Movie.objects.get(id=rating_obj.movie_id) ‘|
+rated_movies.append({ I
+‘movie': movie,
+I "pating': pating_obj.rating,
+‘movie_id': pating_obj.movie_id
+5) !
+except Movie.DoesNotExist: 5
+pass
+'
+watched_movies = []
+for pating_obj in user_ratings: 1
+if pating_obj.watched:
+try: i
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == Pating_obj.movie_id),
+None)
+
+----- 04:00  (38:02 left) -----
+@csrf_exempt |
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request) :
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = List(Rating.objects.filter(user_id=user_id) )
+rated_movies = [] '
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: or
+movie = ieee one tenet ane Oe 1
+rated_movies.append({ I
+‘movie': movie,
+‘rpating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+3) !
+except Movie.DoesNotExist: uy
+pass
+182 1
+watched_movies = []
+for rating_obj in user_ratings: A
+if rating_obj.watched:
+try: ‘
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+
+----- 04:10  (37:52 left) -----
+@csrf_exempt |
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request) :
+try:
+user_id = uuvid.UUID(request.user_id)
+user_ratings = List(Rating.objects. filter(user_id=user_id) )
+rated_movies = [] '
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: or
+movie = Movie.objects.get(id=rating_obj.movie_id) 1
+rated_movies.append({ I
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id]|
+3) !
+except Movie.DoesNotExist: 5
+pass
+182 A
+watched_movies = []
+for rating_obj in user_ratings: A
+if rating_obj.watched:
+try: ‘
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+
+----- 04:20  (37:42 left) -----
+@csrf_exempt |
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request) :
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = List(Rating.objects.filter(user_id=user_id) )
+rated_movies = [] '
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: Ta
+movie = Movie.objects.get(id=rating_obj.movie_id) 1
+rated_movies.append({ I
+‘movie': movie,
+‘rpating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+3) !
+except Movie.DoesNotExist: 5
+pass
+182 1
+watched_movies = []
+for rating_obj in user_ratings: A
+if rating_obj.watched:
+try: ‘
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+
+----- 04:30  (37:32 left) -----
+@csrf_exempt |
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request) :
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = List(Rating.objects.filter(user_id=user_id) )
+rated_movies = [] '
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: or
+movie = Movie.objects.get(id=rating_obj.movie_id) 1
+rated_movies.append({ I
+‘movie': movie,
+‘rpating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+3) !
+except Movie.DoesNotExist: I 5
+pass
+182 1
+watched_movies = []
+for rating_obj in user_ratings: A
+if rating_obj.watched:
+try: ‘
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+
+----- 04:40  (37:22 left) -----
+@csrf_exempt |
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request) :
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = List(Rating.objects.filter(user_id=user_id) )
+rated_movies = [] '
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= ‘9
+try: or
+movie = Movie.objects.get(id=rating_obj.movie_id) 1
+rated_movies.append({ I
+‘movie': movie,
+‘rpating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+3) !
+except Movie.DoesNotExist: 5
+pass
+182 1
+watched_movies = []
+for rating_obj in user_ratings: A
+if rating_obj.watched:
+try: ‘
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+
+----- 04:50  (37:12 left) -----
+WGtCVHeuw .« Live
+} I
+Recommendation Algorithm
+The scoring algorithm generates personalized movie recommendations based on user preferences:
+User Action Recommendation Strategy Score Multiplier
+Rated high (above 5) Recommend movies with simllar genres 1.2x boost
+Rated low (5 or below) Recommend movies with different genres No boost
+Watched only (no rating) Recommend movies with simllar genres No boost
+Watched + rated high Recommend movies with similar genres 1.2x boost
+Watched + rated low Recommend movies with different genres No boost
+Constraints:
+* Only recommend movies with a rating of 7.0 or above
+« Remove duplicates, sort by score descending, return top 10
+« When same movie appears from multiple sources, keep the one with the higher score
+« When a movie is both rated and watched, the rated signal takes precedence
+*« The userRating field is only present in recommendations where the source is "rated" , not for watched-only recommendations
+Score Formula
+totalScore = (genreScore « 9.7 + ratingScore ~ 9.3) =x multiplier
+Varishlae Noeafinitian Danna
+
+----- 05:00  (37:02 left) -----
+WGtCVHeuw .« Live
+}
+Recommendation Algorithm
+The scoring algorithm generates personalized movie recommendations based on user preferences:
+User Action Recommendation Strategy Score Multiplier
+Rated high (above 5) Recommend movies with similar genres 1.2x boost
+Rated low (5 or below) I> Recommend movies with different genres No boost
+Watched only (no rating) Recommend movies with simllar genres No boost
+Watched + rated high Recommend movies with similar genres 1.2x boost
+Watched + rated low Recommend movies with different genres No boost
+Constraints:
+* Only recommend movies with a rating of 7.0 or above
+*« Remove duplicates, sort by score descending, return top 10
+« When same movie appears from multiple sources, keep the one with the higher score
+« When a movie is both rated and watched, the rated signal takes precedence
+*« The userRating field is only present in recommendations where the source is "rated" , not for watched-only recommendations
+Score Formula
+totalScore = (genreScore x 0.7 + ratingScore « 0.3) x multiplier
+Varishlae Noeafinitian Danna
+
+----- 05:10  (36:52 left) -----
+from django.db import models > wf Aa ab * 20f7 ap a St Os
+from django.core.validators import MinValueVaLlidator, MaxValuevaltiuacor
+from datetime import datetime
+import uuid
+8
+class Movie(models.Model):
+id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+title = models.CharField(max_length=255) ™
+year = models. IntegerField(
+validators=[ |
+MinValueValidator (1900) ,
+MaxValueValidator(datetime.now().year + 5) 1
+]
+)
+Q guration = ania ee Gaeiraaidtmer lenecneed) Z
+rating = models.FloatField(
+default=0,
+validators=[MinValueValidator(6), MaxValueValidator(10)]
+)
+popularity = models.IntegerField(default=8, validators=[MinValueValidator (0) |)
+genre = models. JSONField(default=list)
+description = models. TextField()
+director = models.CharField(max_lLength=255)
+25 firiters = models. JSONField(default=List)
+stars = models.JSONField(default=List)
+type = models.CharField(
+max_Length=10,
+choices=[('movie', 'Movie'), ('series', 'Series')],
+
+----- 05:20  (36:42 left) -----
+class Movie(models.Model):
+writers = mogels.JSUNrleLa\detauLt=List)
+stars = models.JSONField(default=List)
+type = models.CharField(
+max_Length=16,
+choices=[('movie', 'Movie'), ('series', 'Series')],
+default='movie'
+)
+reviews = models.JSONField(default=List)
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True)
+class Meta: Tr
+db_table = 'movies'
+39 def save((self, *args, +*kwapas))|: LJ
+if self.title:
+self.title = self.title.strip()
+if self.duration:
+self.duration = self.duration.strip()
+if self.description:
+self.description = self.description.strip()
+if self.director:
+self.director = self.director.strip()
+super().save(*args, **xkwargs)
+@cLassmethod
+def find_all(cls):
+return cls.objects.all()
+
+----- 05:30  (36:32 left) -----
+1 from django.db import models > user Aa ab * 20f11 ay Ab is Se
+from django.core.validators import MinValueValidator, MaxVaLuevatiuacor
+from django.core.exceptions import ValidationError
+import uuid |
+class Rating(models.Model):
+id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+movie_id = models.UUIDField(db_index=True) |
+user_id = models.UUIDField(db_index=True)
+rating = models. IntegerField(
+null=True, i
+blank=True,
+validators=[MinValueValidator(1), MaxValueValidator (10) ]
+) I
+watched = models.BooleanField(default=False)
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True) 1
+i]
+class Meta:
+db_table = 'ratings'
+unique_together = [['movie_id', 'user_id']]
+indexes = Ih
+models. Index(fields=[ 'movie_id']),
+models. Index (fields=[ ‘user_id' Di
+eee
+def clean(self):
+if self.rating is not None and not isinstance(self.rating, int):
+
+----- 05:40  (36:22 left) -----
+MIAPOCULUlL — HVUELS.ViGI FL lcuLinGgA_LENYyLii-svu)
+writers = models.JSONFijield(default=List) a As cho eet ES =a
+stars = tee i seaae
+type = models. CharField(
+max_Length=16,
+choices=[('movie', 'Movie'), ('series', 'Series')],
+default='movie'
+)
+reviews = models.JSONField(default=List)
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True)
+class Meta:
+db_table = ‘movies’ T
+def save(self, *args, **kwargs):
+if self.title:
+self.title = self.title.strip()
+42 if self. dUration:
+self.duration = self.duration.strip()
+if self.description:
+self.description = self.description.strip()
+if self.director:
+self.director = self.director.strip()
+super().save(*args, **kwargs)
+@cLassmethod
+def find_all(cls):
+return cls.objects.all()
+
+----- 05:50  (36:12 left) -----
+@csrf_exempt |
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request) :
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = List(Rating.objects.filter(user_id=user_id) )
+rated_movies = [] '
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: I or
+movie = Movie.objects.get(id=rating_obj.movie_id) 1
+rated_movies.append({ I
+‘movie': movie,
+‘rpating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+3) !
+except Movie.DoesNotExist: 5
+pass
+182 1
+watched_movies = []
+for rating_obj in user_ratings: A
+if rating_obj.watched:
+try: ‘
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+
+----- 06:00  (36:02 left) -----
+@csrf_exempt 5
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request):
+try:
+user_id = uuvid.UUID(request.user_id)
+user_ratings = List(Rating.objects. filter(user_id=user_id) )
+rated_movies = [] .
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: mr
+movie = Movie.objects.get(id=rating_obj.movie_id) 1
+rated_movies.append({ I
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+3) !
+except Ratko Hee eae 5
+pass
+182 1
+watched_movies = []
+for rating_obj in user_ratings: A
+if rating_obj.watched:
+try: ‘
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+
+----- 06:10  (35:52 left) -----
+Recommendation Algorithm
+The scoring algorithm generates personalized movie recommendations based on user preferences:
+
+User Action Recommendation Strategy Score Multiplier
+
+Rated high (above 5) Recommend movies with similar genres 1.2x boost
+
+Rated low (5 or below) Recommend movies with different genres No boost
+
+Watched only (no rating) Recommend movies with similar genres No boost
+
+Watched + rated high Recommend movies with similar genres 1.2x boost
+
+Watched + rated low Recommend movies with different genres No boost
+Constraints:
+
+« Only recommend movies with a rating of 7.0 or above
+
+« Remove duplicates, sort by score descending, return top 10
+
+« When same movie appears from multiple sources, keep the one with the higher score
+
+« When a movie is both rated and watched, the rated signal takes precedence
+
+« The userRating field is only present in recommendations where the source is "rated" , not for watched-only recommendations
+Score Formula
+
+totalScore = (genreScore x 9.7 + ratingScore « 6.3) x multiplier
+
+Variable Definition Range
+
+ey ae RAntohinan aanran hatuinas aanran and aancdicdata [tntal mancan af anurans main Ntad
+
+----- 06:20  (35:42 left) -----
+Recommendation Algorithm
+The scoring algorithm generates personalized movie recommendations based on user preferences:
+
+User Action Recommendation Strategy Score Multiplier
+
+Rated high (above 5) Recommend movies with similar genres 1.2x boost
+
+Rated low (5 or below) pens movies with different genres No boost
+
+Watched only (no rating) Recommend movies with simllar genres No boost
+
+Watched + rated high Recommend movies with similar genres 1.2x boost
+
+Watched + rated low Recommend movies with different genres No boost
+Constraints:
+
+* Only recommend movies with a rating of 7.0 or above
+
+« Remove duplicates, sort by score descending, return top 10
+
+« When same movie appears from multiple sources, keep the one with the higher score
+
+« When a movie is both rated and watched, the rated signal takes precedence
+
+¢« The userRating field is only present in recommendations where the source is "rated" , not for watched-only recommendations
+Score Formula
+
+totalScore = (genreScore x 0.7 + ratingScore « 0.3) x multiplier
+
+Variable Definition Range
+
+ey en RAntohina aanmran bhatuinan anurans and aandicdatan ltatal manecan af anran main Men 4
+
+----- 06:30  (35:32 left) -----
+Recommendation Algorithm
+The scoring algorithm generates personalized movie recommendations based on user preferences:
+
+User Action Is Recommendation Strategy Score Multiplier
+
+Rated high (above 5) Recommend movies with similar genres 1.2x boost
+
+Rated low (5 or below) Recommend movies with different genres No boost
+
+Watched only (no rating) Recommend movies with simllar genres No boost
+
+Watched + rated high Recommend movies with similar genres 1.2x boost
+
+Watched + rated low Recommend movies with different genres No boost
+Constraints:
+
+« Only recommend movies with a rating of 7.0 or above
+
+« Remove duplicates, sort by score descending, return top 10
+
+« When same movie appears from multiple sources, keep the one with the higher score
+
+« When a movie is both rated and watched, the rated signal takes precedence
+
+¢ The userRating field is only present in recommendations where the source is "rated" , not for watched-only recommendations
+Score Formula
+
+totalScore = (genreScore x 0.7 + ratingScore « 0.3) x multiplier
+
+Variable Definition Range
+
+ey RAntohina aanmran bhatuinan anurans and nandicdatan ltntal manecan nf anean mada Men 4
+
+----- 06:40  (35:22 left) -----
+def get_average_rating(request, movie_id):
+except Exception as e:
+print(#'Get average rating error: {e}') |
+return JsonResponse(
+{'message': ‘Server error'},
+status=500
+)
+@csrf_exempt ‘
+@require_http_methods(["GET"])
+@auth_middleware Lat
+def get_recommendations (request): 1
+try: :
+user_id = uuid.UUID(request.user_id) I
+user_ratings = List(Rating.objects. filter (user_id=user_id))
+rated_movies = []
+for rating_obj in user_ratings: I
+172 | if rating_obj.rating and rating_obj.rating >5: ;
+try: ‘
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 1
+‘movie': movie,
+‘pating': rating_obj.rating, i
+‘movie_id': rating_obj.movie_id F|
+})
+except Movie.DoesNotExist:
+pass
+
+----- 06:50  (35:12 left) -----
+def get_average_rating(request, movie_id):
+except Exception as e:
+print(#'Get average rating error: {e}') |
+return JsonResponse(
+{'message': ‘Server error'},
+status=500
+)
+@csrf_exempt ‘
+@require_http_methods(["GET"])
+@auth_middleware Lat
+def get_recommendations (refivest) : 1
+try: :
+user_id = uuvid.UUID(request.user_id) I
+user_ratings = List(Rating.objects.filter(user_id=user_id))
+rated_movies = []
+for rating_obj in user_ratings:
+172 | if rating_obj.rating and rating_obj.rating >5: ;
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 1
+‘movie': movie,
+‘pating': rating_obj.rating, 1
+‘movie_id': rating_obj.movie_id “|
+#)
+except Movie.DoesNotExist:
+pass
+
+----- 07:00  (35:02 left) -----
+def get_average_rating(request, movie_id):
+) '
+@csrf_exempt
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request):
+try:
+user_id = uuid.UUID(request.user_id) 4
+user_ratings = List(Rating.objects.filter(user_id=user_id))
+rated_movies = [] a
+for rating_obj in user_ratings: ,
+172 Q if rating_obj.rating and rating_obj.rating >= al: 5
+try: I
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies. append (i
+‘movie': movie, I
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id |
+})
+except Movie.DoesNotExist: LJ
+pass
+'
+watched_movies = [] '
+for rating_obj in user_ratings:
+if rating_obj.watched:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+
+----- 07:10  (34:52 left) -----
+def get_recommendations (request):
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1: :
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+#) '
+except Movie.DoesNotExist:
+pass
+7
+183 Q watched_movies = (t] F|
+for rating_obj in user_ratings:
+if rating_obj.watched: t
+try: I
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), i
+None) '
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+‘movie': movie, 1
+‘movie_id': rating_obj.movie_id,
+"pating': rated_entry['rating'] if rated_entry else None '
+9) ‘
+except Movie.DoesNotExist:
+pass
+
+----- 07:20  (34:42 left) -----
+def get_recommendations (request):
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1: :
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({
+‘movie': movie,
+‘rpating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+¥) 1
+except Movie.DoesNotExist:
+pass
+7
+183 Q watched_movies = (t| F|
+for rating_obj in user_ratings:
+if rating_obj.watched:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for]r in rated_movies if r['movie_id'] == rating_obj.movie_id), i
+None) ry
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+‘movie': movie, 4
+‘movie_id': rating_obj.movie_id,
+'rating': rated_entry['rating'] if rated_entry else None |
+9) 1
+except Movie.DoesNotExist:
+pass
+
+----- 07:30  (34:32 left) -----
+def get_recommendations (request):
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1: :
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({
+‘movie': movie,
+‘rpating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+¥) 1
+except Movie.DoesNotExist:
+pass I
+7
+183 Q watched_movies = (t| F|
+for rating_obj in user_ratings:
+if rating_obj.watched: i
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), i
+None) ry
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+‘movie': movie, 4
+‘movie_id': rating_obj.movie_id,
+'rating': rated_entry['rating'] if rated_entry else None |
+9) 1
+except Movie.DoesNotExist:
+pass
+
+----- 07:40  (34:22 left) -----
+def get_recommendations(request) :
+user_id = uuid.UUID(request.user_id)
+user_ratings = lList(Rating.objects.filter(user_id=user_id) ) oI
+rated_movies = []
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({
+‘movie': movie, ,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+13) I ar)
+except Movie.DoesNotExist: 1:
+pass I
+watched_movies = []
+184
+= rating_obj in user_ratings: I
+if rating_obj.watched: '
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) x
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None) 4
+if not rated_entry or rated_entry['rating'] > 5: -
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'rating': rated_entry['rating'] if rated_entry else None
+
+----- 07:50  (34:12 left) -----
+def get_recommendations (request):
+'
+if len(rated_movies) == ® and len(watched_movies) != 0:
+return JsonResponse(
+{
+‘message': 'Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!',
+'recommendations': []
+i, '
+status=200
+) -
+'
+recommendations = [] a
+1
+for rated_entry in rated_movies:
+movie = rated_entry[ 'movie']
+user_rating = rated_entry['rating']
+movie_id = rated_entry[ 'movie_id'] ;
+'
+if user_rating > 5: I
+similar_movies = Movie.objects.all() 1
+similar_movies = [m for m in similar_movies if any(g in m.genre for g in movie.genre)][:30] :
+for similar_movie in similar_movies: i
+score = similar_movie.rating / 10
+genre_matches = len({g for g in movie.genre if g in similar_movie.genre])
+genre_score = genre_matches / max(len(movie.genre), 1)
+score = genre_score * 0.7 + score * 0.3
+
+----- 08:00  (34:02 left) -----
+def get_average_rating(request, movie_id):
+)
+'
+average_rating = Rating.get_average_rating(movie_uuid)
+return JsonResponse(
+{'averageRating': average_rating}!,
+status=200
+)
+'
+except Exception as e:
+print(#'Get average rating error: {e}')
+return JsonResponse( aa
+{'message': ‘Server error'}, 1
+status=500
+) I
+@csrf_exempt I
+@require_http_methods(["GET"]) '
+@auth_middleware I
+def get_recommendations (request) :
+try: |
+user_id = uuvid.UUID(request.user_id)
+user_ratings = List(Rating.objects.filter(user_id=user_id)) ;
+rated_movies = [] ‘
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try:
+
+----- 08:10  (33:52 left) -----
+VPSyVyvel Clie eV meeciivuot lL Vet jf
+@auth_middleware
+def get_recommendations(request) : A
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = lList(Rating.objects.filter(user_id=user_id) )
+rated_movies = []
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: i
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({
+‘movie': movie, =
+‘pating': rating_obj.rating, 5
+‘movie_id': rating_obj.movie_id
+>) I ,
+except Movie.DoesNotExist:
+pass
+I
+watched_movies = [] “|
+184 | |
+for rating_obj in user_ratings:
+if rating_obj.watched: '
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) ‘
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), L
+None)
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+‘movie': movie.
+
+----- 08:20  (33:42 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ '
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184 | |
+for rating_obj in user_ratings: Ly
+if rating_obj.watched: i
+try: I
+movie = Movie.objects.get(id=rating_obj.movie_id) ,
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: I
+watched_movies.append({ 1
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'rating': rated_entry['rating'] if rated_entry else None 1
+})
+except Movie.DoesNotExist: 7
+pass ‘
+if len(rated_movies) == © and len(watched_movies) != 0:
+iS ae ee
+
+----- 08:50  (33:12 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ '
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184 | |
+for rating_obj in user_ratings: Ly
+if rating_obj.watched: I i
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) ,
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: I
+watched_movies.append({ 1
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'rating': rated_entry['rating'] if rated_entry else None 1
+})
+except Movie.DoesNotExist: 7
+pass ‘
+if len(rated_movies) == © and len(watched_movies) != 0:
+iS ae ee
+
+----- 09:00  (33:02 left) -----
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request) : |
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = List(Rating.objects.filter(user_id=user_id))
+rated_movies = []
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: ,
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({
+‘movie': movie, ar
+‘rating': Peel nnclid erating, :
+‘movie_id': rating_obj.movie_id I
+})
+except Movie.DoesNotExist:
+pass
+I
+watched_movies = [] "|
+184 | |
+for rating_obj in user_ratings: 1
+if rating_obj.watched:
+try: 1
+movie = Movie.objects.get(id=rating_obj.movie_id) z
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+
+----- 09:10  (32:52 left) -----
+def get_recommendations (request) :
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) :
+rated_movies.append({
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+#)
+except Movie.DoesNotExist:
+pass 1
+watched_movies = []
+184| | -
+for rating_obj in user_ratings: I |
+if rating_obj.watched:
+try: i
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None) I
+if not rated_entry or rated_entry['rating'] > 5: 1
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, i
+'rating': rated_entry['rating'] if rated_entry else None
+5) j
+except Movie.DoesNotExist: |
+pass
+Sf Banlanntnd mavitan’d --— OF and Danlintahand masveiand fe Oe
+
+----- 09:20  (32:42 left) -----
+def get_recommendations (request):
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) :
+rated_movies.append({
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass 1
+watched_movies = [] def Movie(*, id, title, year, duration, rating, popularity, description
+184 | | created_at, updated_at)
+for rating_obj in user_ratings: TE oe
+if rating_obj.watched:
+try: Fullname: django.db.models.query. BaseQuerySet.get
+movie = Movie. objects. gqt(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None) I
+if not rated_entry or rated_entry['rating'] > 5: 1
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, |
+'rating': rated_entryl'rating'] if rated_entry else None
+>) j
+except Movie.DoesNotExist: ,
+pass
+So Banlanntnd mavisianand -— 9 and Tanlumntahad marstand 1 Oe
+
+----- 09:40  (32:22 left) -----
+def get_recommendations (request):
+vser_iu = vusu.uuruurequese.user_iuy
+user_ratings = lList(Rating.objects. filter (user_id=user_id) ) F|
+rated_movies = []
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({
+‘movie': movie, -|
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
++) Bl
+except Movie.DoesNotExist: ;
+pass ‘
+I
+watched_movies = [] ig
+184 | |
+for rating_obj in user_ratings: I
+if rating_obj.watched: 1
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), ‘
+None)
+if not rated_entry or rated_entry['rating'] > 5: .
+watched_movies.append({ LI
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'pating': rated_entry['rating'] if rated_entry else None
+})
+
+----- 09:50  (32:12 left) -----
+def get_recommendations (request) :
+rated_movies = []
+for rating_obj in user_ratings: 7
+if rating_obj.rating and rating_obj.rating >= 1:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id |
+})
+except Movie.DoesNotExist: I a
+pass H
+'
+watched_movies = [] I
+184
+_ rating_obj in user_ratings:
+if rating_obj.watched: I
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) 7
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None) 1
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({ 1:
+‘movie': movie, 1
+‘movie_id': rating_obj.movie_id,
+'rating': rated_entry['rating'] if rated_entry else None
+})
+except Movie.DoesNotExist:
+
+----- 10:00  (32:02 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+l rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 10:10  (31:52 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+I rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 10:20  (31:42 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+l rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 10:30  (31:32 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+I rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 10:40  (31:22 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+l rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 10:50  (31:12 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+I rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 11:00  (31:02 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+l rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 11:10  (30:52 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+I rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 11:20  (30:42 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+l rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 11:30  (30:32 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+I rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 11:40  (30:22 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+l rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 11:50  (30:12 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+I rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 12:00  (30:02 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+l rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 12:10  (29:52 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = []
+184
+I rating_obj in ser Dbtings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 12:20  (29:42 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 7
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+'
+watched_movies = [] I
+184
+l rating_obj in user_ratings: 7
+if rating_obj.watched: LI
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5: ;
+watched_movies.append({ 7
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, :
+'pating': rated_entry['rating'] if rated_entry else None
+}) 1
+except Movie.DoesNotExist: A
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+
+----- 12:30  (29:32 left) -----
+def get_average_rating(request, movie_id):
+return JsonResponse(
+{'message': ‘Server error'}, |
+status=500
+)
+@csrf_exempt
+@require_http_methods(["GET"])
+@auth_middleware I i
+def get_recommendations (request):
+try:
+user_id = uuvid.UUID(request.user_id) “a
+user_ratings = lList(Rating.objects. filter (user_id=user_id) ) ‘
+rated_movies = [] I
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: I
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ ‘
+‘movie': movie,
+"rating': rating_obj.rating, :
+‘movie_id': rating_obj.movie_id
+}) .
+except Movie.DoesNotExist: 1
+pass
+watched_movies = []
+184 | |
+
+----- 12:40  (29:22 left) -----
+1 from django.db import models
+from django.core.validators import MinValueVaLlidator, MaxValueVaLlidator
+from django.core.exceptions import ValidationError
+import uuid
+class Rating(models.Model): I
+id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+movie_id = models.UUIDField(db_index=True) |
+user_id = models.UUIDField(db_index=True)
+rating = models. IntegerField(
+null=True,
+blank=True,
+validators=[MinValueValidator(1), MaxValueValidator (19) ]
+)
+watched = models.BooleanField(default=False)
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True)
+class Meta:
+db_table = ‘ratings’
+unique_together = [['movie_id', ‘user_id']]
+indexes = It
+models. Index(fields=['movie_id']),
+models. Index(fields=['user_id']),
+Peers
+def clean(self):
+if self.rating is not None and not isinstance(self.rating, int):
+
+----- 12:50  (29:12 left) -----
+def get_average_rating(request, movie_id):
+return JsonResponse(
+{'message': ‘Server error'}, |
+status=500
+)
+@csrf_exempt
+@require_http_methods(["GET"])
+@auth_middleware i
+def get_recommendations (request):
+try:
+user_id = uuvid.UUID(request.user_id) “
+user_ratings = lList(Rating.objects. filter (user_id=user_id) ) ‘
+rated_movies = [] I I
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: I
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ ‘
+‘movie': movie,
+‘rpating': rating_obj.rating, :
+‘movie_id': rating_obj.movie_id
+}) .
+except Movie.DoesNotExist: 1
+pass
+watched_movies = []
+184 |
+
+----- 13:50  (28:12 left) -----
+def get_recommendations (request):
+"movie': movie,
+‘pating': rating_obj.rating, ,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+eT
+182
+| opea movies S10]
+| :
+for rating_obj in user_ratings:
+if rating_obj.watched:
+try: nm
+movie = Movie.objects.get(id=rating_obj.movie_id) '
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), I
+None)
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+‘movie': movie, I
+‘movie_id': rating_obj.movie_id, '
+'rating': rated_entry['rating'] if rated_entry else None
+9) i
+except Movie.DoesNotExist:
+pass F
+'
+if len(rated_movies) == ® and len(watched_movies) != 0:
+return JsonResponse(
+{
+
+----- 14:00  (28:02 left) -----
+def get_recommendations (request):
+"movie': movie,
+‘pating': rating_obj.rating, ,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+182 | aot atinie nathias
+watched_movies = []
+| :
+for rating_obj in user_ratings:
+if rating_obj.watched:
+try: ie
+movie = Movie.objects.get(id=rating_obj.movie_id) 1
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), 1
+None)
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+‘movie': movie, I
+‘movie_id': rating_obj.movie_id, '
+'rating': rated_entry['rating'] if rated_entry else None
+9) i
+except Movie.DoesNotExist:
+pass F
+'
+if len(rated_movies) == ® and len(watched_movies) != 0:
+return JsonResponse(
+{
+
+----- 14:10  (27:52 left) -----
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request): 4
+try:
+user_id = uuvid.UUID(request.user_id)
+user_ratings = List(Rating.objects. filter (user_id=user_id))
+rated_movies = []
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: i
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ r
+‘movie': movie, s
+‘rating': rating_obj.rating, 5
+‘movie_id': rating_obj.movie_id |
+})
+except Movie.DoesNotExist:
+pass I
+182 | #get all his ratings check if he made ra j
+{e] rated_movies
+for rating_obj in user_ratings: fe) rating_obj Ly
+if rating_obj.watched: 3 Rating
+try: 2 RuntimeWarning LJ
+movie = Movie.objects.get(id=rating_obj.movie_id) :
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+
+----- 14:20  (27:42 left) -----
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request) : 4
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = lList(Rating.objects.filter(user_id=user_id) )
+rated_movies = []
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try: i
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ r
+‘movie': movie, a
+‘rating': rating_obj.rating, Lj
+‘movie_id': rating_obj.movie_id I
+})
+except Movie.DoesNotExist:
+pass I
+182 | #get all his ratings check if he made railing if yes get the movie and add to i |
+watched_movies = []
+for rating_obj in user_ratings: :
+if rating_obj.watched:
+try: '
+movie = Movie.objects.get(id=rating_obj.movie_id) 1
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if not rated_entry or rated_entry['rating'] > 5:
+watched_movies.append({
+
+----- 14:30  (27:32 left) -----
+def get_recommendations (request):
+‘movie_id': rating_obj.movie_id
+>) i
+except Movie.DoesNotExist:
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+for rating_obj in user_ratings:
+if rating_obj.watched: |
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) ii
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), Ef
+None) -
+if not rated_entry or rated_entry['rating'] > 5: I
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, I
+'rating': rated_entry['rating'] if rated_entry else None
++) j
+196 except Movie .DoesNotExist;| I
+pass 1
+'
+if Len(rated_movies) == 0 and len(watched_movies) != 0: 1
+return JsonResponse(
+{
+‘message': ‘Start exploring movies by rating them or marking them as watched to get
+
+----- 14:50  (27:12 left) -----
+def get_recommendations (request):
+‘movie_id': rating_obj.movie_id
+>) i
+except Movie.DoesNotExist:
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+for rating_obj in user_ratings:
+if rating_obj.watched: |
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) ii
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), Ef
+None) I -
+if not rated_entry or rated_entry['rating'] > 5: I
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, I
+'rating': rated_entry['rating'] if rated_entry else None
++) i
+196 except Movie .DoesNotExist;|
+pass 1
+'
+if Len(rated_movies) == 0 and len(watched_movies) != 0: 1
+return JsonResponse(
+{
+‘message': ‘Start exploring movies by rating them or marking them as watched to get
+
+----- 15:10  (26:52 left) -----
+def get_recommendations (request):
+‘movie_id': rating_obj.movie_id
+>) i
+except Movie.DoesNotExist:
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+|
+For -hating-obj) inuser—hat objects: ClassVar[BaseManager[Any]] FI
+if rating_obj.watched:
+try: Fullname: django.db.models.base.Model.objects
+movie = Movie. objecf's.get(id=rating_obj.movie_id) ii
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), Ef
+None) -
+if not rated_entry or rated_entry['rating'] > 5: I
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, I
+'rating': rated_entry['rating'] if rated_entry else None
++) j
+196 except Movie .DoesNotExist;|
+pass 1
+'
+if Len(rated_movies) == 0 and len(watched_movies) != 0: 1
+return JsonResponse(
+{
+‘message': ‘Start exploring movies by rating them or marking them as watched to get
+
+----- 15:20  (26:42 left) -----
+def get_recommendations (request):
+‘movie_id': rating_obj.movie_id
+>) i
+except Movie.DoesNotExist:
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+|
+For -hating-obJj)inzuser—rat objects: ClassVar[BaseManager[Any]] FI
+if rating_obj.watched:
+try: Fullname: django.db.models.base.Model.objects
+movie = Movie. objecf's.get(id=rating_obj.movie_id) Pry
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), Ef
+None) -
+if not rated_entry or rated_entry['rating'] > 5: I
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, I
+'rating': rated_entry['rating'] if rated_entry else None
++) i
+196 except Movie .DoesNotExist;|
+pass 1
+'
+if Len(rated_movies) == 0 and len(watched_movies) != 0: 1
+return JsonResponse(
+{
+‘message': ‘Start exploring movies by rating them or marking them as watched to get
+
+----- 15:30  (26:32 left) -----
+def get_recommendations (request):
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the list |
+watched_movies = []
+for rating_obj in user_ratings:
+if rating_obj.watched:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), .
+None)
+if not rated_entry oer rated_entry['rating'] > 5:
+epee | eae a
+‘movie': movie, a
+‘movie_id': rating_obj.movie_id, I
+'rating': rated_entry['rating'] if rated_entry else None
+})
+196 except Movie .DoesNoteExist|
+pass I
+'
+if len(rated_movies) == ® and len(watched_movies) != 0: 1
+return JsonResponse(
+{ '
+‘message': 'Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!', ‘
+'recommendations': []
+a,
+status=200
+
+----- 15:40  (26:22 left) -----
+def get_recommendations (request) :
+‘movie': movie,
+"rating': rating_obj.rating, 1
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = [] J
+for rating_obj in user_ratings:
+if rating_obj.watched: ya
+try: Ee
+moviel = Novie objec def append(object: _T, /) -> None 1
+rated_entry = next( ApNenivoeiece fonthoscninartheatise: '] == rating_obj.movie_id), I
+None)
+if not rated_entry Fullname: builtins. list.append
+watched_movies.append({ I I
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, ‘
+'rpating': rated_entry['rating'] if rated_entry else None
+}) '
+196 except Movie .DoesNoteExist:|
+pass :
+'
+if len(rated_movies) == © and len(watched_movies) != 6:
+return JsonResponse(
+{
+
+----- 15:50  (26:12 left) -----
+def get_recommendations (request) :
+‘movie': movie,
+"rating': rating_obj.rating, 1
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = [] J
+for rating_obj in user_ratings:
+if rating_obj.watched: a
+try: |
+movie = Movie.objects.get(id=rating_obj.movie_id) ,
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), |
+None)
+190 Q if not rated_entry or rated_entry['rating'] | 5:
+watched_movies.append({ I I
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, ‘
+'rpating': rated_entry['rating'] if rated_entry else None
+}) '
+except Movie.DoesNotExist:
+pass :
+'
+if len(rated_movies) == © and len(watched_movies) != 6:
+return JsonResponse(
+{
+
+----- 16:00  (26:02 left) -----
+def get_recommendations (request) :
+‘movie': movie, Lt
+"rating': rating_obj.rating, a
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+| “
+for rating_obj in user_ratings:
+if rating_obj.watched: yn
+try: a
+movie = Movie.objects.get(id=rating_obj.movie_id) 7
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), |
+None)
+190 Q if hod rated_entry or rated_entry['rating'] > 5: 5
+watched_movies.append({ I
+‘movie': movie, =
+‘movie_id': rating_obj.movie_id,
+'pating': rated_entry|'rating'] if rated_entry else None
+}) .
+except Movie.DoesNotExist:
+pass i
+1
+if len(rated_movies) == © and len(watched_movies) != 6:
+return JsonResponse(
+{
+
+----- 16:10  (25:52 left) -----
+def get_recommendations (request) :
+‘movie': movie,
+"rating': rating_obj.rating, ‘
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = [] i
+=| for rating_obj in user_ratings:
+if rating_obj.watched: wu
+try: af
+movie = Movie.objects.get(id=rating_obj.movie_id) uy
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), |
+None)
+i if rated_entry and rated_entryl 1695309 4) > mduels. UUIDField(db_index-True)
+watched_movies.append({ ; ; I
+'movie': movie, Fullname: apps.ratings.models.Rating.movie_id
+'movie_id': rating-obj.aneean, ‘
+'pating': rated_entryl'rating'] if rated_entry else None
+}) '
+except Movie.DoesNotExist:
+pass 1
+'
+if len(rated_movies) == © and len(watched_movies) != 6:
+return JsonResponse(
+{
+
+----- 16:20  (25:42 left) -----
+def get_recommendations (request) :
+‘movie': movie,
+‘rating': rating_obj.rating, 1
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = [] J
+for rating_obj in user_ratings:
+if rating_obj.watched: 4
+187 try: 4
+movie = Movie.objects.get(id=rating_obj.movie_id) 5
+rated_entry = next((r for r in rated_movies if r[{'movie_id'] == rating_obj.movie_id), |
+None)
+i if rated_entry and rated_entry['rating'] > 5:
+watched_movies.append({ I
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, ‘
+'rating': rated_entry['rating'] if rated_entry else None
+}) '
+except Movie.DoesNotExist:
+pass :
+I :
+if len(rated_movies) == © and len(watched_movies) != 6:
+return JsonResponse(
+{
+
+----- 16:30  (25:32 left) -----
+def get_recommendations (request) :
+‘movie': movie,
+"rating': rating_obj.rating, 1
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = [] J
+for rating_obj in user_ratings:
+if rating_obj.watched: 4
+187 try;| a
+movie = Movie.objects.get(id=rating_obj.movie_id) 5
+rated_entry = next((r for r in rated_movies if r[{'movie_id'] == rating_obj.movie_id), |
+None) I
+i if rated_entry and rated_entry['rating'] > 5:
+watched_movies.append({ I
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, ‘
+'rating': rated_entry['rating'] if rated_entry else None
+}) '
+except Movie.DoesNotExist:
+pass :
+'
+if len(rated_movies) == © and len(watched_movies) != 6:
+return JsonResponse(
+{
+
+----- 16:40  (25:22 left) -----
+def get_recommendations (request) :
+"movie_id': rating_obj.movie_id
+#) '
+except Movie.DoesNotExist:
+pass
+i #get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+for rating_obj in user_ratings:
+if rating_obj.watched: '
+187 try;|
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), 4
+None
+i if Semmes and rated_entry['rating'] > 5: 1
+watched_movies.append({ J
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'rpating': rated_entry['rating'] if rated_entry else None I
+}) :
+except Movie.DoesNotExist:
+pass
+'
+if len(rated_movies) == © and len(watched_movies) != 0: '
+return JsonResponse( |
+{
+‘message': ‘Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!',
+Inanammandatianats F1
+
+----- 16:50  (25:12 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), |
+None)
+i if rated_entry and rated_entry['rating'] > 5:
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'pating': rated_entry['rating'] if rated_entry else None
+}) ,
+except Movie.DoesNotExist:
+pass
+4
+1
+if len(rated_movies) == ® and len(watched_movies) != 6: I
+return JsonResponse(
+{
+*message': ‘Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!', I
+'recommendations': [] .
+ee
+status=200 1
+)
+'
+recommendations = [] A
+for rated_entry in rated_movies:
+movie = rated_entry['movie']
+user_rating = rated_entry['rating']
+
+----- 17:00  (25:02 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), |
+None)
+if rated_entry and rated_entry['rating'] > 5:
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'pating': rated_entry['rating'] if rated_entry else None
+}) ,
+except Movie.DoesNotExist:
+pass
+'
+=
+1
+if len(rated_movies) == © and len(watched_movies) != 6: I
+return JsonResponse(
+{
+*‘message': ‘Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!', I
+'pecommendations': [] .
+ee
+status=200 1
+)
+'
+recommendations = [] I A
+for rated_entry in rated_movies:
+movie = rated_entry['movie']
+user_rating = rated_entry['rating']
+
+----- 17:10  (24:52 left) -----
+def get_recommendations (request):
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), ,
+None)
+if rated_entry and rated_entry['rating'] > 5:
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'pating': rated_entry['rating'] if rated_entry else None
+}) ‘
+except Movie.DoesNotExist:
+pass
+4
+'
+if len(rated_movies) == © and len(watched_movies) != 6: I
+return JsonResponse(
+{
+‘message': ‘Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!', I
+'recommendations': [] "|
+i,
+status=200 1
+)
+'
+recommendations = [] i
+for rated_entry in rated_movies:
+movie = rated_entry['movie']
+user_rating = rated_entryl['rating']
+
+----- 17:20  (24:42 left) -----
+def get_recommendations (request) :
+})
+except Movie.DoesNotExist: ‘
+pass
+#get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+for rating_obj in user_ratings:
+if rating_obj.watched:
+187 try: |
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None) A
+if rated_entry and rated_entry['rating'] > 5: 1
+watched_movies.append({ I
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'pating': rated_entry['rating'] if rated_entry else None
+) ;
+except Movie.DoesNotExist: .
+pass
+'
+if len(rated_movies) == © and Rg Cwatched=movies) L="8- A
+return JsonResponse( i
+{
+‘message': 'Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!',
+‘recommendations': []
+
+----- 17:30  (24:32 left) -----
+def get_recommendations (request):
+None)
+if rated_entry and rated_entry['rating'] > 5: :
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'pating': rated_entry['rating'] if rated_entry else None
+})
+
+except Movie.DoesNotExist:
+
+pass FI
+if len(rated_movies) == ® and len(watched_movies) != 0: Lf
+return JsonResponse(
+
+‘ 1
+*‘message': ‘Start exploring movies by rating them or marking them as watched to get i
+personalized recommendations!',
+
+'recommendations': []
+Pe |
+status=200 1
+)
+recommendations = [] I ‘
+for rated_entry in rated_movies: ,
+movie = rated_entry['movie'] ,
+user_rating = rated_entry['rating']
+movie_id = rated_entry['movie_id']
+if wean natina »s S-
+
+----- 17:40  (24:22 left) -----
+def get_recommendations (request):
+recommenudtiuns . Ls
+}, 1
+status=200
+)
+recommendations = []
+for rated_entry in rated_movies:
+movie = rated_entry['movie'] |
+user_rating = rated_entryLl'rating']
+movie_id = rated_entryL['movie_id']
+'
+if user_ratinf > Ss q
+similar_movies = Movie.objects.all() i
+|
+similar_movies = [m for m in similar_movies if any(g in m.genre for g in movie.genre)][:30]
+for similar_movie in similar_movies:
+score = similar_movie.rating / 10 I
+genre_matches = len([g for g in movie.genre if g in similar_movie.genre]) 1
+genre_score = genre_matches / max(len(movie.genre), 1)
+score = genre_score * 0.7 + score * 0.3
+score *= 1.2 ‘
+recommendations. append({ '
+‘movie': similar_movie, :
+"score': score,
+"source': ‘'rated',
+"sourceMovie': movie.title,
+‘userRating': user_rating
+
+----- 17:50  (24:12 left) -----
+def get_recommendations (request):
+rpecummciualivuiis . ui
+}, i
+status=200
+)
+recommendations = []
+for rated_entry in rated_movies:
+movie = rated_entry['movie'] |
+user_rating = rated_entryLl'rating']
+movie_id = rated_entryL['movie_id']
+'
+fe 3 1
+if user_rating > 5:
+similar_movies = Movie.objects.all() i
+|
+eam genre_matches = len([g for g in movie.genre if g in similar_movie.genre]) genre) ][:30]
+for
+Fullname: backend.apps.ratings.views.get_recommendations.genre_matches I
+genrg_matches = len([g for g in movie.genre if g in similar_movie.genre]) 1
+genre_score = genre_matches / max(len(movie.genre), 1)
+score = genre_score * 0.7 + score * 0.3
+score *= 1.2 ‘
+recommendations. append({ '
+‘movie': similar_movie, :
+"score': score,
+"source': ‘rated',
+"sourceMovie': movie.title,
+‘userRating': user_rating
+
+----- 18:00  (24:02 left) -----
+Recommendation Algorithm
+The scoring algorithm generates personalized movie recommendations based on user preferences:
+
+User Action Recommendation Strategy Score Multiplier
+
+Rated high (above 5) Recommend movies with similar genres 1.2x boost
+
+Rated low (5 or below) Recommend movies with different genres ‘p boost
+
+Watched only (no rating) Recommend movies with similar genres No boost
+
+Watched + rated high Recommend movies with similar genres 1.2x boost
+
+Watched + rated low Recommend movies with different genres No boost
+Constraints:
+
+« Only recommend movies with a rating of 7.0 or above
+
+« Remove duplicates, sort by score descending, return top 10
+
+« When same movie appears from multiple sources, keep the one with the higher score
+
+« When a movie is both rated and watched, the rated signal takes precedence
+
+¢« The userRating field is only present in recommendations where the source is "rated" , not for watched-only recommendations
+Score Formula
+
+totalScore = (genreScore x 0.7 + ratingScore « 0.3) x multiplier
+
+Variable Definition Range
+
+ey RAntohina aanran bhatuinan anurans and aandicdatan ltntal manecan nf anean madan Nenad
+
+----- 18:10  (23:52 left) -----
+Recommendation Algorithm
+The scoring algorithm generates personalized movie recommendations based on user preferences:
+
+User Action Recommendation Strategy Score Multiplier
+
+Rated high (above 5) Recommend movies with simllar genres iS 1.2x boost
+
+Rated low (5 or below) Recommend movies with different genres No boost
+
+Watched only (no rating) Recommend movies with simllar genres No boost
+
+Watched + rated high Recommend movies with similar genres 1.2x boost
+
+Watched + rated low Recommend movies with different genres No boost
+Constraints:
+
+* Only recommend movies with a rating of 7.0 or above
+
+*« Remove duplicates, sort by score descending, return top 10
+
+« When same movie appears from multiple sources, keep the one with the higher score
+
+« When a movie is both rated and watched, the rated signal takes precedence
+
+¢« The userRating field is only present in recommendations where the source is "rated" , not for watched-only recommendations
+Score Formula
+
+totalScore = (genreScore x 0.7 + ratingScore « 0.3) =< multiplier
+
+Variable Definition Range
+
+ey en RAntohina aanran bhatuinan anurans and aandicdatan ltntal manecan af anran madn Nenad
+
+----- 18:20  (23:42 left) -----
+def get_recommendations (request):
+recommenudtiuns . Ls
+}, 1
+status=200
+)
+recommendations = []
+for rated_entry in rated_movies:
+movie = rated_entry['movie'] ‘1
+user_rating = rated_entryLl'rating']
+movie_id = rated_entry['movie_id']
+'
+if user_rating > 5: I ‘
+217 similar_movies = Movie.objects.at1()| |
+|
+similar_movies = [m for m in similar_movies if any(g in m.genre for g in movie.genre)][:30]
+for similar_movie in similar_movies:
+score = similar_movie.rating / 10 I
+genre_matches = len([g for g in movie.genre if g in similar_movie.genre]) :
+genre_score = genre_matches / max(len(movie.genre), 1)
+score = genre_score * 0.7 + score * 0.3
+score *= 1.2 ‘
+recommendations. append({ ‘
+‘movie': similar_movie, :
+"score': score,
+‘source': ‘rated',
+"sourceMovie': movie.title,
+‘userRating': user_rating
+
+----- 18:30  (23:32 left) -----
+def get_recommendations (request):
+recommenudtiuns . Ls
+}, 1
+status=200
+)
+recommendations = []
+for rated_entry in rated_movies:
+movie = rated_entry['movie'] ‘1
+user_rating = rated_entryLl'rating']
+movie_id = rated_entry['movie_id']
+'
+if user_rating > 5: I ‘
+217 similar_movies = Movie.objects.at1{()| |
+|
+similar_movies = [m for m in similar_movies if any(g in m.genre for g in movie.genre)][:30]
+for similar_movie in similar_movies:
+score = similar_movie.rating / 10 I
+genre_matches = len([g for g in movie.genre if g in similar_movie.genre]) :
+genre_score = genre_matches / max(len(movie.genre), 1)
+score = genre_score * 0.7 + score * 0.3
+score *= 1.2 ‘
+recommendations. append({ ‘
+‘movie': similar_movie, :
+"score': score,
+‘source': ‘rated',
+"sourceMovie': movie.title,
+‘userRating': user_rating
+
+----- 18:40  (23:22 left) -----
+def get_recommendations (request):
+recommenudtiuns . Ls
+}, 1
+status=200
+)
+recommendations = []
+for rated_entry in rated_movies:
+movie = rated_entry['movie'] ‘1
+user_rating = rated_entryLl'rating']
+movie_id = rated_entry['movie_id']
+'
+if user_rating > 5: I ‘
+217 similar_movies = Movie.objects.at1()| |
+|
+similar_movies = [m for m in similar_movies if any(g in m.genre for g in movie.genre)][:30]
+for similar_movie in similar_movies:
+score = similar_movie.rating / 10 I
+genre_matches = len([g for g in movie.genre if g in similar_movie.genre]) :
+genre_score = genre_matches / max(len(movie.genre), 1)
+score = genre_score * 0.7 + score * 0.3
+score *= 1.2 ‘
+recommendations. append({ ‘
+‘movie': similar_movie, :
+"score': score,
+‘source': ‘rated',
+"sourceMovie': movie.title,
+‘userRating': user_rating
+
+----- 18:50  (23:12 left) -----
+def get_recommendations (request):
+recommenudtiuns . Ls
+}, 1
+status=200
+)
+recommendations = []
+for rated_entry in rated_movies:
+movie = rated_entry['movie'] ‘1
+user_rating = rated_entryLl'rating']
+movie_id = rated_entry['movie_id']
+'
+if user_rating > 5: I ‘
+217 similar_movies = Movie.objects.at1{()| |
+|
+similar_movies = [m for m in similar_movies if any(g in m.genre for g in movie.genre)][:30]
+for similar_movie in similar_movies:
+score = similar_movie.rating / 10 I
+genre_matches = len([g for g in movie.genre if g in similar_movie.genre]) :
+genre_score = genre_matches / max(len(movie.genre), 1)
+score = genre_score * 0.7 + score * 0.3
+score *= 1.2 ‘
+recommendations. append({ ‘
+‘movie': similar_movie, :
+"score': score,
+‘source': ‘rated',
+"sourceMovie': movie.title,
+‘userRating': user_rating
+
+----- 19:00  (23:02 left) -----
+def get_recommendations (request) :
+genre_score = genre_matches / max(len(movie.genre), 1) ~~
+rating_score = similar_movie.rating / 10 ‘
+total_score = genre_score * 0.7 + rating_score * 0.3
+recommendations. append({
+‘movie': similar_movie,
+“score': total_score,
+"source': ‘rated’,
+*sourceMovie': movie.title |
+})
+unique_recommendations = {} I :
+for rec in recommendations: 1
+movie_id = str(rec['movie'].id) x
+if movie_id not in unique_recommendations or rec['score'] > unique_recommendations[movie_id]
+['score']:
+unique_recommendations[movie_id] = rec ;
+sorted_recommendations = lList(unique_recommendations.values())[:10] :
+formatted_recommendations = [] :
+for rec in sorted_recommendations:
+movie = rec['movie'] A
+formatted_rec = { F
+'_id': str(movie.id),
+'title': movie.title,
+‘year’: movie.year,
+‘rating’: movie.rating,
+
+----- 19:10  (22:52 left) -----
+def get_average_rating(request, movie_id):
+except Exception as e:
+print(#'Get average rating error: {e}') ‘
+return JsonResponse(
+{'message': ‘Server error'},
+status=500
+)
+@csrf_exempt |
+@require_http_methods(["GET"])
+@auth_middleware
+def get_recommendations (request): I |
+try: 1
+user_id = uuid.UUID(request.user_id) a
+user_ratings = List(Rating.objects.filter(user_id=user_id))
+rated_movies = []
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1: '
+try: ,
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 1:
+‘movie': movie,
+‘rating': rating_obj.rating, 1
+‘movie_id': rating_obj.movie_id 4
+#)
+except Movie.DoesNotExist:
+pass
+#get all his ratings check if he made rating if yes get the movie and add to the List
+
+----- 19:20  (22:42 left) -----
+def rate_movie(request, movie_id):
+’
+'
+data = json.loads(request.body.decode('utf-8'))
+rating = data.get('rating')
+user_id = request.user_id
+if not rating or rating < 1 or rating > 10:
+return JsonResponse(
+{'message': 'Rating must be between 1 and 10'},
+status=400 1
+)
+'
+EnV HI
+movie = Movie.objects.get(id=movie_uuid) ,
+except Movie.DoesNotExist: mi |
+return JsonResponse(
+{'message': ‘Movie not found'},
+status=404 I
+) '
+existing_rating = Rating. find_by_movie_and_user(movie_uuid, user_id)
+'
+if existing_rating:
+'
+existing_rating.rating = rating 1
+existing_rating.save()
+return JsonResponse(
+{
+
+----- 19:30  (22:32 left) -----
+def rate_movie(request, movie_id):
+’
+'
+data = json.loads(request.body.decode('utf-8'))
+rating = data.get('rating')
+user_id = request.user_id
+if not rating or rating < 1 or rating > 10:
+return JsonResponse(
+{'message': 'Rating must be between 1 and 10'},
+status=400 1
+)
+'
+ERY HI
+movie = Movie.objects.get(id=movie_uuid) |
+except Movie.DoesNotExist: |
+return JsonResponse(
+{'message': ‘Movie not found'},
+status=404 I
+) '
+existing_rating = Rating. find_by_movie_and_user(movie_uuid, user_id)
+'
+if existing_rating:
+'
+existing_rating.rating = rating 1
+existing_rating.save()
+return JsonResponse(
+{
+
+----- 19:40  (22:22 left) -----
+WOesrr_eaxzempe
+@require_http_methods(["GET"])
+@auth_middleware 1
+def get_recommendations(request) :
+try:
+user_id = uuid.UUID(request.user_id)
+user_ratings = List(Rating.objects. filter (user_id=user_id))
+rated_movies = []
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1: 1
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({ 1:
+‘movie': movie, "
+‘rating': rating_obj.rating, |
+‘movie_id': rating_obj.movie_id T
+})
+except Movie.DoesNotExist:
+pass I
+#get all his ratings check if he made rating if yes get The movie and add to the List A
+watched_movies = []
+for rating_obj in user_ratings: |
+if rating_obj.watched:
+try: 1:
+movie = Movie.objects.get(id=rating_obj.movie_id) I)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if rated_entry and rated_entry['rating'] > 5:
+watched mnwies annend({
+
+----- 19:50  (22:12 left) -----
+def get_recommendations (request):
+‘rpating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id 4
+#)
+except Movie.DoesNotExist:
+pass
+#get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+for rating_obj in user_ratings: ,
+if rating_obj.watched:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) i
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), .
+None) as |
+if rated_entry and rated_entry['rating'] > 5:
+watched_movies.append({
+‘movie': movie,
+‘movie_id': rating_obj.movie_id, T t
+'rating': rated_entry['rating'] if rated_entry else None '
+})
+except Movie.DoesNotExist: 1
+pass
+'
+'
+if len(rated_movies) == 8 and len(watched_movies) != 0:
+return JsonResponse(
+{
+‘message': ‘Start exploring movies by rating them or marking them as watched to get
+
+----- 20:00  (22:02 left) -----
+def get_recommendations (request):
+‘movie_id': rating_obj.movie_id
+>) i
+except Movie.DoesNotExist:
+pass
+#get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+for rating_obj in user_ratings:
+if rating_obj.watched: i
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) 4
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id), 5
+None) “|
+if rated_entry and rated_entry['rating'] > 5: mm |
+watched_movies.append({
+‘movie': movie, I
+‘movie_id': rating_obj.movie_id, I
+'rating': rated_entry['rating'] if rated_entry else None
++) i
+except Movie.DoesNotExist:
+pass 1
+'
+if Len(rated_movies) == 0 and lLen(watched_movies) != 0: 1
+return JsonResponse(
+{
+‘message': ‘Start exploring movies by rating them or marking them as watched to get
+
+----- 20:10  (21:52 left) -----
+def get_recommendations (request):
+for rating_obj in user_ratings: :
+if rating_obj.watched:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if rated_entry and rated_entry['rating'] > 5:
+watched_movies.append({ 1
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'pating': rated_entryl'rating'] if rated_entry else None =|
+}) 1
+except Movie.DoesNotExist:
+pass q
+if len(rated_movies) == © and len(watched_movies) != 0: I
+return JsonResponse( 1:
+{
+‘message': 'Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!', 4
+*recommendations': []
+}, '
+status=200 ‘
+)
+recommendations = []
+
+----- 20:20  (21:42 left) -----
+def get_recommendations (request):
+for rating_obj in user_ratings: :
+if rating_obj.watched:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+if rated_entry and rated_entry['rating'] > 5:
+watched_movies.append({ 1
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'pating': rated_entryl'rating'] if rated_entry else None =|
+}) 1
+except Movie.DoesNotExist:
+pass q
+if len(rated_movies) == @ and len(watched_movies) != 0: I
+return JsonResponse( 1:
+{
+‘message': ‘Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!', 4
+*recommendations': []
+}, '
+status=200 ‘
+)
+recommendations = []
+
+----- 20:50  (21:12 left) -----
+def get_recommendations (request) :
+})
+except Movie.DoesNotExist: :
+pass
+if len(rated_movies) == © and len(watched_movies) != 0:
+return JsonResponse(
+{
+‘message': ‘Start exploring movies by rating them or marking them as watched to get 1
+personalized recommendations!',
+'recommendations': []
+I, ‘
+status=200 i
+)
+4
+recommendations = []
+for rated_entry in rated_movies: I
+movie = rated_entry['movie'] 1
+user_rating = rated_entryL['rating']
+movie_id = rated_entry['movie_id']
+'
+if user_rating > 5: I
+217 similar_movies = Movie.objects.all() 4
+'
+similar_movies = [m for m in similar_movies if any(g in m.genre for g in movie.genre)][:36]
+for similar_movie in similar_movies:
+score = similar_movie.rating / 10
+manna matahan — Tanll a fan a tn main nanna 4.6 0 Sn nimitan mauita anneal)
+
+----- 21:00  (21:02 left) -----
+Recommendation Algorithm
+The scoring algorithm generates personalized movie recommendations based on user preferences:
+
+User Action Recommendation Strategy Score Multiplier
+
+Rated high (above 5) Recommend movies with simllar genres 1.2x boost
+
+Rated low (5 or below) Recommend movies with different genres No boost
+
+Watched only (no rating) Reconkdent movies with similar genres No boost
+
+Watched + rated high Recommend movies with similar genres 1.2x boost
+
+Watched + rated low Recommend movies with different genres No boost
+Constraints:
+
+« Only recommend movies with a rating of 7.0 or above
+
+*« Remove duplicates, sort by score descending, return top 10
+
+« When same movie appears from multiple sources, keep the one with the higher score
+
+« When a movie is both rated and watched, the rated signal takes precedence
+
+¢« The userRating field is only present in recommendations where the source is "rated" , not for watched-only recommendations
+Score Formula
+
+totalScore = (genreScore x 0.7 + ratingScore « 0.3) x multiplier
+
+Variable Definition Range
+
+ey en RAntohina aanmran bhatuinam anurans and aandicdatn ltntal manecan af anran main Nenad
+
+----- 21:10  (20:52 left) -----
+Recommendation Algorithm
+The scoring algorithm generates personalized movie recommendations based on user preferences:
+
+User Action Recommendation Strategy Score Multiplier
+
+Rated high (above 5) Recommend movies with similar genres 1.2x boost
+
+Rated low (5 or below) Recommend movies with different genres No boost
+
+Watched only (no rating) Recommend movies with similar genres No boost
+
+Watched + rated high Recommend movies with simllar genres 1.2x boost
+
+Watched + rated low Recommend movies with different genres No boost
+Constraints:
+
+« Only recommend movies with a rating of 7.0 or above
+
+« Remove duplicates, sort by score descending, return top 10
+
+« When same movie appears from multiple sources, keep the one with the higher score
+
+« When a movie is both rated and watched, the rated signal takes precedence
+
+¢« The userRating field is only present in recommendations where the source is "rated" , not for watched-only recommendations
+Score Formula
+
+totalScore = (genreScore x 0.7 + ratingScore « 0.3) x multiplier
+
+Variable Definition Range
+
+ey en RAntohina aanmran bhatuinam anurans and aandicdatn ltntal manecan af anran main Nenad
+
+----- 21:30  (20:32 left) -----
+def get_recommendations (request):
+user_ratings = List(kating.opjects.titter\(user_1a=user_1a))
+rated_movies = [] 1
+for rating_obj in user_ratings:
+if rating_obj.rating and rating_obj.rating >= 1:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append({
+‘movie': movie,
+‘rating': rating_obj.rating, A
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist: a
+pass a
+#get all his ratings check if he made rating if yes get the movie and add to the list *
+183 watched_movies =ral0] t
+for rating_obj in user_ratings: :
+if rating_obj.watched: I
+try: :
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None) ,
+if rated_entry and rated_entry['rating'] > 5:
+watched_movies.append({ |
+'movie': movie, :
+‘movie_id': rating_obj.movie_id,
+'rating': rated_entry['rating'] if rated_entry else None
+})
+excent Movie.NoesNotFxist:
+
+----- 21:40  (20:22 left) -----
+def get_recommendations (request):
+WUVLE = MUVLe. LUE LS. Yel (suj=Valiny uy .mluvic_iuy
+rated_movies.append({ z
+‘movie': movie,
+‘rating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+#get all his ratings check if he made rating if yes get the movie and add to the List A
+183. watched_movies = []
+for rating_obj in user_ratings: =
+if rating_obj.watched: ”
+try: 5
+movie = Movie.objects.get(id=rating_obj.movie_id) I
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None) .
+if rated_entry and cee ee Pub Th I
+watched_movies.append({ 1
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'pating': rated_entry['rating'] if rated_entry else None Ly
+})
+except Movie.DoesNotExist: 5
+pass 1
+if len(rated_movies) == @ and len(watched_movies) != 0:
+return JsonResponse(
+
+----- 21:50  (20:12 left) -----
+def get_recommendations (request):
+WOVLe = MUVLe.UUjJeLL>. Yel (iujlalilly_uvy.iuvie_iuy
+rated_movies.append({ z
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+#get all his ratings check if he made rating if yes get the movie and add to the List |
+watched_movies = []
+for rating_obj in user_ratings: »
+if rating_obj.watched: a
+try: 1
+movie = Movie.objects.get(id=rating_obj.movie_id) I
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+190 | if rated_entry |: I
+watched_movies.append({ I F|
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'rating': rated_entryl|'rating'] if rated_entry else None Ly
+})
+except Movie.DoesNotExist: 5
+pass 1
+if Len(rated_movies) == ® and len(watched_movies) != 6:
+return JsonResponse(
+
+----- 22:00  (20:02 left) -----
+def get_recommendations (request):
+WOVLe = MUVLe.UUjJeLL>. Yel (iujlalilly_uvy.iuvie_iuy
+rated_movies.append({ z
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+})
+except Movie.DoesNotExist:
+pass
+#get all his ratings check if he made rating if yes get the movie and add to the List |
+watched_movies = []
+for rating_obj in user_ratings: »
+if rating_obj.watched: a
+try: 1
+movie = Movie.objects.get(id=rating_obj.movie_id) I
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+190 | if rated_entry |: I
+watched_movies.append({ I F|
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'rpating': rated_entry|'rating'] if rated_entry else None Ly
+})
+except Movie.DoesNotExist: 5
+pass 1
+if Len(rated_movies) == ® and lLen(watched_movies) != @:
+return JsonResponse(
+
+----- 22:20  (19:42 left) -----
+def get_recommendations (request):
+WOVLe = MUVLe.UUjJeLL>. Yel (iujlalilly_uvy.iuvie_iuy
+rated_movies.append({
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+#)
+except Movie.DoesNotExist:
+pass
+#get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+for rating_obj in user_ratings: .
+if rating_obj.watched: |
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) I
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+190 | I
+watched_movies.append({ I F|
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'rating': rated_entryl|'rating'] if rated_entry else None LY
+}) ‘
+except Movie.DoesNotExist:
+pass 1
+if Len(rated_movies) == ® and Len(watched_movies) != 6:
+return JsonResponse(
+
+----- 22:30  (19:32 left) -----
+def get_recommendations (request):
+WOVie = MUVLe.UUjJeLL>. Yel (iujlalily_uvy.iuvie_iuy
+rated_movies.append({
+‘movie': movie,
+‘pating': rating_obj.rating,
+‘movie_id': rating_obj.movie_id
+#)
+except Movie.DoesNotExist:
+pass
+#get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+for rating_obj in user_ratings: .
+if rating_obj.watched: |
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id) I
+rated_entry = next((r for r in rated_movies if r['movie_id'] == rating_obj.movie_id),
+None)
+190 | I
+watched_movies.append({ I A
+‘movie': movie,
+‘movie_id': rating_obj.movie_id,
+'pating': rated_entryl|'rating'] if rated_entry else None Ly
+}) ‘
+except Movie.DoesNotExist:
+pass :
+if len(rated_movies) == 8 and Len(watched_movies) != 6:
+return JsonResponse(
+
+----- 22:40  (19:22 left) -----
+def get_recommendations (request):
+“pating": rated_entry.”"rating"| iat ratea_entry etse None, I
+} UF
+i
+| ) I
+except Movie.DoesNotExist: '
+pass l
+H
+> I
+163 if len(rated_movies) == © and len(watched_movies) != 0:
+'
+return JsonResponse( |
+{
+"message": "Start exploring movies by rating them or marking them as watched to get I.
+personalized recommendations!", |
+"recommendations": [], _
+I a
+bi '
+i status=200, H
+) |
+'
+recommendations = [] I
+I
+'
+for rated_entry in rated_movies: |
+movie = rated_entry["movie"]
+user_rating = rated_entryL"rating"] |
+movie_id = rated_entryl["movie_id"] i"
+if user_rating > 5: a
+'
+similar_movies = Movie.objects.all() pe
+!
+similar_movies = [ I
+m for m in similar_movies if any(g in m.genre for g in movie.genre)
+1f:3a1
+
+----- 22:50  (19:12 left) -----
+def get_recommendations (request):
+“paving”: rated_entry."rating”) 1t rated_entry etse None, I
+} "
+except Movie.DoesNotExist: '
+pass I
+'
+'
+> I
+163 if len(rated_movies) == © and len(watched_movies) != 0: i
+'
+return JsonResponse( |
+{
+"message": "Start exploring movies by rating them or marking them as watched to get l.
+personalized recommendations!", |
+"recommendations": [], -
+| ih
+}, 1
+i status=200, H
+) |
+'
+recommendations = [] !
+I
+'
+for rated_entry in rated_movies: |
+movie = rated_entry["movie"] t
+user_rating = rated_entry["rating"] |
+movie_id = rated_entry["movie_id"] i‘
+if user_rating > 5: a
+'
+similar_movies = Movie.objects.all() bie
+similar_movies = [ U
+m for m in similar_movies if any(g in m.genre for g in movie.genre)
+1f:3al
+
+----- 23:00  (19:02 left) -----
+def get_recommendations (request):
+“paving”: rated_entry."rating”) 1t rated_entry etse None, I
+} UF
+i
+| ) I
+except Movie.DoesNotExist: '
+pass I
+'
+'
+> I
+if Len(rated_movies) == © and len(watched_movies) != 0:
+'
+return JsonResponse((| |
+{
+"message": "Start exploring movies by rating them or marking them as watched to get I.
+personalized recommendations!", |
+"recommendations": [], Hi
+u
+}, ®
+i status=206, °
+178 b|
+I !
+recommendations = [] I
+I
+'
+for rated_entry in rated_movies: |
+movie = rated_entry["movie"] t
+user_rating = rated_entry["rating"] |
+movie_id = rated_entry["movie_id"] i‘
+if user_rating > 5: a!
+'
+similar_movies = Movie.objects.all() pe
+similar_movies = [ I
+m for m in similar_movies if any(g in m.genre for g in movie.genre)
+1f:3al
+
+----- 23:10  (18:52 left) -----
+def get_recommendations (request): > rel Aa ab * 620f 162 ~ wo x H
+i ) ;
+except Movie.DoesNotExist: a
+pass 5
+|
+if len(rated_movies) == © and len(watched_movies) != 6: |
+return JsonResponse( a
+q
+"message": "Start exploring movies by rating them or marking them as watched to get ry
+personalized commendations!", i
+"peconmendat ions” : £¥, l.
+: |
+i status=200,
+:
+172 Pecommendations = iil I i
+|
+for rated_entry in rated_movies: F
+movie = rated_entry["movie"] L
+user_rating = rated_entry["rating"] |
+movie_id = rated_entry["movie_id"]
+if user_rating > 5:
+similar_movies = Movie.objects.all() i
+a
+similar_movies = [ a
+| m for m in similar_movies if any(g in m.genre for g in movie.genre) iy
+1[:30] Ls
+for similar_movie in similar_movies:
+score = similar movie.ratina / 10
+
+----- 23:20  (18:42 left) -----
+def get_recommendations (request) : > rate Aa ab * 100f18 ae Ab Ss 52
+H 4) L
+except Movie.DoesNotExist: He
+pass F
+if Len(rated_movies) == @ and len(watched_movies) != 0: b
+return JsonResponse( t
+"message": "Start exploring movies by rating them or marking them as watched to get |"
+personalized recommendations!", .
+| "recommendations": [], i,
+'
+status=2600,
+
+. i
+i
+recommendations {I I F
+174 for RBEB0_entry in rated_movies: Lg
+movie = rated_entry["movie"] I
+user_rating = id_entry["rating"] k
+movie_id = iS oils Ani '
+if user_rating > 5S:
+similar_movies = Movie.objects.all() |’
+'
+similar_movies = [ i
+m for m in similar_movies if any(g in m.genre for g in movie.genre) |
+1[:30] I
+
+for similar_movie in similar_movies:
+
+score = similar movie-.ratina / 10
+
+----- 23:30  (18:32 left) -----
+def get_average_rating(request, movie_id): > rated_movies ==4 Aa Abe liNoresus 4 aly = x
+H return ysonkesponse(i”averagekating": average_rat. _ . —
+i
+'
+of
+except Exception as e: i
+print(#"Get average rating error: {e}") b
+return JsonResponse({"message": "Server error"}, status=500) I
+H
+i
+'
+'
+@csrf_exempt i
+@require_http_methods(["GET"]) _
+@auth_middleware I.
+def get_recommendations (request) : |
+try: 1
+Th
+user_id = uuid.UUID(request.user_id) ;
+user_ratings = lList(Rating.objects.filter(user_id=user_id) ) }
+123 rated_movies = [] I |
+for rating_obj in user_ratings: 5
+if rating_obj.rating and rating_obj.rating >= 1: !
+try: !
+movie = Movie.objects.get(id=rating_obj.movie_id) I
+rated_movies.append( '
+|
+"movie": movie, .
+'
+"pating": rating_obj.rating, |
+"movie_id": rating_obj.movie_id, a
+'
+} be
+) |
+except Movie.DoesNotExist: I
+pass
+j # aet all his ratinas check if he made ratina if ves aet the movie and add to the list
+
+----- 23:40  (18:22 left) -----
+def get_average_rating(request, movie_id):
+H return yvsonkesponse(i"“averagekating": average_rating+, status=zuu) I
+‘a
+except Exception as e: F
+print(#"Get average rating error: {e}") !
+| return JsonResponse({"message": "Server error"}, status=500) !
+'
+I
+‘a
+@csrf_exempt |
+@require_http_methods(["GET"]) _
+@auth_middleware l.
+def get_recommendations(request) : |
+try: i
+user_id = uuid.UUID(request.user_id) Fi
+user_ratings = lList(Rating.objects.filter(user_id=user_id) ) H
+125 rated.novies = (1
+for rating_obj in user_ratings: .
+if rating_obj.rating and rating_obj.rating >= 1: |
+try: I
+movie = Movie.objects.get(id=rating_obj.movie_id) |
+rated_movies. append( J
+|
+"movie": movie, a
+"pating": rating_obj.rating, |
+"movie_id": rating_obj.movie_id, ms
+} i
+except Movie.DoesNotExist: I
+pass
+H # aet all his ratinas check if he made ratina if ves aet the movie and add to the list
+
+----- 23:50  (18:12 left) -----
+def get_average_rating(request, movie_id):
+H return vsonkesponse(i"“averagekating": average_rating+, status=zuu) I
+“a
+except Exception as e: i
+print(#"Get average rating error: {e}") !
+| return JsonResponse({"message": "Server error"}, status=500) !
+'
+I
+'
+@csrf_exempt Le
+@require_http_methods(["GET"]) —
+@auth_middleware I.
+def get_recommendations(request) : |
+try: i
+user_id = uuid.UUID(request.user_id) Fs
+user_ratings = lList(Rating.objects.filter(user_id=user_id) ) H
+1s 0 aedlnovies}- 11 I
+for rating_obj in user_ratings: be
+if rating_obj.rating and rating_obj.rating >= 1: |
+try: I
+movie = Movie.objects.get(id=rating_obj.movie_id) |
+rated_movies. append( t
+|
+"movie": movie, as
+"pating": rating_obj.rating, |
+"movie_id": rating_obj.movie_id, a
+} i
+except Movie.DoesNotExist: I
+pass
+H # aet all his ratinas check if he made ratina if ves aet the movie and add to the list
+
+----- 24:00  (18:02 left) -----
+def get_recommendations (request) : > Start} Aa ab * 1of1 ye Ab Ss 52
+
+watched_movies.append( ;
+{ i
+"movie": movie, l
+"movie_id": rating_obj.movie_id, I
+"pating": rated_entry["rating"] if rated_entry else None, t
+) |"
+
+except Movie.DoesNotExist:
+pass l.
+if len(rated_movies) == @ and len(watched_movies) != 6: 4
+return JsonResponse( r
+{ t
+166 "message": “Stare exploring movies by rating them or marking them as watched to get |
+personalized recommendations!", b
+"recommendations": [], I
+7
+i status=2600, I |
+) J
+recommendations = [] |
+for rated_entry in rated_movies: 1
+movie = rated_entryL"movie"] i
+user_rating = rated_entry["rating"] |
+movie_id = rated_entry["movie_id"] I
+
+if user ratina > 5:
+
+----- 24:10  (17:52 left) -----
+def get_recommendations (request) : > Start Aa ab * 1of1 ye Ab Ss 52
+
+P i
+watched_movies.append( ae
+{ H
+"movie": movie, l
+"movie_id": rating_obj.movie_id, I
+'
+"pating": rated_entry["rating"] if rated_entry else None, i
+} '
+'
+) I
+
+except Movie.DoesNotExist:
+pass I.
+163 if len(rated_movies) == 0 and len(watched_movies) ie Q: —
+return JsonResponse( F
+{ t
+"message": "Start exploring movies by rating them or marking them as watched to get |
+personalized recommendations!", }:
+"recommendations": [], I
+I
+|e 1
+i status=2600, |
+) J
+recommendations = [] 1
+|"
+for rated_entry in rated_movies: a
+'
+movie = rated_entryL"movie"] be
+user_rating = rated_entry["rating"] |
+movie_id = rated_entry["movie_id"] I
+
+if user ratina > 5:
+
+----- 24:20  (17:42 left) -----
+def get_recommendations (request): > Start Aa ab * ?0f1 ial — Oe
+{ 1
+"movie": movie, ar
+"“movie_id": rating_obj.movie_id, i
+"rating": rated_entry["rating"] if rated_entry else None, i
+} 1
+'
+) I
+except Movie.DoesNotExist: 1,
+pass |
+163 / if len(rated_movies) == 0 and Len(watched_movies) + 8: iF
+return JsonResponse( |
+{ +
+"message": "Start exploring movies by rating them or marking them as watched to get ‘
+personalized recommendations!", '
+"recommendations": [], |
+}, I
+i status=200, i
+) '
+I
+recommendations = []
+for rated_entry in rated_movies: He
+movie = rated_entry["movie"]
+user_rating = rated_entry["rating"] a
+movie_id = rated_entry["movie_id"] ["
+I
+if user_rating > 5:
+similar_movies = Movie.objects.all()
+
+----- 24:30  (17:32 left) -----
+def get_recommendations (request) : > Start Aa ab * ?0f1 ye Ab Ss 52
+{ I
+"movie": movie, ar
+"“movie_id": rating_obj.movie_id, i
+"rating": rated_entry["rating"] if rated_entry else None, i
+: !
+) I
+except Movie.DoesNotExist: 1,
+pass |
+i if len(rated_movies) == © and len(watched_movies) == 0: \,
+return JsonResponse((| |
+2
+"message": "Start exploring movies by rating them or marking them as watched to get H
+personalized recommendations!", bs
+| "recommendations": [], |
+}, I
+i status=200, F
+170 b| I I
+I
+recommendations = []
+for rated_entry in rated_movies: Fe
+movie = rated_entry["movie"]
+user_rating = rated_entry["rating"] a
+movie_id = rated_entryL"movie_id"] ["
+I
+if user_rating > 5:
+similar_movies = Movie.objects.all()
+
+----- 24:40  (17:22 left) -----
+def get_recommendations (request) : > watched Aa ab * 100f28 ye Ab Ss 52
+J
+i
+'
+of
+for similar_movie in dissimilar_movies: i
+score = similar_movie.rating / 10 1
+recommendations. append( I
+'
+‘
+"movie": similar_movie,
+'
+"score": score, |"
+"source": "rated",
+"sourceMovie": movie.title, le
+"userRating": user_rating, k
+}
+J
+'
+'
+226 for fitened_entry in watched_movies: |
+movie = watched_entry["movie"] 4
+movie_id = watched_entry["movie_id"] L
+if any(r["movie_id"] == movie_id for r in rated_movies): I r
+continue |
+!
+if watched_entry["rating"] is None or watched_entry["rating"] S57 |
+similar_movies = Movie.objects. filter (rating__gte=7.0) .exclude( '
+'
+id=movie.id |
+)[:50] ©
+af
+L
+similar_movies = [ E
+m for m in similar_movies if any(g in m.genre for g in movie.genre) bs
+1[:56]
+
+----- 24:50  (17:12 left) -----
+def get_recommendations (request) : > watched Aa ab * 100f28 ye Ab Ss 52
+J
+i
+fa
+for similar_movie in dissimilar_movies: :
+score = similar_movie.rating / 10 l
+recommendations. append( I
+{ '
+"movie": similar_movie, F
+"score": score, i"
+"source": "rated",
+"sourceMovie": movie.title, le
+"userRating": user_rating, k
+}
+J
+t
+226 for fitened_entry in watched_movies: |
+movie = watched_entry["movie"] b:
+i, ~aeemnee L
+if any(r["movie_id"] == movie_id for r in rated_movies): r
+continue |
+!
+if watched_entry["rating"] is None or watched_entry["rating"] S57 |
+similar_movies = Movie.objects. filter (rating__gte=7.0) .exclude( '
+id=movie.id | i
+)[:50] "
+ts
+similar_movies = [ E
+m for m in similar_movies if any(g in m.genre for g in movie.genre) ‘a
+1[:56]
+
+----- 25:00  (17:02 left) -----
+def get_recommendations (request) : > watched Aa ab * 100f28 ye Ab Ss 52
+J
+i
+'
+of
+for similar_movie in dissimilar_movies: i
+score = similar_movie.rating / 10 1
+recommendations. append( I
+'
+‘
+"movie": similar_movie,
+'
+"score": score, |"
+"source": "rated",
+"sourceMovie": movie.title, le
+"userRating": user_rating, k
+}
+J
+'
+'
+226 for fitened_entry in watched_movies: |
+movie = watched_entry["movie"] J
+movie_id = watched_entry["movie_id"] L
+if any(r["movie_id"] == movie_id for r in SS pad F
+continue |
+i
+if watched_entry["rating"] is None or watched_entry["rating"] = Gye |
+similar_movies = Movie.objects. filter (rating__gte=7.0) .exclude( Ee
+id=movie.id |
+)[:50] =
+af
+\
+similar_movies = [ E
+m for m in similar_movies if any(g in m.genre for g in movie.genre) ln
+1[:56]
+
+----- 25:10  (16:52 left) -----
+def get_recommendations (request) : > source Aa ab * 1of10 ge i es 5
+H JLiou) I
+for similar_movie in similar_movies: pe
+score = similar_movie.rating / 10 }
+genre_matches = len( l
+| [g for g in movie.genre if g in similar_movie.genre] I
+) '
+genre_score = genre_matches / max(len(movie.genre), 1) )
+score = genre_score * 0.7 + score * 0.3 i"
+score *= 1.2
+F
+recommendations. append( |
+"movie": similar_movie, Ps
+"score": score, F
+198 bs! ": "rated", F
+ie eiiaeeaae | k
+"userRating": user_rating, H
+} ;
+) k
+else: '
+dissimilar_movies = Movie.objects.filter(rating__gte=7.0) .exclude( L
+| id=movie.id a)
+)[:30] |
+'
+dissimilar_movies = [ a
+n |
+| for m in dissimilar_movies I
+if not any(g in movie.genre for g in m.genre)
+1
+
+----- 25:20  (16:42 left) -----
+def get_recommendations (request) : > source Aa ab * 1of10 ye Ab Ss 52
+if user_rating > 5S: He
+similar_movies = Movie.objects.all() i
+!
+similar_movies = [ I
+m for m in similar_movies if any(g in m.genre for g in movie.genre)
+1[:30] ;
+for similar_movie in similar_movies: |"
+score = similar_movie.rating / 10
+genre_matches = len( I.
+| [g for g in movie.genre if g in similar_movie.genre] |
+) ja
+genre_score = genre_matches / max(len(movie.genre), 1) H,
+score = genre_score * 0.7 + score * 0.3 5
+score *= 1.2 F
+'
+recommendations. append( F
+{ -
+"movie": similar_movie, k
+"score": score, I '
+198 4 ": "pated", L
+ae movie.title, He
+"userRating": user_rating, |
+} |
+) pe
+else: |
+| dissimilar_movies = Movie.objects.filter(rating__gte=7.0) .exclude( I
+id=movie.id
+\f-xal
+
+----- 25:30  (16:32 left) -----
+def get_recommendations (request) : > source Aa ab * 1of10 ye Ab Ss 52
+: i
+'
+recommendations = [] i"
+!
+for rated_entry in rated_movies: ]
+movie = rated_entry["movie"] t
+user_rating = rated_entry["rating"] I
+movie_id = rated_entry["movie_id"] i"
+if user_rating > 5: l.
+similar_movies = Movie.objects.all() |
+similar_movies = [ L
+| m for m in similar_movies if any(g in m.genre for g in movie.genre) ‘
+1[:30] r
+for similar_movie in similar_movies: ‘
+score = ‘pmatar Bou deetat aa / 10 F
+genre_matches = len( |
+| [g for g in movie.genre if g in similar_movie.genre] k
+) 1
+genre_score = genre_matches / max(len(movie.genre), 1) L
+score = genre_score * 0.7 + score * 0.3 1
+score *= 1.2 |’
+'
+recommendations. append( Ma
+{ |"
+"movie": similar_movie, |
+"score": score,
+198 “Sours” : "rated",
+
+----- 25:40  (16:22 left) -----
+def get_recommendations (request) : > source Aa ab * 1of10 ye Ab Ss 52
+1:30] i
+for similar_movie in similar_movies: Hi
+score = similar_movie.rating / 10 |
+genre_matches = len( i
+[g for g in movie.genre if g in similar_movie.genre] H
+genre_score = genre_matches / max(len(movie.genre), 1) i"
+score = genre_score * 0.7 + score * 0.3
+score *= 1.2 I.
+recommendations. append( |
+{ Is
+"movie": similar_movie, I
+"score": score, ‘
+198 = ": "rated", F
+1. : movie.title, k
+"userRating": user_rating, i
+} '
+E
+else: L
+dissimilar_movies = Hevt a: OUIB OES [erent arena ier vere pnotuaes ;
+id=movie.id |"
+)[:30] E
+Hal
+dissimilar_movies = [ |’
+m I
+| for m in dissimilar_movies
+if not any(g in movie.genre for g in m.genre)
+
+----- 25:50  (16:12 left) -----
+def get_recommendations (request) : > rated Aa ab * 140f16 ae Ab Ss 52
+
+i
+recommendations. append( a
+t !
+"movie": similar_movie, i
+"score": score, H
+"source": "pated", I
+"“sourceMovie": movie.title, “a
+“userRating": user_rating, I I
+5
+; : F
+else: f
+dissimilar_movies = Movie.objects.filter(rating__gte=7.0) .exclude( fa
+id=movie.id Fe
+)[:30] ;
+dissimilar_movies = [ _
+r
+| for m in dissimilar_movies .
+if not any(g in movie.genre for g in m.genre) F
+'
+for similar_movie in dissimilar_movies: i
+
+score = similar_movie.rating / 10
+recommendations. append( ‘ Ly
+{ |"
+"movie": similar_movie, I
+
+"score": score,
+226 "source": “Baba” ,
+
+----- 26:00  (16:02 left) -----
+def get_recommendations (request) : > rated Aa ab * 140f16 pe Ab Ss 52
+similar_movies = Movie.objects.all() I
+a
+similar_movies = [ |
+m for m in similar_movies if any(g in m.genre for g in movie.genre) i
+| J[:30] :
+for similar_movie in similar_movies: |
+score = similar_movie.rating / 10 ‘
+genre_matches = len( |
+| [g for g in movie.genre if g in similar_movie.genre] f
+) '
+genre_score = genre_matches / max(len(movie.genre), 1) f
+score = genre_score * 0.7 + score * 0.3 fa
+score *= 1.2 :
+'
+recommendations. append( r
+: FF
+"movie": similar_movie, r
+"score": score, '
+"source": "pated", F
+"sourceMovie": movie.title,
+“userRating": user_rating, |
+} |"
+)
+else: .
+dissimilar_movies = Movie.objects.filter(rating__gte=7.0) .exclude( |"
+| id=movie.id l
+)[:30]
+
+----- 26:10  (15:52 left) -----
+def get_recommendations (request) : > rated Aa ab * 140f16 pe Ab Ss 52
+
+{ 1
+"message": "Start exploring movies by rating them or marking them as watched to get ar
+| personalized recommendations!", i
+"pecommendations": [], i
+}, H
+i status=2600, I
+) i"
+recommendations = [] H
+F
+for rated_entry in rated_movies: f
+movie = rated_entry["movie"] I fe
+user_rating = rated_entry["rating"] ey
+movie_id = Sea '
+f
+if user_rating > 5: -
+similar_movies = Movie.objects.all() os
+'
+similar_movies = [ ls
+| m for m in similar_movies if any(g in m.genre for g in movie.genre) |
+][:30] |
+for similar_movie in similar_movies: He
+score = similar_movie.rating / 10 |
+genre_matches = len( a
+[g for g in movie.genre if g in similar_movie.genre] ie
+|
+
+genre_score = genre_matches / max(len(movie.genre), 1)
+
+score = genre_score * 6.7 + score * 0.3
+
+----- 26:20  (15:42 left) -----
+def get_recommendations (request) : > rated Aa ab * 140f16 ae Ab Ss 52
+‘ i
+'
+dissimilar_movies = [ He
+| : :
+for m in dissimilar_movies ]
+if not any(g in movie.genre for g in m.genre) H
+] i
+i"
+for similar_movie in dissimilar_movies:
+score = similar_movie.rating / 10 fl
+recommendations. append(
+[
+"movie": ninitaraorte: f
+"score": score, z
+220 "source": “Baba” , ;
+"sourceMovie": movie.title, rt
+"userRating": user_rating, -
+} ;
+) .
+t
+for watched_entry in watched_movies: |
+movie = watched_entry["movie"] i
+movie_id = watched_entry["movie_id"] |"
+| if any(r["movie_id"] == movie_id for r in rated_movies): L
+continue Hal
+|’
+if watched_entry["rating"] is None or watched_entry["rating"] > 5: |
+similar_movies = Movie.objects.filter(rating__gte=7.0) .exclude(
+id=movie.id
+
+----- 26:30  (15:32 left) -----
+def get_recommendations (request) : > rated Aa ab * 150f15 ye Ab Ss 52
+similar_movies = Movie.objects. filter (rating__gte=/.u).excluaet r]
+id=movie.id a
+){:50] i
+'
+similar_movies = [
+m for m in similar_movies if any(g in m.genre for g in movie.genre) i
+1[:50] i"
+for similar_movie in similar_movies: rn
+genre_matches = len( iF
+{[g for g in movie.genre if g in similar_movie.genre] f
+) i
+genre_score = genre_matches / max(len(movie.genre), 1) a
+rating_score = similar_movie.ratling / 10 '
+total_score = genre_score * 0.7 + rating_score * 0.3 F
+recommendations. append( F
+i H
+"movie": similar_movie, F
+“score": total_score,
+253 Q "source": "watched", |
+"sourceMovie": movie.title, Fe
+j
+) us
+'
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+
+----- 26:40  (15:22 left) -----
+def get_recommendations (request) : > rated Aa ab * 150f15 ye Ab Ss 52
+similar_movies = Movie.objects. filter (rating__gte=/.u).exctuaet r]
+id=movie.id a
+){:50] i
+'
+similar_movies = [
+m for m in similar_movies if any(g in m.genre for g in movie.genre) i
+1[:50] 1
+for similar_movie in similar_movies: rn
+genre_matches = len( iF
+{[g for g in movie.genre if g in similar_movie.genre] f
+) i
+genre_score = genre_matches / max(len(movie.genre), 1) a
+rating_score = similar_movie.rating / 10 '
+total_score = genre_score * 0.7 + rating_score * 0.3 F
+recommendations. append( F
+250, Q fi I Y
+"movie": similar_movie, i
+“score”: total_score,
+"source": "watched", |
+"sourceMovie": movie.title, ie
+j
+) “
+'
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+
+----- 26:50  (15:12 left) -----
+def get_recommendations (request) : > rated Aa ab * 150f15 pe Ab Ss 52
+similar_movies = Movie.objects.filter(rating__gte=7.u).excluaet
+id=movie.id :
+){:50]
+similar_movies = [
+m for m in similar_movies if any(g in m.genre for g in movie.genre)
+1[:50] 1
+for similar_movie in similar_movies: |
+genre_matches = len( LJ
+[g for g in movie.genre if g in similar_movie.genre] :
+) q
+genre_score = genre_matches / max(len(movie.genre), 1) :
+rating_score = similar_movie.rating / 10
+total_score = genre_score * 0.7 + rating_score * 0.3 ,
+:
+recommendations. append( Le
+250 «= {
+"movie": similar_movie, im
+"score": total_score,
+"source": "watched",
+"sourceMovie": movie.title, :
+}
+) 1
+'
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+
+----- 27:00  (15:02 left) -----
+def get_recommendations (request) : > rated Aa ab * 150f15 pe Ab Ss 52
+similar_movies = Movie.objects.filter(rating__gte=7.u).excluael
+id=movie.id :
+){:50]
+similar_movies = [
+m for m in similar_movies if any(g in m.genre for g in movie.genre)
+1[:50] 1
+for similar_movie in similar_movies: |
+genre_matches = len( LJ
+[g for g in movie.genre if g in similar_movie.genre] :
+) q
+genre_score = genre_matches / max(len(movie.genre), 1) :
+rating_score = similar_movie.rating / 10
+total_score = genre_score * 0.7 + rating_score * 0.3 ,
+s
+recommendations. append( a
+250 «= {
+"movie": similar_movie, a
+"score": total_score,
+"source": "watched",
+"sourceMovie": movie.title, :
+}
+) 1
+'
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+
+----- 27:10  (14:52 left) -----
+class Movie(models.Model): > rated Aa ab * Noresultt T | = X
+1a = mogets.uUivrietal(primary_key=irue, daetauLt=uuld.( :
+title = models.CharField(max_length=255)
+year = models. IntegerField(
+validators=[
+MinValueValidator (1966),
+MaxValueVaLidator(datetime.now().year + 5)
+] Tr
+) |
+duration = models.CharField(max_length=50)
+rating = models.FloatField( r
+default=0,
+validators=[MinValueValidator(6), MaxValueValidator(10)]
+)
+popularity = models.IntegerField(default=8, validators=[MinValueValidator (6) |)
+22 Q genre = models.JSONField(default=1ist)|
+description = models. TextField()
+director = models.CharField(max_length=255)
+writers = models.JSONField(default=List)
+stars = models.JSONField(default=List) I
+type = models.CharField(
+max_Length=10,
+choices=[('movie', 'Movie'), ('series', 'Series')],
+default='movie'
+)
+reviews = models.JSONField(default=List)
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True)
+class Meta:
+
+----- 27:20  (14:42 left) -----
+class Movie(models.Model): > list(uni Aa ab * Noresultt T | = X
+1a = mogets.uUivrietal(primary_key=irue, daetauLt=uuld.( :
+title = models.CharField(max_length=255)
+year = models. IntegerField(
+validators=[
+MinValueValidator (1966),
+MaxValueVaLidator(datetime.now().year + 5)
+] Tr
+) |
+duration = models.CharField(max_length=50)
+rating = models.FloatField( r
+default=0,
+validators=[MinValueValidator(6), MaxValueValidator(10)]
+)
+popularity = models.IntegerField(default=8, validators=[MinValueValidator (6) |)
+22 genre = models. JSONField (default=1ist)
+description = models. TextField() _
+director = models.CharField(max_length=255)
+writers = models.JSONField(default=List)
+stars = models.JSONField(default=List) I
+type = models.CharField(
+max_Length=10,
+choices=[('movie', 'Movie'), ('series', 'Series')],
+defauLt='movie'
+)
+reviews = models.JSONField(default=List)
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True)
+class Meta:
+
+----- 27:30  (14:32 left) -----
+class Movie(models.Model): > list(uni Aa ab * Noresultt T | = X
+1a = mogets.uUivrietal(primary_key=irue, daetauLt=uuld.( =
+title = models.CharField(max_length=255)
+year = models. IntegerField(
+validators=[
+MinValueValidator (1966),
+MaxValueVaLidator(datetime.now().year + 5)
+] Tr
+) |
+duration = models.CharField(max_length=50)
+rating = models.FloatField( r
+default=0,
+validators=[MinValueValidator(6), MaxValueValidator(10)]
+)
+popularity = models.IntegerField(default=8, validators=[MinValueValidator (6) |)
+22 Q genre = models.JSONField(defau1t=1ist)| I
+description = models. TextField()
+director = models.CharField(max_length=255)
+writers = models.JSONField(default=List)
+stars = models.JSONField(default=List)
+type = models.CharField(
+max_Length=10,
+choices=[('movie', 'Movie'), ('series', 'Series')],
+default='movie'
+)
+reviews = models.JSONField(default=List)
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True)
+class Meta:
+
+----- 27:40  (14:22 left) -----
+class Movie(models.Model): > | Find (wt for hpstory) Aa ab * Noresultt ~ | = X
+lag = mogets.uUivrieta(primary_key=irue, detauLt=uuld. | -
+title = models.CharField(max_length=255)
+year = models. IntegerField(
+validators=[
+MinValueVaLlidator (19606) ,
+MaxValueVaLidator(datetime.now().year + 5)
+] Tr
+) |
+duration = models.CharField(max_length=59)
+rating = models.FloatField( r
+default=0,
+vaLidators=[MinValueValidator(@), MaxValueValidator (10) ]
+)
+popularity = models.IntegerField(default=8, validators=[MinValueValidator(@)])
+22 genre = models.JSONField(default=List)
+description = models. TextField() :
+director = models.CharField(max_length=255)
+writers = models.JSONField(default=List)
+stars = models.JSONField(default=List)
+type = models.CharField(
+max_Length=16,
+choices=[('movie', 'Movie'), ('series', 'Series')],
+default='movie'
+)
+reviews = models.JSONField(default=List)
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True)
+class Meta:
+
+----- 27:50  (14:12 left) -----
+> values| Aa ab * Noresultts T VV => X =
+from django.db import models
+2 from django.core.validators import MinValueValidator, MaxValueVaLlidator
+from datetime import datetime
+import uuid
+5
+class Movie(models.Model): I
+id = models.UUIDField(primary_key=True, default=uuid.uvid4, editable=False)
+title = models.CharField(max_length=255) 4
+year = models. IntegerField(
+validators=[ I
+MinValueValidator (1900),
+MaxValueVaLidator(datetime.now().year + 5)
+]
+)
+duration = models.CharField(max_lLength=50)
+rating = models.FloatField(
+default=0,
+validators=[MinValueValidator(@), MaxValueValidator (10) ]
+)
+popularity = models.IntegerField(default=8, validators=[MinValueValidator (0) |)
+genre = models.JSONField(default=List)
+description = models.TextField()
+director = models.CharField(max_lLength=255)
+writers = models.JSONField(default=List)
+stars = models.JSONField(default=List)
+type = models.CharField(
+max_Length=160,
+
+----- 28:00  (14:02 left) -----
+def get_recommendations(request) : > values Aa ab * ?0f1 pe Ab Ss 52
+similar_movies = Movie.objects. filter (rating__gte=7.u).exctuaet
+id=movie.id 1
+)[:50]
+similar_movies = [
+m for m in similar_movies if any(g in m.genre for g in movie.genre)
+1[:50] p|
+for similar_movie in similar_movies:
+genre_matches = len( LT
+[g for g in movie.genre if g in similar_movie.genre]
+) 1
+genre_score = genre_matches / max(len(movie.genre), 1)
+rating_score = similar_movie.rating / 10
+total_score = genre_score * 0.7 + rating_score * 0.3
+recommendations. append(
+250 @ il -
+"movie": similar_movie, Lt
+“score": total_score, ~
+"source": "watched",
+"sourceMovie": movie.title, 1:
+) : 1
+'
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+
+----- 28:10  (13:52 left) -----
+def get_recommendations (request) : > values()| Aa ab * 1of1 ae Ab Ss 52
+“source”: "“watcnea",
+“sourceMovie": movie.title, F|
+}
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) ‘
+if (
+movie_id not in unique_recommendations |
+or rec["score"] > unique_recommendations[movie_id]["score"]
+sorted_recommendations = list(unique_recommendations.values())[:10] 1:
+Fullname: backend.apps.ratings.views.get_recommendations.sorted_recommendations
+267 sorted_recommendations = List (unique_recommendations. WaqUESEN) [ :10]
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = { |
+"_id": str(movie.id),
+"title": movie.title,
+"year": movie.year, |
+"pating": movie.rating, 1
+"genre": movie.genre, 1
+"description": movie.description,
+"popularity": movie.popularity,
+"type": movie.type,
+"score": recl "score".
+
+----- 28:20  (13:42 left) -----
+def get_recommendations (request) : > values() Aa ab * 1of1 l= x
+rating_score = similar_movie.rating / 10
+total_score = genre_score * 0.7 + rating_score * 0.3 5
+recommendations. append(
+{
+"movie": similar_movie,
+"score": total_score, '
+"source": "watched",
+"sourceMovie": movie.title, q
+}
+)
+'
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"].id)
+api i
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id] ["score"]
+U3 Bl
+unique_recommendations[movie_id] = rec
+267 sorted_recommendations = List (unique_recommendations. {@QUESi) [ :10] I ,
+formatted_recommendations = [] |
+for rec in sorted_recommendations: i
+movie = rec["movie"]
+formatted_rec = {
+"_id": str(movie.id),
+
+----- 28:30  (13:32 left) -----
+def get_recommendations (request) : > vatues() Aa ab * 1of1 pe Ab Ss 52
+rating_score = similar_movie.rating / 10
+total_score = genre_score * 0.7 + rating_score * 0.3 7
+recommendations. append(
+{
+"movie": similar_movie,
+"score": total_score, :
+"source": "watched",
+"“sourceMovie": movie.title,
+} '
+)
+'
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if (
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"]
+ye
+unique_recommendations[movie_id] = rec *
+sorted_recommendations = List (unique_reconmendations.values()){: 103 ‘
+268 | Q sorted_recommendations. sor
+sot i
+formatted_recommendations = [] 1
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = {
+
+----- 28:40  (13:22 left) -----
+def get_recommendations (request) : > values() Aa ab * 1of1 pe Ab Ss 52
+rating_score = similar_movie.rating / 10
+total_score = genre_score * 0.7 + rating_score * 0.3 ,
+recommendations. append(
+{
+"movie": similar_movie,
+"score": total_score, :
+"source": "watched",
+“sourceMovie": movie.title,
+} '
+)
+'
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if (
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"]
+ye
+unique_recommendations[movie_id] = rec =
+sorted_recommendations = List (unique_reconmendations..values())[: 1037 ‘
+268 | sorted_recommendations.sort{()|
+'
+formatted_recommendations = [] 4
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = {
+
+----- 28:50  (13:12 left) -----
+Z
+GG” gle
+<
++ Ask Google 8 @ Ct Al Mode
+* o +
+New chat Web Store Add shortcut
+
+----- 29:00  (13:02 left) -----
+Free plan - Upgrade
+%* Zizo_Shata returns
+how to sort in python|
+I
++ Sonnet 4.6
+
+----- 29:10  (12:52 left) -----
+Sorting in Python in descending order v
+how to sort in pythc
+Pass reverse=True to sorted() or .sort():
+python
+# sorted() returns a new list
+nums = [3, 1, 4, 1, 5]
+desc = sorted(nums, reverse=True) # [5, 4, 3, 1, 1]
+# .sort() sorts in-place
+nums.sort(reverse=True) . # nums is now [5, 4, 3, 1, 1
+For custom objects, combine with key:
+
+----- 29:20  (12:42 left) -----
+def get_recommendations (request) : > values() Aa ab * 1of1 pe Ab Ss 52
+rating_score = similar_movie.rating / 10
+total_score = genre_score * 0.7 + rating_score * 0.3 ,
+recommendations. append(
+{
+"movie": similar_movie,
+"score": total_score, :
+"source": "watched",
+“sourceMovie": movie.title,
+} '
+)
+'
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if (
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"]
+ye
+unique_recommendations[movie_id] = rec s
+sorted_recommendations = List (unique_recommendations.values())[:10] ‘
+268 | sorted_recommendations.sort||reverse=Trud)
+—s I F|
+formatted_recommendations = [] ,
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = {
+
+----- 29:30  (12:32 left) -----
+def get_recommendations (request) : > values() Aa ab * 1of1 pe Ab Ss 52
+"source": "watched",
+"sourceMovie": movie.title, 1
+}
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 4
+Etat
+movie_id not in unique_recommendations :
+or rec["score"] > unique_recommendations[movie_id] ["score"]
+3 I
+unique_recommendations[movie_id] = rec
+sorted_recommendations = List (unique_recommendations.values()) [:10]
+| sorted_recommendations.sort(reverse=True)
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"] =
+formatted_rec = i il
+274 Q "_id": str(movie.id), i
+"title": movie.title,
+"year": movie.year, F|
+"rating": movie.rating, |
+"genre": movie.genre,
+"description": movie.description,
+"popularity": movie.popularity,
+Sees ae eee
+
+----- 29:40  (12:22 left) -----
+def get_recommendations (request) : > values() Aa ab * 1of1 ae Alb ts 5
+"source": "watched",
+"sourceMovie": movie.title, 1
+}
+)
+unique_recommendations = {}
+for rec in recommendations: I
+movie_id = str(rec["movie"] .id) 4
+Etat
+movie_id not in unique_recommendations :
+or rec["score"] > unique_recommendations[movie_id] ["score"]
+3 5
+unique_recommendations[movie_id] = rec
+sorted_recommendations = List (unique_recommendations.values()) [:10]
+sorted_recommendations.sort(reverse=True)
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"] a
+formatted_rec = { 7
+274 Q "_id": str(movie.id), |
+"title": movie.title,
+"year": movie.year, P|
+"pating": movie.rating, F|
+"genre": movie.genre,
+"description": movie.description,
+"popularity": movie.popularity,
+Sees ae eee
+
+----- 29:50  (12:12 left) -----
+def get_recommendations (request) : > values() Aa ab * 1of1 pe Ab Ss 52
+"source": "watched",
+"sourceMovie": movie.title, 1
+}
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 4
+Etat
+movie_id not in unique_recommendations :
+or rec["score"] > unique_recommendations[movie_id]["score"]
+U3 I
+unique_recommendations[movie_id] = rec
+sorted_recommendations = List (unique_recommendations.values()) [:10]
+sorted_recommendations.sort(reverse=True)
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"] 5
+formatted_rec = { il
+274 Q "_id": str(movie.id), |
+"title": movie.title,
+"year": movie.year, P|
+"pating": movie.rating, F|
+"genre": movie.genre,
+"description": movie.description,
+"popularity": movie.popularity,
+Sees ae eee
+
+----- 30:00  (12:02 left) -----
+def get_average_rating(request, movie_id): > if rel Aa ab * | Noresultts 7 J = X
+except Exception as e:
+print(#"Get average rating error: {e}") F|
+return JsonResponse({"message": "Server error"}, status=500)
+@csrf_exempt
+@require_http_methods(["GET"])
+@auth_middleware ‘
+def get_recommendations(request): lel
+try: 1
+user_id = uuvid.UUID(request.user_id)
+user_ratings = List(Rating.objects.filter(user_id=user_id))
+rated_movies = [] ;
+for rating_obj in user_ratings:
+125 if rating_obj.rating and rating_obj.rating >= 1:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_movies.append(
+{
+"movie": movie,
+"pating": rating_obj.rating, I
+"movie_id": rating_obj.movie_id, F
+}
+) '
+except Movie.DoesNotExist: pI
+pass
+# get all his ratings check if he made rating if yes get the movie and add to the List
+watched_movies = []
+
+----- 30:10  (11:52 left) -----
+def get_recommendations (request) : > No recom Aa ab * 1of1 ae A Ss 52
+“genre”: movie.genre,
+"description": movie.description, =
+"popularity": movie.popularity,
+"type": movie.type,
+"score": rec["score"],
+"source": rec["source"],
+"sourceMovie": rec["sourceMovie"],
+} '
+if "userRating" in rec:
+formatted_rec["userRating"] = rec["userRating"] A
+formatted_recommendations.append(formatted_rec)
+'
+if Len(formatted_recommendations) != 0:
+return JsonResponse(
+292 {"message": "figPeebhinendations i "recommendations": []},
+status=2060,
+)
+return JsonResponse(
+{
+"message": f"Found {len(formatted_recommendations)} personalized recommendations"
+}, _
+1
+status=260,
+) '
+'
+except Exception as e:
+print(#"Get recommendations error: {e}")
+import traceback
+
+----- 30:20  (11:42 left) -----
+def get_recommendations (request) : > Norecom Aa ab * ?20f1 ae Ab Ss 52
+“genre”: movie.genre,
+"description": movie.description, 1
+"popularity": movie.popularity,
+"type": movie.type,
+"score": rec["score"],
+"source": rec["source"],
+"sourceMovie": rec["sourceMovie"],
+} '
+if "userRating" in rec:
+formatted_rec["userRating"] = rec["userRating"] F
+formatted_recommendations.append(formatted_rec)
+:
+290 | if Len(formatted_recommendations) Fe 8:
+return JsonResponse(
+{"message": | eel found", "recommendations": []},
+status=200,
+)
+return JsonResponse(
+{
+"message": f"Found {len(formatted_recommendations)} personalized recommendations"
+}, =
+:
+status=260,
+) '
+'
+except Exception as e:
+print(#"Get recommendations error: {e}")
+import traceback
+
+----- 30:30  (11:32 left) -----
+def get_recommendations (request) : > Norecom Aa ab * ?of1 ae A Ss 52
+return JsonResponse(
+'
+{
+"message": f"Found {len(formatted_recommendations)} personalized recommendations"
+Li
+status=260,
+)
+'
+except Exception as e:
+print(#"Get recommendations error: {e}") p|
+import traceback
+A '
+traceback.print_exc()
+return JsonResponse({"message": "Server error"}, status=500)
+@csrf_exempt
+@require_http_methods(["PosT"])
+@auth_middleware I
+def toggle_watched(request, movie_id):
+try:
+try: a
+1
+movie_uuid = uuid.UUID(movie_id)
+except (ValueError, AttributeError):
+'
+return JsonResponse({"message": "Invalid movie ID format"}, status=460)
+'
+user_id = uuvid.UUID(request.user_id)
+try:
+
+----- 30:40  (11:22 left) -----
+Vest T_eCAcmpPe
+@require_http_methods(["POST"]) > [round Se cbheT [are seme
+@auth_middleware a
+def toggle_watched(request, movie_id):
+try:
+try:
+movie_uuid = uuid.UUID(movie_id)
+except (ValueError, AttributeError):
+return JsonResponse({"message": "Invalid movie ID format"}, status=460) “
+user_id = uuid.UUID(request.user_id) 1
+try:
+'
+movie = Movie.objects.get(id=movie_uuid)
+except Movie.DoesNotExist:
+326 return JsonResponse({"message": "Movie not Found"), statub=404)
+existing_rating = Rating.find_by_movie_and_user(movie_uuid, user_id)
+if existing_rating:
+existing_rating.watched = not existing_rating.watched
+existing_rating.save()
+oy
+a
+return JsonResponse(
+: =
+"message": f"Movie {'marked as watched' if existing_rating.watched else ‘marked as 4
+unwatched'}",
+"watched": existing_rating.watched,
+Re
+status=700.
+
+----- 30:50  (11:12 left) -----
+def get_recommendations (request) : > perso Aa ab * 10f2 * l=x
+watcned_movies.appenat
+t '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+)
+except Movie.DoesNotExist: ‘
+pass
+:
+if Len(rated_movies) == ® and len(watched_movies) == 0:
+return JsonResponse( Be
+{
+166 "message": "Start exploring movies by rating them or marking them as watched to get
+Bepsenalized recommendations!", I
+"recommendations": [],
+Le
+status=200,
+)
+recommendations = []
+'
+a
+for rated_entry in rated_movies:
+movie = rated_entry["movie"]
+user_rating = rated_entryl"rating"] |
+movie_id = rated_entry["movie_id"]
+if user_rating > 5:
+similar mavies = Movie.ohiects.all1f)
+
+----- 31:00  (11:02 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae A Ss 52
+watcnea_movies.appenat
+t '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+)
+except Movie.DoesNotExist: ‘
+pass
+'
+163 | if len(rated_movies) == @ and len(watched_movies) != 6:
+return JsonResponse( =
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!",
+"recommendations": [],
+15
+status=260,
+)
+recommendations = []
+'
+=
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] 4
+user_rating = rated_entry["rating"] F
+movie_id = rated_entry["movie_id"]
+if user_rating > 5:
+similar mavies = Movie.ohiects.all1f)
+
+----- 31:10  (10:52 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae Ab Ss 52
+watcnea_movies.appenat
+t '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+)
+except Movie.DoesNotExist: ‘
+pass
+'
+163 if len(rated_movies) == @ and len(watched_movies) != 6:
+return JsonResponse( I I
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!",
+"recommendations": [],
+15
+status=2600,
+)
+recommendations = []
+=a
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] 4
+user_rating = rated_entryL"rating"] F
+movie_id = rated_entry["movie_id"]
+if user_rating > 5:
+similar mavies = Movie-.ohiects.all1()
+
+----- 31:20  (10:42 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae A Ss 52
+watcnea_movies.appenat
+t '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+)
+except Movie.DoesNotExist: ‘
+pass
+'
+163 if len(rated_movies) == @ and len(watched_movies) != 6:
+return JsonResponse( |
+‘ a
+"message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!",
+"recommendations": [],
+15
+status=2600,
+)
+recommendations = []
+=
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] 4
+user_rating = rated_entry["rating"] A
+movie_id = rated_entry["movie_id"]
+if user_rating > 5:
+similar mavies = Movie.ohiects.all1f)
+
+----- 31:30  (10:32 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae A Ss 52
+watcnea_movies.appenat
+t '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+)
+except Movie.DoesNotExist: ‘
+pass
+'
+163 if len(rated_movies) == © and len(watched_movies) != 6:
+return JsonResponse( =
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!",
+"recommendations": [],
+15
+status=2600,
+)
+recommendations = []
+=a
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] 4
+user_rating = rated_entry["rating"] A
+movie_id = rated_entry["movie_id"]
+if user_rating > 5:
+similar mavies = Movie.ohiects.all1f)
+
+----- 31:40  (10:22 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae A Ss 52
+watcnea_movies.appenat
+t '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+)
+except Movie.DoesNotExist: ‘
+pass
+'
+163 if len(rated_movies) == 0 and len(watched_movies) I 8:
+Q return JsonResponse( |
+‘ :
+"message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!",
+"recommendations": [],
+15
+status=2600,
+)
+recommendations = []
+=
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] 4
+user_rating = rated_entry["rating"] A
+movie_id = rated_entry["movie_id"]
+if user_rating > 5:
+similar mavies = Movie.ohiects.all1f)
+
+----- 31:50  (10:12 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae A Ss 52
+watcnea_movies.appenat
+t '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+)
+except Movie.DoesNotExist: ‘
+pass
+'
+163 if len(rated_movies) == 0 and len(watched_movies) if Q:
+return JsonResponse( =
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!",
+"recommendations": [],
+15
+status=2600,
+)
+recommendations = [] I
+=
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] 4
+user_rating = rated_entry["rating"] A
+movie_id = rated_entry["movie_id"]
+if user_rating > 5:
+similar mavies = Movie.ohiects.all1f)
+
+----- 32:00  (10:02 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae Ab Ss 52
+Sr
+None, LY
+)
+watched_movies.append(
+{
+"movie": movie, 1
+"“movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+} :
+I
+except Movie.DoesNotExist: a
+pass
+163 if len(rated_movies) == 0 and Len(watched_movies) if Q:
+return JsonResponse(
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!",
+"recommendations": [],
+By
+status=200, a
+)
+
+.
+recommendations = [] '
+for rated_entry in rated_movies:
+
+movie = rated_entryl["movie"]
+
+----- 32:10  (9:52 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae Ab Ss 52
+Sr
+None, LY
+)
+watched_movies.append(
+{
+"movie": movie, 1
+"“movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+} :
+)
+except Movie.DoesNotExist: a
+pass I
+163 if lLen(rated_movies) + @ and Len(watched_movies) != 0:
+return JsonResponse(
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!",
+"recommendations": [],
+By
+status=200, a
+)
+
+.
+recommendations = [] '
+for rated_entry in rated_movies:
+
+movie = rated_entryl["movie"]
+
+----- 32:20  (9:42 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae Ab Ss 52
+Sr
+None, LI
+)
+watched_movies.append(
+{
+"movie": movie, 1
+"“movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+} :
+)
+except Movie.DoesNotExist: a
+pass I
+163 if len(rated_movies) if @ and Len(watched_movies) != 0:
+return JsonResponse(
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!",
+"recommendations": [],
+By
+status=200, a
+)
+
+.
+recommendations = [] '
+for rated_entry in rated_movies:
+
+movie = rated_entryl["movie"]
+
+----- 32:30  (9:32 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae Aly Ss 52
+for rating_obj in user_ratings: 1
+if rating_obj.watched:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next(
+(
+'
+r
+for r in rated_movies
+if r["movie_id"}] == rating_obj.movie_id 1
+Fi
+None, a
+)
+watched_movies.append(
+{
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+)
+except Movie.DoesNotExist: sy
+pass
+'
+163 if len(rated_movies) != 0 and len(watched_movies) != 0: A
+return JsonResponse(
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+a Fazad nacammandatianc i"
+
+----- 32:40  (9:22 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae Ab Ss 52
+for rating_obj in user_ratings: 1
+if rating_obj.watched:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next(
+(
+'
+Pr
+for r in rated_movies
+if r["movie_id"] == rating_obj.movie_id 1
+Dia
+None, =
+)
+watched_movies.append(
+{
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"pating": rated_entry["rating"] if rated_entry else None,
+}
+)
+except Movie.DoesNotExist: =
+pass
+.
+163 if len(rated_movies) != 0 and len(watched_movies) != 0: 4
+return JsonResponse(
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+retin
+
+----- 33:30  (8:32 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae Aly Ss 52
+for rating_obj in user_ratings: 1
+if rating_obj.watched:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next(
+(
+'
+Pr
+for r in rated_movies
+if r["movie_id"] == rating_obj.movie_id 1
+Dia
+None, =
+)
+watched_movies.append(
+{
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry|"rating"] if rated_entry else None,
+}
+)
+except Movie.DoesNotExist: =
+pass
+.
+163 if len(rated_movies) != 0 and len(watched_movies) != 0: 4
+return JsonResponse(
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+EEE dso onneenoda nnn
+
+----- 33:40  (8:22 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae Ab Ss 52
+for rating_obj in user_ratings: 1
+if rating_obj.watched:
+try:
+movie = Movie.objects.get(id=rating_obj.movie_id)
+rated_entry = next(
+(
+'
+Pr
+for r in rated_movies
+if r["movie_id"] == rating_obj.movie_id 1
+Dia
+None, =
+)
+watched_movies.append(
+{
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"pating": rated_entry["rating"] if rated_entry else None,
+}
+)
+except Movie.DoesNotExist: =
+pass
+.
+163 if len(rated_movies) != 0 and len(watched_movies) != 0: 4
+return JsonResponse(
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+retin
+
+----- 34:00  (8:02 left) -----
+def get_recommendations (request) : > perso Aa ab * 2o0f2 ae Aly Ss 52
+if user_rating > 5: 1
+similar_movies = Movie.objects.all()
+similar_movies = [
+m for m in similar_movies if any(g in m.genre for g in movie.genre)
+1[:30]
+for similar_movie in similar_movies: ‘
+score = similar_movie.rating / 10
+genre_matches = Len( 1:
+[g for g in movie.genre if g in similar_movie.genre]
+) =
+genre_score = genre_matches / max(len(movie.genre), 1)
+score = genre_score * 0.7 + score * 0.3
+score *= 1.2
+recommendations. append(
+{
+"movie": similar_movie,
+“score”: score,
+"source": "rated",
+"sourceMovie": movie.title, =
+"userRating": user_rating,
+5 '
+) 1
+else:
+dissimilar_movies = Movie.objects.filter(rating__gte=7.0) .exclude(
+id=movie.id
+Vi-zal
+
+----- 34:10  (7:52 left) -----
+Generate code (Ctri+I), or select a language (Ctri+K M). > perso Aa ab * Noresults Tt VY = X
+
+----- 34:20  (7:42 left) -----
+def edit_review(request, movie_id): > perso Aa ab * Noresults * | = X 1
+‘message': 'Your review contains inappropriate content and cannot be updated.',
+‘inappropriateWords': inappropriate_words, il
+‘isFlagged': user.is_flagged s|
+
++ '
+'
+status=400 H
+) '
+updated_review = Review. find_by_movie_and_user(movie_uuid, user_id) LI
+if not updated_review:
+return JsonResponse(
+{'message': 'Review not found'}, :
+status=404 i
+)
+updated_deview. rating = rating |
+updated_review.title = title
+updated_review.comment = comment
+updated_review.is_inappropriate = False
+updated_review.inappropriate_words = []
+updated_review. save() ‘
+return JsonResponse(
+{
+‘message’: ‘Review updated successfully',
+'review': { .
+‘_id': str(updated_review.id),
+‘rating': updated_review.rating,
+
+----- 34:30  (7:32 left) -----
+def get_all_movies (request): > perso Aa ab * Noresults t | = X wy
+except Exception as e:
+print(#'Get all movies error: {e}')
+import traceback
+traceback.print_exc()
+return JsonResponse({'message': ‘Server error'}, status=500)
+@csrf_exempt
+@require_http_methods(["GET"])
+def get_movie_by_id(request, movie_id):
+try:
+try:
+movie_uuid = uuid.UUID(movie_id)
+except (ValueError, AttributeError): I
+return JsonResponse({'message': ‘Invalid movie ID format'}, status=460)
+'
+14
+movie = Movie.objects.get(id=movie_uuid)
+except Movie.DoesNotExist:
+return JsonResponse({'message': 'Movie not found'}, status=404) !
+movie_dict = {
+‘_id': str(movie.id),
+‘title’: movie.title,
+‘year': movie.year,
+‘duration’: movie.duration,
+‘pating': movie.rating,
+
+----- 34:40  (7:22 left) -----
+def get_movies_by_type(request, movie_type): 1
+‘rating’: movie.rating,
+‘popularity’: movie.popularity,
+‘genre’: movie.genre,
+‘description': movie.description,
+‘director': movie.director, 5
+‘'writers': movie.writers,
+'stars': movie.stars,
+‘type’: movie.type,
+‘reviews’: movie.reviews,
+'createdAt': movie.created_at.isoformat() if movie.created_at else None,
+'updatedAt': movie.updated_at.isoformat() if movie.updated_at else None,
+})
+return JsonResponse(movies, safe=False, status=200)
+except Exception as e:
+print(#'Get movies by type error: {e}') |
+return JsonResponse({'message': ‘Server error'}, status=500)
+'
+
+----- 34:50  (7:12 left) -----
+def get_recommendations (request): _
+if user_rating > 5: :
+similar_movies = Movie.objects.all()
+similar_movies = [
+m for m in similar_movies if any(g in m.genre for g in movie.genre)
+1[:30] i
+for similar_movie in similar_movies:
+score = similar_movie.rating / 10
+genre_matches = Len( :
+[g for g in movie.genre if g in similar_movie.genre]
+) a
+genre_score = genre_matches / max(len(movie.genre), 1)
+score = genre_score * 0.7 + score * 0.3
+score *= 1.2
+recommendations. append(
+{
+"movie": similar_movie,
+"score": score,
+"source": "rated",
+"sourceMovie": movie.title, P|
+"userRating": user_rating,
+13 '
+) 1
+else:
+dissimilar_movies = Movie.objects.filter(rating__gte=7.0) .exclude(
+id=movie.id
+Vi-zal
+
+----- 35:00  (7:02 left) -----
+def get_recommendations (request) :
+if user_rating > 5: :
+similar_movies = Movie.objects.all()
+similar_movies = [
+m for m in similar_movies if any(g in m.genre for g in movie.genre)
+1[:30] i
+for similar_movie in similar_movies:
+score = similar_movie.rating / 10
+genre_matches = Len( :
+[g for g in movie.genre if g in similar_movie.genre]
+) a
+genre_score = genre_matches / max(len(movie.genre), 1)
+score = genre_score * 0.7 + score * 0.3
+score *= 1.2
+recommendations. append(
+{
+"movie": similar_movie,
+"score": score,
+"source": "rated",
+"sourceMovie": movie.title, P|
+"userRating": user_rating,
+13 '
+) 1
+else:
+dissimilar_movies = Movie.objects.filter(rating__gte=7.0) .exclude(
+id=movie.id
+VE-zal
+
+----- 35:10  (6:52 left) -----
+def get_recommendations (request):
+watched_movies.append(
+{ '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"pating": rated_entry["rating"] if rated_entry else None,
+$
+) 1
+except Movie.DoesNotExist:
+pass
+'
+— I
+169 status=200,
+)
+recommendations = []
+'
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] 1
+user_rating = rated_entry["rating"] Wy
+movie_id = rated_entry["movie_id"]
+if user_rating > 5:
+
+----- 35:20  (6:42 left) -----
+def get_recommendations (request):
+watched_movies.append(
+{ '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+) 1
+except Movie.DoesNotExist:
+pass
+'
+if len(rated_movies) != © and len(watched_movies) != 6:
+return JsonResponse( |
+166 Q "message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations! "|
+"pecommendations": [],
+status=200, I
+)
+recommendations = []
+'
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] Ly
+user_rating = rated_entryL"rating"] Uy
+movie_id = rated_entryL["movie_id"]
+if user_rating > 5S:
+
+----- 35:40  (6:22 left) -----
+def get_recommendations (request):
+watched_movies.append(
+{ '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+) 1
+except Movie.DoesNotExist:
+pass
+'
+if len(rated_movies) != © and len(watched_movies) != 6:
+return JsonResponse( |
+166 Q "message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations! "|
+"pecommendations": [],
+status=200,
+)
+recommendations = []
+'
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] Ly
+user_rating = rated_entryL"rating"] Uy
+movie_id = rated_entryL["movie_id"]
+if user_rating > 5S:
+
+----- 35:50  (6:12 left) -----
+def get_recommendations (request) :
+watched_movies.append(
+{ '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+) 1
+except Movie.DoesNotExist:
+pass
+'
+if len(rated_movies) != © and len(watched_movies) != 6:
+return JsonResponse( ;|
+166 Q "message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations! "|
+"pecommendations": [],
+status=200,
+)
+recommendations = []
+'
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] Ly
+user_rating = rated_entryL"rating"] Uy
+movie_id = rated_entryL["movie_id"]
+if user_rating > 5S:
+
+----- 36:00  (6:02 left) -----
+def get_recommendations (request):
+watched_movies.append(
+{ '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"rating": rated_entry["rating"] if rated_entry else None,
+}
+) 1
+except Movie.DoesNotExist:
+pass
+'
+if len(rated_movies) != ilk and len(watched_movies) != 6:
+return JsonResponse( |
+166 Q "message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations! "|
+"pecommendations": [],
+status=200,
+)
+recommendations = []
+'
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] Ly
+user_rating = rated_entryL"rating"] Uy
+movie_id = rated_entryL["movie_id"]
+if user_rating > 5S:
+
+----- 36:10  (5:52 left) -----
+def get_recommendations (request):
+watched_movies.append(
+{ '
+"movie": movie,
+"movie_id": rating_obj.movie_id,
+"pating": rated_entry["rating"] if rated_entry else None,
+}
+) '
+except Movie.DoesNotExist:
+pass
+'
+i if len(rated_movies) == © and len(watched_movies) == 6:
+return JsonResponse( ‘
+{
+"message": "Start exploring movies by rating them or marking them as watched to get
+personalized recommendations!",
+"pecommendations": [],
+in
+status=200,
+)
+171
+recommendations = []
+'
+for rated_entry in rated_movies:
+movie = rated_entry["movie"] Ly
+user_rating = rated_entryL"rating"] 1
+movie_id = rated_entryL["movie_id"]
+if user_rating > 5S:
+
+----- 36:20  (5:42 left) -----
+def get_recommendations(request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec “a
+268 | sorted_recommendations.sort(reverse=True)
+formatted_recommendations = [] I
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = { |
+"_id": str(movie.id),
+"title": movie.title, '
+“year": movie.year,
+“pating": movie.rating, LI
+"genre": movie.genre, :
+"description": movie.description,
+"popularity": movie.popularity,
+"type": movie.type,
+
+----- 36:30  (5:32 left) -----
+def get_recommendations(request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec “a
+268 | sorted_recommendations.sort(reverse=True)
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = { 7
+"_id": str(movie.id),
+"title": movie.title, '
+“year": movie.year,
+“pating": movie.rating, LI
+"genre": movie.genre, :
+"description": movie.description,
+"popularity": movie.popularity,
+"type": movie.type,
+
+----- 36:40  (5:22 left) -----
+def get_recommendations(request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec “a
+268 | sorted_recommendations.sort(reverse=True)
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = { int
+"_id": str(movie.id),
+"title": movie.title, '
+“year": movie.year,
+“pating": movie.rating, LI
+"genre": movie.genre, :
+"description": movie.description,
+"popularity": movie.popularity,
+"type": movie.type,
+
+----- 36:50  (5:12 left) -----
+def get_recommendations(request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec “a
+268 | sorted_recommendations.sort(reverse=True)
+I
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = { i
+"_id": str(movie.id),
+"title": movie.title, '
+“year": movie.year,
+“pating": movie.rating, LI
+"genre": movie.genre, :
+"description": movie.description,
+"popularity": movie.popularity,
+"type": movie.type,
+
+----- 37:00  (5:02 left) -----
+def get_recommendations (request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec “a
+Q. sorted_recommendations = lList(unique_recommendations.values())[:10]
+268 sorted_recommendations.sort(reverse=True)
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = { iw
+"_id": str(movie.id),
+"title": movie.title, :
+"year": movie.year,
+"“rpating": movie.rating, :
+"genre": movie.genre, :
+"description": movie.description,
+"popularity": movie.popularity,
+"type": movie.type,
+
+----- 37:30  (4:32 left) -----
+def get_recommendations (request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec “a
+Q sorted_recommendations = lList(unique_recommendations.values())[:10]
+sorted_recommendations.sort(reverse=True)
+269 |
+formatted_recommendations = [] I
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = { a]
+"_id": str(movie.id),
+"title": movie.title, :
+"year": movie.year,
+"“rpating": movie.rating, :
+"genre": movie.genre, :
+"description": movie.description,
+"popularity": movie.popularity,
+"type": movie.type,
+
+----- 37:40  (4:22 left) -----
+def get_recommendations (request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec LI
+sorted_recommendations = lList(unique_recommendations.values())[:10]
+sorted_recommendations.sort(reverse=True)
+269
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = { a
+"_id": str(movie.id),
+"title": movie.title, :
+"year": movie.year,
+“rpating": movie.rating, :
+"genre": movie.genre, :
+"description": movie.description,
+"popularity": movie.popularity,
+"type": movie.type,
+
+----- 37:50  (4:12 left) -----
+def get_recommendations (request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec '
+sorted_recommendations = lList(unique_recommendations.values())[:10]
+sorted_recommendations.sort(reverse=True)
+269
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = { al
+"_id": str(movie.id),
+"title": movie.title, :
+"year": movie.year,
+"“pating": movie.rating, LI
+"genre": movie.genre, :
+"description": movie.description,
+"popularity": movie.popularity,
+"type": movie.type,
+
+----- 38:00  (4:02 left) -----
+def get_recommendations (request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(reclmo unique_recommendations = {}
+LEE
+movie_id not in un Fullname: backend.apps.ratings.views.get_recommendations.unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] ,
+pie
+unique_recommendations[movie_id] = rec '
+sorted_recommendations = Seer ae enrcn ae
+sorted_recommendations.sort(reverse=True)
+269
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = { Bi
+"_id": str(movie.id),
+"title": movie.title, :
+"year": movie.year,
+"“pating": movie.rating, :
+"genre": movie.genre, :
+"description": movie.description,
+"popularity": movie.popularity,
+"type": movie.type,
+
+----- 38:10  (3:52 left) -----
+def get_recommendations (request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec LI
+sorted_recommendations = lList(unique_recommendations.values())[:10]
+268 sorted_recommendations.sort(reverse=True)
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"]
+formatted_rec = { rm
+"_id": str(movie.id),
+"title": movie.title, :
+"year": movie.year,
+"“rpating": movie.rating, :
+"genre": movie.genre, :
+"description": movie.description,
+"popularity": movie.popularity,
+"type": movie.type,
+
+----- 38:20  (3:42 left) -----
+def get_recommendations (request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEG
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+Ue
+unique_recommendations[movie_id] = rec '
+sorted_recommendations = lList(unique_recommendations.values())[:10]
+sorted_recommendations.sort(reverse=True) I
+269 sorted|litems, key=1ambda item: item["value"], reverse=True|)
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"] |
+formatted_rec = {
+"_id": str(movie.id), :
+"title": movie.title,
+"year": movie.year, LI
+"patting": movie.rating, Ly
+"genre": movie.genre,
+"description": movie.description,
+"popularity": movie.popularity,
+
+----- 38:30  (3:32 left) -----
+def get_recommendations (request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec '
+sorted_recommendations = lList(unique_recommendations.values())[:10]
+sorted_recommendations.sort(reverse=True)
+269 | sorted_recommendations=sorted||sorted_recommendationg, key=Lambda item: item["value"], reverse=True|
+formatted_recommendations = [] I
+for rec in sorted_recommendations:
+movie = rec["movie"] "a
+formatted_rec = {
+"_id": str(movie.id), :
+"title": movie.title,
+"year": movie.year, LI
+"pating": movie.rating, Ly
+"genre": movie.genre,
+"description": movie.description,
+"popularity": movie.popularity,
+
+----- 38:40  (3:22 left) -----
+def get_recommendations (request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec 5
+sorted_recommendations = lList(unique_recommendations.values())[:10]
+sorted_recommendations.sort(reverse=True)
+269 Q sorted_recommendations=sorted(sorted_recommendations, key=Lambda item: sorted_recommendations
+| ["vatue" , Peverse=True)
+formatted_recommendations = [] I
+for rec in sorted_recommendations: 4
+movie = rec["movie"]
+formatted_rec = { 1
+"_id": str(movie.id),
+"title": movie.title, LI
+"year": movie.year, Ly
+"pating": movie.rating,
+"genre": movie.genre,
+"description": movie.description,
+
+----- 38:50  (3:12 left) -----
+def get_recommendations (request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec :
+sorted_recommendations = List(unique_recommendations.values())[:16] I
+sorted_recommendations.sort(reverse=True)
+269 Q sorted_recommendations=sorted(sorted_recommendations, key=Lambda item: sorted_recommendations
+| | "value"|]|, reverse=True)
+formatted_recommendations = []
+for rec in sorted_recommendations: |
+movie = rec["movie"]
+formatted_rec = { 1
+"_id": str(movie.id),
+"title": movie.title, LI
+"year": movie.year, Ly
+"pating": movie.rating,
+"genre": movie.genre,
+"description": movie.description,
+
+----- 39:00  (3:02 left) -----
+def get_recommendations (request):
+"sourceMovie": movie.title,
+} '
+)
+unique_recommendations = {}
+for rec in recommendations:
+movie_id = str(rec["movie"] .id) 1
+LEE
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] i
+pie
+unique_recommendations[movie_id] = rec 5
+sorted_recommendations = List(unique_recommendations.values())[:10] I
+sorted_recommendations.sort(reverse=True)
+269 Q sorted_recommendations=sorted(sorted_recommendations, key=Lambda item: sorted_recommendations
+| [vatue" , Peverse=True)
+formatted_recommendations = []
+for rec in sorted_recommendations: J
+movie = rec["movie"]
+formatted_rec = { 1
+"_id": str(movie.id),
+"title": movie.title, LI
+"year": movie.year, Ly
+"pating": movie.rating,
+"genre": movie.genre,
+"description": movie.description,
+
+----- 39:10  (2:52 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"“sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendatifns:
+movie_id = str(rec["movie"] .id)
+if ( i
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] A
+ye
+unique_recommendations[movie_id] = rec
+sorted_recommendations = List(unique_recommendations.values())[:10]
+268 sorted_recommendations=sorted||sorted_recommendations, key=Lambda item: sorted_recommendations
+| ["value"], reverse=True)
+formatted_recommendations = [] a
+for rec in sorted_recommendations:
+movie = rec["movie"] .
+formatted_rec = {
+"_id": str(movie.id), LJ
+"title": movie.title, LU
+"year": movie.year,
+"rating": movie.rating,
+"genre": movie.genre,
+
+----- 39:20  (2:42 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] A
+Vs
+aa ee enero eee =<Pec
+sorted_recommendations = list(unique_recommendations.values())[:10]
+268 sorted_recommendations=sorted||sorted_recommendations, key=Lambda item: sorted_recommendations
+| ["value"], reverse=True)
+formatted_recommendations = [] i
+for rec in sorted_recommendations:
+movie = rec["movie"] '
+formatted_rec = {
+"_id": str(movie.id), LJ
+"title": movie.title, LU
+"year": movie.year,
+"pating": movie.rating,
+"genre": movie.genre,
+
+----- 39:30  (2:32 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations: I
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] A
+Vs
+unique_recommendations[movie_id] = rec
+sorted_recommendations = list(unique_recommendations.values())[:10]
+268 sorted_recommendations=sorted||sorted_recommendations, key=Lambda item: sorted_recommendations
+| ["value"], reverse=True)
+formatted_recommendations = [] i
+for rec in sorted_recommendations:
+movie = rec["movie"] '
+formatted_rec = {
+"_id": str(movie.id), LJ
+"title": movie.title, LU
+"year": movie.year,
+"pating": movie.rating,
+"genre": movie.genre,
+
+----- 39:50  (2:12 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] A
+ye
+unique_recommendations[movie_id] = rec
+sorted_recommendations = list(unique_recommendations.values())[:10]
+268 Q BO Saat comment nae ec aay enc ot nn -vancmmenuars neg key=Lambda item: sorted_recommendations
+| ("Wate "], reverse=True)
+formatted_recommendations = [] a
+for rec in sorted_recommendations:
+movie = rec["movie"] '
+formatted_rec = {
+"_id": str(movie.id), LJ
+"title": movie.title, LU
+"year": movie.year,
+"pating": movie.rating,
+"genre": movie.genre,
+
+----- 40:00  (2:02 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] A
+ye
+unique_recommendations[movie_id] = rec
+sorted_recommendations = list(unique_recommendations.values())[:10]
+268 Q sorted_recommendations=sorted(sorted_recommendations, key=Lambda item: sorted_recommendations
+[l"score}* , Peverse=True)
+formatted_recommendations = [] ai
+for rec in sorted_recommendations:
+movie = rec["movie"] .
+formatted_rec = {
+"_id": str(movie.id), LJ
+"title": movie.title, LU
+"year": movie.year,
+"pating": movie.rating,
+"genre": movie.genre,
+
+----- 40:10  (1:52 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] A
+ye
+unique_recommendations[movie_id] = rec
+sorted_recommendations = list(unique_recommendations.values())[:10]
+268 Q sorted_recommendations=sorted(sorted_recommendations, key=Lambda item: sorted_recommendations
+["score"], reverse=True)
+formatted_recommendations = [] 7
+for rec in sorted_recommendations:
+movie = rec["movie"] '
+formatted_rec = {
+"_id": str(movie.id), LJ
+"title": movie.title, Ly
+"year": movie.year,
+"pating": movie.rating,
+"genre": movie.genre,
+
+----- 40:20  (1:42 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] A
+vhs
+unique_recommendations[movie_id] = rec
+sorted_recommendations = list(unique_recommendations.values())[:10]
+Q sorted_recommendations=sorted(sorted_recommendations, key=Lambda item: sorted_recommendations
+["score"], reverse=True)
+269
+formatted_recommendations = [] im
+for rec in sorted_recommendations:
+movie = rec["movie"] .
+formatted_rec = {
+"_id": str(movie.id), LJ
+"title": movie.title, LY
+"year": movie.year,
+"pating": movie.rating,
+"genre": movie.genre,
+
+----- 40:30  (1:32 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] A
+vhs
+unique_recommendations[movie_id] = rec
+sorted_recommendations = list(unique_recommendations.values())[:10]
+Q sorted_recommendations=sorted(sorted_recommendations, key=Lambda item: sorted_recommendations
+["score"], reverse=True)
+269
+formatted_recommendations = [] im
+for rec in sorted_recommendations:
+movie = rec["movie"] .
+formatted_rec = {
+"_id": str(movie.id), :
+"title": movie.title, x
+"year": movie.year,
+"pating": movie.rating,
+"genre": movie.genre,
+
+----- 40:50  (1:12 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] A
+ye
+unique_recommendations[movie_id] = rec
+sorted_recommendations = list(unique_recommendations.values())[:10]
+Q sorted_recommendations=sorted(sorted_recommendations, key=Lambda item: sorted_recommendations
+["score"], reverse=True)
+269
+formatted_recommendations = [] im
+for rec in sorted_recommendations:
+movie = rec["movie"] .
+formatted_rec = {
+"_id": str(movie.id), :
+"title": movie.title, x
+"year": movie.year,
+"pating": movie.rating,
+"genre": movie.genre,
+
+----- 41:00  (1:02 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id] ["score"] '
+vhs
+unique_recommendations[movie_id] = rec
+sorted_recommendations = list(unique_recommendations.values())[:10]
+Q sorted_recommendations=sorted(sorted_recommendations, key=Lambda item: sorted_recommendations
+["score"], reverse=True)
+269
+formatted_recommendations = [] im
+for rec in sorted_recommendations:
+movie = rec["movie"] .
+formatted_rec = {
+"_id": str(movie.id), LJ
+"title": movie.title, x
+"year": movie.year,
+"rating": movie.rating,
+"genre": movie.genre,
+
+----- 41:10  (0:52 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id] ["score"] '
+vhs
+unique_recommendations[movie_id] = rec
+sorted recommendations = list(unique_recommendations.values())[:10]
+268 Q sorted_recommendations=sorted((sorted_recommendations, key=Lambda item: Jborted_recommendations
+["score"], reverse=True)
+formatted_recommendations = [] tT
+for rec in sorted_recommendations:
+movie = rec["movie"] .
+formatted_rec = {
+"_id": str(movie.id), LJ
+"title": movie.title, LU
+"year": movie.year,
+"rating": movie.rating,
+"genre": movie.genre,
+
+----- 41:20  (0:42 left) -----
+def get_recommendations (request):
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id]["score"] .
+ye
+unique_recommendations[movie_id] = rec
+266
+sorted_recommendations = lList(unique_recommendations.values())[:10]
+sorted_recommendations = sorted(
+sorted_recommendations, key=lambda item: item["score"], reverse=True
+) ail
+'
+formatted_recommendations = []
+for rec in sorted_recommendations: :
+movie = rec["movie"]
+formatted_rec = { .
+"_id": str(movie.id), 5
+"title": movie.title,
+"year": movie.year,
+"patting": movie.rating,
+
+----- 41:30  (0:32 left) -----
+def get_recommendations (request) :
+"score": total_score,
+"source": "watched", |
+"sourceMovie": movie.title,
+}
+)
+unique_recommendations = {} 1
+for rec in recommendations:
+movie_id = str(rec["movie"] .id)
+if ( 7
+movie_id not in unique_recommendations
+or rec["score"] > unique_recommendations[movie_id] ["score"] .
+ye
+unique_recommendations[movie_id] = rec
+266
+sorted_recommendations = lList(unique_recommendations.values())[:10]
+sorted_recommendations = sorted(
+sorted_recommendations, key=lambda item: item["score"], reverse=True
+) _
+formatted_recommendations = []
+for rec in sorted_recommendations: :
+movie = rec["movie"]
+formatted_rec = { .
+"_id": str(movie.id), ‘
+"title": movie.title,
+"year": movie.year,
+"patting": movie.rating,
+
+----- 41:40  (0:22 left) -----
+def get_recommendations(request) :
+MUVAC LAU NYE 2H UNeyuc i! CEUMMCHUG LLNS
+or rec["score"] > unique_recommendations[movie_id]["score"] 1
+a3
+unique_recommendations[movie_id] = rec
+266
+sorted_recommendations = list(unique_recommendations.values())[:10]
+sorted_recommendations = sorted(
+sorted_recommendations, key=lambda item: item["score"], reverse=True 4]
+)
+'
+formatted_recommendations = []
+for rec in sorted_recommendations:
+movie = rec["movie"] ;
+formatted_rec = {
+"_id": str(movie.id),
+"title": movie.title,
+"year": movie.year,
+"pating": movie.rating,
+"genre": movie.genre,
+"description": movie.description, I _—
+"popularity": movie.popularity,
+"type": movie.type,
+"score": rec["score"], 7
+"source": rec["source"],
+"sourceMovie": rec["sourceMovie"], ‘
+} '
+if "“userRating" in rec:
+formatted_rec["userRating"] = rec["userRating"]
+formatted_recommendations.append(formatted_rec)
+
+----- 41:50  (0:12 left) -----
+class TestMovieRecommendationAPI: fl
+def test_watched_movie_recommendations(self):
+assert rec['source'] == expected['source']
+assert rec['sourceMovie'] == expected['sourceMovie']
+def test_rated_high_or_lLow_recommendations(self):
+seed_database()
+movie_ids = get_movie_ids()
+auth_token = get_auth_token(self.client)
+# Rate first movie highly (9/10)
+movie_id = movie_ids[o]
+self.client.post(
+#'/api/ratings/{movie_id}',
+150 data=json.dumps({'rating': 91), I
+content_type='application/json',
+HTTP_AUTHORIZATION=f' Bearer {auth_token}'
+)
+# Request recommendations based on high rating on first movie
+response = self.client.get(
+'/api/ratings/recommendations/user',
+HTTP_AUTHORIZATION=f'Bearer {auth_token}'
+) '
+# Returns 16 recommendations including user rating
+assert response.status_code == 200 1:
+data = response. json()
+assert '‘Found' in datal'message']
+
+----- 42:00  (0:02 left) -----
+class TestMovieRecommendationAPI: i]
+def test_watched_and_rated_low(self):
+response = self.client.get(
+'/api/ratings/recommendations/user',
+HTTP_AUTHORIZATION=f'Bearer {auth_token}'
+)
+# No recommendations found
+assert response.status_code == 200
+data = response.json() -
+assert 'No recommendations found' in datal'message' ]
+assert len(datal['recommendations']) == 0
+# Reset, rate and watch third movie lowly (5/16)
+seed_database() I
+movie_ids = get_movie_ids()
+auth_token = get_auth_token(self.client)
+movie_id = movie_ids[2]
+self.client.post(
+#'/api/ratings/{movie_id}',
+data=json.dumps({'rating': 5}),
+content_type='application/json',
+HTTP_AUTHORIZATION=f'Bearer {auth_token}' A
+)
+self.client.post( :
+#'/api/ratings/{movie_id}/watched',
+HTTP_AUTHORIZATION=f'Bearer {auth_token}'
+
+----- 42:10  (expired left) -----
+LS
+Loading...
+
+----- 42:20  (expired left) -----
+amazon assessments @® English (US) v ® Help
+! e
+You've completed the Coding Challenge!
+k
+
+Now you're ready to move on to the next section and get a closer look at some of the experiences software engineers at Amazon
+might encounter on the job.
+Coding Challenge (100 Minutes)
+(1 Working at Amazon (Estimated 30 Minutes; Untimed)
+0 Your Work Style (Estimated 6 Minutes; Untimed)
+Select Submit when you're ready to continue.
+
+. 4
+
+- &
+4 "
+
+----- 42:30  (expired left) -----
+a ee | ened he ie te ste a + we Prema wet Mr
+|
+|
+mt 102 ee)
+===
+ft "
+|
+(
+2)
+|i wi =
+| |
+a 7 |
+|
+
+----- 42:40  (expired left) -----
+= +@F fevers .
+f | /
+
+oe :
+
+al }
+al
+was <i
+
+wi tateeme
+v
+a
+Scene Transitions Controls i}

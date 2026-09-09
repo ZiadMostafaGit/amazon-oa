@@ -1,0 +1,12 @@
+# build artifact — recreate with ./scripts/vendor.sh dist
+dist/
+
+# the source recording (207 MB) is kept in cloud storage, not here;
+# video/*.txt transcripts and images/vid-* stills ARE tracked
+*.mp4
+
+# exported progress is per-browser and per-person
+progress-*.json
+
+.DS_Store
+*.swp

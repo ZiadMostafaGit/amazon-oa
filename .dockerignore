@@ -1,0 +1,8 @@
+dist/
+.git/
+*.docx
+*.docx.html
+*.mp4
+**/_rt*.html
+**/_test*
+**/_probe*

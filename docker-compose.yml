@@ -1,0 +1,8 @@
+services:
+  amazon-oa:
+    build: .
+    image: amazon-oa-practice:latest
+    container_name: amazon-oa
+    ports:
+      - "8080:80"
+    restart: unless-stopped
