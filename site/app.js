@@ -211,17 +211,44 @@
     return CodeMirror.Pass;
   }
 
-  /* Enter indents after a colon (the mode does that) and, additionally,
-     dedents after a statement that ends a block. */
+  /* Python-aware indentation for a fresh line opened BELOW `fromLine`.
+     Keeps the reference line's indentation, except a block opener (any
+     statement ending in ':') opens one level deeper so the next line is ready
+     to type a loop/def body. Tabs are counted using tabSize. */
+  function indentBelow(cm, fromLine) {
+    const unit = indentUnit(cm);
+    const tab = cm.getOption('tabSize') || unit;
+    const line = cm.getLine(fromLine) || '';
+    const lead = (line.match(/^[ \t]*/) || [''])[0];
+    const width = lead.replace(/\t/g, ' '.repeat(tab)).length;
+    const body = line.slice(lead.length).replace(/#.*$/, '').trim();
+    if (body && /:$/.test(body)) return width + unit;
+    return width;
+  }
+
+  /* Enter indents after a colon (block opener) and, additionally, dedents
+     after a statement that ends a block. */
   const BLOCK_EXIT = /^\s*(return|pass|break|continue|raise)\b/;
   function enterKey(c) {
     if (vimCommandMode(c)) return CodeMirror.Pass;
     c.execCommand('newlineAndIndent');
     const pos = c.getCursor();
     if (pos.line === 0) return;
-    if (!BLOCK_EXIT.test(c.getLine(pos.line - 1))) return;
-    const ind = (c.getLine(pos.line).match(/^ */) || [''])[0].length;
-    if (ind >= indentUnit(c)) c.indentLine(pos.line, 'subtract');
+    const tab = c.getOption('tabSize') || indentUnit(c);
+    let ind = indentBelow(c, pos.line - 1);
+    if (BLOCK_EXIT.test(c.getLine(pos.line - 1)) && ind >= indentUnit(c)) {
+      ind -= indentUnit(c);
+    }
+    const newLine = c.getLine(pos.line);
+    const raw = (newLine.match(/^[ \t]*/) || [''])[0];
+    if (newLine.trim() === '' &&
+        raw.replace(/\t/g, ' '.repeat(tab)).length !== ind) {
+      c.replaceRange(' '.repeat(ind),
+                     CodeMirror.Pos(pos.line, 0),
+                     CodeMirror.Pos(pos.line, raw.length),
+                     '+input');
+    }
+    c.setCursor(CodeMirror.Pos(pos.line, ind));
   }
 
   /* Vim's o/O inserts a bare "\n" and leaves the cursor at column 0 on the raw
@@ -247,7 +274,8 @@
         (CodeMirror.commands.newlineAndIndentContinueComment || CodeMirror.commands.newlineAndIndent)(cm);
         nl = base + 1;
       }
-      const ind = (cm.getLine(base) || '').match(/^[\t ]*/)[0];
+      const ind = after ? ' '.repeat(indentBelow(cm, base))
+                        : (cm.getLine(cur.line) || '').match(/^[\t ]*/)[0];
       const got = (cm.getLine(nl) || '').match(/^[\t ]*/)[0];
       if (got !== ind) {
         cm.replaceRange(ind, new CodeMirror.Pos(nl, 0), new CodeMirror.Pos(nl, got.length), '+input');
