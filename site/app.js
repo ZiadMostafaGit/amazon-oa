@@ -50,12 +50,15 @@
     b.title = 'Server-side sync: ' + t;
   }
   async function probe(url) {
+    const t = new AbortController();
+    const to = setTimeout(() => t.abort(), 4000);
     try {
-      const r = await fetch(url, {cache: 'no-store'});
+      const r = await fetch(url, {cache: 'no-store', signal: t.signal});
       if (r.ok && (r.headers.get('content-type') || '').includes('application/json')) {
         return await r.json();
       }
     } catch (e) {}
+    finally { clearTimeout(to); }
     return null;
   }
   async function findApi() {
@@ -94,22 +97,34 @@
     pushTimer = setTimeout(postState, 400);
   }
   async function pullState() {
-    const data = await findApi();
+    let data;
+    try { data = await findApi(); } catch (e) { data = null; }
     if (!data) { syncInfo('☁ offline (local only)', 'bad'); return; }
     const keys = Object.keys(data);
     if (!keys.length) { pushState(); return; }          /* fresh server, seed it */
+
+    /* Overlay the server copy onto localStorage WITHOUT reloading — a reload
+       here is what caused an endless refresh when a proxy made the two never
+       converge (applyFsz/applyEfs rewrite the keys pullState was deleting). */
     let diffs = 0;
     keys.forEach(k => {
-      if (localStorage.getItem(KEY + k) !== data[k]) { localStorage.setItem(KEY + k, data[k]); diffs++; }
-    });
-    for (let i = localStorage.length - 1; i >= 0; i--) {
-      const lk = localStorage.key(i);
-      if (lk && lk.startsWith(KEY) && !(lk.slice(KEY.length) in data)) {
-        localStorage.removeItem(lk); diffs++;
+      if (localStorage.getItem(KEY + k) !== data[k]) {
+        localStorage.setItem(KEY + k, data[k]); diffs++;
       }
-    }
+    });
     syncInfo('☁ synced', 'ok');
-    if (diffs) location.reload();                        /* server differs → reinit from it */
+    if (!diffs) return;
+
+    /* Server had something new: re-read the parts the user is looking at now. */
+    if ('idx' in data && parseInt(data.idx, 10) !== idx && parseInt(data.idx, 10) < P.length) {
+      idx = parseInt(data.idx, 10);
+      location.hash = P[idx].id;
+      render();
+    } else {
+      loadCode(); loadNotes(); renderStatusBtns(); renderRail(); renderDrawer(); renderNotesBtn();
+      if (data['fsz']) { fsz = parseInt(data['fsz'], 10); applyFsz(); }
+      if (data['efs']) { efs = parseInt(data['efs'], 10); applyEfs(); }
+    }
   }
 
   let idx = Math.min(load('idx', 0), P.length - 1);
