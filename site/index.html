@@ -275,6 +275,8 @@ table.tl tr.hot td{background:#1c1614}
 }
 #vimBtn{flex:none;font-variant-numeric:tabular-nums}
 #vimBtn[aria-pressed="true"]{background:#123d2c;color:#4ade80;border-color:#1c5c42}
+#relnoBtn{flex:none;font-variant-numeric:tabular-nums}
+#relnoBtn[aria-pressed="true"]{background:#123d2c;color:#4ade80;border-color:#1c5c42}
 #saved{font-size:12px;color:#5fae7f}
 #sync{font-size:12px;color:#8a8a8a}
 #sync.ok{color:#5fae7f}
@@ -505,6 +507,8 @@ li.CodeMirror-hint-active .hk{color:#9dc4ee}
         <span class="langtag">Python 3</span>
         <button class="tbtn vim" id="vimBtn" aria-pressed="false"
                 title="Vim keybindings — Ctrl-Alt-V">Vim</button>
+        <button class="tbtn vim" id="relnoBtn" aria-pressed="true"
+                title="Relative line numbers — Ctrl-Alt-R">Rel no</button>
         <span class="fsz" title="Editor font size">
           <button id="efsDown" aria-label="Smaller code">A&minus;</button>
           <b id="efsVal">14</b>

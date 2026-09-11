@@ -157,12 +157,21 @@ baseline, depending on the problem); the `.unsure` boxes say which.
   - **Completion** — Ctrl-Space, and automatically after two word characters or a `.`. It offers
     keywords, builtins, identifiers already in your buffer, and members of the modules these
     problems actually use (`collections`, `itertools`, `heapq`, `bisect`, `functools`, `math`, `re`,
-    `random`, `string`, `sys`) plus the common list/dict/str/set methods. Entries are ranked so a
-    module's own members outrank the generic method list, and it never fires inside a string or a
-    comment. Registered as `CodeMirror.hint.python`.
+    `random`, `string`, `sys`). The full stdlib vocabulary (176 modules' public members) is known;
+    typed receivers are resolved — `d.` after `d = {}` or `d = deque()` offers that type's methods
+    (plus `str`/`list`/`dict`/`set`/`tuple`/`int`/`float`/`bytes`), `self.x` assignments become
+    `self.` completions, `from x import ` proposes that module's members, and typing a block
+    keyword (`def`, `cla…`, `for`, `while`, `with`, `try`) pre-fills its skeleton. Entries are ranked
+    so a module's own members outrank the generic method list, and it never fires inside a string or
+    a comment. Registered as `CodeMirror.hint.python`.
   - **Vim mode** — the `Vim` button in the editor header, or **Ctrl-Alt-V** from anywhere. The
     button shows the current mode. Setting persists. `:w` flushes the autosave. Tab, Enter and
-    Backspace defer to Vim in normal/visual mode, so motions still work.
+    Backspace defer to Vim in normal/visual mode, so motions still work. `o` / `O` copy the
+    neighbour line's indentation onto the opened line, so the cursor lands at the writing column
+    instead of the gutter.
+  - **Relative line numbers** — the `Rel no` button in the editor header, or **Ctrl-Alt-R**, toggles
+    vim-style relative numbers (current line shows its absolute number, others show distance). On by
+    default; persists.
   - **Font** — JetBrains Mono, actually loaded (it was previously named in CSS but never fetched,
     so it silently fell back to Consolas). `A− / A+` in the editor header resizes just the code,
     11–22 px, remembered across sessions; the problem text has its own separate control. Coding

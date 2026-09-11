@@ -224,6 +224,34 @@
     if (ind >= indentUnit(c)) c.indentLine(pos.line, 'subtract');
   }
 
+  /* Vim's o/O insert a bare "\n" and drop the cursor at column 0. Real vim keeps
+     the previous line's indentation on the line it opens, so replicate that:
+     whenever an edit opened a new empty line while vim was in command mode, copy
+     the reference line's leading whitespace onto it. (Enter inside insert mode is
+     handled by enterKey and never reaches this.) */
+  function vimOpenLineIndent(c) {
+    c.on('change', (cm2, ch) => {
+      const newlineText = ch.text.length > 1 || ch.text.some(t => t.indexOf('\n') >= 0);
+      if (!newlineText || !vimCommandMode(cm2)) return;
+      const L = ch.from.line, c0 = ch.from.ch;
+      let newLine, refLine;
+      if (c0 > 0) { newLine = L + 1; refLine = L; }        /* o — split below cursor */
+      else { newLine = L; refLine = L + 1 < cm2.lineCount() ? L + 1 : Math.max(0, L - 1); } /* O */
+      const opened = cm2.getLine(newLine);
+      if (opened === undefined || !/^ *$/.test(opened)) return;
+      const ref = cm2.getLine(refLine);
+      if (ref === undefined) return;
+      const ind = (ref.match(/^ */) || [''])[0];
+      setTimeout(() => {
+        if (newLine >= cm2.lineCount()) return;
+        const cur = cm2.getLine(newLine);
+        if (!/^ *$/.test(cur)) return;
+        const lead = (cur.match(/^ */) || [''])[0];
+        cm2.replaceRange(ind, CodeMirror.Pos(newLine, 0), CodeMirror.Pos(newLine, lead.length));
+      }, 0);
+    });
+  }
+
   /* --- completion ---
      Backed by pyenv.js, generated from a real CPython stdlib: every builtin and
      keyword, all module names, the public members of 176 modules, and the methods
@@ -245,6 +273,79 @@
       .split(' ').forEach(m => set.add(m));
     return [...set].sort();
   })();
+
+  /* the whole stdlib vocabulary — module members, builtins, methods — so an
+     obscure name still completes even when nothing in the buffer hints at it */
+  const ANY_NAME = (function () {
+    const set = new Set(ENV.builtins || []);
+    (ENV.keywords || []).forEach(w => set.add(w));
+    (ENV.allmodules || []).forEach(w => set.add(w));
+    Object.keys(ENV.modules || {}).forEach(mod => (ENV.modules[mod] || []).forEach(w => set.add(w)));
+    Object.keys(ENV.methods || {}).forEach(t => (ENV.methods[t] || []).forEach(w => set.add(w)));
+    return [...set];
+  })();
+
+  /* typed literals and calls we can infer, so `d.` on `d = {}` completes dict
+     methods and `q.` on `q = deque()` completes deque methods */
+  const TYPE_METHODS = {
+    str: ENV.methods.str, list: ENV.methods.list, dict: ENV.methods.dict,
+    set: ENV.methods.set, tuple: ENV.methods.tuple, int: ENV.methods.int,
+    float: ENV.methods.float, bytes: ENV.methods.bytes
+  };
+  const KNOWN_CLASS = {
+    Counter:     (ENV.methods.dict || []).concat(['most_common', 'subtract', 'elements', 'total']),
+    defaultdict: (ENV.methods.dict || []).concat(['default_factory']),
+    OrderedDict: (ENV.methods.dict || []).concat(['move_to_end', 'popitem']),
+    deque:       (ENV.methods.list || []).concat(['appendleft', 'extendleft', 'popleft', 'rotate'])
+  };
+  function varTypes(text) {
+    const t = {};
+    const re = /^[ \t]*([A-Za-z_]\w*)\s*=\s*(.*)$/gm;
+    let m;
+    while ((m = re.exec(text))) {
+      const v = m[1], rhs = m[2].trim();
+      if (/^[\[{]/.test(rhs)) t[v] = rhs[0] === '[' ? 'list' : 'dict';
+      else if (/^[fF]?['"]/.test(rhs)) t[v] = 'str';
+      else if (/^set\s*\(/.test(rhs)) t[v] = 'set';
+      else { const call = rhs.match(/^(tuple|bytes|dict|list|int|float)\s*\(/); if (call) t[v] = call[1]; }
+      if (/^-?\d+$/.test(rhs)) t[v] = 'int';
+      else if (/^-?\d*\.\d+/.test(rhs)) t[v] = 'float';
+      else { const cl = rhs.match(/^([A-Za-z_]\w*)\s*\(/); if (cl && KNOWN_CLASS[cl[1]]) t[v] = cl[1]; }
+    }
+    return t;
+  }
+  function selfAttrs(text) {
+    const set = new Set(), re = /self\.([A-Za-z_]\w*)/g;
+    let m;
+    while ((m = re.exec(text))) set.add(m[1]);
+    return set.size ? [...set].sort() : null;
+  }
+
+  /* Resolve what sits before a dot: an imported module (np -> numpy), a known
+     stdlib class, a variable we saw assigned a typed value, or `self`. */
+  function resolveMembers(base, imports, text) {
+    if (base === 'self') { const a = selfAttrs(text); if (a) return {list: a, kind: 'attr'}; return null; }
+    const mod = imports.alias[base] || base;
+    if (ENV.modules[mod]) return {list: ENV.modules[mod], kind: mod};
+    if (KNOWN_CLASS[base]) return {list: KNOWN_CLASS[base], kind: 'obj'};
+    const vt = varTypes(text)[base] || varTypes(text)[base.split('.').pop()];
+    if (vt) { const l = TYPE_METHODS[vt] || KNOWN_CLASS[vt]; if (l) return {list: l.slice(), kind: vt}; }
+    return null;
+  }
+
+  function bufferWords(c, skip) {
+    const out = new Set(), re = /[A-Za-z_][A-Za-z0-9_]*/g;
+    let m; const text = c.getValue();
+    while ((m = re.exec(text))) if (m[0] !== skip && m[0].length > 1) out.add(m[0]);
+    return out;
+  }
+
+  /* Typing the exact block keyword (then Tab/Esc open) gets a structure, not
+     just the bare word. */
+  const SNIPPETS = {
+    def: 'def name(args):', class: 'class Name():', for: 'for x in items:',
+    while: 'while cond:', with: 'with ctx as obj:', try: 'try:'
+  };
 
   /* Resolve what a name refers to, by reading the buffer's own imports:
        import re                  -> re
@@ -275,21 +376,6 @@
     return {alias: alias, plain: plain};
   }
 
-  function membersOf(base, imports) {
-    const mod = imports.alias[base] || base;          // np -> numpy, re -> re
-    if (ENV.modules[mod]) return {list: ENV.modules[mod], kind: mod};
-    return null;
-  }
-
-  function bufferWords(c, skip) {
-    const out = new Set(), re = /[A-Za-z_][A-Za-z0-9_]*/g;
-    let m; const text = c.getValue();
-    while ((m = re.exec(text))) if (m[0] !== skip && m[0].length > 1) out.add(m[0]);
-    return out;
-  }
-
-  /* Registered as a CodeMirror helper so it is reachable as CodeMirror.hint.python
-     (idiomatic, and it makes the completer testable from outside the closure). */
   function pythonHint(c) {
     const cur = c.getCursor(), line = c.getLine(cur.line);
     const tok = c.getTokenAt(cur);
@@ -306,15 +392,20 @@
        `get`, `pop`… and never reaches `defaultdict`. */
     let pool;
     const beforeWord = line.slice(0, start);
+    const fromImport = /(^|\n)[ \t]*from[ \t]+([\w.]+)[ \t]+import[ \t]*$/.exec(beforeWord);
     const importCtx = /(^|\n)[ \t]*(import|from)[ \t][\w., \t]*$/.test(beforeWord);
 
     if (start > 0 && line.charAt(start - 1) === '.') {                  // member access
       let e = start - 1, s2 = e;
       while (s2 && /[\w$.]/.test(line.charAt(s2 - 1))) s2--;
       const base = line.slice(s2, e);
-      const mem = membersOf(base, imports) || membersOf(base.split('.').pop(), imports);
-      pool = (mem ? mem.list.map(w => [w, mem.kind, 0]) : [])
-        .concat(ANY_METHOD.map(w => [w, 'method', mem ? 2 : 0]));
+      const mem = resolveMembers(base, imports, text);
+      pool = mem ? mem.list.map(w => [w, mem.kind, 0])
+                 : ANY_METHOD.map(w => [w, 'method', 1]).concat(ANY_NAME.map(w => [w, 'attr', 2]));
+    } else if (fromImport) {                                            // `from collections import `
+      const mem = resolveMembers(fromImport[2], imports, text);
+      pool = (mem ? mem.list.map(w => [w, 'import', 0]) : [])
+        .concat(MODULE_NAMES.map(w => [w, 'module', 2]));
     } else if (importCtx) {                                             // after `import `
       pool = MODULE_NAMES.map(w => [w, 'module', 0]);
     } else {
@@ -322,7 +413,13 @@
         .concat(PY_BUILTINS.map(w => [w, 'builtin', 0]))
         .concat(imports.plain.map(w => [w, 'import', 0]))
         .concat(MODULE_NAMES.map(w => [w, 'module', 2]))
-        .concat([...bufferWords(c, word)].map(w => [w, 'local', 1]));
+        .concat([...bufferWords(c, word)].map(w => [w, 'local', 1]))
+        .concat(ANY_NAME.map(w => [w, 'std', 3]));
+      /* block keyword prefixes get their skeleton, so typing `de` already proposes
+        `def name(args):` and the closer the word is to the keyword the higher it ranks */
+      Object.keys(SNIPPETS)
+        .filter(k => k.startsWith(word))
+        .forEach(k => pool.unshift([SNIPPETS[k], 'snip', -2 + (k.length - word.length)]));
     }
 
     const seen = new Set(), list = [];
@@ -366,6 +463,7 @@
         'Alt-Down': (c) => c.execCommand('swapLineDown')
       }
     });
+    vimOpenLineIndent(cm);
 
     /* Type-ahead completion: fires on word characters and after a dot, never on
        the first keystroke of a word (too noisy) and never while one is open. */
@@ -693,6 +791,55 @@
   }
   vimBtn.onclick = () => { vimOn = !vimOn; applyVim(true); };
   applyVim(false);
+
+  /* --- relative line numbers (vim-style: current line absolute, the rest how
+        many lines away they are, so `5dd` / `3j` line up with the gutter) --- */
+  let relNo = load('relno', true);
+  const relBtn = $('#relnoBtn');
+  function paintRel() {
+    if (!relBtn) return;
+    relBtn.setAttribute('aria-pressed', relNo ? 'true' : 'false');
+    relBtn.textContent = relNo ? 'Rel no' : 'Abs no';
+  }
+  /* The gutter is re-painted by CodeMirror as absolute numbers; we only rewrite
+     the visible copy. _lastSet detects a fresh repaint so _abs stays correct. */
+  function relPatch() {
+    if (!cm || !relNo) return;
+    const curLine = cm.getCursor().line + 1;
+    cm.display.lineDiv.querySelectorAll('.CodeMirror-linenumber').forEach(el => {
+      const t = el.textContent;
+      if (el._lastSet !== t) {
+        const n = parseInt(t, 10);
+        if (!isNaN(n) && /^\d+$/.test(t)) el._abs = n;
+      }
+      if (el._abs == null) return;
+      const d = el._abs - curLine;
+      const out = d === 0 ? String(el._abs) : String(Math.abs(d));
+      el.textContent = out;
+      el._lastSet = out;
+    });
+  }
+  function relRestore() {
+    if (!cm) return;
+    cm.display.lineDiv.querySelectorAll('.CodeMirror-linenumber').forEach(el => {
+      if (el._abs != null) el.textContent = String(el._abs);
+      delete el._lastSet; delete el._abs;
+    });
+  }
+  function applyRel(focus) {
+    if (!cm) return;
+    save('relno', relNo);
+    if (relNo) relPatch(); else relRestore();
+    paintRel();
+    if (focus) cm.focus();
+  }
+  if (cm) {
+    cm.on('cursorActivity', relPatch);
+    cm.on('changes', relPatch);
+    cm.on('scroll', relPatch);
+  }
+  if (relBtn) relBtn.onclick = () => { relNo = !relNo; applyRel(true); };
+  applyRel(false);
 
   const getCode = () => cm ? cm.getValue() : ta.value;
   const setCode = (v) => { cm ? cm.setValue(v) : (ta.value = v); };
@@ -1172,6 +1319,9 @@
     if (e.key === 'Escape') { closeDrawer(); const l = $('#lightbox'); l && l.remove(); }
     if (e.ctrlKey && e.altKey && (e.key === 'v' || e.key === 'V')) {   // works inside the editor too
       e.preventDefault(); vimOn = !vimOn; applyVim(true); return;
+    }
+    if (e.ctrlKey && e.altKey && (e.key === 'r' || e.key === 'R')) {
+      e.preventDefault(); relNo = !relNo; applyRel(true); return;
     }
     const inEditor = e.target.closest('.CodeMirror, textarea, input, select');
     if (inEditor) return;
