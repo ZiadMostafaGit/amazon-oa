@@ -796,9 +796,76 @@
 
   /* ---------- render ---------- */
   const SECTIONS = [...new Set(P.map(p => p.section))];
-  /* plain-text index of each problem, built once, so drawer search covers the statement */
-  const HAY = P.map(p => (p.title + ' ' + p.label + ' ' + p.section + ' ' + p.platform + ' ' +
-      (p.fn ? p.fn.name : '') + ' ' + p.body.replace(/<[^>]*>/g, ' ')).toLowerCase());
+
+  /* ---------- smart search ---------- */
+  /* Per-problem search index built once. Any word you type is matched against
+     title, function name, section/platform, the whole transcribed statement,
+     and your notes — then ranked so a title hit beats a body hit. */
+  const SIDX = P.map(p => {
+    const body = p.body.replace(/<[^>]*>/g, ' ');
+    return {
+      til: p.title.toLowerCase(),
+      fn:  (p.fn ? p.fn.name : '').toLowerCase(),
+      meta: (p.label + ' ' + p.section + ' ' + p.platform).toLowerCase(),
+      body: body.toLowerCase()
+    };
+  });
+  const SOURCE = p => p.section.startsWith('Siemens') ? 'siemens'
+    : p.section.startsWith('FastPrep') ? 'fastprep' : 'amazon';
+  const stMark = st => st === 'solved' ? '✓' : st === 'review' ? '↻' : '•';
+
+  /* near-duplicates / same project: entries that belong to one multi-part
+     project (e.g. the MovieDB debugging trio) are tagged with their siblings
+     so "do I already have this?" finds the whole family, not just one entry */
+  const PROJECT = {
+    'moviedb-search': 'MovieDB', 'moviedb-recs': 'MovieDB', 'moviedb-recs-postmortem': 'MovieDB',
+    'workflow-team': 'Workflow', 'workflow-issues': 'Workflow'
+  };
+  const SIBLING = P.map(p => {
+    const fam = PROJECT[p.id];
+    if (!fam) return [];
+    return P.map(q => q !== p && PROJECT[q.id] === fam ? q : null).filter(Boolean);
+  });
+
+  const qtokens = q => q.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(' ').filter(Boolean);
+
+  /* relevance: per-word score by field (title highest, statement lowest); a
+     whole-phrase match in the title adds a bonus. Returns null if nothing hit. */
+  function score(p, i, tokens, phrase) {
+    const s = SIDX[i];
+    let sc = 0; const bits = new Set();
+    tokens.forEach(t => {
+      let w = 0;
+      if (s.til.includes(t))        { w = 8; if (t.length > 2 && new RegExp('\\b' + t, '').test(s.til)) w += 2; }
+      else if (s.fn.includes(t))    w = 7;
+      else if (s.meta.includes(t))  w = 4;
+      else if (s.body.includes(t))  w = 1;
+      if (w) { sc += w; bits.add(t); }
+    });
+    if (!bits.size) return null;
+    if (s.til.includes(phrase))   sc += 6;
+    else if (s.meta.includes(phrase)) sc += 2;
+    return {sc, bits: [...bits]};
+  }
+
+  const hl = (text, toks) => {
+    let out = esc(text);
+    toks.forEach(t => out = out.replace(new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'),
+                                        m => '<mark>' + m + '</mark>'));
+    return out;
+  };
+
+  function snippet(i, toks) {
+    const body = P[i].body.replace(/<[^>]*>/g, ' ');
+    const t = toks[0];
+    const k = body.toLowerCase().indexOf(t);
+    if (k < 0) return '';
+    const s0 = Math.max(0, k - 45), e0 = Math.min(body.length, k + t.length + 70);
+    let sn = (s0 > 0 ? '…' : '') + body.slice(s0, e0) + (e0 < body.length ? '…' : '');
+    toks.forEach(t => sn = sn.replace(new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'),
+                                      m => '<mark>' + m + '</mark>'));
+    return sn;
+  }
 
   function renderRail() {
     const cur = P[idx].section;
@@ -832,7 +899,7 @@
   $('#stReview').onclick  = () => setStatus(P[idx].id, 'review');
 
   /* ---------- drawer ---------- */
-  let dq = '', dfilter = 'all';
+  let dq = '', dfilter = 'all', dsec = 'all';
 
   function counts(list) {
     const c = {solved:0, attempt:0, review:0, none:0};
@@ -855,37 +922,76 @@
       `<span class="r"><b>${c.review}</b> review</span>` +
       `<span><b>${c.none}</b> untouched</span>`;
 
-    const q = dq.trim().toLowerCase();
-    const match = (p, i) =>
-      (dfilter === 'all' || (status[p.id] || 'none') === dfilter) &&
-      (!q || HAY[i].includes(q) || (load('notes:' + p.id, '') || '').toLowerCase().includes(q));
+    const q = dq.trim();
+    const ph = q.toLowerCase();
+    const toks = qtokens(q);
+    const inStatus = p => dfilter === 'all' || (status[p.id] || 'none') === dfilter;
+    const inSource = p => dsec === 'all' || SOURCE(p) === dsec;
+    const sub = $('#dsub');
+    const dupTag = i => {
+      const fam = PROJECT[P[i].id] || '';
+      if (!fam || !SIBLING[i].length) return '';
+      const nums = SIBLING[i].map(s => P.indexOf(s) + 1).join(', #');
+      return `<span class="dup">same <b>${esc(fam)}</b> project · also #${nums}</span>`;
+    };
 
     d.innerHTML = '';
     let shown = 0;
-    SECTIONS.forEach(sec => {
-      const rows = [];
+
+    if (!q) {
+      /* no query → classic grouped browser */
+      SECTIONS.forEach(sec => {
+        const rows = [];
+        P.forEach((p, i) => {
+          if (p.section !== sec || !inStatus(p) || !inSource(p)) return;
+          const st = status[p.id];
+          const b = document.createElement('button');
+          b.className = 'it' + (i === idx ? ' active' : '');
+          b.innerHTML = `${st ? `<span class="mk ${MARK[st]}">${stMark(st)}</span>` : ''}` +
+                        `${i + 1}. ${esc(p.title)}<small>${p.label} · ${p.platform}</small>` + dupTag(i);
+          b.onclick = () => { go(i); closeDrawer(); };
+          rows.push(b);
+        });
+        if (!rows.length) return;
+        shown += rows.length;
+        const sc = counts(P.filter(p => p.section === sec));
+        const h = document.createElement('div'); h.className = 'sec';
+        h.innerHTML = `<span>${sec}</span><em>${sc.solved}/${P.filter(p => p.section === sec).length} solved</em>`;
+        d.appendChild(h);
+        rows.forEach(r => d.appendChild(r));
+      });
+      if (sub) sub.textContent = `${shown} of ${P.length} problems`;
+      if (!shown) { if (sub) sub.textContent = 'no problems match those filters'; d.innerHTML = '<div class="none">Nothing matches those filters.</div>'; }
+    } else {
+      /* query → ranked results, best matches first */
+      const res = [];
       P.forEach((p, i) => {
-        if (p.section !== sec || !match(p, i)) return;
-        const st = status[p.id];
+        if (!inStatus(p) || !inSource(p)) return;
+        const r = score(p, i, toks, ph);
+        if (r) res.push({i, ...r});
+      });
+      res.sort((a, b) => (b.sc - a.sc) || (a.i - b.i));
+      if (sub) sub.textContent = `${res.length} match${res.length === 1 ? '' : 'es'} for “${esc(q)}”`;
+      if (!res.length) {
+        d.innerHTML = '<div class="none">No problem matches that. Try one word at a time, or a function name.</div>';
+      }
+      res.forEach(({i, bits}) => {
+        const p = P[i]; const st = status[p.id];
         const b = document.createElement('button');
         b.className = 'it' + (i === idx ? ' active' : '');
-        b.innerHTML = `${st ? `<span class="mk ${MARK[st]}">${st === 'solved' ? '✓' : st === 'review' ? '↻' : '•'}</span>` : ''}` +
-                      `${i + 1}. ${p.title}<small>${p.label} · ${p.platform}</small>`;
+        const sn = snippet(i, bits);
+        b.innerHTML =
+          `${st ? `<span class="mk ${MARK[st]}">${stMark(st)}</span>` : ''}` +
+          `${i + 1}. ${hl(p.title, bits)}<small>${p.label} · ${p.platform}</small>` +
+          (sn ? `<span class="hit">${sn}</span>` : '') + dupTag(i);
         b.onclick = () => { go(i); closeDrawer(); };
-        rows.push(b);
+        d.appendChild(b);
       });
-      if (!rows.length) return;
-      shown += rows.length;
-      const sc = counts(P.filter(p => p.section === sec));
-      const h = document.createElement('div'); h.className = 'sec';
-      h.innerHTML = `<span>${sec}</span><em>${sc.solved}/${P.filter(p => p.section === sec).length} solved</em>`;
-      d.appendChild(h);
-      rows.forEach(r => d.appendChild(r));
-    });
-    if (!shown) d.innerHTML = '<div class="none">Nothing matches that.</div>';
+    }
 
     document.querySelectorAll('#drawer .filters button').forEach(b =>
-      b.setAttribute('aria-pressed', b.dataset.f === dfilter));
+      b.setAttribute('aria-pressed',
+        b.dataset.f != null ? b.dataset.f === dfilter : b.dataset.s === dsec));
   }
 
   function openDrawer() {
@@ -893,7 +999,7 @@
     const scrim = document.createElement('div'); scrim.id = 'scrim'; scrim.onclick = closeDrawer;
     const d = document.createElement('div'); d.id = 'drawer';
     d.innerHTML =
-      `<h2>All problems</h2><p class="sub">${P.length} items · click a status again to clear it</p>` +
+      `<h2>All problems</h2><p class="sub" id="dsub">${P.length} items · search matches every word, ranked by relevance</p>` +
       `<div class="pbar" id="pbar"></div><div class="legend" id="legend"></div>` +
       `<div class="tools">` +
         `<input id="dq" placeholder="Search title, statement, function name, your notes…" autocomplete="off">` +
@@ -903,6 +1009,12 @@
           `<button data-f="attempt">Attempted</button>` +
           `<button data-f="solved">Solved</button>` +
           `<button data-f="review">Review</button>` +
+        `</div>` +
+        `<div class="filters srcf">` +
+          `<button data-s="all">Any source</button>` +
+          `<button data-s="amazon">Amazon</button>` +
+          `<button data-s="siemens">Siemens</button>` +
+          `<button data-s="fastprep">FastPrep</button>` +
         `</div>` +
       `</div>` +
       `<div id="drawerList"></div>` +
@@ -916,7 +1028,10 @@
     qi.value = dq;
     qi.oninput = () => { dq = qi.value; renderDrawer(); };
     document.querySelectorAll('#drawer .filters button').forEach(b =>
-      b.onclick = () => { dfilter = b.dataset.f; renderDrawer(); });
+      b.onclick = () => {
+        if (b.dataset.f != null) dfilter = b.dataset.f; else dsec = b.dataset.s;
+        renderDrawer();
+      });
     $('#expBtn').onclick = exportProgress;
     $('#impBtn').onclick = importProgress;
     renderDrawer();

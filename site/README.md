@@ -269,9 +269,14 @@ handful of very new names may be offered that 3.12 lacks. It only affects comple
 - **Drill** — 🎲 in the top bar (or `d`) jumps to a random problem, resets its clock and starts it.
   It draws from your **Review** pile first, and otherwise from anything not yet solved — the closest
   thing to sitting an unseen question under time.
-- **Search & filter** — the hamburger drawer has a search box (`/` opens it focused) that matches
-  titles, the full problem statement, function names *and your own notes*, plus status filter chips.
-  With 41 items this is the fastest way back to "that sliding-window one".
+- **Search & filter** — the hamburger drawer has a search box (`/` opens it focused). Entering any
+  words (title, full statement, function name, your own notes) gives a ranked list — title hits
+  first, statement hits last — with matched words highlighted and a snippet of the statement shown
+  under each result. Filter chips narrow by status (All / Not started / Attempted / Solved / Review)
+  and by source (All / Amazon / Siemens / FastPrep), and entries that belong to a multi-part
+  project (the MovieDB debug trio, the Workflow pair) carry a *same project* tag so "do I already
+  have this?" finds the whole family. With 41 items this is the fastest way back to "that
+  sliding-window one".
 - **Progress** — a segmented bar and counts at the top of the drawer, and `n/m solved` per section
   so you can see which section you have been avoiding.
 - **Notes** — the **Notes** button opens a pane under the editor, autosaved per problem, for the
