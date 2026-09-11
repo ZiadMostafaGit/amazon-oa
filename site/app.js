@@ -248,6 +248,7 @@
         if (!/^ *$/.test(cur)) return;
         const lead = (cur.match(/^ */) || [''])[0];
         cm2.replaceRange(ind, CodeMirror.Pos(newLine, 0), CodeMirror.Pos(newLine, lead.length));
+        cm2.setCursor(CodeMirror.Pos(newLine, ind.length));
       }, 0);
     });
   }
