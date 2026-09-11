@@ -6,3 +6,8 @@ services:
     ports:
       - "8080:80"
     restart: unless-stopped
+    volumes:
+      - amazon-oa-data:/data
+
+volumes:
+  amazon-oa-data:

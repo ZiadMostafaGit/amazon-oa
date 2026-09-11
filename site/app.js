@@ -28,6 +28,46 @@
   const load = (k, d) => { try { const v = localStorage.getItem(KEY + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } };
   const save = (k, v) => { try { localStorage.setItem(KEY + k, JSON.stringify(v)); } catch (e) {} };
 
+  /* ---------- server sync ---------- */
+  /* localStorage alone is per-browser and dies with a cache wipe. When served
+     by server.py (the Docker image), the whole amzoa:* state is mirrored to a
+     JSON file through /api/state, so code, notes and progress survive
+     browser restarts and travel across devices. Offline/nginx-only: no-op. */
+  let pushTimer = null;
+  function pushState() {
+    clearTimeout(pushTimer);
+    pushTimer = setTimeout(() => {
+      const out = {};
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith(KEY)) out[k.slice(KEY.length)] = localStorage.getItem(k);
+      }
+      fetch('/api/state', {method:'POST', headers:{'Content-Type':'application/json'},
+                           body:JSON.stringify(out)}).catch(() => {});
+    }, 400);
+  }
+  function pullState() {
+    fetch('/api/state', {cache:'no-store'})
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(data => {
+        if (!data || typeof data !== 'object') return;
+        const keys = Object.keys(data);
+        if (!keys.length) { pushState(); return; }      /* fresh server, seed it */
+        let diffs = 0;
+        keys.forEach(k => {
+          if (localStorage.getItem(KEY + k) !== data[k]) { localStorage.setItem(KEY + k, data[k]); diffs++; }
+        });
+        for (let i = localStorage.length - 1; i >= 0; i--) {
+          const lk = localStorage.key(i);
+          if (lk && lk.startsWith(KEY) && !(lk.slice(KEY.length) in data)) {
+            localStorage.removeItem(lk); diffs++;
+          }
+        }
+        if (diffs) location.reload();                    /* server differs → reinit from it */
+      })
+      .catch(() => {});
+  }
+
   let idx = Math.min(load('idx', 0), P.length - 1);
   const LANG = 'python';   // Python only \u2014 the editor is tuned for it
 
@@ -45,6 +85,7 @@
   function setStatus(id, s) {
     if (status[id] === s) delete status[id]; else status[id] = s;   // click again to clear
     save('status', status);
+    pushState();
     renderStatusBtns(); renderRail(); renderDrawer();
   }
 
@@ -55,6 +96,7 @@
     document.documentElement.style.setProperty('--pfs', fsz + 'px');
     $('#fsVal').textContent = fsz;
     save('fsz', fsz);
+    pushState();
   }
   $('#fsUp').onclick   = () => { fsz += 1; applyFsz(); };
   $('#fsDown').onclick = () => { fsz -= 1; applyFsz(); };
@@ -560,6 +602,7 @@
     document.documentElement.style.setProperty('--efs', efs + 'px');
     $('#efsVal').textContent = efs;
     save('efs', efs);
+    pushState();
     if (cm) cm.refresh();
   }
   $('#efsUp').onclick   = () => { efs += 1; applyEfs(); };
@@ -577,6 +620,7 @@
     if (!cm) return;
     cm.setOption('keyMap', vimOn ? 'vim' : 'default');
     save('vim', vimOn);
+    pushState();
     paintVim();
     if (focus) cm.focus();
   }
@@ -612,6 +656,7 @@
       save('code:' + id + ':' + lg, text);
       if (!status[id]) { status[id] = 'attempt'; save('status', status);
                          renderStatusBtns(); renderRail(); renderDrawer(); }
+      pushState();
       $('#saved').textContent = 'Autosaved';
     });
   }
@@ -639,7 +684,7 @@
   const nta = $('#notesTa');
   nta.addEventListener('input', () => {
     const id = P[idx].id, text = nta.value;
-    noteSaver.schedule(() => { save('notes:' + id, text); renderNotesBtn(); });
+    noteSaver.schedule(() => { save('notes:' + id, text); renderNotesBtn(); pushState(); });
   });
   function loadNotes() { nta.value = load('notes:' + P[idx].id, ''); renderNotesBtn(); }
   function renderNotesBtn() {
@@ -649,6 +694,7 @@
   $('#notesBtn').onclick = () => {
     const n = $('#notes'), showing = n.classList.toggle('hidden');
     save('notesOpen', !showing);
+    pushState();
     if (!showing) nta.focus();
     if (cm) cm.refresh();
   };
@@ -966,4 +1012,5 @@
   const h = P.findIndex(p => p.id === location.hash.slice(1));
   if (h >= 0) idx = h; else location.hash = P[idx].id;
   render();
+  pullState();          // sync from server (code/notes/progress survive restarts)
 })();

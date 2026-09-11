@@ -2,7 +2,8 @@
 
 41 Amazon / Siemens online-assessment problems transcribed from screenshots, each with a worked
 solution and a step-by-step derivation, plus a Python editor and a test runner that executes real
-CPython **in the browser**. No backend, no build step, no account.
+CPython **in the browser**. No build step, no account; open `site/index.html` for a zero-backend
+version, or run the Docker image for server-side persistence of your code and progress.
 
 ```
 site/     the app (open site/index.html, or run the container)
@@ -17,21 +18,23 @@ docker/   nginx config
 **Directly** — open `site/index.html` in a browser. Needs internet the first time (CodeMirror,
 JetBrains Mono, and ~10 MB of Pyodide come from CDNs and are then cached).
 
-**In Docker** — self-contained, works with no internet at all:
+**In Docker** — self-contained, works with no internet at all, and **persists your code, notes and
+progress on the server** so nothing is lost when you reopen it on another browser/device:
 
 ```sh
 docker compose up --build -d      # then open http://localhost:8080
 ```
 
-or without compose:
+or without compose (mount a volume or all state is lost when the container is recreated):
 
 ```sh
 docker build -t amazon-oa-practice .
-docker run -d -p 8080:80 --name amazon-oa amazon-oa-practice
+docker run -d -p 8080:80 -v amazon-oa-data:/data --name amazon-oa amazon-oa-practice
 ```
 
 The build fetches CodeMirror, the font and the Pyodide runtime into the image and rewrites the two
-files that reference them, so the container never reaches the network at run time.
+files that reference them, so the container never reaches the network at run time. State is written
+to `/data/state.json` (an anonymous volume otherwise) by the tiny backend in `server.py`.
 
 ## Publish it to Docker Hub
 
@@ -59,7 +62,7 @@ docker buildx build --platform linux/amd64,linux/arm64 \
 Anyone can then run it with:
 
 ```sh
-docker run -d -p 8080:80 YOURNAME/amazon-oa-practice
+docker run -d -p 8080:80 -v amazon-oa-data:/data YOURNAME/amazon-oa-practice
 ```
 
 ## What's in the app
@@ -89,3 +92,6 @@ docker run -d -p 8080:80 YOURNAME/amazon-oa-practice
 ./scripts/vendor.sh dist
 python3 -m http.server -d dist 8080     # http://localhost:8080/site/
 ```
+
+Running under plain `http.server` has **no** `/api/state` endpoint, so state stays in the browser's
+`localStorage` (per-browser, wiped with the cache). Use the Docker image for server-side persistence.

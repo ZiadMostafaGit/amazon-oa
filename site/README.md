@@ -141,7 +141,8 @@ baseline, depending on the problem); the `.unsure` boxes say which.
 - **Timer** — starts paused at the problem's nominal length; click it to start/pause, "Reset timer"
   to restart. Each problem keeps *its own* clock, so leaving to check another question and coming
   back does not lose your time.
-- **Editor** — CodeMirror 5, **Python only**. Code is autosaved per problem in `localStorage`;
+- **Editor** — CodeMirror 5, **Python only**. Code is autosaved per problem (in `localStorage`, and
+  mirrored to the server when served by the Docker image — see "Persistence" below);
   "Reset to stub" reloads the signature. The other three languages were removed so the editor could
   be tuned for one: see below. (Any Java/C++/JS code you saved earlier is still in `localStorage`
   under `code:<id>:<lang>` and still comes out in an export — it just isn't reachable from the UI.)
@@ -277,8 +278,17 @@ handful of very new names may be offered that 3.12 lacks. It only affects comple
   pattern, the trap, or what you got wrong. A `•` on the button means notes exist; notes are
   searchable from the drawer.
 - **Export / import progress** — bottom of the drawer. Everything (code, notes, statuses, timers)
-  lives in this browser's `localStorage` and dies with it; export writes one JSON file, import
-  restores it. Worth doing after a long session.
+  normally lives in this browser's `localStorage` and dies with it; export writes one JSON file,
+  import restores it. Served by the Docker image, the same state is automatically mirrored to the
+  server (see below), making export an occasional backup instead of the only protection.
+
+### Persistence (Docker)
+
+Served by `server.py` (the Docker image), every `amzoa:*` `localStorage` entry is POSTed to
+`/api/state` a moment after it changes and re-fetched on page load (the server wins on conflict).
+The backend writes `/data/state.json` on a named volume, so code, notes and progress survive browser
+restarts, cache wipes, and moving to another device. Open the app with plain `http.server` (no API)
+and state is per-browser again.
 
 The editor does not execute code (no runtime offline). It's a scratch pad for writing the
 solution while you read, exactly like the real OA panel before you hit Run.
