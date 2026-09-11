@@ -31,45 +31,85 @@
   /* ---------- server sync ---------- */
   /* localStorage alone is per-browser and dies with a cache wipe. When served
      by server.py (the Docker image), the whole amzoa:* state is mirrored to a
-     JSON file through the /api/state endpoint, so code, notes and progress
-     survive browser restarts and travel across devices. Offline/nginx-only: no-op. */
-  /* Resolve the API path relative to the page (site/api/state) instead of an
-     absolute /api/state, so it works when a reverse proxy mounts the app under
-     a prefix like /site/ — with an absolute path the proxy never sees it. */
-  const API_URL = new URL('api/state', location.href).toString();
+     JSON file through the state API, so code, notes and progress survive
+     browser restarts and travel across devices. Plain file:// or no backend: no-op. */
+  /* The API endpoint is DISCOVERED at run time: we probe every plausible URL
+     and keep the first one that answers JSON. This works under a /site/
+     reverse proxy, mounted at the site root, or on the container directly —
+     no nginx routing trick needed. A badge next to the lib shows the result so
+     a broken deployment is visible instead of silent. */
+  const API_CANDIDATES = ['api/state', '../api/state', '/site/api/state', '/api/state']
+    .map(u => { try { return new URL(u, location.href).toString(); } catch (e) { return u; } })
+    .filter((v, i, a) => a.indexOf(v) === i);
+  let apiURL = null;
+  function syncInfo(t, cls) {
+    const b = $('#sync');
+    if (!b) return;
+    b.textContent = t;
+    b.className = cls || '';
+    b.title = 'Server-side sync: ' + t;
+  }
+  async function probe(url) {
+    try {
+      const r = await fetch(url, {cache: 'no-store'});
+      if (r.ok && (r.headers.get('content-type') || '').includes('application/json')) {
+        return await r.json();
+      }
+    } catch (e) {}
+    return null;
+  }
+  async function findApi() {
+    for (const u of API_CANDIDATES) {
+      const data = await probe(u);
+      if (data) { apiURL = u; return data; }
+    }
+    apiURL = null;
+    return null;
+  }
+  function collectState() {
+    const out = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.startsWith(KEY)) out[k.slice(KEY.length)] = localStorage.getItem(k);
+    }
+    return out;
+  }
+  async function postState() {
+    const cands = apiURL ? [apiURL] : API_CANDIDATES;
+    for (const u of cands) {
+      try {
+        const r = await fetch(u, {method:'POST', headers:{'Content-Type':'application/json'},
+                                  body:JSON.stringify(collectState())});
+        if (r.ok) { syncInfo('☁ synced', 'ok'); return true; }
+      } catch (e) {}
+    }
+    apiURL = null;                   /* force a fresh probe next time */
+    syncInfo('☁ offline', 'bad');
+    return false;
+  }
   let pushTimer = null;
   function pushState() {
     clearTimeout(pushTimer);
-    pushTimer = setTimeout(() => {
-      const out = {};
-      for (let i = 0; i < localStorage.length; i++) {
-        const k = localStorage.key(i);
-        if (k && k.startsWith(KEY)) out[k.slice(KEY.length)] = localStorage.getItem(k);
-      }
-      fetch(API_URL, {method:'POST', headers:{'Content-Type':'application/json'},
-                      body:JSON.stringify(out)}).catch(() => {});
-    }, 400);
+    syncInfo('☁ saving…', 'busy');
+    pushTimer = setTimeout(postState, 400);
   }
-  function pullState() {
-    fetch(API_URL, {cache:'no-store'})
-      .then(r => r.ok ? r.json() : Promise.reject())
-      .then(data => {
-        if (!data || typeof data !== 'object') return;
-        const keys = Object.keys(data);
-        if (!keys.length) { pushState(); return; }      /* fresh server, seed it */
-        let diffs = 0;
-        keys.forEach(k => {
-          if (localStorage.getItem(KEY + k) !== data[k]) { localStorage.setItem(KEY + k, data[k]); diffs++; }
-        });
-        for (let i = localStorage.length - 1; i >= 0; i--) {
-          const lk = localStorage.key(i);
-          if (lk && lk.startsWith(KEY) && !(lk.slice(KEY.length) in data)) {
-            localStorage.removeItem(lk); diffs++;
-          }
-        }
-        if (diffs) location.reload();                    /* server differs → reinit from it */
-      })
-      .catch(() => {});
+  async function pullState() {
+    const data = await findApi();
+    if (!data) { syncInfo('☁ offline (local only)', 'bad'); return; }
+    const keys = Object.keys(data);
+    if (!keys.length) { pushState(); return; }          /* fresh server, seed it */
+    let diffs = 0;
+    keys.forEach(k => {
+      if (localStorage.getItem(KEY + k) !== data[k]) { localStorage.setItem(KEY + k, data[k]); diffs++; }
+    });
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+      const lk = localStorage.key(i);
+      if (lk && lk.startsWith(KEY) && !(lk.slice(KEY.length) in data)) {
+        localStorage.removeItem(lk); diffs++;
+      }
+    }
+    syncInfo('☁ synced', 'ok');
+    if (diffs) location.reload();                        /* server differs → reinit from it */
   }
 
   let idx = Math.min(load('idx', 0), P.length - 1);

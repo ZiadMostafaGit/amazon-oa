@@ -50,10 +50,10 @@ class Handler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def _is_state_api(self, path):
-        # The page resolves the API relatively (site/api/state) so it survives a
-        # reverse proxy that mounts the app under /site/ ... but keep the bare
-        # /api/state working for direct, root-mounted deployments.
-        return path == "/api/state" or path.endswith("/site/api/state")
+        # The page finds the API by probing candidates, so accept any spelling:
+        # /api/state, /site/api/state, with or without a trailing slash.
+        p = path.rstrip("/")
+        return p == "/api/state" or p.endswith("/site/api/state")
 
     def do_GET(self):
         path = urlparse(self.path).path

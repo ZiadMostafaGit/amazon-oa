@@ -276,6 +276,10 @@ table.tl tr.hot td{background:#1c1614}
 #vimBtn{flex:none;font-variant-numeric:tabular-nums}
 #vimBtn[aria-pressed="true"]{background:#123d2c;color:#4ade80;border-color:#1c5c42}
 #saved{font-size:12px;color:#5fae7f}
+#sync{font-size:12px;color:#8a8a8a}
+#sync.ok{color:#5fae7f}
+#sync.bad{color:#f08a5d;font-weight:700}
+#sync.busy{color:#d4b54a}
 #efoot{
   height:44px;flex:0 0 44px;display:flex;align-items:center;gap:10px;
   padding:0 12px;background:#161616;border-top:1px solid var(--line)
@@ -501,6 +505,7 @@ li.CodeMirror-hint-active .hk{color:#9dc4ee}
           <button id="efsUp" aria-label="Bigger code">A+</button>
         </span>
         <span id="saved">Autosaved</span>
+        <span id="sync" title="Server-side sync status"></span>
         <div class="spacer"></div>
         <button class="tbtn" id="reset">Reset to stub</button>
         <button class="tbtn" id="copy">Copy</button>
