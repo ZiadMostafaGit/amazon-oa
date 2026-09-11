@@ -31,8 +31,12 @@
   /* ---------- server sync ---------- */
   /* localStorage alone is per-browser and dies with a cache wipe. When served
      by server.py (the Docker image), the whole amzoa:* state is mirrored to a
-     JSON file through /api/state, so code, notes and progress survive
-     browser restarts and travel across devices. Offline/nginx-only: no-op. */
+     JSON file through the /api/state endpoint, so code, notes and progress
+     survive browser restarts and travel across devices. Offline/nginx-only: no-op. */
+  /* Resolve the API path relative to the page (site/api/state) instead of an
+     absolute /api/state, so it works when a reverse proxy mounts the app under
+     a prefix like /site/ — with an absolute path the proxy never sees it. */
+  const API_URL = new URL('api/state', location.href).toString();
   let pushTimer = null;
   function pushState() {
     clearTimeout(pushTimer);
@@ -42,12 +46,12 @@
         const k = localStorage.key(i);
         if (k && k.startsWith(KEY)) out[k.slice(KEY.length)] = localStorage.getItem(k);
       }
-      fetch('/api/state', {method:'POST', headers:{'Content-Type':'application/json'},
-                           body:JSON.stringify(out)}).catch(() => {});
+      fetch(API_URL, {method:'POST', headers:{'Content-Type':'application/json'},
+                      body:JSON.stringify(out)}).catch(() => {});
     }, 400);
   }
   function pullState() {
-    fetch('/api/state', {cache:'no-store'})
+    fetch(API_URL, {cache:'no-store'})
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(data => {
         if (!data || typeof data !== 'object') return;

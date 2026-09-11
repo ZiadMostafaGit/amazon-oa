@@ -284,11 +284,16 @@ handful of very new names may be offered that 3.12 lacks. It only affects comple
 
 ### Persistence (Docker)
 
-Served by `server.py` (the Docker image), every `amzoa:*` `localStorage` entry is POSTed to
-`/api/state` a moment after it changes and re-fetched on page load (the server wins on conflict).
-The backend writes `/data/state.json` on a named volume, so code, notes and progress survive browser
-restarts, cache wipes, and moving to another device. Open the app with plain `http.server` (no API)
-and state is per-browser again.
+Served by `server.py` (the Docker image), every `amzoa:*` `localStorage` entry is POSTed to the
+state API (`<page-relative>api/state`) a moment after it changes and re-fetched on page load (the
+server wins on conflict). The backend accepts both `/site/api/state` and `/api/state` so it works
+directly and behind a `/site/` reverse proxy. It writes `/data/state.json` on a named volume, so
+code, notes and progress survive browser restarts, cache wipes, and moving to another device.
+
+**If you put an nginx in front of the container,** proxy `/site/`, `/images/` and `/video/` — see
+`docker/reverse-proxy-example.conf`. The page loads screenshots as `../images/...` (outside
+`/site/`), and the API is relative to the page, so without those two extra locations images 404 and
+sync silently fails. Open the app with plain `http.server` (no API) and state is per-browser again.
 
 The editor does not execute code (no runtime offline). It's a scratch pad for writing the
 solution while you read, exactly like the real OA panel before you hit Run.

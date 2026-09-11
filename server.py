@@ -49,10 +49,16 @@ class Handler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def _is_state_api(self, path):
+        # The page resolves the API relatively (site/api/state) so it survives a
+        # reverse proxy that mounts the app under /site/ ... but keep the bare
+        # /api/state working for direct, root-mounted deployments.
+        return path == "/api/state" or path.endswith("/site/api/state")
+
     def do_GET(self):
         path = urlparse(self.path).path
 
-        if path == "/api/state":
+        if self._is_state_api(path):
             if _api_key and self.headers.get("X-API-Key") != _api_key:
                 return self._send_json(401, {"error": "unauthorized"})
             return self._send_json(200, _read_state())
@@ -69,7 +75,7 @@ class Handler(SimpleHTTPRequestHandler):
     def do_POST(self):
         path = urlparse(self.path).path
 
-        if path == "/api/state":
+        if self._is_state_api(path):
             if _api_key and self.headers.get("X-API-Key") != _api_key:
                 return self._send_json(401, {"error": "unauthorized"})
             length = int(self.headers.get("Content-Length", 0))
