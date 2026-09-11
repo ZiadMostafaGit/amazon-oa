@@ -224,34 +224,38 @@
     if (ind >= indentUnit(c)) c.indentLine(pos.line, 'subtract');
   }
 
-  /* Vim's o/O insert a bare "\n" and drop the cursor at column 0. Real vim keeps
-     the previous line's indentation on the line it opens, so replicate that:
-     whenever an edit opened a new empty line while vim was in command mode, copy
-     the reference line's leading whitespace onto it. (Enter inside insert mode is
-     handled by enterKey and never reaches this.) */
-  function vimOpenLineIndent(c) {
-    c.on('change', (cm2, ch) => {
-      const newlineText = ch.text.length > 1 || ch.text.some(t => t.indexOf('\n') >= 0);
-      if (!newlineText || !vimCommandMode(cm2)) return;
-      const L = ch.from.line, c0 = ch.from.ch;
-      let newLine, refLine;
-      if (c0 > 0) { newLine = L + 1; refLine = L; }        /* o — split below cursor */
-      else { newLine = L; refLine = L + 1 < cm2.lineCount() ? L + 1 : Math.max(0, L - 1); } /* O */
-      const opened = cm2.getLine(newLine);
-      if (opened === undefined || !/^ *$/.test(opened)) return;
-      const ref = cm2.getLine(refLine);
-      if (ref === undefined) return;
-      const ind = (ref.match(/^ */) || [''])[0];
-      setTimeout(() => {
-        if (newLine >= cm2.lineCount()) return;
-        const cur = cm2.getLine(newLine);
-        if (!/^ *$/.test(cur)) return;
-        const lead = (cur.match(/^ */) || [''])[0];
-        cm2.replaceRange(ind, CodeMirror.Pos(newLine, 0), CodeMirror.Pos(newLine, lead.length));
-        cm2.setCursor(CodeMirror.Pos(newLine, ind.length));
-      }, 0);
+  /* Vim's o/O inserts a bare "\n" and leaves the cursor at column 0 on the raw
+     new line. Real vim keeps the current line's indentation on the opened line
+     and drops the cursor right after it. newLineAndEnterInsertMode is only bound
+     to o and O (normal mode), so override the action itself; the same name keeps
+     `5o` repeat, `.` recording and macros working. */
+  if (window.CodeMirror && window.CodeMirror.Vim) (function () {
+    const Vim = window.CodeMirror.Vim;
+    Vim.defineAction('newLineAndEnterInsertMode', function (cm, actionArgs, vim) {
+      vim.insertMode = true;
+      const after = !!actionArgs.after;
+      const cur = cm.getCursor();
+      let base, nl;
+      if (cur.line === cm.firstLine() && !after) {
+        cm.replaceRange('\n', new CodeMirror.Pos(cm.firstLine(), 0));
+        base = cm.firstLine() + 1;
+        nl = cm.firstLine();
+      } else {
+        base = after ? cur.line : cur.line - 1;
+        const baseLine = cm.getLine(base) || '';
+        cm.setCursor(new CodeMirror.Pos(base, baseLine.length));
+        (CodeMirror.commands.newlineAndIndentContinueComment || CodeMirror.commands.newlineAndIndent)(cm);
+        nl = base + 1;
+      }
+      const ind = (cm.getLine(base) || '').match(/^[\t ]*/)[0];
+      const got = (cm.getLine(nl) || '').match(/^[\t ]*/)[0];
+      if (got !== ind) {
+        cm.replaceRange(ind, new CodeMirror.Pos(nl, 0), new CodeMirror.Pos(nl, got.length), '+input');
+      }
+      cm.setCursor(new CodeMirror.Pos(nl, ind.length));
+      this.enterInsertMode(cm, { repeat: actionArgs.repeat }, vim);
     });
-  }
+  })();
 
   /* --- completion ---
      Backed by pyenv.js, generated from a real CPython stdlib: every builtin and
@@ -464,7 +468,6 @@
         'Alt-Down': (c) => c.execCommand('swapLineDown')
       }
     });
-    vimOpenLineIndent(cm);
 
     /* Type-ahead completion: fires on word characters and after a dot, never on
        the first keystroke of a word (too noisy) and never while one is open. */
