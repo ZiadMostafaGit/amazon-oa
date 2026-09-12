@@ -3,6 +3,13 @@
   const KEY = 'amzoa:';
   const $ = (s) => document.querySelector(s);
 
+  /* Cache the ~10 MB in-browser Python interpreter in a service worker (sw.js),
+     so it is downloaded once and then served from disk on every visit — no more
+     waiting on the full runtime each time you open the site. */
+  if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+
   /* ---------- starter code stubs (Python only) ---------- */
   const PY_TYPE = {
     int:'int', long:'int', string:'str', boolean:'bool',
@@ -787,6 +794,20 @@
     });
   }
 
+  /* The plain Run button: execute whatever is in the editor as a top-to-bottom
+     script. No test cases, no function name, no generator — prints and errors
+     land in the panel below. */
+  function runDirect() {
+    return withPython('Running the editor as a standalone script…', () => {
+      const r = window.PyRun.run(getCode(), LIMIT);
+      testStatus(r.error ? '<span class="bad">error</span>'
+                         : '<span class="good">ran</span>');
+      testBody((r.printed ? printedBlock(r.printed) : '') +
+               (r.error ? '<div class="err">' + esc(r.error) + '</div>' : '') ||
+               '<div class="note">Ran to completion with no output.</div>');
+    });
+  }
+
   /* ---------- "how do I add tests to this problem?" ----------
      Shown on problems that have none. Scaffolds a paste-ready block from the
      declared signature so the shape never has to be guessed. */
@@ -848,6 +869,7 @@
   }
 
   $('#runBtn').onclick     = () => (P[idx].tests ? runTests() : showTestHelp());
+  $('#runDirect').onclick  = runDirect;
   $('#diffBtn').onclick    = runDiff;
   $('#cxBtn').onclick      = runComplexity;
   $('#testsClose').onclick = () => showTests(false);

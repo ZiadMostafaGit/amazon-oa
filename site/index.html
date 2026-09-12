@@ -89,7 +89,7 @@ a{color:#6ea8fe}
 }
 #drag{flex:0 0 5px;cursor:col-resize;background:#161616}
 #drag:hover{background:var(--blue)}
-#right{flex:1;min-width:280px;display:flex;flex-direction:column;background:#0b0b0b}
+#right{flex:1;min-width:280px;display:flex;flex-direction:column;background:#000}
 
 /* ---------- problem pane ---------- */
 #phead{
@@ -294,8 +294,10 @@ table.tl tr.hot td{background:#1c1614}
 }
 .pbtn{background:var(--green);color:#fff;padding:7px 17px;border-radius:4px;font-size:13px;font-weight:600}
 .pbtn:hover{filter:brightness(1.1)}
+#runDirect{background:var(--green);color:#fff;border-color:var(--green)}
+#runDirect:hover{filter:brightness(1.1);background:var(--green)}
 #cmwrap{flex:1;min-height:0;overflow:hidden}
-#code{width:100%;height:100%;background:#0b0b0b;color:#d4d4d4;border:none;outline:none;
+#code{width:100%;height:100%;background:#000;color:#d4d4d4;border:none;outline:none;
   padding:12px 14px;font-family:var(--mono);font-size:var(--efs);
   line-height:1.6;resize:none;tab-size:4}
 
@@ -308,6 +310,10 @@ table.tl tr.hot td{background:#1c1614}
 .CodeMirror-linenumber{color:#4a4a4a}
 .cm-s-material-darker .CodeMirror-activeline-background{background:#ffffff07}
 .cm-s-material-darker .CodeMirror-activeline .CodeMirror-linenumber{color:#9a9a9a}
+/* the theme paints the editor panes grey (#212121) — pull it back to the same
+   black as the rest of the app */
+.cm-s-material-darker.CodeMirror{background:#000}
+.cm-s-material-darker .CodeMirror-gutters{background:#000}
 .CodeMirror-matchingbracket{color:var(--accent)!important;border-bottom:1px solid var(--accent)}
 .CodeMirror-nonmatchingbracket{color:#ff6b6b!important}
 /* the indent guides make 4-space Python blocks readable at a glance */
@@ -558,6 +564,8 @@ li.CodeMirror-hint-active .hk{color:#9dc4ee}
       </div>
       <div id="efoot">
         <button class="tbtn" id="notesBtn">Notes</button>
+        <button class="tbtn" id="runDirect"
+                title="Run the editor as a plain Python script — no tests or function name needed">Run</button>
         <button class="tbtn run" id="runBtn">&#9654; Run tests</button>
         <button class="tbtn" id="diffBtn" title="Fuzz your code against the reference solution on random inputs">Random</button>
         <button class="tbtn" id="cxBtn" title="Time your solution on growing inputs to estimate its complexity">Big-O</button>

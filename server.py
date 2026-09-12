@@ -55,6 +55,17 @@ class Handler(SimpleHTTPRequestHandler):
         p = path.rstrip("/")
         return p == "/api/state" or p.endswith("/site/api/state")
 
+    def send_head(self):
+        # Vendored deps (CodeMirror, Pyodide's ~10 MB runtime) never change
+        # within a build, so browsers may keep them for a year without ever
+        # re-downloading. The service worker layers on top, but correct headers
+        # also help setups running without one. Everything else keeps the usual
+        # Last-Modified conditional caching.
+        if getattr(self, "_immutable", False):
+            self._immutable = False
+            self.send_header("Cache-Control", "public, max-age=31536000, immutable")
+        return super().send_head()
+
     def do_GET(self):
         path = urlparse(self.path).path
 
@@ -70,6 +81,7 @@ class Handler(SimpleHTTPRequestHandler):
             self.end_headers()
             return
 
+        self._immutable = "/vendor/" in path
         return super().do_GET()
 
     def do_POST(self):

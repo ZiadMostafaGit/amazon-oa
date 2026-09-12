@@ -150,6 +150,18 @@ def _snippet(user_code, snippet, limit):
     except Exception as e:
         return json.dumps({'printed': buf.getvalue()[:4000],
                            'error': '%s: %s' % (type(e).__name__, e)})
+
+# ---- plain "Run" button: execute the editor contents as a standalone script --
+def _run_editor(user_code, limit):
+    """Run the buffer top-to-bottom like a .py file; report stdout or the traceback."""
+    buf = io.StringIO()
+    try:
+        with _Deadline(limit), redirect_stdout(buf):
+            exec(user_code, {})
+        return json.dumps({'printed': buf.getvalue()[:4000], 'error': None})
+    except Exception as e:
+        return json.dumps({'printed': buf.getvalue()[:4000],
+                           'error': traceback.format_exc(limit=6)})
 `;
 
   function ready(onProgress) {
@@ -175,6 +187,7 @@ def _snippet(user_code, snippet, limit):
     tests:      (code, fn, cases, limit)        => call('_run',        [code, fn, JSON.stringify(cases), limit]),
     diff:       (code, ref, gen, fn, o)         => call('_diff',       [code, ref, gen, fn, o.trials, o.maxN, o.limit, o.budget]),
     complexity: (code, gen, fn, sizes, limit)   => call('_complexity', [code, gen, fn, sizes, limit]),
-    snippet:    (code, text, limit)             => call('_snippet',    [code, text, limit])
+    snippet:    (code, text, limit)             => call('_snippet',    [code, text, limit]),
+    run:        (code, limit)                   => call('_run_editor', [code, limit])
   };
 })();
