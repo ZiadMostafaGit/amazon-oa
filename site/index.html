@@ -55,6 +55,12 @@ a{color:#6ea8fe}
 #timer.over{background:#40191c;color:#f87171;border-color:#5c2226}
 .tbtn{padding:6px 12px;border-radius:5px;font-size:13px;color:#c8c8c8;border:1px solid var(--line)}
 .tbtn:hover{background:#242424;color:#fff}
+#tDur{
+  background:#161616;color:#cfcfcf;border:1px solid var(--line);border-radius:5px;
+  padding:5px 7px;font-size:12.5px;outline:none;cursor:pointer;font-family:inherit
+}
+#tDur:hover{border-color:#4a4a4a}
+#tDur option{background:#1a1a1a;color:#d8d8d8}
 
 /* ---------- layout ---------- */
 #shell{display:flex;height:calc(100vh - var(--top))}
@@ -478,6 +484,18 @@ li.CodeMirror-hint-active .hk{color:#9dc4ee}
       <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
     <span id="tval">--:--</span>
   </div>
+  <select id="tDur" title="Timer length — applies to this problem now and to every new problem">
+    <option value="5">5 min</option>
+    <option value="10">10 min</option>
+    <option value="15">15 min</option>
+    <option value="20">20 min</option>
+    <option value="30">30 min</option>
+    <option value="45">45 min</option>
+    <option value="60">1 hour</option>
+    <option value="90">1.5 hours</option>
+    <option value="120">2 hours</option>
+    <option value="custom">Custom…</option>
+  </select>
   <button class="tbtn" id="tReset">Reset timer</button>
   <button class="tbtn" id="drill" title="Jump to a random unsolved problem and start the clock (d)">&#127922; Drill</button>
   <button class="tbtn" id="prev">&lsaquo; Prev</button>

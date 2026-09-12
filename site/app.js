@@ -323,7 +323,8 @@
   const TYPE_METHODS = {
     str: ENV.methods.str, list: ENV.methods.list, dict: ENV.methods.dict,
     set: ENV.methods.set, tuple: ENV.methods.tuple, int: ENV.methods.int,
-    float: ENV.methods.float, bytes: ENV.methods.bytes
+    float: ENV.methods.float, bytes: ENV.methods.bytes,
+    frozenset: ENV.methods.frozenset, complex: ENV.methods.complex
   };
   const KNOWN_CLASS = {
     Counter:     (ENV.methods.dict || []).concat(['most_common', 'subtract', 'elements', 'total']),
@@ -331,20 +332,74 @@
     OrderedDict: (ENV.methods.dict || []).concat(['move_to_end', 'popitem']),
     deque:       (ENV.methods.list || []).concat(['appendleft', 'extendleft', 'popleft', 'rotate'])
   };
+  /* Constructor calls and builtins whose result type we can pin down. */
+  const CALL_TYPES = {
+    list:'list', set:'set', dict:'dict', tuple:'tuple', sorted:'list', reversed:'list',
+    bytes:'bytes', str:'str', int:'int', float:'float', frozenset:'frozenset'
+  };
+  /* `x = s.split(',')` makes x a list, `x = line.strip()` keeps it a str, and
+     .copy() inherits the receiver's type. Used by varTypes below. */
+  const RET_INHERIT = {};
+  const METHOD_RET = {
+    split:'list', splitlines:'list', rsplit:'list', partition:'list', rpartition:'list',
+    keys:'list', values:'list', items:'list', groups:'list', reversed:'list',
+    enumerate:'list', zip:'list', map:'list', filter:'list', findall:'list',
+    join:'str', strip:'str', lstrip:'str', rstrip:'str', lower:'str', upper:'str',
+    replace:'str', removeprefix:'str', removesuffix:'str', title:'str', capitalize:'str',
+    casefold:'str', swapcase:'str', format:'str', expandtabs:'str', translate:'str', repr:'str',
+    encode:'bytes', frombytes:'bytes', to_bytes:'bytes', decode:'str',
+    copy: RET_INHERIT
+  };
   function varTypes(text) {
     const t = {};
     const re = /^[ \t]*([A-Za-z_]\w*)\s*=\s*(.*)$/gm;
     let m;
     while ((m = re.exec(text))) {
       const v = m[1], rhs = m[2].trim();
-      if (/^[\[{]/.test(rhs)) t[v] = rhs[0] === '[' ? 'list' : 'dict';
-      else if (/^[fF]?['"]/.test(rhs)) t[v] = 'str';
-      else if (/^set\s*\(/.test(rhs)) t[v] = 'set';
-      else { const call = rhs.match(/^(tuple|bytes|dict|list|int|float)\s*\(/); if (call) t[v] = call[1]; }
-      if (/^-?\d+$/.test(rhs)) t[v] = 'int';
-      else if (/^-?\d*\.\d+/.test(rhs)) t[v] = 'float';
-      else { const cl = rhs.match(/^([A-Za-z_]\w*)\s*\(/); if (cl && KNOWN_CLASS[cl[1]]) t[v] = cl[1]; }
+      let ty = null;
+      if (/^\[/ .test(rhs)) ty = 'list';
+      else if (/^\{[^:}]*\}/.test(rhs)) ty = 'set';
+      else if (/^\{/.test(rhs)) ty = 'dict';
+      else if (/^[fFbB]?['"]/.test(rhs)) ty = /^b/i.test(rhs) ? 'bytes' : 'str';
+      else if (/^-?\d+$/.test(rhs)) ty = 'int';
+      else if (/^-?\d*\.\d+/.test(rhs) || /^\.\d+/.test(rhs)) ty = 'float';
+      else { const call = rhs.match(/^([A-Za-z_]\w*)\s*\(/); if (call && KNOWN_CLASS[call[1]]) ty = call[1]; }
+      if (!ty) { const f = rhs.match(/^(list|set|dict|tuple|sorted|reversed|bytes|str|int|float|frozenset)\s*\(/); if (f) ty = CALL_TYPES[f[1]]; }
+      if (!ty) {
+        const mc = rhs.match(/^(\w+)\.(\w+)\s*\(/);          // line.split(...) -> list, etc.
+        if (mc && t[mc[1]]) {
+          const r = METHOD_RET[mc[2]];
+          if (r === RET_INHERIT) ty = t[mc[1]];
+          else if (r) ty = r;
+        }
+      }
+      if (ty) t[v] = ty;
     }
+
+    /* Type annotations tell us more than any value: a stub already declares
+       `def twoSum(nums: List[int], target: int)`, so nums completes list methods
+       and target completes int methods before a single line is written. */
+    const tyMap = (raw) => {
+      const s = raw.replace(/\s/g, '');
+      if (KNOWN_CLASS[s]) return s;                         // deque, Counter, defaultdict…
+      if (/^(List|Deque)\[/.test(s)) return 'list';
+      if (/^(Dict|DefaultDict)\[/.test(s)) return 'dict';
+      if (/^(Set|FrozenSet|Counter\[)/.test(s)) return 'set';
+      if (/^Tuple\[/.test(s)) return 'tuple';
+      if (/^Optional\[/.test(s) || /^Union\[/.test(s)) return tyMap(s.slice(s.indexOf('[') + 1, -1));
+      return ({str:'str', int:'int', float:'float', bool:'int', bytes:'bytes',
+               list:'list', dict:'dict', set:'set', tuple:'tuple', frozenset:'frozenset', deque:'list'})[s] || null;
+    };
+    const dump = (name, raw) => { const ty = tyMap(raw); if (ty) t[name] = ty; };
+    const defRe = /^[ \t]*def[ \t]+[A-Za-z_]\w*[ \t]*\(([^)]*)\)/gm;
+    while ((m = defRe.exec(text))) {
+      m[1].split(',').forEach(part => {
+        const mm = part.match(/^\s*([A-Za-z_]\w*)\s*:\s*([A-Za-z_][\w\[\], .]*)/);
+        if (mm) dump(mm[1], mm[2]);
+      });
+    }
+    const annRe = /^[ \t]*([A-Za-z_]\w*)\s*:\s*([A-Za-z_][\w\[\], .]*?)\s*=\s*/gm;
+    while ((m = annRe.exec(text))) dump(m[1], m[2]);
     return t;
   }
   function selfAttrs(text) {
@@ -376,9 +431,48 @@
   /* Typing the exact block keyword (then Tab/Esc open) gets a structure, not
      just the bare word. */
   const SNIPPETS = {
-    def: 'def name(args):', class: 'class Name():', for: 'for x in items:',
-    while: 'while cond:', with: 'with ctx as obj:', try: 'try:'
+    def: 'def name(args):', class: 'class Name():',
+    for: 'for i in range(n):', while: 'while cond:',
+    with: 'with ctx as obj:', try: 'try:',
+    except: 'except Exception as e:', finally: 'finally:',
+    if: 'if cond:', elif: 'elif cond:', else: 'else:',
+    main: 'if __name__ == "__main__":'
   };
+
+  /* Names that only exist once their module is imported. Picking one of these
+     from the completions in a buffer that lacks the import silently prepends
+     the matching line — type `deque` + Enter and it starts working, no manual
+     `from collections import deque`. */
+  const NEED_IMPORT = {
+    deque:'collections', Counter:'collections', defaultdict:'collections',
+    OrderedDict:'collections', namedtuple:'collections',
+    heapify:'heapq', heappush:'heapq', heappop:'heapq', heappushpop:'heapq',
+    heapreplace:'heapq', nlargest:'heapq', nsmallest:'heapq',
+    bisect_left:'bisect', bisect_right:'bisect', insort_left:'bisect', insort_right:'bisect',
+    groupby:'itertools', permutations:'itertools', combinations:'itertools',
+    combinations_with_replacement:'itertools', product:'itertools', accumulate:'itertools',
+    chain:'itertools', islice:'itertools', takewhile:'itertools', dropwhile:'itertools',
+    count:'itertools', cycle:'itertools', repeat:'itertools',
+    lru_cache:'functools', cache:'functools', reduce:'functools', total_ordering:'functools',
+    List:'typing', Dict:'typing', Set:'typing', Tuple:'typing', Optional:'typing',
+    DefaultDict:'typing', Deque:'typing',
+    gcd:'math', lcm:'math', comb:'math', perm:'math', factorial:'math', isqrt:'math',
+    sqrt:'math', floor:'math', ceil:'math', inf:'math', nan:'math',
+    log:'math', log2:'math', log10:'math', exp:'math', hypot:'math', dist:'math'
+  };
+  function moduleImported(text, mod) {
+    return new RegExp('^[ \\t]*(from|import)[ \\t]+' + mod + '\\b', 'm').test(text);
+  }
+  function importLine(w) { return 'from ' + NEED_IMPORT[w] + ' import ' + w; }
+  function makeAutoImport(w, from, to) {
+    const mod = NEED_IMPORT[w], line = importLine(w);
+    return (cm) => {
+      cm.replaceRange(w, from, to, 'complete');
+      if (!moduleImported(cm.getValue(), mod)) {
+        cm.replaceRange(line + '\n', CodeMirror.Pos(0, 0), CodeMirror.Pos(0, 0), 'insert');
+      }
+    };
+  }
 
   /* Resolve what a name refers to, by reading the buffer's own imports:
        import re                  -> re
@@ -456,23 +550,26 @@
     }
 
     const seen = new Set(), list = [];
+    const hfrom = CodeMirror.Pos(cur.line, start), hto = CodeMirror.Pos(cur.line, cur.ch);
     for (const [w, kind, rank] of pool) {
       if (w === word || seen.has(w) || !w.startsWith(word)) continue;
       seen.add(w);
-      list.push({ text: w, kind: kind, rank: rank,
+      const item = { text: w, kind: kind, rank: rank, from: hfrom, to: hto,
         render(el) {
           el.appendChild(document.createTextNode(w));
           const b = document.createElement('span'); b.className = 'hk'; b.textContent = kind;
           el.appendChild(b);
-        } });
+        } };
+      const mod = NEED_IMPORT[w];
+      if (mod && kind !== 'attr' && kind !== 'method' && kind !== 'module' &&
+          !moduleImported(text, mod)) item.hint = makeAutoImport(w, hfrom, hto);
+      list.push(item);
     }
     if (!list.length) return null;
     list.sort((x, y) => x.rank - y.rank ||
                         x.text.length - y.text.length ||
                         x.text.localeCompare(y.text));
-    return { list: list.slice(0, 50),
-             from: CodeMirror.Pos(cur.line, start),
-             to:   CodeMirror.Pos(cur.line, cur.ch) };
+    return { list: list.slice(0, 50), from: hfrom, to: hto };
   }
   if (window.CodeMirror) CodeMirror.registerHelper('hint', 'python', pythonHint);
 
@@ -509,7 +606,7 @@
       const cur = c.getCursor(), line = c.getLine(cur.line);
       let st = cur.ch;
       while (st && /[\w$]/.test(line.charAt(st - 1))) st--;
-      if (cur.ch - st >= 2) c.showHint({hint: pythonHint, completeSingle: false, closeOnUnfocus: true,
+      if (cur.ch - st >= 1) c.showHint({hint: pythonHint, completeSingle: false, closeOnUnfocus: true,
                    extraKeys: {Tab: (cm2, h) => h.pick()}});
     });
   }
@@ -898,7 +995,11 @@
       $('#saved').textContent = 'Autosaved';
     });
   }
-  cm ? cm.on('change', onEdit) : ta.addEventListener('input', onEdit);
+  /* cm.setValue (programmatic loads: opening a problem, resetting to the stub)
+     must not count as "coding" — a problem only turns amber once you actually
+     type. Real edits have origins like "+input"; loads arrive as "setValue". */
+  if (cm) cm.on('change', (c, ch) => { if (!ch || ch.origin !== 'setValue') onEdit(); });
+  else ta.addEventListener('input', onEdit);
   if (cm) cm.on('cursorActivity', () => {
     const c = cm.getCursor();
     save('cur:' + P[idx].id, {line: c.line, ch: c.ch});
@@ -941,12 +1042,27 @@
   /* ---------- timer (kept per problem, so navigating away doesn't lose the clock) ---------- */
   let tState = null;
   const tKey = () => 'timer:' + P[idx].id;
+  const tDurSel = $('#tDur');
+  let tDefault = Math.min(240, Math.max(1, parseInt(load('tDefault', 30), 10) || 30));
+  function applyTdur() { if (tDurSel) tDurSel.value = String(tDefault); }
   function timerLoad(p, opts) {
     tState = load('timer:' + p.id, null);
-    if (!tState || (opts && opts.reset)) tState = { left: (p.minutes || 30) * 60, running: false };
+    if (!tState || (opts && opts.reset)) tState = { left: tDefault * 60, dur: tDefault, running: false };
     if (opts && opts.start) tState.running = true;
     save('timer:' + p.id, tState);
   }
+  if (tDurSel) tDurSel.onchange = () => {
+    let mins = parseInt(tDurSel.value, 10);
+    if (isNaN(mins)) {                      // the "Custom…" option
+      mins = parseInt(window.prompt('Timer length in minutes (1\u2013240):', String(tDefault)), 10);
+      if (!mins || isNaN(mins)) { applyTdur(); return; }
+    }
+    tDefault = Math.min(240, Math.max(1, mins));
+    save('tDefault', tDefault);
+    applyTdur();
+    timerLoad(P[idx], {reset:true}); tick();
+  };
+  applyTdur();
   function fmt(s) {
     if (s < 0) s = 0;
     const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60;
