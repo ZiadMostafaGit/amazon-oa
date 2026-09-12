@@ -164,11 +164,22 @@ def _run_editor(user_code, limit):
                            'error': traceback.format_exc(limit=6)})
 `;
 
+  const BOOT_TIMEOUT = 60000;
+
   function ready(onProgress) {
     if (py) return Promise.resolve(py);
     if (loading) return loading;
+
+    /* Pyodide's loader swallows a failed wasm instantiation as console.warn
+       calls and then hangs forever. Capture those so the failure is visible. */
+    const bootLog = [];
+    const origWarn = console.warn, origError = console.error;
+    console.warn = (a, ...rest) => { bootLog.push([a].concat(rest).map(String).join(' ')); origWarn(a, ...rest); };
+    console.error = (a, ...rest) => { bootLog.push([a].concat(rest).map(String).join(' ')); origError(a, ...rest); };
+    const finish = () => { console.warn = origWarn; console.error = origError; };
+
     onProgress && onProgress('Fetching the Python runtime (~10 MB, first run only)…');
-    loading = new Promise((res, rej) => {
+    const boot = new Promise((res, rej) => {
       const sc = document.createElement('script');
       sc.src = URL_BASE + 'pyodide.js';
       sc.onload = res;
@@ -176,6 +187,15 @@ def _run_editor(user_code, limit):
       document.head.appendChild(sc);
     }).then(() => window.loadPyodide({indexURL: URL_BASE}))
       .then((p) => { p.runPython(PY); py = p; return p; });
+
+    const timeout = new Promise((res, rej) =>
+      setTimeout(() => rej(new Error(
+        bootLog.length
+          ? 'Python failed to start. Console says:\n' + bootLog.join('\n')
+          : 'Python still was not ready after ' + (BOOT_TIMEOUT / 1000) +
+            ' s. Is ' + URL_BASE + ' reachable?')), BOOT_TIMEOUT));
+
+    loading = Promise.race([boot, timeout]).then(finish, (e) => { finish(); throw e; });
     return loading;
   }
 

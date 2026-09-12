@@ -3,11 +3,19 @@
   const KEY = 'amzoa:';
   const $ = (s) => document.querySelector(s);
 
-  /* Cache the ~10 MB in-browser Python interpreter in a service worker (sw.js),
-     so it is downloaded once and then served from disk on every visit — no more
-     waiting on the full runtime each time you open the site. */
-  if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
+  /* The ~10 MB runtime stays cached via immutable HTTP responses on /vendor/
+     (see server.py), which is more robust than a service worker. Drop any
+     service worker a previous version registered and purge its caches. */
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(
+      (rs) => rs.forEach((r) => r.unregister())
+    ).catch(() => {});
+  }
+  if ('caches' in window) {
+    caches.keys().then(
+      (keys) => Promise.all(keys.filter((k) => k.indexOf('amzoa') === 0)
+                            .map((k) => caches.delete(k)))
+    ).catch(() => {});
   }
 
   /* ---------- starter code stubs (Python only) ---------- */
