@@ -9,6 +9,7 @@ import urllib.error, urllib.request
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, HERE)
+sys.path.insert(0, os.path.join(HERE, "tools"))
 
 
 def free_port() -> int:
@@ -503,6 +504,31 @@ class TestGeneratedCases(ServerCase):
     def test_health_counts_them(self):
         s = self.get("/api/health")["solutions"]
         self.assertGreaterEqual(s["withGeneratedCases"], 1)
+
+
+class TestGaps(ServerCase):
+    """The app states what the bank never captured for a problem."""
+
+    def test_gaps_are_reported_per_problem(self):
+        d = self.get("/api/problems/amazon-stock-span")
+        self.assertIn("only one example", d["gaps"])
+        self.assertIn("constraints", d["gaps"])
+
+    def test_a_complete_problem_reports_none(self):
+        d = self.get("/api/problems/stripe-deployment-window-scheduler")
+        self.assertEqual(d["gaps"], [])
+
+    def test_every_problem_has_a_statement_and_examples(self):
+        """The two things that would make a problem unusable are never missing."""
+        import fpdb
+        from gaps import gaps_for
+        bank = fpdb.Bank()
+        bad = []
+        for r in bank.conn.execute("SELECT id FROM problems LIMIT 400"):
+            g = gaps_for(bank.detail(r["id"]))
+            if "statement" in g or "examples" in g:
+                bad.append(r["id"])
+        self.assertEqual(bad, [])
 
 
 class TestProgress(ServerCase):

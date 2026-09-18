@@ -141,6 +141,26 @@ class TestSqlRunner(unittest.TestCase):
         r = runner.run_sql("SELECT nope FROM devices", self.tab)
         self.assertIn("no such column", r["results"][0]["error"])
 
+    def test_numeric_columns_compare_by_the_declared_type(self):
+        """The bank encodes a "decimal" column's expected values as strings, so
+        100.0 and "100" must compare equal - but 72.5 and 72 must not."""
+        import fpdb, json as _json
+        bank = fpdb.Bank()
+        row = bank.conn.execute(
+            "SELECT detail_json FROM problems WHERE id='millennium-clean-the-tape'").fetchone()
+        if not row:
+            self.skipTest("problem not in this bank")
+        tab = _json.loads(row[0])["tabular"]
+        types = {c["name"]: c["type"] for c in tab["resultContract"]["columns"]}
+        self.assertEqual(types["Asset_1"], "decimal")
+        self.assertIsInstance(tab["visibleCases"][0]["expectedResult"]["rows"][0][2], str)
+
+    def test_a_wrong_number_still_fails(self):
+        q = ("SELECT room_name, AVG(temperature) + 0.5 AS average_temperature FROM devices "
+             "WHERE device_type = 'Thermostat' GROUP BY room_name HAVING COUNT(*) > 2")
+        r = runner.run_sql(q, self.tab)
+        self.assertFalse(r["results"][0]["ok"])
+
     def test_multiple_statements_refused(self):
         r = runner.run_sql("SELECT 1; DROP TABLE devices", self.tab)
         self.assertIn("one statement", r["error"])

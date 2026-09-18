@@ -16,7 +16,8 @@ These expectations are the REFERENCE's behaviour, not a judge's. That is why
 only verified references are used, why the file records which solution produced
 them, and why the app labels them as generated wherever they appear.
 """
-import json, os, sys, time
+import json, os, sys, threading, time
+from concurrent.futures import ThreadPoolExecutor
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, HERE)
@@ -50,11 +51,13 @@ def generate(bank, pid: str, count: int = 6, budget: float = 8.0):
 
 
 def main(argv) -> int:
-    count, force, ids = 6, False, []
+    count, force, jobs, ids = 6, False, 8, []
     i = 0
     while i < len(argv):
         if argv[i] == "--count":
             count = int(argv[i + 1]); i += 2
+        elif argv[i] == "--jobs":
+            jobs = int(argv[i + 1]); i += 2
         elif argv[i] == "--force":
             force = True; i += 1
         else:
@@ -66,23 +69,41 @@ def main(argv) -> int:
         index = solutions._index()
         ids = sorted(pid for pid, v in index.items() if v.get("ok"))
 
+    local = threading.local()
+
+    def bank_for_thread():
+        if not hasattr(local, "bank"):
+            local.bank = fpdb.Bank()       # sqlite connections are per-thread
+        return local.bank
+
     made = skipped = failed = 0
-    for n, pid in enumerate(ids, 1):
+    lock = threading.Lock()
+    done = [0]
+
+    def one(pid):
+        nonlocal made, skipped, failed
         path = os.path.join(OUT, pid + ".json")
         if os.path.exists(path) and not force:
-            skipped += 1
-            continue
-        data, why = generate(bank, pid, count)
-        if data:
-            with open(path, "w") as f:
-                json.dump(data, f, indent=1)
-            made += 1
-        else:
-            failed += 1
-            if failed <= 15:
-                print("  -- %-52s %s" % (pid, why))
-        if n % 100 == 0:
-            print("  %d/%d (%d written, %d skipped, %d without)" % (n, len(ids), made, skipped, failed))
+            with lock:
+                skipped += 1
+            return
+        data, why = generate(bank_for_thread(), pid, count)
+        with lock:
+            if data:
+                with open(path, "w") as f:
+                    json.dump(data, f, indent=1)
+                made += 1
+            else:
+                failed += 1
+                if failed <= 15:
+                    print("  -- %-52s %s" % (pid, why))
+            done[0] += 1
+            if done[0] % 100 == 0:
+                print("  %d/%d (%d written, %d skipped, %d without)"
+                      % (done[0], len(ids), made, skipped, failed))
+
+    with ThreadPoolExecutor(max_workers=jobs) as pool:
+        list(pool.map(one, ids))
     print("\n%d written, %d already had cases, %d could not be generated" % (made, skipped, failed))
     return 0
 

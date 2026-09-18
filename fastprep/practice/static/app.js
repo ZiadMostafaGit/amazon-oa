@@ -356,6 +356,33 @@ function renderDetail() {
   /* ---- body ---- */
   const body = el('div', 'dbody');
 
+  /* what the bank never captured for this problem */
+  const GAP_TEXT = {
+    'constraints': 'no constraints were captured',
+    'only one example': 'only one worked example',
+    'worked explanation': 'no explanation of the example',
+    'examples': 'no examples at all',
+    'starter code': 'no starter code (the Python signature below is generated from the example types)',
+    'function name': 'no function name (the runner falls back to solve)',
+    'topics': 'no topics',
+    'difficulty': 'no difficulty',
+    'source screenshots': 'no screenshots of the original assessment',
+    'visible cases': 'no visible cases',
+    'table schema': 'no table schema',
+    'result contract': 'no result contract',
+    'statement': 'no statement text',
+  };
+  const gaps = (d.gaps || []).filter(g => GAP_TEXT[g]);
+  if (gaps.length) {
+    const n = el('div', 'note');
+    n.innerHTML = '<b>Not in the source:</b> ' +
+      gaps.map(g => esc(GAP_TEXT[g])).join(' · ') +
+      ((d.generatedCases || []).length && gaps.indexOf('only one example') >= 0
+        ? ' — the ' + d.generatedCases.length + ' generated cases below make up for the last one.'
+        : '.');
+    body.append(n);
+  }
+
   if (d.sourceNote) {
     const n = el('div', 'note');
     n.innerHTML = '<b>Source note.</b> ' + esc(d.sourceNote);

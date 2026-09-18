@@ -32,6 +32,8 @@ import languages
 import progress as progress_mod
 import runner
 import solutions as solutions_mod
+sys.path.insert(0, os.path.join(HERE, "tools"))
+from gaps import gaps_for
 
 STATIC = os.path.join(HERE, "static")
 mimetypes.add_type("application/javascript", ".js")
@@ -98,6 +100,8 @@ def _problem_payload(detail: dict) -> dict:
     detail["generatedCases"] = solutions_mod.generated_cases(pid)
     detail["progress"] = PROGRESS.get(pid)
     detail["solution"] = solutions_mod.get(pid, detail.get("practiceFormat") or "algorithm")
+    # say what this problem does not have, rather than rendering empty sections
+    detail["gaps"] = gaps_for(detail)
     return detail
 
 

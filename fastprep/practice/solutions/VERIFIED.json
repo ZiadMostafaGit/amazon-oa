@@ -1,2317 +1,4195 @@
 {
- "checkedAt": "2026-09-18T22:14:53",
- "failing": 0,
+ "checkedAt": "2026-09-18T22:35:58",
+ "failing": 1,
  "problems": {
   "agoda-count-values-appearing-once": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "agoda-longest-all-present-streak": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "airbnb-city-price-medians": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "airbnb-cloud-storage-backup-and-restore": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "airbnb-superhost-eligibility": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "airbnb-worker-management-level-1": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "airbnb-worker-management-level-2": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "airbnb-worker-management-level-3-overtime": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "airbnb-worker-management-level-4-worker-merge": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "airwallex-paginated-k-way-unique-merge": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "akuna-count-server-replacements": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "akuna-delivery-management-system": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "akuna-get-max-cost": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "akuna-get-substring": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "akuna-items-sort": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "akuna-longest-substring-without-repeating-characters": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "akuna-maximum-remaining-drone-power": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "akuna-minimize-malware-spread": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "akuna-minimum-absolute-difference-pairs": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "akuna-minimum-swaps": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "akuna-two-sum": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "akuna-vowel-substring-game": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-active-graph-connectivity-plan": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-ad-click-counts-sliding-window": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-aggressive-cows": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-all-about-rewards": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-anagram-start-indices": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-basic-calculator": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-binary-strings-bounded-subset": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-binary-tree-cameras": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-binary-tree-right-view": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-bring-servers-down": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-calculate-beauty-values": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-calculate-median-sum": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-calculate-warehouse-efficiency": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-capacity-to-ship-packages-within-d-days": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-celebrity-knows-matrix": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-cheapest-flights-within-k-stops": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-choose-warehouses-location": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-cinema-shows": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-compute-encoded-product-name": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-consecutive-website-visit-pattern": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-construct-tree-level-inorder": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-container-with-most-water": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-count-distinct-passwords": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-count-special-substrs": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-count-stepping-numbers-in-range": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-count-univalued-subtrees": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-course-order-and-cycle": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-course-schedule": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-course-schedule-ii": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-currency-conversion-rate": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-decode-encoded-string": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-determine-the-best-skipping-strategy": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-distance-between-tree-nodes": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-drone-delivery-route": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-ecommerce-notification-router": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-employee-ratings-data-structure": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-capable-winners": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-encrypted-password": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-first-index-where-prefix-sum-becomes-non-positive": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-hash": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-ideal-days": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-idle-skills-query": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-kth-minimum-vulnerability": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-least-possible-vulnerability": {
    "cases": "4/4",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-max-value": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-maximum-calories": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-maximum-num": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-maximum-number-of-servers": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-median-from-data-stream": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-min-replacements": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-min-trips": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-minimum-cost": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-minimum-days": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-minimum-dist": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-minimum-possible-variance": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-minimum-time": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-minimum-time-required": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-number-of-ways-to-group-parcels": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-requests-in-queue": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-safest-path-in-grid": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-security-level": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-find-sum-of-beauties": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-first-missing-positive": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-first-non-repeating-character": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-first-unique-character-stream": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-computational-equivalents": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-data-dependence-sum": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-final-locations": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-max-aggregate-temperature-change": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-max-alternating-music": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-max-charge": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-max-consecutive-on": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-max-increments": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-max-information-gain": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-max-racers": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-max-skill-sum": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-maximum-events": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-maximum-sum": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-min-amount": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-min-cost-book": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-min-errors": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-min-num-moves": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-min-operations": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-min-operations2": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-min-removal": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-min-size": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-min-subsegments": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-min-time": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-min-time-two": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-minimum-boxes": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-minimum-changes": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-minimum-value": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-redundant-substrings": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-smaller-items": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-smallest-base-segment": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-special-string": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-stable-periods-count": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-get-total-requests": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-group-students": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-how-many-games-did-the-team-win": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-indexed-bit-after-binary-expansion": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-insert-delete-getrandom-o1": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-interleaving-string": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-inventory-processes-survival-possibility": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-is-regex-matching": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-islands-eight-direction": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-k-closest-elements-in-sorted-array": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-kth-smallest-row-sum": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-largest-lexicographic-unique-letters": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-lfu-cache": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-longest-common-subsequence-length": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-longest-consecutive-sequence": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-longest-happy-prefix": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-longest-increasing-subsequence-bounded-difference": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-longest-perfect-anagrams": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-longest-substring-without-repeating-characters": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-lru-query-result-cache": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-make-array-distinct": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-match-strings": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-max-batches": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-max-consecutive-ones-iii": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-maximize-distance-to-closest-person": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-maximize-machine-strength-sum": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-maximize-meory-points": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-maximum-capacity": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-maximum-non-adjacent-house-value": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-maximum-number-of-packages": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-maximum-profit-job-scheduling": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-maximum-quality-sum": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-maximum-sum-bst": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-maximum-user-traffic": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-medians": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-meeting-room-scheduler": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-meeting-rooms-ii": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-merge-k-sorted-lists": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-middle-stack-operations": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-min-errors": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-min-operation": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-min-operations-to-sort-all-packages": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-minimize-array-sum-difference": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-minimize-effort": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-minimize-malware-facility-network": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-minimize-variation": {
    "cases": "5/5",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-minimum-dag-completion-time": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-minimum-merge-conflicts": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-minimum-operations-to-make-array-valid": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-minimum-redistribution-cost": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-minimum-retailers": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-minimum-starting-health-to-win-the-game": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-minimum-window-substring": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-nary-tree-nodes-at-level": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-next-palindromic-time": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-next-permutation": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-num-of-suitable-places": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-optimize-identifiers": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-package-delivery-system": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-package-dependency-order": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-predict-answer": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-prefix-search-collection": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-process-queries-on-cart": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-product-array-except-self": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-purchase-servers": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-queue-using-two-stacks": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-remove-duplicates-sorted-array-ii": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-reorganize-string": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-return-records": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-reverse-binary-string": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-right-down-grid-path": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-root-to-leaf-target-sum-paths": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-rotting-oranges-variation": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-running-delivery-time-medians": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-search-rotated-sorted-array": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-select-least-resource-tasks": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-sliding-window-maximum": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-sliding-window-rate-limiter": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-stable-robot-configurations": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-stock-span": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-streaming-top-k-frequent-elements": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-sum-of-all-days-numbers-on-which-the-data-of-the-xth-will-be-dependent": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-task-scheduler": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-three-sum-closest": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-train-route-fare": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-transfer-chain-endpoints": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-trapping-rain-water": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-two-knights-minimum-meeting-moves": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-unique-pairs-2d-target": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-unique-string-permutations": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-validate-two-color-chessboard": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-woodcut-saw-height": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-word-break": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "amazon-word-break-ii": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "amazon-word-search-ii": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "american-express-maximum-points-fixed-perimeter-rectangle": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "american-express-minimum-moves-spread-stones-grid": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-banking-pending-transfer-acceptance": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-banking-system-part-3": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-banking-system-part-4": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-cloud-storage-compression": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-cloud-storage-system": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-confirmed-profiling-events-first-observed-starts": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-consecutive-stack-sample-trace-events": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-convert-stack-samples-to-trace-events": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-filesystem-duplicate-file-groups": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-in-memory-database-backup-restore": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-in-memory-database-historical-lookup": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-same-hostname-concurrent-web-crawler": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-worker-management-level-1": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-worker-management-level-2": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-worker-management-level-3": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "anthropic-worker-management-level-4": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "apple-canonical-nary-tree-codec": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "apple-factorize-string-extremities": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "apple-hit-counter": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "apple-palindrome-match-percentage": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "applied-intuition-compilation-order-topological-sort": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "applied-intuition-merge-intervals": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "arcesium-capital-gains-tax-from-trades": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "arista-networks-first-missing-number-in-consecutive-array": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "atlassian-dice-roll-simulation": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "atlassian-maximum-mex": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "atlassian-minimum-sorted-erasure-operations": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "blinkit-find-peak-element": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "blinkit-lfu-cache": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "blinkit-lru-cache": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "blinkit-search-in-rotated-sorted-array": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "booking-com-json-field-projection": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "brex-concurrent-discounted-card-purchases": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "bytedance-binary-tree-target-sum-paths": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "bytedance-delete-k-balance-index-sums": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "bytedance-undirected-graph-path-existence": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "canva-counting": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-banking-top-activity": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-count-even-digit-numbers": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-digit-coded-card-validation": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "capital-one-inventory-discount-tracker": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "capital-one-match-consecutive-word-boundaries": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "capital-one-rank-flights-by-airline-and-destination": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "capital-one-rank-football-teams": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "capital-one-reconstruct-landmark-journey": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "capital-one-rectangle-fit-queries": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "capital-one-rightmost-longest-character-run": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-round-robin-wdl-order": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-sorted-extended-matrix-diagonals": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "capital-one-track-received-byte-ranges": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "capitalone-laser-robot-safe-path": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "charta-bst-inorder-successor": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "charta-health-concurrent-token-bucket-rate-limiter": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "check-similar-passwords": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "cisco-find-duplicate-number": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "cisco-find-elements-largest-row-smallest-column": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "cisco-find-largest-sum-contiguous-subarray": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "cisco-find-largest-sum-of-continuous-sequence": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "cisco-find-last-cell": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "cisco-find-maximum-difference": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "cisco-find-sub-string": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "cisco-fizz-buzz-problem": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "cisco-identify-the-non-twin-person": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "cisco-maximum-chocolates-from-jars": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "citadel-busy-intersection": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "citadel-count-stable-segments": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "citadel-exchange-bbo-nbbo-order-book": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "citadel-get-good-value": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "citadel-get-min-operations": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "citadel-get-recommended-friends": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "citadel-maximize-workday-earnings": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "citadel-minimum-changes-palindromic-blocks": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "citadel-reconcile-unmatched-trades": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "citadel-reference-counted-deduplicating-file-system": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "citadel-shortest-path-unweighted-graph": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "citadel-top-ten-trades-by-notional": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "cognizant-kth-largest-element": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "coinbase-task-management-system": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "commvault-missing-and-repeated-number": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "concentric-ai-kth-greater-element-indexes": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "concentric-ai-linked-list-intersection-node": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "concentric-ai-rearrange-linked-list": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "confluent-get-best-price": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "confluent-hostile-monster-defenders": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "confluent-implement-tail-n": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "confluent-least-recently-used-cache": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "confluent-positive-subset-sum": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "confluent-silent-sensor-detector": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "confluent-wildcard-star-matching": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "confluent-windowed-key-value-map": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "count-palindromes": {
    "cases": "4/4",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "counting-triples": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "coupang-dynamic-largest-anagram-group": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "coursera-instant-runoff-election": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "databricks-diagonal-weights": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "databricks-encrypted-file-count-and-minimum-time": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "databricks-file-encryption-tree-optimization": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "databricks-rectangular-k-in-a-row": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "databricks-rolling-hit-counter": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "datadog-query-log-match": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "de-shaw-decode-ways": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "de-shaw-remove-k-digits": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "decagon-rolling-csat-tracker": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "digitalocean-house-robber-ii": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "digitalocean-longest-repeating-character-replacement": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "docusign-count-binary-substrings": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "docusign-minimum-sum-after-k-halves": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "docusign-text-editor-operations": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "doordash-customer-bootstrap-api": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "doordash-dasher-active-time": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "doordash-dasher-pay": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "doordash-random-dasher-set": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "dropbox-remove-redundant-directory-grants": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "drw-count-balanced-tree-nodes": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "drw-largest-number-even-digit-frequencies": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "epic-first-appearance-character-frequencies": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "epic-first-mingo-line": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "epic-keypad-string-encoding": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "epic-minimum-adjacent-transpositions": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "figma-rich-text-parser": {
    "cases": "4/4",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "figma-rich-text-parser-part1": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "figma-rich-text-parser-part2": {
    "cases": "4/4",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "find-max-length": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "find-minimum-inefficiency": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "fireworks-ai-mutual-friend-referrals": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "flextrade-extract-error-log-context": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "fox-corporation-count-communicating-servers": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "fox-corporation-find-peak-element": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "geico-implement-lru-cache": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "get-success-value": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "getmyparking-remove-duplicates-sorted-array": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "goldman-max-subsequence-length": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "goldman-sachs-best-average-student-score": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "goldman-sachs-dungeon-health": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "goldman-sachs-first-non-repeating-character": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "goldman-sachs-insert-delete-getrandom-o1": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "goldman-sachs-largest-tree-root": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "goldman-sachs-longest-substring-without-repeating-characters": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "goldman-sachs-lru-cache": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "goldman-sachs-maximum-rocks-north-east-path": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "goldman-sachs-minimum-distinct-prefix-cost": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "goldman-sachs-number-of-islands": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "goldman-sachs-staircase-search": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-ad-score-scheduler-with-delay": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-alice-shortest-path-avoiding-bob": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-balanced-parentheses-left-deletions": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-boat-energy-max-distance": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-book-reading-evenings": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-count-checkpoint-paths": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-count-code-with-sum": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-count-score-categories": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-fastest-favorite-city-via-required-vertex": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-find-number-of-ways-to-split-array": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-first-full-connectivity-with-removals": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-horizontal-square-bisector": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-horse-genetic-relatedness": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-lexicographically-smallest-k-step-return-walk": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-longest-increasing-subsequence-bounded-difference": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-lowest-common-manager-for-k-employees": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-magical-adjacent-substring-triplets": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-maximum-coins-with-moving-tokens": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-maximum-elements-with-a-common-digit": {
    "cases": "4/4",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-maximum-subarray-sum-with-equal-endpoints": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-meeting-rooms-ii": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-min-absolute-sum": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-minimize-absolute-difference-of-server-loads": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-minimum-cars-for-rental-requests": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-minimum-number-of-moves-to-obtain": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-minimum-root-to-leaf-cut-cost": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-minimum-security-threshold-directed-path": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-out-of-order-logger-rate-limiter": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-people-schedule-segments": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-reach-the-end-in-time": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-read-optimized-window-duplicates": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-realtime-temperature-window-statistics": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-score-points": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-shortest-round-trip-all-deliveries": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "google-split-and-sort": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "google-split-array-into-consecutive-subsequences": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "hackerrank-longest-equal-binary-subarray": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "hackerrank-longest-equal-binary-subarray-after-one-flip": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "harness-encode-decode-string-stream": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "harness-road-toll-average-route-increase": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "headlands-minimum-changes-no-equal-adjacent-characters": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "headlands-sliding-window-means-ieee-floats": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "hrt-catch-fish-with-reusable-baits": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "hrt-count-one-swap-number-pairs": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "hrt-dynamic-sum-pair-queries": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "hrt-lowest-number-in-open-range": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "hrt-maximum-rhombic-area-sum": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "hrt-product-minus-sum-of-digits": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "hrt-rightmost-longest-character-run": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "hrt-tiered-expiring-item-store": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "hsbc-find-id-of-soldier": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "hsbc-remove-vowels": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "ibm-alphabetically-smallest-palindrome": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "ibm-count-increasing-contiguous-windows": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "ibm-customer-resource-usage-analysis": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "ibm-get-maximum-amount": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "ibm-get-minimum-increment": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "ibm-longest-balanced-binary-subarray": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "ibm-minimum-additions-to-make-valid-abc-string": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "ibm-minimum-disjoint-segments": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "ibm-minimum-replacements-no-adjacent-equal": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "ibm-plus-mult-array": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "ibm-social-network-relationship-statistics": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "imc-adding-stack-2-0": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "imc-busy-intersection": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "imc-chain-of-command": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "imc-grid-paths-with-override-passes": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "imc-knight-minimum-moves-fixed-bishop": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "imc-maximum-sub-square-matrix-sum-less-than-k": {
    "cases": "4/4",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "infosys-all-subsequences": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "infosys-assign-cookies-same-parity": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "infosys-count-reachable-halving-decrement-states": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "infosys-equal-code-pairs-within-k": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "infosys-minimum-cost-group-ones-and-twos": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "instacart-evaluate-formulas-with-cycle-detection": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "instacart-product-total-with-cheapest-promotion": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "instacart-shopping-record-promotions-and-ordering": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "interactive-brokers-progressive-tax-calculator": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "jpmorgan-employees-above-average-salary": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "jpmorgan-generate-table-of-contents": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "jpmorgan-highest-earner-per-department": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "jpmorgan-minimize-cost": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "juspay-dynamic-weighted-tree-distance-sum": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "juspay-minimum-of-window-maxima": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "kickdrum-students-and-instructors-for-database-systems": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "kickdrum-undo-redo-timeline-state-engine": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "kickdrum-wormhole-spacecraft-overtakes": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "kotak-mahindra-bank-coin-change": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "kotak-mahindra-bank-largest-rectangle-in-histogram": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "kotak-mahindra-bank-valid-palindrome": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "kotak-mahindra-bank-valid-parentheses": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "lenskart-first-duplicate-transaction-within-ten-minutes": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "lenskart-most-recent-active-user-per-department": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "lenskart-test-execution-success-rate": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "linkedin-binary-tree-zigzag-level-order": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-explore-unknown-grid-path": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-find-leaves-of-binary-tree": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "linkedin-lru-cache-hit-miss-counters": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "linkedin-max-points-on-a-line": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-max-stack": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "linkedin-maximum-depth-of-binary-tree": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "linkedin-minimum-window-substring": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "linkedin-restricted-decimal-number-validator": {
    "cases": "6/6",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-thread-safe-lru-cache-with-ttl": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "linkedin-tournament-tree-second-minimum": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-uniform-seven-from-biased-bit": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "linkedin-users-with-short-session": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "lyft-globally-versioned-key-value-store": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "lyft-minimum-window-substring": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "lyft-nested-transaction-key-value-store": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "lyft-rotten-oranges-grid-bfs": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "makemytripcom-bounded-producer-consumer": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "makemytripcom-directed-graph-cycle": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "makemytripcom-per-phase-worker-barrier": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "makemytripcom-subarray-sum-equals-k": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "mathwork-count-investable-periods": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "max-set-size": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "maximum-score-in-balanced-string": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "meta-exclusive-user-dictionary-values": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "meta-first-bad-version-array": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "meta-mutual-friend-recommendations": {
    "cases": "4/4",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "meta-palindrome-k-deletions": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "meta-parenthesized-string-calculator": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "meta-partition-deck-into-fifteens": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "meta-solve-transportation-problem": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "microsoft-asteroid-collision": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "microsoft-authentication-system": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "microsoft-get-maximum-reward-points": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-maximum-escape-game-score": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-maximum-number-possible": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "microsoft-minimum-adjacent-square-cost-after-insertion": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "microsoft-minimum-fuel-cost": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-minimum-swaps-required-to-group-all-red-balls-together": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "microsoft-racer-precedence-analysis": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-side-largest-square": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "microsoft-word-search": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "microsoft-xor-multiplication": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "millennium-calculate-half-spread": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "millennium-clean-the-tape": {
+   "cases": null,
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": "0/2 \u2014 case visible-out-of-order-duplicates: row 1 is [0, '2026-01-01 09:30:00', 100.0, None, None], expected [0, '2026-01-01 09:30:00', '100', None, None]",
+   "ok": false
+  },
+  "millennium-debug-fair-value-lookup": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "millennium-debug-impact-model": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "millennium-debug-risk-limit-quoter": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "millennium-hedge-inventory": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "millennium-measure-liquidity": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "millennium-risk-limits-and-skew": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "millennium-track-the-book": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "morgan-stanley-maximum-concurrent-processes": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "netflix-custom-record-freeform-parser": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "new-relic-basic-string-compression": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "new-relic-longest-increasing-path-in-matrix": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "nextdoor-in-memory-database-savepoints": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "nextdoor-merge-weekday-time-intervals": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "num-ways": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "nutanix-count-good-subsequences": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "nutanix-min-cost-to-connect-all-points": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "onetrust-device-event-summary": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "onetrust-merge-intervals": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "openai-aggregate-machine-topology": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-dependency-aware-agent-scheduler": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-durable-work-queue-operations": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-gpu-credit-ledger": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "openai-grid-infection-spread-until-stable": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-infection-simulation-part-4": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-plant-infection-simulation": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-prefix-matrix-products-autograd": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-resumable-list-iterator": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-streaming-entropy-part-1": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-streaming-entropy-part-2": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-streaming-entropy-part-3": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-streaming-entropy-part-4": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-versioned-followers-and-followees": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-versioned-friend-recommendations": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "openai-versioned-social-network": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "optiver-construct-binary-tree-s-expression": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "optiver-days-between": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "optiver-multi-level-inventory-storage-system": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "optiver-overheat-prevention-controller": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "optiver-power-cell-bank": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "oracle-best-time-to-buy-and-sell-stock": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "oracle-classify-tree-nodes-sql": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "oracle-longest-continuous-subarray-with-limit": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "oracle-maximum-of-window-minimums": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "oracle-next-permutation": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "oracle-prescription-doctor-drug-window": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "oracle-time-based-key-value-store": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "otter-ai-versioned-key-value-commits": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "palantir-basic-item-discounts": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "palantir-optimize-discount-selection": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "palantir-stacked-item-category-discounts": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "paypay-calculate-change": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "paypay-palindromic-array-transformation": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "perplexity-agent-task-dependency-tracker": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "perplexity-ai-in-memory-filesystem-commands": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "persistent-systems-reverse-string": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "phone-calls": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "pinterest-insert-addition-multiplication-operators": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "pinterest-minimum-bus-routes": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "pinterest-reconstruct-itinerary-any-start": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "pinterest-shortest-source-subsequences": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "pinterest-time-ordered-elevator-dispatch": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "pinterest-unique-active-pins-by-time-segment": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "plaid-evaluation-chain-validity": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "plaid-total-pipeline-completion-time": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "point72-initial-public-offering": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "pure-storage-midpoint-circle-pixels": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "pure-storage-one-shot-callback-event": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "purestorage-count-different-palindrome-substrings": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "purestorage-find-doubles": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "reddit-validate-single-letter-word-sequence": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "reddit-word-ladder-shortest-transformation": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "replit-compress-editor-actions-to-ot": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "rippling-article-vote-tracker": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "rippling-camel-cards": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "rippling-common-ancestors-dag": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "rippling-corporate-card-rules-engine": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "rippling-delivery-cost-tracker": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "rippling-distributed-system-recovery": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "rippling-employee-access-management": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "rippling-filter-sort-and-deduplicate-tasks": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "rippling-find-minimum-time": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "rippling-in-memory-spreadsheet": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "rippling-matrix-block-sum": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "rippling-nested-transaction-key-value-store": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "rippling-song-play-analytics": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "robinhood-friendship-balance-tracker": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "robinhood-service-dependency-load-factors": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "robinhood-top-ten-book-word-frequencies": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "robinhood-transitive-employee-referral-counts": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "roblox-laser-robot-safe-path": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "roblox-most-frequent-call-stack-per-thread": {
    "cases": "4/4",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "salesforce-flatten-nested-map-paths": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "salesforce-kth-largest-element": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "salesforce-lfu-cache": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "salesforce-longest-subsequence-which-is-a-substring": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "salesforce-lru-cache": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "salesforce-rotting-oranges": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "salesforce-run-length-string-compression": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "salesforce-stock-dp-variant": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "samsara-lightweight-markup-renderer": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "siemens-padded-vector-batch-pipeline": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "sierra-markdown-header-chunks": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "snap-inc-sort-characters-by-frequency": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "snorkel-ai-snapshot-map-sparse-history": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "snowflake-find-min-weight": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "snowflake-find-pod-count": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "snowflake-generating-login-codes": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "snowflake-get-maximum-sum": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "snowflake-minimum-clicks-between-wiki-pages": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "snowflake-minimum-station-bus-fleet": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "snowflake-paint-the-ceiling": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "snowflake-vowel-substring": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "spacex-monster-registry": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "spacex-starlink-beam-planner": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "spacex-timestamped-telemetry-differences": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "squadstack-dominant-seller": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "squadstack-minimum-seats-car-pooling": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "squadstack-weighted-decode-ways": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "squarepoint-mutable-record-store": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-account-balance-part1-totals": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-account-balance-part2-overdraft": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-account-balance-part3-coverage": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-bitfont-decode-rle-part3": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-bitfont-render-character-part1": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-bitfont-render-word-part2": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "stripe-deployment-window-scheduler": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-email-subscription-scheduler": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-factory-cost-skip-one": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "stripe-financial-account-ledger": {
    "cases": "4/4",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-http-accept-language-part1": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "stripe-incident-monitor": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "stripe-invoice-payment-reconciliation": {
    "cases": "4/4",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "stripe-kyc-business-verification": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "stripe-monthly-latest-balance-reconciliation": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-rate-limiter": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "stripe-request-routing-system": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "stripe-shipping-cost-part1-fixed": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "stripe-shipping-cost-part2-tiered": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "stripe-shipping-cost-part3-mixed": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "stripe-split-tender-basic": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-unordered-task-subtask-hierarchy": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-url-segment-compression-part1": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "stripe-url-segment-compression-part2": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "susquehanna-leftmost-memory-block-allocator": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "susquehanna-rotate-matrix-over-diagonals": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "susquehanna-sort-matrix-borders": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "tekion-100-lockers": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "tekion-coin-game-from-ends": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "tekion-dungeon-game": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "tekion-ipo": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "tesla-reduce-map-filter-pipeline": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "the-walt-disney-company-resizable-array-set": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "threshold-alerts": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-catch-fish-with-reusable-baits": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "tiktok-count-even-digit-numbers": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "tiktok-count-house-segments-after-destruction": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-count-one-swap-number-pairs": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "tiktok-count-skipped-numbers-after-subtractions": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "tiktok-distribution-center-package-allocation": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "tiktok-find-sum-pairs": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-get-min-adjustments": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "tiktok-get-minimum-total-cost": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "tiktok-leftmost-memory-block-allocator": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-lowest-number-in-open-range": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-maximum-rhombic-area-sum": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "tiktok-repeated-grouped-digit-sum": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "tiktok-reverse-letters-in-pairs": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "tiktok-sort-matrix-borders": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-viral-content-balancer": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "together-ai-time-indexed-key-value-store": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "toptal-valid-times-on-a-digital-clock": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "two-sigma-daily-temperature-by-town": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "two-sigma-linear-interpolator": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "two-sigma-online-no-intercept-linear-regression": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "twosigma-sewer-drainage-partition": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "uber-bus-time": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "uber-first-unique-ip-hitting-server": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "upstart-bounding-box-from-coordinates": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "upstart-buffet-day-gains": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "upstart-case-insensitive-anagram": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "upstart-filter-duplicates-preserving-order": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "upstart-scale-ingredient-quantities": {
    "cases": "1/1",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "vanta-unique-lines-command": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "vercel-recent-metrics-by-name-and-tags": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "walmart-minimum-stress-path": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "warehouse-allocation": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "wayfair-container-with-most-water": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "wayfair-distinct-letter-values-minimum-xor": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "wayfair-moving-cost-calculator": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "waymo-cyclic-fuel-command-simulation": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "waymo-shortest-paths-to-multiple-targets": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "wex-custom-ordered-string-permutations": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "wex-stack-command-output": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "worldquant-count-unordered-coin-combinations": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "xai-nested-transaction-key-value-store": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
+   "note": null,
+   "ok": true
+  },
+  "xai-ordered-figure-placement": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "zip-graph-pursuit-survival-time": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "zs-employees-whose-manager-left-company": {
    "cases": "2/2",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "zs-merge-k-sorted-lists": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   },
   "zs-merge-two-sorted-lists": {
    "cases": "3/3",
-   "checkedAt": "2026-09-18T22:14:53",
+   "checkedAt": "2026-09-18T22:35:58",
    "note": null,
    "ok": true
   }
  },
- "verified": 385
+ "verified": 697
 }

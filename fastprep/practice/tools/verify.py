@@ -11,6 +11,7 @@ example is the strongest check available, and a solution that fails one is
 worse than no solution at all.
 """
 import glob, json, os, sys
+from concurrent.futures import ThreadPoolExecutor
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, HERE)
@@ -56,6 +57,16 @@ def verify(bank: fpdb.Bank, pid: str, path: str | None = None, quiet: bool = Fal
                                            str(detail).replace("\n", " ")[:160])
 
 
+_local = __import__("threading").local()
+
+
+def sqlite_bank():
+    """One read-only connection per thread: sqlite3 objects are not shareable."""
+    if not hasattr(_local, "bank"):
+        _local.bank = fpdb.Bank()
+    return _local.bank
+
+
 def main(argv) -> int:
     bank = fpdb.Bank()
     if argv and argv[0] == "--manifest":
@@ -85,15 +96,24 @@ def main(argv) -> int:
         ok_n = bad_n = 0
         index = {}
         stamp = __import__("time").strftime("%Y-%m-%dT%H:%M:%S")
-        for path in files:
+        quiet = "--quiet" in argv[1:]
+        jobs = 8
+        if "--jobs" in argv:
+            jobs = int(argv[argv.index("--jobs") + 1])
+
+        def one(path):
             pid = os.path.splitext(os.path.basename(path))[0]
-            ok, msg = verify(bank, pid, path)
-            if not (argv[1:] and argv[1] == "--quiet" and ok):
-                print("%-5s %-52s %s" % ("ok" if ok else "FAIL", pid, msg))
-            index[pid] = {"ok": bool(ok), "cases": msg if ok else None,
-                          "note": None if ok else msg, "checkedAt": stamp}
-            ok_n += ok
-            bad_n += not ok
+            # each verify spawns its own sandbox, so threads here are fine
+            return (pid, path) + verify(sqlite_bank(), pid, path)
+
+        with ThreadPoolExecutor(max_workers=jobs) as pool:
+            for pid, path, ok, msg in pool.map(one, files):
+                if not (quiet and ok):
+                    print("%-5s %-52s %s" % ("ok" if ok else "FAIL", pid, msg))
+                index[pid] = {"ok": bool(ok), "cases": msg if ok else None,
+                              "note": None if ok else msg, "checkedAt": stamp}
+                ok_n += ok
+                bad_n += not ok
         # the app reads this to decide whether it may offer a solution at all
         with open(os.path.join(SOLUTIONS, "VERIFIED.json"), "w") as f:
             json.dump({"checkedAt": stamp, "verified": ok_n, "failing": bad_n,

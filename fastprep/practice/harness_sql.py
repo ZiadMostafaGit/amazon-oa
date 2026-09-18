@@ -26,12 +26,25 @@ def _main():
     if len(statements) > 1:
         return emit({"error": "run one statement at a time (%d were given)" % len(statements)})
 
-    def same(a, b):
+    # The contract declares each result column's type, and the bank does not
+    # always honour it in its own expected values: a "decimal" column can carry
+    # the string "100" while SQLite returns 100.0. Compare by the DECLARED type
+    # rather than by the Python types that happen to show up.
+    col_types = [c.get("type") for c in (contract.get("columns") or [])]
+    NUMERIC = ("decimal", "integer", "float", "double", "numeric")
+
+    def same(a, b, col=None):
+        if a is None or b is None:
+            return a is None and b is None
+        declared = col_types[col] if col is not None and col < len(col_types) else None
+        if declared in NUMERIC:
+            try:
+                return abs(float(a) - float(b)) <= (float(tol) if tol else 0)
+            except (TypeError, ValueError):
+                return str(a) == str(b)
         if isinstance(a, (int, float)) and isinstance(b, (int, float)) \
                 and not isinstance(a, bool) and not isinstance(b, bool):
             return abs(float(a) - float(b)) <= (float(tol) if tol else 0)
-        if a is None or b is None:
-            return a is None and b is None
         return str(a) == str(b)
 
     results = []
@@ -72,7 +85,7 @@ def _main():
                 problems.append("%d row(s), expected %d" % (len(a), len(b)))
             else:
                 for i, (ra, rb) in enumerate(zip(a, b)):
-                    if not all(same(x, y) for x, y in zip(ra, rb)):
+                    if not all(same(x, y, k) for k, (x, y) in enumerate(zip(ra, rb))):
                         problems.append("row %d is %s, expected %s" % (i + 1, ra, rb))
                         break
 
