@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FastPrep practice</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header id="top">
+  <button id="menuBtn" class="icon" title="Filters (f)">≡</button>
+  <b class="brand">FastPrep <span>practice</span></b>
+  <div class="search">
+    <input id="q" type="search" placeholder="Search titles and statements…" autocomplete="off" spellcheck="false">
+  </div>
+  <span id="count" class="count"></span>
+  <label class="sortwrap">sort
+    <select id="sort"></select>
+    <button id="dir" class="dirbtn" title="Reverse the order (r)">↓</button>
+  </label>
+  <span id="env" class="env" title="Execution environment"></span>
+</header>
+
+<div id="shell">
+  <aside id="filters">
+    <div class="fhead">
+      <b>Filters</b>
+      <button id="clearAll" class="link">clear all</button>
+    </div>
+    <div id="activeChips" class="chips"></div>
+    <div id="facets"></div>
+  </aside>
+
+  <main id="main">
+    <section id="listPane">
+      <div id="list"></div>
+      <div id="more"></div>
+    </section>
+    <section id="detailPane" class="empty">
+      <div class="placeholder">Pick a problem on the left.</div>
+    </section>
+  </main>
+</div>
+
+<div id="lightbox" hidden><img alt="source screenshot"></div>
+<script src="app.js"></script>
+</body>
+</html>

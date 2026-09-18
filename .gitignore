@@ -10,3 +10,9 @@ progress-*.json
 
 .DS_Store
 *.swp
+
+# fastprep practice: per-user runtime state, not content
+fastprep/practice/progress.db
+fastprep/practice/progress.db-*
+__pycache__/
+*.pyc

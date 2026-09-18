@@ -102,6 +102,30 @@ Verified in a real browser against the offline container build: runtime up in 2.
 225 cases passing. `site/_e2e.html` is that self-test — open it any time; the container build strips
 it.
 
+## Also here: `fastprep/` — a practice app over 3,533 reported problems
+
+A second, self-contained app in [`fastprep/practice/`](fastprep/practice/README.md), over the
+offline FastPrep bank that `fastprep/fastprep.py` scrapes (3,533 problems from 355 companies,
+already synced into `fastprep/fastprep.db`).
+
+```sh
+cd fastprep/practice && python3 serve.py      # http://127.0.0.1:8900
+```
+
+- **Browse** every metadata field as a filter and every sensible field as a sort, both directions:
+  company, stage (OA 1,976 / phone screen / onsite), difficulty, topic, platform, employment type,
+  target role, format, date windows, seen-count range, screenshots, your own progress. Full-text
+  search over titles and statements.
+- **Read** the rendered statement, examples, every sighting date, and the original assessment
+  screenshots, fetched once from fastprep.io and cached.
+- **Run** your solution against the problem's visible examples, in a **bubblewrap sandbox** with no
+  network, no filesystem and hard CPU/memory/time limits. Passing is never presented as proof:
+  the bank ships no hidden tests.
+- **Track** attempted/solved/review, bookmarks, notes and submissions in a separate `progress.db`,
+  so `fastprep.py sync` can refresh the bank without touching your work.
+
+89 tests: `python3 serve.py --selftest`.
+
 ## Docs
 
 - [`site/README.md`](site/README.md) — the app in detail: every feature, keybinding, and the full
