@@ -61,6 +61,62 @@ class ServerCase(unittest.TestCase):
             return json.load(e), e.code
 
 
+class TestMountedUnderAPrefix(unittest.TestCase):
+    """The app has to work behind a proxy that forwards its mount prefix."""
+    proc = None
+    base = None
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = tempfile.mkdtemp(prefix="fp-base-")
+        port = free_port()
+        cls.base = "http://127.0.0.1:%d" % port
+        cls.proc = subprocess.Popen(
+            [sys.executable, os.path.join(HERE, "serve.py"), "--port", str(port),
+             "--base-path", "/site", "--offline",
+             "--progress-db", os.path.join(cls.tmp, "p.db")],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=HERE)
+        for _ in range(100):
+            try:
+                urllib.request.urlopen(cls.base + "/site/api/health", timeout=1).read()
+                return
+            except Exception:
+                time.sleep(0.1)
+        raise RuntimeError("server did not start")
+
+    @classmethod
+    def tearDownClass(cls):
+        if cls.proc:
+            cls.proc.terminate(); cls.proc.wait(timeout=10)
+
+    def test_page_and_api_under_the_prefix(self):
+        html = urllib.request.urlopen(self.base + "/site/", timeout=30).read().decode()
+        self.assertIn("window.__BOOT__", html)
+        health = json.load(urllib.request.urlopen(self.base + "/site/api/health", timeout=30))
+        self.assertEqual(health["problems"], 3533)
+
+    def test_static_assets_under_the_prefix(self):
+        for path in ("/site/app.js", "/site/editor.js", "/site/styles.css",
+                     "/site/vendor/codemirror/codemirror.min.js"):
+            r = urllib.request.urlopen(self.base + path, timeout=30)
+            self.assertEqual(r.status, 200, path)
+
+    def test_the_page_uses_relative_urls(self):
+        """A leading slash would escape the mount point and 404 behind a proxy."""
+        js = urllib.request.urlopen(self.base + "/site/app.js", timeout=30).read().decode()
+        self.assertIn("document.baseURI", js)
+        self.assertNotIn("fetch('/api/", js)
+
+    def test_root_still_serves_when_the_proxy_strips_the_prefix(self):
+        health = json.load(urllib.request.urlopen(self.base + "/api/health", timeout=30))
+        self.assertEqual(health["problems"], 3533)
+
+    def test_an_unrelated_path_is_still_404(self):
+        with self.assertRaises(urllib.error.HTTPError) as cm:
+            urllib.request.urlopen(self.base + "/elsewhere/api/health", timeout=30)
+        self.assertEqual(cm.exception.code, 404)
+
+
 class TestBrowsing(ServerCase):
     def test_health(self):
         h = self.get("/api/health")

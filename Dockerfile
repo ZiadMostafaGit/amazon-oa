@@ -23,6 +23,9 @@ COPY fastprep/fastprep.db /app/fastprep.db
 # progress.db, the image cache and any solutions you add live here
 VOLUME /data
 ENV FP_DATA=/data
+# Set FP_BASE_PATH (e.g. /site) only if a reverse proxy forwards its mount
+# prefix verbatim; serve.py reads it and strips the prefix from every route.
+ENV FP_BASE_PATH=""
 
 EXPOSE 8900
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s \

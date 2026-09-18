@@ -40,8 +40,13 @@ function queryString(extra) {
   return p.toString();
 }
 
+/* The app must work wherever it is mounted: served at /, or behind a proxy at
+   /site/, or anywhere else. So every request resolves against the page itself
+   rather than the domain root - a leading slash would leave the mount point. */
+const url = (path) => new URL(String(path).replace(/^\//, ''), document.baseURI).toString();
+
 async function api(path, opts) {
-  const r = await fetch(path, opts);
+  const r = await fetch(url(path), opts);
   const body = await r.json().catch(() => ({ error: r.statusText }));
   if (!r.ok) throw new Error(body.error || ('HTTP ' + r.status));
   return body;
@@ -453,7 +458,7 @@ function renderDetail() {
       /* at most a handful per problem, and they are the point of the section:
          lazy loading only means a blank box until you scroll past it */
       img.loading = i < 3 ? 'eager' : 'lazy';
-      img.src = '/api/images/' + encodeURIComponent(d.id) + '/' + i;
+      img.src = url('api/images/' + encodeURIComponent(d.id) + '/' + i);
       img.alt = 'source screenshot ' + (i + 1);
       img.onclick = () => lightbox(img.src);
       img.onerror = () => { fig.textContent = ''; fig.append(el('div', 'hint',

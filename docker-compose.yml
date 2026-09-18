@@ -9,6 +9,13 @@ services:
     volumes:
       - fastprep-data:/data          # progress.db + the screenshot cache
 
+    # environment:
+    #   # Only when a reverse proxy forwards the mount prefix VERBATIM, e.g.
+    #   # nginx `proxy_pass http://app;` (no trailing slash) sending
+    #   # https://host/site/... through as /site/... . With a trailing slash
+    #   # nginx strips the prefix and you do not need this at all.
+    #   FP_BASE_PATH: /site
+
     # The runner sandboxes your code with bubblewrap, which has to create user
     # and network namespaces. Docker's default seccomp profile blocks that, so
     # without these two lines the app starts with NO namespace isolation and

@@ -16,6 +16,8 @@ network traffic except the one thing that needs it (source screenshots, below).
 python3 serve.py --open              # …and open a browser
 python3 serve.py --port 9000         # somewhere else
 python3 serve.py --offline           # never fetch images; serve what is cached
+python3 serve.py --host 0.0.0.0      # reachable from elsewhere (no auth: see below)
+python3 serve.py --base-path /site   # behind a proxy that forwards its mount prefix
 python3 serve.py --prefetch-images   # cache all 2 025 screenshots, then exit
 python3 serve.py --image-cache DIR   # keep screenshots somewhere else (a Docker volume)
 python3 serve.py --selftest          # run the 115 tests
@@ -187,6 +189,25 @@ is tested two ways:
   (13 566 input values, 7 214 outputs) and asserts each expected output
   compares equal to itself. This is how the one Java `long` literal in the bank
   (`9000606388L`) was found.
+
+## Behind a reverse proxy
+
+The page and every request it makes are resolved **relative to wherever the app
+is mounted**, so it works at `/`, at `/site/`, or anywhere else. Which flag you
+need depends on what your proxy does with the prefix:
+
+```nginx
+# nginx strips the prefix (note the trailing slash on proxy_pass):
+location /site/ { proxy_pass http://127.0.0.1:8900/; }      # no flag needed
+
+# nginx forwards it verbatim (no trailing slash):
+location /site/ { proxy_pass http://127.0.0.1:8900; }       # --base-path /site
+```
+
+With `--base-path /site` the app answers on both `/site/...` and `/...`, so a
+misconfigured proxy fails loudly rather than half-working. There is **no
+authentication** and the app executes code by design: keep it on `127.0.0.1`
+behind your proxy's auth, or reach it over an SSH tunnel.
 
 ## Source screenshots
 

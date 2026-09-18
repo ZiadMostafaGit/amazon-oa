@@ -41,6 +41,7 @@ mimetypes.add_type("application/javascript", ".js")
 BANK: fpdb.Bank
 PROGRESS: progress_mod.Progress
 ALLOW_FETCH = True
+BASE_PATH = ""          # e.g. "/site" when a reverse proxy mounts the app there
 
 
 # --------------------------------------------------------------------------
@@ -139,9 +140,20 @@ class Handler(BaseHTTPRequestHandler):
         return json.loads(self.rfile.read(n) or b"{}")
 
     # ------------------------------------------------------------------ GET
+    def _strip_base(self, path: str) -> str:
+        """Remove a mount prefix that a reverse proxy forwards verbatim.
+
+        nginx `proxy_pass http://app;` (no trailing slash) passes /site/api/x
+        through unchanged, so the app has to know it lives at /site. With a
+        trailing slash nginx strips the prefix and BASE_PATH stays empty.
+        """
+        if BASE_PATH and (path == BASE_PATH or path.startswith(BASE_PATH + "/")):
+            return path[len(BASE_PATH):] or "/"
+        return path
+
     def do_GET(self):
         url = urlparse(self.path)
-        path, q = url.path, parse_qs(url.query)
+        path, q = self._strip_base(url.path), parse_qs(url.query)
         try:
             if path.startswith("/api/"):
                 return self._api_get(path, q)
@@ -203,6 +215,7 @@ class Handler(BaseHTTPRequestHandler):
     # ----------------------------------------------------------------- POST
     def do_POST(self):
         url = urlparse(self.path)
+        url = url._replace(path=self._strip_base(url.path))
         try:
             body = self._body()
         except Exception as e:
@@ -460,6 +473,9 @@ def main() -> int:
     ap.add_argument("--host", default="127.0.0.1")
     ap.add_argument("--port", type=int, default=8900)
     ap.add_argument("--open", action="store_true", help="open a browser")
+    ap.add_argument("--base-path", default=os.environ.get("FP_BASE_PATH", ""),
+                    help="mount point, when a reverse proxy forwards the prefix "
+                         "verbatim: --base-path /site")
     ap.add_argument("--offline", action="store_true",
                     help="never fetch images; serve only what is cached")
     ap.add_argument("--prefetch-images", action="store_true",
@@ -474,6 +490,9 @@ def main() -> int:
         ok = unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful()
         return 0 if ok else 1
 
+    global BASE_PATH
+    trimmed = (args.base_path or "").strip("/")
+    BASE_PATH = "/" + trimmed if trimmed else ""
     if args.image_cache:
         images.set_cache_dir(args.image_cache)
     os.makedirs(os.path.dirname(os.path.abspath(args.progress_db)) or ".", exist_ok=True)
@@ -491,6 +510,8 @@ def main() -> int:
     print("  bank      %s  (read-only, %d problems, newest sighting %s)"
           % (BANK.path, meta["total"], meta["latest"]))
     print("  progress  %s" % PROGRESS.path)
+    if BASE_PATH:
+        print("  mounted   under %s (the proxy is expected to forward that prefix)" % BASE_PATH)
     print("  sandbox   %s   python=yes java=%s pandas=%s   %ds wall / %ds cpu / %d MB"
           % (env["sandbox"], "yes" if env["java"] else "no",
              "yes" if env["pandas"] else "no",
