@@ -198,6 +198,40 @@ def run_python(code: str, cases: list, function_name: str) -> dict:
     return _run_child(parsing_src + "\n\n" + _harness("python"), payload)
 
 
+def run_diff(code: str, reference: str, function: str, inputs: list,
+             out_type: str, trials: int = 300, budget: float = 6.0, seed: int = 1234) -> dict:
+    """Fuzz the user's code against a stored reference on generated inputs.
+
+    Only useful where a verified reference exists, which is the whole point of
+    the solution store: without one there is nothing to disagree with.
+    """
+    if len(code) > MAX_CODE:
+        return {"error": "the editor holds more than %d characters" % MAX_CODE}
+    with open(os.path.join(HERE, "parsing.py"), "r", encoding="utf-8") as f:
+        parsing_src = f.read()
+    with open(os.path.join(HERE, "gen.py"), "r", encoding="utf-8") as f:
+        gen_src = f.read()
+    # The sandbox runs ONE flat program, so gen.py's `import parsing` has no
+    # module to find: drop it and unqualify the references it guards.
+    gen_src = gen_src.replace("import parsing\n", "").replace("parsing.", "")
+    src = [parsing_src, gen_src]
+    glue = "\ndef gen_args(inputs, rng):\n    return args_for(inputs, rng)\n"
+    payload = {"code": code, "reference": reference, "function": function,
+               "inputs": inputs, "outputType": out_type, "trials": trials,
+               "budget": budget, "seed": seed, "maxOutput": MAX_OUTPUT}
+    return _run_child("\n\n".join(src) + glue + _harness("diff"), payload)
+
+
+def run_snippet(code: str, snippet: str) -> dict:
+    """Load the editor's code, then evaluate one expression or statement against
+    it - the scratch pad. Same sandbox, same limits."""
+    if len(code) + len(snippet) > MAX_CODE:
+        return {"error": "the editor holds more than %d characters" % MAX_CODE}
+    parsing_src = open(os.path.join(HERE, "parsing.py"), "r", encoding="utf-8").read()
+    payload = {"code": code, "snippet": snippet, "maxOutput": MAX_OUTPUT}
+    return _run_child(parsing_src + "\n\n" + _harness("snippet"), payload)
+
+
 def run_sql(query: str, tabular: dict) -> dict:
     """Run one SQL statement per visible case against an in-memory SQLite db."""
     if len(query) > MAX_CODE:

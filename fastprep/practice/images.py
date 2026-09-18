@@ -20,7 +20,14 @@ import urllib.request
 
 BASE = "https://www.fastprep.io"
 HERE = os.path.dirname(os.path.abspath(__file__))
-CACHE_DIR = os.path.join(HERE, "cache", "images")
+CACHE_DIR = os.environ.get("FP_IMAGE_CACHE") or os.path.join(HERE, "cache", "images")
+
+
+def set_cache_dir(path: str) -> None:
+    """Point the cache somewhere else - a Docker volume, usually."""
+    global CACHE_DIR
+    CACHE_DIR = os.path.abspath(path)
+    os.makedirs(CACHE_DIR, exist_ok=True)
 RATE = 3.0                       # requests per second, hard ceiling
 TIMEOUT = 45           # their image endpoint is a cold serverless function
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "

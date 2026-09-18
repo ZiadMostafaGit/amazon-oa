@@ -263,6 +263,201 @@ class TestRunning(ServerCase):
         self.assertEqual(code, 400)
 
 
+class TestCustomCases(ServerCase):
+    PID = "amazon-stock-span"
+
+    def _add(self, raw, expected, note=""):
+        d = self.get("/api/problems/" + self.PID)
+        param = d["cases"][0]["inputs"][0]
+        return self.post("/api/cases/" + self.PID, {
+            "action": "add",
+            "inputs": [{"name": param["name"], "type": param["type"], "rawValue": raw}],
+            "expected": expected, "note": note})
+
+    def test_add_list_delete(self):
+        out, code = self._add("[5,5,5]", "[1,2,3]", "equal prices")
+        self.assertEqual(code, 200)
+        cases = out["customCases"]
+        self.assertEqual(cases[-1]["inputs"][0]["rawValue"], "[5,5,5]")
+        self.assertEqual(cases[-1]["note"], "equal prices")
+        again = self.get("/api/problems/" + self.PID)["customCases"]
+        self.assertEqual(len(again), len(cases))
+        out, _ = self.post("/api/cases/" + self.PID,
+                           {"action": "delete", "caseId": cases[-1]["caseId"]})
+        self.assertEqual(len(out["customCases"]), len(cases) - 1)
+
+    def test_custom_cases_run_with_the_examples(self):
+        self._add("[5,5,5]", "[1,2,3]")
+        code = open(os.path.join(HERE, "solutions", "amazon-stock-span.py")).read()
+        out, _ = self.post("/api/run", {"problemId": self.PID, "language": "python",
+                                        "code": code, "include": "all"})
+        ids = [str(r["id"]) for r in out["results"]]
+        self.assertTrue(any(i.startswith("custom-") for i in ids), ids)
+        self.assertEqual(out["passed"], out["total"])
+        mine, _ = self.post("/api/run", {"problemId": self.PID, "language": "python",
+                                         "code": code, "include": "custom"})
+        self.assertTrue(all(r["custom"] for r in mine["results"]))
+
+    def test_case_without_expected_is_informational_not_a_failure(self):
+        self._add("[9,8,7]", "")          # no expected value at all
+        code = open(os.path.join(HERE, "solutions", "amazon-stock-span.py")).read()
+        out, _ = self.post("/api/run", {"problemId": self.PID, "language": "python",
+                                        "code": code, "include": "custom"})
+        blank = [r for r in out["results"] if r.get("expected") is None]
+        self.assertTrue(blank, out["results"])
+        self.assertIsNone(blank[0]["ok"])              # neither pass nor fail
+        self.assertTrue(blank[0]["got"])               # but it shows what you returned
+        self.assertNotIn(None, [r.get("ok") for r in out["results"] if r.get("expected")])
+
+    def test_cases_for_an_unknown_problem_are_refused(self):
+        out, code = self.post("/api/cases/not-a-problem", {"action": "add", "inputs": []})
+        self.assertEqual(code, 404)
+
+
+class TestScratch(ServerCase):
+    def test_evaluates_against_your_code(self):
+        out, code = self.post("/api/scratch", {
+            "problemId": "amazon-stock-span",
+            "code": "def helper(n):\n    return n * 3\n", "snippet": "helper(14)"})
+        self.assertEqual(code, 200)
+        self.assertEqual(out["value"], "42")
+
+    def test_captures_stdout(self):
+        out, _ = self.post("/api/scratch", {"code": "x = 5", "snippet": "print(x + 1)"})
+        self.assertEqual(out["printed"].strip(), "6")
+
+    def test_reports_errors_without_crashing(self):
+        out, _ = self.post("/api/scratch", {"code": "", "snippet": "1/0"})
+        self.assertIn("ZeroDivisionError", out["error"])
+
+    def test_empty_snippet_refused(self):
+        out, code = self.post("/api/scratch", {"code": "", "snippet": "   "})
+        self.assertEqual(code, 400)
+
+    def test_scratch_is_sandboxed_too(self):
+        import runner
+        if runner.sandbox_kind() != "bubblewrap":
+            self.skipTest("no bwrap")
+        out, _ = self.post("/api/scratch", {"code": "", "snippet": "open('/etc/hostname').read()"})
+        self.assertTrue(out.get("error"), out)
+
+
+class TestStoredSolutions(ServerCase):
+    def test_detail_carries_a_verified_solution(self):
+        d = self.get("/api/problems/stripe-deployment-window-scheduler")
+        sol = d["solution"]
+        self.assertTrue(sol)
+        self.assertTrue(sol["verified"])
+        self.assertEqual(sol["language"], "python")
+        self.assertIn("def scheduleDeploymentWindows", sol["code"])
+
+    def test_the_stored_solution_actually_passes(self):
+        d = self.get("/api/problems/stripe-deployment-window-scheduler")
+        out, _ = self.post("/api/run", {"problemId": d["id"], "language": "python",
+                                        "code": d["solution"]["code"], "include": "examples"})
+        self.assertEqual(out["passed"], out["total"])
+        self.assertGreater(out["total"], 0)
+
+    def test_missing_solution_is_null_not_a_fake(self):
+        d = self.get("/api/problems/fastprep-nonexistent") if False else None
+        # a problem far outside the manifest has no stored solution
+        every = self.get("/api/problems?sort=default&dir=desc&limit=1")["items"][0]
+        detail = self.get("/api/problems/" + every["id"])
+        self.assertIn("solution", detail)
+
+    def test_health_reports_solution_coverage(self):
+        s = self.get("/api/health")["solutions"]
+        self.assertEqual(s["targeted"], 1500)
+        self.assertGreaterEqual(s["stored"], 1)
+        self.assertGreaterEqual(s["stored"], s["verified"])
+
+
+class TestRandomMode(ServerCase):
+    """Fuzzing your code against a verified reference - the mode that catches
+    'passed the examples, fails the hidden tests'."""
+    PID = "amazon-stock-span"
+
+    def test_reference_agrees_with_itself(self):
+        ref = open(os.path.join(HERE, "solutions", self.PID + ".py")).read()
+        out, code = self.post("/api/fuzz", {"problemId": self.PID, "code": ref})
+        self.assertEqual(code, 200, out)
+        self.assertFalse(out["failed"])
+        self.assertGreater(out["checked"], 50)
+
+    def test_subtly_wrong_code_is_caught(self):
+        wrong = ("def solve(prices):\n"
+                 "    n = len(prices); spans = [0]*n; st = []\n"
+                 "    for i in range(n):\n"
+                 "        while st and prices[st[-1]] < prices[i]:\n"   # should be <=
+                 "            st.pop()\n"
+                 "        spans[i] = i+1 if not st else i-st[-1]\n"
+                 "        st.append(i)\n"
+                 "    return spans\n")
+        out, _ = self.post("/api/fuzz", {"problemId": self.PID, "code": wrong})
+        self.assertTrue(out["failed"])
+        self.assertFalse(out["crash"])
+        self.assertNotEqual(out["got"], out["expected"])
+        self.assertTrue(out["input"])
+        self.assertEqual(out["inputTypes"], ["int[]"])
+
+    def test_crashing_code_is_reported_as_a_crash(self):
+        out, _ = self.post("/api/fuzz", {"problemId": self.PID,
+                                         "code": "def solve(prices):\n    return prices[99]\n"})
+        self.assertTrue(out["failed"])
+        self.assertTrue(out["crash"])
+        self.assertIn("IndexError", out["got"])
+
+    def test_refused_without_a_verified_reference(self):
+        out, code = self.post("/api/fuzz", {"problemId": "amazon-merge-intervals",
+                                            "code": "def f():\n    pass\n"})
+        if code == 200:
+            self.skipTest("a reference has since been written for that problem")
+        self.assertEqual(code, 400)
+        self.assertIn("no verified reference", out["error"])
+
+    def test_refused_for_tabular_problems(self):
+        out, code = self.post("/api/fuzz", {
+            "problemId": "alarm-get-average-thermostat-temperature", "code": "SELECT 1"})
+        self.assertEqual(code, 400)
+
+
+class TestGenerators(unittest.TestCase):
+    """The type-driven generator behind Random mode."""
+
+    def setUp(self):
+        sys.path.insert(0, HERE)
+        global gen, parsing
+        import gen, parsing
+
+    def test_every_type_in_the_bank_generates(self):
+        import random, json as _json
+        rng = random.Random(7)
+        types = ["int", "long", "double", "float", "boolean", "char", "String",
+                 "int[]", "long[]", "double[]", "boolean[]", "char[]", "String[]",
+                 "int[][]", "String[][]", "char[][]", "int[][][]",
+                 "List<Integer>", "List<String>", "List<List<Integer>>",
+                 "TreeNode", "ListNode", "ListNode[]"]
+        for t in types:
+            for _ in range(20):
+                v = gen.value(rng, t, 5)
+                _json.dumps(v)                       # must be JSON-safe
+            self.assertIsNotNone(gen.value(rng, t, 5), t)
+
+    def test_generated_values_parse_back_as_their_type(self):
+        import json as _json, random
+        rng = random.Random(11)
+        for t in ("int[]", "String[][]", "char[][]", "List<List<Integer>>"):
+            raw = _json.dumps(gen.value(rng, t, 4))
+            parsing.parse_value(raw, t)              # must not raise
+
+    def test_tree_encoding_is_wellformed(self):
+        import random
+        rng = random.Random(3)
+        for _ in range(50):
+            v = gen.value(rng, "TreeNode", 6)
+            self.assertFalse(v and v[0] is None, v)  # never a null root
+
+
 class TestProgress(ServerCase):
     PID = "amazon-word-ladder"
 

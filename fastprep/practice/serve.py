@@ -31,6 +31,7 @@ import images
 import languages
 import progress as progress_mod
 import runner
+import solutions as solutions_mod
 
 STATIC = os.path.join(HERE, "static")
 mimetypes.add_type("application/javascript", ".js")
@@ -81,6 +82,22 @@ def _filters_from_query(q: dict) -> tuple[dict, str, int, int, str]:
     limit = max(1, min(int((q.get("limit") or ["50"])[0] or 50), 500))
     offset = max(0, int((q.get("offset") or ["0"])[0] or 0))
     return f, sort, limit, offset, direction
+
+
+def _problem_payload(detail: dict) -> dict:
+    """Everything the problem view needs, in one place.
+
+    Both the JSON endpoint and the inlined first paint go through here - when
+    they were built separately, the inlined copy silently lost the stored
+    solution and the user's own test cases.
+    """
+    pid = detail["id"]
+    detail["languages"] = languages.catalogue(detail)
+    detail["cases"] = BANK.runnable_cases(detail)
+    detail["customCases"] = PROGRESS.cases(pid)
+    detail["progress"] = PROGRESS.get(pid)
+    detail["solution"] = solutions_mod.get(pid, detail.get("practiceFormat") or "algorithm")
+    return detail
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -136,6 +153,7 @@ class Handler(BaseHTTPRequestHandler):
                 "ok": True, "bank": BANK.path, "problems": BANK.facets()["meta"]["total"],
                 "progressDb": PROGRESS.path, "imagesCached": images.cached_count(),
                 "environment": languages.environment(),
+                "solutions": solutions_mod.stats(),
             })
         if path == "/api/facets":
             out = BANK.facets()
@@ -157,10 +175,7 @@ class Handler(BaseHTTPRequestHandler):
             if tail == "neighbours":
                 f, sort, _, _, direction = _filters_from_query(q)
                 return self._json(BANK.neighbours(pid, f, sort, direction))
-            detail["languages"] = languages.catalogue(detail)
-            detail["cases"] = BANK.runnable_cases(detail)
-            detail["progress"] = PROGRESS.get(pid)
-            return self._json(detail)
+            return self._json(_problem_payload(detail))
         if path.startswith("/api/images/"):
             parts = path[len("/api/images/"):].split("/")
             if len(parts) != 2 or not parts[1].isdigit():
@@ -190,6 +205,12 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if url.path == "/api/run":
                 return self._run(body)
+            if url.path == "/api/fuzz":
+                return self._fuzz(body)
+            if url.path == "/api/scratch":
+                return self._scratch(body)
+            if url.path.startswith("/api/cases/"):
+                return self._cases(url.path[len("/api/cases/"):], body)
             if url.path.startswith("/api/progress/"):
                 pid = url.path[len("/api/progress/"):]
                 if not BANK.detail(pid):
@@ -204,6 +225,73 @@ class Handler(BaseHTTPRequestHandler):
         except Exception:
             traceback.print_exc()
             return self._error(500, "internal error")
+
+    def _cases(self, pid: str, body: dict):
+        """Add, edit or delete one of your own test cases for a problem."""
+        detail = BANK.detail(pid)
+        if not detail:
+            return self._error(404, "no problem with id %r" % pid)
+        action = (body.get("action") or "add").lower()
+        if action == "delete":
+            PROGRESS.delete_case(int(body["caseId"]))
+        elif action == "update":
+            PROGRESS.update_case(int(body["caseId"]), body.get("inputs"),
+                                 body.get("expected"), body.get("note"))
+        elif action == "add":
+            inputs = body.get("inputs") or []
+            if not isinstance(inputs, list):
+                return self._error(400, "inputs must be a list")
+            # a case with no expected value is still useful: it runs and shows
+            # what your code returns, which is how you explore an edge case
+            PROGRESS.add_case(pid, inputs, body.get("expected") or "", body.get("note") or "")
+        else:
+            return self._error(400, "unknown action %r" % action)
+        return self._json({"customCases": PROGRESS.cases(pid)})
+
+    def _fuzz(self, body: dict):
+        """Your code against the stored reference, on generated inputs.
+
+        Only offered where a VERIFIED reference exists: fuzzing against an
+        unverified one would report disagreements that mean nothing.
+        """
+        pid = body.get("problemId")
+        detail = BANK.detail(pid) if pid else None
+        if not detail:
+            return self._error(404, "no problem with id %r" % pid)
+        if detail.get("practiceFormat") == "tabular":
+            return self._error(400, "random testing is for algorithm problems")
+        sol = solutions_mod.get(pid)
+        if not sol or not sol.get("verified"):
+            return self._error(400, "no verified reference solution for this problem, so "
+                                    "there is nothing to compare against")
+        cases = BANK.runnable_cases(detail)
+        if not cases:
+            return self._error(400, "this problem declares no inputs to generate")
+        out_type = (detail.get("examples") or [{}])[0].get("outputType") or "int"
+        result = runner.run_diff(body.get("code") or "", sol["code"],
+                                 detail.get("functionName") or "solve",
+                                 cases[0]["inputs"], out_type,
+                                 trials=int(body.get("trials") or 300),
+                                 budget=float(body.get("budget") or 6),
+                                 seed=int(body.get("seed") or 1234))
+        result["inputNames"] = [i.get("name") for i in cases[0]["inputs"]]
+        result["inputTypes"] = [i.get("type") for i in cases[0]["inputs"]]
+        result["sandbox"] = runner.sandbox_kind()
+        result["caveat"] = ("Inputs are generated from the declared types only, so some break "
+                            "the problem's own rules; any input the reference rejects is "
+                            "skipped rather than counted.")
+        return self._json(result)
+
+    def _scratch(self, body: dict):
+        pid = body.get("problemId")
+        snippet = (body.get("snippet") or "").strip()
+        if not snippet:
+            return self._error(400, "nothing to evaluate")
+        if pid and not BANK.detail(pid):
+            return self._error(404, "no problem with id %r" % pid)
+        result = runner.run_snippet(body.get("code") or "", snippet)
+        result["sandbox"] = runner.sandbox_kind()
+        return self._json(result)
 
     def _run(self, body: dict):
         pid = body.get("problemId")
@@ -224,20 +312,39 @@ class Handler(BaseHTTPRequestHandler):
         if spec["mode"] == "sql":
             result = runner.run_sql(code, detail.get("tabular") or {})
         elif spec["mode"] == "python":
-            cases = BANK.runnable_cases(detail)
+            include = (body.get("include") or "all").lower()
+            cases = [] if include == "custom" else BANK.runnable_cases(detail)
+            if include in ("all", "custom"):
+                # a custom case inherits the problem's declared output type
+                out_type = ((detail.get("examples") or [{}])[0] or {}).get("outputType") or "int"
+                for c in PROGRESS.cases(pid):
+                    cases.append({"id": "custom-%d" % c["caseId"], "inputs": c["inputs"],
+                                  "outputType": out_type, "expectedRaw": c["expectedRaw"],
+                                  "custom": True, "note": c["note"]})
             if not cases:
-                return self._error(400, "this problem has no visible examples to run")
+                return self._error(400, "nothing to run: this problem has no visible "
+                                        "examples and you have added no cases")
             result = runner.run_python(code, cases, detail.get("functionName") or "solve")
+            by_id = {str(c["id"]): c for c in cases}
+            for r in result.get("results") or []:
+                src = by_id.get(str(r.get("id"))) or {}
+                r["custom"] = bool(src.get("custom"))
+                if src.get("note"):
+                    r["note"] = src["note"]
+                if not src.get("expectedRaw"):
+                    r["ok"] = None            # nothing to compare against: informational
+                    r["expected"] = None
         else:
             return self._error(400, "%s is not executable here" % spec["label"])
 
         results = result.get("results") or []
-        passed = sum(1 for r in results if r.get("ok"))
+        judged = [r for r in results if r.get("ok") is not None]
+        passed = sum(1 for r in judged if r.get("ok"))
         PROGRESS.save_submission(pid, lang, code,
                                  passed if results else None,
                                  len(results) if results else None)
         result.update({
-            "passed": passed, "total": len(results),
+            "passed": passed, "total": len(judged),
             "sandbox": runner.sandbox_kind(),
             "disclaimer": "These are the problem's VISIBLE examples only. This bank "
                           "ships no hidden tests and no reference solution, so passing "
@@ -281,10 +388,7 @@ class Handler(BaseHTTPRequestHandler):
             if wanted:
                 detail = BANK.detail(wanted)
                 if detail:
-                    detail["languages"] = languages.catalogue(detail)
-                    detail["cases"] = BANK.runnable_cases(detail)
-                    detail["progress"] = PROGRESS.get(wanted)
-                    boot["detail"] = detail
+                    boot["detail"] = _problem_payload(detail)
         except Exception:
             traceback.print_exc()
             boot = None
@@ -338,6 +442,9 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--db", default=fpdb.DEFAULT_DB, help="the FastPrep bank (read-only)")
     ap.add_argument("--progress-db", default=progress_mod.DEFAULT_PATH)
+    ap.add_argument("--image-cache", default=None,
+                    help="where to keep fetched source screenshots "
+                         "(default: cache/images next to this file)")
     ap.add_argument("--host", default="127.0.0.1")
     ap.add_argument("--port", type=int, default=8900)
     ap.add_argument("--open", action="store_true", help="open a browser")
@@ -355,6 +462,9 @@ def main() -> int:
         ok = unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful()
         return 0 if ok else 1
 
+    if args.image_cache:
+        images.set_cache_dir(args.image_cache)
+    os.makedirs(os.path.dirname(os.path.abspath(args.progress_db)) or ".", exist_ok=True)
     BANK = fpdb.Bank(args.db)
     PROGRESS = progress_mod.Progress(args.progress_db)
     ALLOW_FETCH = not args.offline
@@ -376,8 +486,12 @@ def main() -> int:
     if env["sandbox"] != "bubblewrap":
         print("  WARNING   bwrap not found: user code runs in a plain subprocess with")
         print("            resource limits only - no namespace isolation.")
-    print("  images    %d cached, fetching %s" % (images.cached_count(),
-                                                  "enabled" if ALLOW_FETCH else "disabled"))
+    print("  images    %d cached in %s, fetching %s"
+          % (images.cached_count(), images.CACHE_DIR,
+             "enabled" if ALLOW_FETCH else "disabled"))
+    sol = solutions_mod.stats()
+    print("  solutions %d stored, %d verified against their visible examples (of %d targeted)"
+          % (sol["stored"], sol["verified"], sol["targeted"]))
     print("\n  -> %s\n" % url)
 
     httpd = ThreadingHTTPServer((args.host, args.port), Handler)

@@ -17,7 +17,8 @@ python3 serve.py --open              # …and open a browser
 python3 serve.py --port 9000         # somewhere else
 python3 serve.py --offline           # never fetch images; serve what is cached
 python3 serve.py --prefetch-images   # cache all 2 025 screenshots, then exit
-python3 serve.py --selftest          # run the 89 tests
+python3 serve.py --image-cache DIR   # keep screenshots somewhere else (a Docker volume)
+python3 serve.py --selftest          # run the 102 tests
 ```
 
 ## What it does
@@ -54,9 +55,35 @@ inline — click to enlarge. Tabular (SQL) problems have no `examples`; they get
 their table schemas, result contract and visible cases rendered as tables
 instead.
 
-**Run.** The editor loads the starter code; ▶ Run (or Ctrl-Enter) executes it
-against the visible examples and reports per-case pass/fail with expected
-versus actual, plus anything the code printed.
+**Solve.** A real editor, not a textarea: CodeMirror with Python highlighting,
+**Vim keybindings** (`Ctrl-Alt-V`, with the mode shown next to the button),
+**relative line numbers** (`Ctrl-Alt-R`) so `5dd` and `3j` line up with the
+gutter, real tab stops, Python-aware Enter and Backspace, and completion over
+every builtin, all 297 stdlib modules and the methods of the built-in types.
+Font size, reset-to-starter and copy sit in the same bar, and your buffer is
+saved per problem and per language as you type.
+
+Three ways to run it:
+
+| Button | What it does |
+|---|---|
+| **▶ Run tests** (`Ctrl-Enter`) | the published examples plus your own cases |
+| **Run my cases only** | just the cases you added, for iterating on one edge case |
+| **Scratch** (`Shift-Ctrl-Enter`) | evaluate any expression against your code — `solve([1,2,3])`, `print(helper(x))` |
+
+Each case reports pass/fail with expected versus actual and anything the code
+printed.
+
+**Your own test cases.** *＋ Add a test case* gives you one field per declared
+parameter, pre-filled from the first example so the notation is obvious, plus an
+expected value and a note. **Leave the expected value empty** and the case still
+runs — it reports `RAN` and shows what your code returned, which is how you
+explore an edge case you do not yet know the answer to. Cases live in
+`progress.db` next to your notes, never in the bank.
+
+**Reference solutions.** Where one exists it sits in a collapsed panel at the
+bottom of the problem, badged with the verification it passed, with a button to
+load it into the editor. The bank ships none of these: see *Solutions* below.
 
 **Track.** Attempted / solved / review, bookmarks, notes and your last
 submission per language, kept in `progress.db` — a separate file, because
@@ -83,6 +110,33 @@ no writing outside, infinite loops stopped, memory capped.
 **Passing is not proof.** This bank ships only VISIBLE examples — no hidden
 tests, no reference solutions. The app says so next to every Run button, and a
 clean sweep marks a problem *attempted*, never *solved*; that call is yours.
+
+### Solutions
+
+The bank has no reference solutions and no hidden tests, so every solution here
+was written for this repo and is only kept if it passes **every visible example
+of its problem**. The tooling is the point:
+
+```sh
+python3 tools/pick.py 1500        # choose the problems worth solving -> solutions/MANIFEST.json
+python3 tools/brief.py <id>       # statement + constraints + exact signature + examples
+python3 tools/verify.py <id>      # run a stored solution against its examples, in the sandbox
+python3 tools/verify.py --all     # re-check everything -> solutions/VERIFIED.json
+python3 tools/audit.py            # flag anything that passes by memorising the examples
+```
+
+`tools/pick.py` blends two rankings rather than choosing between them — most
+repeated (`seen_count`) and most recent (`last_seen_max`) — because they
+disagree: the most-repeated problems skew old, the newest are mostly seen once.
+
+`tools/audit.py` exists because "passes the visible examples" can be gamed by
+returning the expected answer for the example input. It greps every solution for
+the examples' literal inputs and outputs and for equality chains with no loop,
+and prints what it finds. It is a report to read, not a gate that deletes files:
+a legitimate lookup table trips it too.
+
+A solution the app shows as *verified* passed `tools/verify.py` on the date in
+`solutions/VERIFIED.json`. Anything without that badge is stored but unconfirmed.
 
 ### Languages
 
@@ -125,15 +179,20 @@ disables it; `--prefetch-images` warms the whole cache in about 11 minutes.
 
 ```
 serve.py       one-command entry point + HTTP API (stdlib only)
+solutions.py   the reference-solution store and its verification state
 fpdb.py        read-only access to fastprep.db, filters, sorts, FTS search
 parsing.py     inputValue/outputText <-> Python values, and the comparator
 runner.py      the sandbox: bubblewrap + rlimits + timeout
-harness_*.py   what runs inside it (python cases, SQL cases)
+harness_*.py   what runs inside it (python cases, SQL cases, scratch)
 languages.py   what this machine can actually execute, and the starter code
 progress.py    your status/notes/bookmarks/submissions (separate db)
 images.py      lazy, rate-limited screenshot cache
-static/        the page: index.html, app.js, styles.css
-tests/         89 tests: parsing, corpus sweep, sandbox, API, filters/sorts
+static/        the page: index.html, app.js, styles.css, editor.js (CodeMirror + vim), pyenv.js
+tests/         102 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
+               custom cases, scratch, solutions
+tools/         pick / brief / verify / audit / batch — the solution pipeline
+solutions/     one file per problem id, plus MANIFEST.json and VERIFIED.json
+static/vendor/ CodeMirror and JetBrains Mono, vendored so the app is fully offline
 ```
 
 ## Notes on the data

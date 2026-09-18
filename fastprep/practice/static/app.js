@@ -23,7 +23,13 @@ const state = {
   minSeen: '', maxSeen: '', status: '', hasImages: false, bookmarked: false, hasNotes: false,
   offset: 0, limit: 50, total: 0, items: [], current: null, facets: null,
   env: null, lang: null, dirty: false,
+  editor: null, vim: localStorage.getItem('fp:vim') === '1',
+  relno: localStorage.getItem('fp:relno') !== '0',
+  fontSize: parseInt(localStorage.getItem('fp:fs') || '14', 10),
+  showCaseForm: false,
 };
+
+const remember = (k, v) => { try { localStorage.setItem('fp:' + k, v); } catch (e) {} };
 
 function queryString(extra) {
   const p = new URLSearchParams();
@@ -452,6 +458,14 @@ function renderDetail() {
   const editorHost = el('div'); editorHost.id = 'editorHost';
   body.append(editorHost);
 
+  body.append(el('h2', null, 'My test cases'));
+  const casesHost = el('div', 'cases'); casesHost.id = 'casesHost';
+  body.append(casesHost);
+
+  body.append(el('h2', null, 'Reference solution'));
+  const solutionHost = el('div'); solutionHost.id = 'solutionHost';
+  body.append(solutionHost);
+
   /* ---- notes ---- */
   body.append(el('h2', null, 'Notes'));
   const notes = el('textarea'); notes.id = 'notes';
@@ -478,6 +492,7 @@ function renderEditor() {
   const host = $('#editorHost');
   if (!host) return;
   host.textContent = '';
+  state.editor = null;
   const spec = d.languages.find(l => l.id === state.lang) || d.languages[0];
   if (!spec) { host.append(el('div', 'hint', 'No editor for this problem.')); return; }
 
@@ -490,28 +505,87 @@ function renderEditor() {
     host.append(n);
   }
 
+  /* --- toolbar: the editor affordances, not the problem's --- */
+  const bar = el('div', 'edbar');
+  const vimBtn = el('button', 'btn tiny' + (state.vim ? ' on' : ''), 'Vim');
+  vimBtn.title = 'Vim keybindings — Ctrl-Alt-V';
+  const mode = el('span', 'vimstate', '');
+  vimBtn.onclick = () => {
+    state.vim = !state.vim; remember('vim', state.vim ? '1' : '0');
+    vimBtn.classList.toggle('on', state.vim);
+    if (state.editor) { state.editor.setVim(state.vim); state.editor.focus(); }
+    if (!state.vim) mode.textContent = '';
+  };
+  const relBtn = el('button', 'btn tiny' + (state.relno ? ' on' : ''),
+                    state.relno ? 'Rel no' : 'Abs no');
+  relBtn.title = 'Relative line numbers — Ctrl-Alt-R';
+  relBtn.onclick = () => {
+    state.relno = !state.relno; remember('relno', state.relno ? '1' : '0');
+    relBtn.textContent = state.relno ? 'Rel no' : 'Abs no';
+    relBtn.classList.toggle('on', state.relno);
+    if (state.editor) { state.editor.setRelative(state.relno); state.editor.focus(); }
+  };
+  const fsz = el('span', 'fsz');
+  const fsVal = el('b', null, String(state.fontSize));
+  const bump = (delta) => {
+    state.fontSize = Math.max(10, Math.min(24, state.fontSize + delta));
+    remember('fs', String(state.fontSize));
+    fsVal.textContent = String(state.fontSize);
+    if (state.editor) state.editor.setFontSize(state.fontSize);
+  };
+  const minus = el('button', null, 'A−'); minus.onclick = () => bump(-1);
+  const plus = el('button', null, 'A+'); plus.onclick = () => bump(1);
+  fsz.append(minus, fsVal, plus);
+  const resetBtn = el('button', 'btn tiny', 'Reset to starter');
+  resetBtn.onclick = () => {
+    if (state.editor) { state.editor.setValue(spec.starter || ''); state.editor.focus(); }
+  };
+  const copyBtn = el('button', 'btn tiny', 'Copy');
+  copyBtn.onclick = () => {
+    navigator.clipboard.writeText(state.editor ? state.editor.getValue() : '');
+    copyBtn.textContent = 'Copied'; setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1200);
+  };
+  bar.append(vimBtn, relBtn, mode, fsz, el('span', 'spacer'), resetBtn, copyBtn);
+  host.append(bar);
+
+  /* --- the editor itself --- */
   const saved = (d.progress && d.progress.submissions && d.progress.submissions[spec.id]) || null;
   const ta = el('textarea'); ta.id = 'editor'; ta.spellcheck = false;
   ta.value = (saved && saved.code) || spec.starter || '';
-  ta.readOnly = !spec.runnable;
-  ta.onkeydown = (e) => {
-    if (e.key === 'Tab') {
-      e.preventDefault();
-      const s = ta.selectionStart, en = ta.selectionEnd;
-      ta.value = ta.value.slice(0, s) + '    ' + ta.value.slice(en);
-      ta.selectionStart = ta.selectionEnd = s + 4;
-    }
-    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); runCode(); }
-  };
   host.append(ta);
 
+  state.editor = window.PyEditor.create(ta, {
+    vim: state.vim, relative: state.relno, fontSize: state.fontSize,
+    onRun: () => runCode(), onScratch: () => runScratch(),
+    onChange: () => scheduleSave(),
+    onModeChange: (m) => { if (state.vim) mode.textContent = '-- ' + m + ' --'; },
+  });
+  if (!spec.runnable) state.editor.setReadOnly(true);
+
+  /* --- run bar --- */
   const runbar = el('div', 'runbar');
-  const runBtn = el('button', 'btn run', '▶ Run visible examples  (Ctrl-Enter)');
+  const runBtn = el('button', 'btn run', '▶ Run tests  (Ctrl-Enter)');
   runBtn.disabled = !spec.runnable;
-  runBtn.onclick = runCode;
-  const resetBtn = el('button', 'btn', 'Reset to starter');
-  resetBtn.onclick = () => { ta.value = spec.starter || ''; };
-  runbar.append(runBtn, resetBtn, el('span', 'spacer'));
+  runBtn.onclick = () => runCode('all');
+  const customBtn = el('button', 'btn', 'Run my cases only');
+  customBtn.disabled = !spec.runnable || !(d.customCases || []).length;
+  customBtn.onclick = () => runCode('custom');
+  const fuzzBtn = el('button', 'btn', 'Random');
+  const canFuzz = spec.runnable && spec.mode === 'python' &&
+                  d.solution && d.solution.verified && d.practiceFormat !== 'tabular';
+  fuzzBtn.disabled = !canFuzz;
+  fuzzBtn.title = canFuzz
+    ? 'Generate random inputs and compare your code with the verified reference solution'
+    : 'Needs a verified reference solution for this problem';
+  fuzzBtn.onclick = () => runFuzz();
+  const scratchBtn = el('button', 'btn', 'Scratch');
+  scratchBtn.title = 'Run an ad-hoc call against your code (Shift-Ctrl-Enter)';
+  scratchBtn.onclick = () => {
+    const box = $('#scratch');
+    box.hidden = !box.hidden;
+    if (!box.hidden) $('#scratchIn').focus();
+  };
+  runbar.append(runBtn, customBtn, fuzzBtn, scratchBtn, el('span', 'spacer'));
   const verdict = el('span', 'verdict'); verdict.id = 'verdict';
   if (saved && saved.total != null) {
     verdict.innerHTML = 'last run: ' + (saved.passed === saved.total
@@ -523,14 +597,281 @@ function renderEditor() {
   host.append(runbar);
 
   const disclaimer = el('div', 'note warn');
-  disclaimer.textContent = 'These are the problem’s visible examples only. This bank ships ' +
-    'no hidden tests and no reference solution, so passing every case does not mean your ' +
-    'solution is correct.';
+  disclaimer.textContent = 'These are the problem\u2019s visible examples only. This bank ships ' +
+    'no hidden tests, so passing every case does not mean your solution is correct.';
   host.append(disclaimer);
+
+  /* --- scratch pad --- */
+  const scratch = el('div'); scratch.id = 'scratch'; scratch.hidden = true;
+  const sin = el('textarea'); sin.id = 'scratchIn'; sin.spellcheck = false;
+  sin.placeholder = (d.functionName || 'solve') + '(' +
+    ((d.cases && d.cases[0] ? d.cases[0].inputs : []) || []).map(i => i.rawValue).join(', ') + ')';
+  sin.onkeydown = (e) => {
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); runScratch(); }
+  };
+  const sbar = el('div', 'edbar');
+  const sgo = el('button', 'btn tiny', 'Evaluate  (Shift-Ctrl-Enter)');
+  sgo.onclick = () => runScratch();
+  sbar.append(el('span', 'hint', 'Runs your editor code, then evaluates this against it'),
+              el('span', 'spacer'), sgo);
+  scratch.append(sin, sbar);
+  host.append(scratch);
+
   host.append(el('div', 'results'));
+  renderCases();
+  renderSolution();
 }
 
-async function runCode() {
+/* ------------------------------------------------------------ custom cases */
+function renderCases() {
+  const d = state.current;
+  const host = $('#casesHost');
+  if (!host) return;
+  host.textContent = '';
+  const params = ((d.cases && d.cases[0] ? d.cases[0].inputs : []) || []);
+
+  if (d.practiceFormat === 'tabular') {
+    host.append(el('div', 'hint',
+      'Custom cases are for algorithm problems; a tabular problem runs against its own visible cases.'));
+    return;
+  }
+
+  (d.customCases || []).forEach(c => {
+    const row = el('div', 'case-row');
+    const grow = el('div', 'grow');
+    const kv = el('div', 'kv');
+    (c.inputs || []).forEach(i => {
+      kv.append(el('div', 'k', (i.name || '?') + ' (' + (i.type || '?') + ')'),
+                el('div', 'v', i.rawValue));
+    });
+    kv.append(el('div', 'k', '→ expected'),
+              el('div', 'v', c.expectedRaw || '(none — just show what my code returns)'));
+    grow.append(kv);
+    if (c.note) grow.append(el('div', 'hint', c.note));
+    const del = el('button', 'btn tiny', 'Delete');
+    del.onclick = async () => {
+      await api('/api/cases/' + encodeURIComponent(d.id), {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'delete', caseId: c.caseId }),
+      });
+      const fresh = await api('/api/problems/' + encodeURIComponent(d.id));
+      state.current.customCases = fresh.customCases;
+      renderCases(); renderEditor();
+    };
+    row.append(grow, del);
+    host.append(row);
+  });
+
+  if (!state.showCaseForm) {
+    const add = el('button', 'btn', '＋ Add a test case');
+    add.disabled = !params.length;
+    add.title = params.length ? '' : 'This problem declares no inputs to vary';
+    add.onclick = () => { state.showCaseForm = true; renderCases(); };
+    host.append(add);
+    if (!(d.customCases || []).length) {
+      host.append(el('div', 'hint',
+        'Your own cases run alongside the published examples and are kept in progress.db.'));
+    }
+    return;
+  }
+
+  const form = el('div', 'case-form');
+  const fields = params.map(p => {
+    const lab = el('label', null, p.name + '  (' + p.type + ')');
+    const inp = el('input');
+    inp.value = p.rawValue || '';
+    inp.placeholder = p.rawValue || '';
+    form.append(lab, inp);
+    return { name: p.name, type: p.type, input: inp };
+  });
+  const expLab = el('label', null, 'expected output  (leave empty to just see what you return)');
+  const exp = el('input');
+  exp.placeholder = (d.cases && d.cases[0] ? d.cases[0].expectedRaw : '') || '';
+  const noteLab = el('label', null, 'note (optional)');
+  const note = el('input');
+  form.append(expLab, exp, noteLab, note);
+  form.append(el('div', 'hint',
+    'Values use the same notation as the examples above: JSON for arrays, quotes for strings.'));
+  const bar = el('div', 'edbar');
+  const save = el('button', 'btn run', 'Add case');
+  save.onclick = async () => {
+    const payload = {
+      action: 'add',
+      inputs: fields.map(f => ({ name: f.name, type: f.type, rawValue: f.input.value })),
+      expected: exp.value.trim(), note: note.value.trim(),
+    };
+    try {
+      await api('/api/cases/' + encodeURIComponent(d.id), {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+    } catch (e) { alert(e.message); return; }
+    const fresh = await api('/api/problems/' + encodeURIComponent(d.id));
+    state.current.customCases = fresh.customCases;
+    state.showCaseForm = false;
+    renderCases(); renderEditor();
+  };
+  const cancel = el('button', 'btn', 'Cancel');
+  cancel.onclick = () => { state.showCaseForm = false; renderCases(); };
+  bar.append(save, cancel);
+  form.append(bar);
+  host.append(form);
+}
+
+/* -------------------------------------------------------- stored solution */
+function renderSolution() {
+  const d = state.current;
+  const host = $('#solutionHost');
+  if (!host) return;
+  host.textContent = '';
+  const sol = d.solution;
+  if (!sol) {
+    host.append(el('div', 'hint',
+      'No reference solution is stored for this problem yet. The bank ships none — ' +
+      'the ones here were written and checked against each problem\u2019s visible examples.'));
+    return;
+  }
+  const box = el('details', 'sol');
+  const sum = el('summary');
+  const badge = el('span', 'k' + (sol.verified ? '' : ' no'),
+                   sol.verified ? 'verified ' + (sol.cases || '') : 'unverified');
+  sum.append(badge, el('span', null, 'Reference solution'),
+             el('span', 'hint', sol.verified
+               ? 'passes every visible example — open only when you want it spoiled'
+               : 'stored but not confirmed against the examples'));
+  box.append(sum);
+  const inner = el('div', 'inner');
+  const pre = el('pre'); pre.textContent = sol.code;
+  const bar = el('div', 'edbar');
+  const load = el('button', 'btn tiny', 'Load into the editor');
+  load.onclick = () => { if (state.editor) { state.editor.setValue(sol.code); state.editor.focus(); } };
+  bar.append(load, el('span', 'spacer'),
+             el('span', 'hint', sol.checkedAt ? 'checked ' + sol.checkedAt : ''));
+  inner.append(bar, pre);
+  box.append(inner);
+  host.append(box);
+}
+
+let saveTimer = null;
+function scheduleSave() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async () => {
+    const d = state.current;
+    if (!d || !state.editor) return;
+    try {
+      await api('/api/progress/' + encodeURIComponent(d.id), {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ language: state.lang, code: state.editor.getValue() }),
+      });
+    } catch (e) {}
+  }, 700);
+}
+
+async function runFuzz() {
+  const d = state.current;
+  const results = $('#editorHost .results');
+  const verdict = $('#verdict');
+  verdict.textContent = 'generating inputs…';
+  results.textContent = '';
+  let out;
+  try {
+    out = await api('/api/fuzz', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ problemId: d.id, code: state.editor.getValue() }),
+    });
+  } catch (e) {
+    verdict.innerHTML = '<span class="no">could not run</span>';
+    results.append(Object.assign(el('div', 'res fail'), { textContent: e.message }));
+    return;
+  }
+
+  if (out.error) {
+    verdict.innerHTML = '<span class="no">did not run</span>';
+    const box = el('div', 'res fail');
+    const pre = el('pre'); pre.textContent = out.error; box.append(pre);
+    results.append(box);
+    return;
+  }
+
+  if (!out.failed) {
+    verdict.innerHTML = '<span class="ok">agreed on ' + out.checked + ' random inputs</span>';
+    const box = el('div', 'res pass');
+    box.append(el('div', 'rh', '✓ no disagreement found'));
+    box.append(el('div', 'hint',
+      'Your code matched the reference on ' + out.checked + ' generated inputs' +
+      (out.skipped ? ' (' + out.skipped + ' more were rejected by the reference and skipped)' : '') +
+      '. Evidence, not proof — the generator is random, not adversarial.'));
+    box.append(el('div', 'hint', out.caveat));
+    results.append(box);
+    return;
+  }
+
+  verdict.innerHTML = '<span class="no">counterexample found</span>';
+  const box = el('div', 'res fail');
+  box.append(el('div', 'rh', out.crash ? '✗ your code raised' : '✗ disagreement'));
+  const pre = el('pre');
+  pre.innerHTML = '<span class="lbl">input    </span>' + esc(out.input) +
+    (out.crash ? '\n<span class="lbl">error    </span><span class="got">' + esc(out.got) + '</span>'
+               : '\n<span class="lbl">expected </span><span class="exp">' + esc(out.expected) +
+                 '</span>\n<span class="lbl">you      </span><span class="got">' + esc(out.got) + '</span>');
+  box.append(pre);
+  const bar = el('div', 'edbar');
+  const keep = el('button', 'btn tiny', '＋ Keep this as a test case');
+  keep.onclick = async () => {
+    const inputs = (out.inputValues || []).map((v, i) => ({
+      name: (out.inputNames || [])[i], type: (out.inputTypes || [])[i], rawValue: v }));
+    await api('/api/cases/' + encodeURIComponent(d.id), {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'add', inputs: inputs,
+                             expected: out.crash ? '' : out.expected,
+                             note: 'found by Random' }),
+    });
+    const fresh = await api('/api/problems/' + encodeURIComponent(d.id));
+    state.current.customCases = fresh.customCases;
+    keep.textContent = 'kept'; keep.disabled = true;
+    renderCases();
+  };
+  bar.append(keep, el('span', 'spacer'), el('span', 'hint', 'checked ' + out.checked +
+    (out.skipped ? ', skipped ' + out.skipped : '')));
+  box.append(bar);
+  results.append(box);
+}
+
+async function runScratch() {
+  const d = state.current;
+  const snippet = ($('#scratchIn') || {}).value || '';
+  if (!snippet.trim()) return;
+  const results = $('#editorHost .results');
+  const verdict = $('#verdict');
+  verdict.textContent = 'evaluating…';
+  results.textContent = '';
+  let out;
+  try {
+    out = await api('/api/scratch', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ problemId: d.id, code: state.editor.getValue(), snippet }),
+    });
+  } catch (e) {
+    verdict.innerHTML = '<span class="no">scratch failed</span>';
+    results.append(Object.assign(el('div', 'res fail'), { textContent: e.message }));
+    return;
+  }
+  verdict.innerHTML = out.error ? '<span class="no">scratch</span>' : '<span class="ok">scratch</span>';
+  const box = el('div', 'res ' + (out.error ? 'fail' : 'info'));
+  if (out.printed) {
+    const p = el('pre'); p.innerHTML = '<span class="lbl">stdout</span>\n' + esc(out.printed);
+    box.append(p);
+  }
+  if (out.value) {
+    const p = el('pre'); p.innerHTML = '<span class="lbl">value </span>' + esc(out.value);
+    box.append(p);
+  }
+  if (out.error) { const p = el('pre'); p.textContent = out.error; box.append(p); }
+  if (!box.children.length) box.append(el('div', 'hint', '(no output)'));
+  results.append(box);
+}
+
+async function runCode(include) {
   const d = state.current;
   const spec = d.languages.find(l => l.id === state.lang);
   if (!spec || !spec.runnable) return;
@@ -542,7 +883,8 @@ async function runCode() {
   try {
     out = await api('/api/run', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ problemId: d.id, language: spec.id, code: $('#editor').value }),
+      body: JSON.stringify({ problemId: d.id, language: spec.id, include: include || 'all',
+                             code: state.editor.getValue() }),
     });
   } catch (e) {
     verdict.innerHTML = '<span class="no">could not run</span>';
@@ -574,14 +916,22 @@ function renderResults(out) {
     ' · sandbox: ' + esc(out.sandbox);
 
   (out.results || []).forEach((r, i) => {
-    const box = el('div', 'res ' + (r.ok ? 'pass' : 'fail'));
+    const informational = r.ok === null || r.ok === undefined;
+    const box = el('div', 'res ' + (informational ? 'info' : (r.ok ? 'pass' : 'fail')));
     const h = el('div', 'rh');
-    const badge = el('span', 'badge', r.ok ? 'PASS' : 'FAIL');
+    const badge = el('span', 'badge', informational ? 'RAN' : (r.ok ? 'PASS' : 'FAIL'));
     h.append(badge, document.createTextNode('case ' + (r.id != null ? r.id : i + 1)));
+    if (r.custom) h.append(el('span', 'custom', 'mine'));
+    if (r.note) h.append(el('span', 'hint', ' ' + r.note));
     box.append(h);
+    if (informational && r.got !== undefined) {
+      const g = el('pre');
+      g.innerHTML = '<span class="lbl">returned </span>' + esc(r.got);
+      box.append(g);
+    }
 
     if (r.error) { const p = el('pre'); p.textContent = r.error; box.append(p); }
-    if (r.expected !== undefined) {
+    if (r.expected !== undefined && r.expected !== null) {
       const g = el('pre'); g.innerHTML = '<span class="lbl">expected </span><span class="exp">' +
         esc(r.expected) + '</span>\n<span class="lbl">got      </span><span class="got">' +
         esc(r.got) + '</span>';
@@ -735,6 +1085,17 @@ async function boot() {
   };
   $('#lightbox').onclick = () => { $('#lightbox').hidden = true; };
   document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.altKey && (e.key === 'v' || e.key === 'V')) {
+      e.preventDefault();
+      const b = document.querySelector('#editorHost .edbar .btn'); if (b) b.click();
+      return;
+    }
+    if (e.ctrlKey && e.altKey && (e.key === 'r' || e.key === 'R')) {
+      e.preventDefault();
+      const bs = document.querySelectorAll('#editorHost .edbar .btn');
+      if (bs[1]) bs[1].click();
+      return;
+    }
     if (e.key === 'Escape') $('#lightbox').hidden = true;
     if (e.target.matches('input,textarea,select')) return;
     if (e.key === '/') { e.preventDefault(); $('#q').focus(); }

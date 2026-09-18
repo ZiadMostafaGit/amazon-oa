@@ -1,0 +1,2317 @@
+{
+ "checkedAt": "2026-09-18T22:14:53",
+ "failing": 0,
+ "problems": {
+  "agoda-count-values-appearing-once": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "agoda-longest-all-present-streak": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "airbnb-city-price-medians": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "airbnb-cloud-storage-backup-and-restore": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "airbnb-superhost-eligibility": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "airbnb-worker-management-level-1": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "airbnb-worker-management-level-2": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "airbnb-worker-management-level-3-overtime": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "airbnb-worker-management-level-4-worker-merge": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "airwallex-paginated-k-way-unique-merge": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "akuna-count-server-replacements": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "akuna-delivery-management-system": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "akuna-get-max-cost": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "akuna-items-sort": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "akuna-maximum-remaining-drone-power": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "akuna-minimum-absolute-difference-pairs": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "akuna-minimum-swaps": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "akuna-vowel-substring-game": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-active-graph-connectivity-plan": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-aggressive-cows": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-all-about-rewards": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-anagram-start-indices": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-basic-calculator": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-binary-strings-bounded-subset": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-binary-tree-cameras": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-binary-tree-right-view": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-bring-servers-down": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-calculate-beauty-values": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-capacity-to-ship-packages-within-d-days": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-celebrity-knows-matrix": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-cheapest-flights-within-k-stops": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-cinema-shows": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-construct-tree-level-inorder": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-container-with-most-water": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-count-stepping-numbers-in-range": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-count-univalued-subtrees": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-course-order-and-cycle": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-course-schedule": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-course-schedule-ii": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-currency-conversion-rate": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-decode-encoded-string": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-distance-between-tree-nodes": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-drone-delivery-route": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-ecommerce-notification-router": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-employee-ratings-data-structure": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-capable-winners": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-first-index-where-prefix-sum-becomes-non-positive": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-hash": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-least-possible-vulnerability": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-max-value": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-maximum-num": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-maximum-number-of-servers": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-median-from-data-stream": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-min-replacements": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-minimum-cost": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-minimum-days": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-minimum-time": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-safest-path-in-grid": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-find-sum-of-beauties": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-first-non-repeating-character": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-data-dependence-sum": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-max-charge": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-max-consecutive-on": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-max-increments": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-max-information-gain": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-maximum-sum": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-min-amount": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-min-errors": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-min-operations2": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-min-subsegments": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-min-time": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-minimum-boxes": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-minimum-value": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-redundant-substrings": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-special-string": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-stable-periods-count": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-get-total-requests": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-group-students": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-how-many-games-did-the-team-win": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-indexed-bit-after-binary-expansion": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-insert-delete-getrandom-o1": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-inventory-processes-survival-possibility": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-k-closest-elements-in-sorted-array": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-lfu-cache": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-longest-common-subsequence-length": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-longest-consecutive-sequence": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-longest-increasing-subsequence-bounded-difference": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-lru-query-result-cache": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-maximize-distance-to-closest-person": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-maximize-meory-points": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-maximum-capacity": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-maximum-non-adjacent-house-value": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-medians": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-meeting-rooms-ii": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-merge-k-sorted-lists": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-min-operation": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-min-operations-to-sort-all-packages": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-minimize-effort": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-minimize-variation": {
+   "cases": "5/5",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-minimum-dag-completion-time": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-minimum-merge-conflicts": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-minimum-redistribution-cost": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-next-permutation": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-package-delivery-system": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-package-dependency-order": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-process-queries-on-cart": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-queue-using-two-stacks": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-remove-duplicates-sorted-array-ii": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-reorganize-string": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-root-to-leaf-target-sum-paths": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-rotting-oranges-variation": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-running-delivery-time-medians": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-search-rotated-sorted-array": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-select-least-resource-tasks": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-sliding-window-maximum": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-stock-span": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-streaming-top-k-frequent-elements": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-task-scheduler": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-trapping-rain-water": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-two-knights-minimum-meeting-moves": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-validate-two-color-chessboard": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "amazon-word-break-ii": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "american-express-maximum-points-fixed-perimeter-rectangle": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "american-express-minimum-moves-spread-stones-grid": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-banking-system-part-3": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-banking-system-part-4": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-cloud-storage-compression": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-cloud-storage-system": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-confirmed-profiling-events-first-observed-starts": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-consecutive-stack-sample-trace-events": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-convert-stack-samples-to-trace-events": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-in-memory-database-backup-restore": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-in-memory-database-historical-lookup": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-worker-management-level-1": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-worker-management-level-2": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-worker-management-level-3": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "anthropic-worker-management-level-4": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "apple-canonical-nary-tree-codec": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "apple-factorize-string-extremities": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "apple-hit-counter": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "applied-intuition-compilation-order-topological-sort": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "applied-intuition-merge-intervals": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-inventory-discount-tracker": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-match-consecutive-word-boundaries": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-rank-flights-by-airline-and-destination": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-rank-football-teams": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-reconstruct-landmark-journey": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-rectangle-fit-queries": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-rightmost-longest-character-run": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "capital-one-track-received-byte-ranges": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "capitalone-laser-robot-safe-path": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "cisco-find-duplicate-number": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "cisco-find-last-cell": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "cisco-find-maximum-difference": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "citadel-busy-intersection": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "citadel-exchange-bbo-nbbo-order-book": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "citadel-get-min-operations": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "citadel-get-recommended-friends": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "citadel-maximize-workday-earnings": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "citadel-minimum-changes-palindromic-blocks": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "citadel-reconcile-unmatched-trades": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "citadel-shortest-path-unweighted-graph": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "citadel-top-ten-trades-by-notional": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "cognizant-kth-largest-element": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "concentric-ai-kth-greater-element-indexes": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "concentric-ai-linked-list-intersection-node": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "concentric-ai-rearrange-linked-list": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "confluent-implement-tail-n": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "confluent-least-recently-used-cache": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "confluent-positive-subset-sum": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "confluent-wildcard-star-matching": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "confluent-windowed-key-value-map": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "count-palindromes": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "counting-triples": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "coursera-instant-runoff-election": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "databricks-rectangular-k-in-a-row": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "datadog-query-log-match": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "decagon-rolling-csat-tracker": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "digitalocean-house-robber-ii": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "digitalocean-longest-repeating-character-replacement": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "docusign-count-binary-substrings": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "docusign-minimum-sum-after-k-halves": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "docusign-text-editor-operations": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "doordash-customer-bootstrap-api": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "doordash-dasher-pay": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "doordash-random-dasher-set": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "figma-rich-text-parser": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "figma-rich-text-parser-part1": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "figma-rich-text-parser-part2": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "fox-corporation-count-communicating-servers": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "fox-corporation-find-peak-element": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "get-success-value": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "goldman-sachs-best-average-student-score": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "goldman-sachs-dungeon-health": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "goldman-sachs-insert-delete-getrandom-o1": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "goldman-sachs-largest-tree-root": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "goldman-sachs-lru-cache": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "goldman-sachs-maximum-rocks-north-east-path": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "goldman-sachs-number-of-islands": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "goldman-sachs-staircase-search": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-ad-score-scheduler-with-delay": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-alice-shortest-path-avoiding-bob": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-boat-energy-max-distance": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-book-reading-evenings": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-count-checkpoint-paths": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-count-score-categories": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-fastest-favorite-city-via-required-vertex": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-first-full-connectivity-with-removals": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-horizontal-square-bisector": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-longest-increasing-subsequence-bounded-difference": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-magical-adjacent-substring-triplets": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-maximum-coins-with-moving-tokens": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-maximum-elements-with-a-common-digit": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-min-absolute-sum": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-minimum-cars-for-rental-requests": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-minimum-number-of-moves-to-obtain": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-minimum-root-to-leaf-cut-cost": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-minimum-security-threshold-directed-path": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-people-schedule-segments": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "google-split-and-sort": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "harness-encode-decode-string-stream": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "harness-road-toll-average-route-increase": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "hrt-tiered-expiring-item-store": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "hsbc-find-id-of-soldier": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "hsbc-remove-vowels": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "ibm-customer-resource-usage-analysis": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "ibm-get-maximum-amount": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "ibm-get-minimum-increment": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "ibm-minimum-additions-to-make-valid-abc-string": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "ibm-minimum-disjoint-segments": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "ibm-minimum-replacements-no-adjacent-equal": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "ibm-social-network-relationship-statistics": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "imc-chain-of-command": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "imc-grid-paths-with-override-passes": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "imc-maximum-sub-square-matrix-sum-less-than-k": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "instacart-evaluate-formulas-with-cycle-detection": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "instacart-product-total-with-cheapest-promotion": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "instacart-shopping-record-promotions-and-ordering": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "interactive-brokers-progressive-tax-calculator": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "kotak-mahindra-bank-coin-change": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "kotak-mahindra-bank-largest-rectangle-in-histogram": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "kotak-mahindra-bank-valid-palindrome": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "kotak-mahindra-bank-valid-parentheses": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-binary-tree-zigzag-level-order": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-lru-cache-hit-miss-counters": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-max-points-on-a-line": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-maximum-depth-of-binary-tree": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-minimum-window-substring": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-restricted-decimal-number-validator": {
+   "cases": "6/6",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-tournament-tree-second-minimum": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "linkedin-users-with-short-session": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "lyft-nested-transaction-key-value-store": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "lyft-rotten-oranges-grid-bfs": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "meta-exclusive-user-dictionary-values": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "meta-first-bad-version-array": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "meta-mutual-friend-recommendations": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "meta-palindrome-k-deletions": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "meta-parenthesized-string-calculator": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "meta-partition-deck-into-fifteens": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-asteroid-collision": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-authentication-system": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-get-maximum-reward-points": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-minimum-adjacent-square-cost-after-insertion": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-minimum-fuel-cost": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-racer-precedence-analysis": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-word-search": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "microsoft-xor-multiplication": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "netflix-custom-record-freeform-parser": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "new-relic-basic-string-compression": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "new-relic-longest-increasing-path-in-matrix": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "num-ways": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "nutanix-count-good-subsequences": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "onetrust-device-event-summary": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "onetrust-merge-intervals": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-dependency-aware-agent-scheduler": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-durable-work-queue-operations": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-gpu-credit-ledger": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-infection-simulation-part-4": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-plant-infection-simulation": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-prefix-matrix-products-autograd": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-resumable-list-iterator": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-streaming-entropy-part-1": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-streaming-entropy-part-2": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-streaming-entropy-part-3": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-streaming-entropy-part-4": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-versioned-followers-and-followees": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-versioned-friend-recommendations": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "openai-versioned-social-network": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "optiver-construct-binary-tree-s-expression": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "optiver-days-between": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "optiver-multi-level-inventory-storage-system": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "optiver-overheat-prevention-controller": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "optiver-power-cell-bank": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "oracle-best-time-to-buy-and-sell-stock": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "oracle-longest-continuous-subarray-with-limit": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "oracle-prescription-doctor-drug-window": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "oracle-time-based-key-value-store": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "otter-ai-versioned-key-value-commits": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "palantir-basic-item-discounts": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "palantir-optimize-discount-selection": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "palantir-stacked-item-category-discounts": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "perplexity-agent-task-dependency-tracker": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "persistent-systems-reverse-string": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "pinterest-minimum-bus-routes": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "pinterest-reconstruct-itinerary-any-start": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "pinterest-shortest-source-subsequences": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "pinterest-time-ordered-elevator-dispatch": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "plaid-evaluation-chain-validity": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "plaid-total-pipeline-completion-time": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "point72-initial-public-offering": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "rippling-article-vote-tracker": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "rippling-camel-cards": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "rippling-common-ancestors-dag": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "rippling-corporate-card-rules-engine": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "rippling-delivery-cost-tracker": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "rippling-employee-access-management": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "rippling-filter-sort-and-deduplicate-tasks": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "rippling-find-minimum-time": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "rippling-nested-transaction-key-value-store": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "rippling-song-play-analytics": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "robinhood-friendship-balance-tracker": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "robinhood-service-dependency-load-factors": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "robinhood-top-ten-book-word-frequencies": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "robinhood-transitive-employee-referral-counts": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "roblox-most-frequent-call-stack-per-thread": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "salesforce-flatten-nested-map-paths": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "salesforce-lfu-cache": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "salesforce-run-length-string-compression": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "siemens-padded-vector-batch-pipeline": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "snowflake-find-pod-count": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "snowflake-generating-login-codes": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "snowflake-get-maximum-sum": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "snowflake-minimum-clicks-between-wiki-pages": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "snowflake-minimum-station-bus-fleet": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "snowflake-vowel-substring": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "spacex-starlink-beam-planner": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "spacex-timestamped-telemetry-differences": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "squarepoint-mutable-record-store": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "stripe-deployment-window-scheduler": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "stripe-financial-account-ledger": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "stripe-incident-monitor": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "stripe-invoice-payment-reconciliation": {
+   "cases": "4/4",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "stripe-kyc-business-verification": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "stripe-monthly-latest-balance-reconciliation": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "stripe-request-routing-system": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "stripe-shipping-cost-part1-fixed": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "stripe-shipping-cost-part2-tiered": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "stripe-shipping-cost-part3-mixed": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "stripe-split-tender-basic": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "susquehanna-leftmost-memory-block-allocator": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "susquehanna-rotate-matrix-over-diagonals": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "susquehanna-sort-matrix-borders": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "tesla-reduce-map-filter-pipeline": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "the-walt-disney-company-resizable-array-set": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "threshold-alerts": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-count-even-digit-numbers": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-count-house-segments-after-destruction": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-count-skipped-numbers-after-subtractions": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-distribution-center-package-allocation": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-find-sum-pairs": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-get-minimum-total-cost": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-leftmost-memory-block-allocator": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-repeated-grouped-digit-sum": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-reverse-letters-in-pairs": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "tiktok-sort-matrix-borders": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "together-ai-time-indexed-key-value-store": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "two-sigma-daily-temperature-by-town": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "two-sigma-linear-interpolator": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "two-sigma-online-no-intercept-linear-regression": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "twosigma-sewer-drainage-partition": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "uber-first-unique-ip-hitting-server": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "upstart-buffet-day-gains": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "upstart-case-insensitive-anagram": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "upstart-filter-duplicates-preserving-order": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "upstart-scale-ingredient-quantities": {
+   "cases": "1/1",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "vanta-unique-lines-command": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "vercel-recent-metrics-by-name-and-tags": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "walmart-minimum-stress-path": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "warehouse-allocation": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "waymo-cyclic-fuel-command-simulation": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "worldquant-count-unordered-coin-combinations": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "zip-graph-pursuit-survival-time": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "zs-employees-whose-manager-left-company": {
+   "cases": "2/2",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "zs-merge-k-sorted-lists": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  },
+  "zs-merge-two-sorted-lists": {
+   "cases": "3/3",
+   "checkedAt": "2026-09-18T22:14:53",
+   "note": null,
+   "ok": true
+  }
+ },
+ "verified": 385
+}

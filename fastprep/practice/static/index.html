@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FastPrep practice</title>
+<link rel="stylesheet" href="vendor/codemirror/codemirror.min.css">
+<link rel="stylesheet" href="vendor/codemirror/theme/material-darker.min.css">
+<link rel="stylesheet" href="vendor/codemirror/addon/hint/show-hint.min.css">
+<link rel="stylesheet" href="vendor/codemirror/addon/dialog/dialog.min.css">
+<link rel="stylesheet" href="vendor/fonts/jetbrains-mono.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -44,6 +49,21 @@
 </div>
 
 <div id="lightbox" hidden><img alt="source screenshot"></div>
+
+<script src="vendor/codemirror/codemirror.min.js"></script>
+<script src="vendor/codemirror/mode/python/python.min.js"></script>
+<script src="vendor/codemirror/addon/edit/closebrackets.min.js"></script>
+<script src="vendor/codemirror/addon/edit/matchbrackets.min.js"></script>
+<script src="vendor/codemirror/addon/comment/comment.min.js"></script>
+<script src="vendor/codemirror/addon/selection/active-line.min.js"></script>
+<script src="vendor/codemirror/addon/hint/show-hint.min.js"></script>
+<script src="vendor/codemirror/addon/dialog/dialog.min.js"></script>
+<script src="vendor/codemirror/addon/search/searchcursor.min.js"></script>
+<script src="vendor/codemirror/keymap/vim.min.js"></script>
+<script src="vendor/codemirror/addon/search/search.min.js"></script>
+<script src="vendor/codemirror/addon/search/jump-to-line.min.js"></script>
+<script src="pyenv.js"></script>
+<script src="editor.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

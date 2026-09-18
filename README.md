@@ -1,146 +1,80 @@
-# Amazon OA practice
+# FastPrep practice
 
-56 Amazon / Siemens online-assessment problems transcribed from screenshots, each with a worked
-solution and a step-by-step derivation, plus a Python editor and a test runner that executes real
-CPython **in the browser**. No build step, no account; open `site/index.html` for a zero-backend
-version, or run the Docker image for server-side persistence of your code and progress.
-
-```
-site/     the app (open site/index.html, or run the container)
-images/   source screenshots and the cropped figures the problems refer to
-video/    OCR transcripts of a recorded 42-minute attempt (the .mp4 itself is not kept here)
-scripts/  vendor.sh — fetches the CDN assets so the container runs offline
-docker/   nginx config
-```
-
-## Run it
-
-**Directly** — open `site/index.html` in a browser. Needs internet the first time (CodeMirror,
-JetBrains Mono, and ~10 MB of Pyodide come from CDNs and are then cached).
-
-**In Docker** — self-contained, works with no internet at all, and **persists your code, notes and
-progress on the server** so nothing is lost when you reopen it on another browser/device:
+Browse, filter and solve **3,533 reported interview problems** offline — every one of them
+scraped from FastPrep into `fastprep/fastprep.db`, rendered with its original assessment
+screenshots, and runnable against its published examples in a sandbox.
 
 ```sh
-docker compose up --build -d      # then open http://localhost:8080
+cd fastprep/practice && python3 serve.py       # http://127.0.0.1:8900
 ```
 
-or without compose (mount a volume or all state is lost when the container is recreated):
+No dependencies, no build step, no account. Python 3 and a browser.
 
 ```sh
-docker build -t amazon-oa-practice .
-docker run -d -p 8080:80 -v amazon-oa-data:/data --name amazon-oa amazon-oa-practice
+docker compose up --build -d                   # http://localhost:8900
 ```
 
-The build fetches CodeMirror, the font and the Pyodide runtime into the image and rewrites the two
-files that reference them, so the container never reaches the network at run time. State is written
-to `/data/state.json` (an anonymous volume otherwise) by the tiny backend in `server.py`.
+## What it does
 
-## Publish it to Docker Hub
+**Browse.** Every metadata field filters and every sortable field reads in either direction:
+company (355 of them), stage (OA 1,976 / phone screen 846 / onsite 823), difficulty, topic,
+assessment platform, employment type, target role, practice format, date windows, a seen-count
+range, has-screenshots, plus your own status, bookmarks and notes. Full-text search over titles,
+statements, constraints and source notes. Fields that are empty for some problems get an
+**(not set)** bucket, so nothing in the bank is unreachable.
 
-Replace `YOURNAME` with your Docker Hub username.
+**Read.** The statement and constraints rendered as HTML (they are HTML in the data), every
+example with inputs, expected output and explanation, every date the problem was reported, the
+source note, and the original assessment screenshots inline — 2,025 of them across 1,619
+problems, fetched once from fastprep.io at ≤3 req/s and cached. Tabular (SQL) problems render
+their table schemas, result contract and visible cases instead.
 
-```sh
-docker login
+**Solve.** A real editor — CodeMirror with Python syntax, **Vim keybindings**, **relative line
+numbers**, real tab stops, Python-aware Enter/Backspace, and completion over the whole standard
+library. Run against the published examples, add **your own test cases** (with or without an
+expected value — one without just shows you what your code returned), and a **scratch pad** for
+ad-hoc calls against your code.
 
-# build for your own machine only
-docker build -t YOURNAME/amazon-oa-practice:1.0 -t YOURNAME/amazon-oa-practice:latest .
-docker push YOURNAME/amazon-oa-practice:1.0
-docker push YOURNAME/amazon-oa-practice:latest
+**Never in the app's process.** Your code runs under bubblewrap in a new user/pid/net/ipc
+namespace with no network interface, a read-only `/usr`, a private tmpfs, hard CPU/memory/file
+limits, and a wall-clock kill. Without `bwrap` the app still runs and says so, loudly.
+
+**Reference solutions.** The bank ships none, so they were written here and each one is kept only
+if it passes every visible example of its problem — `python3 tools/verify.py --all` is the gate,
+and `tools/audit.py` greps every solution for the examples' literal inputs and outputs to catch
+anything that "passes" by memorising them.
+
+**Track.** Attempted / solved / review, bookmarks, notes, your last submission per language and
+your custom cases, all in `progress.db` — a separate file, so `python3 fastprep.py sync` can
+refresh the bank without touching your work.
+
+> **Passing is not proof.** This bank has only VISIBLE examples: no hidden tests, no official
+> solutions. The app says so next to every Run button, and a clean sweep marks a problem
+> *attempted*, never *solved*.
+
+## Layout
+
 ```
-
-To make it run on Apple Silicon and ARM servers as well as x86, build multi-arch instead — this is
-the version worth pushing if "anyone, anywhere" is the goal:
-
-```sh
-docker buildx create --use --name oabuilder            # once
-docker buildx build --platform linux/amd64,linux/arm64 \
-  -t YOURNAME/amazon-oa-practice:1.0 \
-  -t YOURNAME/amazon-oa-practice:latest --push .
+fastprep/
+  fastprep.py        the scraper that produced the bank (re-run: python3 fastprep.py sync)
+  fastprep.db        3,533 problems, synced 2026-09-18 — opened read-only by the app
+  practice/          the app: serve.py, fpdb.py, parsing.py, runner.py, static/, tools/, tests/
+  practice/solutions/ reference solutions, one file per problem id
+docs/                write-ups that are not in the bank and not reproducible:
+                     a frame-by-frame post-mortem of a real 60-minute attempt, five debugging
+                     projects, the Siemens set, the work-simulation half, field notes
+video/               OCR transcripts of the recording the post-mortem was built from
 ```
-
-Anyone can then run it with:
-
-```sh
-docker run -d -p 8080:80 -v amazon-oa-data:/data YOURNAME/amazon-oa-practice
-```
-
-## What's in the app
-
-- **56 problems** — 15 Amazon coding, 2 work simulation, 6 debugging projects, 5 Siemens,
-  27 FastPrep, plus a frame-by-frame post-mortem of a real 60-minute attempt.
-- **52 answer sets** — Hint 1 → Hint 2 → Solution → *Step by step*, the last deriving every formula
-  and tracing the published sample numerically to its stated answer.
-- **A Python editor** — Vim mode, stdlib-wide completion, real tab stops, find/replace.
-- **A test runner** — 39 problems ship 225 verified cases; **Random** fuzzes your code against the
-  reference solution and prints the first disagreeing input; **Big-O** estimates your complexity.
-- **Eleven wrong solutions were found and corrected** while building this, two of which failed their
-  own published samples. `site/README.md` lists every one.
-- **Every solution is executed before it is published** — against its own samples, and against an
-  independent brute force on thousands of random inputs. The 15 problems added in September 2026
-  were checked that way before a single explanation was written.
-
-## Fixed in this pass (18 Sept 2026)
-
-The Docker deployment could not start Python at all, and the cause was in the server, not in
-Pyodide: `server.py` added its `Cache-Control` header *before* the status line was written, so every
-`/vendor/` response — the whole ~10 MB runtime — went out malformed, with no status line and no
-`Content-Type`. The loader treats that as a warning and then waits forever, which on screen is just
-a spinner that never ends.
-
-Fixed here, all five of them:
-
-- **the header ordering** (the actual bug), now emitted from `end_headers()`;
-- **`ThreadingHTTPServer` + HTTP/1.1**, so the runtime download no longer blocks every other asset;
-- **a runtime preflight in `pyrun.js`** that checks status, MIME type and the WebAssembly magic
-  bytes and says what is wrong instead of hanging;
-- **retryable boot** — a failed start no longer poisons every later attempt, so *Run* really retries;
-- **`vendor.sh` resumes interrupted downloads** (`--retry-all-errors -C -`) and refuses to ship a
-  truncated runtime.
-
-Verified in a real browser against the offline container build: runtime up in 2.6 s, 39 problems and
-225 cases passing. `site/_e2e.html` is that self-test — open it any time; the container build strips
-it.
-
-## Also here: `fastprep/` — a practice app over 3,533 reported problems
-
-A second, self-contained app in [`fastprep/practice/`](fastprep/practice/README.md), over the
-offline FastPrep bank that `fastprep/fastprep.py` scrapes (3,533 problems from 355 companies,
-already synced into `fastprep/fastprep.db`).
-
-```sh
-cd fastprep/practice && python3 serve.py      # http://127.0.0.1:8900
-```
-
-- **Browse** every metadata field as a filter and every sensible field as a sort, both directions:
-  company, stage (OA 1,976 / phone screen / onsite), difficulty, topic, platform, employment type,
-  target role, format, date windows, seen-count range, screenshots, your own progress. Full-text
-  search over titles and statements.
-- **Read** the rendered statement, examples, every sighting date, and the original assessment
-  screenshots, fetched once from fastprep.io and cached.
-- **Run** your solution against the problem's visible examples, in a **bubblewrap sandbox** with no
-  network, no filesystem and hard CPU/memory/time limits. Passing is never presented as proof:
-  the bank ships no hidden tests.
-- **Track** attempted/solved/review, bookmarks, notes and submissions in a separate `progress.db`,
-  so `fastprep.py sync` can refresh the bank without touching your work.
-
-89 tests: `python3 serve.py --selftest`.
 
 ## Docs
 
-- [`site/README.md`](site/README.md) — the app in detail: every feature, keybinding, and the full
-  record of corrections and unresolved source contradictions.
-- [`ADDING-PROBLEMS.md`](ADDING-PROBLEMS.md) — how to turn a new batch of screenshots into entries,
-  including the verification step that matters most.
+- [`fastprep/practice/README.md`](fastprep/practice/README.md) — the app in detail: the sandbox,
+  the example parser, the solution store, every flag.
+- [`docs/`](docs/) — the kept write-ups.
 
-## Regenerating the offline bundle
+## History
 
-`dist/` is a build artifact and is not committed. To produce a self-contained copy without Docker:
-
-```sh
-./scripts/vendor.sh dist
-python3 -m http.server -d dist 8080     # http://localhost:8080/site/
-```
-
-Running under plain `http.server` has **no** `/api/state` endpoint, so state stays in the browser's
-`localStorage` (per-browser, wiped with the cache). Use the Docker image for server-side persistence.
+This repo previously held a hand-built practice app over 56 problems transcribed from
+screenshots. It was replaced by the FastPrep bank, which covers the same ground 60× over with
+real metadata. The transcribed problems are gone; the write-ups around them are in `docs/`, and
+everything is still in git history (`git log -- site/`).

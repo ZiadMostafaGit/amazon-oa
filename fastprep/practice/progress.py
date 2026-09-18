@@ -35,7 +35,16 @@ CREATE TABLE IF NOT EXISTS submissions (
 CREATE TABLE IF NOT EXISTS run_log (
     problem_id TEXT, language TEXT, passed INTEGER, total INTEGER, ran_at TEXT
 );
+CREATE TABLE IF NOT EXISTS custom_cases (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    problem_id  TEXT NOT NULL,
+    inputs      TEXT,              -- json: [{name, type, rawValue}]
+    expected    TEXT,              -- the expected output, as the bank writes it
+    note        TEXT,
+    created_at  TEXT
+);
 CREATE INDEX IF NOT EXISTS idx_status ON progress(status);
+CREATE INDEX IF NOT EXISTS idx_cases  ON custom_cases(problem_id);
 """
 
 STATUSES = ("attempted", "solved", "review")
@@ -141,10 +150,44 @@ class Progress:
                     "updated_at=excluded.updated_at", (pid, "attempted", now))
         self.conn.commit()
 
+    # ----------------------------------------------------------- custom cases
+    def cases(self, pid: str) -> list:
+        out = []
+        for r in self.conn.execute(
+                "SELECT * FROM custom_cases WHERE problem_id=? ORDER BY id", (pid,)):
+            out.append({"caseId": r["id"], "inputs": json.loads(r["inputs"] or "[]"),
+                        "expectedRaw": r["expected"], "note": r["note"] or "",
+                        "createdAt": r["created_at"], "custom": True})
+        return out
+
+    def add_case(self, pid: str, inputs: list, expected: str, note: str = "") -> dict:
+        cur = self.conn.execute(
+            "INSERT INTO custom_cases(problem_id, inputs, expected, note, created_at) "
+            "VALUES (?,?,?,?,?)",
+            (pid, json.dumps(inputs), expected, note, self._now()))
+        self.conn.commit()
+        return {"caseId": cur.lastrowid}
+
+    def update_case(self, case_id: int, inputs=None, expected=None, note=None) -> None:
+        row = self.conn.execute("SELECT * FROM custom_cases WHERE id=?", (case_id,)).fetchone()
+        if not row:
+            raise ValueError("no custom case %r" % case_id)
+        self.conn.execute(
+            "UPDATE custom_cases SET inputs=?, expected=?, note=? WHERE id=?",
+            (json.dumps(inputs) if inputs is not None else row["inputs"],
+             row["expected"] if expected is None else expected,
+             row["note"] if note is None else note, case_id))
+        self.conn.commit()
+
+    def delete_case(self, case_id: int) -> None:
+        self.conn.execute("DELETE FROM custom_cases WHERE id=?", (case_id,))
+        self.conn.commit()
+
     def export(self) -> dict:
         return {
             "version": 1,
             "exportedAt": self._now(),
             "progress": [dict(r) for r in self.conn.execute("SELECT * FROM progress")],
             "submissions": [dict(r) for r in self.conn.execute("SELECT * FROM submissions")],
+            "customCases": [dict(r) for r in self.conn.execute("SELECT * FROM custom_cases")],
         }
