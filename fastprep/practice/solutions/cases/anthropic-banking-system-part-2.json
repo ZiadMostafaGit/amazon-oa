@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-banking-system-part-2",
+ "generatedAt": "2026-09-19T00:11:44",
+ "from": "reference solution, verified 2026-09-19T00:11:25",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"1\", \"alice\"], [\"CREATE_ACCOUNT\", \"3\", \"cara\"], [\"DEPOSIT\", \"5\", \"bob\", \"500\"], [\"DEPOSIT\", \"6\", \"cara\", \"500\"], [\"TRANSFER\", \"7\", \"alice\", \"bob\", \"100\"], [\"TRANSFER\", \"8\", \"bob\", \"cara\", \"100\"], [\"TRANSFER\", \"10\", \"bob\", \"alice\", \"50\"], [\"TOP_SPENDERS\", \"11\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"null\"], [\"500\"], [\"null\"], [\"null\"], [\"null\"], [\"alice(0)\", \"cara(0)\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"1\", \"alice\"], [\"CREATE_ACCOUNT\", \"2\", \"bob\"], [\"CREATE_ACCOUNT\", \"3\", \"cara\"], [\"DEPOSIT\", \"4\", \"alice\", \"500\"], [\"DEPOSIT\", \"5\", \"bob\", \"500\"], [\"DEPOSIT\", \"6\", \"cara\", \"500\"], [\"TRANSFER\", \"7\", \"alice\", \"bob\", \"100\"], [\"TRANSFER\", \"8\", \"bob\", \"cara\", \"100\"], [\"TOP_SPENDERS\", \"11\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"true\"], [\"500\"], [\"500\"], [\"500\"], [\"400\"], [\"500\"], [\"alice(100)\", \"bob(100)\", \"cara(0)\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"2\", \"amy\"], [\"DEPOSIT\", \"3\", \"zed\", \"20\"], [\"TOP_SPENDERS\", \"5\", \"5\"], [\"TRANSFER\", \"6\", \"zed\", \"amy\", \"10\"], [\"TOP_SPENDERS\", \"7\", \"5\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"null\"], [\"amy(0)\"], [\"null\"], [\"amy(0)\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"TRANSFER\", \"6\", \"zed\", \"amy\", \"10\"], [\"TOP_SPENDERS\", \"5\", \"5\"], [\"CREATE_ACCOUNT\", \"1\", \"zed\"], [\"TRANSFER\", \"4\", \"zed\", \"amy\", \"30\"], [\"DEPOSIT\", \"3\", \"zed\", \"20\"], [\"amy\"], [\"TOP_SPENDERS\", \"7\", \"5\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [], [\"true\"], [\"null\"], [\"20\"], [\"null\"], [\"zed(0)\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"b\"], [\"x\", \"1\", \"cat\", \"1\"], [\"10\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"null\"], [\"null\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"TRANSFER\", \"6\", \"zed\", \"amy\", \"10\"], [\"TRANSFER\", \"4\", \"zed\", \"amy\", \"30\"], [\"CREATE_ACCOUNT\", \"2\", \"amy\"], [\"TOP_SPENDERS\", \"7\", \"5\"], [\"CREATE_ACCOUNT\", \"1\", \"zed\"], [\"DEPOSIT\", \"3\", \"zed\", \"20\"], [\"TOP_SPENDERS\", \"5\", \"5\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"null\"], [\"true\"], [\"amy(0)\"], [\"true\"], [\"20\"], [\"amy(0)\", \"zed(0)\"]]"
+  }
+ ]
+}

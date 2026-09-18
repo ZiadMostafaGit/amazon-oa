@@ -57,6 +57,14 @@ inline — click to enlarge. Tabular (SQL) problems have no `examples`; they get
 their table schemas, result contract and visible cases rendered as tables
 instead.
 
+**The layout.** Two panes: the problem on the left, the editor on the right.
+The editor pane is a flex column that never scrolls as a whole, so the toolbar
+is pinned above the code and **Run, Random, Scratch and the verdict are always
+on screen** — no scrolling past the statement to reach them. Drag the divider
+to change the split; it is remembered. Browsing lives in a drawer (`/` or the
+Problems button), which gives the filters real room instead of a cramped third
+column.
+
 **Solve.** A real editor, not a textarea: CodeMirror with Python highlighting,
 **Vim keybindings** (`Ctrl-Alt-V`, with the mode shown next to the button),
 **relative line numbers** (`Ctrl-Alt-R`) so `5dd` and `3j` line up with the
@@ -249,7 +257,7 @@ languages.py   what this machine can actually execute, and the starter code
 progress.py    your status/notes/bookmarks/submissions (separate db)
 images.py      lazy, rate-limited screenshot cache
 static/        the page: index.html, app.js, styles.css, editor.js (CodeMirror + vim), pyenv.js
-tests/         115 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
+tests/         128 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
                custom cases, scratch, solutions, random mode, generated cases
 tools/         pick / brief / verify / audit / batch — the solution pipeline
 solutions/     one file per problem id, plus MANIFEST.json and VERIFIED.json

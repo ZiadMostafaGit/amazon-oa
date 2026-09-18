@@ -177,9 +177,13 @@ class Handler(BaseHTTPRequestHandler):
         # mount point instead of one level above it. Only for a SINGLE unknown
         # segment: /site/nope is a typo and must stay a 404, not silently
         # redirect into the app.
-        single = url.path.strip("/").count("/") == 0 and url.path.strip("/") != ""
-        if single and not url.path.endswith("/") \
-                and url.path.strip("/") not in self.ROUTES:
+        seg = url.path.strip("/")
+        single = seg != "" and "/" not in seg
+        # ...but never for something that exists, or that looks like a file:
+        # /_selftest.html is a page, not a mount point.
+        looks_like_a_file = "." in seg or os.path.isfile(os.path.join(STATIC, seg))
+        if single and not url.path.endswith("/") and not looks_like_a_file \
+                and seg not in self.ROUTES:
             target = url.path + "/" + (("?" + url.query) if url.query else "")
             self.send_response(301)
             self.send_header("Location", target)

@@ -1,0 +1,128 @@
+{
+ "problemId": "cisco-find-minimum-cost-to-shift-machines",
+ "generatedAt": "2026-09-19T00:11:45",
+ "from": "reference solution, verified 2026-09-19T00:11:25",
+ "rejected": 10,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "machineCount",
+     "type": "int[]",
+     "rawValue": "[4, 5, 3, 3]"
+    },
+    {
+     "name": "finalMachineCount",
+     "type": "int[]",
+     "rawValue": "[4, 4, 4]"
+    },
+    {
+     "name": "shiftingCost",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "machineCount",
+     "type": "int[]",
+     "rawValue": "[2, 4, 5, 4]"
+    },
+    {
+     "name": "finalMachineCount",
+     "type": "int[]",
+     "rawValue": "[4, 4, 0]"
+    },
+    {
+     "name": "shiftingCost",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "machineCount",
+     "type": "int[]",
+     "rawValue": "[2, 3, 0, 7]"
+    },
+    {
+     "name": "finalMachineCount",
+     "type": "int[]",
+     "rawValue": "[10, 5, 10, 10, 5]"
+    },
+    {
+     "name": "shiftingCost",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "machineCount",
+     "type": "int[]",
+     "rawValue": "[2, 0, 5, 7]"
+    },
+    {
+     "name": "finalMachineCount",
+     "type": "int[]",
+     "rawValue": "[-5, 5, 10]"
+    },
+    {
+     "name": "shiftingCost",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "machineCount",
+     "type": "int[]",
+     "rawValue": "[2, 4, 3, 2]"
+    },
+    {
+     "name": "finalMachineCount",
+     "type": "int[]",
+     "rawValue": "[4, 4, 4]"
+    },
+    {
+     "name": "shiftingCost",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "machineCount",
+     "type": "int[]",
+     "rawValue": "[5, 2, 3, 5, 7]"
+    },
+    {
+     "name": "finalMachineCount",
+     "type": "int[]",
+     "rawValue": "[5, 5, 5]"
+    },
+    {
+     "name": "shiftingCost",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "-3"
+  }
+ ]
+}

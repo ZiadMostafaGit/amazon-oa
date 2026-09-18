@@ -1,0 +1,98 @@
+{
+ "problemId": "waymo-repeated-letter-dictionary-matches",
+ "generatedAt": "2026-09-19T00:11:53",
+ "from": "reference solution, verified 2026-09-19T00:11:25",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "typed",
+     "type": "String",
+     "rawValue": "\"heelp\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"heelp\", \"hello\"]"
+    }
+   ],
+   "expectedRaw": "[\"heelp\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "typed",
+     "type": "String",
+     "rawValue": "\"aaabb\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"aab\", \"abbc\", \"aab\", \"abbc\"]"
+    }
+   ],
+   "expectedRaw": "[\"ab\", \"aab\", \"aab\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "typed",
+     "type": "String",
+     "rawValue": "\"hello\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"help\", \"heelp\", \"heellp\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "typed",
+     "type": "String",
+     "rawValue": "\"aaabb\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"abbc\", \"aab\", \"ab\", \"abbc\"]"
+    }
+   ],
+   "expectedRaw": "[\"aab\", \"ab\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "typed",
+     "type": "String",
+     "rawValue": "\"help\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"help\", \"hello\", \"heelp\", \"hello\"]"
+    }
+   ],
+   "expectedRaw": "[\"help\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "typed",
+     "type": "String",
+     "rawValue": "\"aab\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"aab\", \"abbc\"]"
+    }
+   ],
+   "expectedRaw": "[\"aab\"]"
+  }
+ ]
+}

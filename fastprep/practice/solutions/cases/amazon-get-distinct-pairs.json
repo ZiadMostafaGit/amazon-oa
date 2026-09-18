@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-get-distinct-pairs",
+ "generatedAt": "2026-09-19T00:11:44",
+ "from": "reference solution, verified 2026-09-19T00:11:25",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "stocksProfit",
+     "type": "int[]",
+     "rawValue": "[5, 9, 11, 6, 3, 3]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "12"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stocksProfit",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stocksProfit",
+     "type": "int[]",
+     "rawValue": "[5, 7, 9, 11, 11, 6, 6, 3, 3]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stocksProfit",
+     "type": "int[]",
+     "rawValue": "[5, 7, 9, 11, 6, 6, 3]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "12"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stocksProfit",
+     "type": "int[]",
+     "rawValue": "[6, 3, 13, 5, 7, 6, 9]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "12"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stocksProfit",
+     "type": "int[]",
+     "rawValue": "[7, 9, 13, 11, 6, 6, 3, 6, 3]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

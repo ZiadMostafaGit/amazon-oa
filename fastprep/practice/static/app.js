@@ -197,466 +197,6 @@ function renderChips() {
   FLAGS.forEach(k => { if (state[k]) add(k, 'yes', () => { state[k] = false; }); });
 }
 
-/* -------------------------------------------------------------------- list */
-function card(p) {
-  const c = el('div', 'card' + (state.current && state.current.id === p.id ? ' active' : ''));
-  c.dataset.id = p.id;
-  c.append(el('div', 't', p.title || p.id));
-  const m = el('div', 'meta');
-  if (p.company) m.append(el('span', 'tag co', p.company));
-  if (p.difficulty) m.append(el('span', 'tag ' + p.difficulty, p.difficulty));
-  (p.stages || []).forEach(s => m.append(el('span', 'tag stage', s)));
-  if (p.format === 'tabular') m.append(el('span', 'tag', 'SQL / tabular'));
-  if (p.seenCount) m.append(el('span', 'tag', 'seen ' + p.seenCount + '×'));
-  const pr = p.progress || {};
-  if (pr.status) m.append(el('span', 'tag mark ' + pr.status, pr.status));
-  if (pr.bookmarked) m.append(el('span', 'tag mark bookmark', '★'));
-  m.append(el('span', 'when', p.lastSeenMax || ''));
-  c.append(m);
-  c.onclick = () => openProblem(p.id);
-  return c;
-}
-
-function renderList(append) {
-  const host = $('#list');
-  if (!append) host.textContent = '';
-  if (!state.items.length && !append) {
-    host.append(el('div', 'empty-msg', 'Nothing matches those filters.'));
-  }
-  const slice = append ? state.items.slice(host.children.length) : state.items;
-  slice.forEach(p => host.append(card(p)));
-
-  $('#count').innerHTML = '<b>' + state.total.toLocaleString() + '</b> problem' +
-    (state.total === 1 ? '' : 's');
-  const more = $('#more');
-  more.textContent = '';
-  if (state.items.length < state.total) {
-    const b = el('button', null, 'Load ' +
-      Math.min(state.limit, state.total - state.items.length) + ' more  (' +
-      state.items.length + ' of ' + state.total.toLocaleString() + ')');
-    b.onclick = loadMore;
-    more.append(b);
-  } else if (state.total) {
-    more.append(el('div', 'hint', 'End of results — ' + state.total.toLocaleString() + ' shown.'));
-  }
-}
-
-async function reload() {
-  state.offset = 0;
-  renderChips(); pushUrl();
-  const data = await api('/api/problems?' + queryString({ limit: state.limit, offset: 0 }));
-  state.total = data.total; state.items = data.items;
-  renderList(false);
-  $('#listPane').scrollTop = 0;
-}
-
-async function loadMore() {
-  state.offset += state.limit;
-  const data = await api('/api/problems?' + queryString({ limit: state.limit, offset: state.offset }));
-  state.items = state.items.concat(data.items);
-  state.total = data.total;
-  renderList(true);
-}
-
-/* ------------------------------------------------------------------ detail */
-function kvRow(k, v) {
-  const frag = document.createDocumentFragment();
-  frag.append(el('div', 'k', k), el('div', 'v', v));
-  return frag;
-}
-
-function exampleBlock(ex, i) {
-  const box = el('div', 'example');
-  box.append(el('div', 'eh', 'Example ' + (ex.id != null ? ex.id : i + 1)));
-  const kv = el('div', 'kv');
-  (ex.inputText || []).forEach(inp => {
-    kv.append(kvRow((inp.inputName || '?') + ' (' + (inp.inputType || '?') + ')',
-                    inp.inputValue || ''));
-  });
-  kv.append(kvRow('→ output (' + (ex.outputType || '?') + ')', ex.outputText || ''));
-  box.append(kv);
-  if (ex.explanation) {
-    const e = el('div', 'expl'); e.innerHTML = ex.explanation; box.append(e);
-  }
-  return box;
-}
-
-function tableBlock(t) {
-  const box = el('div', 'tbl');
-  box.append(el('h4', null, t.name));
-  if (t.description) box.append(el('div', 'desc', t.description));
-  const table = el('table');
-  (t.columns || []).forEach(c => {
-    const tr = el('tr');
-    tr.append(el('td', null, c.name));
-    tr.append(el('td', 'ty', c.type));
-    tr.append(el('td', 'nn', c.nullable ? 'nullable' : ''));
-    table.append(tr);
-  });
-  box.append(table);
-  return box;
-}
-
-function caseTable(cols, rows) {
-  const t = el('table');
-  const hr = el('tr');
-  (cols || []).forEach(c => hr.append(el('th', null, String(c))));
-  t.append(hr);
-  (rows || []).slice(0, 40).forEach(r => {
-    const tr = el('tr');
-    (r || []).forEach(v => tr.append(el('td', null, v === null ? 'NULL' : String(v))));
-    t.append(tr);
-  });
-  return t;
-}
-
-async function openProblem(id) {
-  const d = await api('/api/problems/' + encodeURIComponent(id));
-  state.current = d;
-  state.lang = (d.languages.find(l => l.runnable) || d.languages[0] || {}).id;
-  document.querySelectorAll('.card').forEach(c =>
-    c.classList.toggle('active', c.dataset.id === id));
-  renderDetail();
-  pushUrl();
-  $('#detailPane').scrollTop = 0;
-}
-
-function renderDetail() {
-  const d = state.current, pane = $('#detailPane');
-  pane.classList.remove('empty');
-  pane.textContent = '';
-
-  /* ---- header ---- */
-  const head = el('div', 'dhead');
-  head.append(el('h1', null, d.title || d.id));
-  const meta = el('div', 'dmeta');
-  if (d.company) meta.append(el('span', 'tag co', d.company));
-  if (d.difficulty) meta.append(el('span', 'tag ' + d.difficulty, d.difficulty));
-  (d.problemTypes || []).forEach(s => meta.append(el('span', 'tag stage', s)));
-  (d.employmentTypes || []).forEach(s => meta.append(el('span', 'tag', s)));
-  if (d.assessmentPlatform) meta.append(el('span', 'tag', d.assessmentPlatform));
-  if (d.practiceFormat === 'tabular') meta.append(el('span', 'tag', 'tabular'));
-  if (d.seenCount) meta.append(el('span', 'tag', 'seen ' + d.seenCount + '×'));
-  if ((d.images || []).length) meta.append(el('span', 'tag img',
-    (d.images.length) + ' screenshot' + (d.images.length === 1 ? '' : 's')));
-  (d.topics || []).forEach(t => meta.append(el('span', 'tag', t)));
-  head.append(meta);
-
-  const actions = el('div', 'dactions');
-  const pr = d.progress || {};
-  ['attempted', 'solved', 'review'].forEach(s => {
-    const b = el('button', 'btn' + (pr.status === s ? ' on' : ''), s);
-    b.onclick = () => setProgress({ status: pr.status === s ? 'none' : s });
-    actions.append(b);
-  });
-  const bm = el('button', 'btn' + (pr.bookmarked ? ' on' : ''),
-                pr.bookmarked ? '★ bookmarked' : '☆ bookmark');
-  bm.onclick = () => setProgress({ bookmarked: !pr.bookmarked });
-  actions.append(bm);
-  const idChip = el('span', 'tag', d.id);
-  actions.append(idChip);
-  head.append(actions);
-  pane.append(head);
-
-  /* ---- body ---- */
-  const body = el('div', 'dbody');
-
-  /* what the bank never captured for this problem */
-  const GAP_TEXT = {
-    'constraints': 'no constraints were captured',
-    'only one example': 'only one worked example',
-    'worked explanation': 'no explanation of the example',
-    'examples': 'no examples at all',
-    'starter code': 'no starter code (the Python signature below is generated from the example types)',
-    'function name': 'no function name (the runner falls back to solve)',
-    'topics': 'no topics',
-    'difficulty': 'no difficulty',
-    'source screenshots': 'no screenshots of the original assessment',
-    'visible cases': 'no visible cases',
-    'table schema': 'no table schema',
-    'result contract': 'no result contract',
-    'statement': 'no statement text',
-  };
-  const gaps = (d.gaps || []).filter(g => GAP_TEXT[g]);
-  if (gaps.length) {
-    const n = el('div', 'note');
-    n.innerHTML = '<b>Not in the source:</b> ' +
-      gaps.map(g => esc(GAP_TEXT[g])).join(' · ') +
-      ((d.generatedCases || []).length && gaps.indexOf('only one example') >= 0
-        ? ' — the ' + d.generatedCases.length + ' generated cases below make up for the last one.'
-        : '.');
-    body.append(n);
-  }
-
-  if (d.sourceNote) {
-    const n = el('div', 'note');
-    n.innerHTML = '<b>Source note.</b> ' + esc(d.sourceNote);
-    body.append(n);
-  }
-
-  body.append(el('h2', null, 'Problem'));
-  const st = el('div', 'statement');
-  st.innerHTML = d.problemStatement || '<p class="hint">No statement recorded.</p>';
-  body.append(st);
-
-  if (d.constraints) {
-    body.append(el('h2', null, 'Constraints'));
-    const c = el('div', 'statement'); c.innerHTML = d.constraints; body.append(c);
-  }
-
-  if (d.practiceFormat === 'tabular') {
-    const tab = d.tabular || {};
-    body.append(el('h2', null, 'Tables'));
-    const tables = el('div', 'tables');
-    (tab.inputSchema || []).forEach(t => tables.append(tableBlock(t)));
-    body.append(tables);
-
-    const rc = tab.resultContract || {};
-    if (rc.columns) {
-      body.append(el('h2', null, 'Expected result'));
-      const box = el('div', 'tbl');
-      const table = el('table');
-      (rc.columns || []).forEach(c => {
-        const tr = el('tr');
-        tr.append(el('td', null, c.name), el('td', 'ty', c.type));
-        table.append(tr);
-      });
-      box.append(table);
-      box.append(el('div', 'desc', 'row order: ' + (rc.rowOrder || 'exact') +
-        (rc.numericTolerance ? ' · numeric tolerance ' + rc.numericTolerance : '')));
-      body.append(box);
-    }
-
-    body.append(el('h2', null, 'Visible cases'));
-    (tab.visibleCases || []).forEach((c, i) => {
-      const box = el('div', 'example');
-      box.append(el('div', 'eh', 'Case ' + (c.id || i + 1)));
-      Object.entries(c.input || {}).forEach(([name, rows]) => {
-        box.append(el('div', 'desc', name));
-        const cols = ((tab.inputSchema || []).find(t => t.name === name) || {}).columns || [];
-        box.append(caseTable(cols.map(x => x.name), rows));
-      });
-      box.append(el('div', 'desc', 'expected'));
-      box.append(caseTable((c.expectedResult || {}).columns, (c.expectedResult || {}).rows));
-      if (c.explanation) box.append(el('div', 'expl', c.explanation));
-      body.append(box);
-    });
-  } else {
-    body.append(el('h2', null, 'Examples'));
-    (d.examples || []).forEach((ex, i) => body.append(exampleBlock(ex, i)));
-    if (!(d.examples || []).length) body.append(el('div', 'hint', 'No examples recorded.'));
-  }
-
-  if ((d.images || []).length) {
-    body.append(el('h2', null, 'Source screenshots'));
-    body.append(el('div', 'hint',
-      'Screenshots of the original assessment. The first view fetches them from fastprep.io and caches them locally.'));
-    const shots = el('div', 'shots');
-    d.images.forEach((_, i) => {
-      const fig = el('figure');
-      const img = el('img');
-      /* at most a handful per problem, and they are the point of the section:
-         lazy loading only means a blank box until you scroll past it */
-      img.loading = i < 3 ? 'eager' : 'lazy';
-      img.src = url('api/images/' + encodeURIComponent(d.id) + '/' + i);
-      img.alt = 'source screenshot ' + (i + 1);
-      img.onclick = () => lightbox(img.src);
-      img.onerror = () => { fig.textContent = ''; fig.append(el('div', 'hint',
-        'screenshot ' + (i + 1) + ' could not be loaded (offline?)')); };
-      fig.append(img, el('figcaption', null, 'screenshot ' + (i + 1) + ' — click to enlarge'));
-      shots.append(fig);
-    });
-    body.append(shots);
-  }
-
-  body.append(el('h2', null, 'Sightings'));
-  const dates = el('div', 'dates');
-  (d.lastSeen || []).forEach((x, i) => dates.append(el('span', 'date' + (i ? '' : ' first'), x)));
-  if (!(d.lastSeen || []).length) dates.append(el('span', 'hint', 'no dates recorded'));
-  body.append(dates);
-  if (d.seenCount) body.append(el('div', 'hint', 'reported ' + d.seenCount + ' times'));
-
-  /* ---- editor ---- */
-  body.append(el('h2', null, 'Your solution'));
-  const bar = el('div', 'langbar');
-  d.languages.forEach(l => {
-    const b = el('button', 'btn' + (l.id === state.lang ? ' on' : ''),
-                 l.label + (l.runnable ? '' : ' (read-only)'));
-    b.title = l.note || '';
-    b.onclick = () => { state.lang = l.id; renderEditor(); };
-    bar.append(b);
-  });
-  body.append(bar);
-  const editorHost = el('div'); editorHost.id = 'editorHost';
-  body.append(editorHost);
-
-  body.append(el('h2', null, 'Test cases'));
-  const casesHost = el('div', 'cases'); casesHost.id = 'casesHost';
-  body.append(casesHost);
-
-  body.append(el('h2', null, 'Reference solution'));
-  const solutionHost = el('div'); solutionHost.id = 'solutionHost';
-  body.append(solutionHost);
-
-  /* ---- notes ---- */
-  body.append(el('h2', null, 'Notes'));
-  const notes = el('textarea'); notes.id = 'notes';
-  notes.placeholder = 'What pattern is this? What did you miss? Written here, kept in progress.db.';
-  notes.value = pr.notes || '';
-  const savedMsg = el('span', 'saved', '');
-  let t = null;
-  notes.oninput = () => {
-    clearTimeout(t); savedMsg.textContent = 'saving…';
-    t = setTimeout(async () => {
-      await setProgress({ notes: notes.value }, true);
-      savedMsg.textContent = 'saved';
-      setTimeout(() => { savedMsg.textContent = ''; }, 1500);
-    }, 600);
-  };
-  body.append(notes, savedMsg);
-
-  pane.append(body);
-  renderEditor();
-}
-
-function renderEditor() {
-  const d = state.current;
-  const host = $('#editorHost');
-  if (!host) return;
-  host.textContent = '';
-  state.editor = null;
-  const spec = d.languages.find(l => l.id === state.lang) || d.languages[0];
-  if (!spec) { host.append(el('div', 'hint', 'No editor for this problem.')); return; }
-
-  document.querySelectorAll('.langbar .btn').forEach((b, i) =>
-    b.classList.toggle('on', d.languages[i] && d.languages[i].id === spec.id));
-
-  if (spec.note) {
-    const n = el('div', 'note' + (spec.runnable ? '' : ' warn'));
-    n.textContent = spec.note;
-    host.append(n);
-  }
-
-  /* --- toolbar: the editor affordances, not the problem's --- */
-  const bar = el('div', 'edbar');
-  const vimBtn = el('button', 'btn tiny' + (state.vim ? ' on' : ''), 'Vim');
-  vimBtn.title = 'Vim keybindings — Ctrl-Alt-V';
-  const mode = el('span', 'vimstate', '');
-  vimBtn.onclick = () => {
-    state.vim = !state.vim; remember('vim', state.vim ? '1' : '0');
-    vimBtn.classList.toggle('on', state.vim);
-    if (state.editor) { state.editor.setVim(state.vim); state.editor.focus(); }
-    if (!state.vim) mode.textContent = '';
-  };
-  const relBtn = el('button', 'btn tiny' + (state.relno ? ' on' : ''),
-                    state.relno ? 'Rel no' : 'Abs no');
-  relBtn.title = 'Relative line numbers — Ctrl-Alt-R';
-  relBtn.onclick = () => {
-    state.relno = !state.relno; remember('relno', state.relno ? '1' : '0');
-    relBtn.textContent = state.relno ? 'Rel no' : 'Abs no';
-    relBtn.classList.toggle('on', state.relno);
-    if (state.editor) { state.editor.setRelative(state.relno); state.editor.focus(); }
-  };
-  const fsz = el('span', 'fsz');
-  const fsVal = el('b', null, String(state.fontSize));
-  const bump = (delta) => {
-    state.fontSize = Math.max(10, Math.min(24, state.fontSize + delta));
-    remember('fs', String(state.fontSize));
-    fsVal.textContent = String(state.fontSize);
-    if (state.editor) state.editor.setFontSize(state.fontSize);
-  };
-  const minus = el('button', null, 'A−'); minus.onclick = () => bump(-1);
-  const plus = el('button', null, 'A+'); plus.onclick = () => bump(1);
-  fsz.append(minus, fsVal, plus);
-  const resetBtn = el('button', 'btn tiny', 'Reset to starter');
-  resetBtn.onclick = () => {
-    if (state.editor) { state.editor.setValue(spec.starter || ''); state.editor.focus(); }
-  };
-  const copyBtn = el('button', 'btn tiny', 'Copy');
-  copyBtn.onclick = () => {
-    navigator.clipboard.writeText(state.editor ? state.editor.getValue() : '');
-    copyBtn.textContent = 'Copied'; setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1200);
-  };
-  bar.append(vimBtn, relBtn, mode, fsz, el('span', 'spacer'), resetBtn, copyBtn);
-  host.append(bar);
-
-  /* --- the editor itself --- */
-  const saved = (d.progress && d.progress.submissions && d.progress.submissions[spec.id]) || null;
-  const ta = el('textarea'); ta.id = 'editor'; ta.spellcheck = false;
-  ta.value = (saved && saved.code) || spec.starter || '';
-  host.append(ta);
-
-  state.editor = window.PyEditor.create(ta, {
-    vim: state.vim, relative: state.relno, fontSize: state.fontSize,
-    onRun: () => runCode(), onScratch: () => runScratch(),
-    onChange: () => scheduleSave(),
-    onModeChange: (m) => { if (state.vim) mode.textContent = '-- ' + m + ' --'; },
-  });
-  if (!spec.runnable) state.editor.setReadOnly(true);
-
-  /* --- run bar --- */
-  const runbar = el('div', 'runbar');
-  const runBtn = el('button', 'btn run', '▶ Run tests  (Ctrl-Enter)');
-  runBtn.disabled = !spec.runnable;
-  runBtn.onclick = () => runCode('all');
-  const customBtn = el('button', 'btn', 'Run my cases only');
-  customBtn.disabled = !spec.runnable || !(d.customCases || []).length;
-  customBtn.onclick = () => runCode('custom');
-  const fuzzBtn = el('button', 'btn', 'Random');
-  const canFuzz = spec.runnable && spec.mode === 'python' &&
-                  d.solution && d.solution.verified && d.practiceFormat !== 'tabular';
-  fuzzBtn.disabled = !canFuzz;
-  fuzzBtn.title = canFuzz
-    ? 'Generate random inputs and compare your code with the verified reference solution'
-    : 'Needs a verified reference solution for this problem';
-  fuzzBtn.onclick = () => runFuzz();
-  const scratchBtn = el('button', 'btn', 'Scratch');
-  scratchBtn.title = 'Run an ad-hoc call against your code (Shift-Ctrl-Enter)';
-  scratchBtn.onclick = () => {
-    const box = $('#scratch');
-    box.hidden = !box.hidden;
-    if (!box.hidden) $('#scratchIn').focus();
-  };
-  runbar.append(runBtn, customBtn, fuzzBtn, scratchBtn, el('span', 'spacer'));
-  const verdict = el('span', 'verdict'); verdict.id = 'verdict';
-  if (saved && saved.total != null) {
-    verdict.innerHTML = 'last run: ' + (saved.passed === saved.total
-      ? '<span class="ok">' + saved.passed + '/' + saved.total + '</span>'
-      : '<span class="no">' + saved.passed + '/' + saved.total + '</span>') +
-      ' · ' + esc(saved.ranAt || '');
-  }
-  runbar.append(verdict);
-  host.append(runbar);
-
-  const disclaimer = el('div', 'note warn');
-  const gen = (d.generatedCases || []).length;
-  disclaimer.textContent =
-    'The published cases are this problem\u2019s VISIBLE examples only — the bank ships no hidden ' +
-    'tests, so passing them does not mean your solution is correct.' +
-    (gen ? ' The ' + gen + ' generated cases come from the reference solution, so they encode ' +
-           'its behaviour rather than a judge\u2019s.' : '');
-  host.append(disclaimer);
-
-  /* --- scratch pad --- */
-  const scratch = el('div'); scratch.id = 'scratch'; scratch.hidden = true;
-  const sin = el('textarea'); sin.id = 'scratchIn'; sin.spellcheck = false;
-  sin.placeholder = (d.functionName || 'solve') + '(' +
-    ((d.cases && d.cases[0] ? d.cases[0].inputs : []) || []).map(i => i.rawValue).join(', ') + ')';
-  sin.onkeydown = (e) => {
-    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); runScratch(); }
-  };
-  const sbar = el('div', 'edbar');
-  const sgo = el('button', 'btn tiny', 'Evaluate  (Shift-Ctrl-Enter)');
-  sgo.onclick = () => runScratch();
-  sbar.append(el('span', 'hint', 'Runs your editor code, then evaluates this against it'),
-              el('span', 'spacer'), sgo);
-  scratch.append(sin, sbar);
-  host.append(scratch);
-
-  host.append(el('div', 'results'));
-  renderCases();
-  renderSolution();
-}
 
 /* ------------------------------------------------------------ custom cases */
 function renderCases() {
@@ -678,9 +218,9 @@ function renderCases() {
   host.append(tally);
 
   if (generated.length) {
-    const box = el('details', 'sol');
+    const box = el('details', 'disclosure');
     const sum = el('summary');
-    sum.append(el('span', 'k no', 'generated'),
+    sum.append(el('span', 'stamp pending', 'generated'),
                el('span', null, generated.length + ' extra cases'),
                el('span', 'hint', 'mutations of this problem\u2019s own examples, ' +
                   'answered by the verified reference solution'));
@@ -690,7 +230,7 @@ function renderCases() {
       'These encode the reference solution\u2019s behaviour, not a judge\u2019s. They are useful ' +
       'for catching off-by-one errors the single published example cannot.'));
     generated.slice(0, 12).forEach(c => {
-      const row = el('div', 'case-row');
+      const row = el('div', 'casecard');
       const kv = el('div', 'kv');
       (c.inputs || []).forEach(i => {
         kv.append(el('div', 'k', (i.name || '?')), el('div', 'v', i.rawValue));
@@ -713,7 +253,7 @@ function renderCases() {
   }
 
   (d.customCases || []).forEach(c => {
-    const row = el('div', 'case-row');
+    const row = el('div', 'casecard');
     const grow = el('div', 'grow');
     const kv = el('div', 'kv');
     (c.inputs || []).forEach(i => {
@@ -724,15 +264,15 @@ function renderCases() {
               el('div', 'v', c.expectedRaw || '(none — just show what my code returns)'));
     grow.append(kv);
     if (c.note) grow.append(el('div', 'hint', c.note));
-    const del = el('button', 'btn tiny', 'Delete');
+    const del = el('button', 'btn ghost', 'Delete');
     del.onclick = async () => {
-      await api('/api/cases/' + encodeURIComponent(d.id), {
+      await api('api/cases/' + encodeURIComponent(d.id), {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'delete', caseId: c.caseId }),
       });
-      const fresh = await api('/api/problems/' + encodeURIComponent(d.id));
+      const fresh = await api('api/problems/' + encodeURIComponent(d.id));
       state.current.customCases = fresh.customCases;
-      renderCases(); renderEditor();
+      renderCases(); renderWorkbench();
     };
     row.append(grow, del);
     host.append(row);
@@ -751,7 +291,7 @@ function renderCases() {
     return;
   }
 
-  const form = el('div', 'case-form');
+  const form = el('div', 'caseform');
   const fields = params.map(p => {
     const lab = el('label', null, p.name + '  (' + p.type + ')');
     const inp = el('input');
@@ -768,8 +308,8 @@ function renderCases() {
   form.append(expLab, exp, noteLab, note);
   form.append(el('div', 'hint',
     'Values use the same notation as the examples above: JSON for arrays, quotes for strings.'));
-  const bar = el('div', 'edbar');
-  const save = el('button', 'btn run', 'Add case');
+  const bar = el('div', 'rowbtns');
+  const save = el('button', 'btn primary', 'Add case');
   save.onclick = async () => {
     const payload = {
       action: 'add',
@@ -777,15 +317,15 @@ function renderCases() {
       expected: exp.value.trim(), note: note.value.trim(),
     };
     try {
-      await api('/api/cases/' + encodeURIComponent(d.id), {
+      await api('api/cases/' + encodeURIComponent(d.id), {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
     } catch (e) { alert(e.message); return; }
-    const fresh = await api('/api/problems/' + encodeURIComponent(d.id));
+    const fresh = await api('api/problems/' + encodeURIComponent(d.id));
     state.current.customCases = fresh.customCases;
     state.showCaseForm = false;
-    renderCases(); renderEditor();
+    renderCases(); renderWorkbench();
   };
   const cancel = el('button', 'btn', 'Cancel');
   cancel.onclick = () => { state.showCaseForm = false; renderCases(); };
@@ -807,9 +347,9 @@ function renderSolution() {
       'the ones here were written and checked against each problem\u2019s visible examples.'));
     return;
   }
-  const box = el('details', 'sol');
+  const box = el('details', 'disclosure');
   const sum = el('summary');
-  const badge = el('span', 'k' + (sol.verified ? '' : ' no'),
+  const badge = el('span', 'stamp' + (sol.verified ? '' : ' pending'),
                    sol.verified ? 'verified ' + (sol.cases || '') : 'unverified');
   sum.append(badge, el('span', null, 'Reference solution'),
              el('span', 'hint', sol.verified
@@ -818,8 +358,8 @@ function renderSolution() {
   box.append(sum);
   const inner = el('div', 'inner');
   const pre = el('pre'); pre.textContent = sol.code;
-  const bar = el('div', 'edbar');
-  const load = el('button', 'btn tiny', 'Load into the editor');
+  const bar = el('div', 'rowbtns');
+  const load = el('button', 'btn ghost', 'Load into the editor');
   load.onclick = () => { if (state.editor) { state.editor.setValue(sol.code); state.editor.focus(); } };
   bar.append(load, el('span', 'spacer'),
              el('span', 'hint', sol.checkedAt ? 'checked ' + sol.checkedAt : ''));
@@ -835,7 +375,7 @@ function scheduleSave() {
     const d = state.current;
     if (!d || !state.editor) return;
     try {
-      await api('/api/progress/' + encodeURIComponent(d.id), {
+      await api('api/progress/' + encodeURIComponent(d.id), {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ language: state.lang, code: state.editor.getValue() }),
       });
@@ -851,19 +391,19 @@ async function runFuzz() {
   results.textContent = '';
   let out;
   try {
-    out = await api('/api/fuzz', {
+    out = await api('api/fuzz', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ problemId: d.id, code: state.editor.getValue() }),
     });
   } catch (e) {
     verdict.innerHTML = '<span class="no">could not run</span>';
-    results.append(Object.assign(el('div', 'res fail'), { textContent: e.message }));
+    results.append(Object.assign(el('div', 'case fail'), { textContent: e.message }));
     return;
   }
 
   if (out.error) {
     verdict.innerHTML = '<span class="no">did not run</span>';
-    const box = el('div', 'res fail');
+    const box = el('div', 'case fail');
     const pre = el('pre'); pre.textContent = out.error; box.append(pre);
     results.append(box);
     return;
@@ -871,8 +411,8 @@ async function runFuzz() {
 
   if (!out.failed) {
     verdict.innerHTML = '<span class="ok">agreed on ' + out.checked + ' random inputs</span>';
-    const box = el('div', 'res pass');
-    box.append(el('div', 'rh', '✓ no disagreement found'));
+    const box = el('div', 'case pass');
+    box.append(el('div', 'case-head', '✓ no disagreement found'));
     box.append(el('div', 'hint',
       'Your code matched the reference on ' + out.checked + ' generated inputs' +
       (out.skipped ? ' (' + out.skipped + ' more were rejected by the reference and skipped)' : '') +
@@ -883,16 +423,597 @@ async function runFuzz() {
   }
 
   verdict.innerHTML = '<span class="no">counterexample found</span>';
-  const box = el('div', 'res fail');
-  box.append(el('div', 'rh', out.crash ? '✗ your code raised' : '✗ disagreement'));
+  const box = el('div', 'case fail');
+  box.append(el('div', 'case-head', out.crash ? '✗ your code raised' : '✗ disagreement'));
   const pre = el('pre');
   pre.innerHTML = '<span class="lbl">input    </span>' + esc(out.input) +
     (out.crash ? '\n<span class="lbl">error    </span><span class="got">' + esc(out.got) + '</span>'
                : '\n<span class="lbl">expected </span><span class="exp">' + esc(out.expected) +
                  '</span>\n<span class="lbl">you      </span><span class="got">' + esc(out.got) + '</span>');
   box.append(pre);
-  const bar = el('div', 'edbar');
-  const keep = el('button', 'btn tiny', '＋ Keep this as a test case');
+  const bar = el('div', 'rowbtns');
+  const keep = el('button', 'btn ghost', '＋ Keep this as a test case');
+  keep.onclick = async () => {
+    const inputs = (out.inputValues || []).map((v, i) => ({
+      name: (out.inputNames || [])[i], type: (out.inputTypes || [])[i], rawValue: v }));
+    await api('api/cases/' + encodeURIComponent(d.id), {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'add', inputs: inputs,
+                             expected: out.crash ? '' : out.expected,
+                             note: 'found by Random' }),
+    });
+    const fresh = await api('api/problems/' + encodeURIComponent(d.id));
+    state.current.customCases = fresh.customCases;
+    keep.textContent = 'kept'; keep.disabled = true;
+    renderCases();
+  };
+  bar.append(keep, el('span', 'spacer'), el('span', 'hint', 'checked ' + out.checked +
+    (out.skipped ? ', skipped ' + out.skipped : '')));
+  box.append(bar);
+  results.append(box);
+}
+
+
+/* ------------------------------------------------------- results (drawer) */
+function resultRow(p, index) {
+  const b = el('button', 'result' + (state.current && state.current.id === p.id ? ' active' : ''));
+  b.dataset.id = p.id;
+
+  const title = el('div', 'title');
+  title.append(el('span', 'num', '#' + (index + 1)));
+  const pr = p.progress || {};
+  if (pr.status) title.append(Object.assign(el('span', 'dot ' + pr.status), {title: pr.status}));
+  else if (pr.bookmarked) title.append(Object.assign(el('span', 'dot bookmarked'), {title: 'bookmarked'}));
+  title.append(el('span', null, p.title || p.id));
+  b.append(title);
+
+  const sub = el('div', 'sub');
+  if (p.company) sub.append(el('span', 'tag company', p.company));
+  if (p.difficulty) sub.append(el('span', 'tag ' + p.difficulty, p.difficulty));
+  (p.stages || []).slice(0, 2).forEach(s => sub.append(el('span', 'tag stage', s)));
+  if (p.format === 'tabular') sub.append(el('span', 'tag plain', 'SQL'));
+  if (p.seenCount > 1) sub.append(el('span', 'tag count', 'seen ' + p.seenCount + '×'));
+  sub.append(el('span', 'when', p.lastSeenMax || ''));
+  b.append(sub);
+
+  b.onclick = () => { openProblem(p.id); closeDrawer(); };
+  return b;
+}
+
+function renderList(append) {
+  const host = $('#list');
+  if (!append) host.textContent = '';
+  if (!state.items.length && !append) {
+    host.append(el('div', 'nothing', 'Nothing matches those filters.'));
+  }
+  const from = append ? host.querySelectorAll('.result').length : 0;
+  state.items.slice(from).forEach((p, i) => host.append(resultRow(p, from + i)));
+
+  $('#count').innerHTML = '<b>' + state.total.toLocaleString() + '</b> problem' +
+    (state.total === 1 ? '' : 's');
+
+  const more = $('#more');
+  more.textContent = '';
+  if (state.items.length < state.total) {
+    const b = el('button', 'btn', 'Load ' +
+      Math.min(state.limit, state.total - state.items.length) + ' more');
+    b.onclick = loadMore;
+    more.append(b, el('div', 'hint', state.items.length + ' of ' + state.total.toLocaleString() + ' shown'));
+  } else if (state.total > 12) {
+    more.append(el('div', 'hint', 'All ' + state.total.toLocaleString() + ' shown.'));
+  }
+}
+
+async function reload() {
+  state.offset = 0;
+  renderChips(); pushUrl();
+  const data = await api('api/problems?' + queryString({ limit: state.limit, offset: 0 }));
+  state.total = data.total; state.items = data.items;
+  renderList(false);
+  const rl = $('#results'); if (rl) rl.scrollTop = 0;
+  renderPosition();
+}
+
+async function loadMore() {
+  state.offset += state.limit;
+  const data = await api('api/problems?' + queryString({ limit: state.limit, offset: state.offset }));
+  state.items = state.items.concat(data.items);
+  state.total = data.total;
+  renderList(true);
+}
+
+/* --------------------------------------------------------------- the drawer */
+function openDrawer() {
+  $('#drawer').hidden = false;
+  $('#scrim').hidden = false;
+  setTimeout(() => $('#q').focus(), 30);
+}
+function closeDrawer() {
+  $('#drawer').hidden = true;
+  $('#scrim').hidden = true;
+  if (state.editor) state.editor.focus();
+}
+const drawerOpen = () => !$('#drawer').hidden;
+
+/* ------------------------------------------------------------ problem pane */
+function kvLine(k, v, cls) {
+  const frag = document.createDocumentFragment();
+  frag.append(el('div', 'k', k), el('div', 'v' + (cls ? ' ' + cls : ''), v));
+  return frag;
+}
+
+function exampleBlock(ex, i) {
+  const box = el('div', 'example');
+  box.append(el('div', 'example-label', 'Example ' + (ex.id != null ? ex.id : i + 1)));
+  const kv = el('div', 'kv');
+  (ex.inputText || []).forEach(inp => {
+    kv.append(kvLine((inp.inputName || '?') + '  ' + (inp.inputType || ''), inp.inputValue || ''));
+  });
+  kv.append(kvLine('→ output  ' + (ex.outputType || ''), ex.outputText || '', 'out'));
+  box.append(kv);
+  if (ex.explanation) {
+    const why = el('div', 'why');
+    why.innerHTML = ex.explanation;
+    box.append(why);
+  }
+  return box;
+}
+
+function dataTable(cols, rows, limit) {
+  const t = el('table', 'datatable');
+  const hr = el('tr');
+  (cols || []).forEach(c => hr.append(el('th', null, String(c))));
+  t.append(hr);
+  (rows || []).slice(0, limit || 40).forEach(r => {
+    const tr = el('tr');
+    (r || []).forEach(v => tr.append(el('td', null, v === null ? 'NULL' : String(v))));
+    t.append(tr);
+  });
+  return t;
+}
+
+const GAP_TEXT = {
+  'constraints': 'no constraints were captured',
+  'only one example': 'only one worked example',
+  'worked explanation': 'no explanation of the example',
+  'starter code': 'no starter code — the Python signature is generated from the example types',
+  'function name': 'no function name',
+  'topics': 'no topics',
+  'difficulty': 'no difficulty',
+  'source screenshots': 'no screenshots of the original assessment',
+  'visible cases': 'no visible cases',
+  'table schema': 'no table schema',
+  'result contract': 'no result contract',
+  'statement': 'no statement text',
+  'examples': 'no examples',
+};
+
+function renderProblem() {
+  const d = state.current;
+  const host = $('#problem');
+  host.textContent = '';
+
+  /* --- sticky head: title, what it is, where you are with it --- */
+  const head = el('div', 'problem-head');
+  head.append(el('h1', null, d.title || d.id));
+  const meta = el('div', 'meta-row');
+  if (d.company) meta.append(el('span', 'tag company', d.company));
+  if (d.difficulty) meta.append(el('span', 'tag ' + d.difficulty, d.difficulty));
+  (d.problemTypes || []).forEach(s => meta.append(el('span', 'tag stage', s)));
+  (d.employmentTypes || []).forEach(s => meta.append(el('span', 'tag plain', s)));
+  if (d.assessmentPlatform) meta.append(el('span', 'tag plain', d.assessmentPlatform));
+  if (d.practiceFormat === 'tabular') meta.append(el('span', 'tag plain', 'SQL / tabular'));
+  if (d.seenCount) meta.append(el('span', 'tag count', 'seen ' + d.seenCount + '×'));
+  head.append(meta);
+
+  const bar = el('div', 'statusbar');
+  const pr = d.progress || {};
+  [['attempted', 'Attempted'], ['solved', 'Solved'], ['review', 'Review']].forEach(([s, label]) => {
+    const b = el('button', 'statusbtn ' + s, label);
+    b.setAttribute('aria-pressed', pr.status === s ? 'true' : 'false');
+    b.onclick = () => setProgress({ status: pr.status === s ? 'none' : s });
+    bar.append(b);
+  });
+  const bm = el('button', 'statusbtn mark', pr.bookmarked ? '★ Bookmarked' : '☆ Bookmark');
+  bm.setAttribute('aria-pressed', pr.bookmarked ? 'true' : 'false');
+  bm.onclick = () => setProgress({ bookmarked: !pr.bookmarked });
+  bar.append(bm, el('span', 'idchip', d.id));
+  head.append(bar);
+  host.append(head);
+
+  /* --- body --- */
+  const body = el('div', 'problem-body');
+
+  const gaps = (d.gaps || []).filter(g => GAP_TEXT[g]);
+  if (gaps.length) {
+    const n = el('div', 'callout');
+    n.innerHTML = '<b>Not in the source:</b> ' + gaps.map(g => esc(GAP_TEXT[g])).join(' · ') +
+      ((d.generatedCases || []).length && gaps.indexOf('only one example') >= 0
+        ? ' — the ' + d.generatedCases.length + ' generated cases below make up for the last one.' : '.');
+    body.append(n);
+  }
+  if (d.sourceNote) {
+    const n = el('div', 'callout info');
+    n.innerHTML = '<b>Source note.</b> ' + esc(d.sourceNote);
+    body.append(n);
+  }
+
+  body.append(el('h2', 'section', 'Problem'));
+  const st = el('div', 'prose');
+  st.innerHTML = d.problemStatement || '<p class="hint">No statement recorded.</p>';
+  body.append(st);
+
+  if (d.constraints) {
+    body.append(el('h2', 'section', 'Constraints'));
+    const c = el('div', 'prose'); c.innerHTML = d.constraints; body.append(c);
+  }
+
+  if (d.practiceFormat === 'tabular') {
+    const tab = d.tabular || {};
+    body.append(el('h2', 'section', 'Tables'));
+    const wrap = el('div');
+    (tab.inputSchema || []).forEach(t => {
+      const box = el('div', 'schema');
+      box.append(el('h4', null, t.name));
+      if (t.description) box.append(el('div', 'desc', t.description));
+      const table = el('table', 'datatable');
+      (t.columns || []).forEach(c => {
+        const tr = el('tr');
+        tr.append(el('td', null, c.name), el('td', 'type', c.type),
+                  el('td', null, c.nullable ? 'nullable' : ''));
+        table.append(tr);
+      });
+      box.append(table);
+      wrap.append(box);
+    });
+    body.append(wrap);
+
+    const rc = tab.resultContract || {};
+    if (rc.columns) {
+      body.append(el('h2', 'section', 'Expected result'));
+      const box = el('div', 'schema');
+      const table = el('table', 'datatable');
+      rc.columns.forEach(c => {
+        const tr = el('tr');
+        tr.append(el('td', null, c.name), el('td', 'type', c.type));
+        table.append(tr);
+      });
+      box.append(table, el('div', 'desc', 'row order: ' + (rc.rowOrder || 'exact') +
+        (rc.numericTolerance ? ' · tolerance ' + rc.numericTolerance : '')));
+      body.append(box);
+    }
+
+    body.append(el('h2', 'section', 'Visible cases'));
+    (tab.visibleCases || []).forEach((c, i) => {
+      const box = el('div', 'example');
+      box.append(el('div', 'example-label', 'Case ' + (c.id || i + 1)));
+      Object.entries(c.input || {}).forEach(([name, rows]) => {
+        box.append(el('div', 'hint', name));
+        const cols = ((tab.inputSchema || []).find(t => t.name === name) || {}).columns || [];
+        box.append(dataTable(cols.map(x => x.name), rows));
+      });
+      box.append(el('div', 'hint', 'expected'));
+      box.append(dataTable((c.expectedResult || {}).columns, (c.expectedResult || {}).rows));
+      if (c.explanation) { const w = el('div', 'why'); w.innerHTML = c.explanation; box.append(w); }
+      body.append(box);
+    });
+  } else {
+    body.append(el('h2', 'section', 'Examples'));
+    (d.examples || []).forEach((ex, i) => body.append(exampleBlock(ex, i)));
+    if (!(d.examples || []).length) body.append(el('div', 'hint', 'No examples recorded.'));
+  }
+
+  if ((d.images || []).length) {
+    body.append(el('h2', 'section', 'Source screenshots'));
+    const shots = el('div', 'shots');
+    d.images.forEach((_, i) => {
+      const fig = el('figure');
+      const img = el('img');
+      img.loading = i < 3 ? 'eager' : 'lazy';
+      img.src = url('api/images/' + encodeURIComponent(d.id) + '/' + i);
+      img.alt = 'source screenshot ' + (i + 1);
+      img.onclick = () => lightbox(img.src);
+      img.onerror = () => { fig.textContent = '';
+        fig.append(el('div', 'hint', 'screenshot ' + (i + 1) + ' could not be loaded')); };
+      fig.append(img, el('figcaption', null, 'click to enlarge'));
+      shots.append(fig);
+    });
+    body.append(shots);
+  }
+
+  body.append(el('h2', 'section', 'Test cases'));
+  const casesHost = el('div'); casesHost.id = 'casesHost';
+  body.append(casesHost);
+
+  body.append(el('h2', 'section', 'Reference solution'));
+  const solHost = el('div'); solHost.id = 'solutionHost';
+  body.append(solHost);
+
+  body.append(el('h2', 'section', 'Sightings'));
+  const dates = el('div', 'dates');
+  (d.lastSeen || []).forEach((x, i) => dates.append(el('span', 'date' + (i ? '' : ' first'), x)));
+  if (!(d.lastSeen || []).length) dates.append(el('span', 'hint', 'no dates recorded'));
+  body.append(dates);
+  if (d.seenCount) body.append(el('div', 'hint', 'reported ' + d.seenCount + ' times'));
+
+  body.append(el('h2', 'section', 'Notes'));
+  const notes = el('textarea'); notes.id = 'notes';
+  notes.placeholder = 'What pattern is this? What did you miss? Kept in progress.db.';
+  notes.value = pr.notes || '';
+  const saved = el('span', 'saved', '');
+  let t = null;
+  notes.oninput = () => {
+    clearTimeout(t); saved.textContent = 'saving…';
+    t = setTimeout(async () => {
+      await setProgress({ notes: notes.value }, true);
+      saved.textContent = 'saved';
+      setTimeout(() => { saved.textContent = ''; }, 1500);
+    }, 600);
+  };
+  body.append(notes, saved);
+
+  host.append(body);
+  host.scrollTop = 0;
+  renderCases();
+  renderSolution();
+}
+
+/* ------------------------------------------------------------- workbench */
+function renderWorkbench() {
+  const d = state.current;
+  const host = $('#workbench');
+  host.className = 'workbench';
+  host.textContent = '';
+  state.editor = null;
+
+  const spec = d.languages.find(l => l.id === state.lang) || d.languages[0];
+  if (!spec) { host.append(el('div', 'hint', 'No editor for this problem.')); return; }
+
+  /* --- row 1: language + editor tools, always visible --- */
+  const top = el('div', 'wb-top');
+  const tabs = el('div', 'langtabs');
+  d.languages.forEach(l => {
+    const b = el('button', 'langtab' + (l.runnable ? '' : ' readonly'),
+                 l.label + (l.runnable ? '' : ' · read-only'));
+    b.setAttribute('aria-pressed', l.id === spec.id ? 'true' : 'false');
+    b.title = l.note || '';
+    b.onclick = () => { state.lang = l.id; renderWorkbench(); };
+    tabs.append(b);
+  });
+  top.append(tabs);
+
+  const tools = el('div', 'toolgroup');
+  const vimBtn = el('button', 'tool', 'Vim');
+  vimBtn.setAttribute('aria-pressed', state.vim ? 'true' : 'false');
+  vimBtn.title = 'Vim keybindings — Ctrl-Alt-V';
+  const mode = el('span', 'vimmode', '');
+  vimBtn.onclick = () => {
+    state.vim = !state.vim; remember('vim', state.vim ? '1' : '0');
+    vimBtn.setAttribute('aria-pressed', state.vim ? 'true' : 'false');
+    if (state.editor) { state.editor.setVim(state.vim); state.editor.focus(); }
+    if (!state.vim) mode.textContent = '';
+  };
+  const relBtn = el('button', 'tool', 'Rel №');
+  relBtn.setAttribute('aria-pressed', state.relno ? 'true' : 'false');
+  relBtn.title = 'Relative line numbers — Ctrl-Alt-R';
+  relBtn.onclick = () => {
+    state.relno = !state.relno; remember('relno', state.relno ? '1' : '0');
+    relBtn.setAttribute('aria-pressed', state.relno ? 'true' : 'false');
+    if (state.editor) { state.editor.setRelative(state.relno); state.editor.focus(); }
+  };
+  const fs = el('span', 'fontsize');
+  const fsVal = el('b', null, String(state.fontSize));
+  const bump = (d2) => {
+    state.fontSize = Math.max(10, Math.min(24, state.fontSize + d2));
+    remember('fs', String(state.fontSize));
+    fsVal.textContent = String(state.fontSize);
+    if (state.editor) state.editor.setFontSize(state.fontSize);
+  };
+  const minus = el('button', 'tool icon', 'A−'); minus.onclick = () => bump(-1); minus.title = 'Smaller';
+  const plus = el('button', 'tool icon', 'A+'); plus.onclick = () => bump(1); plus.title = 'Bigger';
+  fs.append(minus, fsVal, plus);
+  tools.append(vimBtn, relBtn, fs);
+  top.append(tools, mode, el('span', 'spacer'));
+
+  const resetBtn = el('button', 'tool', 'Reset');
+  resetBtn.title = 'Back to the starter code';
+  resetBtn.onclick = () => { if (state.editor) { state.editor.setValue(spec.starter || ''); state.editor.focus(); } };
+  const copyBtn = el('button', 'tool', 'Copy');
+  copyBtn.onclick = () => {
+    navigator.clipboard.writeText(state.editor ? state.editor.getValue() : '');
+    copyBtn.textContent = 'Copied'; setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1200);
+  };
+  const more = el('div', 'toolgroup');
+  more.append(resetBtn, copyBtn);
+  top.append(more);
+  host.append(top);
+
+  if (spec.note) {
+    const n = el('div', 'wb-note' + (spec.runnable ? '' : ' warn'));
+    n.textContent = spec.note;
+    host.append(n);
+  }
+
+  /* --- row 2: the editor itself, filling the space --- */
+  const edWrap = el('div', 'wb-editor');
+  const ta = el('textarea');
+  const saved = (d.progress && d.progress.submissions && d.progress.submissions[spec.id]) || null;
+  ta.value = (saved && saved.code) || spec.starter || '';
+  edWrap.append(ta);
+  host.append(edWrap);
+
+  /* --- row 3: actions, pinned above the output --- */
+  const run = el('div', 'wb-run');
+  const runBtn = el('button', 'btn primary', '▶  Run tests');
+  runBtn.title = 'Ctrl-Enter';
+  runBtn.disabled = !spec.runnable;
+  runBtn.onclick = () => runCode('all');
+  const mineBtn = el('button', 'btn', 'My cases');
+  mineBtn.disabled = !spec.runnable || !(d.customCases || []).length;
+  mineBtn.title = (d.customCases || []).length ? 'Run only the cases you added'
+                                               : 'Add a case on the left first';
+  mineBtn.onclick = () => runCode('custom');
+  const fuzzBtn = el('button', 'btn', 'Random');
+  const canFuzz = spec.runnable && spec.mode === 'python' &&
+                  d.solution && d.solution.verified && d.practiceFormat !== 'tabular';
+  fuzzBtn.disabled = !canFuzz;
+  fuzzBtn.title = canFuzz ? 'Generated inputs, your code against the verified reference'
+                          : 'Needs a verified reference solution';
+  fuzzBtn.onclick = () => runFuzz();
+  const scratchBtn = el('button', 'btn ghost', 'Scratch');
+  scratchBtn.title = 'Evaluate an expression against your code — Shift-Ctrl-Enter';
+  scratchBtn.onclick = () => toggleScratch();
+  const verdict = el('span', 'verdict'); verdict.id = 'verdict';
+  if (saved && saved.total != null) {
+    verdict.innerHTML = '<span class="muted">last run</span> ' + (saved.passed === saved.total
+      ? '<span class="ok">' + saved.passed + '/' + saved.total + '</span>'
+      : '<span class="no">' + saved.passed + '/' + saved.total + '</span>');
+  }
+  run.append(runBtn, mineBtn, fuzzBtn, scratchBtn, verdict);
+  host.append(run);
+
+  /* --- row 4: scratch + output --- */
+  const scratch = el('div'); scratch.id = 'scratchBox'; scratch.hidden = true;
+  const sin = el('textarea'); sin.id = 'scratchIn'; sin.spellcheck = false;
+  sin.placeholder = (d.functionName || 'solve') + '(' +
+    ((d.cases && d.cases[0] ? d.cases[0].inputs : []) || []).map(i => i.rawValue).join(', ') + ')';
+  sin.onkeydown = (e) => {
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); runScratch(); }
+  };
+  const sbar = el('div', 'rowbtns');
+  const sgo = el('button', 'btn', 'Evaluate');
+  sgo.onclick = () => runScratch();
+  sbar.append(sgo, el('span', 'hint', 'runs your editor code first, then this'));
+  scratch.append(sin, sbar);
+
+  const out = el('div', 'wb-out'); out.id = 'wbOut';
+  const runOut = el('div'); runOut.id = 'runOut';
+  out.append(scratch, runOut);      // scratch stays put; only #runOut is cleared
+  host.append(out);
+
+  state.editor = window.PyEditor.create(ta, {
+    vim: state.vim, relative: state.relno, fontSize: state.fontSize,
+    onRun: () => runCode('all'), onScratch: () => { toggleScratch(true); runScratch(); },
+    onChange: () => scheduleSave(),
+    onModeChange: (m) => { if (state.vim) mode.textContent = '-- ' + m + ' --'; },
+  });
+  if (!spec.runnable) state.editor.setReadOnly(true);
+  setTimeout(() => state.editor && state.editor.refresh(), 0);
+}
+
+function toggleScratch(forceOpen) {
+  const box = $('#scratchBox');
+  if (!box) return;
+  box.hidden = forceOpen ? false : !box.hidden;
+  if (!box.hidden) $('#scratchIn').focus();
+}
+
+/* the output panel is shared by every run mode */
+function outputPanel(title) {
+  const out = $('#wbOut');
+  const scratch = $('#scratchBox');
+  out.textContent = '';
+  if (scratch) out.append(scratch);
+  const head = el('div', 'outhead');
+  head.append(el('h3', null, title));
+  out.append(head);
+  const body = el('div');
+  out.append(body);
+  return body;
+}
+
+async function openProblem(id) {
+  const d = await api('api/problems/' + encodeURIComponent(id));
+  state.current = d;
+  state.lang = (d.languages.find(l => l.runnable) || d.languages[0] || {}).id;
+  document.querySelectorAll('.result').forEach(c =>
+    c.classList.toggle('active', c.dataset.id === id));
+  paintProblem();
+  pushUrl();
+}
+
+function paintProblem() {
+  const d = state.current;
+  $('#crumb').innerHTML = '<b>' + esc(d.title || d.id) + '</b>';
+  renderProblem();
+  renderWorkbench();
+  renderPosition();
+}
+
+function renderPosition() {
+  const ids = state.items.map(i => i.id);
+  const at = state.current ? ids.indexOf(state.current.id) : -1;
+  $('#position').textContent = at >= 0
+    ? (at + 1) + ' / ' + state.total.toLocaleString()
+    : (state.total ? state.total.toLocaleString() + ' listed' : '');
+  $('#prevBtn').disabled = at <= 0;
+  $('#nextBtn').disabled = at < 0 || at >= ids.length - 1;
+}
+
+async function step(delta) {
+  const ids = state.items.map(i => i.id);
+  const at = state.current ? ids.indexOf(state.current.id) : -1;
+  if (at < 0) return;
+  const next = at + delta;
+  if (next < 0) return;
+  if (next >= ids.length && state.items.length < state.total) {
+    await loadMore();
+    return step(delta);
+  }
+  if (next >= ids.length) return;
+  await openProblem(ids[next]);
+}
+
+async function runFuzz() {
+  const d = state.current;
+  const results = $('#runOut') || $('#wbOut');
+  const verdict = $('#verdict');
+  verdict.textContent = 'generating inputs…';
+  results.textContent = '';
+  let out;
+  try {
+    out = await api('/api/fuzz', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ problemId: d.id, code: state.editor.getValue() }),
+    });
+  } catch (e) {
+    verdict.innerHTML = '<span class="no">could not run</span>';
+    results.append(Object.assign(el('div', 'case fail'), { textContent: e.message }));
+    return;
+  }
+
+  if (out.error) {
+    verdict.innerHTML = '<span class="no">did not run</span>';
+    const box = el('div', 'case fail');
+    const pre = el('pre'); pre.textContent = out.error; box.append(pre);
+    results.append(box);
+    return;
+  }
+
+  if (!out.failed) {
+    verdict.innerHTML = '<span class="ok">agreed on ' + out.checked + ' random inputs</span>';
+    const box = el('div', 'case pass');
+    box.append(el('div', 'case-head', '✓ no disagreement found'));
+    box.append(el('div', 'hint',
+      'Your code matched the reference on ' + out.checked + ' generated inputs' +
+      (out.skipped ? ' (' + out.skipped + ' more were rejected by the reference and skipped)' : '') +
+      '. Evidence, not proof — the generator is random, not adversarial.'));
+    box.append(el('div', 'hint', out.caveat));
+    results.append(box);
+    return;
+  }
+
+  verdict.innerHTML = '<span class="no">counterexample found</span>';
+  const box = el('div', 'case fail');
+  box.append(el('div', 'case-head', out.crash ? '✗ your code raised' : '✗ disagreement'));
+  const pre = el('pre');
+  pre.innerHTML = '<span class="lbl">input    </span>' + esc(out.input) +
+    (out.crash ? '\n<span class="lbl">error    </span><span class="got">' + esc(out.got) + '</span>'
+               : '\n<span class="lbl">expected </span><span class="exp">' + esc(out.expected) +
+                 '</span>\n<span class="lbl">you      </span><span class="got">' + esc(out.got) + '</span>');
+  box.append(pre);
+  const bar = el('div', 'rowbtns');
+  const keep = el('button', 'btn ghost', '＋ Keep this as a test case');
   keep.onclick = async () => {
     const inputs = (out.inputValues || []).map((v, i) => ({
       name: (out.inputNames || [])[i], type: (out.inputTypes || [])[i], rawValue: v }));
@@ -917,7 +1038,7 @@ async function runScratch() {
   const d = state.current;
   const snippet = ($('#scratchIn') || {}).value || '';
   if (!snippet.trim()) return;
-  const results = $('#editorHost .results');
+  const results = $('#runOut') || $('#wbOut');
   const verdict = $('#verdict');
   verdict.textContent = 'evaluating…';
   results.textContent = '';
@@ -929,11 +1050,11 @@ async function runScratch() {
     });
   } catch (e) {
     verdict.innerHTML = '<span class="no">scratch failed</span>';
-    results.append(Object.assign(el('div', 'res fail'), { textContent: e.message }));
+    results.append(Object.assign(el('div', 'case fail'), { textContent: e.message }));
     return;
   }
   verdict.innerHTML = out.error ? '<span class="no">scratch</span>' : '<span class="ok">scratch</span>';
-  const box = el('div', 'res ' + (out.error ? 'fail' : 'info'));
+  const box = el('div', 'case ' + (out.error ? 'fail' : 'info'));
   if (out.printed) {
     const p = el('pre'); p.innerHTML = '<span class="lbl">stdout</span>\n' + esc(out.printed);
     box.append(p);
@@ -951,7 +1072,7 @@ async function runCode(include) {
   const d = state.current;
   const spec = d.languages.find(l => l.id === state.lang);
   if (!spec || !spec.runnable) return;
-  const results = $('#editorHost .results');
+  const results = $('#runOut') || $('#wbOut');
   const verdict = $('#verdict');
   results.textContent = '';
   verdict.textContent = 'running…';
@@ -964,7 +1085,7 @@ async function runCode(include) {
     });
   } catch (e) {
     verdict.innerHTML = '<span class="no">could not run</span>';
-    results.append(Object.assign(el('div', 'res fail'), { textContent: e.message }));
+    results.append(Object.assign(el('div', 'case fail'), { textContent: e.message }));
     return;
   }
   renderResults(out);
@@ -973,14 +1094,14 @@ async function runCode(include) {
 }
 
 function renderResults(out) {
-  const results = $('#editorHost .results');
+  const results = $('#runOut') || $('#wbOut');
   const verdict = $('#verdict');
   results.textContent = '';
 
   if (out.error && !(out.results || []).length) {
     verdict.innerHTML = '<span class="no">did not run</span>';
-    const box = el('div', 'res fail');
-    box.append(el('div', 'rh', out.timeout ? 'Stopped' : 'Error'));
+    const box = el('div', 'case fail');
+    box.append(el('div', 'case-head', out.timeout ? 'Stopped' : 'Error'));
     const pre = el('pre'); pre.textContent = out.error; box.append(pre);
     results.append(box);
     return;
@@ -993,12 +1114,12 @@ function renderResults(out) {
 
   (out.results || []).forEach((r, i) => {
     const informational = r.ok === null || r.ok === undefined;
-    const box = el('div', 'res ' + (informational ? 'info' : (r.ok ? 'pass' : 'fail')));
-    const h = el('div', 'rh');
+    const box = el('div', 'case ' + (informational ? 'info' : (r.ok ? 'pass' : 'fail')));
+    const h = el('div', 'case-head');
     const badge = el('span', 'badge', informational ? 'RAN' : (r.ok ? 'PASS' : 'FAIL'));
-    h.append(badge, document.createTextNode('case ' + (r.id != null ? r.id : i + 1)));
-    if (r.custom) h.append(el('span', 'custom', 'mine'));
-    if (r.generated) h.append(el('span', 'custom', 'generated'));
+    h.append(badge, el('span', 'name', 'case ' + (r.id != null ? r.id : i + 1)));
+    if (r.custom) h.append(el('span', 'pill', 'mine'));
+    if (r.generated) h.append(el('span', 'pill', 'generated'));
     if (r.note) h.append(el('span', 'hint', ' ' + r.note));
     box.append(h);
     if (informational && r.got !== undefined) {
@@ -1016,17 +1137,17 @@ function renderResults(out) {
     }
     if (r.columns) {                       // tabular result
       const grid = el('div', 'grid2');
-      const a = el('div'); a.append(el('div', 'lbl', 'your rows'), caseTable(r.columns, r.rows));
-      const b = el('div'); b.append(el('div', 'lbl', 'expected rows'),
-                                    caseTable(r.expectedColumns, r.expectedRows));
+      const a = el('div'); a.append(el('div', 'hint', 'your rows'), dataTable(r.columns, r.rows));
+      const b = el('div'); b.append(el('div', 'hint', 'expected rows'),
+                                    dataTable(r.expectedColumns, r.expectedRows));
       grid.append(a, b); box.append(grid);
-      if (r.rowOrder) box.append(el('div', 'lbl', 'row order: ' + r.rowOrder));
+      if (r.rowOrder) box.append(el('div', 'hint', 'row order: ' + r.rowOrder));
     }
     if (r.stdout) {
       const p = el('pre'); p.innerHTML = '<span class="lbl">stdout</span>\n' + esc(r.stdout);
       box.append(p);
     }
-    if (r.explanation) { const e = el('div', 'expl'); e.innerHTML = r.explanation; box.append(e); }
+    if (r.explanation) { const e = el('div', 'why'); e.innerHTML = r.explanation; box.append(e); }
     results.append(box);
   });
 }
@@ -1039,14 +1160,9 @@ async function setProgress(fields, quiet) {
     body: JSON.stringify(body),
   });
   d.progress = Object.assign({}, d.progress, updated);
-  if (!quiet) { renderDetail(); reload(); }
+  if (!quiet) { paintProblem(); reload(); }
 }
 
-function lightbox(src) {
-  const lb = $('#lightbox');
-  lb.querySelector('img').src = src;
-  lb.hidden = false;
-}
 
 /* ------------------------------------------------------------ sort control */
 /* One entry per sortable field plus a direction button, instead of a fixed
@@ -1102,24 +1218,55 @@ function renderSortControl() {
   paintDirButton();
 }
 
+
+function lightbox(src) {
+  const lb = $('#lightbox');
+  lb.querySelector('img').src = src;
+  lb.hidden = false;
+}
+
+/* --------------------------------------------------------- splitter drag */
+function wireSplitter() {
+  const sp = $('#splitter'), left = $('#problemPane'), ws = $('#workspace');
+  let on = false;
+  sp.onmousedown = (e) => {
+    on = true; e.preventDefault();
+    sp.classList.add('dragging'); document.body.classList.add('dragging');
+  };
+  window.addEventListener('mousemove', (e) => {
+    if (!on) return;
+    const r = ws.getBoundingClientRect();
+    const pct = Math.min(72, Math.max(24, (e.clientX - r.left) / r.width * 100));
+    left.style.flex = '0 0 ' + pct + '%';
+    remember('split', String(Math.round(pct)));
+  });
+  window.addEventListener('mouseup', () => {
+    if (!on) return;
+    on = false;
+    sp.classList.remove('dragging'); document.body.classList.remove('dragging');
+    if (state.editor) state.editor.refresh();
+  });
+  const saved = parseInt(localStorage.getItem('fp:split') || '0', 10);
+  if (saved >= 24 && saved <= 72) left.style.flex = '0 0 ' + saved + '%';
+}
+
 /* -------------------------------------------------------------------- boot */
 async function boot() {
   const wanted = readUrl();
   $('#q').value = state.q;
 
-  /* The server inlines the first screen (see serve.py::_index), so the list is
-     painted in the first frame; fall back to fetching when it is absent. */
   const boot = window.__BOOT__ || null;
-  const env = boot ? boot.environment : (await api('/api/health')).environment;
+  const env = boot ? boot.environment : (await api('api/health')).environment;
   state.env = env;
   const envEl = $('#env');
-  envEl.textContent = 'sandbox: ' + env.sandbox +
-    ' · java ' + (env.java ? 'on' : 'off') + ' · pandas ' + (env.pandas ? 'on' : 'off');
+  envEl.textContent = env.sandbox === 'bubblewrap' ? 'sandboxed' : 'limited sandbox';
   if (env.sandbox !== 'bubblewrap') envEl.classList.add('warn');
-  envEl.title = 'User code runs under ' + env.sandbox + ', limited to ' +
-    env.wallTimeout + 's wall / ' + env.cpuSeconds + 's CPU / ' + env.memoryMB + ' MB.';
+  envEl.title = 'Your code runs under ' + env.sandbox + ' — ' + env.wallTimeout + 's wall, ' +
+    env.cpuSeconds + 's CPU, ' + env.memoryMB + ' MB' +
+    (env.java ? '' : '. No JDK, so Java is read-only') +
+    (env.pandas ? '' : '. No pandas, so pandas is read-only') + '.';
 
-  state.facets = boot ? boot.facets : await api('/api/facets');
+  state.facets = boot ? boot.facets : await api('api/facets');
   renderSortControl();
   renderFilters();
   if (boot && boot.list) {
@@ -1128,15 +1275,19 @@ async function boot() {
   } else {
     await reload();
   }
+
   if (boot && boot.detail) {
     state.current = boot.detail;
     state.lang = (boot.detail.languages.find(l => l.runnable) || boot.detail.languages[0] || {}).id;
-    document.querySelectorAll('.card').forEach(c =>
-      c.classList.toggle('active', c.dataset.id === boot.detail.id));
-    renderDetail();
+    paintProblem();
   } else if (wanted) {
     openProblem(wanted).catch(() => {});
+  } else {
+    renderPosition();
+    openDrawer();
   }
+
+  wireSplitter();
 
   let t = null;
   $('#q').oninput = (e) => {
@@ -1146,13 +1297,13 @@ async function boot() {
     paintDirButton();
     clearTimeout(t); t = setTimeout(reload, 180);
   };
-  $('#sort').onchange = (e) => {
-    state.sort = e.target.value;
-    state.dir = '';                       // back to that field's natural order
-    paintDirButton(); reload();
-  };
+  $('#sort').onchange = (e) => { state.sort = e.target.value; state.dir = ''; paintDirButton(); reload(); };
   $('#dir').onclick = () => { flipDirection(); reload(); };
-  $('#menuBtn').onclick = () => $('#filters').classList.toggle('hidden');
+  $('#menuBtn').onclick = () => (drawerOpen() ? closeDrawer() : openDrawer());
+  $('#drawerClose').onclick = closeDrawer;
+  $('#scrim').onclick = closeDrawer;
+  $('#prevBtn').onclick = () => step(-1);
+  $('#nextBtn').onclick = () => step(1);
   $('#clearAll').onclick = () => {
     MULTI.forEach(k => state.filters[k].clear());
     SINGLE.forEach(k => { if (k !== 'sort') state[k] = ''; });
@@ -1161,27 +1312,35 @@ async function boot() {
     renderFilters(); reload();
   };
   $('#lightbox').onclick = () => { $('#lightbox').hidden = true; };
+
   document.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.altKey && (e.key === 'v' || e.key === 'V')) {
       e.preventDefault();
-      const b = document.querySelector('#editorHost .edbar .btn'); if (b) b.click();
+      const b = document.querySelector('.toolgroup .tool'); if (b) b.click();
       return;
     }
     if (e.ctrlKey && e.altKey && (e.key === 'r' || e.key === 'R')) {
       e.preventDefault();
-      const bs = document.querySelectorAll('#editorHost .edbar .btn');
+      const bs = document.querySelectorAll('.toolgroup .tool');
       if (bs[1]) bs[1].click();
       return;
     }
-    if (e.key === 'Escape') $('#lightbox').hidden = true;
-    if (e.target.matches('input,textarea,select')) return;
-    if (e.key === '/') { e.preventDefault(); $('#q').focus(); }
-    if (e.key === 'f') { e.preventDefault(); $('#filters').classList.toggle('hidden'); }
-    if (e.key === 'r') { e.preventDefault(); flipDirection(); reload(); }
+    if (e.key === 'Escape') {
+      if (!$('#lightbox').hidden) { $('#lightbox').hidden = true; return; }
+      if (drawerOpen()) closeDrawer();
+      return;
+    }
+    const typing = e.target.matches('input,textarea,select') ||
+                   e.target.closest('.CodeMirror');
+    if (e.key === '/' && !typing) { e.preventDefault(); openDrawer(); return; }
+    if (typing) return;
+    if (e.key === 'j') step(1);
+    if (e.key === 'k') step(-1);
+    if (e.key === 'r' && drawerOpen()) { flipDirection(); reload(); }
   });
 }
 
 boot().catch(e => {
-  document.body.innerHTML = '<pre style="padding:30px;color:#ff8a8a">' +
-    esc('Could not start: ' + e.message) + '</pre>';
+  document.body.innerHTML = '<pre style="padding:32px;color:#ff8a8a;font:13px/1.6 monospace">' +
+    esc('Could not start: ' + (e && e.message || e)) + '</pre>';
 });

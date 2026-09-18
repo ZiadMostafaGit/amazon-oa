@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-merge-intervals",
+ "generatedAt": "2026-09-19T00:11:44",
+ "from": "reference solution, verified 2026-09-19T00:11:25",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[8, 10]]"
+    }
+   ],
+   "expectedRaw": "[[8, 10]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[6, 0], [1, 3], [2, 6], [6, 0], [2, 6], [15, 18]]"
+    }
+   ],
+   "expectedRaw": "[[1, 6], [15, 18]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[1, 3], [2, 6], [8, 10], [15, 18], [1, 3]]"
+    }
+   ],
+   "expectedRaw": "[[1, 6], [8, 10], [15, 18]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[8, 10], [2, 6], [8, 10], [18, 18]]"
+    }
+   ],
+   "expectedRaw": "[[2, 6], [8, 10], [18, 18]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[2, 6], [8, 10], [15, 18], [15, 18]]"
+    }
+   ],
+   "expectedRaw": "[[2, 6], [8, 10], [15, 18]]"
+  }
+ ]
+}

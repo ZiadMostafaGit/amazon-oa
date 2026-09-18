@@ -1,0 +1,98 @@
+{
+ "problemId": "waymo-obstacle-aware-return-to-origin",
+ "generatedAt": "2026-09-19T00:11:53",
+ "from": "reference solution, verified 2026-09-19T00:11:25",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String",
+     "rawValue": "\"URRDL\""
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String",
+     "rawValue": "\"URD\""
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String",
+     "rawValue": "\"UUDD\""
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String",
+     "rawValue": "\"UUUDDR\""
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String",
+     "rawValue": "\"URDL\""
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[[-1, 1], [1, 1]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String",
+     "rawValue": "\"URRDL\""
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[[-1, 1], [-1, 1]]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "erase-pairs",
+ "generatedAt": "2026-09-19T00:11:45",
+ "from": "reference solution, verified 2026-09-19T00:11:25",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"CBBCAAXA\""
+    }
+   ],
+   "expectedRaw": "\"AX\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"CBCAXA\""
+    }
+   ],
+   "expectedRaw": "\"BX\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"ABCBACDDAAA\""
+    }
+   ],
+   "expectedRaw": "\"A\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"ZYXZYZYY\""
+    }
+   ],
+   "expectedRaw": "\"XZ\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"CBCAAAXA\""
+    }
+   ],
+   "expectedRaw": "\"BX\""
+  }
+ ]
+}

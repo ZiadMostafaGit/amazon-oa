@@ -13,40 +13,82 @@
 </head>
 <body>
 
+<!-- ============ top bar: navigation only ============ -->
 <header id="top">
-  <button id="menuBtn" class="icon" title="Filters (f)">≡</button>
-  <b class="brand">FastPrep <span>practice</span></b>
-  <div class="search">
-    <input id="q" type="search" placeholder="Search titles and statements…" autocomplete="off" spellcheck="false">
-  </div>
-  <span id="count" class="count"></span>
-  <label class="sortwrap">sort
-    <select id="sort"></select>
-    <button id="dir" class="dirbtn" title="Reverse the order (r)">↓</button>
-  </label>
+  <button id="menuBtn" class="iconbtn" title="All problems  (press /)">
+    <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    <span>Problems</span>
+  </button>
+
+  <div class="brand">FastPrep <span>practice</span></div>
+
+  <div id="crumb" class="crumb"></div>
+
+  <div class="spacer"></div>
+
+  <nav class="stepper">
+    <button id="prevBtn" class="iconbtn" title="Previous problem  (k)">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <span id="position" class="position"></span>
+    <button id="nextBtn" class="iconbtn" title="Next problem  (j)">
+      <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </nav>
+
   <span id="env" class="env" title="Execution environment"></span>
 </header>
 
-<div id="shell">
-  <aside id="filters">
-    <div class="fhead">
-      <b>Filters</b>
-      <button id="clearAll" class="link">clear all</button>
+<!-- ============ workspace: problem | editor ============ -->
+<main id="workspace">
+  <section id="problemPane">
+    <div id="problem" class="pane-scroll">
+      <div class="empty-state">
+        <h2>Pick a problem</h2>
+        <p>Press <kbd>/</kbd> or use <b>Problems</b> to browse 3,533 reported questions.</p>
+      </div>
     </div>
-    <div id="activeChips" class="chips"></div>
-    <div id="facets"></div>
-  </aside>
+  </section>
 
-  <main id="main">
-    <section id="listPane">
+  <div id="splitter" title="Drag to resize"></div>
+
+  <section id="editorPane">
+    <div id="workbench" class="workbench-empty">
+      <p>The editor appears when you open a problem.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ============ drawer: search, filters, results ============ -->
+<div id="scrim" hidden></div>
+<aside id="drawer" hidden aria-label="Browse problems">
+  <header class="drawer-head">
+    <input id="q" type="search" placeholder="Search titles and statements…" autocomplete="off" spellcheck="false">
+    <button id="drawerClose" class="iconbtn" title="Close  (Esc)">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </header>
+
+  <div class="drawer-bar">
+    <label class="sortwrap">
+      <span>Sort</span>
+      <select id="sort"></select>
+      <button id="dir" class="iconbtn small" title="Reverse the order  (r)">↓</button>
+    </label>
+    <span id="count" class="count"></span>
+    <button id="clearAll" class="linkbtn">Clear filters</button>
+  </div>
+
+  <div id="activeChips" class="chips"></div>
+
+  <div class="drawer-body">
+    <div id="facets" class="facets"></div>
+    <div id="results" class="results-list">
       <div id="list"></div>
       <div id="more"></div>
-    </section>
-    <section id="detailPane" class="empty">
-      <div class="placeholder">Pick a problem on the left.</div>
-    </section>
-  </main>
-</div>
+    </div>
+  </div>
+</aside>
 
 <div id="lightbox" hidden><img alt="source screenshot"></div>
 

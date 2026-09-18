@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-banking-system-part-1",
+ "generatedAt": "2026-09-19T00:11:44",
+ "from": "reference solution, verified 2026-09-19T00:11:25",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"3\", \"alice\", \"1000\"], [\"DEPOSIT\", \"5\", \"bob\", \"50\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"null\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"TRANSFER\", \"4\", \"alice\", \"bob\", \"250\"], [\"CREATE_ACCOUNT\", \"2\", \"bob\"], [\"DEPOSIT\", \"3\", \"alice\", \"1000\"], [\"DEPOSIT\", \"5\", \"bob\", \"50\"], [\"CREATE_ACCOUNT\", \"1\", \"alice\"], [\"DEPOSIT\", \"5\", \"bob\", \"50\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"true\"], [\"null\"], [\"50\"], [\"true\"], [\"100\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"2\", \"alice\"], [\"DEPOSIT\", \"3\", \"missing\", \"100\"], [\"TRANSFER\", \"4\", \"alice\", \"alice\", \"10\"], [\"CREATE_ACCOUNT\", \"5\", \"bob\"], [\"TRANSFER\", \"6\", \"alice\", \"bob\", \"10\"], [\"DEPOSIT\", \"7\", \"alice\", \"100\"], [\"TRANSFER\", \"8\", \"alice\", \"bob\", \"40\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"null\"], [\"null\"], [\"true\"], [\"null\"], [\"100\"], [\"60\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"5\", \"bob\"], [\"TRANSFER\", \"8\", \"alice\", \"bob\", \"40\"], [\"DEPOSIT\", \"7\", \"alice\", \"100\"], [\"4\", \"alice\", \"bob\"], [\"CREATE_ACCOUNT\", \"2\", \"alice\"], [\"DEPOSIT\", \"3\", \"missing\", \"100\"], [\"CREATE_ACCOUNT\", \"1\", \"alice\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"null\"], [\"null\"], [\"null\"], [\"true\"], [\"null\"], [\"false\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"3\", \"missing\", \"100\"], [\"DEPOSIT\", \"7\", \"alice\", \"100\"], [\"TRANSFER\", \"6\", \"alice\", \"bob\", \"10\"], [\"TRANSFER\", \"4\", \"alice\", \"alice\", \"10\"], [\"CREATE_ACCOUNT\", \"2\", \"alice\"], [\"CREATE_ACCOUNT\", \"1\", \"alice\"], [\"TRANSFER\", \"8\", \"alice\", \"bob\", \"40\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"null\"], [\"null\"], [\"null\"], [\"true\"], [\"false\"], [\"null\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}
