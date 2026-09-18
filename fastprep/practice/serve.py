@@ -95,6 +95,7 @@ def _problem_payload(detail: dict) -> dict:
     detail["languages"] = languages.catalogue(detail)
     detail["cases"] = BANK.runnable_cases(detail)
     detail["customCases"] = PROGRESS.cases(pid)
+    detail["generatedCases"] = solutions_mod.generated_cases(pid)
     detail["progress"] = PROGRESS.get(pid)
     detail["solution"] = solutions_mod.get(pid, detail.get("practiceFormat") or "algorithm")
     return detail
@@ -314,6 +315,12 @@ class Handler(BaseHTTPRequestHandler):
         elif spec["mode"] == "python":
             include = (body.get("include") or "all").lower()
             cases = [] if include == "custom" else BANK.runnable_cases(detail)
+            if include == "all":
+                out_t = ((detail.get("examples") or [{}])[0] or {}).get("outputType") or "int"
+                for g in solutions_mod.generated_cases(pid):
+                    cases.append({"id": g["id"], "inputs": g["inputs"],
+                                  "outputType": out_t, "expectedRaw": g["expectedRaw"],
+                                  "generated": True})
             if include in ("all", "custom"):
                 # a custom case inherits the problem's declared output type
                 out_type = ((detail.get("examples") or [{}])[0] or {}).get("outputType") or "int"
@@ -329,6 +336,7 @@ class Handler(BaseHTTPRequestHandler):
             for r in result.get("results") or []:
                 src = by_id.get(str(r.get("id"))) or {}
                 r["custom"] = bool(src.get("custom"))
+                r["generated"] = bool(src.get("generated"))
                 if src.get("note"):
                     r["note"] = src["note"]
                 if not src.get("expectedRaw"):

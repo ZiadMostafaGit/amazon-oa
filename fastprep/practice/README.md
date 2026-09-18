@@ -18,7 +18,7 @@ python3 serve.py --port 9000         # somewhere else
 python3 serve.py --offline           # never fetch images; serve what is cached
 python3 serve.py --prefetch-images   # cache all 2 025 screenshots, then exit
 python3 serve.py --image-cache DIR   # keep screenshots somewhere else (a Docker volume)
-python3 serve.py --selftest          # run the 102 tests
+python3 serve.py --selftest          # run the 115 tests
 ```
 
 ## What it does
@@ -74,6 +74,20 @@ Three ways to run it:
 Each case reports pass/fail with expected versus actual and anything the code
 printed.
 
+**Generated test cases.** 1,103 of the 3,533 problems publish exactly *one*
+example, which catches a misunderstanding but not an off-by-one. Where a
+verified reference solution exists, `tools/cases.py` mutates that problem's own
+examples — keeping their vocabulary and shape, so a list of command words stays
+a list of command words — runs the reference over the variants, and stores the
+pairs in `solutions/cases/<id>.json`. They run with ▶ Run tests, badged
+*generated*.
+
+They earn their place: on `amazon-stock-span`, a solution with `<` where it
+needs `<=` **passes the single published example** and fails 2 of the 6
+generated cases. Their expected values are the reference's behaviour, not a
+judge's — which is why only verified references are used and why the app says
+so wherever they appear.
+
 **Your own test cases.** *＋ Add a test case* gives you one field per declared
 parameter, pre-filled from the first example so the notation is obvious, plus an
 expected value and a note. **Leave the expected value empty** and the case still
@@ -123,11 +137,19 @@ python3 tools/brief.py <id>       # statement + constraints + exact signature + 
 python3 tools/verify.py <id>      # run a stored solution against its examples, in the sandbox
 python3 tools/verify.py --all     # re-check everything -> solutions/VERIFIED.json
 python3 tools/audit.py            # flag anything that passes by memorising the examples
+python3 tools/cases.py            # generate extra cases from the verified references
+python3 tools/gaps.py             # what every problem is missing, counted
 ```
 
 `tools/pick.py` blends two rankings rather than choosing between them — most
 repeated (`seen_count`) and most recent (`last_seen_max`) — because they
 disagree: the most-repeated problems skew old, the newest are mostly seen once.
+
+`tools/gaps.py` is the inventory of what the bank does not have. Every problem
+has a statement and at least one example; 1,914 have no screenshots, 1,103 have
+a single example, 310 have no constraints, 76 have neither topics nor
+difficulty. Those gaps are shown on the problem rather than rendered as empty
+sections, and the single-example gap is what `tools/cases.py` fills.
 
 `tools/audit.py` exists because "passes the visible examples" can be gamed by
 returning the expected answer for the example input. It greps every solution for
@@ -188,8 +210,8 @@ languages.py   what this machine can actually execute, and the starter code
 progress.py    your status/notes/bookmarks/submissions (separate db)
 images.py      lazy, rate-limited screenshot cache
 static/        the page: index.html, app.js, styles.css, editor.js (CodeMirror + vim), pyenv.js
-tests/         102 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
-               custom cases, scratch, solutions
+tests/         115 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
+               custom cases, scratch, solutions, random mode, generated cases
 tools/         pick / brief / verify / audit / batch — the solution pipeline
 solutions/     one file per problem id, plus MANIFEST.json and VERIFIED.json
 static/vendor/ CodeMirror and JetBrains Mono, vendored so the app is fully offline

@@ -458,7 +458,7 @@ function renderDetail() {
   const editorHost = el('div'); editorHost.id = 'editorHost';
   body.append(editorHost);
 
-  body.append(el('h2', null, 'My test cases'));
+  body.append(el('h2', null, 'Test cases'));
   const casesHost = el('div', 'cases'); casesHost.id = 'casesHost';
   body.append(casesHost);
 
@@ -597,8 +597,12 @@ function renderEditor() {
   host.append(runbar);
 
   const disclaimer = el('div', 'note warn');
-  disclaimer.textContent = 'These are the problem\u2019s visible examples only. This bank ships ' +
-    'no hidden tests, so passing every case does not mean your solution is correct.';
+  const gen = (d.generatedCases || []).length;
+  disclaimer.textContent =
+    'The published cases are this problem\u2019s VISIBLE examples only — the bank ships no hidden ' +
+    'tests, so passing them does not mean your solution is correct.' +
+    (gen ? ' The ' + gen + ' generated cases come from the reference solution, so they encode ' +
+           'its behaviour rather than a judge\u2019s.' : '');
   host.append(disclaimer);
 
   /* --- scratch pad --- */
@@ -629,6 +633,46 @@ function renderCases() {
   if (!host) return;
   host.textContent = '';
   const params = ((d.cases && d.cases[0] ? d.cases[0].inputs : []) || []);
+  const generated = d.generatedCases || [];
+
+  /* what this problem actually has to test against */
+  const tally = el('div', 'hint');
+  tally.innerHTML =
+    '<b>' + (d.cases || []).length + '</b> published example' +
+    ((d.cases || []).length === 1 ? '' : 's') +
+    (generated.length ? ' · <b>' + generated.length + '</b> generated' : '') +
+    ((d.customCases || []).length ? ' · <b>' + (d.customCases || []).length + '</b> of yours' : '') +
+    '. ▶ Run tests runs all of them.';
+  host.append(tally);
+
+  if (generated.length) {
+    const box = el('details', 'sol');
+    const sum = el('summary');
+    sum.append(el('span', 'k no', 'generated'),
+               el('span', null, generated.length + ' extra cases'),
+               el('span', 'hint', 'mutations of this problem\u2019s own examples, ' +
+                  'answered by the verified reference solution'));
+    box.append(sum);
+    const inner = el('div', 'inner');
+    inner.append(el('div', 'hint',
+      'These encode the reference solution\u2019s behaviour, not a judge\u2019s. They are useful ' +
+      'for catching off-by-one errors the single published example cannot.'));
+    generated.slice(0, 12).forEach(c => {
+      const row = el('div', 'case-row');
+      const kv = el('div', 'kv');
+      (c.inputs || []).forEach(i => {
+        kv.append(el('div', 'k', (i.name || '?')), el('div', 'v', i.rawValue));
+      });
+      kv.append(el('div', 'k', '→ expected'), el('div', 'v', c.expectedRaw));
+      row.append(kv);
+      inner.append(row);
+    });
+    if (generated.length > 12) {
+      inner.append(el('div', 'hint', '…and ' + (generated.length - 12) + ' more.'));
+    }
+    box.append(inner);
+    host.append(box);
+  }
 
   if (d.practiceFormat === 'tabular') {
     host.append(el('div', 'hint',
@@ -922,6 +966,7 @@ function renderResults(out) {
     const badge = el('span', 'badge', informational ? 'RAN' : (r.ok ? 'PASS' : 'FAIL'));
     h.append(badge, document.createTextNode('case ' + (r.id != null ? r.id : i + 1)));
     if (r.custom) h.append(el('span', 'custom', 'mine'));
+    if (r.generated) h.append(el('span', 'custom', 'generated'));
     if (r.note) h.append(el('span', 'hint', ' ' + r.note));
     box.append(h);
     if (informational && r.got !== undefined) {

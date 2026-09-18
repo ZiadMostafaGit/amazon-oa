@@ -1,0 +1,68 @@
+{
+ "problemId": "new-relic-basic-string-compression",
+ "generatedAt": "2026-09-18T22:23:22",
+ "from": "reference solution, verified 2026-09-18T22:14:53",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"aabccccccaaa\""
+    }
+   ],
+   "expectedRaw": "\"a2b1c6a3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"aabccccaaa\""
+    }
+   ],
+   "expectedRaw": "\"a2b1c4a3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"aaa\""
+    }
+   ],
+   "expectedRaw": "\"a3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"abcdeef\""
+    }
+   ],
+   "expectedRaw": "\"abcdeef\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"abcdf\""
+    }
+   ],
+   "expectedRaw": "\"abcdf\""
+  }
+ ]
+}

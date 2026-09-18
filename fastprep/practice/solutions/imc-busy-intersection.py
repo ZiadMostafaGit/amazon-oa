@@ -11,7 +11,8 @@ def getResult(arrival: List[int], direction: List[int]) -> List[int]:
     t = 0
     prev = -1  # direction that crossed in the previous second, -1 if that second was idle
     while i < n or q[0] or q[1]:
-        if not q[0] and not q[1]:
+        if not q[0] and not q[1] and arrival[i] > t:
+            # the seconds between t and the next arrival are idle
             t = arrival[i]
             prev = -1
         while i < n and arrival[i] <= t:

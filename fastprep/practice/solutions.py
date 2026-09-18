@@ -49,6 +49,29 @@ def get(pid: str, fmt: str = "algorithm") -> dict | None:
     }
 
 
+CASES = os.path.join(DIR, "cases")
+
+
+def generated_cases(pid: str) -> list:
+    """Extra cases derived from a verified reference (see tools/cases.py).
+
+    They are returned in the runner's case shape, tagged so the app can label
+    them: their expected values are the reference's behaviour, not a judge's.
+    """
+    path = os.path.join(CASES, pid + ".json")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            blob = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+    out = []
+    for n, c in enumerate(blob.get("cases") or [], 1):
+        out.append({"id": "gen-%d" % n, "inputs": c["inputs"],
+                    "expectedRaw": c["expectedRaw"], "generated": True,
+                    "from": blob.get("from"), "generatedAt": blob.get("generatedAt")})
+    return out
+
+
 def stats() -> dict:
     idx = _index()
     have = sum(1 for n in os.listdir(DIR) if n.endswith((".py", ".sql"))) if os.path.isdir(DIR) else 0
@@ -57,5 +80,6 @@ def stats() -> dict:
             targeted = json.load(f).get("count", 0)
     except (FileNotFoundError, json.JSONDecodeError):
         targeted = 0
+    generated = len(os.listdir(CASES)) if os.path.isdir(CASES) else 0
     return {"stored": have, "verified": sum(1 for v in idx.values() if v.get("ok")),
-            "targeted": targeted}
+            "targeted": targeted, "withGeneratedCases": generated}

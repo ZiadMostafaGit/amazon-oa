@@ -222,6 +222,22 @@ def run_diff(code: str, reference: str, function: str, inputs: list,
     return _run_child("\n\n".join(src) + glue + _harness("diff"), payload)
 
 
+def run_generate(reference: str, function: str, inputs: list, out_type: str,
+                 count: int = 6, budget: float = 6.0, seed: int = 99,
+                 examples: list | None = None) -> dict:
+    """Generate extra test cases by running a verified reference over random
+    inputs. The expected values are that reference's behaviour - which is why
+    only verified references are ever used, and why the app labels them."""
+    with open(os.path.join(HERE, "parsing.py"), "r", encoding="utf-8") as f:
+        parsing_src = f.read()
+    with open(os.path.join(HERE, "gen.py"), "r", encoding="utf-8") as f:
+        gen_src = f.read().replace("import parsing\n", "").replace("parsing.", "")
+    payload = {"reference": reference, "function": function, "inputs": inputs,
+               "outputType": out_type, "count": count, "budget": budget, "seed": seed,
+               "examples": examples or [], "maxOutput": MAX_OUTPUT}
+    return _run_child(parsing_src + "\n\n" + gen_src + "\n\n" + _harness("gen"), payload)
+
+
 def run_snippet(code: str, snippet: str) -> dict:
     """Load the editor's code, then evaluate one expression or statement against
     it - the scratch pad. Same sandbox, same limits."""

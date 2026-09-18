@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-queue-using-two-stacks",
+ "generatedAt": "2026-09-18T22:23:22",
+ "from": "reference solution, verified 2026-09-18T22:14:53",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"peek\", \"empty\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[1, 0, 2, 0]"
+    }
+   ],
+   "expectedRaw": "[\"-1\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"peek\", \"pop\", \"peek\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[2, 0, 0, 2, 0, -1]"
+    }
+   ],
+   "expectedRaw": "[\"2\", \"2\", \"-1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"peek\", \"empty\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[1, 2, 0, 2]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"peek\", \"pop\", \"empty\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"1\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"10\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-3, 1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"push\", \"pop\", \"peek\", \"pop\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[2, 0, 0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[\"2\", \"0\", \"0\"]"
+  }
+ ]
+}

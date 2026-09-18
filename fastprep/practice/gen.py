@@ -57,3 +57,82 @@ def value(rng, typ: str, size: int = 6):
 def args_for(inputs: list, rng, size: int = 6) -> list:
     """One argument list for a problem, from its first example's declared types."""
     return [value(rng, i.get("type"), size) for i in inputs]
+
+
+# --------------------------------------------------------------------------
+# mutation
+# --------------------------------------------------------------------------
+# Pure type-driven generation is valid but often meaningless: a problem whose
+# input is a list of command words ("ENCODE", "DECODE") gets random nouns and
+# the reference just returns nothing. Mutating the problem's OWN example keeps
+# its vocabulary and structure, so the variants exercise the same code paths.
+
+def _scalars(value, out: list) -> list:
+    if isinstance(value, list):
+        for v in value:
+            _scalars(v, out)
+    elif value is not None:
+        out.append(value)
+    return out
+
+
+def mutate(value, rng, pool=None, depth_left: int = 4):
+    """A variant of one example value, drawing new material from the example."""
+    if pool is None:
+        pool = _scalars(value, []) or [0, 1]
+
+    if isinstance(value, list):
+        out = list(value)
+        for _ in range(rng.randint(1, 3)):
+            if not out or depth_left <= 0:
+                break
+            roll = rng.random()
+            if roll < 0.3 and len(out) > 1:                 # drop one
+                out.pop(rng.randrange(len(out)))
+            elif roll < 0.5:                                # duplicate one
+                out.insert(rng.randrange(len(out) + 1), out[rng.randrange(len(out))])
+            elif roll < 0.7:                                # reorder
+                rng.shuffle(out)
+            else:                                           # mutate one element
+                i = rng.randrange(len(out))
+                out[i] = mutate(out[i], rng, pool, depth_left - 1)
+        return out
+
+    if isinstance(value, bool):
+        return not value if rng.random() < 0.5 else value
+    if isinstance(value, int):
+        return rng.choice([value, value + rng.randint(-3, 3), -value, 0,
+                           rng.choice([p for p in pool if isinstance(p, int)] or [value])])
+    if isinstance(value, float):
+        return round(rng.choice([value, value + rng.uniform(-2, 2), 0.0]), 3)
+    if isinstance(value, str):
+        # Strings carry meaning, and the meaning differs by shape. A short
+        # string among several distinct ones is a TOKEN - a command, a key, an
+        # enum - and editing its characters invents something the problem never
+        # allows ("empty" -> "epty"), so tokens are only ever swapped for other
+        # tokens the example already used. A single long string is DATA, and
+        # character edits are exactly what you want.
+        words = [p for p in pool if isinstance(p, str)] or [value]
+        vocabulary = {w for w in words if len(w) <= 12}
+        looks_like_a_token = len(value) <= 12 and len(vocabulary) >= 2
+        if looks_like_a_token:
+            return rng.choice(sorted(vocabulary))
+        roll = rng.random()
+        if roll < 0.4 and len(value) > 1:                   # drop a character
+            i = rng.randrange(len(value))
+            return value[:i] + value[i + 1:]
+        if roll < 0.7 and len(value) > 1:                   # repeat one, making a run
+            i = rng.randrange(len(value))
+            return value[:i] + value[i] + value[i:]
+        if roll < 0.85:
+            return rng.choice(words)
+        return value
+    return value
+
+
+def variant_of(example_args: list, rng) -> list:
+    """Mutate every argument of one example, keeping its shape and vocabulary."""
+    pool = []
+    for a in example_args:
+        _scalars(a, pool)
+    return [mutate(a, rng, pool or None) for a in example_args]

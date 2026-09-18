@@ -458,6 +458,53 @@ class TestGenerators(unittest.TestCase):
             self.assertFalse(v and v[0] is None, v)  # never a null root
 
 
+class TestGeneratedCases(ServerCase):
+    """Extra cases derived from a verified reference — the answer to "one
+    published example is not enough to catch an off-by-one"."""
+    PID = "amazon-stock-span"
+
+    def test_they_are_served_with_the_problem(self):
+        d = self.get("/api/problems/" + self.PID)
+        self.assertTrue(d["generatedCases"], "run tools/cases.py first")
+        case = d["generatedCases"][0]
+        self.assertTrue(case["inputs"] and case["expectedRaw"])
+        self.assertIn("reference solution", case["from"])
+
+    def test_the_reference_passes_its_own_generated_cases(self):
+        code = open(os.path.join(HERE, "solutions", self.PID + ".py")).read()
+        out, _ = self.post("/api/run", {"problemId": self.PID, "language": "python",
+                                        "code": code})
+        self.assertEqual(out["passed"], out["total"])
+        self.assertGreater(len([r for r in out["results"] if r.get("generated")]), 0)
+
+    def test_they_catch_what_the_published_example_misses(self):
+        """The whole point: this bug survives every published example."""
+        sneaky = ("def solve(prices):\n"
+                  "    n=len(prices); s=[0]*n; st=[]\n"
+                  "    for i in range(n):\n"
+                  "        while st and prices[st[-1]] < prices[i]: st.pop()\n"
+                  "        s[i]= i+1 if not st else i-st[-1]\n"
+                  "        st.append(i)\n"
+                  "    return s\n")
+        out, _ = self.post("/api/run", {"problemId": self.PID, "language": "python",
+                                        "code": sneaky})
+        published = [r for r in out["results"] if not r.get("generated") and not r.get("custom")]
+        generated = [r for r in out["results"] if r.get("generated")]
+        self.assertTrue(all(r["ok"] for r in published), "the published example should pass")
+        self.assertTrue(any(not r["ok"] for r in generated),
+                        "the generated cases should catch it")
+
+    def test_generated_cases_are_not_copies_of_the_examples(self):
+        d = self.get("/api/problems/" + self.PID)
+        published = {json.dumps([i["rawValue"] for i in c["inputs"]]) for c in d["cases"]}
+        for c in d["generatedCases"]:
+            self.assertNotIn(json.dumps([i["rawValue"] for i in c["inputs"]]), published)
+
+    def test_health_counts_them(self):
+        s = self.get("/api/health")["solutions"]
+        self.assertGreaterEqual(s["withGeneratedCases"], 1)
+
+
 class TestProgress(ServerCase):
     PID = "amazon-word-ladder"
 
