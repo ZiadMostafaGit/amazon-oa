@@ -1,0 +1,158 @@
+{
+ "problemId": "nvidia-ping-reply-tracking",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "sendTimes",
+     "type": "int[]",
+     "rawValue": "[30, 30]"
+    },
+    {
+     "name": "replyIds",
+     "type": "int[]",
+     "rawValue": "[1, 4, 0, 2]"
+    },
+    {
+     "name": "replyTimes",
+     "type": "int[]",
+     "rawValue": "[17, 22, 25, 41, 25]"
+    },
+    {
+     "name": "timeout",
+     "type": "int",
+     "rawValue": "-10"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sendTimes",
+     "type": "int[]",
+     "rawValue": "[20, 10]"
+    },
+    {
+     "name": "replyIds",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 2]"
+    },
+    {
+     "name": "replyTimes",
+     "type": "int[]",
+     "rawValue": "[25, 41, 17, 22, 41]"
+    },
+    {
+     "name": "timeout",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "[5, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sendTimes",
+     "type": "int[]",
+     "rawValue": "[8, 50]"
+    },
+    {
+     "name": "replyIds",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "replyTimes",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "timeout",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sendTimes",
+     "type": "int[]",
+     "rawValue": "[30, 20, 30]"
+    },
+    {
+     "name": "replyIds",
+     "type": "int[]",
+     "rawValue": "[0, 2, 1, -2]"
+    },
+    {
+     "name": "replyTimes",
+     "type": "int[]",
+     "rawValue": "[25, 17, 22, 17]"
+    },
+    {
+     "name": "timeout",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sendTimes",
+     "type": "int[]",
+     "rawValue": "[100]"
+    },
+    {
+     "name": "replyIds",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "replyTimes",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "timeout",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[-1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sendTimes",
+     "type": "int[]",
+     "rawValue": "[30, 10]"
+    },
+    {
+     "name": "replyIds",
+     "type": "int[]",
+     "rawValue": "[1, 2, 1]"
+    },
+    {
+     "name": "replyTimes",
+     "type": "int[]",
+     "rawValue": "[25, 41, 22, 17]"
+    },
+    {
+     "name": "timeout",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  }
+ ]
+}

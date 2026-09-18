@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-get-final-locations",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "List<Integer>",
+     "rawValue": "[6]"
+    },
+    {
+     "name": "movedFrom",
+     "type": "List<Integer>",
+     "rawValue": "[7, 2, 2]"
+    },
+    {
+     "name": "movedTo",
+     "type": "List<Integer>",
+     "rawValue": "[5]"
+    }
+   ],
+   "expectedRaw": "[5, 6]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "List<Integer>",
+     "rawValue": "[7, 6, 8]"
+    },
+    {
+     "name": "movedFrom",
+     "type": "List<Integer>",
+     "rawValue": "[7]"
+    },
+    {
+     "name": "movedTo",
+     "type": "List<Integer>",
+     "rawValue": "[9, 6, 5]"
+    }
+   ],
+   "expectedRaw": "[6, 8, 9]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "List<Integer>",
+     "rawValue": "[1, 7, 6]"
+    },
+    {
+     "name": "movedFrom",
+     "type": "List<Integer>",
+     "rawValue": "[7, 1, 7, 2, 2]"
+    },
+    {
+     "name": "movedTo",
+     "type": "List<Integer>",
+     "rawValue": "[0, 9, 5]"
+    }
+   ],
+   "expectedRaw": "[0, 5, 6, 9]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "List<Integer>",
+     "rawValue": "[1, 7, 6, 1, 8]"
+    },
+    {
+     "name": "movedFrom",
+     "type": "List<Integer>",
+     "rawValue": "[1, 7, 6]"
+    },
+    {
+     "name": "movedTo",
+     "type": "List<Integer>",
+     "rawValue": "[5]"
+    }
+   ],
+   "expectedRaw": "[5, 6, 7, 8]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "List<Integer>",
+     "rawValue": "[-2, -2, 1]"
+    },
+    {
+     "name": "movedFrom",
+     "type": "List<Integer>",
+     "rawValue": "[3, 0]"
+    },
+    {
+     "name": "movedTo",
+     "type": "List<Integer>",
+     "rawValue": "[3]"
+    }
+   ],
+   "expectedRaw": "[-2, 1, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "List<Integer>",
+     "rawValue": "[7, 8, 1, 6]"
+    },
+    {
+     "name": "movedFrom",
+     "type": "List<Integer>",
+     "rawValue": "[1, 2, 2]"
+    },
+    {
+     "name": "movedTo",
+     "type": "List<Integer>",
+     "rawValue": "[2, 9, 0]"
+    }
+   ],
+   "expectedRaw": "[0, 6, 7, 8, 9]"
+  }
+ ]
+}

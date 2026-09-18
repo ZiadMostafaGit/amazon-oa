@@ -1,0 +1,128 @@
+{
+ "problemId": "capital-one-format-newspaper-page",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"jumps\", \"The\", \"it\", \"over\"], [\"jumps\", \"over\", \"it\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[\"RIGHT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"jumps\", \"The\", \"it\", \"over\", \"jumps\", \"over\", \"it\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"jumps\", \"over\", \"it\"], [\"jumps\", \"over\", \"it\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"LEFT\", \"RIGHT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[\"jumps over\", \"it        \", \"jumps over\", \"it        \"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\", \"abc\", \"a\", \"ab\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "[\"blue\", \"abc\", \"a\", \"ab\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"fox\", \"The\", \"quick\", \"brown\", \"fox\"], [\"jumps\", \"over\", \"it\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"LEFT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[\"fox The   \", \"quick     \", \"brown fox \", \"jumps over\", \"it        \"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"jumps\", \"over\"], [\"The\", \"quick\", \"brown\", \"fox\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[\"RIGHT\", \"RIGHT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[\"jumps over\", \" The quick\", \" brown fox\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"brown\", \"fox\", \"quick\"], [\"jumps\", \"over\", \"it\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"LEFT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[\"brown fox \", \"quick     \", \"jumps over\", \"it        \"]"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-bring-servers-down",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 7,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "request",
+     "type": "int[]",
+     "rawValue": "[5, 4]"
+    },
+    {
+     "name": "health",
+     "type": "int[]",
+     "rawValue": "[-2, 6]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "-12"
+  },
+  {
+   "inputs": [
+    {
+     "name": "request",
+     "type": "int[]",
+     "rawValue": "[3]"
+    },
+    {
+     "name": "health",
+     "type": "int[]",
+     "rawValue": "[4, 6]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "-2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "request",
+     "type": "int[]",
+     "rawValue": "[0, 4]"
+    },
+    {
+     "name": "health",
+     "type": "int[]",
+     "rawValue": "[6, 4, 4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "request",
+     "type": "int[]",
+     "rawValue": "[3, 4]"
+    },
+    {
+     "name": "health",
+     "type": "int[]",
+     "rawValue": "[4, 3]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "request",
+     "type": "int[]",
+     "rawValue": "[7, 7]"
+    },
+    {
+     "name": "health",
+     "type": "int[]",
+     "rawValue": "[4, 0]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "15"
+  },
+  {
+   "inputs": [
+    {
+     "name": "request",
+     "type": "int[]",
+     "rawValue": "[3, 3]"
+    },
+    {
+     "name": "health",
+     "type": "int[]",
+     "rawValue": "[6, 6]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "19"
+  }
+ ]
+}

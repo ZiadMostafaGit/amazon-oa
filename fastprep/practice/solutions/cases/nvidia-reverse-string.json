@@ -1,0 +1,68 @@
+{
+ "problemId": "nvidia-reverse-string",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"heello\""
+    }
+   ],
+   "expectedRaw": "\"olleeh\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"helo\""
+    }
+   ],
+   "expectedRaw": "\"oleh\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"helllo\""
+    }
+   ],
+   "expectedRaw": "\"ollleh\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "\"god\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"hhello\""
+    }
+   ],
+   "expectedRaw": "\"ollehh\""
+  }
+ ]
+}

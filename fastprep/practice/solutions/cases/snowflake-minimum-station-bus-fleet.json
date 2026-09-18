@@ -1,0 +1,68 @@
+{
+ "problemId": "snowflake-minimum-station-bus-fleet",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "trips",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"C\", \"2\", \"6\"], [\"A\", \"C\", \"2\", \"6\"]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trips",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"C\", \"1\", \"2\"], [\"A\", \"B\", \"0\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trips",
+     "type": "String[][]",
+     "rawValue": "[[\"C\", \"A\", \"0\", \"1\"], [\"B\", \"C\", \"4\", \"8\"]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trips",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trips",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\", \"0\", \"10\"], [\"B\", \"A\", \"10\", \"12\"], [\"A\", \"C\", \"1\", \"2\"], [\"B\", \"A\", \"10\", \"12\"]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trips",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"C\", \"2\", \"6\"], [\"A\", \"B\", \"0\", \"5\"], [\"A\", \"B\", \"0\", \"5\"]]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

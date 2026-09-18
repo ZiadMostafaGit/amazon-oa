@@ -1,0 +1,98 @@
+{
+ "problemId": "pinterest-nested-json-schema-validator",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 36,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"{\\\"object\\\":{\\\"user\\\":{\\\"objeect\\\":{\\\"id\\\":\\\"integer\\\"}}}}\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"{\\\"object\\\":{\\\"user\\\":{\\\"object\\\":{\\\"id\\\":\\\"integer\\\"}}}}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"{\\\"object\\\":{\\\"profile\\\":{\\\"object\\\":{\\\"name\\\":\\\"string\\\",\\\"active\\\":\\\"boolean\\\"}},\\\"scores\\\":{\\\"array\\\":\\\"integer\\\"}}}\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"{\\\"profile\\\":{\\\"name\\\":\\\"Ada\\\",\\\"activ\\\":true},\\\"scores\\\":[3,5]}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"{\\\"object\\\":{\\\"profile\\\":{\\\"object\\\":{\\\"name\\\":\\\"string\\\",\\\"active\\\":\\\"boolean\\\"}},\\\"scores\\\":{\\\"array\\\":\\\"integer\\\"}}}\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"{\\\"object\\\":{\\\"profile\\\":{\\\"object\\\":{\\\"name\\\":\\\"string\\\",\\\"active\\\":\\\"boolean\\\"}},\\\"scores\\\":{\\\"array\\\":\\\"integer\\\"}}}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"{\\\"object\\\":{\\\"ser\\\":{\\\"object\\\":{\\\"id\\\":\\\"integer\\\"}}}}\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"{\\\"user\\\":{\\\"id\\\":7,\\\"name\\\":\\\"Lin\\\"}}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"{\\\"object\\\":{\\\"user\\\":{\\\"object\\\":{\\\"id\\\":\\\"iinteger\\\"}}}}\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"{\\\"user\\\":{\\\"id\\\":7,\\\"namme\\\":\\\"Lin\\\"}}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "bytedance-delete-k-balance-index-sums",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[6]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 3]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 4, 6, 4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 6, 4, 2]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 6, 4, 4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

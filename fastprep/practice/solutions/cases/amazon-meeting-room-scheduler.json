@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-meeting-room-scheduler",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "meetings",
+     "type": "int[][]",
+     "rawValue": "[[5, 7], [10, 12], [10, 15]]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "meetings",
+     "type": "int[][]",
+     "rawValue": "[[0, 10], [5, 7], [8, 12], [0, 10], [5, 7], [10, 15]]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 1, -1, -1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "meetings",
+     "type": "int[][]",
+     "rawValue": "[[10, 15], [10, 12]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "meetings",
+     "type": "int[][]",
+     "rawValue": "[[5, 7], [10, 15]]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "meetings",
+     "type": "int[][]",
+     "rawValue": "[[10, 15], [5, 7], [10, 12], [0, 10]]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "meetings",
+     "type": "int[][]",
+     "rawValue": "[[0, 10], [5, 7], [10, 12], [10, 15]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, -1]"
+  }
+ ]
+}

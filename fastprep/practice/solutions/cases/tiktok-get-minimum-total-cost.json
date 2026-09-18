@@ -1,0 +1,98 @@
+{
+ "problemId": "tiktok-get-minimum-total-cost",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "vouchersCount",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[2, 13]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "vouchersCount",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[2, 8]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "vouchersCount",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[0, 4]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "vouchersCount",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[2, 8]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "vouchersCount",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[8, 2, 13, 13]"
+    }
+   ],
+   "expectedRaw": "22"
+  },
+  {
+   "inputs": [
+    {
+     "name": "vouchersCount",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[8]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "goldman-sachs-number-of-islands",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"11000\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"00\", \"000\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"11010\", \"00000\", \"11000\", \"00000\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"11110\", \"11000\", \"00000\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"a\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"11110\", \"11000\", \"00000\", \"11010\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

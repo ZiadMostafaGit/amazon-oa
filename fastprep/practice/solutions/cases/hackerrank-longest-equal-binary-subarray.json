@@ -1,0 +1,68 @@
+{
+ "problemId": "hackerrank-longest-equal-binary-subarray",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 0]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1, 4, 1]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0, 0, 0, 1, 0, 1]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 1, 0]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0, 1, 0, 0]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 0, 1]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

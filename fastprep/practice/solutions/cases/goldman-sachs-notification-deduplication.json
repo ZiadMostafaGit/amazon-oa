@@ -1,0 +1,98 @@
+{
+ "problemId": "goldman-sachs-notification-deduplication",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "notificationIds",
+     "type": "String[]",
+     "rawValue": "[\"A\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[1199, 602, 0]"
+    }
+   ],
+   "expectedRaw": "[true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "notificationIds",
+     "type": "String[]",
+     "rawValue": "[\"N\", \"N\", \"N\", \"N\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[609, 1208, 1808, 10, 1208]"
+    }
+   ],
+   "expectedRaw": "[true, false, true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "notificationIds",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"B\", \"A\", \"A\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[100, 1199]"
+    }
+   ],
+   "expectedRaw": "[true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "notificationIds",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"B\", \"A\", \"A\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[0, 100, 599]"
+    }
+   ],
+   "expectedRaw": "[true, true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "notificationIds",
+     "type": "String[]",
+     "rawValue": "[\"N\", \"N\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[10, 1208, 609, 1208, 1808]"
+    }
+   ],
+   "expectedRaw": "[true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "notificationIds",
+     "type": "String[]",
+     "rawValue": "[\"10\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[-3, 1]"
+    }
+   ],
+   "expectedRaw": "[true]"
+  }
+ ]
+}

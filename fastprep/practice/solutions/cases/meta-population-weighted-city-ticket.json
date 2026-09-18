@@ -1,0 +1,128 @@
+{
+ "problemId": "meta-population-weighted-city-ticket",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"Gamma\", \"Gamma\"]"
+    },
+    {
+     "name": "populations",
+     "type": "int[]",
+     "rawValue": "[2, 3, 5, 3]"
+    },
+    {
+     "name": "ticket",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"Gamma\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"1\", \"ab\", \"cat\"]"
+    },
+    {
+     "name": "populations",
+     "type": "int[]",
+     "rawValue": "[1, -5]"
+    },
+    {
+     "name": "ticket",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "\"ab\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"Beta\", \"Alpha\", \"Beta\", \"Gamma\"]"
+    },
+    {
+     "name": "populations",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "ticket",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"Alpha\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"Alpha\", \"Gamma\"]"
+    },
+    {
+     "name": "populations",
+     "type": "int[]",
+     "rawValue": "[3, 2, 3, 5, 5]"
+    },
+    {
+     "name": "ticket",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "\"Alpha\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"South\", \"North\"]"
+    },
+    {
+     "name": "populations",
+     "type": "int[]",
+     "rawValue": "[1, 9]"
+    },
+    {
+     "name": "ticket",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "\"North\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"Beta\", \"Beta\"]"
+    },
+    {
+     "name": "populations",
+     "type": "int[]",
+     "rawValue": "[5, 3, 5]"
+    },
+    {
+     "name": "ticket",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "\"Beta\""
+  }
+ ]
+}

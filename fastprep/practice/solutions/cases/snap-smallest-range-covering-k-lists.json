@@ -1,0 +1,68 @@
+{
+ "problemId": "snap-smallest-range-covering-k-lists",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "List<List<Integer>>",
+     "rawValue": "[[5, 18, 22, 30], [5, 18, 22, 30]]"
+    }
+   ],
+   "expectedRaw": "[5, 5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "List<List<Integer>>",
+     "rawValue": "[[1], [4, 4, -2, 0, 1], [-2, -3, 2, 5, -3]]"
+    }
+   ],
+   "expectedRaw": "[1, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "List<List<Integer>>",
+     "rawValue": "[[4, 10, 15, 24, 26], [5, 18, 22, 30], [4, 10, 15, 24, 26], [0, 9, 12, 20]]"
+    }
+   ],
+   "expectedRaw": "[20, 24]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "List<List<Integer>>",
+     "rawValue": "[[0, 9, 12, 20], [10, 12], [5, 18, 22, 30]]"
+    }
+   ],
+   "expectedRaw": "[5, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "List<List<Integer>>",
+     "rawValue": "[[4, 22, 26, 10], [0, 9, 12, 20], [5, 18, 22, 30], [4, 10, 15, 24, 26]]"
+    }
+   ],
+   "expectedRaw": "[20, 24]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "List<List<Integer>>",
+     "rawValue": "[[-6, -6, -6, -5, -3, -5]]"
+    }
+   ],
+   "expectedRaw": "[-6, -6]"
+  }
+ ]
+}

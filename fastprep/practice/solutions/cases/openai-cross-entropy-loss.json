@@ -1,0 +1,98 @@
+{
+ "problemId": "openai-cross-entropy-loss",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "probabilities",
+     "type": "double[][]",
+     "rawValue": "[[0.1, 0.0, 0.4, 0.5], [0.1, 0.5, 0.4]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    }
+   ],
+   "expectedRaw": "2.3025850929940455"
+  },
+  {
+   "inputs": [
+    {
+     "name": "probabilities",
+     "type": "double[][]",
+     "rawValue": "[[0.1, 0.5, 0.4]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[0, 2]"
+    }
+   ],
+   "expectedRaw": "1.1512925464970227"
+  },
+  {
+   "inputs": [
+    {
+     "name": "probabilities",
+     "type": "double[][]",
+     "rawValue": "[[0.2, 0.1]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[0]"
+    }
+   ],
+   "expectedRaw": "1.6094379124341003"
+  },
+  {
+   "inputs": [
+    {
+     "name": "probabilities",
+     "type": "double[][]",
+     "rawValue": "[[0.7, 0.2, 0.1], [0.1, 0.5, 0.4], [0.1, 0.5, 0.4]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[0, 2]"
+    }
+   ],
+   "expectedRaw": "0.6364828379064438"
+  },
+  {
+   "inputs": [
+    {
+     "name": "probabilities",
+     "type": "double[][]",
+     "rawValue": "[[1.0, 0.0], [0.0, 1.0], [0.0, 1.0]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[1]"
+    }
+   ],
+   "expectedRaw": "690.7755278982137"
+  },
+  {
+   "inputs": [
+    {
+     "name": "probabilities",
+     "type": "double[][]",
+     "rawValue": "[[0.0, 1.0]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    }
+   ],
+   "expectedRaw": "0.0"
+  }
+ ]
+}

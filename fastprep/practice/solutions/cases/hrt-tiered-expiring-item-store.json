@@ -1,0 +1,98 @@
+{
+ "problemId": "hrt-tiered-expiring-item-store",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "levelCapacities",
+     "type": "int[]",
+     "rawValue": "[3, 2]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"STORE a 5 5\", \"STORE b 9 5\", \"STORE c 7 20\", \"STORE a 5 5\", \"STORE e 10 20\", \"RETRIEVE 5\", \"RETRIEVE 5\", \"RETRIEVE 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"true\", \"false\", \"true\", \"c\", \"e\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelCapacities",
+     "type": "int[]",
+     "rawValue": "[2, 4, 4]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"STORE a 5 5\", \"STORE c 7 20\", \"STORE d 6 20\", \"RETRIEVE 5\", \"STORE e 10 20\", \"RETRIEVE 5\", \"RETRIEVE 5\", \"RETRIEVE 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"true\", \"c\", \"true\", \"e\", \"d\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelCapacities",
+     "type": "int[]",
+     "rawValue": "[4]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"STORE c 7 20\", \"RETRIEVE 5\", \"STORE d 6 20\", \"RETRIEVE 5\", \"STORE a 5 5\", \"RETRIEVE 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"c\", \"true\", \"d\", \"true\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelCapacities",
+     "type": "int[]",
+     "rawValue": "[2, 4, 2]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"STORE alpha 8 330\", \"STORE beta 8 30\", \"STORE old1 1 5\", \"STORE old2 1 5\", \"STORE gamma 9 6\", \"STORE delta 9 30\", \"RETRIEVE 5\", \"RETRIEVE 5\", \"RETRIEVE 6\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"true\", \"true\", \"true\", \"true\", \"delta\", \"gamma\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelCapacities",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"STORE x 8 3\", \"RETRIEVE 3\", \"STORE x 4 10\", \"RETRIEVE 9\", \"STORE x 6 12\", \"STORE x 6 12\", \"RETRIEVE 12\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"null\", \"true\", \"x\", \"true\", \"false\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelCapacities",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

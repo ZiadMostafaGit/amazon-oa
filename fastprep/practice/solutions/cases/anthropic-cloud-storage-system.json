@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-cloud-storage-system",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_FILE\", \"/dir/file2\", \"20\"], [\"ADD_FILE\", \"/dir/deeper/file3.mov\", \"9\"], [\"ADD_FILE\", \"/big_file.mp4\", \"20\"], [\"DELETE_FILE\", \"/dir/file1.txt\"], [\"GET_FILE_SIZE\", \"/dir/file1.txt\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"true\"], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_USER\", \"user2\", \"40\"], [\"ADD_FILE_BY\", \"user1\", \"/a\", \"60\"], [\"ADD_FILE_BY\", \"user2\", \"/b\", \"10\"], [\"ADD_FILE_BY\", \"user2\", \"/c\", \"30\"], [\"MERGE_USER\", \"user1\", \"user2\"], [\"GET_FILE_SIZE\", \"/b\"], [\"ADD_FILE_BY\", \"user2\", \"/d\", \"1\"], [\"ADD_FILE_BY\", \"user1\", \"/d\", \"40\"], [\"MERGE_USER\", \"user1\", \"user1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [], [\"30\"], [\"0\"], [], [\"10\"], [], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_USER\", \"user1\", \"100\"], [\"ADD_USER\", \"user2\", \"40\"], [\"ADD_FILE_BY\", \"user1\", \"/a\", \"60\"], [\"ADD_FILE_BY\", \"user2\", \"/b\", \"10\"], [\"ADD_FILE_BY\", \"user2\", \"/c\", \"30\"], [\"MERGE_USER\", \"user1\", \"user2\"], [\"GET_FILE_SIZE\", \"/b\"], [\"40\", \"user2\", \"/d\", \"40\", \"1\", \"ADD_FILE_BY\"], [\"MERGE_USER\", \"user1\", \"user1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"40\"], [\"30\"], [\"0\"], [\"40\"], [\"10\"], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DELETE_FILE\", \"/dir/file1.txt\"], [\"GET_N_LARGEST\", \"/\", \"2\"], [\"ADD_FILE\", \"/dir/file1.txt\", \"5\"], [\"GET_N_LARGEST\", \"/dir\", \"2\"], [\"ADD_FILE\", \"/dir/deeper/file3.mov\", \"9\"], [\"20\"], [\"GET_FILE_SIZE\", \"/dir/file1.txt\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], [\"true\"], [\"/dir/file1.txt(5)\"], [\"true\"], [], [\"5\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"b\"], [\"x\", \"1\", \"cat\", \"1\"], [\"10\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], []]"
+  }
+ ]
+}

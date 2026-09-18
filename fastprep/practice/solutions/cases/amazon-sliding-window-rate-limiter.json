@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-sliding-window-rate-limiter",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"b\", \"a\", \"b\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[59, 0, 0, 59, 61]"
+    }
+   ],
+   "expectedRaw": "[true, true, true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"a\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 60, 60]"
+    }
+   ],
+   "expectedRaw": "[true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"ab\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    }
+   ],
+   "expectedRaw": "[true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"a\", \"b\", \"a\", \"a\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[0, 59, 60]"
+    }
+   ],
+   "expectedRaw": "[true, true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[2, -4, -6, 4, 3, 4]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"b\", \"a\", \"b\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[59, 0, 0, 0, 59, 60]"
+    }
+   ],
+   "expectedRaw": "[true, true, true, true]"
+  }
+ ]
+}

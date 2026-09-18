@@ -1,0 +1,68 @@
+{
+ "problemId": "perplexity-agent-task-dependency-tracker",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 7,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET\", \"2\"], [\"SET\", \"1\", \"IN_PROGRESS\"], [\"SET\", \"1\", \"SUCCEEDED\"], [\"RENDER\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"false\", \"false\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"red\", \"abc\", \"dog\", \"blue\", \"abc\", \"a\", \"ab\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"bc\", \"dog\", \"yz\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"0\", \"cat\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"10\", \"0\", \"red\", \"1\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"dog\"], [\"blue\", \"10\"], [\"1\", \"cat\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  }
+ ]
+}

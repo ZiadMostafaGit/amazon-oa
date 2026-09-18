@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-asynchronous-payment-event-processing",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"evt3,30,payment,p1,capture,-,40\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"e2,8,payment,p2,create,m2,-\", \"e1,7,payment,p1,create,m1,-\"]"
+    }
+   ],
+   "expectedRaw": "[\"p2,m2,created,0,0,8\", \"p1,m1,created,0,0,7\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"10\", \"yz\", \"10\", \"blue\", \"b\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"e1,7,payment,p1,create,m1,-\", \"e2,8,payment,p2,create,m2,-\", \"e3,9,payment,p2,authorze,-,120\", \"e4,10,payment,p2,capture,-,20\"]"
+    }
+   ],
+   "expectedRaw": "[\"p1,m1,created,0,0,7\", \"p2,m2,partially_captured,0,20,10\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"evt2,20,payment,p1,authorize,-,100\", \"evt3,30,payment,p1,capture,-,40\", \"evt4,40,payment,p1,capture,-,60\", \"evt1,10,payment,p1,create,m1,-\", \"evt3,30,payment,p1,capture,-,40\"]"
+    }
+   ],
+   "expectedRaw": "[\"p1,m1,created,0,0,10\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"evt3,30,payment,p1,capture,-,40\", \"evt2,20,payment,p1,authorize,-,100\", \"evt3,30,payment,p1,capture,-,40\", \"evt4,440,payment,p1,capture,-,60\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "problemId": "nike-text-embedding-vector-search",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SEARCH\", \"SEARCH\"]"
+    },
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"shoe-a\", \"SEARCH\", \"\", \"shoe-b\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"red running shoe\", \"blue hiking boot\"]"
+    },
+    {
+     "name": "ks",
+     "type": "int[]",
+     "rawValue": "[0, 2, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[[], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"cat\", \"dog\", \"b\"]"
+    },
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"a\", \"x\", \"abc\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"0\"]"
+    },
+    {
+     "name": "ks",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"UPSERT\", \"UPSERT\"]"
+    },
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"shoe-a\", \"shoe-b\", \"\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"blue hiking boot\", \"red running shoe\", \"blue hiking boot\", \"red shoe\"]"
+    },
+    {
+     "name": "ks",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"UPSERT\", \"b\", \"UPSERT\", \"SEARCH\", \"UPSERT\"]"
+    },
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"\", \"a\", \"b\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"air zoom shoe\", \"air shoe\", \"air shoe\", \"air shoe\"]"
+    },
+    {
+     "name": "ks",
+     "type": "int[]",
+     "rawValue": "[3, 0, 2, 0, 2]"
+    }
+   ],
+   "expectedRaw": "[[], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"UPSERT\", \"UPSERT\", \"SEARCH\", \"UPSERT\"]"
+    },
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"b\", \"a\", \"c\", \"jacket\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"run run shoe\", \"run shoe shoe\", \"jacket\", \"run run\"]"
+    },
+    {
+     "name": "ks",
+     "type": "int[]",
+     "rawValue": "[2, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[[], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"1\"]"
+    },
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"yz\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"1\"]"
+    },
+    {
+     "name": "ks",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

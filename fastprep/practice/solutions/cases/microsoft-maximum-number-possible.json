@@ -1,0 +1,98 @@
+{
+ "problemId": "microsoft-maximum-number-possible",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"18839559\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "\"58855555\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"55678555\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "\"IMPOSSIBLE\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"5567855\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"5567855\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "\"b\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1839559\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"1839559\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"839559\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "\"839559\""
+  }
+ ]
+}

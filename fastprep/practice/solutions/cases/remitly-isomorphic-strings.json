@@ -1,0 +1,98 @@
+{
+ "problemId": "remitly-isomorphic-strings",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"add\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"add\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"egg\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"egg\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"b23\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"f11\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"add\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"egg\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"b23\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"b23\""
+    }
+   ],
+   "expectedRaw": "true"
+  }
+ ]
+}

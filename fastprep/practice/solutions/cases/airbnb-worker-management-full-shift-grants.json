@@ -1,0 +1,68 @@
+{
+ "problemId": "airbnb-worker-management-full-shift-grants",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Alice\", \"Engineer\", \"100\"], [\"REGISTER\", \"Alice\", \"30\"], [\"SET_DOUBLE_PAID\", \"20\", \"30\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"REGISTER\", \"Alice\", \"40\"], [\"REGISTER\", \"Alice\", \"60\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"70\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"registered\", \"\", \"0\", \"registered\", \"registered\", \"1000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Alice\", \"Engineer\", \"100\"], [\"REGISTER\", \"Alice\", \"10\"], [\"REGISTER\", \"Alice\", \"30\"], [\"SET_DOUBLE_PAID\", \"10\", \"20\"], [\"SET_DOUBLE_PAID\", \"20\", \"30\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"REGISTER\", \"Alice\", \"40\"], [\"REGISTER\", \"Alice\", \"60\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"registered\", \"registered\", \"\", \"\", \"4000\", \"registered\", \"registered\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"5\", \"REGISTER\", \"Bob\"], [\"REGISTER\", \"Bob\", \"15\"], [\"PROMOTE\", \"Bob\", \"Senior Developer\", \"200\", \"20\"], [\"REGISTER\", \"Bob\", \"18\"], [\"REGISTER\", \"Bob\", \"22\"], [\"REGISTER\", \"Bob\", \"35\"], [\"GET\", \"Bob\"], [\"TOP_N_WORKERS\", \"5\", \"Senior Developer\"], [\"SET_DOUBLE_PAID\", \"25\", \"35\"], [\"CALC_SALARY\", \"Bob\", \"0\", \"40\"], [\"CALC_SALARY\", \"Bob\", \"28\", \"32\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"invalid_request\", \"invalid_request\", \"invalid_request\", \"invalid_request\", \"invalid_request\", \"\", \"\", \"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET\", \"Bob\"], [\"TOP_N_WORKERS\", \"5\", \"Senior Developer\"], [\"REGISTER\", \"Bob\", \"5\"], [\"REGISTER\", \"Bob\", \"18\"], [\"REGISTER\", \"Bob\", \"25\"], [\"SET_DOUBLE_PAID\", \"25\", \"35\"], [\"CALC_SALARY\", \"Bob\", \"0\", \"40\"], [\"ADD_WORKER\", \"Bob\", \"Developer\", \"100\"], [\"REGISTER\", \"Bob\", \"35\"], [\"REGISTER\", \"Bob\", \"22\"], [\"REGISTER\", \"Bob\", \"15\"], [\"CALC_SALARY\", \"Bob\", \"28\", \"32\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"invalid_request\", \"invalid_request\", \"invalid_request\", \"\", \"\", \"true\", \"registered\", \"registered\", \"registered\", \"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Alice\", \"Engineer\", \"100\"], [\"REGISTER\", \"Alice\", \"10\"], [\"REGISTER\", \"Alice\", \"30\"], [\"SET_DOUBLE_PAID\", \"45\", \"55\"], [\"SET_DOUBLE_PAID\", \"10\", \"20\"], [\"SET_DOUBLE_PAID\", \"20\", \"30\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"REGISTER\", \"Alice\", \"40\"], [\"REGISTER\", \"Alice\", \"60\"], [\"SET_DOUBLE_PAID\", \"45\", \"55\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"70\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"registered\", \"registered\", \"\", \"\", \"\", \"4000\", \"registered\", \"registered\", \"\", \"6000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Alice\", \"Engineer\", \"100\"], [\"REGISTER\", \"Alice\", \"10\"], [\"REGISTER\", \"Alice\", \"30\"], [\"SET_DOUBLE_PAID\", \"10\", \"20\"], [\"SET_DOUBLE_PAID\", \"20\", \"30\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"REGISTER\", \"Alice\", \"60\"], [\"REGISTER\", \"Alice\", \"60\"], [\"SET_DOUBLE_PAID\", \"45\", \"55\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"70\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"registered\", \"registered\", \"\", \"\", \"4000\", \"registered\", \"registered\", \"\", \"4000\"]"
+  }
+ ]
+}

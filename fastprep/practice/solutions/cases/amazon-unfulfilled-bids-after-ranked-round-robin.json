@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-unfulfilled-bids-after-ranked-round-robin",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[2, 5, 4, 2], [2, 4, 2, 2]]"
+    },
+    {
+     "name": "totalInventory",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "totalInventory",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[2, 4, 2, 2]]"
+    },
+    {
+     "name": "totalInventory",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[2, 2, 2, 2]]"
+    },
+    {
+     "name": "totalInventory",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[2, 4, 2, 2], [2, 4, 2, 2]]"
+    },
+    {
+     "name": "totalInventory",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[1, 3, 2, 1], [2, 3, 2, 2], [3, 3, 1, 3], [1, 3, 2, 1]]"
+    },
+    {
+     "name": "totalInventory",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[1, 1, 2, 3]"
+  }
+ ]
+}

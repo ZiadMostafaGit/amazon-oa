@@ -1,0 +1,128 @@
+{
+ "problemId": "cursor-filesystem-hash-tree",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 22,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/docs/a.txt\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[\"FILE\", \"FILE\", \"DIRECTORY\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[\"/docs/a.txt=cbf29ce484222325\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/docs\", \"/docs/b.txt\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[\"DIRECTORY\", \"DIRECTORY\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"/docs/a.txt\", \"\", \"hi\", \"bye\"]"
+    }
+   ],
+   "expectedRaw": "[\"/docs=f6186a006cdd5a7f\", \"/docs/b.txt=cbf29ce484222325\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/a\", \"/a/x.txt\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[\"DIRECTORY\", \"FILE\", \"/z.txt\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\", \"same\"]"
+    }
+   ],
+   "expectedRaw": "[\"/a=f6186a006cdd5a7f\", \"/a/x.txt=cbf29ce484222325\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/a/x.txt\", \"/a/x.txt\", \"/a\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[\"DIRECTORY\", \"same\", \"FILE\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"\", \"same\", \"same\", \"\", \"same\"]"
+    }
+   ],
+   "expectedRaw": "[\"/a=097b5e18bf93ef5b\", \"/a/x.txt=cbf29ce484222325\", \"/a/x.txt=cbf29ce484222325\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/\", \"/docs/a.txt\", \"/docs/b.txt\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[\"DIRECTORY\", \"DIRECTORY\", \"DIRECTORY\", \"FILE\", \"FILE\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"bye\", \"hi\", \"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[\"/=cbf29ce484222325\", \"/docs/a.txt=cbf29ce484222325\", \"/docs/b.txt=cbf29ce484222325\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/\", \"/z.txt\", \"/a\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[\"DIRECTORY\", \"DIRECTORY\", \"/z.txt\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"/z.txt\", \"same\", \"\", \"same\"]"
+    }
+   ],
+   "expectedRaw": "[\"/=495ccbf3a4b4d4e9\", \"/a=cbf29ce484222325\", \"/z.txt=cbf29ce484222325\"]"
+  }
+ ]
+}

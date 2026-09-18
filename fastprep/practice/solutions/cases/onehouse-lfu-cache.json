@@ -1,0 +1,98 @@
+{
+ "problemId": "onehouse-lfu-cache",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put 1 1\", \"get 1\", \"put 3 3\", \"get 2\", \"get 3\", \"put 4 4\", \"get 1\", \"get 3\", \"get 4\"]"
+    }
+   ],
+   "expectedRaw": "[1, -1, 3, 1, 3, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put 9 4\", \"put 7 5\", \"get 7\", \"get 7\", \"put 7 8\"]"
+    }
+   ],
+   "expectedRaw": "[5, 5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"get 2\", \"put 2 20\", \"put 1 10\", \"put 1 11\", \"put 3 30\", \"put 1 10\", \"get 3\"]"
+    }
+   ],
+   "expectedRaw": "[-1, 30]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put 1 10\", \"put 2 20\", \"put 1 11\", \"get 1\", \"get 3\"]"
+    }
+   ],
+   "expectedRaw": "[11, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put 1 1\", \"put 2 2\", \"get 1\", \"put 3 3\", \"get 2\", \"get 3\", \"put 4 4\", \"get 3\", \"get 4\"]"
+    }
+   ],
+   "expectedRaw": "[1, -1, 3, 3, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put 9 4\", \"put 7 5\", \"put 7 8\", \"get 7\", \"put 9 4\", \"get 7\", \"get 9\"]"
+    }
+   ],
+   "expectedRaw": "[8, -1, 4]"
+  }
+ ]
+}

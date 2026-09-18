@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-indexed-bit-after-binary-expansion",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "String",
+     "rawValue": "\"001\""
+    },
+    {
+     "name": "rounds",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "index",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "String",
+     "rawValue": "\"01\""
+    },
+    {
+     "name": "rounds",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "index",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "rounds",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "index",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "String",
+     "rawValue": "\"01\""
+    },
+    {
+     "name": "rounds",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "index",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "String",
+     "rawValue": "\"011\""
+    },
+    {
+     "name": "rounds",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "index",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "String",
+     "rawValue": "\"1\""
+    },
+    {
+     "name": "rounds",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "index",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "linkedin-shortest-word-distance-queries",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"perfect\", \"makes\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"makes\", \"coding\"], [\"makes\", \"coding\", \"practice\", \"coding\"], [\"practice\", \"makes\"]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"green\", \"blue\", \"red\", \"green\", \"yellow\", \"red\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\", \"yellow\"], [\"yellow\", \"red\"], [\"red\", \"green\"], [\"yellow\", \"red\"]]"
+    }
+   ],
+   "expectedRaw": "[3, 1, 1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"practice\", \"perfect\", \"coding\", \"makes\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"makes\", \"coding\"], [\"coding\", \"practice\"]]"
+    }
+   ],
+   "expectedRaw": "[1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"a\", \"c\", \"b\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"b\", \"c\"], [\"a\", \"b\"], [\"a\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"0\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"ab\", \"ab\"]]"
+    }
+   ],
+   "expectedRaw": "[-1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"practice\", \"makes\", \"makes\", \"perfect\", \"coding\", \"makes\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"makes\", \"coding\"], [\"practice\", \"makes\"]]"
+    }
+   ],
+   "expectedRaw": "[1, 1]"
+  }
+ ]
+}

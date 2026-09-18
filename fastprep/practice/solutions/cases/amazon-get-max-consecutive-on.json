@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-get-max-consecutive-on",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "machine_status",
+     "type": "String",
+     "rawValue": "\"000010\""
+    },
+    {
+     "name": "max_flips",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "machine_status",
+     "type": "String",
+     "rawValue": "\"11001\""
+    },
+    {
+     "name": "max_flips",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "machine_status",
+     "type": "String",
+     "rawValue": "\"111010101100111\""
+    },
+    {
+     "name": "max_flips",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "machine_status",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "max_flips",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "machine_status",
+     "type": "String",
+     "rawValue": "\"00010\""
+    },
+    {
+     "name": "max_flips",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "machine_status",
+     "type": "String",
+     "rawValue": "\"0010\""
+    },
+    {
+     "name": "max_flips",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

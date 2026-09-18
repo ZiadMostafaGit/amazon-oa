@@ -1,0 +1,68 @@
+{
+ "problemId": "pika-spreadsheet-formula-evaluator",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"SET A1 10\\nSET A1 20\\nSET B1 = AA1 + 10\\nGET A1\\nGET B1\\nSET A1 = A1 + 10\\nGET A1\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"20\", \"ERROR\", \"ERROR\", \"20\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"SET A1 10\\nSET A1 20\\nSET B1 = A1 + 10\\nGET A1\\nGET B\\nSET A1 = A1 + 10\\nGET A1\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"20\", \"ERROR\", \"ERROR\", \"20\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"SET A1 1\\nSET B1 = A1 + 2\\nSET C1 = B1 + 3\\nSET A1 = C1 + 4\\nGET A11\\nGET C1\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"ERROR\", \"ERROR\", \"6\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"SET A1 1\\nSET B1 = A1 + 2\\nSETT C1 = B1 + 3\\nSET A1 = C1 + 4\\nGET A1\\nGET C1\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"ERROR\", \"OK\", \"ERROR\", \"ERROR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[\"ERROR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"SET A1 2\\nSET B1 = A1 + A1 + 1\\nSET C1 = B1 +  A1\\nGET C1\\nSET A1 5\\nGET C1\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"7\", \"OK\", \"16\"]"
+  }
+ ]
+}

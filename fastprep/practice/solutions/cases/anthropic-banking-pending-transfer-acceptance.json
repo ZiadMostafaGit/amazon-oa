@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-banking-pending-transfer-acceptance",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"3\", \"alice\", \"500\"], [\"TRANSFER\", \"4\", \"alice\", \"bob\", \"200\"], [\"TOP_ACTIVITY\", \"5\", \"2\"], [\"TOP_ACTIVITY\", \"7\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"null\"], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"2\", \"bob\"], [\"CREATE_ACCOUNT\", \"1\", \"alice\"], [\"TOP_ACTIVITY\", \"5\", \"2\"], [\"ACCEPT_TRANSFER\", \"6\", \"bob\", \"transfer1\"], [\"TOP_ACTIVITY\", \"7\", \"2\"], [\"TRANSFER\", \"4\", \"alice\", \"bob\", \"200\"], [\"ACCEPT_TRANSFER\", \"6\", \"bob\", \"transfer1\"], [\"DEPOSIT\", \"3\", \"alice\", \"500\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"alice(0)\", \"bob(0)\"], [\"false\"], [\"alice(0)\", \"bob(0)\"], [\"null\"], [\"false\"], [\"500\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"1\", \"a\"], [\"CREATE_ACCOUNT\", \"1\", \"a\"], [\"DEPOSIT\", \"3\", \"a\", \"100\"], [\"TRANSFER\", \"10\", \"a\", \"b\", \"70\"], [\"ACCEPT_TRANSFER\", \"86400011\", \"b\", \"transfer1\"], [\"CREATE_ACCOUNT\", \"1\", \"a\"], [\"PAY\", \"86400012\", \"a\", \"20\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"false\"], [\"100\"], [\"null\"], [\"false\"], [\"false\"], [\"80\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"1\", \"alice\"], [\"CREATE_ACCOUNT\", \"2\", \"bob\"], [\"DEPOSIT\", \"3\", \"alice\", \"500\"], [\"TOP_ACTIVITY\", \"5\", \"2\"], [\"TOP_ACTIVITY\", \"7\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"500\"], [\"alice(500)\", \"bob(0)\"], [\"alice(500)\", \"bob(0)\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ACCEPT_TRANSFER\", \"6\", \"bob\", \"transfer1\"], [\"TOP_ACTIVITY\", \"7\", \"2\"], [\"CREATE_ACCOUNT\", \"1\", \"alice\"], [\"TOP_ACTIVITY\", \"5\", \"2\"], [\"TRANSFER\", \"4\", \"alice\", \"bob\", \"200\"], [\"DEPOSIT\", \"3\", \"alice\", \"500\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"false\"], [], [\"true\"], [\"alice(0)\"], [\"null\"], [\"500\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"CREATE_ACCOUNT\", \"CREATE_ACCOUNT\"], [\"CREATE_ACCOUNT\", \"2\", \"b\"], [\"DEPOSIT\", \"3\", \"a\", \"100\"], [\"TRANSFER\", \"10\", \"a\", \"b\", \"70\"], [\"ACCEPT_TRANSFER\", \"86400011\", \"b\", \"transfer1\"], [\"PAY\", \"86400012\", \"a\", \"20\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"true\"], [\"null\"], [\"null\"], [\"false\"], [\"null\"]]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "coinbase-cloud-compute-credits-system",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 11,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_CREDITS\", \"3\", \"alpha\", \"1000\"], [\"TOP_WORKSPACES\", \"5\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CONSUME_CREDITS\", \"5\", \"y\", \"50\"], [\"GET_REBATE_STATUS\", \"86400005\", \"transaction1\"], [\"CREATE_WORKSPACE\", \"1\", \"x\"], [\"GET_BALANCE\", \"7\", \"x\", \"4\"], [\"CREATE_WORKSPACE\", \"2\", \"y\"], [\"GET_BALANCE\", \"86400006\", \"y\", \"5\"], [\"GET_BALANCE\", \"8\", \"x\", \"6\"], [\"ADD_CREDITS\", \"3\", \"x\", \"100\"], [\"ADD_CREDITS\", \"4\", \"y\", \"200\"], [\"GET_BALANCE\", \"86400006\", \"y\", \"5\"], [\"MERGE_WORKSPACES\", \"6\", \"x\", \"y\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"true\", \"0\", \"true\", \"0\", \"0\", \"100\", \"200\", \"200\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_CREDITS\", \"1\", \"a\", \"1000\"], [\"CONSUME_CREDITS\", \"10\", \"a\", \"250\"], [\"GET_REBATE_STATUS\", \"86400009\", \"transaction1\"], [\"GET_REBATE_STATUS\", \"86400010\", \"transaction1\"], [\"GET_BALANCE\", \"86400010\", \"a\", \"86400010\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_CREDITS\", \"1\", \"a\", \"1000\"], [\"GET_REBATE_STATUS\", \"86400010\", \"transaction1\"], [\"CONSUME_CREDITS\", \"10\", \"a\", \"250\"], [\"GET_REBATE_STATUS\", \"86400009\", \"transaction1\"], [\"GET_REBATE_STATUS\", \"86400010\", \"transaction1\"], [\"GET_BALANCE\", \"86400010\", \"a\", \"86400010\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_CREDITS\", \"3\", \"x\", \"100\"], [\"GET_BALANCE\", \"86400006\", \"y\", \"5\"], [\"GET_REBATE_STATUS\", \"5\", \"5\"], [\"CREATE_WORKSPACE\", \"2\", \"y\"], [\"CONSUME_CREDITS\", \"5\", \"y\", \"50\"], [\"GET_BALANCE\", \"8\", \"x\", \"6\"], [\"CREATE_WORKSPACE\", \"1\", \"x\"], [\"GET_BALANCE\", \"86400005\", \"x\", \"86400005\"], [\"MERGE_WORKSPACES\", \"6\", \"x\", \"y\"], [\"GET_BALANCE\", \"7\", \"x\", \"4\"], [\"ADD_CREDITS\", \"4\", \"y\", \"200\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"true\", \"\", \"\", \"true\", \"0\", \"true\", \"0\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_WORKSPACE\", \"2\", \"beta\"], [\"CREATE_WORKSPACE\", \"2\", \"beta\"], [\"CREATE_WORKSPACE\", \"1\", \"alpha\"], [\"ADD_CREDITS\", \"3\", \"alpha\", \"1000\"], [\"TOP_WORKSPACES\", \"5\", \"2\"], [\"TRANSFER_CREDITS\", \"4\", \"alpha\", \"beta\", \"250\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"true\", \"1000\", \"alpha(0),beta(0)\", \"750\"]"
+  }
+ ]
+}

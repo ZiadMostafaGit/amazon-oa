@@ -1,0 +1,68 @@
+{
+ "problemId": "bloomberg-count-numbers",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[][]",
+     "rawValue": "[[9, 12], [9, 19]]"
+    }
+   ],
+   "expectedRaw": "[3, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[][]",
+     "rawValue": "[[20, 20, 1], [9, 19]]"
+    }
+   ],
+   "expectedRaw": "[1, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[][]",
+     "rawValue": "[[20, 1, 20], [9, 19]]"
+    }
+   ],
+   "expectedRaw": "[19, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[][]",
+     "rawValue": "[[9, 19], [9, 19]]"
+    }
+   ],
+   "expectedRaw": "[10, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[][]",
+     "rawValue": "[[-2, -5, -1, -4, 4, -5]]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[][]",
+     "rawValue": "[[1, 20], [9, 19, 19]]"
+    }
+   ],
+   "expectedRaw": "[19, 10]"
+  }
+ ]
+}

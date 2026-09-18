@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-first-non-repeating-character",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"swwiss\""
+    }
+   ],
+   "expectedRaw": "\"i\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"swis\""
+    }
+   ],
+   "expectedRaw": "\"w\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"swisss\""
+    }
+   ],
+   "expectedRaw": "\"w\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"swiiss\""
+    }
+   ],
+   "expectedRaw": "\"w\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "\"d\""
+  }
+ ]
+}

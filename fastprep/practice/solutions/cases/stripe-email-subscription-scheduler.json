@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-email-subscription-scheduler",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 22,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"B,Y,1,15\", \"A,X,0,30\", \"A,X,0,30\"]"
+    },
+    {
+     "name": "schedule",
+     "type": "String[]",
+     "rawValue": "[\"start,Welcome\", \"-15,Upcoming expiration\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"0: [Welcome] Subscription for A (X)\", \"0: [Welcome] Subscription for A (X)\", \"1: [Welcome] Subscription for B (Y)\", \"1: [Upcoming expiration] Subscription for B (Y)\", \"15: [Upcoming expiration] Subscription for A (X)\", \"15: [Upcoming expiration] Subscription for A (X)\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"A,X,0,30\"]"
+    },
+    {
+     "name": "schedule",
+     "type": "String[]",
+     "rawValue": "[\"end,Expired\", \"-155,Upcoming expiration\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[\"B,3,extension,15\", \"A,5,plan,Y\", \"B,3,extension,15\"]"
+    }
+   ],
+   "expectedRaw": "[\"-125: [Upcoming expiration] Subscription for A (X)\", \"5: [Changed] Subscription for A (Y)\", \"30: [Expired] Subscription for A (Y)\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"A,X,0,30\", \"A,X,0,30\", \"B,Y,1,15\"]"
+    },
+    {
+     "name": "schedule",
+     "type": "String[]",
+     "rawValue": "[\"start,Welcome\", \"end,Expired\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[\"B,3,extension,15\", \"A,5,plan,Y\"]"
+    }
+   ],
+   "expectedRaw": "[\"0: [Welcome] Subscription for A (X)\", \"0: [Welcome] Subscription for A (X)\", \"1: [Welcome] Subscription for B (Y)\", \"3: [Renewed] Subscription for B (Y)\", \"5: [Changed] Subscription for A (Y)\", \"5: [Changed] Subscription for A (Y)\", \"30: [Expired] Subscription for A (Y)\", \"30: [Expired] Subscription for A (Y)\", \"31: [Expired] Subscription for B (Y)\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"A,X,0,30\", \"B,Y,1,15\", \"B,Y,1,15\"]"
+    },
+    {
+     "name": "schedule",
+     "type": "String[]",
+     "rawValue": "[\"end,Expired\", \"start,Welcome\", \"end,Expired\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"0: [Welcome] Subscription for A (X)\", \"1: [Welcome] Subscription for B (Y)\", \"1: [Welcome] Subscription for B (Y)\", \"16: [Expired] Subscription for B (Y)\", \"16: [Expired] Subscription for B (Y)\", \"16: [Expired] Subscription for B (Y)\", \"16: [Expired] Subscription for B (Y)\", \"30: [Expired] Subscription for A (X)\", \"30: [Expired] Subscription for A (X)\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"A,X,0,30\"]"
+    },
+    {
+     "name": "schedule",
+     "type": "String[]",
+     "rawValue": "[\"start,Welcome\", \"-15,Upcoming expration\", \"end,Expired\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"0: [Welcome] Subscription for A (X)\", \"15: [Upcoming expration] Subscription for A (X)\", \"30: [Expired] Subscription for A (X)\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"A,X,0,30\", \"A,X,0,30\"]"
+    },
+    {
+     "name": "schedule",
+     "type": "String[]",
+     "rawValue": "[\"start,Welcome\", \"end,Expired\", \"-15,Upcoming expiration\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[\"B,3,extension,15\", \"A,5,plan,Y\", \"B,3,extension,15\"]"
+    }
+   ],
+   "expectedRaw": "[\"0: [Welcome] Subscription for A (X)\", \"0: [Welcome] Subscription for A (X)\", \"5: [Changed] Subscription for A (Y)\", \"5: [Changed] Subscription for A (Y)\", \"15: [Upcoming expiration] Subscription for A (Y)\", \"15: [Upcoming expiration] Subscription for A (Y)\", \"30: [Expired] Subscription for A (Y)\", \"30: [Expired] Subscription for A (Y)\"]"
+  }
+ ]
+}

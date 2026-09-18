@@ -1,0 +1,128 @@
+{
+ "problemId": "spacex-starlink-beam-planner",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "double[][]",
+     "rawValue": "[[0.0, 0.0, 0.0, 1.0], [0.0, 1.0, 0.0]]"
+    },
+    {
+     "name": "satellites",
+     "type": "double[][]",
+     "rawValue": "[[2.0, 0.0, 0.0], [0.0, 2.0, 0.0]]"
+    },
+    {
+     "name": "minimumServed",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[[1, 1, 1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "double[][]",
+     "rawValue": "[[1.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]"
+    },
+    {
+     "name": "satellites",
+     "type": "double[][]",
+     "rawValue": "[[2.0, 0.0, 0.0], [2.0, 0.0, 0.0]]"
+    },
+    {
+     "name": "minimumServed",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[[0, 0, 1], [1, 1, 1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "double[][]",
+     "rawValue": "[[3.502, 1.145, 5.795, 5.327, 1.924]]"
+    },
+    {
+     "name": "satellites",
+     "type": "double[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "minimumServed",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "double[][]",
+     "rawValue": "[[0.0, 1.0, 0.0], [0.0, 1.0, 0.0]]"
+    },
+    {
+     "name": "satellites",
+     "type": "double[][]",
+     "rawValue": "[[2.0, 0.0, 0.0], [2.0, 0.0, 0.0], [2.0, 0.0, 0.0]]"
+    },
+    {
+     "name": "minimumServed",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "double[][]",
+     "rawValue": "[[-2.254, -2.288, -1.224]]"
+    },
+    {
+     "name": "satellites",
+     "type": "double[][]",
+     "rawValue": "[[-2.127, -1.755, 0.366]]"
+    },
+    {
+     "name": "minimumServed",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "double[][]",
+     "rawValue": "[[1.0, 0.0, 0.0], [1.0, 0.0, 0.0]]"
+    },
+    {
+     "name": "satellites",
+     "type": "double[][]",
+     "rawValue": "[[0.0, 2.0, 0.0], [2.0, 0.0, 0.0]]"
+    },
+    {
+     "name": "minimumServed",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[[0, 1, 1], [1, 1, 2]]"
+  }
+ ]
+}

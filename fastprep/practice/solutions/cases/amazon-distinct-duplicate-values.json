@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-distinct-duplicate-values",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[4, 3, 2]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[7, 7]"
+    }
+   ],
+   "expectedRaw": "[7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 4, -3, -4, 1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[4, 2, 4, 3]"
+    }
+   ],
+   "expectedRaw": "[4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[3, -4, 1, -2]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[4, 2, 4, 2, 4]"
+    }
+   ],
+   "expectedRaw": "[4, 2]"
+  }
+ ]
+}

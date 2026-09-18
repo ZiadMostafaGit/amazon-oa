@@ -1,0 +1,98 @@
+{
+ "problemId": "docusign-json-schema-validator",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "schemaJson",
+     "type": "String",
+     "rawValue": "\"{\\\"_type\\\":\\\"Person\\\",\\\"properties\\\"\\\":[{\\\"name\\\":\\\"name\\\",\\\"type\\\":\\\"string\\\",\\\"required\\\":true}]}\""
+    },
+    {
+     "name": "objectJson",
+     "type": "String",
+     "rawValue": "\"{\\\"_type\\\":\\\"Dog\\\",\\\"name\\\":\\\"Seven\\\"}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schemaJson",
+     "type": "String",
+     "rawValue": "\"{\\\"_typpe\\\":\\\"Person\\\",\\\"properties\\\":[]}\""
+    },
+    {
+     "name": "objectJson",
+     "type": "String",
+     "rawValue": "\"{not valid JSON}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schemaJson",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "objectJson",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schemaJson",
+     "type": "String",
+     "rawValue": "\"{\\\"_type\\\":\\\"Person\\\",\\\"prooperties\\\":[]}\""
+    },
+    {
+     "name": "objectJson",
+     "type": "String",
+     "rawValue": "\"{nt valid JSON}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schemaJson",
+     "type": "String",
+     "rawValue": "\"\\\"_type\\\":\\\"Person\\\",\\\"properties\\\":[]}\""
+    },
+    {
+     "name": "objectJson",
+     "type": "String",
+     "rawValue": "\"{not valid JJSON}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schemaJson",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "objectJson",
+     "type": "String",
+     "rawValue": "\"ab\""
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

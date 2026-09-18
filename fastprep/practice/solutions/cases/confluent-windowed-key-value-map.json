@@ -1,0 +1,98 @@
+{
+ "problemId": "confluent-windowed-key-value-map",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"average 2\", \"average 5\"]"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[\"EMPTY\", \"EMPTY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"average 8\", \"put 3 x 4\", \"delete 8 x\", \"average 7\"]"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[\"EMPTY\", \"EMPTY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"get 5 a\", \"average 2\", \"average 5\", \"put 1 b 20\", \"put 0 a 10\", \"average 2\"]"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[\"NOT_FOUND\", \"EMPTY\", \"EMPTY\", \"15\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put 0 a 10\", \"average 2\", \"get 5 a\", \"put 1 b 20\"]"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[\"10\", \"NOT_FOUND\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"average 2\", \"average 5\", \"put 1 b 20\", \"put 0 a 10\"]"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "[\"EMPTY\", \"EMPTY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put 4 x 9\", \"put 4 x 9\", \"get 7 x\", \"average 7\", \"delete 8 x\", \"average 8\"]"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "[\"NOT_FOUND\", \"EMPTY\", \"EMPTY\"]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "nextdoor-in-memory-database-savepoints",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"BEGIN\", \"SET a 1\", \"COUNT\", \"COUNT\", \"GET a\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"0\", \"0\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"COUNT\", \"BEGIN\", \"SET a 1\", \"COMMIT\", \"COUNT\", \"GET a\", \"GET a\", \"COUNT\", \"GET a\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"OK\", \"OK\", \"OK\", \"1\", \"1\", \"1\", \"1\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"BEGIN\", \"SET a 1\", \"GET a\", \"COUNT\", \"COMMIT\", \"COUNT\", \"COUNT\", \"GET a\", \"BEGIN\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"1\", \"0\", \"OK\", \"1\", \"1\", \"1\", \"OK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"BEGIN\", \"SET x outer\", \"BEGIN\", \"BEGIN\", \"SET x inner\", \"GET x\", \"ROLLBACK\", \"GET x\", \"BEGIN\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"OK\", \"OK\", \"inner\", \"OK\", \"outer\", \"OK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"GET x\", \"ROLLBACK\", \"COMMIT\", \"BEGIN\", \"GET x\", \"SET x inner\", \"SET x outer\", \"SET x inner\", \"GET x\"]"
+    }
+   ],
+   "expectedRaw": "[\"NOT_FOUND\", \"ERROR\", \"ERROR\", \"OK\", \"NOT_FOUND\", \"OK\", \"OK\", \"OK\", \"inner\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"COUNT\", \"COMMIT\", \"COUNT\", \"GET a\", \"SET a 1\", \"SET a 1\", \"GET a\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"ERROR\", \"0\", \"NOT_FOUND\", \"ERROR\", \"ERROR\", \"NOT_FOUND\"]"
+  }
+ ]
+}

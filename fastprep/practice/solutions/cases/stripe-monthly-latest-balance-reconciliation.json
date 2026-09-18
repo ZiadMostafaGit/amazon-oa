@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-monthly-latest-balance-reconciliation",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "primaryRows",
+     "type": "String[]",
+     "rawValue": "[\"BA,566,2021-12-31,300\", \"BA,566,2021-12-31,300\"]"
+    },
+    {
+     "name": "comparisonRows",
+     "type": "String[]",
+     "rawValue": "[\"BA,566,2021-12-31,300\"]"
+    },
+    {
+     "name": "month",
+     "type": "String",
+     "rawValue": "\"2021-2\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "primaryRows",
+     "type": "String[]",
+     "rawValue": "[\"A,1,2020-05-31,-5\", \"A,1,2020-05-31,-5\", \"A,1,2020-05-31,-5\"]"
+    },
+    {
+     "name": "comparisonRows",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "month",
+     "type": "String",
+     "rawValue": "\"220-05\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "primaryRows",
+     "type": "String[]",
+     "rawValue": "[\"A,1,2020-05-31,-5\", \"A,1,2020-05-31,-5\"]"
+    },
+    {
+     "name": "comparisonRows",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "month",
+     "type": "String",
+     "rawValue": "\"220-05\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "primaryRows",
+     "type": "String[]",
+     "rawValue": "[\"A,1,2020-05-31,-5\"]"
+    },
+    {
+     "name": "comparisonRows",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "month",
+     "type": "String",
+     "rawValue": "\"202005\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "primaryRows",
+     "type": "String[]",
+     "rawValue": "[\"BA,566,2021-12-31,300\", \"HSBC,123,2021-12-31,150\", \"BA,566,2021-12-31,300\"]"
+    },
+    {
+     "name": "comparisonRows",
+     "type": "String[]",
+     "rawValue": "[\"BA,566,202112-31,250\"]"
+    },
+    {
+     "name": "month",
+     "type": "String",
+     "rawValue": "\"22021-12\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "primaryRows",
+     "type": "String[]",
+     "rawValue": "[\"HSBC,123,2021-12-31,150\", \"HSBC,123,2021-12-31,150\"]"
+    },
+    {
+     "name": "comparisonRows",
+     "type": "String[]",
+     "rawValue": "[\"HBC,123,2021-12-30,150\", \"BA,566,2021-12-31,300\"]"
+    },
+    {
+     "name": "month",
+     "type": "String",
+     "rawValue": "\"2021-2\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

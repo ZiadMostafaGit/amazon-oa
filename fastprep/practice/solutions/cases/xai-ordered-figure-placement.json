@@ -1,0 +1,128 @@
+{
+ "problemId": "xai-ordered-figure-placement",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "figures",
+     "type": "char[]",
+     "rawValue": "[\"D\", \"A\", \"C\"]"
+    }
+   ],
+   "expectedRaw": "[[1, 2, 3, 3], [1, 1, 3, 3], [1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "figures",
+     "type": "char[]",
+     "rawValue": "[\"D\", \"B\", \"D\", \"A\", \"C\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "figures",
+     "type": "char[]",
+     "rawValue": "[\"A\", \"D\"]"
+    }
+   ],
+   "expectedRaw": "[[1, 2, 0], [0, 2, 2], [0, 2, 0], [0, 0, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "figures",
+     "type": "char[]",
+     "rawValue": "[\"A\", \"E\", \"D\", \"E\"]"
+    }
+   ],
+   "expectedRaw": "[[1, 2, 0, 3, 0], [2, 2, 2, 3, 3], [0, 0, 0, 3, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "figures",
+     "type": "char[]",
+     "rawValue": "[\"D\", \"A\", \"A\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "figures",
+     "type": "char[]",
+     "rawValue": "[\"A\", \"E\", \"D\", \"E\"]"
+    }
+   ],
+   "expectedRaw": "[[1, 2, 0], [2, 2, 2], [0, 0, 0]]"
+  }
+ ]
+}

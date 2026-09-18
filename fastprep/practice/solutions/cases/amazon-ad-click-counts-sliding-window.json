@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-ad-click-counts-sliding-window",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"CLICK shoes 159\", \"COUNT shoes 160\", \"COUNT books 180\"]"
+    },
+    {
+     "name": "kMinutes",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"CLICK ad1 10\", \"COUNT ad1 70\", \"CLICK ad1 69\", \"COUNT ad1 70\", \"CLICK ad1 69\"]"
+    },
+    {
+     "name": "kMinutes",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"COUNT books 180\", \"CLICK books 120\", \"CLICK shoes 100\", \"COUNT shoes 220\", \"CLICK shoes 159\", \"CLICK books 120\", \"COUNT shoes 160\"]"
+    },
+    {
+     "name": "kMinutes",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"CLICK books 120\", \"CLICK shoes 159\", \"COUNT shoes 160\", \"COUNT shoes 220\", \"CLICK shoes 100\"]"
+    },
+    {
+     "name": "kMinutes",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "kMinutes",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"CLICK shoes 100\", \"CLICK books 120\", \"CLICK shoes 159\", \"COUNT shoes 160\", \"COUNT shoes 160\", \"COUNT books 180\"]"
+    },
+    {
+     "name": "kMinutes",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "citadel-search-suggestions-prefix-tree",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[\"moneypot\", \"mousepad\"]"
+    },
+    {
+     "name": "query",
+     "type": "String",
+     "rawValue": "\"mousepad\""
+    }
+   ],
+   "expectedRaw": "[[\"moneypot\", \"mousepad\"], [\"moneypot\", \"mousepad\"], [\"mousepad\"], [\"mousepad\"], [\"mousepad\"], [\"mousepad\"], [\"mousepad\"], [\"mousepad\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[\"alpha\", \"cat\", \"beta\"]"
+    },
+    {
+     "name": "query",
+     "type": "String",
+     "rawValue": "\"alpine\""
+    }
+   ],
+   "expectedRaw": "[[\"alpha\"], [\"alpha\"], [\"alpha\"], [], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[\"alpha\", \"alpha\", \"beta\"]"
+    },
+    {
+     "name": "query",
+     "type": "String",
+     "rawValue": "\"alpha\""
+    }
+   ],
+   "expectedRaw": "[[\"alpha\", \"alpha\"], [\"alpha\", \"alpha\"], [\"alpha\", \"alpha\"], [\"alpha\", \"alpha\"], [\"alpha\", \"alpha\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[\"baggage\", \"banner\", \"box\", \"cloths\"]"
+    },
+    {
+     "name": "query",
+     "type": "String",
+     "rawValue": "\"box\""
+    }
+   ],
+   "expectedRaw": "[[\"baggage\", \"banner\", \"box\"], [\"box\"], [\"box\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[\"alpha\", \"beta\", \"alpine\", \"beta\"]"
+    },
+    {
+     "name": "query",
+     "type": "String",
+     "rawValue": "\"cat\""
+    }
+   ],
+   "expectedRaw": "[[], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"b\"]"
+    },
+    {
+     "name": "query",
+     "type": "String",
+     "rawValue": "\"0\""
+    }
+   ],
+   "expectedRaw": "[[]]"
+  }
+ ]
+}

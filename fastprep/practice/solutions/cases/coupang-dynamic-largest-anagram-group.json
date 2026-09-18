@@ -1,0 +1,68 @@
+{
+ "problemId": "coupang-dynamic-largest-anagram-group",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"add\", \"tan\"], [\"largestGroup\"], [\"remove\", \"eat\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"tan\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"largestGroup\"], [\"remove\", \"ghost\"], [\"listen\", \"ghost\", \"listen\"], [\"remove\", \"ghost\"], [\"add\", \"silent\"]]"
+    }
+   ],
+   "expectedRaw": "[[], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"largestGroup\"], [\"remove\", \"ghost\"], [\"add\", \"silent\"]]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"largestGroup\"], [\"largestGroup\"], [\"remove\", \"ghost\"], [\"add\", \"listen\"], [\"add\", \"silent\"], [\"largestGroup\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], [\"listen\", \"silent\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"add\", \"eat\"], [\"add\", \"tea\"], [\"add\", \"tan\"], [\"remove\", \"eat\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"add\", \"tea\"], [\"largestGroup\"], [\"largestGroup\"], [\"add\", \"eat\"], [\"remove\", \"eat\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"tea\"], [\"tea\"]]"
+  }
+ ]
+}

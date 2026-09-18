@@ -1,0 +1,98 @@
+{
+ "problemId": "atlassian-count-anagram-sentences",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "wordSet",
+     "type": "String[]",
+     "rawValue": "[\"it\"]"
+    },
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[\"listen it is silen\"]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wordSet",
+     "type": "String[]",
+     "rawValue": "[\"listen\", \"it\", \"it\", \"it\", \"is\"]"
+    },
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[\"listen it is  silent\"]"
+    }
+   ],
+   "expectedRaw": "[3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wordSet",
+     "type": "String[]",
+     "rawValue": "[\"silent\", \"is\", \"it\", \"is\"]"
+    },
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[\"liste  it is silent\"]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wordSet",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"ab\"]"
+    },
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wordSet",
+     "type": "String[]",
+     "rawValue": "[\"it\", \"silent\", \"it\", \"is\"]"
+    },
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[\"listen it is silent\", \"listen it is silent\"]"
+    }
+   ],
+   "expectedRaw": "[2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wordSet",
+     "type": "String[]",
+     "rawValue": "[\"is\", \"is\", \"listen\"]"
+    },
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[\"listen it is ssilent\"]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  }
+ ]
+}

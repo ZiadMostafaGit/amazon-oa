@@ -1,0 +1,68 @@
+{
+ "problemId": "ibm-alphabetically-smallest-palindrome",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"azzzzbbb\""
+    }
+   ],
+   "expectedRaw": "\"abzzzzba\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"azzbbb\""
+    }
+   ],
+   "expectedRaw": "\"abzzba\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"fhaiggh\""
+    }
+   ],
+   "expectedRaw": "\"aghfhga\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "\"dgd\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aazzzbbb\""
+    }
+   ],
+   "expectedRaw": "\"abbzzbba\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"fhhaigh\""
+    }
+   ],
+   "expectedRaw": "\"afhghfa\""
+  }
+ ]
+}

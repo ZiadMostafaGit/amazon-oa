@@ -1,0 +1,68 @@
+{
+ "problemId": "careem-chronological-request-counter",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"COUNT\", \"70\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"10\"], [\"ADD\", \"70\"], [\"10\", \"1\", \"70\", \"1\"], [\"ADD\", \"70\"], [\"COUNT\", \"71\", \"1\"], [\"COUNT\", \"71\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[0, 2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"70\"], [\"COUNT\", \"70\", \"1\"], [\"COUNT\", \"71\", \"1\"], [\"ADD\", \"10\"], [\"COUNT\", \"70\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"0\"], [\"COUNT\", \"0\", \"1\"], [\"COUNT\", \"0\", \"5\"]]"
+    }
+   ],
+   "expectedRaw": "[1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"0\"], [\"COUNT\", \"0\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"10\"], [\"COUNT\", \"10\", \"1\"], [\"COUNT\", \"71\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[1, 0]"
+  }
+ ]
+}

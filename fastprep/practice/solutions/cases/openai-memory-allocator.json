@@ -1,0 +1,128 @@
+{
+ "problemId": "openai-memory-allocator",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "strategy",
+     "type": "String",
+     "rawValue": "\"free 0\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"malloc 4\", \"malloc 4\", \"malloc 4\", \"malloc 3\", \"free 1\", \"free 0\", \"malloc 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"4\", \"-1\", \"-1\", \"INVALID\", \"OK\", \"-1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "strategy",
+     "type": "String",
+     "rawValue": "\"free 4\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"free 1\", \"malloc 5\", \"free 4\", \"free 0\", \"malloc 4\", \"malloc 3\", \"free 1\", \"malloc 4\"]"
+    }
+   ],
+   "expectedRaw": "[\"INVALID\", \"0\", \"INVALID\", \"OK\", \"0\", \"4\", \"INVALID\", \"-1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-8"
+    },
+    {
+     "name": "strategy",
+     "type": "String",
+     "rawValue": "\"malloc 3\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"malloc 4\", \"malloc 4\", \"free 4\", \"free 1\", \"malloc 3\", \"free 1\", \"free 0\", \"malloc 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"-1\", \"-1\", \"INVALID\", \"INVALID\", \"-1\", \"INVALID\", \"INVALID\", \"-1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "strategy",
+     "type": "String",
+     "rawValue": "\"malloc 4\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"malloc 4\", \"malloc 4\", \"free 4\", \"malloc 3\", \"free 1\", \"free 0\", \"malloc 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"-1\", \"INVALID\", \"4\", \"INVALID\", \"OK\", \"-1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "strategy",
+     "type": "String",
+     "rawValue": "\"free 4\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"malloc 5\", \"free 0\", \"malloc 4\", \"malloc 3\", \"free 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"OK\", \"0\", \"4\", \"INVALID\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "11"
+    },
+    {
+     "name": "strategy",
+     "type": "String",
+     "rawValue": "\"malloc 3\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"malloc 2\", \"malloc 4\", \"malloc 2\", \"free 0\", \"free 8\", \"malloc 4\", \"free 5\", \"malloc 6\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"2\", \"6\", \"OK\", \"INVALID\", \"-1\", \"INVALID\", \"-1\"]"
+  }
+ ]
+}

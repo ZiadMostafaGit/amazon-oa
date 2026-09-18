@@ -1,0 +1,68 @@
+{
+ "problemId": "microsoft-arithmetic-expression-evaluator",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"-7 + 5 ** 8 - 5 / 4 + (5 + 4)\""
+    }
+   ],
+   "expectedRaw": "41"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"-7 + 5 * 8 -5 / 4 + (5 + 4)\""
+    }
+   ],
+   "expectedRaw": "41"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"2 * -(3 + 4) + 10 // 3\""
+    }
+   ],
+   "expectedRaw": "-11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"-7 + 5 * 8 -  5 / 4 + (5 + 4)\""
+    }
+   ],
+   "expectedRaw": "41"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"-7 + 5 * 8 -- 5 / 4 + (5 + 4)\""
+    }
+   ],
+   "expectedRaw": "43"
+  }
+ ]
+}

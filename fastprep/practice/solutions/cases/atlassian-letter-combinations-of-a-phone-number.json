@@ -1,0 +1,68 @@
+{
+ "problemId": "atlassian-letter-combinations-of-a-phone-number",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"223\""
+    }
+   ],
+   "expectedRaw": "[\"aad\", \"aae\", \"aaf\", \"abd\", \"abe\", \"abf\", \"acd\", \"ace\", \"acf\", \"bad\", \"bae\", \"baf\", \"bbd\", \"bbe\", \"bbf\", \"bcd\", \"bce\", \"bcf\", \"cad\", \"cae\", \"caf\", \"cbd\", \"cbe\", \"cbf\", \"ccd\", \"cce\", \"ccf\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"2\""
+    }
+   ],
+   "expectedRaw": "[\"a\", \"b\", \"c\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"233\""
+    }
+   ],
+   "expectedRaw": "[\"add\", \"ade\", \"adf\", \"aed\", \"aee\", \"aef\", \"afd\", \"afe\", \"aff\", \"bdd\", \"bde\", \"bdf\", \"bed\", \"bee\", \"bef\", \"bfd\", \"bfe\", \"bff\", \"cdd\", \"cde\", \"cdf\", \"ced\", \"cee\", \"cef\", \"cfd\", \"cfe\", \"cff\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

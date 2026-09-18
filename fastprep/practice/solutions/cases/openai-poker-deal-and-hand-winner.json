@@ -1,0 +1,98 @@
+{
+ "problemId": "openai-poker-deal-and-hand-winner",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"TS\", \"bob\"]"
+    },
+    {
+     "name": "dealtCards",
+     "type": "String[]",
+     "rawValue": "[\"KS\", \"AS\", \"9D\", \"QS\", \"9C\", \"TS\", \"2C\", \"JS\", \"2H\"]"
+    }
+   ],
+   "expectedRaw": "[\"DEAL TS KS\", \"DEAL bob AS\", \"DEAL TS 9D\", \"DEAL bob QS\", \"DEAL TS 9C\", \"DEAL bob TS\", \"DEAL TS 2C\", \"DEAL bob JS\", \"DEAL TS 2H\", \"WINNERS bob\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"bob\"]"
+    },
+    {
+     "name": "dealtCards",
+     "type": "String[]",
+     "rawValue": "[\"2H\", \"AS\", \"QS\", \"7S\", \"9C\", \"KS\", \"TS\", \"9D\", \"2C\", \"JS\"]"
+    }
+   ],
+   "expectedRaw": "[\"DEAL bob 2H\", \"DEAL bob AS\", \"DEAL bob QS\", \"DEAL bob 7S\", \"DEAL bob 9C\", \"DEAL bob KS\", \"DEAL bob TS\", \"DEAL bob 9D\", \"DEAL bob 2C\", \"DEAL bob JS\", \"WINNERS bob\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"9C\"]"
+    },
+    {
+     "name": "dealtCards",
+     "type": "String[]",
+     "rawValue": "[\"AS\", \"9S\", \"QS\", \"KC\", \"QS\", \"JC\", \"JD\", \"9S\", \"9C\"]"
+    }
+   ],
+   "expectedRaw": "[\"DEAL b AS\", \"DEAL 9C 9S\", \"DEAL b QS\", \"DEAL 9C KC\", \"DEAL b QS\", \"DEAL 9C JC\", \"DEAL b JD\", \"DEAL 9C 9S\", \"DEAL b 9C\", \"WINNERS b\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"KS\"]"
+    },
+    {
+     "name": "dealtCards",
+     "type": "String[]",
+     "rawValue": "[\"AS\", \"AS\", \"KS\", \"9D\", \"QS\", \"2H\", \"JS\", \"2C\", \"TS\", \"7S\"]"
+    }
+   ],
+   "expectedRaw": "[\"DEAL KS AS\", \"DEAL KS AS\", \"DEAL KS KS\", \"DEAL KS 9D\", \"DEAL KS QS\", \"DEAL KS 2H\", \"DEAL KS JS\", \"DEAL KS 2C\", \"DEAL KS TS\", \"DEAL KS 7S\", \"WINNERS KS\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"bob\", \"bob\", \"bob\"]"
+    },
+    {
+     "name": "dealtCards",
+     "type": "String[]",
+     "rawValue": "[\"9C\", \"KS\", \"9D\", \"QS\", \"2H\", \"JS\", \"2C\", \"2H\", \"7S\"]"
+    }
+   ],
+   "expectedRaw": "[\"DEAL bob 9C\", \"DEAL bob KS\", \"DEAL bob 9D\", \"DEAL bob QS\", \"DEAL bob 2H\", \"DEAL bob JS\", \"DEAL bob 2C\", \"DEAL bob 2H\", \"DEAL bob 7S\", \"WINNERS bob,bob,bob\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"AS\"]"
+    },
+    {
+     "name": "dealtCards",
+     "type": "String[]",
+     "rawValue": "[\"QS\", \"KD\", \"9S\", \"KC\", \"9C\", \"JD\", \"JC\", \"AH\", \"QH\"]"
+    }
+   ],
+   "expectedRaw": "[\"DEAL a QS\", \"DEAL AS KD\", \"DEAL a 9S\", \"DEAL AS KC\", \"DEAL a 9C\", \"DEAL AS JD\", \"DEAL a JC\", \"DEAL AS AH\", \"DEAL a QH\", \"WINNERS a\"]"
+  }
+ ]
+}

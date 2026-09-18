@@ -1,0 +1,98 @@
+{
+ "problemId": "susquehanna-leftmost-memory-block-allocator",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 1, 1, 0, 0, 1, 0, 0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 1], [0, 4], [1, 2], [0, 5]]"
+    }
+   ],
+   "expectedRaw": "[0, 1, -1, 1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0, 0, 0, 1]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [0, 2], [0, 3], [0, 2]]"
+    }
+   ],
+   "expectedRaw": "[-1, 1, -1, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [0, 1], [0, 1], [1, 2], [1, 2], [1, 4]]"
+    }
+   ],
+   "expectedRaw": "[0, 2, 4, 1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [0, 1], [1, -1], [1, 4], [0, 4]]"
+    }
+   ],
+   "expectedRaw": "[2, 0, -1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [1, 4], [0, 1], [1, 2], [1, 4], [0, 4]]"
+    }
+   ],
+   "expectedRaw": "[0, -1, 2, 1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0, 0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [0, 0], [1, 1], [1, 1]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, -1]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-account-balance-part1-totals",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,-30\", \"account_B,-50\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_C,200\", \"account_B,50\", \"account_A,-30\", \"account_B,-50\", \"account_A,100\", \"account_B,-50\"]"
+    }
+   ],
+   "expectedRaw": "[\"account_A:70\", \"account_C:200\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,100\", \"account_A,-30\", \"account_C,200\"]"
+    }
+   ],
+   "expectedRaw": "[\"account_A:70\", \"account_C:200\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,100\", \"account_A,-30\", \"account_C,200\", \"acccount_B,-50\"]"
+    }
+   ],
+   "expectedRaw": "[\"account_A:70\", \"account_C:200\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,-30\", \"account_B,-50\", \"account_B,50\", \"account_A,100\"]"
+    }
+   ],
+   "expectedRaw": "[\"account_A:70\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,100\", \"account_B,50\", \"account_B,-50\", \"account_A,-30\", \"account_C,200\"]"
+    }
+   ],
+   "expectedRaw": "[\"account_A:70\", \"account_C:200\"]"
+  }
+ ]
+}

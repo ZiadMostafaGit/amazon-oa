@@ -1,0 +1,98 @@
+{
+ "problemId": "nvidia-implement-malloc",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "heapSize",
+     "type": "int",
+     "rawValue": "33"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"ALLOC 16\", \"FREE 0\", \"ALLOC 8\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "heapSize",
+     "type": "int",
+     "rawValue": "48"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"ALLOC 24\", \"ALLOC 8\", \"ALLOC 8\"]"
+    }
+   ],
+   "expectedRaw": "[0, 24, 32]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "heapSize",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"ALLOC 24\", \"ALLOC 8\", \"ALLOC 8\", \"ALLOC 24\", \"FREE 0\", \"ALLOC 8\"]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "heapSize",
+     "type": "int",
+     "rawValue": "32"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"ALLOC 8\", \"FREE 0\", \"ALLOC 8\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "heapSize",
+     "type": "int",
+     "rawValue": "48"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"FREE 0\", \"ALLOC 8\", \"ALLOC 24\", \"ALLOC 8\", \"ALLOC 8\"]"
+    }
+   ],
+   "expectedRaw": "[0, 8, 32, 40]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "heapSize",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"ALLOC 8\", \"FREE 0\", \"ALLOC 8\", \"ALLOC 16\"]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1]"
+  }
+ ]
+}

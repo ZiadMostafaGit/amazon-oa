@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-evolving-merchant-clusters",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "day1",
+     "type": "String[]",
+     "rawValue": "[\"acct_b,address:main,2\", \"acct_b,address:main,2\"]"
+    },
+    {
+     "name": "day2",
+     "type": "String[]",
+     "rawValue": "[\"acct_b,address:main,2\"]"
+    },
+    {
+     "name": "day3",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"Day 1:\", \"Day 2:\", \"Day 3:\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "day1",
+     "type": "String[]",
+     "rawValue": "[\"acct_b,address:main,2\", \"acct_a,address:main,2\", \"acct_a,address:main,2\"]"
+    },
+    {
+     "name": "day2",
+     "type": "String[]",
+     "rawValue": "[\"acct_c,email:team,2\", \"acct_c,email:team,2\"]"
+    },
+    {
+     "name": "day3",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"Day 1:\", \"acct_a:acct_a,acct_b\", \"Day 2:\", \"acct_a:acct_a,acct_b\", \"Day 3:\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "day1",
+     "type": "String[]",
+     "rawValue": "[\"cct_a,address:main,2\"]"
+    },
+    {
+     "name": "day2",
+     "type": "String[]",
+     "rawValue": "[\"acct_b,email:team,2\", \"acct_b,email:team,2\", \"acct_c,email:team,2\"]"
+    },
+    {
+     "name": "day3",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"Day 1:\", \"Day 2:\", \"acct_b:acct_b,acct_c\", \"Day 3:\", \"acct_b:acct_b,acct_c\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "day1",
+     "type": "String[]",
+     "rawValue": "[\"acct_a,address:main,2\", \"acct_b,address:main,2\", \"acct_b,address:main,2\"]"
+    },
+    {
+     "name": "day2",
+     "type": "String[]",
+     "rawValue": "[\"acct_b,email:teeam,2\", \"acct_c,email:team,2\"]"
+    },
+    {
+     "name": "day3",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"Day 1:\", \"acct_a:acct_a,acct_b\", \"Day 2:\", \"acct_a:acct_a,acct_b\", \"Day 3:\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "day1",
+     "type": "String[]",
+     "rawValue": "[\"acct_b,address:main,2\"]"
+    },
+    {
+     "name": "day2",
+     "type": "String[]",
+     "rawValue": "[\"acct_c,email:team,2\", \"acct_c,email:team,2\"]"
+    },
+    {
+     "name": "day3",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"Day 1:\", \"Day 2:\", \"Day 3:\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "day1",
+     "type": "String[]",
+     "rawValue": "[\"acct_a,address:main,2\", \"acct_b,addres:main,2\", \"acct_b,addres:main,2\", \"acct_b,addres:main,2\"]"
+    },
+    {
+     "name": "day2",
+     "type": "String[]",
+     "rawValue": "[\"acct_c,email:team,2\"]"
+    },
+    {
+     "name": "day3",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"Day 1:\", \"Day 2:\", \"Day 3:\"]"
+  }
+ ]
+}

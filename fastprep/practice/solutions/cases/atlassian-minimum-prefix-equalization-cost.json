@@ -1,0 +1,68 @@
+{
+ "problemId": "atlassian-minimum-prefix-equalization-cost",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1, 4, 2, 5]"
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[2, 1, 5, 1, 1]"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1, 2, 1, 2]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1, 2, 1]"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

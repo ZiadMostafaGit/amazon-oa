@@ -1,0 +1,68 @@
+{
+ "problemId": "openai-online-chess-move-validation",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String[]",
+     "rawValue": "[\"g1f3\", \"g1f3\"]"
+    }
+   ],
+   "expectedRaw": "[\"LEGAL\", \"ILLEGAL\", \"rnbqkbnr\", \"pppppppp\", \"........\", \"........\", \"........\", \".....N..\", \"PPPPPPPP\", \"RNBQKB.R\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String[]",
+     "rawValue": "[\"e2e4\", \"e7e5\"]"
+    }
+   ],
+   "expectedRaw": "[\"LEGAL\", \"LEGAL\", \"rnbqkbnr\", \"pppp.ppp\", \"........\", \"....p...\", \"....P...\", \"........\", \"PPPP.PPP\", \"RNBQKBNR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String[]",
+     "rawValue": "[\"e7e5\", \"e2e4\", \"e7e5\", \"g1f3\"]"
+    }
+   ],
+   "expectedRaw": "[\"ILLEGAL\", \"LEGAL\", \"LEGAL\", \"LEGAL\", \"rnbqkbnr\", \"pppp.ppp\", \"........\", \"....p...\", \"....P...\", \".....N..\", \"PPPP.PPP\", \"RNBQKB.R\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String[]",
+     "rawValue": "[\"e2e4\"]"
+    }
+   ],
+   "expectedRaw": "[\"LEGAL\", \"rnbqkbnr\", \"pppppppp\", \"........\", \"........\", \"....P...\", \"........\", \"PPPP.PPP\", \"RNBQKBNR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String[]",
+     "rawValue": "[\"e7e5\", \"e2e4\"]"
+    }
+   ],
+   "expectedRaw": "[\"ILLEGAL\", \"LEGAL\", \"rnbqkbnr\", \"pppppppp\", \"........\", \"........\", \"....P...\", \"........\", \"PPPP.PPP\", \"RNBQKBNR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "moves",
+     "type": "String[]",
+     "rawValue": "[\"e2e5\", \"e2e4\"]"
+    }
+   ],
+   "expectedRaw": "[\"ILLEGAL\", \"LEGAL\", \"rnbqkbnr\", \"pppppppp\", \"........\", \"........\", \"....P...\", \"........\", \"PPPP.PPP\", \"RNBQKBNR\"]"
+  }
+ ]
+}

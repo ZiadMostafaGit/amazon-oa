@@ -1,0 +1,98 @@
+{
+ "problemId": "openai-versioned-followers-and-followees",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"FOLLOW 2 1\", \"SNAPSHOT\", \"GET_FOLLOWERS 1 0\", \"GET_FOLLOWEES 0 0\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"[2]\", \"[]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"GET_FOLLOWEES 0 1\", \"SNAPSHOT\", \"SNAPSHOT\", \"FOLLOW 0 2\", \"FOLLOW 0 1\", \"GET_FOLLOWERS 1 0\"]"
+    }
+   ],
+   "expectedRaw": "[\"[]\", \"0\", \"1\", \"[]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"GET_FOLLOWEES 0 1\", \"FOLLOW 0 3\", \"SNAPSHOT\", \"GET_FOLLOWERS 2 0\", \"FOLLOW 0 2\", \"SNAPSHOT\", \"UNFOLLOW 0 2\", \"FOLLOW 1 2\", \"SNAPSHOT\"]"
+    }
+   ],
+   "expectedRaw": "[\"[]\", \"0\", \"[]\", \"1\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"x\", \"abc\", \"b\", \"0\", \"abc\", \"0\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"dog\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SNAPSHOT\", \"GET_FOLLOWEES 0 0\", \"FOLLOW 2 1\", \"FOLLOW 0 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"[]\"]"
+  }
+ ]
+}

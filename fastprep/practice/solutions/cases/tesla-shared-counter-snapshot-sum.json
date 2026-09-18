@@ -1,0 +1,68 @@
+{
+ "problemId": "tesla-shared-counter-snapshot-sum",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"TIMER\", \"THRESHOLD\", \"TIMER\", \"TIMER\", \"TIMEOUT\"]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"TIMER\", \"TIMER\", \"THRESHOLD\", \"TIMER\", \"THRESHOLD\", \"THRESHOLD\", \"TIMER\", \"TIMER\", \"THRESHOLD\", \"TIMEOUT\", \"TIMEOUT\", \"TIMER\", \"THRESHOLD\"]"
+    }
+   ],
+   "expectedRaw": "19"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"TIMEOUT\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"TIMER\", \"TIMEOUT\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"THRESHOLD\", \"TIMEOUT\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"dog\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"THRESHOLD\", \"TIMER\", \"THRESHOLD\", \"TIMER\", \"THRESHOLD\", \"TIMER\", \"THRESHOLD\", \"THRESHOLD\", \"TIMER\", \"TIMEOUT\"]"
+    }
+   ],
+   "expectedRaw": "9"
+  }
+ ]
+}

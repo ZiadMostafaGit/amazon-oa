@@ -1,0 +1,158 @@
+{
+ "problemId": "two-sigma-linear-interpolator",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "x_knots",
+     "type": "float[]",
+     "rawValue": "[-1.0, 0.0, 1.0, 2.0]"
+    },
+    {
+     "name": "y_knots",
+     "type": "float[]",
+     "rawValue": "[0.0, 10.0, 15.0, 0.0]"
+    },
+    {
+     "name": "x_input",
+     "type": "float",
+     "rawValue": "-0.343"
+    }
+   ],
+   "expectedRaw": "6.57"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "x_knots",
+     "type": "float[]",
+     "rawValue": "[-1.0, 2.0, -2.0, -1.0, 0.0]"
+    },
+    {
+     "name": "y_knots",
+     "type": "float[]",
+     "rawValue": "[15.0, 0.0, 0.0, 5.0, 10.0, 0.0]"
+    },
+    {
+     "name": "x_input",
+     "type": "float",
+     "rawValue": "-0.3"
+    }
+   ],
+   "expectedRaw": "11.5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "x_knots",
+     "type": "float[]",
+     "rawValue": "[0.0, 0.0, 1.0]"
+    },
+    {
+     "name": "y_knots",
+     "type": "float[]",
+     "rawValue": "[0.0, 0.0, 10.0, 5.0]"
+    },
+    {
+     "name": "x_input",
+     "type": "float",
+     "rawValue": "-0.3"
+    }
+   ],
+   "expectedRaw": "-3.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-7"
+    },
+    {
+     "name": "x_knots",
+     "type": "float[]",
+     "rawValue": "[-0.798, 0.637, 4.552]"
+    },
+    {
+     "name": "y_knots",
+     "type": "float[]",
+     "rawValue": "[-2.047, 2.73]"
+    },
+    {
+     "name": "x_input",
+     "type": "float",
+     "rawValue": "5.911"
+    }
+   ],
+   "expectedRaw": "20.286723344947735"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "x_knots",
+     "type": "float[]",
+     "rawValue": "[-2.0, -1.0, 1.0, 2.0]"
+    },
+    {
+     "name": "y_knots",
+     "type": "float[]",
+     "rawValue": "[0.0, 10.0, 15.0, 0.0, 5.0]"
+    },
+    {
+     "name": "x_input",
+     "type": "float",
+     "rawValue": "1.222"
+    }
+   ],
+   "expectedRaw": "11.67"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "x_knots",
+     "type": "float[]",
+     "rawValue": "[-3.062, 2.579]"
+    },
+    {
+     "name": "y_knots",
+     "type": "float[]",
+     "rawValue": "[1.427]"
+    },
+    {
+     "name": "x_input",
+     "type": "float",
+     "rawValue": "0.01"
+    }
+   ],
+   "expectedRaw": "1.427"
+  }
+ ]
+}

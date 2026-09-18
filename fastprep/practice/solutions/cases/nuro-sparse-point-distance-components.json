@@ -1,0 +1,98 @@
+{
+ "problemId": "nuro-sparse-point-distance-components",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[10, 10], [30, 30]]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[[0], [1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [2, 0], [0, 0], [4, 0], [20, 0]]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[[0, 1, 2, 3], [4]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [10, 10], [11, 10], [30, 30]]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[[0], [1, 2], [3]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [20, 0], [2, 0], [4, 0], [20, 0]]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[[0], [1, 4], [2], [3]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [4, 0], [20, 0]]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[[0], [1], [2]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [0, 0], [11, 10], [10, 10], [0, 0], [30, 30]]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[[0, 1, 4], [2, 3], [5]]"
+  }
+ ]
+}

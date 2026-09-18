@@ -1,0 +1,68 @@
+{
+ "problemId": "airbnb-resolve-battles",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "List<String>",
+     "rawValue": "[\"C Bohemia Move Munich\", \"C Bohemia Move Munich\"]"
+    }
+   ],
+   "expectedRaw": "[\"C [dead]\", \"C [dead]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "List<String>",
+     "rawValue": "[\"A Munich Hold\", \"B Warsaw Support A\", \"C Bohemia MoveMunich\"]"
+    }
+   ],
+   "expectedRaw": "[\"A Munich\", \"B Warsaw\", \"C Bohemia\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "List<String>",
+     "rawValue": "[\"B Warsaw Support A\", \"A Munich Hold\", \"B Warsaw Support A\", \"C Bohemia Move Munich\"]"
+    }
+   ],
+   "expectedRaw": "[\"B [dead]\", \"A Munich\", \"B [dead]\", \"C [dead]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "List<String>",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "List<String>",
+     "rawValue": "[\"B Warsaw Support A\", \"B Warssaw Support A\", \"C Bohemia Move Munich\"]"
+    }
+   ],
+   "expectedRaw": "[\"B Warssaw\", \"B Warssaw\", \"C Munich\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "List<String>",
+     "rawValue": "[\"A Munich Hold\", \"B Warsaw Support A\", \"C BohemiaMove Munich\"]"
+    }
+   ],
+   "expectedRaw": "[\"A Munich\", \"B Warsaw\", \"C BohemiaMove\"]"
+  }
+ ]
+}

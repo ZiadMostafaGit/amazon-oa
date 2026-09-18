@@ -1,0 +1,128 @@
+{
+ "problemId": "salesforce-budget-project-selection",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[4, 4]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[4, 8, 10, 5]"
+    },
+    {
+     "name": "budget",
+     "type": "int",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[2, 3, 2, 1]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[7]"
+    },
+    {
+     "name": "budget",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[3, 2]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[4, 5, -10]"
+    },
+    {
+     "name": "budget",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[2, 3]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[12, 2, 6]"
+    },
+    {
+     "name": "budget",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[6]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[12, 12]"
+    },
+    {
+     "name": "budget",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "12"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-2, -3]"
+    },
+    {
+     "name": "budget",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

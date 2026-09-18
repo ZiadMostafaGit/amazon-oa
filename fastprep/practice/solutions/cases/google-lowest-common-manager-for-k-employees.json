@@ -1,0 +1,128 @@
+{
+ "problemId": "google-lowest-common-manager-for-k-employees",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 47,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "int[]",
+     "rawValue": "[10, 20, 30, 40, 50, 60]"
+    },
+    {
+     "name": "managerIds",
+     "type": "int[]",
+     "rawValue": "[10, 20, 10, 40, 20, 40]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[60], [60, 50], [60, 50], [60, 50], [30, 60]]"
+    }
+   ],
+   "expectedRaw": "[60, 60, 60, 60, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "int[]",
+     "rawValue": "[10, 20, 30, 40, 50, 60]"
+    },
+    {
+     "name": "managerIds",
+     "type": "int[]",
+     "rawValue": "[-1, 10, 10, 20, 20, 40]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[30, 60]]"
+    }
+   ],
+   "expectedRaw": "[10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "int[]",
+     "rawValue": "[60, 10, 40, 20, 30, 50]"
+    },
+    {
+     "name": "managerIds",
+     "type": "int[]",
+     "rawValue": "[-1, 20, 10, 10, 20, 20, 40]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[60], [60, 50, 50], [30, 60]]"
+    }
+   ],
+   "expectedRaw": "[60, 60, 30]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "int[]",
+     "rawValue": "[10, 20, 30, 50, 60]"
+    },
+    {
+     "name": "managerIds",
+     "type": "int[]",
+     "rawValue": "[-1, 10, 10, 10, 20, 20, 40]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[60, 50], [30, 60]]"
+    }
+   ],
+   "expectedRaw": "[10, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "int[]",
+     "rawValue": "[2, 4, 1, 6, 3, 5, 7]"
+    },
+    {
+     "name": "managerIds",
+     "type": "int[]",
+     "rawValue": "[1, 3, 2, -1, 2, 3, 1, 2]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[4, 6, 7], [4, 5]]"
+    }
+   ],
+   "expectedRaw": "[4, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3, 4, 5, 5, 7]"
+    },
+    {
+     "name": "managerIds",
+     "type": "int[]",
+     "rawValue": "[3, 2, 2, 1, 1, -1, 3]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[4, 5], [2, 4]]"
+    }
+   ],
+   "expectedRaw": "[4, 2]"
+  }
+ ]
+}

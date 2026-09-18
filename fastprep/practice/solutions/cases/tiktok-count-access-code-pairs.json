@@ -1,0 +1,98 @@
+{
+ "problemId": "tiktok-count-access-code-pairs",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "fragments",
+     "type": "int[]",
+     "rawValue": "[12]"
+    },
+    {
+     "name": "accessCode",
+     "type": "int",
+     "rawValue": "1212"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "fragments",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "accessCode",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "fragments",
+     "type": "int[]",
+     "rawValue": "[10, 0, 21]"
+    },
+    {
+     "name": "accessCode",
+     "type": "int",
+     "rawValue": "12121"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "fragments",
+     "type": "int[]",
+     "rawValue": "[212, 12, 12, 12]"
+    },
+    {
+     "name": "accessCode",
+     "type": "int",
+     "rawValue": "-1212"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "fragments",
+     "type": "int[]",
+     "rawValue": "[1, 12, 12, 212]"
+    },
+    {
+     "name": "accessCode",
+     "type": "int",
+     "rawValue": "1212"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "fragments",
+     "type": "int[]",
+     "rawValue": "[1, 12, 212, 12]"
+    },
+    {
+     "name": "accessCode",
+     "type": "int",
+     "rawValue": "-1212"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

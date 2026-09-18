@@ -1,0 +1,68 @@
+{
+ "problemId": "pure-storage-one-shot-callback-event",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"FIRE\"]]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"REGISTER\", \"a\"], [\"REGISTER\", \"b\"], [\"REGISTER\", \"REGISTER\"], [\"REGISTER\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"REGISTER\", \"b\"], [\"FIRE\"], [\"REGISTER\", \"c\"], [\"REGISTER\", \"a\"], [\"FIRE\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"b\"], [\"c\"], [\"a\"], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"REGISTER\", \"b\"], [\"FIRE\"], [\"REGISTER\", \"b\"], [\"FIRE\"], [\"FIRE\"], [\"REGISTER\", \"c\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"b\"], [\"b\"], [], [], [\"c\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"REGISTER\", \"x\"], [\"REGISTER\", \"x\"]]"
+    }
+   ],
+   "expectedRaw": "[[], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"REGISTER\", \"x\"], [\"REGISTER\", \"x\"], [\"FIRE\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], [\"x\", \"x\"]]"
+  }
+ ]
+}

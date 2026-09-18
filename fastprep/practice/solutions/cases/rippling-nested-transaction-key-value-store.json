@@ -1,0 +1,68 @@
+{
+ "problemId": "rippling-nested-transaction-key-value-store",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"BEGIN\"], [\"SET\", \"theme\", \"dark\"], [\"GET\", \"theme\"], [\"GET\", \"theme\"]]"
+    }
+   ],
+   "expectedRaw": "[\"dark\", \"dark\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"BEGIN\"], [\"SET\", \"x\", \"7\"], [\"BEGIN\"], [\"COMMIT\"], [\"COMMIT\"], [\"GET\", \"x\"], [\"z\", \"BEGIN\", \"z\"]]"
+    }
+   ],
+   "expectedRaw": "[\"7\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"BEGIN\", \"BEGIN\"], [\"DELETE\", \"a\"], [\"GET\", \"a\"], [\"BEGIN\"], [\"SET\", \"a\", \"2\"], [\"COMMIT\"], [\"GET\", \"a\"], [\"COMMIT\"], [\"ROLLBACK\"], [\"GET\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"2\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"theme\", \"light\"], [\"GET\", \"theme\"], [\"BEGIN\"], [\"GET\", \"theme\"], [\"SET\", \"theme\", \"dark\"], [\"GET\", \"theme\"], [\"ROLLBACK\"], [\"GET\", \"theme\"]]"
+    }
+   ],
+   "expectedRaw": "[\"light\", \"light\", \"dark\", \"light\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"a\", \"1\"], [\"BEGIN\"], [\"DELETE\", \"a\"], [\"GET\", \"a\"], [\"BEGIN\"], [\"GET\", \"a\"], [\"SET\", \"a\", \"2\"], [\"COMMIT\"], [\"COMMIT\"], [\"GET\", \"a\"], [\"ROLLBACK\"], [\"GET\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"NULL\", \"2\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"10\", \"red\", \"abc\", \"bc\", \"yz\"], [\"blue\", \"red\", \"10\", \"red\", \"blue\"], [\"cat\", \"b\", \"yz\", \"x\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

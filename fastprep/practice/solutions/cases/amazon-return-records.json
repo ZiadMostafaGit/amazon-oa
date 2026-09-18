@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-return-records",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "attempts",
+     "type": "String[]",
+     "rawValue": "[\"logout user05\", \"logout user05\"]"
+    }
+   ],
+   "expectedRaw": "[\"Logout Unsuccessfully\", \"Logout Unsuccessfully\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "attempts",
+     "type": "String[]",
+     "rawValue": "[\"register user05 qwerty\", \"login user05 qwerty\", \"logout ser05\"]"
+    }
+   ],
+   "expectedRaw": "[\"Registered Successfully\", \"Logged In Successfully\", \"Logout Unsuccessfully\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "attempts",
+     "type": "String[]",
+     "rawValue": "[\"login user05 qwerty\", \"register user05 qwerty\", \"login user05 qwerty\", \"logout user05\"]"
+    }
+   ],
+   "expectedRaw": "[\"Login Unsuccessfully\", \"Registered Successfully\", \"Logged In Successfully\", \"Logged Out Successfully\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "attempts",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "attempts",
+     "type": "String[]",
+     "rawValue": "[\"login user05 qwerty\", \"login  user05 qwerty\", \"logout user05\"]"
+    }
+   ],
+   "expectedRaw": "[\"Login Unsuccessfully\", \"Login Unsuccessfully\", \"Logout Unsuccessfully\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "attempts",
+     "type": "String[]",
+     "rawValue": "[\"register david davi123\", \"register adam 1Adam1\", \"login david david123\", \"login adam 1adam1\", \"logout david\"]"
+    }
+   ],
+   "expectedRaw": "[\"Registered Successfully\", \"Registered Successfully\", \"Login Unsuccessfully\", \"Login Unsuccessfully\", \"Logout Unsuccessfully\"]"
+  }
+ ]
+}

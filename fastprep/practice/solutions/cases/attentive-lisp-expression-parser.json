@@ -1,0 +1,68 @@
+{
+ "problemId": "attentive-lisp-expression-parser",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\" (add 1  (mul 2 3)) \""
+    }
+   ],
+   "expectedRaw": "\"[\\\"add\\\",\\\"1\\\",[\\\"mul\\\",\\\"2\\\",\\\"3\\\"]]\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\" (add 1 (mul2 3)) \""
+    }
+   ],
+   "expectedRaw": "\"[\\\"add\\\",\\\"1\\\",[\\\"mul2\\\",\\\"3\\\"]]\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"\\\"1\\\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\" (add 1 (mul  2 3)) \""
+    }
+   ],
+   "expectedRaw": "\"[\\\"add\\\",\\\"1\\\",[\\\"mul\\\",\\\"2\\\",\\\"3\\\"]]\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\" (add 1 (mull 2 3)) \""
+    }
+   ],
+   "expectedRaw": "\"[\\\"add\\\",\\\"1\\\",[\\\"mull\\\",\\\"2\\\",\\\"3\\\"]]\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "\"\\\"dog\\\"\""
+  }
+ ]
+}

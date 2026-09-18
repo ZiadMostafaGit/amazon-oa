@@ -1,0 +1,68 @@
+{
+ "problemId": "wellsfargo-find-maximum-distance",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\". . . .\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\" S . . *\", \". . * .\", \". . . E\", \". . * .\", \". . . E\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\". . * .\", \". . . .\", \" S . . *\", \". . . E\", \" S . . *\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\". . . E\", \". . . .\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\". . * .\", \". . . .\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

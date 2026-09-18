@@ -1,0 +1,98 @@
+{
+ "problemId": "apple-sparse-matrix-multiplication",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "mat1",
+     "type": "int[][]",
+     "rawValue": "[[-1, 0, 3], [-1, 0, 3]]"
+    },
+    {
+     "name": "mat2",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1], [7, 0, 0], [7, 0, 0]]"
+    }
+   ],
+   "expectedRaw": "[[21, 0, -1], [21, 0, -1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "mat1",
+     "type": "int[][]",
+     "rawValue": "[[2, -1]]"
+    },
+    {
+     "name": "mat2",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "mat1",
+     "type": "int[][]",
+     "rawValue": "[[-1, 0, 3], [-1, 0, 3]]"
+    },
+    {
+     "name": "mat2",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [0, 0, 1], [7, 0, 0]]"
+    }
+   ],
+   "expectedRaw": "[[21, 0, 0], [21, 0, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "mat1",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [0, 0], [0, 0], [0, 0]]"
+    },
+    {
+     "name": "mat2",
+     "type": "int[][]",
+     "rawValue": "[[3, 4]]"
+    }
+   ],
+   "expectedRaw": "[[0, 0], [0, 0], [0, 0], [0, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "mat1",
+     "type": "int[][]",
+     "rawValue": "[[-2, -1, 5], [5], [-1, -4, 0, -2, 5]]"
+    },
+    {
+     "name": "mat2",
+     "type": "int[][]",
+     "rawValue": "[[-1, 2, -4]]"
+    }
+   ],
+   "expectedRaw": "[[2, -4, 8], [-5, 10, -20], [1, -2, 4]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "mat1",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 0]]"
+    },
+    {
+     "name": "mat2",
+     "type": "int[][]",
+     "rawValue": "[[7, 0, 0], [0, 0, 0], [0, 2, 1]]"
+    }
+   ],
+   "expectedRaw": "[[7, 0, 0]]"
+  }
+ ]
+}

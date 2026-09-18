@@ -1,0 +1,128 @@
+{
+ "problemId": "tiktok-debugger-breakpoint-actions",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "codeLength",
+     "type": "int",
+     "rawValue": "56"
+    },
+    {
+     "name": "breakpoints",
+     "type": "int[]",
+     "rawValue": "[5, 21, 44]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"next\", \"continue\", \"continue\", \"continue\"]"
+    }
+   ],
+   "expectedRaw": "44"
+  },
+  {
+   "inputs": [
+    {
+     "name": "codeLength",
+     "type": "int",
+     "rawValue": "-6"
+    },
+    {
+     "name": "breakpoints",
+     "type": "int[]",
+     "rawValue": "[0, 0, 6]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"next\", \"next\"]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "codeLength",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "breakpoints",
+     "type": "int[]",
+     "rawValue": "[6, 4, 2]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"continue\"]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "codeLength",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "breakpoints",
+     "type": "int[]",
+     "rawValue": "[8]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"continue\", \"continue\", \"continue\"]"
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "codeLength",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "breakpoints",
+     "type": "int[]",
+     "rawValue": "[2, 23, 44, 5]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"continue\", \"next\", \"next\"]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "codeLength",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "breakpoints",
+     "type": "int[]",
+     "rawValue": "[5, 5, 21, 44]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"next\", \"next\", \"next\"]"
+    }
+   ],
+   "expectedRaw": "5"
+  }
+ ]
+}

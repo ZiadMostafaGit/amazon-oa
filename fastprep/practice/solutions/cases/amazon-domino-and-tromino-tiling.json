@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-domino-and-tromino-tiling",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "-5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "-3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "-2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "-4"
+  }
+ ]
+}

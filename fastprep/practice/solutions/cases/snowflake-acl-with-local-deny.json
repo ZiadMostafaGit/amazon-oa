@@ -1,0 +1,188 @@
+{
+ "problemId": "snowflake-acl-with-local-deny",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 55,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "allows",
+     "type": "String[]",
+     "rawValue": "[\"\", \"aaa\", \"\"]"
+    },
+    {
+     "name": "denies",
+     "type": "String[]",
+     "rawValue": "[\"\", \"a\", \"\"]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2]]"
+    },
+    {
+     "name": "queryNodes",
+     "type": "int[]",
+     "rawValue": "[2, 0, -1]"
+    },
+    {
+     "name": "permissions",
+     "type": "String",
+     "rawValue": "\"aaa\""
+    }
+   ],
+   "expectedRaw": "[true, false, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "allows",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"x\", \"x\"]"
+    },
+    {
+     "name": "denies",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"dog\", \"abc\"]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "queryNodes",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "permissions",
+     "type": "String",
+     "rawValue": "\"a\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "allows",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\", \"a\", \"\"]"
+    },
+    {
+     "name": "denies",
+     "type": "String[]",
+     "rawValue": "[\"\", \"a\", \"a\", \"a\"]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [1, 2]]"
+    },
+    {
+     "name": "queryNodes",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "permissions",
+     "type": "String",
+     "rawValue": "\"aaa\""
+    }
+   ],
+   "expectedRaw": "[false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "allows",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"a\", \"c\", \"c\"]"
+    },
+    {
+     "name": "denies",
+     "type": "String[]",
+     "rawValue": "[\"ababc\", \"\", \"b\", \"a\", \"\"]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [1, 2]]"
+    },
+    {
+     "name": "queryNodes",
+     "type": "int[]",
+     "rawValue": "[2, 3, -2, 3, 3]"
+    },
+    {
+     "name": "permissions",
+     "type": "String",
+     "rawValue": "\"ababc\""
+    }
+   ],
+   "expectedRaw": "[true, false, true, false, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "allows",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"\", \"\"]"
+    },
+    {
+     "name": "denies",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\", \"\"]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [0, 1], [1, 2], [1, 2]]"
+    },
+    {
+     "name": "queryNodes",
+     "type": "int[]",
+     "rawValue": "[2, 1, 0]"
+    },
+    {
+     "name": "permissions",
+     "type": "String",
+     "rawValue": "\"aaa\""
+    }
+   ],
+   "expectedRaw": "[true, true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "allows",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "denies",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"a\"]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "queryNodes",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "permissions",
+     "type": "String",
+     "rawValue": "\"red\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

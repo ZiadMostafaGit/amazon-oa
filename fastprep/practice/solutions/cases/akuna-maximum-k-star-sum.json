@@ -1,0 +1,188 @@
+{
+ "problemId": "akuna-maximum-k-star-sum",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 38,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[3, 3, 3, 3]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[2, 5]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[10, 30, 30, 20, 30, 40, 50]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "30"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[3, 3, 3, 3]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[1, 2, 4, 5]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[10, 20, 28, 40, 50]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "50"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[-3, 1]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[5, -4, -4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[3, 3, 3, 3, 3, 3]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[1, -4, 5]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[20, 40, 30, 30, 50]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "50"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[3, 3, 3]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[1, 2, 0, 1, 5]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[40, 10, 20, 30, 40, 50]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "120"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[5, -2, -5, 0, -1]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-5, 0, -4, 1, 0, -2]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

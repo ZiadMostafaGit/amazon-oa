@@ -1,0 +1,98 @@
+{
+ "problemId": "waymo-hex-dump-formatter",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[101, 108, 111, 35, 255]"
+    },
+    {
+     "name": "bytesPerRow",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[\"00000000  65 6C 6F 23  |elo#|\", \"00000004  FF           |.|\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "bytesPerRow",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[\"00000000  -2 01 04     |...|\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[63, 0, 67]"
+    },
+    {
+     "name": "bytesPerRow",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[\"00000000  3F 00 43     |?.C|\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[72, 108, 108, 0, 111, 0, 35, 255]"
+    },
+    {
+     "name": "bytesPerRow",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[72, 101, 108, 111, 0, 35, 72, 255]"
+    },
+    {
+     "name": "bytesPerRow",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[\"00000000  48 65 6C 6F  |Helo|\", \"00000004  00 23 48 FF  |.#H.|\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[65, 66, 67, 65]"
+    },
+    {
+     "name": "bytesPerRow",
+     "type": "int",
+     "rawValue": "66"
+    }
+   ],
+   "expectedRaw": "[\"00000000  41 42 43 41                                                                                                                                                                                            |ABCA|\"]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "oracle-accounts-merge",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "accounts",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"Mary\", \"mary@mail.com\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Mary\", \"mary@mail.com\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "accounts",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"Solo\", \"only@mail.com\"], [\"Slo\", \"only@mail.cm\"], [\"Solo\", \"only@mail.com\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Slo\", \"only@mail.cm\"], [\"Solo\", \"only@mail.com\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "accounts",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"John\", \"johnsmith@mail.com\", \"john00@mail.com\"], [\"Mary\", \"mary@mail.com\"], [\"John\", \"johnnybravo@mail.com\"], [\"John\", \"johnsmith@mail.com\", \"john_newyork@mail.com\"], [\"Mary\", \"mary@mail.com\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"John\", \"john00@mail.com\", \"john_newyork@mail.com\", \"johnsmith@mail.com\"], [\"John\", \"johnnybravo@mail.com\"], [\"Mary\", \"mary@mail.com\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "accounts",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"Mary\", \"mary@mail.com\"], [\"John\", \"johnsmith@mail.com\", \"john00@mail.com\"], [\"Mary\", \"mary@mail.com\"], [\"johnnybravo@mail.com\", \"johnnybravo@mail.com\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"John\", \"john00@mail.com\", \"johnsmith@mail.com\"], [\"Mary\", \"mary@mail.com\"], [\"johnnybravo@mail.com\", \"johnnybravo@mail.com\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "accounts",
+     "type": "List<List<String>>",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "accounts",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"Solo\", \"only@mail.com\"], [\"Solo\", \"only@mail.com\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Solo\", \"only@mail.com\"]]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "google-most-frequent-next-word-predictor",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "trainingTokens",
+     "type": "String[]",
+     "rawValue": "[\"i\", \"tea\", \"like\", \"i\", \"like\", \"tea\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"like\", \"i\", \"like\"]"
+    }
+   ],
+   "expectedRaw": "[\"i\", \"like\", \"i\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trainingTokens",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"yz\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"abc\", \"cat\", \"blue\", \"abc\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trainingTokens",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"0\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"1\", \"ab\", \"cat\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"0\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trainingTokens",
+     "type": "String[]",
+     "rawValue": "[\"i\", \"i\", \"tea\", \"like\", \"i\", \"tea\", \"coffee\", \"like\", \"like\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"i\", \"i\"]"
+    }
+   ],
+   "expectedRaw": "[\"tea\", \"tea\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trainingTokens",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"bc\"]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trainingTokens",
+     "type": "String[]",
+     "rawValue": "[\"z\", \"x\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "epic-keypad-string-encoding",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"AAB\""
+    }
+   ],
+   "expectedRaw": "\"2#2#22\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"A\""
+    }
+   ],
+   "expectedRaw": "\"2\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"HEY EPPIC\""
+    }
+   ],
+   "expectedRaw": "\"4433999337#7444222\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"ABB\""
+    }
+   ],
+   "expectedRaw": "\"2#22#22\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "\"36664\""
+  }
+ ]
+}

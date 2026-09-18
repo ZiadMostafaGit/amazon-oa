@@ -1,0 +1,68 @@
+{
+ "problemId": "salesforce-flight-departure-chains",
+ "generatedAt": "2026-09-18T23:34:02",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "legs",
+     "type": "String[][]",
+     "rawValue": "[[\"c\", \"d\"], [\"y\", \"z\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"c\"], [\"y\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "legs",
+     "type": "String[][]",
+     "rawValue": "[[\"B\", \"C\"], [\"X\", \"Y\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"B\"], [\"X\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "legs",
+     "type": "String[][]",
+     "rawValue": "[[\"X\", \"Y\"], [\"A\", \"B\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"A\"], [\"X\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "legs",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"b\"], [\"c\", \"d\"], [\"x\", \"b\"], [\"y\", \"z\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"a\"], [\"c\"], [\"x\"], [\"y\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "legs",
+     "type": "String[][]",
+     "rawValue": "[[\"X\", \"Y\"], [\"A\", \"B\"], [\"A\", \"B\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"A\"], [\"X\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "legs",
+     "type": "String[][]",
+     "rawValue": "[[\"B\", \"C\"], [\"X\", \"Y\"], [\"C\", \"A\", \"C\", \"C\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"B\", \"C\"], [\"X\"]]"
+  }
+ ]
+}

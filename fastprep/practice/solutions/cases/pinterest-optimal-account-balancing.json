@@ -1,0 +1,68 @@
+{
+ "problemId": "pinterest-optimal-account-balancing",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 9,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 5], [2, 0, 5], [1, 2, 5], [0, 1, 10]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 10], [0, 1, 10]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[][]",
+     "rawValue": "[[2, 0, 5], [2, 0, 5]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[][]",
+     "rawValue": "[[2, -3, 5]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 1], [2, 0, 5], [10, 1, 0], [1, 2, 5]]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

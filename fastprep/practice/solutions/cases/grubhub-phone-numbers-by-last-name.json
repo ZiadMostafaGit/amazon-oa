@@ -1,0 +1,98 @@
+{
+ "problemId": "grubhub-phone-numbers-by-last-name",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[\"Byron Lovelace, 333-444-5555\", \"Byron Lovelace, 333-444-5555\"]"
+    },
+    {
+     "name": "lastName",
+     "type": "String",
+     "rawValue": "\"Lovelace\""
+    }
+   ],
+   "expectedRaw": "[\"333-444-5555\", \"333-444-5555\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[\"Alex kim, 222-222-2222\"]"
+    },
+    {
+     "name": "lastName",
+     "type": "String",
+     "rawValue": "\"Kimm\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[\"cat\"]"
+    },
+    {
+     "name": "lastName",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"x\", \"abc\"]"
+    },
+    {
+     "name": "lastName",
+     "type": "String",
+     "rawValue": "\"b\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[\"0\"]"
+    },
+    {
+     "name": "lastName",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[\"Grace Brewster Hopper, 222-333-4444\", \"Ada Lovelace, 111-222-3333\"]"
+    },
+    {
+     "name": "lastName",
+     "type": "String",
+     "rawValue": "\"Lovelae\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

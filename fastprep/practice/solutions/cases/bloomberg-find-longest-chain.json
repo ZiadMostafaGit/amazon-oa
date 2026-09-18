@@ -1,0 +1,68 @@
+{
+ "problemId": "bloomberg-find-longest-chain",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"bads\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"c\", \"ac\", \"a\", \"bads\", \"bac\", \"bads\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"ac\", \"a\", \"c\", \"bads\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"bac\", \"ac\", \"ac\", \"a\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"c\", \"a\", \"c\", \"c\", \"bads\", \"bac\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

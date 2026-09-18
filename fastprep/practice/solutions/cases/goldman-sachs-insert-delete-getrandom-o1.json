@@ -1,0 +1,68 @@
+{
+ "problemId": "goldman-sachs-insert-delete-getrandom-o1",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"remove 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert 1\", \"insert 1\", \"remove 1\", \"insert 2\", \"getRandom\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"true\", \"true\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert 2\", \"remove 1\", \"insert 1\", \"getRandom\", \"insert 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"true\", \"2\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"remove 4\", \"insert 3\", \"getRandom\"]"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"true\", \"3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert 3\", \"remove 4\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert 2\", \"getRandom\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"2\"]"
+  }
+ ]
+}

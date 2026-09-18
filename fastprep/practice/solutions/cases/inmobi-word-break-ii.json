@@ -1,0 +1,98 @@
+{
+ "problemId": "inmobi-word-break-ii",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"and\", \"sand\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "[\"dog\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bc\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"yz\", \"dog\", \"blue\", \"0\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"catsandog\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"cats\", \"dog\", \"sand\", \"and\", \"cat\", \"cat\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"pineapple\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"apple\", \"applepen\", \"pine\", \"pineapple\"]"
+    }
+   ],
+   "expectedRaw": "[\"pine apple\", \"pineapple\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

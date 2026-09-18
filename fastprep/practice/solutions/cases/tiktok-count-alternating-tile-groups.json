@@ -1,0 +1,98 @@
+{
+ "problemId": "tiktok-count-alternating-tile-groups",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "tileColors",
+     "type": "int[]",
+     "rawValue": "[0, 1]"
+    },
+    {
+     "name": "size",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tileColors",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 1, 1, 1]"
+    },
+    {
+     "name": "size",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tileColors",
+     "type": "int[]",
+     "rawValue": "[-4]"
+    },
+    {
+     "name": "size",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tileColors",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 1, 0]"
+    },
+    {
+     "name": "size",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tileColors",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1]"
+    },
+    {
+     "name": "size",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tileColors",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1]"
+    },
+    {
+     "name": "size",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

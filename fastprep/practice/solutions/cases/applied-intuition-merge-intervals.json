@@ -1,0 +1,68 @@
+{
+ "problemId": "applied-intuition-merge-intervals",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[8, 10]]"
+    }
+   ],
+   "expectedRaw": "[[8, 10]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[4, 5], [2, 3], [1, 10]]"
+    }
+   ],
+   "expectedRaw": "[[1, 10]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[2, 6], [8, 10], [10, 12], [1, 3], [8, 10]]"
+    }
+   ],
+   "expectedRaw": "[[1, 6], [8, 12]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[8, 10], [2, 6], [8, 10], [12, 12]]"
+    }
+   ],
+   "expectedRaw": "[[2, 6], [8, 10], [12, 12]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[4, 5], [2, 3], [1, 10], [2, 3]]"
+    }
+   ],
+   "expectedRaw": "[[1, 10]]"
+  }
+ ]
+}

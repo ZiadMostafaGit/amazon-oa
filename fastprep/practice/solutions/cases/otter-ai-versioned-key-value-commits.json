@@ -1,0 +1,68 @@
+{
+ "problemId": "otter-ai-versioned-key-value-commits",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"COMMIT\", \"SET a two\", \"GET a\", \"GET a\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"two\", \"two\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET x 1\", \"COMMIT\", \"SET y 2\", \"COMMIT\", \"ROLLBACK 0\", \"COMMIT\", \"ROLLBACK 1\", \"GET y\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"1\", \"OK\", \"2\", \"OK\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"cat\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET a one\", \"SET a two\", \"GET a\", \"COMMIT\", \"GET a\", \"ROLLBACK 0\", \"GET a\"]"
+    }
+   ],
+   "expectedRaw": "[\"two\", \"0\", \"two\", \"OK\", \"two\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"GET missing\", \"DELETE x\"]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "retell-ai-stack-language-evaluator",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"1 2  swap . .\""
+    }
+   ],
+   "expectedRaw": "[1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"-5 3 ++ .\""
+    }
+   ],
+   "expectedRaw": "[-1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"11 2 swap . .\""
+    }
+   ],
+   "expectedRaw": "[11, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"-5  3 + .\""
+    }
+   ],
+   "expectedRaw": "[-2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"-5 3 +.\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

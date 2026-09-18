@@ -1,0 +1,128 @@
+{
+ "problemId": "salesforce-minimum-word-ladder-steps",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"hot\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"dot\", \"dog\", \"lot\", \"log\", \"cog\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"hot\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"log\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"dog\", \"dot\", \"lot\", \"lot\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"came\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"came\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"came\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"cog\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"dot\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"hot\", \"hot\", \"dog\", \"lot\", \"log\", \"hot\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"dot\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"hot\", \"dot\", \"dog\", \"lot\", \"log\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"hot\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"dot\", \"dog\", \"lot\", \"dot\", \"log\", \"cog\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

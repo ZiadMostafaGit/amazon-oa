@@ -1,0 +1,98 @@
+{
+ "problemId": "atlassian-binary-search-tree-iterator",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[7, 3, 15, null, null, 9, 20]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"hasNext\", \"hasNext\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[7, 3, 15, null, null, 9, 20]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"next\", \"hasNext\", \"hasNext\", \"next\", \"hasNext\"]"
+    }
+   ],
+   "expectedRaw": "[\"3\", \"7\", \"true\", \"true\", \"9\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[7, 3, 15, null, null, 9, 20]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"hasNext\", \"next\", \"hasNext\"]"
+    }
+   ],
+   "expectedRaw": "[\"3\", \"true\", \"7\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[7, 3, 15, null, null, 9, 20]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"next\", \"next\", \"hasNext\", \"hasNext\"]"
+    }
+   ],
+   "expectedRaw": "[\"3\", \"7\", \"9\", \"true\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[7, 3, 15, null, null, 9, 20]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"hasNext\", \"hasNext\", \"next\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[7, 3, 15, null, null, 9, 20]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"hasNext\", \"next\", \"next\", \"next\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"3\", \"7\", \"9\"]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "microsoft-roll-the-string",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aabz\""
+    },
+    {
+     "name": "roll",
+     "type": "int[]",
+     "rawValue": "[2, 1]"
+    }
+   ],
+   "expectedRaw": "\"cbbz\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abzz\""
+    },
+    {
+     "name": "roll",
+     "type": "int[]",
+     "rawValue": "[3, 6, 2]"
+    }
+   ],
+   "expectedRaw": "\"deba\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abz\""
+    },
+    {
+     "name": "roll",
+     "type": "int[]",
+     "rawValue": "[3, 2, 0]"
+    }
+   ],
+   "expectedRaw": "\"cda\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bz\""
+    },
+    {
+     "name": "roll",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "\"ca\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bz\""
+    },
+    {
+     "name": "roll",
+     "type": "int[]",
+     "rawValue": "[1, 3]"
+    }
+   ],
+   "expectedRaw": "\"da\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"az\""
+    },
+    {
+     "name": "roll",
+     "type": "int[]",
+     "rawValue": "[3, 1, 1]"
+    }
+   ],
+   "expectedRaw": "\"da\""
+  }
+ ]
+}

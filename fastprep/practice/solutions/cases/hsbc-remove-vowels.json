@@ -1,0 +1,68 @@
+{
+ "problemId": "hsbc-remove-vowels",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "engStr",
+     "type": "String",
+     "rawValue": "\"haveeaniceday\""
+    }
+   ],
+   "expectedRaw": "\"hvncdy\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "engStr",
+     "type": "String",
+     "rawValue": "\"haveanceday\""
+    }
+   ],
+   "expectedRaw": "\"hvncdy\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "engStr",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "engStr",
+     "type": "String",
+     "rawValue": "\"haveanicedday\""
+    }
+   ],
+   "expectedRaw": "\"hvncddy\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "engStr",
+     "type": "String",
+     "rawValue": "\"haveaniiceday\""
+    }
+   ],
+   "expectedRaw": "\"hvncdy\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "engStr",
+     "type": "String",
+     "rawValue": "\"haveanniceday\""
+    }
+   ],
+   "expectedRaw": "\"hvnncdy\""
+  }
+ ]
+}

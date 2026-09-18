@@ -1,0 +1,68 @@
+{
+ "problemId": "openai-streaming-entropy-part-4",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "blocks",
+     "type": "double[][]",
+     "rawValue": "[[-1000.0], [-1000.0]]"
+    }
+   ],
+   "expectedRaw": "0.6931471805599453"
+  },
+  {
+   "inputs": [
+    {
+     "name": "blocks",
+     "type": "double[][]",
+     "rawValue": "[[-3.978, 5.891], [3.465, -0.816]]"
+    }
+   ],
+   "expectedRaw": "0.2906500325133999"
+  },
+  {
+   "inputs": [
+    {
+     "name": "blocks",
+     "type": "double[][]",
+     "rawValue": "[[-2.778]]"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "blocks",
+     "type": "double[][]",
+     "rawValue": "[[1.0986122886681098], [1.0986122886681098]]"
+    }
+   ],
+   "expectedRaw": "0.6931471805599453"
+  },
+  {
+   "inputs": [
+    {
+     "name": "blocks",
+     "type": "double[][]",
+     "rawValue": "[[1.0986122886681098], [0.0], [0.0]]"
+    }
+   ],
+   "expectedRaw": "0.9502705392332345"
+  },
+  {
+   "inputs": [
+    {
+     "name": "blocks",
+     "type": "double[][]",
+     "rawValue": "[[4.367, 1.196, 2.967, 1.296, -1.1]]"
+    }
+   ],
+   "expectedRaw": "0.7727942508698808"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "arcesium-kth-character-in-infinite-string",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"a\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"a\""
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "\"a\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"ab\""
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "\"b\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"ab\""
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "\"a\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bc\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"bc\""
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "\"c\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ab\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"b\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bc\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"a\""
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"a\""
+  }
+ ]
+}

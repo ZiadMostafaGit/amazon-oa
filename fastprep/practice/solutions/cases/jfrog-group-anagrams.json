@@ -1,0 +1,68 @@
+{
+ "problemId": "jfrog-group-anagrams",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"tan\", \"ate\", \"nat\"]"
+    }
+   ],
+   "expectedRaw": "[[\"ate\"], [\"nat\", \"tan\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"cab\", \"ab\", \"ba\", \"x\", \"abc\"]"
+    }
+   ],
+   "expectedRaw": "[[\"ab\", \"ba\"], [\"abc\", \"cab\"], [\"x\", \"x\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"bca\", \"abc\", \"ba\", \"cab\", \"ab\"]"
+    }
+   ],
+   "expectedRaw": "[[\"ab\", \"ba\"], [\"abc\", \"bca\", \"cab\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"ba\", \"bca\", \"abc\", \"cab\", \"bca\", \"x\"]"
+    }
+   ],
+   "expectedRaw": "[[\"ab\", \"ba\"], [\"abc\", \"bca\", \"bca\", \"cab\"], [\"x\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"cab\", \"bca\", \"x\", \"ba\", \"abc\", \"ab\"]"
+    }
+   ],
+   "expectedRaw": "[[\"ab\", \"ba\"], [\"abc\", \"bca\", \"cab\"], [\"x\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[[\"\", \"\"]]"
+  }
+ ]
+}

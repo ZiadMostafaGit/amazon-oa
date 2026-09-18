@@ -1,0 +1,98 @@
+{
+ "problemId": "tokopedia-delete-bst-node",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 7,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[5, 3, 6, 2, 4, null, 7]"
+    },
+    {
+     "name": "key",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[5, 3, 6, 2, null, null, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "null"
+    },
+    {
+     "name": "key",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "null"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[5, 3, 6, 2, 4, null, 7]"
+    },
+    {
+     "name": "key",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[5, 3, 6, 2, 4, null, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[5, 3, 6, 2, 4, null, 7]"
+    },
+    {
+     "name": "key",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[5, 3, 6, 2, 4, null, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "null"
+    },
+    {
+     "name": "key",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "null"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[5, 3, 6, 2, 4, null, 7]"
+    },
+    {
+     "name": "key",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[5, 3, 6, 2, 4, null, 7]"
+  }
+ ]
+}

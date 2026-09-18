@@ -1,0 +1,68 @@
+{
+ "problemId": "salesforce-permutations-unique-characters",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"aabc\""
+    }
+   ],
+   "expectedRaw": "[\"aabc\", \"aacb\", \"abac\", \"abca\", \"acab\", \"acba\", \"aabc\", \"aacb\", \"abac\", \"abca\", \"acab\", \"acba\", \"baac\", \"baca\", \"baac\", \"baca\", \"bcaa\", \"bcaa\", \"caab\", \"caba\", \"caab\", \"caba\", \"cbaa\", \"cbaa\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"ac\""
+    }
+   ],
+   "expectedRaw": "[\"ac\", \"ca\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"abbc\""
+    }
+   ],
+   "expectedRaw": "[\"abbc\", \"abcb\", \"abbc\", \"abcb\", \"acbb\", \"acbb\", \"babc\", \"bacb\", \"bbac\", \"bbca\", \"bcab\", \"bcba\", \"babc\", \"bacb\", \"bbac\", \"bbca\", \"bcab\", \"bcba\", \"cabb\", \"cabb\", \"cbab\", \"cbba\", \"cbab\", \"cbba\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "[\"dgo\", \"dog\", \"gdo\", \"god\", \"odg\", \"ogd\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "[\"belu\", \"beul\", \"bleu\", \"blue\", \"buel\", \"bule\", \"eblu\", \"ebul\", \"elbu\", \"elub\", \"eubl\", \"eulb\", \"lbeu\", \"lbue\", \"lebu\", \"leub\", \"lube\", \"lueb\", \"ubel\", \"uble\", \"uebl\", \"uelb\", \"ulbe\", \"uleb\"]"
+  }
+ ]
+}

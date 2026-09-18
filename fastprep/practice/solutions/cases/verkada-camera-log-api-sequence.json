@@ -1,0 +1,218 @@
+{
+ "problemId": "verkada-camera-log-api-sequence",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 10,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "cameraIds",
+     "type": "String[]",
+     "rawValue": "[\"upgrade\", \"cam-b\"]"
+    },
+    {
+     "name": "initialCommands",
+     "type": "String[][]",
+     "rawValue": "[[]]"
+    },
+    {
+     "name": "initialLogs",
+     "type": "String[][]",
+     "rawValue": "[[\"motion\"]]"
+    },
+    {
+     "name": "operationTypes",
+     "type": "String[]",
+     "rawValue": "[\"POLL_COMMAND\", \"POLL_COMMAND\", \"GET_LOG\", \"GET_LOG\", \"GET_LOG\", \"POLL_COMMAND\", \"GET_LOG\"]"
+    },
+    {
+     "name": "operationCameraIds",
+     "type": "String[]",
+     "rawValue": "[\"cam-a\", \"cam-a\", \"cam-b\", \"GET_LOG\", \"cam-b\", \"GET_LOG\", \"cam-a\", \"cam-a\"]"
+    },
+    {
+     "name": "operationPayloads",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\", \"POLL_COMMAND\", \"uploaded\", \"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[\"NONE\", \"NONE\", \"NONE\", \"NONE\", \"NONE\", \"NONE\", \"NONE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cameraIds",
+     "type": "String[]",
+     "rawValue": "[\"y\", \"y\"]"
+    },
+    {
+     "name": "initialCommands",
+     "type": "String[][]",
+     "rawValue": "[[], [\"y-cmd\"], []]"
+    },
+    {
+     "name": "initialLogs",
+     "type": "String[][]",
+     "rawValue": "[[], []]"
+    },
+    {
+     "name": "operationTypes",
+     "type": "String[]",
+     "rawValue": "[\"SEND_LOG\", \"x-log\", \"GET_LOG\", \"POLL_COMMAND\"]"
+    },
+    {
+     "name": "operationCameraIds",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"y\", \"POLL_COMMAND\", \"x\", \"y\", \"x\"]"
+    },
+    {
+     "name": "operationPayloads",
+     "type": "String[]",
+     "rawValue": "[\"x-log\", \"\", \"\", \"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[\"ACK\", \"ACK\", \"NONE\", \"NONE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cameraIds",
+     "type": "String[]",
+     "rawValue": "[\"y-cmd\", \"y\", \"y\"]"
+    },
+    {
+     "name": "initialCommands",
+     "type": "String[][]",
+     "rawValue": "[[], [\"y-cmd\"]]"
+    },
+    {
+     "name": "initialLogs",
+     "type": "String[][]",
+     "rawValue": "[[], []]"
+    },
+    {
+     "name": "operationTypes",
+     "type": "String[]",
+     "rawValue": "[\"GET_LOG\", \"POLL_COMMAND\", \"SEND_LOG\", \"GET_LOG\"]"
+    },
+    {
+     "name": "operationCameraIds",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"x\", \"x\", \"y\", \"x\", \"x\", \"y\"]"
+    },
+    {
+     "name": "operationPayloads",
+     "type": "String[]",
+     "rawValue": "[\"y\", \"x-log\", \"\", \"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[\"NONE\", \"NONE\", \"ACK\", \"NONE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cameraIds",
+     "type": "String[]",
+     "rawValue": "[\"cam-a\", \"reboot\"]"
+    },
+    {
+     "name": "initialCommands",
+     "type": "String[][]",
+     "rawValue": "[[\"reboot\", \"upgrade\"], [\"reboot\", \"upgrade\"]]"
+    },
+    {
+     "name": "initialLogs",
+     "type": "String[][]",
+     "rawValue": "[[\"boot-ok\", \"boot-ok\"]]"
+    },
+    {
+     "name": "operationTypes",
+     "type": "String[]",
+     "rawValue": "[\"POLL_COMMAND\", \"POLL_COMMAND\", \"SEND_LOG\", \"reboot\", \"GET_LOG\"]"
+    },
+    {
+     "name": "operationCameraIds",
+     "type": "String[]",
+     "rawValue": "[\"cam-a\", \"cam-b\", \"cam-b\", \"cam-a\", \"cam-b\", \"cam-a\", \"POLL_COMMAND\", \"cam-a\"]"
+    },
+    {
+     "name": "operationPayloads",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\", \"uploaded\", \"\", \"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[\"reboot\", \"NONE\", \"ACK\", \"ACK\", \"uploaded\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cameraIds",
+     "type": "String[]",
+     "rawValue": "[\"y\", \"y\"]"
+    },
+    {
+     "name": "initialCommands",
+     "type": "String[][]",
+     "rawValue": "[[], [\"POLL_COMMAND\"]]"
+    },
+    {
+     "name": "initialLogs",
+     "type": "String[][]",
+     "rawValue": "[[], []]"
+    },
+    {
+     "name": "operationTypes",
+     "type": "String[]",
+     "rawValue": "[\"SEND_LOG\", \"GET_LOG\", \"GET_LOG\", \"POLL_COMMAND\"]"
+    },
+    {
+     "name": "operationCameraIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"x\", \"x\", \"y\"]"
+    },
+    {
+     "name": "operationPayloads",
+     "type": "String[]",
+     "rawValue": "[\"\", \"x-log\", \"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[\"ACK\", \"NONE\", \"NONE\", \"POLL_COMMAND\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cameraIds",
+     "type": "String[]",
+     "rawValue": "[\"cam-a\", \"cam-a\"]"
+    },
+    {
+     "name": "initialCommands",
+     "type": "String[][]",
+     "rawValue": "[[\"reboot\", \"upgrade\"], []]"
+    },
+    {
+     "name": "initialLogs",
+     "type": "String[][]",
+     "rawValue": "[[\"motion\"]]"
+    },
+    {
+     "name": "operationTypes",
+     "type": "String[]",
+     "rawValue": "[\"POLL_COMMAND\", \"POLL_COMMAND\", \"GET_LOG\", \"SEND_LOG\", \"GET_LOG\", \"boot-ok\", \"GET_LOG\"]"
+    },
+    {
+     "name": "operationCameraIds",
+     "type": "String[]",
+     "rawValue": "[\"cam-a\", \"cam-a\", \"cam-b\", \"cam-b\", \"cam-b\", \"uploaded\", \"cam-a\"]"
+    },
+    {
+     "name": "operationPayloads",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\", \"uploaded\", \"\", \"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[\"NONE\", \"NONE\", \"NONE\", \"ACK\", \"\", \"ACK\", \"NONE\"]"
+  }
+ ]
+}

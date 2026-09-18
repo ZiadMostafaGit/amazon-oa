@@ -1,0 +1,68 @@
+{
+ "problemId": "branch-io-common-train-arrival-times",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "trainTimes",
+     "type": "int[][]",
+     "rawValue": "[[670, 1230, 360, 980, 490, 820, 980, 480], [1230, 670, 480, 820, 360, 980, 490]]"
+    }
+   ],
+   "expectedRaw": "[360, 480, 490, 670, 820, 980, 1230]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trainTimes",
+     "type": "int[][]",
+     "rawValue": "[[0, 2, 4, 6], [0, 2, 4, 6], [2, 4, 8], [0, 2, 4, 6]]"
+    }
+   ],
+   "expectedRaw": "[2, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trainTimes",
+     "type": "int[][]",
+     "rawValue": "[[671, 480, 820, 360, 980]]"
+    }
+   ],
+   "expectedRaw": "[360, 480, 671, 820, 980]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trainTimes",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trainTimes",
+     "type": "int[][]",
+     "rawValue": "[[1230, 670, 480, 820, 360, 980, 490], [1230, 670, 480, 820, 360, 980, 490]]"
+    }
+   ],
+   "expectedRaw": "[360, 480, 490, 670, 820, 980, 1230]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trainTimes",
+     "type": "int[][]",
+     "rawValue": "[[2, 4, 8], [0, 4, 6], [1, 2, 3, 4]]"
+    }
+   ],
+   "expectedRaw": "[4]"
+  }
+ ]
+}

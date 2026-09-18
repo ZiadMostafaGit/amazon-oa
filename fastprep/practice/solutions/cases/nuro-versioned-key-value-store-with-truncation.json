@@ -1,0 +1,68 @@
+{
+ "problemId": "nuro-versioned-key-value-store-with-truncation",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 7,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"PUT\", \"a\", \"4\", \"blue\"], [\"GET\", \"a\", \"3\"], [\"DELETE\", \"a\", \"3\"], [\"PUT\", \"a\", \"1\", \"green\"], [\"GET\", \"a\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\", \"null\", \"green\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"PUT\", \"x\", \"5\", \"x5\"], [\"PUT\", \"y\", \"3\", \"y3\"], [\"GET\", \"x\", \"1\"], [\"GET\", \"x\", \"4\"], [\"DELETE\", \"x\", \"2\"], [\"GET\", \"x\", \"9\"], [\"GET\", \"y\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\", \"null\", \"null\", \"null\", \"y3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"PUT\", \"x\", \"2\", \"x2\"], [\"PUT\", \"x\", \"5\", \"x5\"], [\"PUT\", \"y\", \"3\", \"y3\"], [\"GET\", \"x\", \"1\"], [\"GET\", \"x\", \"4\"], [\"GET\", \"y\", \"3\"], [\"DELETE\", \"x\", \"2\"], [\"GET\", \"x\", \"9\"], [\"GET\", \"x\", \"9\"], [\"GET\", \"y\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\", \"null\", \"x2\", \"y3\", \"null\", \"null\", \"null\", \"y3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"PUT\", \"x\", \"2\", \"x2\"], [\"GET\", \"y\", \"3\"], [\"PUT\", \"x\", \"5\", \"x5\"], [\"PUT\", \"y\", \"3\", \"y3\"], [\"GET\", \"y\", \"3\"], [\"GET\", \"x\", \"1\"], [\"GET\", \"x\", \"4\"], [\"DELETE\", \"x\", \"2\"], [\"GET\", \"x\", \"9\"], [\"GET\", \"y\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\", \"null\", \"y3\", \"null\", \"x2\", \"null\", \"null\", \"y3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET\", \"x\", \"9\"], [\"PUT\", \"x\", \"2\", \"x2\"], [\"PUT\", \"y\", \"3\", \"y3\"], [\"GET\", \"x\", \"1\"], [\"GET\", \"y\", \"3\"], [\"PUT\", \"x\", \"5\", \"x5\"], [\"DELETE\", \"x\", \"2\"], [\"GET\", \"x\", \"4\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\", \"null\", \"y3\", \"null\", \"null\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"PUT\", \"x\", \"2\", \"x2\"], [\"PUT\", \"x\", \"5\", \"x5\"], [\"PUT\", \"y\", \"4\", \"4\"], [\"GET\", \"x\", \"1\"], [\"GET\", \"x\", \"4\"], [\"DELETE\", \"x\", \"2\"], [\"GET\", \"x\", \"9\"], [\"GET\", \"y\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\", \"null\", \"x2\", \"null\", \"null\", \"null\"]"
+  }
+ ]
+}

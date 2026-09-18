@@ -1,0 +1,128 @@
+{
+ "problemId": "tiktok-get-server-index",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "arrival",
+     "type": "int[]",
+     "rawValue": "[4, 1, 8, 9]"
+    },
+    {
+     "name": "burstTime",
+     "type": "int[]",
+     "rawValue": "[7, 9, 2, 7, 5]"
+    }
+   ],
+   "expectedRaw": "[1, 2, 3, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "arrival",
+     "type": "int[]",
+     "rawValue": "[2, 4, 1, 8, 2, 9]"
+    },
+    {
+     "name": "burstTime",
+     "type": "int[]",
+     "rawValue": "[2, 7, 4, 9]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, -1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "arrival",
+     "type": "int[]",
+     "rawValue": "[8, 4, 1]"
+    },
+    {
+     "name": "burstTime",
+     "type": "int[]",
+     "rawValue": "[5, 9, 7, 4, 2, 9]"
+    }
+   ],
+   "expectedRaw": "[1, 2, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "arrival",
+     "type": "int[]",
+     "rawValue": "[2, 11, 8, 1, 4]"
+    },
+    {
+     "name": "burstTime",
+     "type": "int[]",
+     "rawValue": "[4, 4, 2, 4, 5]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "arrival",
+     "type": "int[]",
+     "rawValue": "[-3, 1]"
+    },
+    {
+     "name": "burstTime",
+     "type": "int[]",
+     "rawValue": "[-3]"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "arrival",
+     "type": "int[]",
+     "rawValue": "[2, 4, 8, 1, 8, 9]"
+    },
+    {
+     "name": "burstTime",
+     "type": "int[]",
+     "rawValue": "[9, 5, 2, 4, 5]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, -1, -1, -1]"
+  }
+ ]
+}

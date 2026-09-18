@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-shipping-cost-part3-mixed",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"mouse,20\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"laptop,5\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,mouse,incremental,0,*,550\", \"US,laptop,fixed,0,2,1000\", \"US,laptop,incremental,3,*,900\", \"CA,laptop,fixed,0,2,1100\", \"CA,laptop,incremental,3,*,1000\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"mouse,20\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"laptop,5\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,laptop,fixed,0,2,1000\", \"CA,laptop,fixed,0,2,1100\", \"US,mouse,incremental,0,*,550\", \"US,laptop,fixed,0,2,1000\", \"US,laptop,incremental,3,*,900\", \"CA,laptop,incremental,3,*,1000\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"laptop,5\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"mouse,20\", \"laptop,5\", \"mouse,20\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,laptop,incremental,3,*,900\", \"CA,laptop,incremental,3,*,1000\", \"US,mouse,incremental,0,*,550\", \"CA,mouse,incremental,0,*,750\", \"CA,laptop,fixed,0,2,1100\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"mouse,20\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"CA\", \"laptop,5\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,mouse,incremental,0,*,550\", \"US,laptop,fixed,0,2,1000\", \"US,laptop,incremental,3,*,900\", \"CA,laptop,fixed,0,2,1100\", \"CA,laptop,incremental,3,*,1000\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"CA\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"mouse,20\", \"laptop,5\", \"mouse,20\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,laptop,fixed,0,2,1000\", \"US,laptop,incremental,3,*,900\", \"CA,laptop,fixed,0,2,1100\", \"CA,laptop,incremental,3,*,1000\"]"
+    }
+   ],
+   "expectedRaw": "4100"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"laptop,5\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"laptop,5\", \"CA\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,laptop,fixeed,0,2,1000\", \"CA,mouse,incremental,0,*,750\", \"CA,laptop,fixed,0,2,1100\", \"CA,laptop,incremental,3,*,1000\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

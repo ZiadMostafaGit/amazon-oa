@@ -1,0 +1,68 @@
+{
+ "problemId": "google-assign-locker",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "clients",
+     "type": "String[]",
+     "rawValue": "[\"Bob\", \"Eve\", \"Carl\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clients",
+     "type": "String[]",
+     "rawValue": "[\"Eve\", \"Alice\", \"Bob\", \"Carl\", \"Alice\", \"Alice\", \"Eve\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clients",
+     "type": "String[]",
+     "rawValue": "[\"Eve\", \"Bob\", \"Eve\", \"Carl\", \"Alice\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clients",
+     "type": "String[]",
+     "rawValue": "[\"Alice\", \"Eve\", \"Bob\", \"Eve\", \"Eve\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clients",
+     "type": "String[]",
+     "rawValue": "[\"Eve\", \"Bob\", \"Eve\", \"Bob\", \"Bob\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clients",
+     "type": "String[]",
+     "rawValue": "[\"Alice\", \"Eve\", \"Bob\", \"Eve\", \"Eve\", \"Carl\"]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

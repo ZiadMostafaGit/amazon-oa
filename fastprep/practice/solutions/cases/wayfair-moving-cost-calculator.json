@@ -1,0 +1,98 @@
+{
+ "problemId": "wayfair-moving-cost-calculator",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 13,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "int[][]",
+     "rawValue": "[[1, 5, 1, 5], [1, 1, 2, 5]]"
+    },
+    {
+     "name": "categoryRates",
+     "type": "int[]",
+     "rawValue": "[5, 3, 3]"
+    }
+   ],
+   "expectedRaw": "105"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "int[][]",
+     "rawValue": "[[2, 1, 1, 1]]"
+    },
+    {
+     "name": "categoryRates",
+     "type": "int[]",
+     "rawValue": "[4, 2, 2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "int[][]",
+     "rawValue": "[[2, 3, 3, 3], [0, 10, 1, 1], [2, 1, 1, 2]]"
+    },
+    {
+     "name": "categoryRates",
+     "type": "int[]",
+     "rawValue": "[4, 2, 7, 2]"
+    }
+   ],
+   "expectedRaw": "243"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "int[][]",
+     "rawValue": "[[2, 3, 3, 3], [0, 10, 1, 1], [2, 1, 1, 1], [2, 1, 1, 1]]"
+    },
+    {
+     "name": "categoryRates",
+     "type": "int[]",
+     "rawValue": "[4, 9, 4]"
+    }
+   ],
+   "expectedRaw": "156"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "int[][]",
+     "rawValue": "[[0, 10, 1, 1], [2, 1, 1, 0]]"
+    },
+    {
+     "name": "categoryRates",
+     "type": "int[]",
+     "rawValue": "[7, 2, 2, 4]"
+    }
+   ],
+   "expectedRaw": "70"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 2, 5], [1, 1, 2, 5]]"
+    },
+    {
+     "name": "categoryRates",
+     "type": "int[]",
+     "rawValue": "[5, 3]"
+    }
+   ],
+   "expectedRaw": "60"
+  }
+ ]
+}

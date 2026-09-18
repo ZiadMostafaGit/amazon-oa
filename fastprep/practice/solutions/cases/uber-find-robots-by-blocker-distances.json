@@ -1,0 +1,98 @@
+{
+ "problemId": "uber-find-robots-by-blocker-distances",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 7,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"O\", \"O\"]"
+    },
+    {
+     "name": "query",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, 1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"OEEEX\", \"EEEEE\", \"XEOEE\", \"XEXEX\"]"
+    },
+    {
+     "name": "query",
+     "type": "int[]",
+     "rawValue": "[5, 2, 4, 1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"XXXXX\", \"XOXOX\", \"XOXOX\"]"
+    },
+    {
+     "name": "query",
+     "type": "int[]",
+     "rawValue": "[1, -1, 1, 1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"O\"]"
+    },
+    {
+     "name": "query",
+     "type": "int[]",
+     "rawValue": "[1, 0, 1, 1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"O\"]"
+    },
+    {
+     "name": "query",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, -1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"XEOEE\", \"XEXEX\", \"EEEEE\", \"OEEEX\", \"EOXXX\"]"
+    },
+    {
+     "name": "query",
+     "type": "int[]",
+     "rawValue": "[2, 3, 2, 4]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

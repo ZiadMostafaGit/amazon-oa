@@ -39,10 +39,17 @@ ad-hoc calls against your code.
 namespace with no network interface, a read-only `/usr`, a private tmpfs, hard CPU/memory/file
 limits, and a wall-clock kill. Without `bwrap` the app still runs and says so, loudly.
 
-**Reference solutions.** The bank ships none, so they were written here and each one is kept only
-if it passes every visible example of its problem — `python3 tools/verify.py --all` is the gate,
-and `tools/audit.py` greps every solution for the examples' literal inputs and outputs to catch
-anything that "passes" by memorising them.
+**Reference solutions.** The bank ships none, so **1,484** were written here — for the most
+repeated and most recent problems — and each is kept only if it passes every visible example of
+its problem. `tools/verify.py --all` is the gate and re-checks all of them in 18 seconds;
+`tools/audit.py` greps every solution for the examples' literal values to catch anything that
+"passes" by memorising them.
+
+**More cases than the bank ships.** 1,103 problems publish exactly one example, which catches a
+misunderstanding but not an off-by-one. Where a verified solution exists, the app mutates that
+problem's own examples and answers them with the reference: **8,411 generated cases across 1,403
+problems**. On `amazon-stock-span`, a solution with `<` instead of `<=` passes the single
+published example and fails 2 of its 6 generated cases.
 
 **Track.** Attempted / solved / review, bookmarks, notes, your last submission per language and
 your custom cases, all in `progress.db` — a separate file, so `python3 fastprep.py sync` can

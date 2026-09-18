@@ -1,0 +1,188 @@
+{
+ "problemId": "google-filesystem-entity-total-size",
+ "generatedAt": "2026-09-18T23:33:42",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"a\"]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"d\", \"root\", \"\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[\"DIRECTORY\", \"FILE\", \"DIRECTORY\", \"FILE\", \"FILE\"]"
+    },
+    {
+     "name": "sizes",
+     "type": "long[]",
+     "rawValue": "[0, 0, 5, 6]"
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"bc\", \"ab\"]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"blue\", \"ab\", \"dog\", \"bc\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "sizes",
+     "type": "long[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"yz\", \"10\", \"10\", \"x\"]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"yz\", \"a\", \"ab\", \"dog\", \"dog\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[\"a\"]"
+    },
+    {
+     "name": "sizes",
+     "type": "long[]",
+     "rawValue": "[-1, 5, -3, 3]"
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"bc\"]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"0\", \"yz\", \"cat\", \"dog\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"red\", \"1\", \"blue\"]"
+    },
+    {
+     "name": "sizes",
+     "type": "long[]",
+     "rawValue": "[6, 3, 6, -2, -3, 5]"
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"a\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"red\", \"a\", \"a\"]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"bc\", \"x\", \"dog\", \"blue\", \"0\", \"red\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"1\", \"ab\", \"10\"]"
+    },
+    {
+     "name": "sizes",
+     "type": "long[]",
+     "rawValue": "[-1, 5, -5, -3, 0, -2]"
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ids",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"10\", \"0\"]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"yz\", \"dog\", \"0\"]"
+    },
+    {
+     "name": "types",
+     "type": "String[]",
+     "rawValue": "[\"x\"]"
+    },
+    {
+     "name": "sizes",
+     "type": "long[]",
+     "rawValue": "[-2, -1]"
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"cat\""
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

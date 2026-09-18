@@ -1,0 +1,98 @@
+{
+ "problemId": "harvey-find-duplicate-files",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 12,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String",
+     "rawValue": "\"same\""
+    },
+    {
+     "name": "entries",
+     "type": "String[][]",
+     "rawValue": "[[\"/\", \"D\", \"\", \"\", \"1\"], [\"/b.txt\", \"F\", \"\", \"same\", \"1\"], [\"/c.txt\", \"F\", \"\", \"other\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String",
+     "rawValue": "\"L\""
+    },
+    {
+     "name": "entries",
+     "type": "String[][]",
+     "rawValue": "[[\"/r\", \"D\", \"\", \"\", \"1\"], [\"/r/a\", \"D\", \"\", \"\", \"1\"], [\"/r/a/one\", \"F\", \"\", \"x\", \"1\"], [\"/r/two\", \"F\", \"\", \"x\", \"1\"], [\"/r/a/back\", \"L\", \"/r\", \"\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String",
+     "rawValue": "\"1\""
+    },
+    {
+     "name": "entries",
+     "type": "String[][]",
+     "rawValue": "[[\"/r\", \"D\", \"\", \"\", \"1\"], [\"/r/a\", \"F\", \"\", \"same\", \"1\"], [\"/r/b\", \"0\", \"\", \"1\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "entries",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String",
+     "rawValue": "\"same\""
+    },
+    {
+     "name": "entries",
+     "type": "String[][]",
+     "rawValue": "[[\"/\", \"D\", \"\", \"\", \"1\"], [\"/a.txt\", \"F\", \"\", \"same\", \"1\"], [\"/b.txt\", \"F\", \"\", \"same\", \"1\"], [\"/c.txt\", \"F\", \"\", \"other\", \"1\"], [\"/c.txt\", \"F\", \"\", \"other\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String",
+     "rawValue": "\"D\""
+    },
+    {
+     "name": "entries",
+     "type": "String[][]",
+     "rawValue": "[[\"/r/a\", \"F\", \"\", \"same\", \"1\"], [\"/r/b\", \"F\", \"\", \"same\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

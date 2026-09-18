@@ -1,0 +1,128 @@
+{
+ "problemId": "linkedin-explore-unknown-grid-path",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 41,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "hiddenMap",
+     "type": "String[]",
+     "rawValue": "[\"...\", \"...\", \"...\"]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 1]"
+    },
+    {
+     "name": "target",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "[[0, 1], [0, 2], [1, 2], [2, 2]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "hiddenMap",
+     "type": "String[]",
+     "rawValue": "[\".#.\", \"...\", \"...\"]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "target",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "[[0, 0], [1, 0], [1, 1], [1, 2], [2, 2]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "hiddenMap",
+     "type": "String[]",
+     "rawValue": "[\"...\", \".#.\", \"...\"]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "target",
+     "type": "int[]",
+     "rawValue": "[2, 2, 2]"
+    }
+   ],
+   "expectedRaw": "[[0, 0], [0, 1], [0, 2], [1, 2], [2, 2]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "hiddenMap",
+     "type": "String[]",
+     "rawValue": "[\".#.\", \".#.\", \"###\"]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0]"
+    },
+    {
+     "name": "target",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "hiddenMap",
+     "type": "String[]",
+     "rawValue": "[\".#.\", \".#.\", \"###\"]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    },
+    {
+     "name": "target",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    }
+   ],
+   "expectedRaw": "[[0, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "hiddenMap",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"abc\", \"cat\"]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[1, 1, -1]"
+    },
+    {
+     "name": "target",
+     "type": "int[]",
+     "rawValue": "[1, 0, 3]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

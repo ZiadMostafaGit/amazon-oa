@@ -1,0 +1,68 @@
+{
+ "problemId": "openai-count-friend-circles",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "isConnected",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1], [0, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "isConnected",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "isConnected",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1], [1, 1, 0], [1, 1, 0]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "isConnected",
+     "type": "int[][]",
+     "rawValue": "[[2, -1]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "isConnected",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 0], [0, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "isConnected",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0], [0, 0, 1], [0, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

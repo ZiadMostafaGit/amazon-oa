@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-maximize-distance-to-closest-person",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "seats",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "seats",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 1, 1, 1, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "seats",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 1, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "seats",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0, -1]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "seats",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0, 1]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "seats",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

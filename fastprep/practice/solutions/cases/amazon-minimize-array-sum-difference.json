@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-minimize-array-sum-difference",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[0, 3, 3]"
+    }
+   ],
+   "expectedRaw": "[0, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[3, 1, 0, 3, 5, 1, 4]"
+    }
+   ],
+   "expectedRaw": "[3, 0, 5, 1, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[4, 4, 3, 3, 2]"
+    }
+   ],
+   "expectedRaw": "[4, 3, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[6, 4, 3, -2]"
+    }
+   ],
+   "expectedRaw": "[6, 3, -2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[5, 4, 3, 2]"
+    }
+   ],
+   "expectedRaw": "[5, 3, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[4, 6, 3, 3]"
+    }
+   ],
+   "expectedRaw": "[4, 6, 3]"
+  }
+ ]
+}

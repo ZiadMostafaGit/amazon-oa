@@ -1,0 +1,68 @@
+{
+ "problemId": "preprocess-date",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "dates",
+     "type": "String[]",
+     "rawValue": "[\"7th Apr 1904\", \"7th Apr 1904\"]"
+    }
+   ],
+   "expectedRaw": "[\"1904-04-07\", \"1904-04-07\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dates",
+     "type": "String[]",
+     "rawValue": "[\"1st Mar 1974\", \"22nd Jan 2013\"]"
+    }
+   ],
+   "expectedRaw": "[\"1974-03-01\", \"2013-01-22\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dates",
+     "type": "String[]",
+     "rawValue": "[\"1st Mar 1974\", \"22nd Jan 2013\", \"1st Mar 1974\"]"
+    }
+   ],
+   "expectedRaw": "[\"1974-03-01\", \"2013-01-22\", \"1974-03-01\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dates",
+     "type": "String[]",
+     "rawValue": "[\"22nd Jan 2013\", \"7th Apr 1904\"]"
+    }
+   ],
+   "expectedRaw": "[\"2013-01-22\", \"1904-04-07\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dates",
+     "type": "String[]",
+     "rawValue": "[\"1st Mar 1974\", \"1st Mar 1974\", \"22nd Jan 2013\"]"
+    }
+   ],
+   "expectedRaw": "[\"1974-03-01\", \"1974-03-01\", \"2013-01-22\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dates",
+     "type": "String[]",
+     "rawValue": "[\"22nd Jan 2013\"]"
+    }
+   ],
+   "expectedRaw": "[\"2013-01-22\"]"
+  }
+ ]
+}

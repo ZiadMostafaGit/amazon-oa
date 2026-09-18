@@ -1,0 +1,68 @@
+{
+ "problemId": "persistent-systems-reverse-string",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"FasttPrep\""
+    }
+   ],
+   "expectedRaw": "\"perPttsaF\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"FastPrp\""
+    }
+   ],
+   "expectedRaw": "\"prPtsaF\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"a bb!\""
+    }
+   ],
+   "expectedRaw": "\"!bb a\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\" b!\""
+    }
+   ],
+   "expectedRaw": "\"!b \""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"a  b!\""
+    }
+   ],
+   "expectedRaw": "\"!b  a\""
+  }
+ ]
+}

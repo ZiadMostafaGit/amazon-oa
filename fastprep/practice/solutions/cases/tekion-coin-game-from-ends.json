@@ -1,0 +1,68 @@
+{
+ "problemId": "tekion-coin-game-from-ends",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "coins",
+     "type": "int[]",
+     "rawValue": "[2, 2, 2]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "coins",
+     "type": "int[]",
+     "rawValue": "[2, 10, 2, 2, 20, 10, 30]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "coins",
+     "type": "int[]",
+     "rawValue": "[15, 3, 7]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "coins",
+     "type": "int[]",
+     "rawValue": "[7, 3]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "coins",
+     "type": "int[]",
+     "rawValue": "[8, 3, 7, 8]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "coins",
+     "type": "int[]",
+     "rawValue": "[20, 30, 2, 2, 2, 2]"
+    }
+   ],
+   "expectedRaw": "true"
+  }
+ ]
+}

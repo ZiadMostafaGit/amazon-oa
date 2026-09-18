@@ -1,0 +1,68 @@
+{
+ "problemId": "lyft-minimum-workers-job-assignments",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "jobs",
+     "type": "int[][]",
+     "rawValue": "[[1100, 15], [1100, 15]]"
+    }
+   ],
+   "expectedRaw": "[2, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "jobs",
+     "type": "int[][]",
+     "rawValue": "[[1030, 30], [1100, 15], [1030, 30], [1045, 30]]"
+    }
+   ],
+   "expectedRaw": "[3, 1, 1, 2, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "jobs",
+     "type": "int[][]",
+     "rawValue": "[[1045, 30], [30, 30], [1100, 15]]"
+    }
+   ],
+   "expectedRaw": "[2, 1, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "jobs",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "jobs",
+     "type": "int[][]",
+     "rawValue": "[[900, 30], [930, 30]]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "jobs",
+     "type": "int[][]",
+     "rawValue": "[[1045, 30], [1100, 12]]"
+    }
+   ],
+   "expectedRaw": "[2, 1, 2]"
+  }
+ ]
+}

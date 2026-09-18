@@ -1,0 +1,68 @@
+{
+ "problemId": "lyft-reconstruct-bst-from-preorder",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "int[]",
+     "rawValue": "[1, 7, 10]"
+    }
+   ],
+   "expectedRaw": "\"1,#,7,#,10,#,#\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "int[]",
+     "rawValue": "[5, 4, 6, 4, 2]"
+    }
+   ],
+   "expectedRaw": "\"5,4,#,#,6,4,2,#,#,#,#\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    }
+   ],
+   "expectedRaw": "\"1,1,#,#,#\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "int[]",
+     "rawValue": "[5, 1, 4, 3, 2, 1]"
+    }
+   ],
+   "expectedRaw": "\"5,1,#,4,3,2,1,#,#,#,#,#,#\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "int[]",
+     "rawValue": "[8, 5, 1, 10]"
+    }
+   ],
+   "expectedRaw": "\"8,5,1,#,#,#,10,#,#\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "int[]",
+     "rawValue": "[5, 12, 7, 8, 10]"
+    }
+   ],
+   "expectedRaw": "\"5,#,12,7,#,8,#,10,#,#,#\""
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "capital-one-rightmost-longest-character-run",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"bbaccccdbbab\""
+    }
+   ],
+   "expectedRaw": "\"c4\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"bbacccbbab\""
+    }
+   ],
+   "expectedRaw": "\"c3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"11\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"bbaacaaa\""
+    }
+   ],
+   "expectedRaw": "\"a3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"bbacccddbbab\""
+    }
+   ],
+   "expectedRaw": "\"c3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "\"g1\""
+  }
+ ]
+}

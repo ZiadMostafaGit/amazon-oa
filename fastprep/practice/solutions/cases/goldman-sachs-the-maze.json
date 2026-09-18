@@ -1,0 +1,128 @@
+{
+ "problemId": "goldman-sachs-the-maze",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0, 1, 0], [0, 0, 0, 0, 0]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[4, 1]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[2, 0]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 1, 0], [0, 0, 0, 0, 0]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[4, 4]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[0, 4]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 1, 0, 1, 0], [1, 1, 0, 1, 1], [0, 0, 0, 0, 0]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 7, 0]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[4, 4]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[[-4, 3], [5, 0], [3, -3, -1]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[-1, 1, 5]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[-3, -1, 1, 5]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 0, 0, 0, 0], [0, 0, 0, 1, 0], [1, 1, 0, 1, 1], [0, 0, 0, 0, 0]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 4]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[-3, 2]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 1, 0], [0, 0, 0, 1, 0], [1, 1, 0, 1, 1], [0, 0, 0, 0, 0]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 4]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[4, 4]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

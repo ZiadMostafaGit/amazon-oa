@@ -1,0 +1,68 @@
+{
+ "problemId": "airbnb-in-memory-database",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"get\", \"A\", \"B\"], [\"get\", \"A\", \"D\"], [\"delete\", \"A\", \"B\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], [\"false\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"setAtWithTtl\", \"A\", \"B\", \"C\", \"1\", \"10\"], [\"backup\", \"3\"], [\"setAt\", \"A\", \"D\", \"E\", \"4\"], [\"backup\", \"5\"], [\"deleteAt\", \"A\", \"B\", \"8\"], [\"9\", \"16\", \"9\"], [\"backup\", \"5\"], [\"restore\", \"10\", \"7\"], [\"backup\", \"11\"], [\"scanAt\", \"A\", \"15\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"1\"], [], [\"1\"], [\"true\"], [], [\"1\"], [], [\"1\"], [\"D(E)\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"deleteAt\", \"A\", \"B\", \"8\"], [\"restore\", \"10\", \"7\"], [\"scanAt\", \"A\", \"16\"], [\"backup\", \"11\"], [\"scanAt\", \"A\", \"15\"], [\"setAt\", \"A\", \"D\", \"E\", \"4\"], [\"setAtWithTtl\", \"A\", \"B\", \"C\", \"1\", \"10\"], [\"backup\", \"5\"], [\"backup\", \"9\"], [\"restore\", \"10\", \"7\"], [\"backup\", \"11\"], [\"backup\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"false\"], [], [], [\"0\"], [], [], [], [\"1\"], [\"1\"], [], [\"0\"], [\"0\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"set\", \"A\", \"B\", \"E\"], [\"set\", \"A\", \"C\", \"F\"], [\"get\", \"A\", \"B\"], [\"delete\", \"A\", \"B\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], [\"E\"], [\"true\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"set\", \"A\", \"C\", \"F\"], [\"delete\", \"A\", \"D\"], [\"get\", \"A\", \"D\"], [\"set\", \"A\", \"B\", \"E\"], [\"delete\", \"A\", \"B\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"false\"], [], [], [\"true\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"scan\", \"A\"], [\"set\", \"A\", \"C\", \"G\"], [\"scanByPrefix\", \"A\", \"B\"], [\"scanByPrefix\", \"B\", \"B\"], [\"set\", \"A\", \"BC\", \"E\"], [\"set\", \"A\", \"BD\", \"F\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], [], [], [], []]"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "wise-circuit-breaker-state-machine",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 8,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[][]",
+     "rawValue": "[[\"2\", \"FAILURE\"], [\"7\", \"SUCCESS\"]]"
+    },
+    {
+     "name": "failureThreshold",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "openDuration",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"ALLOWED:CLOSED\", \"ALLOWED:CLOSED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[][]",
+     "rawValue": "[[\"0\", \"SUCCESS\"], [\"2\", \"FAILURE\"], [\"3\", \"SUCCESS\"]]"
+    },
+    {
+     "name": "failureThreshold",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "openDuration",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"ALLOWED:CLOSED\", \"ALLOWED:CLOSED\", \"ALLOWED:CLOSED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[][]",
+     "rawValue": "[[\"1\", \"FAILURE\"], [\"7\", \"SUCCESS\"], [\"4\", \"FAILURE\"], [\"5\", \"SUCCESS\"], [\"7\", \"SUCCESS\"]]"
+    },
+    {
+     "name": "failureThreshold",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "openDuration",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[\"ALLOWED:OPEN\", \"ALLOWED:CLOSED\", \"ALLOWED:OPEN\", \"ALLOWED:CLOSED\", \"ALLOWED:CLOSED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[][]",
+     "rawValue": "[[\"0\", \"FAILURE\"], [\"1\", \"FAILURE\"], [\"5\", \"FAILURE\"], [\"5\", \"SUCCESS\"], [\"7\", \"SUCCESS\"]]"
+    },
+    {
+     "name": "failureThreshold",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "openDuration",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[\"ALLOWED:CLOSED\", \"ALLOWED:OPEN\", \"ALLOWED:OPEN\", \"ALLOWED:CLOSED\", \"ALLOWED:CLOSED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "failureThreshold",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "openDuration",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[][]",
+     "rawValue": "[[\"0\", \"SUCCESS\"], [\"1\", \"FAILURE\"], [\"2\", \"FAILURE\"], [\"3\", \"SUCCESS\", \"3\"], [\"7\", \"SUCCESS\"]]"
+    },
+    {
+     "name": "failureThreshold",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "openDuration",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[\"ALLOWED:CLOSED\", \"ALLOWED:CLOSED\", \"ALLOWED:OPEN\", \"REJECTED:OPEN\", \"ALLOWED:CLOSED\"]"
+  }
+ ]
+}

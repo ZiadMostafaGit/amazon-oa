@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-in-memory-database-backup-restore",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"7\\nSET a 1\\nBACKUUP\\nSET a 2\\nGET a\\nRESTORE 1\\nGET a\\nDELETE a\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"NULL\", \"OK\", \"2\", \"NULL\", \"2\", \"OK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"7\\nSET a 1\\nBACKUP\\nSET a 2GET a\\nRESTORE 1\\nGET a\\nDELETE a\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"1\", \"OK\", \"OK\", \"1\", \"OK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"7\\nSET a 1\\nBACKUP\\nSET a 2\\nGET a\\nRESTORE 1\\nGET a\\nDELETE aa\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"1\", \"OK\", \"2\", \"OK\", \"1\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"7\\nSET a 1\\nBACKUP\\nSET a 2\\nGGET a\\nRESTORE 1\\nGET a\\nDELETE a\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"1\", \"OK\", \"NULL\", \"OK\", \"1\", \"OK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"7\\nSET a 1\\nBACKUP\\nSET a 22\\nGET a\\nRESTORE 1\\nGET a\\nDELETE a\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"1\", \"OK\", \"22\", \"OK\", \"1\", \"OK\"]"
+  }
+ ]
+}

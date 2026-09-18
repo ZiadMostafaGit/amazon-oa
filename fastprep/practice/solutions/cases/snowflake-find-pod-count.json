@@ -1,0 +1,98 @@
+{
+ "problemId": "snowflake-find-pod-count",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "pods",
+     "type": "int[]",
+     "rawValue": "[3, 50, 2, 1, 10]"
+    },
+    {
+     "name": "logs",
+     "type": "int[][]",
+     "rawValue": "[[2, -1, 8], [1, 2, 0], [2, -1, 8], [1, 3, 20]]"
+    }
+   ],
+   "expectedRaw": "[8, 8, 20, 8, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pods",
+     "type": "int[]",
+     "rawValue": "[2, 1, 4, 4]"
+    },
+    {
+     "name": "logs",
+     "type": "int[][]",
+     "rawValue": "[[30, 1, 1], [1, 3, 4], [2, -1, 10], [1, 2, 30]]"
+    }
+   ],
+   "expectedRaw": "[10, 30, 10, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pods",
+     "type": "int[]",
+     "rawValue": "[2, 1, 4, 1, 4]"
+    },
+    {
+     "name": "logs",
+     "type": "int[][]",
+     "rawValue": "[[1, 3, 4], [2, -1, 10], [1, 2, 30]]"
+    }
+   ],
+   "expectedRaw": "[10, 30, 10, 10, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pods",
+     "type": "int[]",
+     "rawValue": "[3, 50, 1, 2, 1, 1, 10]"
+    },
+    {
+     "name": "logs",
+     "type": "int[][]",
+     "rawValue": "[[2, -1, 8], [1, 3, 20]]"
+    }
+   ],
+   "expectedRaw": "[8, 50, 20, 8, 8, 8, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pods",
+     "type": "int[]",
+     "rawValue": "[5, 0, -4, -3, 6, 3]"
+    },
+    {
+     "name": "logs",
+     "type": "int[][]",
+     "rawValue": "[[-6, 6, 4, 4]]"
+    }
+   ],
+   "expectedRaw": "[5, 4, 4, 4, 6, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pods",
+     "type": "int[]",
+     "rawValue": "[3, 2, 50, 2, 1, 10]"
+    },
+    {
+     "name": "logs",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 0], [2, -1, 8], [1, 3, 20]]"
+    }
+   ],
+   "expectedRaw": "[8, 8, 20, 8, 8, 10]"
+  }
+ ]
+}

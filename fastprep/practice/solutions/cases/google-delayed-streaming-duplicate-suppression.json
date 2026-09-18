@@ -1,0 +1,98 @@
+{
+ "problemId": "google-delayed-streaming-duplicate-suppression",
+ "generatedAt": "2026-09-18T23:33:42",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[4, 14, 14]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[\"ing\", \"ing\", \"ping\"]"
+    }
+   ],
+   "expectedRaw": "[\"[4s] ing\", \"[14s] ing\", \"[14s] ping\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[12, 5, 12, 5]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[\"foo\", \"foo\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[12, 2, 10, 0]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"b\", \"a\", \"b\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[-3, -2, 2]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[\"red\"]"
+    }
+   ],
+   "expectedRaw": "[\"[-3s] red\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[0, 2, 9, 2, 12]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"b\", \"a\", \"b\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

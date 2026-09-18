@@ -1,0 +1,98 @@
+{
+ "problemId": "nvidia-check-endianness",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "\"neither\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "\"neither\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[0, -2, 0, 1]"
+    },
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"neither\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0]"
+    },
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "\"neither\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0, 1]"
+    },
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "\"neither\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "bytes",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0]"
+    },
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"little\""
+  }
+ ]
+}

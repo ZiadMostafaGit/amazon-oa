@@ -1,0 +1,68 @@
+{
+ "problemId": "google-maximize-two-endpoint-values",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[4, 6]"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[1, 7, 3, 4, 7]"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[7, 1, 7, 1]"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[4, 1, 7]"
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-5, -2, 8]"
+    }
+   ],
+   "expectedRaw": "6"
+  }
+ ]
+}

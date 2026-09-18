@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-celebrity-knows-matrix",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "knows",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0], [0, 1, 0]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "knows",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [0, 0, 0], [0, 1, 0]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "knows",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "knows",
+     "type": "int[][]",
+     "rawValue": "[[5, 3, 6, 5, -4]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "knows",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [0, 1, 0]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "knows",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [0, -2, 0]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

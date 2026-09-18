@@ -1,0 +1,68 @@
+{
+ "problemId": "citadel-exchange-bbo-nbbo-order-book",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"BBO X\"]"
+    }
+   ],
+   "expectedRaw": "[\"NA,NA\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD X BID 100 7\", \"ADD X BID 100 2\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"10\", \"yz\", \"10\", \"blue\", \"b\"]"
+    }
+   ],
+   "expectedRaw": "[\"NA,NA\", \"NA,NA\", \"NA,NA\", \"NA,NA\", \"NA,NA\", \"NA,NA\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD Y BID 101 4\", \"ADD X ASK 106 1\", \"ADD Y ASK 104 5\", \"NBBO\"]"
+    }
+   ],
+   "expectedRaw": "[\"Y:101@4,Y:104@5\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD X BID 99 2\", \"ADD Y BID 101 4\", \"ADD Y BID 101 4\", \"ADD X ASK 106 1\", \"ADD Y ASK 104 5\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

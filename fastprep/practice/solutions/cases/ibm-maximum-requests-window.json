@@ -1,0 +1,98 @@
+{
+ "problemId": "ibm-maximum-requests-window",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "window",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[2, 3, 8, 10]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "window",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3, 3, 10]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "window",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[1, 10, 2, 3, 8, 10]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "window",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[3, 10, 2, 1]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "window",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[2, 2, 10, 4, 3, 8]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "window",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[-1, 0, -1]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

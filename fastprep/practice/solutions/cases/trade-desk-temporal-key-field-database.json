@@ -1,0 +1,68 @@
+{
+ "problemId": "trade-desk-temporal-key-field-database",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SCAN\", \"3\", \"user\"], [\"SCAN_BY_PREFIX\", \"4\", \"user\", \"na\"], [\"DELETE\", \"5\", \"user\", \"city\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], [\"false\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SCAN\", \"5\", \"cache\"], [\"SET\", \"2\", \"cache\", \"aa\", \"fresh\"], [\"SCAN_BY_PREFIX\", \"4\", \"cache\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"true\"], [\"aa(fresh)\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET_WITH_TTL\", \"1\", \"cache\", \"aa\", \"old\", \"3\"], [\"SCAN\", \"5\", \"cache\"], [\"SET\", \"2\", \"cache\", \"aa\", \"fresh\"], [\"SET_WITH_TTL\", \"3\", \"cache\", \"ab\", \"short\", \"2\"], [\"SCAN_BY_PREFIX\", \"4\", \"cache\", \"a\"], [\"SCAN\", \"5\", \"cache\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [], [\"true\"], [\"true\"], [\"aa(fresh)\", \"ab(short)\"], [\"aa(fresh)\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"1\", \"user\", \"name\", \"Ada\"], [\"SET\", \"2\", \"user\", \"city\", \"Paris\"], [\"SCAN\", \"3\", \"user\"], [\"DELETE\", \"5\", \"user\", \"city\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"city(Paris)\", \"name(Ada)\"], [\"true\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"2\", \"user\", \"city\", \"Paris\"], [\"SCAN\", \"6\", \"user\"], [\"SCAN_BY_PREFIX\", \"4\", \"user\", \"na\"], [\"SET\", \"1\", \"user\", \"name\", \"Ada\"], [\"DELETE\", \"5\", \"user\", \"city\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"city(Paris)\"], [], [\"true\"], [\"true\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DELETE\", \"16\", \"job\", \"state\"], [\"SCAN\", \"15\", \"job\"], [\"SET_WITH_TTL\", \"10\", \"job\", \"state\", \"queued\", \"5\"], [\"SCAN\", \"14\", \"job\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"false\"], [], [\"true\"], [\"state(queued)\"]]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-unique-pairs-2d-target",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[7, 10], [7, -1]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[7, -1], [7, -1], [1, 5]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[7, -1]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1, 5]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[7, -1], [7, -1]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "inmobi-longest-palindromic-substring",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"abbabc\""
+    }
+   ],
+   "expectedRaw": "\"abba\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"abac\""
+    }
+   ],
+   "expectedRaw": "\"aba\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"cbbbd\""
+    }
+   ],
+   "expectedRaw": "\"bbb\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"ababbc\""
+    }
+   ],
+   "expectedRaw": "\"aba\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"abaabc\""
+    }
+   ],
+   "expectedRaw": "\"baab\""
+  }
+ ]
+}

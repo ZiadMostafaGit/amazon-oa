@@ -1,0 +1,128 @@
+{
+ "problemId": "scale-ai-task-processor-dependencies-deadlines",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"dog\"]"
+    },
+    {
+     "name": "deadlines",
+     "type": "int[]",
+     "rawValue": "[-4, -6, -5, -6, -4]"
+    },
+    {
+     "name": "subtasks",
+     "type": "String[][]",
+     "rawValue": "[[\"10\", \"yz\", \"ab\", \"yz\", \"blue\"], [], [\"bc\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"c\"]"
+    },
+    {
+     "name": "deadlines",
+     "type": "int[]",
+     "rawValue": "[3, 5, 5]"
+    },
+    {
+     "name": "subtasks",
+     "type": "String[][]",
+     "rawValue": "[[], []]"
+    }
+   ],
+   "expectedRaw": "[\"c\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"1\"]"
+    },
+    {
+     "name": "deadlines",
+     "type": "int[]",
+     "rawValue": "[2, 7]"
+    },
+    {
+     "name": "subtasks",
+     "type": "String[][]",
+     "rawValue": "[[\"2\"], [\"2\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"1\"]"
+    },
+    {
+     "name": "deadlines",
+     "type": "int[]",
+     "rawValue": "[-2, 7]"
+    },
+    {
+     "name": "subtasks",
+     "type": "String[][]",
+     "rawValue": "[[\"2\"], []]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"b\"]"
+    },
+    {
+     "name": "deadlines",
+     "type": "int[]",
+     "rawValue": "[5, 1, 5, 3]"
+    },
+    {
+     "name": "subtasks",
+     "type": "String[][]",
+     "rawValue": "[[], []]"
+    }
+   ],
+   "expectedRaw": "[\"b\", \"a\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"c\", \"c\"]"
+    },
+    {
+     "name": "deadlines",
+     "type": "int[]",
+     "rawValue": "[5, 3]"
+    },
+    {
+     "name": "subtasks",
+     "type": "String[][]",
+     "rawValue": "[[], [], []]"
+    }
+   ],
+   "expectedRaw": "[\"c\", \"c\"]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-kyc-business-verification",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"business_name,business_profile_name,full_statement_descriptor,short_statement_descriptor,url,product_description\\nPawsoome Pets Inc.,Pawsome Pets,PAWSOME PETS,Pawsome,pawsome.example,Pet supplies\\nBean Bliss Coffee Company,Bean Bliss,,Bean,bean.example,Coffee beans\\nGlobal Goods Marketplace Inc.,Global Goods,RETAIL,Global,goods.example,General products\""
+    }
+   ],
+   "expectedRaw": "[\"VERIFIED: Pawsoome Pets Inc.\", \"NOT VERIFIED: Bean Bliss Coffee Company\", \"NOT VERIFIED: Global Goods Marketplace Inc.\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"business_name,business_profile_name,full_statement_descriptor,short_statement_descriptor,url,product_description\\nPawsome Pets Inc.,Pawsome Pets,PAWSOME PETS,Pawsome,pawsome.example,Pet supplies\\nBen Bliss Coffee Company,Bean Bliss,,Bean,bean.example,Coffee beans\\nGlobal Goods Marketplace Inc.,Global Goods,RETAIL,Global,goods.example,General products\""
+    }
+   ],
+   "expectedRaw": "[\"VERIFIED: Pawsome Pets Inc.\", \"NOT VERIFIED: Ben Bliss Coffee Company\", \"NOT VERIFIED: Global Goods Marketplace Inc.\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"business_name,business_profile_name,full_statement_descriptor,short_statement_descriptor,url,product_description\\nInformation Technology Consulting Solutions Inc.,ITCS,ITCS,ITCS,itcs.example,Consulting\\nOm Yoga and Wellness Center,Om Yoga,OM YOGA AND WELLNESS,Om Yoga,omyoga.example,Yoga classses\""
+    }
+   ],
+   "expectedRaw": "[\"NOT VERIFIED: Information Technology Consulting Solutions Inc.\", \"VERIFIED: Om Yoga and Wellness Center\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"business_name,business_profile_name,full_statement_descriptor,short_statement_descriptor,url,product_description\\nPawsome Pets Inc.,Pawsome Pets,PAWSOME PETS,Pawsome,pawsome.example,Pet supplies\\nBean Bliss Cooffee Company,Bean Bliss,,Bean,bean.example,Coffee beans\\nGlobal Goods Marketplace Inc.,Global Goods,RETAIL,Global,goods.example,General products\""
+    }
+   ],
+   "expectedRaw": "[\"VERIFIED: Pawsome Pets Inc.\", \"NOT VERIFIED: Bean Bliss Cooffee Company\", \"NOT VERIFIED: Global Goods Marketplace Inc.\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"business_name,business_profile_name,full_statement_descriptor,short_statement_descriptor,url,product_description\\nPawsome Pets Inc.,Pawsome Pets,PAWSOME PETS,Pawsome,pawsome.example,Pet ssupplies\\nBean Bliss Coffee Company,Bean Bliss,,Bean,bean.example,Coffee beans\\nGlobal Goods Marketplace Inc.,Global Goods,RETAIL,Global,goods.example,General products\""
+    }
+   ],
+   "expectedRaw": "[\"VERIFIED: Pawsome Pets Inc.\", \"NOT VERIFIED: Bean Bliss Coffee Company\", \"NOT VERIFIED: Global Goods Marketplace Inc.\"]"
+  }
+ ]
+}

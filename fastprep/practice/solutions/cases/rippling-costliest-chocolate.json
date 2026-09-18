@@ -1,0 +1,188 @@
+{
+ "problemId": "rippling-costliest-chocolate",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "brand",
+     "type": "String",
+     "rawValue": "\"ABC\""
+    },
+    {
+     "name": "recordBrands",
+     "type": "String[]",
+     "rawValue": "[\"ABC\", \"Other\"]"
+    },
+    {
+     "name": "productNumbers",
+     "type": "long[]",
+     "rawValue": "[20, 1000, 5]"
+    },
+    {
+     "name": "prices",
+     "type": "int[][]",
+     "rawValue": "[[1000]]"
+    },
+    {
+     "name": "weights",
+     "type": "int[][]",
+     "rawValue": "[[100], [100, 200], [100], [10]]"
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "brand",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "recordBrands",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "productNumbers",
+     "type": "long[]",
+     "rawValue": "[3, -2, 4]"
+    },
+    {
+     "name": "prices",
+     "type": "int[][]",
+     "rawValue": "[[], [-3, -2], [-3, 2, 4, -3, 3]]"
+    },
+    {
+     "name": "weights",
+     "type": "int[][]",
+     "rawValue": "[[]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "brand",
+     "type": "String",
+     "rawValue": "\"Other\""
+    },
+    {
+     "name": "recordBrands",
+     "type": "String[]",
+     "rawValue": "[\"ABC\", \"Other\"]"
+    },
+    {
+     "name": "productNumbers",
+     "type": "long[]",
+     "rawValue": "[5, 10, 5]"
+    },
+    {
+     "name": "prices",
+     "type": "int[][]",
+     "rawValue": "[[500], [1000], [400, 900]]"
+    },
+    {
+     "name": "weights",
+     "type": "int[][]",
+     "rawValue": "[[100, 200], [10], [10]]"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "brand",
+     "type": "String",
+     "rawValue": "\"Cocoa\""
+    },
+    {
+     "name": "recordBrands",
+     "type": "String[]",
+     "rawValue": "[\"Cocoa\", \"Other\", \"Other\"]"
+    },
+    {
+     "name": "productNumbers",
+     "type": "long[]",
+     "rawValue": "[42]"
+    },
+    {
+     "name": "prices",
+     "type": "int[][]",
+     "rawValue": "[[6], [9], [1000]]"
+    },
+    {
+     "name": "weights",
+     "type": "int[][]",
+     "rawValue": "[[1], [2], [3], [2]]"
+    }
+   ],
+   "expectedRaw": "42"
+  },
+  {
+   "inputs": [
+    {
+     "name": "brand",
+     "type": "String",
+     "rawValue": "\"Other\""
+    },
+    {
+     "name": "recordBrands",
+     "type": "String[]",
+     "rawValue": "[\"ABC\", \"ABC\"]"
+    },
+    {
+     "name": "productNumbers",
+     "type": "long[]",
+     "rawValue": "[10, 5]"
+    },
+    {
+     "name": "prices",
+     "type": "int[][]",
+     "rawValue": "[[1000]]"
+    },
+    {
+     "name": "weights",
+     "type": "int[][]",
+     "rawValue": "[[10, 8], [100, 200]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "brand",
+     "type": "String",
+     "rawValue": "\"Cocoa\""
+    },
+    {
+     "name": "recordBrands",
+     "type": "String[]",
+     "rawValue": "[\"Cocoa\", \"Cocoa\", \"Other\"]"
+    },
+    {
+     "name": "productNumbers",
+     "type": "long[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "prices",
+     "type": "int[][]",
+     "rawValue": "[[1000], [6], [9], [1000], [1000]]"
+    },
+    {
+     "name": "weights",
+     "type": "int[][]",
+     "rawValue": "[[2], [1], [3], [2]]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

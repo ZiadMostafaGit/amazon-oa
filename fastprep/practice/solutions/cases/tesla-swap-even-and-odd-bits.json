@@ -1,0 +1,68 @@
+{
+ "problemId": "tesla-swap-even-and-odd-bits",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "11"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "4294967293"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "4294967295"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "9"
+    }
+   ],
+   "expectedRaw": "6"
+  }
+ ]
+}

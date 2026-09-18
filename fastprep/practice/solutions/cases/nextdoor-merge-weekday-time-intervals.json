@@ -1,0 +1,68 @@
+{
+ "problemId": "nextdoor-merge-weekday-time-intervals",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "String[]",
+     "rawValue": "[\"Tue 10:00 -> Tue 11:00\", \"Tue 10:00 -> Tue 11:00\"]"
+    }
+   ],
+   "expectedRaw": "[\"Tue 10:00 -> Tue 11:00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "String[]",
+     "rawValue": "[\"Mon 00:00 -> Mon 00:30\", \"Mon 00:10 -> Mon 01:00\", \"Mon 00:00 -> Mon 00:30\", \"Sun 23:00 -> Sun 23:59\"]"
+    }
+   ],
+   "expectedRaw": "[\"Mon 00:00 -> Mon 01:00\", \"Sun 23:00 -> Sun 23:59\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "String[]",
+     "rawValue": "[\"Mon 12:00 -> Mon 17:00\", \"Mon 122:00 -> Mon 17:00\", \"Tue 10:00 -> Tue 11:00\"]"
+    }
+   ],
+   "expectedRaw": "[\"Mon 12:00 -> Mon 17:00\", \"Tue 10:00 -> Tue 11:00\", \"Sat 02:00 -> Mon 17:00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "String[]",
+     "rawValue": "[\"Wed 10:30 -> Thu 09:00\", \"Tue 18:00 -> Wed 10:30\", \"Fri 08:00-> Fri 09:00\"]"
+    }
+   ],
+   "expectedRaw": "[\"Tue 18:00 -> Thu 09:00\", \"Fri 08:00 -> Fri 09:00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "String[]",
+     "rawValue": "[\"Fri 08:00 -> Fri 09:00\"]"
+    }
+   ],
+   "expectedRaw": "[\"Fri 08:00 -> Fri 09:00\"]"
+  }
+ ]
+}

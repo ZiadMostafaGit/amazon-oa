@@ -1,0 +1,68 @@
+{
+ "problemId": "capital-one-dynamic-wall-range-query",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"5\\n1\\n\\nquery 0 4\""
+    }
+   ],
+   "expectedRaw": "[\"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"5\\n1\\nqury 0 4\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"5\\n1\\nquery  0 4\""
+    }
+   ],
+   "expectedRaw": "[\"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"5\\n1\\nqueery 0 4\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"5\\n1\\nquuery 0 4\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "problemId": "rippling-common-ancestors-dag",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 23,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nodeCount",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "parentEdges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [1, 3], [2, 4], [3, 4], [4, 5]]"
+    },
+    {
+     "name": "first",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "second",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nodeCount",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "parentEdges",
+     "type": "int[][]",
+     "rawValue": "[[1, 3], [0, 2], [1, 2], [0, 2]]"
+    },
+    {
+     "name": "first",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "second",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nodeCount",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "parentEdges",
+     "type": "int[][]",
+     "rawValue": "[[1, 3], [0, 2], [1, 2]]"
+    },
+    {
+     "name": "first",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "second",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nodeCount",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "parentEdges",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [1, 3], [2, 4], [3, 4], [3, 4]]"
+    },
+    {
+     "name": "first",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "second",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nodeCount",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "parentEdges",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [1, 2], [1, 3], [3, 4], [4, 4]]"
+    },
+    {
+     "name": "first",
+     "type": "int",
+     "rawValue": "-4"
+    },
+    {
+     "name": "second",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nodeCount",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "parentEdges",
+     "type": "int[][]",
+     "rawValue": "[[1, 3], [1, 3]]"
+    },
+    {
+     "name": "first",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "second",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

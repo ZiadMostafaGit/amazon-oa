@@ -1,0 +1,68 @@
+{
+ "problemId": "agoda-longest-all-present-streak",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "attendance",
+     "type": "String[]",
+     "rawValue": "[\"YNY\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "attendance",
+     "type": "String[]",
+     "rawValue": "[\"NN\", \"YN\", \"NN\", \"NN\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "attendance",
+     "type": "String[]",
+     "rawValue": "[\"YYY\", \"YNY\", \"YYY\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "attendance",
+     "type": "String[]",
+     "rawValue": "[\"a\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "attendance",
+     "type": "String[]",
+     "rawValue": "[\"YYY\", \"YNY\", \"YYY\", \"YYY\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "attendance",
+     "type": "String[]",
+     "rawValue": "[\"YYY\", \"YYY\", \"YYY\", \"YNY\", \"YNY\", \"YYY\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

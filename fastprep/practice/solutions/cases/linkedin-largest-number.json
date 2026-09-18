@@ -1,0 +1,68 @@
+{
+ "problemId": "linkedin-largest-number",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3, 2]"
+    }
+   ],
+   "expectedRaw": "\"32\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[8, 0]"
+    }
+   ],
+   "expectedRaw": "\"80\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "\"2\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[10, 10]"
+    }
+   ],
+   "expectedRaw": "\"1010\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "\"22\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3, 11, 5, 34, 30]"
+    }
+   ],
+   "expectedRaw": "\"53433011\""
+  }
+ ]
+}

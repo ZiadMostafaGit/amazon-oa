@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-minimum-reward-points-to-cover-payment",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "targetMicrodollars",
+     "type": "long",
+     "rawValue": "168000001"
+    },
+    {
+     "name": "balances",
+     "type": "int[]",
+     "rawValue": "[12000, 25000]"
+    },
+    {
+     "name": "valueMicrodollarsPerPoint",
+     "type": "long[]",
+     "rawValue": "[12000, 9000]"
+    }
+   ],
+   "expectedRaw": "14667"
+  },
+  {
+   "inputs": [
+    {
+     "name": "targetMicrodollars",
+     "type": "long",
+     "rawValue": "25"
+    },
+    {
+     "name": "balances",
+     "type": "int[]",
+     "rawValue": "[1, 6]"
+    },
+    {
+     "name": "valueMicrodollarsPerPoint",
+     "type": "long[]",
+     "rawValue": "[25, 60, 25]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "targetMicrodollars",
+     "type": "long",
+     "rawValue": "101"
+    },
+    {
+     "name": "balances",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "valueMicrodollarsPerPoint",
+     "type": "long[]",
+     "rawValue": "[50, 50]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "targetMicrodollars",
+     "type": "long",
+     "rawValue": "168000000"
+    },
+    {
+     "name": "balances",
+     "type": "int[]",
+     "rawValue": "[36000]"
+    },
+    {
+     "name": "valueMicrodollarsPerPoint",
+     "type": "long[]",
+     "rawValue": "[9000]"
+    }
+   ],
+   "expectedRaw": "18667"
+  },
+  {
+   "inputs": [
+    {
+     "name": "targetMicrodollars",
+     "type": "long",
+     "rawValue": "-100"
+    },
+    {
+     "name": "balances",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 1]"
+    },
+    {
+     "name": "valueMicrodollarsPerPoint",
+     "type": "long[]",
+     "rawValue": "[25, 25]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "targetMicrodollars",
+     "type": "long",
+     "rawValue": "-2"
+    },
+    {
+     "name": "balances",
+     "type": "int[]",
+     "rawValue": "[-4, 0]"
+    },
+    {
+     "name": "valueMicrodollarsPerPoint",
+     "type": "long[]",
+     "rawValue": "[5]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

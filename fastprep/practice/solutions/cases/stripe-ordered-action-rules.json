@@ -1,0 +1,98 @@
+{
+ "problemId": "stripe-ordered-action-rules",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"BLOCK if amount>10000\", \"BLOCK if amount>10000\"]"
+    },
+    {
+     "name": "attributes",
+     "type": "String[]",
+     "rawValue": "[\"fraud_flag=false\", \"amount=1500\", \"amount=15000\", \"trusted_partner=true\"]"
+    }
+   ],
+   "expectedRaw": "\"BLOCK\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"BLOCK if fraud_flag=true OR amount>=20000\", \"BLOCK if fraud_flag=true OR amount>=20000\"]"
+    },
+    {
+     "name": "attributes",
+     "type": "String[]",
+     "rawValue": "[\"trusted_partner=true\", \"fraud_flag=false\", \"trusted_partner=true\", \"amount=8000\"]"
+    }
+   ],
+   "expectedRaw": "\"REVIEW\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"ACCEPT if trusted_partner=true\", \"ACCEPTT if trusted_partner=true\", \"BLOCK if amount>10000\"]"
+    },
+    {
+     "name": "attributes",
+     "type": "String[]",
+     "rawValue": "[\"trusted_partner=true\", \"fraud_flag=false\"]"
+    }
+   ],
+   "expectedRaw": "\"ACCEPT\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"BLOCK if amount>100\", \"BLOCK if amount>100\"]"
+    },
+    {
+     "name": "attributes",
+     "type": "String[]",
+     "rawValue": "[\"amount=2200\", \"trusted_partner=true\"]"
+    }
+   ],
+   "expectedRaw": "\"BLOCK\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"ACCEPT if trusted_partner=true\"]"
+    },
+    {
+     "name": "attributes",
+     "type": "String[]",
+     "rawValue": "[\"trusted_partner=true\", \"trusted_partner=true\"]"
+    }
+   ],
+   "expectedRaw": "\"ACCEPT\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"BLOCK if fraud_flag=true\", \"ACCEPT if trsted_partner=true\", \"BLOCK if fraud_flag=true\", \"BLOCK if amount>10000\", \"ACCEPT if trsted_partner=true\"]"
+    },
+    {
+     "name": "attributes",
+     "type": "String[]",
+     "rawValue": "[\"fraud_flag=false\", \"fraud_flag=false\", \"amount=15000\"]"
+    }
+   ],
+   "expectedRaw": "\"BLOCK\""
+  }
+ ]
+}

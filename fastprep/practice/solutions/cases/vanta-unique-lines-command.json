@@ -1,0 +1,68 @@
+{
+ "problemId": "vanta-unique-lines-command",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"apple\", \"banana\"]"
+    }
+   ],
+   "expectedRaw": "[\"apple\", \"banana\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"carrot\", \"banana\", \"apple\", \"banana\", \"apple\", \"banana\"]"
+    }
+   ],
+   "expectedRaw": "[\"carrot\", \"banana\", \"apple\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"\", \"X\"]"
+    }
+   ],
+   "expectedRaw": "[\"x\", \"\", \"X\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"X\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[\"X\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"\", \"x\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"x\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"apple\", \"carrot\", \"banana\", \"banana\"]"
+    }
+   ],
+   "expectedRaw": "[\"apple\", \"carrot\", \"banana\"]"
+  }
+ ]
+}

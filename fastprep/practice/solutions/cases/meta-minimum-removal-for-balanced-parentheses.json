@@ -1,0 +1,68 @@
+{
+ "problemId": "meta-minimum-removal-for-balanced-parentheses",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"lee((t(c)o)de)\""
+    }
+   ],
+   "expectedRaw": "\"lee((t(c)o)de)\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"lee(t()o)de)\""
+    }
+   ],
+   "expectedRaw": "\"lee(t()o)de\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"))(((\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\")))((\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"a)b(c)dd\""
+    }
+   ],
+   "expectedRaw": "\"ab(c)dd\""
+  }
+ ]
+}

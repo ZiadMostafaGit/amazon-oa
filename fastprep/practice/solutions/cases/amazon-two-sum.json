@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-two-sum",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[11]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "9"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 0, 4]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[7, 15, 11, 15]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-9"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 11, 15, 7]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "9"
+    }
+   ],
+   "expectedRaw": "[0, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 11, 7, 15]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-9"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

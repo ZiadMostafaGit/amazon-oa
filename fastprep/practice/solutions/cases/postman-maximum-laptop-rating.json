@@ -1,0 +1,128 @@
+{
+ "problemId": "postman-maximum-laptop-rating",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 11,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[1300, 2000]"
+    },
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[300, 500, 400, 200]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1000, 1400], [0, 2000], [1700, 1900], [0, 2000]]"
+    }
+   ],
+   "expectedRaw": "[300, 500, -1, 500]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[0, 1, 9]"
+    },
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[30, 9, 40]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1, 9]]"
+    }
+   ],
+   "expectedRaw": "[40]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[0, 3]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[5, 1]"
+    },
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[40, 10, 40, 30]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[2, 8]]"
+    }
+   ],
+   "expectedRaw": "[40]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[1000, 1700, 2000, 1300]"
+    },
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[200, 300, 500, 398, 600]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1400, 1000], [1700, 1900], [0, 2000]]"
+    }
+   ],
+   "expectedRaw": "[-1, 300, 500]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[1, 9]"
+    },
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[40, 30, 30]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1, 9], [2, 8]]"
+    }
+   ],
+   "expectedRaw": "[40, -1]"
+  }
+ ]
+}

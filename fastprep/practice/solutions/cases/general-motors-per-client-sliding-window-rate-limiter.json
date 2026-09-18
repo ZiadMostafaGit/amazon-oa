@@ -1,0 +1,158 @@
+{
+ "problemId": "general-motors-per-client-sliding-window-rate-limiter",
+ "generatedAt": "2026-09-18T23:33:40",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "clientIds",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"B\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[0, 3, 1, 2]"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "-10"
+    }
+   ],
+   "expectedRaw": "[true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clientIds",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"A\", \"B\", \"A\", \"A\", \"A\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[2, 0, 3, 1]"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[false, false, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clientIds",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"A\", \"A\", \"B\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[0, 1, 3]"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[false, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clientIds",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"x\", \"x\", \"x\", \"x\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[1, 3]"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clientIds",
+     "type": "String[]",
+     "rawValue": "[\"10\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[-3, 3]"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "[true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clientIds",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"A\", \"A\", \"A\", \"A\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[1, 3, 2, 3, 3]"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "13"
+    }
+   ],
+   "expectedRaw": "[false, false, false, false, false]"
+  }
+ ]
+}

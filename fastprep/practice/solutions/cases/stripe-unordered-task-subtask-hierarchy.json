@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-unordered-task-subtask-hierarchy",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"2026-01-01\", \"task\", \"t1\", \"build\"]]"
+    }
+   ],
+   "expectedRaw": "[\"TASK|t1|build\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"2026-01-03\", \"subtask\", \"s2\", \"t1\", \"review\"], [\"2026-01-02\", \"task\", \"t2\", \"ship\"], [\"2026-01-01\", \"t1\", \"2026-01-03\", \"t1\", \"build\"], [\"2026-01-02\", \"task\", \"t2\", \"ship\"]]"
+    }
+   ],
+   "expectedRaw": "[\"TASK|t2|ship\", \"TASK|t2|ship\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"2026-01-02\", \"task\", \"t2\", \"ship\"], [\"2026-01-01\", \"task\", \"t1\", \"build\"], [\"2026-01-02\", \"subtask\", \"s1\", \"t1\", \"code\"], [\"2026-01-03\", \"subtask\", \"s2\", \"t1\", \"review\"], [\"2026-01-01\", \"task\", \"t1\", \"build\"]]"
+    }
+   ],
+   "expectedRaw": "[\"TASK|t1|build\", \"SUBTASK|s1|code\", \"SUBTASK|s2|review\", \"TASK|t1|build\", \"SUBTASK|s1|code\", \"SUBTASK|s2|review\", \"TASK|t2|ship\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"2026-01-01\", \"task\", \"t1\", \"build\"], [\"2026-01-02\", \"task\", \"t2\", \"ship\"], [\"2026-01-01\", \"task\", \"t1\", \"build\"], [\"ship\", \"s1\", \"t1\", \"ship\", \"code\", \"2026-01-02\"]]"
+    }
+   ],
+   "expectedRaw": "[\"TASK|t1|build\", \"TASK|t1|build\", \"TASK|t2|ship\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"2026-01-02\", \"task\", \"t2\", \"ship\"], [\"2026-01-01\", \"task\", \"t1\", \"build\"], [\"2026-01-02\", \"subtask\", \"s1\", \"t1\", \"code\"], [\"2026-01-02\", \"subtask\", \"s1\", \"t1\", \"code\"]]"
+    }
+   ],
+   "expectedRaw": "[\"TASK|t1|build\", \"SUBTASK|s1|code\", \"SUBTASK|s1|code\", \"TASK|t2|ship\"]"
+  }
+ ]
+}

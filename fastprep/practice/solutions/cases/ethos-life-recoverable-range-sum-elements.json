@@ -1,0 +1,128 @@
+{
+ "problemId": "ethos-life-recoverable-range-sum-elements",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "left",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "right",
+     "type": "int[]",
+     "rawValue": "[4, 2, 4]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "left",
+     "type": "int[]",
+     "rawValue": "[5, -2, -3]"
+    },
+    {
+     "name": "right",
+     "type": "int[]",
+     "rawValue": "[5, -3, 4]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "left",
+     "type": "int[]",
+     "rawValue": "[2, 1, 2, 1]"
+    },
+    {
+     "name": "right",
+     "type": "int[]",
+     "rawValue": "[1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "left",
+     "type": "int[]",
+     "rawValue": "[4]"
+    },
+    {
+     "name": "right",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "left",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1]"
+    },
+    {
+     "name": "right",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "left",
+     "type": "int[]",
+     "rawValue": "[4]"
+    },
+    {
+     "name": "right",
+     "type": "int[]",
+     "rawValue": "[8]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

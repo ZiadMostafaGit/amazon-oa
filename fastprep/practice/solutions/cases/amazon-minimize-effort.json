@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-minimize-effort",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "expense",
+     "type": "int[]",
+     "rawValue": "[2, 25]"
+    }
+   ],
+   "expectedRaw": "27"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expense",
+     "type": "int[]",
+     "rawValue": "[5, 6, 2, 25, 3, 25]"
+    }
+   ],
+   "expectedRaw": "22"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expense",
+     "type": "int[]",
+     "rawValue": "[6, 2, 5, 25]"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expense",
+     "type": "int[]",
+     "rawValue": "[3, 2, 2]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expense",
+     "type": "int[]",
+     "rawValue": "[3, 2, 5, 3, 25]"
+    }
+   ],
+   "expectedRaw": "18"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expense",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

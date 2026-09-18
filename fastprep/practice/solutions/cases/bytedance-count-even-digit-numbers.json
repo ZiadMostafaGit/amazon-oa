@@ -1,0 +1,68 @@
+{
+ "problemId": "bytedance-count-even-digit-numbers",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[111, 10]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[1111, 134, 111, 10, 12, 10]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[10, 999, 1000, 10000]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[1, 999, 997]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[1, 999, 1000, 1, 10000]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

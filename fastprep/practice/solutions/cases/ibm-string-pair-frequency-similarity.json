@@ -1,0 +1,98 @@
+{
+ "problemId": "ibm-string-pair-frequency-similarity",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String[]",
+     "rawValue": "[\"bbabbc\", \"aaaaabb\"]"
+    },
+    {
+     "name": "t",
+     "type": "String[]",
+     "rawValue": "[\"bbabbc\", \"abbbbbb\", \"bbabbc\"]"
+    }
+   ],
+   "expectedRaw": "[\"YES\", \"NO\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"yz\"]"
+    },
+    {
+     "name": "t",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"abc\", \"cat\", \"blue\", \"abc\"]"
+    }
+   ],
+   "expectedRaw": "[\"YES\", \"YES\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"0\"]"
+    },
+    {
+     "name": "t",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"1\", \"ab\", \"cat\"]"
+    }
+   ],
+   "expectedRaw": "[\"YES\", \"YES\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String[]",
+     "rawValue": "[\"aaaaabb\"]"
+    },
+    {
+     "name": "t",
+     "type": "String[]",
+     "rawValue": "[\"bbabbc\", \"abbbbbb\"]"
+    }
+   ],
+   "expectedRaw": "[\"NO\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String[]",
+     "rawValue": "[\"aaaaabb\"]"
+    },
+    {
+     "name": "t",
+     "type": "String[]",
+     "rawValue": "[\"bbabbc\"]"
+    }
+   ],
+   "expectedRaw": "[\"NO\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String[]",
+     "rawValue": "[\"aabaab\", \"aaaaabb\"]"
+    },
+    {
+     "name": "t",
+     "type": "String[]",
+     "rawValue": "[\"bbabbc\", \"abbbbbb\", \"abbbbbb\"]"
+    }
+   ],
+   "expectedRaw": "[\"YES\", \"NO\"]"
+  }
+ ]
+}

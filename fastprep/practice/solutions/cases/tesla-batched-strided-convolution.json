@@ -1,0 +1,248 @@
+{
+ "problemId": "tesla-batched-strided-convolution",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "int[][][]",
+     "rawValue": "[[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[7, 8, 9], [1, 2, 3], [2, 5, 6], [1, 2, 3], [7, 8, 9]]]"
+    },
+    {
+     "name": "batchSize",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "kernels",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 0, -1], [0, 0, -1]]"
+    },
+    {
+     "name": "kernelHeight",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "kernelWidth",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "stride",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[[[0]], [[0]]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "int[][][]",
+     "rawValue": "[[[4, 5], [1, 2, 3], [7, 8, 9]], [[1, 2, 3], [4, 5, 6], [7, 8, 9]]]"
+    },
+    {
+     "name": "batchSize",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "kernels",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 0, -1], [1, 0, 0, -1]]"
+    },
+    {
+     "name": "kernelHeight",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "kernelWidth",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "stride",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[[], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "int[][][]",
+     "rawValue": "[[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[9, 8, 7], [6, 5, 4], [3, 3]]]"
+    },
+    {
+     "name": "batchSize",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "kernels",
+     "type": "int[][]",
+     "rawValue": "[[1, 6, -1, -1]]"
+    },
+    {
+     "name": "kernelHeight",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "kernelWidth",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "stride",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "int[][][]",
+     "rawValue": "[[[2, 7], [4, 5], [1, 2, 3], [7, 8, 9]], [[9, 8, 7], [6, 5, 4], [3, 2, 1]]]"
+    },
+    {
+     "name": "batchSize",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "kernels",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 1, 0]]"
+    },
+    {
+     "name": "kernelHeight",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "kernelWidth",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "stride",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[[[15]]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "int[][][]",
+     "rawValue": "[[[3, -2, -3]], [[4, -4, -3]], [[-3, 1, -4], [4, 0, -4, 1]]]"
+    },
+    {
+     "name": "batchSize",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "kernels",
+     "type": "int[][]",
+     "rawValue": "[[-4]]"
+    },
+    {
+     "name": "kernelHeight",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "kernelWidth",
+     "type": "int",
+     "rawValue": "-4"
+    },
+    {
+     "name": "stride",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "[[[]], [[]]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "int[][][]",
+     "rawValue": "[[[7, 8, 9]]]"
+    },
+    {
+     "name": "batchSize",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "kernels",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 0, -1]]"
+    },
+    {
+     "name": "kernelHeight",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "kernelWidth",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "stride",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

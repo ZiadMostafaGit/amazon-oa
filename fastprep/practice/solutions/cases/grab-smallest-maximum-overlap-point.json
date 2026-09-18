@@ -1,0 +1,68 @@
+{
+ "problemId": "grab-smallest-maximum-overlap-point",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[4, 6], [4, 6]]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[1, 4], [4, 6], [1, 4], [2, 5]]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[2, 5], [5, 5], [4, 6]]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[0, 2]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[2, 5], [4, 3]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[1, 4], [4, 6], [4, 6]]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

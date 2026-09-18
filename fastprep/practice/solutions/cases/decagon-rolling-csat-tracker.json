@@ -1,0 +1,98 @@
+{
+ "problemId": "decagon-rolling-csat-tracker",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"QUERY 3\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[\"EMPTY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"QUERY 2\", \"ADD 2 4\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"EMPTY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD 2 4\", \"ADD 2 4\", \"QUERY 2\", \"ADD 2 4\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[\"EMPTY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD 0 1\", \"ADD 1 2\", \"ADD 2 5\", \"ADD 1 2\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD 1 5\", \"QUERY 3\", \"QUERY 6\", \"ADD 3 3\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[\"5/1\", \"EMPTY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD 1 5\", \"QUERY 3\", \"ADD 3 3\", \"QUERY 6\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "[\"EMPTY\", \"EMPTY\"]"
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "problemId": "stripe-subscription-and-usage-billing-calculator",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "subscriptions",
+     "type": "String[]",
+     "rawValue": "[\"ser_1,sub_a,1000\", \"user_1,sub_b,2500\", \"user_2,sub_c,500\", \"user_3,sub_d,2000\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[\"user_1,sub_a,suub_a_plus,1500,11\", \"user_1,sub_a_plus,sub_a_pro,3000,21\", \"user_2,sub_c,sub_c_premium,1200,16\", \"user_1,sub_a,sub_a_plus,1500,11\"]"
+    },
+    {
+     "name": "pricing",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "usage",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[[\"ser_1\", \"333\"], [\"user_1\", \"5000\"], [\"user_2\", \"850\"], [\"user_3\", \"2000\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "subscriptions",
+     "type": "String[]",
+     "rawValue": "[\"api,-1,50\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[\"u1,s,s1_plus,2000,15\"]"
+    },
+    {
+     "name": "pricing",
+     "type": "String[]",
+     "rawValue": "[\"api,3,100\", \"api,-1,50\"]"
+    },
+    {
+     "name": "usage",
+     "type": "String[]",
+     "rawValue": "[\"u1,api,5\", \"u1,api,5\", \"u1,api,5\"]"
+    }
+   ],
+   "expectedRaw": "[[\"api\", \"50\"], [\"u1\", \"1966\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "subscriptions",
+     "type": "String[]",
+     "rawValue": "[\"u,s2,2000\", \"u,s2,2000\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[\"u,s2,s2_plus,3000,29\", \"u,s1,s1plus,2000,29\"]"
+    },
+    {
+     "name": "pricing",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "usage",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[[\"u\", \"2200\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "subscriptions",
+     "type": "String[]",
+     "rawValue": "[\"user_1,sub_a,1000\", \"user_3,sub_f,2000\", \"user_2,sub_d,3000\", \"user_1,sub_b,2500\", \"user_2,sub_c,500\", \"user_1,sub_a,1000\", \"user_2,sub_e,1500\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "pricing",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "usage",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[[\"user_1\", \"3500\"], [\"user_2\", \"5000\"], [\"user_3\", \"2000\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "subscriptions",
+     "type": "String[]",
+     "rawValue": "[\"u,s2,2000\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[\"u,s2,s2_pluss,3000,29\"]"
+    },
+    {
+     "name": "pricing",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "usage",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[[\"u\", \"2066\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "subscriptions",
+     "type": "String[]",
+     "rawValue": "[\"u1,s1,1000\", \"u1,s1,1000\"]"
+    },
+    {
+     "name": "changes",
+     "type": "String[]",
+     "rawValue": "[\"u1,s1,s1_plus,2000,15\"]"
+    },
+    {
+     "name": "pricing",
+     "type": "String[]",
+     "rawValue": "[\"api,-1,50\", \"api,3,100\"]"
+    },
+    {
+     "name": "usage",
+     "type": "String[]",
+     "rawValue": "[\"u1,api,2\"]"
+    }
+   ],
+   "expectedRaw": "[[\"u1\", \"1733\"]]"
+  }
+ ]
+}

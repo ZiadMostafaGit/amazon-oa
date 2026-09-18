@@ -1,0 +1,98 @@
+{
+ "problemId": "uber-my-calendar-i",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "starts",
+     "type": "int[]",
+     "rawValue": "[20, 20]"
+    },
+    {
+     "name": "ends",
+     "type": "int[]",
+     "rawValue": "[20, 28, 30, 25]"
+    }
+   ],
+   "expectedRaw": "[true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "starts",
+     "type": "int[]",
+     "rawValue": "[-4, 3]"
+    },
+    {
+     "name": "ends",
+     "type": "int[]",
+     "rawValue": "[-4, 2, 0, 1, -5]"
+    }
+   ],
+   "expectedRaw": "[true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "starts",
+     "type": "int[]",
+     "rawValue": "[15]"
+    },
+    {
+     "name": "ends",
+     "type": "int[]",
+     "rawValue": "[25, 15, 30]"
+    }
+   ],
+   "expectedRaw": "[true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "starts",
+     "type": "int[]",
+     "rawValue": "[0, 33, 36, 25, 24]"
+    },
+    {
+     "name": "ends",
+     "type": "int[]",
+     "rawValue": "[50, 35, 32, 45, 41]"
+    }
+   ],
+   "expectedRaw": "[true, false, false, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "starts",
+     "type": "int[]",
+     "rawValue": "[47, 36, 25, 24]"
+    },
+    {
+     "name": "ends",
+     "type": "int[]",
+     "rawValue": "[50, 32, 45, 32, 33]"
+    }
+   ],
+   "expectedRaw": "[true, true, false, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "starts",
+     "type": "int[]",
+     "rawValue": "[15, -10]"
+    },
+    {
+     "name": "ends",
+     "type": "int[]",
+     "rawValue": "[25, 10]"
+    }
+   ],
+   "expectedRaw": "[true, true]"
+  }
+ ]
+}

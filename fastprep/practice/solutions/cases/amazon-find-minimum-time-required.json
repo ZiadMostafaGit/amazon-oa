@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-find-minimum-time-required",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String",
+     "rawValue": "\"abaccadaeafag\""
+    },
+    {
+     "name": "minGap",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "16"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String",
+     "rawValue": "\"aaabbbb\""
+    },
+    {
+     "name": "minGap",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "minGap",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String",
+     "rawValue": "\"abacadaeafag\""
+    },
+    {
+     "name": "minGap",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "12"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String",
+     "rawValue": "\"bacadaeafag\""
+    },
+    {
+     "name": "minGap",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "minGap",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

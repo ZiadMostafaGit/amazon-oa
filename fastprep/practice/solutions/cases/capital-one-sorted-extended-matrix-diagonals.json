@@ -1,0 +1,68 @@
+{
+ "problemId": "capital-one-sorted-extended-matrix-diagonals",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"b\", \"a\"], [\"c\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[2, 3, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"c\", \"a\", \"b\", \"b\"], [\"c\", \"b\", \"a\", \"c\", \"b\"], [\"a\", \"a\", \"e\", \"c\", \"b\"], [\"e\", \"g\", \"d\", \"b\", \"b\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[4, 6, 2, 7, 5, 3, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"c\", \"a\"], [\"c\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[3, 2, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"dog\", \"bc\", \"a\", \"red\"]]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"yz\", \"yz\", \"x\"], [\"yz\", \"yz\", \"10\", \"x\", \"dog\", \"ab\"]]"
+    }
+   ],
+   "expectedRaw": "[1, 2, 3]"
+  }
+ ]
+}

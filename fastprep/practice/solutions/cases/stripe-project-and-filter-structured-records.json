@@ -1,0 +1,158 @@
+{
+ "problemId": "stripe-project-and-filter-structured-records",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "fieldNames",
+     "type": "String[]",
+     "rawValue": "[\"country\"]"
+    },
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"Ben\", \"ben@example.com\", \"CA\", \"pro\"], [\"Ada\", \"ada@exampl.com\", \"US\", \"pro\"], [\"Cy\", \"cy@example.com\", \"US\", \"basic\"]]"
+    },
+    {
+     "name": "selectedFields",
+     "type": "String[]",
+     "rawValue": "[\"email\", \"email\"]"
+    },
+    {
+     "name": "filters",
+     "type": "String[][]",
+     "rawValue": "[[\"tier\", \"pro\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"INVALID\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "fieldNames",
+     "type": "String[]",
+     "rawValue": "[\"country\", \"email\", \"country\", \"pro\"]"
+    },
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"Ada\", \"ada@example.com\", \"US\", \"pro\"], [\"Ben\", \"ben@example.com\", \"CA\", \"pro\"], [\"cy@example.com\", \"US\", \"basic\"]]"
+    },
+    {
+     "name": "selectedFields",
+     "type": "String[]",
+     "rawValue": "[\"name\", \"name\", \"email\"]"
+    },
+    {
+     "name": "filters",
+     "type": "String[][]",
+     "rawValue": "[[\"country\", \"US\"], [\"tier\", \"pro\"], [\"country\", \"US\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"INVALID\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "fieldNames",
+     "type": "String[]",
+     "rawValue": "[\"team\"]"
+    },
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"Ana\", \"risk\"], [\"Ana\", \"risk\"], [\"Ana\", \"risk\"]]"
+    },
+    {
+     "name": "selectedFields",
+     "type": "String[]",
+     "rawValue": "[\"name\", \"name\"]"
+    },
+    {
+     "name": "filters",
+     "type": "String[][]",
+     "rawValue": "[[\"country\", \"US\"], [\"country\", \"US\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"INVALID\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "fieldNames",
+     "type": "String[]",
+     "rawValue": "[\"name\", \"email\", \"tier\"]"
+    },
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"US\", \"pro\", \"ada@example.com\"], [\"Ben\", \"ben@example.com\", \"CA\", \"pro\"], [\"Cy\", \"cy@example.com\", \"US\", \"basic\"]]"
+    },
+    {
+     "name": "selectedFields",
+     "type": "String[]",
+     "rawValue": "[\"name\", \"name\"]"
+    },
+    {
+     "name": "filters",
+     "type": "String[][]",
+     "rawValue": "[[\"basic\", \"country\"], [\"tier\", \"pro\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"INVALID\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "fieldNames",
+     "type": "String[]",
+     "rawValue": "[\"name\", \"country\", \"tier\", \"country\"]"
+    },
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"Ben\", \"ben@example.com\", \"CA\", \"pro\"], [\"Ada\", \"ada@example.com\", \"US\", \"pro\"]]"
+    },
+    {
+     "name": "selectedFields",
+     "type": "String[]",
+     "rawValue": "[\"name\", \"name\"]"
+    },
+    {
+     "name": "filters",
+     "type": "String[][]",
+     "rawValue": "[[\"tier\", \"pro\"], [\"tier\", \"pro\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "fieldNames",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"red\"]"
+    },
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "selectedFields",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "filters",
+     "type": "String[][]",
+     "rawValue": "[[\"x\", \"dog\"], [\"0\", \"red\", \"red\", \"bc\", \"b\"], []]"
+    }
+   ],
+   "expectedRaw": "[[\"INVALID\"]]"
+  }
+ ]
+}

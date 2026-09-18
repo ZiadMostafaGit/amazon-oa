@@ -1,0 +1,68 @@
+{
+ "problemId": "linkedin-interval-tree-task-scheduling",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"BOOK overlap 9 12\", \"CONFLICTS 9 12\", \"BOOK lunch 12 13\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"overlap\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"BOOK only 40 60\", \"CONFLICTS 0 100\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"only\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"CONFLICTS 9 12\", \"CONFLICTS 11 13\", \"BOOK lunch 12 13\", \"BOOK overlap 9 12\", \"BOOK standup 10 11\", \"BOOK focus 9 10\", \"BOOK overlap 9 12\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"true\", \"true\", \"false\", \"false\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"BOOK focus 9 10\", \"BOOK standup 10 11\", \"BOOK overlap 9 12\", \"BOOK lunch 12 13\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"false\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"BOOK standup 10 11\", \"CONFLICTS 11 13\", \"CONFLICTS 9 12\", \"BOOK focus 9 10\", \"BOOK lunch 12 13\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"\", \"standup\", \"true\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"BOOK duplicate_start 20 21\", \"CONFLICTS 19 31\", \"BOOK touch_right 30 40\", \"BOOK night 20 30\", \"BOOK touch_left 10 20\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"duplicate_start\", \"true\", \"false\", \"true\"]"
+  }
+ ]
+}

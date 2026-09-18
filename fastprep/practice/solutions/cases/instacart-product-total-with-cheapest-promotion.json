@@ -1,0 +1,98 @@
+{
+ "problemId": "instacart-product-total-with-cheapest-promotion",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[\"C|Bad|-1|900\", \"C|Bad|-1|900\"]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[\"A|pct|20\", \"A|pct|20\", \"B|pct|10\", \"A|bxyf|2|1\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[\"A|Apple|3|100\", \"B|Bread|2|250\", \"C|Bad|-1|900\", \"B|Bread|2|250\", \"B|Bread|2|250\"]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[\"B|pct|10\", \"A|pct|20\", \"A|pct|20\"]"
+    }
+   ],
+   "expectedRaw": "1590"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[\"A|A|1|101\", \"C|C|2|200\", \"C|C|2|200\"]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[\"A|A|1|101\", \"B|bxyf|2|1\"]"
+    }
+   ],
+   "expectedRaw": "901"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[\"C|Bad|-1|900\", \"A|Apple|3|100\", \"B|Brad|2|250\"]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[\"A|pct|20\", \"A|pct|20\"]"
+    }
+   ],
+   "expectedRaw": "740"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[\"B|B|7|80\", \"A|A|1|101\", \"C|C|2|200\"]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[\"C|C|2|200\", \"B|bxyf|2|1\"]"
+    }
+   ],
+   "expectedRaw": "901"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

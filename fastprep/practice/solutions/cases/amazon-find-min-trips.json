@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-find-min-trips",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "packageweight",
+     "type": "int[]",
+     "rawValue": "[5, 8, 5, 1]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packageweight",
+     "type": "int[]",
+     "rawValue": "[2, 6, 2, 4, 4, 6, 4]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packageweight",
+     "type": "int[]",
+     "rawValue": "[4, 4, 4, 6, 6, 2]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packageweight",
+     "type": "int[]",
+     "rawValue": "[1, 8, 5, 8, 1]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packageweight",
+     "type": "int[]",
+     "rawValue": "[-3, -1, -2]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packageweight",
+     "type": "int[]",
+     "rawValue": "[2, 4, 6, 4, 4, 2, 4]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

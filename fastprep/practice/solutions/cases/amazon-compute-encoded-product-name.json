@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-compute-encoded-product-name",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nameString",
+     "type": "String",
+     "rawValue": "\"yxxxy\""
+    }
+   ],
+   "expectedRaw": "\"xyxyx\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nameString",
+     "type": "String",
+     "rawValue": "\"yxx\""
+    }
+   ],
+   "expectedRaw": "\"xyx\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nameString",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nameString",
+     "type": "String",
+     "rawValue": "\"dedd\""
+    }
+   ],
+   "expectedRaw": "\"ded\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nameString",
+     "type": "String",
+     "rawValue": "\"yxxyy\""
+    }
+   ],
+   "expectedRaw": "\"xyyyx\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nameString",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "\"o\""
+  }
+ ]
+}

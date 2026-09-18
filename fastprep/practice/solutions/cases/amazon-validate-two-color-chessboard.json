@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-validate-two-color-chessboard",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[1, -1, 1, 0], [1, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 1], [1, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[0]]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0], [0, 1, 0]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0]]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[-2, -5, -1, -4, 4, -5]]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

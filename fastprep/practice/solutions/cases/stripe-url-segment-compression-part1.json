@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-url-segment-compression-part1",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abcd/erffgsh/google.com.abc\""
+    }
+   ],
+   "expectedRaw": "\"a2d/e5h/g4e.c1m.a1c\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abcd/erfgsh/oogle.com.abc\""
+    }
+   ],
+   "expectedRaw": "\"a2d/e4h/o3e.c1m.a1c\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1-11\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"googlecomaabc\""
+    }
+   ],
+   "expectedRaw": "\"g11c\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abcd/erfgsh/ggoogle.com.abc\""
+    }
+   ],
+   "expectedRaw": "\"a2d/e4h/g5e.c1m.a1c\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "\"d1g\""
+  }
+ ]
+}

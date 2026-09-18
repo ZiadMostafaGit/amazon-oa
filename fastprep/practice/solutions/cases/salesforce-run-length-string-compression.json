@@ -1,0 +1,68 @@
+{
+ "problemId": "salesforce-run-length-string-compression",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aaaaabeee\""
+    }
+   ],
+   "expectedRaw": "\"a5be3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aaaabee\""
+    }
+   ],
+   "expectedRaw": "\"a4be2\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abbbbbbbbbbbbb\""
+    }
+   ],
+   "expectedRaw": "\"ab13\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "\"blue\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aaabeee\""
+    }
+   ],
+   "expectedRaw": "\"a3be3\""
+  }
+ ]
+}

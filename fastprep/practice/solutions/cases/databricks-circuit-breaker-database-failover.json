@@ -1,0 +1,68 @@
+{
+ "problemId": "databricks-circuit-breaker-database-failover",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "outcomes",
+     "type": "String[][]",
+     "rawValue": "[[\"SUCCESS\", \"SUCCESS\", \"SUCCESS\"]]"
+    }
+   ],
+   "expectedRaw": "[\"PRIMARY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "outcomes",
+     "type": "String[][]",
+     "rawValue": "[[\"FAILURE\", \"FAILURE\", \"FAILURE\"], [\"SUCCESS\", \"SUCCESS\", \"SUCCESS\", \"SUCCESS\"], [\"FAILURE\", \"FAILURE\", \"FAILURE\"], [\"FAILURE\", \"SUCCESS\", \"SUCCESS\"], [\"SUCCESS\", \"SUCCESS\", \"SUCCESS\"], [\"SUCCESS\", \"SUCCESS\", \"SUCCESS\"]]"
+    }
+   ],
+   "expectedRaw": "[\"FAILED\", \"PRIMARY\", \"FAILED\", \"FAILED\", \"FAILED\", \"FAILED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "outcomes",
+     "type": "String[][]",
+     "rawValue": "[[\"FAILURE\", \"FAILURE\", \"SUCCESS\"], [\"SUCCESS\", \"SUCCESS\", \"SUCCESS\"], [\"FAILURE\", \"FAILURE\", \"SUCCESS\"], [\"FAILURE\", \"SUCCESS\", \"SUCCESS\"], [\"SUCCESS\", \"SUCCESS\", \"SUCCESS\"]]"
+    }
+   ],
+   "expectedRaw": "[\"REPLICA_2\", \"PRIMARY\", \"REPLICA_2\", \"REPLICA_2\", \"REPLICA_2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "outcomes",
+     "type": "String[][]",
+     "rawValue": "[[\"SUCCESS\", \"SUCCESS\", \"SUCCESS\"], [\"SUCCESS\", \"SUCCESS\", \"SUCCESS\"], [\"FAILURE\", \"SUCCESS\", \"SUCCESS\"], [\"FAILURE\", \"FAILURE\", \"FAILURE\"]]"
+    }
+   ],
+   "expectedRaw": "[\"PRIMARY\", \"PRIMARY\", \"REPLICA_1\", \"FAILED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "outcomes",
+     "type": "String[][]",
+     "rawValue": "[[\"1\", \"0\", \"abc\", \"red\"]]"
+    }
+   ],
+   "expectedRaw": "[\"FAILED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "outcomes",
+     "type": "String[][]",
+     "rawValue": "[[\"SUCCESS\", \"SUCCESS\", \"SUCCESS\"], [\"FAILURE\", \"FAILURE\", \"FAILURE\"], [\"SUCCESS\"]]"
+    }
+   ],
+   "expectedRaw": "[\"PRIMARY\", \"FAILED\", \"PRIMARY\"]"
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "problemId": "citadel-shortest-path-unweighted-graph",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 13,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [0, 3], [3, 4], [4, 2]]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[2, 3]]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 1]]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1]]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0], [0]]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 1]]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "doordash-dasher-pay",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"06:36 FULFILL A\"]"
+    },
+    {
+     "name": "peakHours",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"06:33 PICKUP B\", \"06:30 ARRIVE B\", \"06:45 FULFILL B\", \"06:22 PICKUP A\", \"06:15 ACCEPT A\", \"06:36 FULFILL A\", \"06:30 ARRIVE B\", \"06:19 ARRIVE A\", \"06:22 PICKUP A\", \"06:18 ACCEPT B\"]"
+    },
+    {
+     "name": "peakHours",
+     "type": "String[]",
+     "rawValue": "[\"06:20 06:30\", \"06:20 06:30\"]"
+    }
+   ],
+   "expectedRaw": "9.3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"06:33 PICKUP B\", \"06:30 ARRIVE B\", \"06:19 ARRIVE A\", \"06:22 PICKUP A\", \"06:18 ACCEPT B\", \"06:36 FULFILL A\", \"06:15 ACCEPT A\"]"
+    },
+    {
+     "name": "peakHours",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "5.4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"06:18 ACCEPT B\", \"06:19 ARRIVE A\", \"06:30 ARRIVE B\", \"06:36 FULFILL A\", \"06:45 FULFILL B\"]"
+    },
+    {
+     "name": "peakHours",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "8.1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "peakHours",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"06:15 ACCEPT A\", \"06:18 ACCEPT B\", \"06:19 ARRIVE A\", \"06:22 PICKUP A\", \"06:30 ARRIVE B\", \"06:33 PICKUP B\", \"06:6 FULFILL A\", \"06:45 FULFILL B\"]"
+    },
+    {
+     "name": "peakHours",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "19.8"
+  }
+ ]
+}

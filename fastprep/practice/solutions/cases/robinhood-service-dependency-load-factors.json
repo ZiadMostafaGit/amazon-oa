@@ -1,0 +1,128 @@
+{
+ "problemId": "robinhood-service-dependency-load-factors",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 14,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"api\", \"db\", \"search\", \"db\", \"unused\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [1, 1], [2, 3]]"
+    },
+    {
+     "name": "entry",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"api 1\", \"db 1\", \"search 1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"db\", \"unused\", \"search\", \"api\", \"billing\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 0], [3, 1], [3, 1], [2, 3]]"
+    },
+    {
+     "name": "entry",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"db 1\", \"unused 0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"api\", \"billing\", \"billing\", \"search\", \"db\", \"search\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [1, 3], [2, 3]]"
+    },
+    {
+     "name": "entry",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[\"billing 1\", \"search 1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"billing\", \"billing\", \"db\", \"api\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[0, 2]]"
+    },
+    {
+     "name": "entry",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"billing 1\", \"db 1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"api\", \"billing\", \"unused\", \"db\", \"unused\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 2], [0, 2], [1, 3], [2, 3]]"
+    },
+    {
+     "name": "entry",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[\"billing 1\", \"db 1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"search\", \"billing\", \"billing\", \"unused\", \"api\", \"billing\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[0, 2]]"
+    },
+    {
+     "name": "entry",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"billing 1\", \"search 1\"]"
+  }
+ ]
+}

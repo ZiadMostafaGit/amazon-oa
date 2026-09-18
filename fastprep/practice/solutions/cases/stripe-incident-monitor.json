@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-incident-monitor",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"15,merchant1,500,2\", \"20,merchant2,500,4\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"20,merchant1,500,1\", \"10,merchant2,500,1\", \"15,merchant1,500,2\", \"20,merchant2,500,4\", \"10,merchant1,500,2\", \"20,merchant2,500,4\"]"
+    }
+   ],
+   "expectedRaw": "[\"10,TRIGGER,merchant1,500\", \"20,TRIGGER,merchant2,500\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"12,merchant1,500,6\", \"15,merchant2,200,599\", \"16,merchant2,500,6\"]"
+    }
+   ],
+   "expectedRaw": "[\"12,TRIGGER,merchant1,500\", \"16,TRIGGER,merchant2,500\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"16,merchant2,500,6\", \"15,merchant2,200,599\"]"
+    }
+   ],
+   "expectedRaw": "[\"16,TRIGGER,merchant2,500\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"10,merchant1,200,600\", \"12,merchant1,500,6\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"10,merchant1,500,2\", \"20,merchant2,500,4\", \"20,merchant2,500,4\", \"10,merchant2,500,1\"]"
+    }
+   ],
+   "expectedRaw": "[\"20,TRIGGER,merchant2,500\"]"
+  }
+ ]
+}

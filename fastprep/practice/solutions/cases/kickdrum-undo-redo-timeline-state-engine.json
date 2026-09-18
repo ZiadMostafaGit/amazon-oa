@@ -1,0 +1,98 @@
+{
+ "problemId": "kickdrum-undo-redo-timeline-state-engine",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "initialState",
+     "type": "String",
+     "rawValue": "\"REDO 1\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"DO A\", \"UNDO 1\", \"CURRENT\", \"REDO 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"A\", \"REDO 1\", \"REDO 1\", \"A\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialState",
+     "type": "String",
+     "rawValue": "\"bc\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"yz\", \"dog\", \"blue\", \"0\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "[\"bc\", \"bc\", \"bc\", \"bc\", \"bc\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialState",
+     "type": "String",
+     "rawValue": "\"DO Curry\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"DO Soup\", \"DO Curry\", \"DO Soup\", \"DO Salad\", \"DO Curry\"]"
+    }
+   ],
+   "expectedRaw": "[\"Soup\", \"Curry\", \"Soup\", \"Salad\", \"Curry\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialState",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"blue\"]"
+    }
+   ],
+   "expectedRaw": "[\"b\", \"b\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialState",
+     "type": "String",
+     "rawValue": "\"Basic\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"REDO 5\", \"DO Curry\", \"DO Salad\"]"
+    }
+   ],
+   "expectedRaw": "[\"Basic\", \"Curry\", \"Salad\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialState",
+     "type": "String",
+     "rawValue": "\"Origin\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"DO A\", \"DO A\", \"CURRENT\", \"Origin\"]"
+    }
+   ],
+   "expectedRaw": "[\"A\", \"A\", \"A\", \"A\"]"
+  }
+ ]
+}

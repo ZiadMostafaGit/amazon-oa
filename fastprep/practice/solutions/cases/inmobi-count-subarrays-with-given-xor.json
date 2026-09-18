@@ -1,0 +1,98 @@
+{
+ "problemId": "inmobi-count-subarrays-with-given-xor",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[8, 10]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[-4]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[3, -4, 1, -2]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[-3, 2, 4, -3, 3]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "microsoft-count-similar-substrings",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "key",
+     "type": "String",
+     "rawValue": "\"monomon\""
+    },
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"monomon\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "key",
+     "type": "String",
+     "rawValue": "\"moon\""
+    },
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"moon\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "key",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "key",
+     "type": "String",
+     "rawValue": "\"monomon\""
+    },
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"moon\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "key",
+     "type": "String",
+     "rawValue": "\"aaa\""
+    },
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"aaa\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "key",
+     "type": "String",
+     "rawValue": "\"aaaa\""
+    },
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"aaaa\""
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

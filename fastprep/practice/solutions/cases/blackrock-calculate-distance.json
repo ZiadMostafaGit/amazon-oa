@@ -1,0 +1,68 @@
+{
+ "problemId": "blackrock-calculate-distance",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"Rkbs, 5453; Wdqqiz, 1245; Rwds, 3890; Ujma, 5589; Tbzmo, 1303;\""
+    }
+   ],
+   "expectedRaw": "\"1245, 58, 2587, 1563, 136\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"Rkbs, 5453; Wdqiz, 1245;Rwds, 3890; Ujma, 5589; Tbzmo, 1303;\""
+    }
+   ],
+   "expectedRaw": "\"1245, 58, 2587, 1563, 136\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"Rkbs, 5453; Wdqiz, 1245; Rwds, 3890; Ujma, 5589; Tbzmo,, 1303;\""
+    }
+   ],
+   "expectedRaw": "\"1245, 58, 2587, 1563, 136\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"Rkbs, 5453; Wdqiz, 1245; RRwds, 3890; Ujma, 5589; Tbzmo, 1303;\""
+    }
+   ],
+   "expectedRaw": "\"1245, 58, 2587, 1563, 136\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"Rkbs, 5453; Wdqiz, 1245;; Rwds, 3890; Ujma, 5589; Tbzmo, 1303;\""
+    }
+   ],
+   "expectedRaw": "\"1245, 58, 2587, 1563, 136\""
+  }
+ ]
+}

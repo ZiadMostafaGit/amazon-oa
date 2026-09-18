@@ -1,0 +1,98 @@
+{
+ "problemId": "pinterest-combination-sum-with-single-use",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[2, 7, 6, 5]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[1, 2, 5, 5]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[10, 7, 1, 2, 5, 1, 6]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "[[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[1, 3]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[10, 1, 2, 7, 6, 1, 10, 5]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "[[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[0, 1, 2, 7, 6, 1, 1, 5]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "[[0, 1, 1, 5], [0, 1, 6], [0, 2, 5], [0, 7], [1, 1, 5], [1, 6], [2, 5], [7]]"
+  }
+ ]
+}

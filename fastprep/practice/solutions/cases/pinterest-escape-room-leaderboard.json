@@ -1,0 +1,128 @@
+{
+ "problemId": "pinterest-escape-room-leaderboard",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 14,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "players",
+     "type": "String[]",
+     "rawValue": "[\"C\", \"A\", \"A\"]"
+    },
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"LEADERBOARD 3\"]"
+    }
+   ],
+   "expectedRaw": "[\"C,A\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "players",
+     "type": "String[]",
+     "rawValue": "[\"B\", \"A\"]"
+    },
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADVANCE B\", \"LEADERBOAARD 2\", \"ADVANCE A\", \"ADVANCE A\", \"GET B\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"B,A\", \"1\", \"2\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "players",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"B\"]"
+    },
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADVANCE B\", \"LEADERBOARD 3\", \"ADVANCE A\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"B,A\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "players",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"ab\", \"x\", \"1\"]"
+    },
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "players",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"y\"]"
+    },
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"LEADERBOARD 1\", \"LEADERBOARD 0\", \"GET y\", \"GET y\"]"
+    }
+   ],
+   "expectedRaw": "[\"x\", \"\", \"0\", \"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "players",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"y\"]"
+    },
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"LEADERBOARD 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"x\"]"
+  }
+ ]
+}

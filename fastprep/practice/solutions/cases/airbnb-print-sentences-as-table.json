@@ -1,0 +1,18 @@
+{
+ "problemId": "airbnb-print-sentences-as-table",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 16,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3 5\\nHello world\\nHow are you today\\nBye\""
+    }
+   ],
+   "expectedRaw": "[\"+-------+\", \"| Hello world |\", \"+-------+\", \"| How are you today |\", \"+-------+\", \"| Bye   |\", \"+-------+\"]"
+  }
+ ]
+}

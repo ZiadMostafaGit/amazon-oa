@@ -1,0 +1,218 @@
+{
+ "problemId": "decagon-versioned-recipe-shopping-cart",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 15,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "recipeNames",
+     "type": "String[]",
+     "rawValue": "[\"C\", \"C\"]"
+    },
+    {
+     "name": "recipeIngredients",
+     "type": "String[][]",
+     "rawValue": "[[\"Chicken\", \"Garlic\"], [\"Chicken\", \"Chicken\"], [\"Chicken\"], [\"Garlic\", \"Rice\"]]"
+    },
+    {
+     "name": "discountedIngredients",
+     "type": "String[]",
+     "rawValue": "[\"add_recipe\", \"Garlic\"]"
+    },
+    {
+     "name": "discountThresholds",
+     "type": "int[]",
+     "rawValue": "[2, 2, 2, 2]"
+    },
+    {
+     "name": "discountAmounts",
+     "type": "int[]",
+     "rawValue": "[3, 5, 3]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"add_recipe\", \"A\"], [\"get_version\"], [\"add_recipe\", \"B\"], [\"get_version\"], [\"get_total_discounts\"], [\"checkout\", \"1\"], [\"get_version\"], [\"get_total_discounts\"]]"
+    }
+   ],
+   "expectedRaw": "[1, 2, 0, 1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recipeNames",
+     "type": "String[]",
+     "rawValue": "[\"B\", \"checkout\"]"
+    },
+    {
+     "name": "recipeIngredients",
+     "type": "String[][]",
+     "rawValue": "[[\"Chicken\", \"Chicken\", \"Chicken\"], [\"Garlic\", \"Rice\"], [\"Chicken\"], [\"Chicken\", \"Garlic\", \"Chicken\"]]"
+    },
+    {
+     "name": "discountedIngredients",
+     "type": "String[]",
+     "rawValue": "[\"Garlic\"]"
+    },
+    {
+     "name": "discountThresholds",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "discountAmounts",
+     "type": "int[]",
+     "rawValue": "[5, 0]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"get_version\"], [\"get_version\"], [\"add_recipe\", \"B\"], [\"get_total_discounts\"], [\"remove_recipe\", \"A\"], [\"get_version\"], [\"add_recipe\", \"C\"], [\"get_total_discounts\"], [\"checkout\", \"2\"], [\"add_recipe\", \"A\"]]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0, 2, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recipeNames",
+     "type": "String[]",
+     "rawValue": "[\"C\", \"B\", \"Garlic\"]"
+    },
+    {
+     "name": "recipeIngredients",
+     "type": "String[][]",
+     "rawValue": "[[\"Chicken\"], [\"Chicken\", \"Garlic\"], [\"Chicken\", \"Garlic\"]]"
+    },
+    {
+     "name": "discountedIngredients",
+     "type": "String[]",
+     "rawValue": "[\"Garlic\"]"
+    },
+    {
+     "name": "discountThresholds",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "discountAmounts",
+     "type": "int[]",
+     "rawValue": "[5, 3, 3]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"get_version\"], [\"get_total_discounts\"], [\"add_recipe\", \"add_recipe\", \"add_recipe\"], [\"get_version\"], [\"add_recipe\", \"A\"], [\"get_total_discounts\"], [\"get_total_discounts\"], [\"checkout\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 1, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recipeNames",
+     "type": "String[]",
+     "rawValue": "[\"Rice\", \"get_version\"]"
+    },
+    {
+     "name": "recipeIngredients",
+     "type": "String[][]",
+     "rawValue": "[[\"Chicken\", \"Garlic\"], [\"Chicken\", \"Garlic\"], [\"Garlic\", \"Rice\"], [\"Chicken\"]]"
+    },
+    {
+     "name": "discountedIngredients",
+     "type": "String[]",
+     "rawValue": "[\"Garlic\"]"
+    },
+    {
+     "name": "discountThresholds",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "discountAmounts",
+     "type": "int[]",
+     "rawValue": "[5, 3]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"get_version\"], [\"checkout\", \"1\"], [\"get_version\"], [\"get_total_discounts\"], [\"add_recipe\", \"B\", \"B\", \"add_recipe\"], [\"get_total_discounts\"]]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recipeNames",
+     "type": "String[]",
+     "rawValue": "[\"add_recipe\", \"B\"]"
+    },
+    {
+     "name": "recipeIngredients",
+     "type": "String[][]",
+     "rawValue": "[[\"Chicken\", \"Garlic\"], [\"Garlic\", \"Rice\"], [\"checkout\"]]"
+    },
+    {
+     "name": "discountedIngredients",
+     "type": "String[]",
+     "rawValue": "[\"Garlic\"]"
+    },
+    {
+     "name": "discountThresholds",
+     "type": "int[]",
+     "rawValue": "[0, 4]"
+    },
+    {
+     "name": "discountAmounts",
+     "type": "int[]",
+     "rawValue": "[5, 3]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"add_recipe\", \"B\"], [\"checkout\", \"2\"], [\"get_total_discounts\"], [\"get_total_discounts\"], [\"remove_recipe\", \"A\"], [\"get_version\"], [\"get_version\"], [\"get_version\"], [\"add_recipe\", \"C\"]]"
+    }
+   ],
+   "expectedRaw": "[5, 5, 2, 2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recipeNames",
+     "type": "String[]",
+     "rawValue": "[\"B\", \"C\", \"C\"]"
+    },
+    {
+     "name": "recipeIngredients",
+     "type": "String[][]",
+     "rawValue": "[[\"Garlic\", \"Rice\"], [\"Chicken\", \"Garlic\"], [\"Garlic\", \"Rice\"]]"
+    },
+    {
+     "name": "discountedIngredients",
+     "type": "String[]",
+     "rawValue": "[\"Rice\", \"Rice\"]"
+    },
+    {
+     "name": "discountThresholds",
+     "type": "int[]",
+     "rawValue": "[2, 2, 2]"
+    },
+    {
+     "name": "discountAmounts",
+     "type": "int[]",
+     "rawValue": "[5, 5, 5]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"add_recipe\", \"A\"], [\"get_version\", \"B\", \"get_version\"], [\"get_version\"], [\"get_total_discounts\"], [\"checkout\", \"1\"], [\"get_total_discounts\"], [\"get_version\"], [\"checkout\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 0, 0, 1]"
+  }
+ ]
+}

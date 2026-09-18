@@ -1,0 +1,128 @@
+{
+ "problemId": "squarepoint-cross-array-target-sum",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[5, 5]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[2, 6, 8, 4]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "-9"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[2147483647]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[2147483647, 2147483647]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "4294967294"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[5, 1]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[2, 4, 8, 2]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "9"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[2147483647, 2147483647]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[-3, -2, 2]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[2, -2]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[-4, 0]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "sierra-markdown-header-chunks",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "markdown",
+     "type": "String",
+     "rawValue": "\"# A\\nshorrt\\nlonger line\\n## B\\nx\\ny\""
+    },
+    {
+     "name": "maxChunkSize",
+     "type": "int",
+     "rawValue": "20"
+    }
+   ],
+   "expectedRaw": "[\"# A | shorrt\", \"# A | longer line\", \"# A | ## B | x | y\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "markdown",
+     "type": "String",
+     "rawValue": "\"# Guide\\nalpha\\nbetaa\""
+    },
+    {
+     "name": "maxChunkSize",
+     "type": "int",
+     "rawValue": "27"
+    }
+   ],
+   "expectedRaw": "[\"# Guide | alpha | betaa\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "markdown",
+     "type": "String",
+     "rawValue": "\"# A\\nshort\\nlonger line\\n## B\\nx\\ny\""
+    },
+    {
+     "name": "maxChunkSize",
+     "type": "int",
+     "rawValue": "23"
+    }
+   ],
+   "expectedRaw": "[\"# A | short\", \"# A | longer line\", \"# A | ## B | x | y\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "markdown",
+     "type": "String",
+     "rawValue": "\"# A\\nshort\\nlonger line\\n## B\\nx\\ny\""
+    },
+    {
+     "name": "maxChunkSize",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"# A\", \"# A | short\", \"# A | longer line\", \"# A | ## B\", \"# A | ## B | x\", \"# A | ## B | y\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "markdown",
+     "type": "String",
+     "rawValue": "\" A\\nshort\\nlonger line\\n## B\\nx\\ny\""
+    },
+    {
+     "name": "maxChunkSize",
+     "type": "int",
+     "rawValue": "-20"
+    }
+   ],
+   "expectedRaw": "[\" A\", \"short\", \"longer line\", \"## B\", \"## B | x\", \"## B | y\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "markdown",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "maxChunkSize",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[\"dog\"]"
+  }
+ ]
+}

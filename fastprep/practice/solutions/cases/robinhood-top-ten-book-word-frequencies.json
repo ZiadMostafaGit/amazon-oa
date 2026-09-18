@@ -1,0 +1,68 @@
+{
+ "problemId": "robinhood-top-ten-book-word-frequencies",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Red bluee red GREEN blue red\""
+    }
+   ],
+   "expectedRaw": "[\"red 3\", \"blue 1\", \"bluee 1\", \"green 1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Red blue redGREEN blue red\""
+    }
+   ],
+   "expectedRaw": "[\"blue 2\", \"red 2\", \"redgreen 1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[\"1 1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"k j i h g f e d c bb a\""
+    }
+   ],
+   "expectedRaw": "[\"a 1\", \"bb 1\", \"c 1\", \"d 1\", \"e 1\", \"f 1\", \"g 1\", \"h 1\", \"i 1\", \"j 1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Red blue red  GREEN blue red\""
+    }
+   ],
+   "expectedRaw": "[\"red 3\", \"blue 2\", \"green 1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Red blue redd GREEN blue red\""
+    }
+   ],
+   "expectedRaw": "[\"blue 2\", \"red 2\", \"green 1\", \"redd 1\"]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "tiktok-build-blocks-from-starting-position",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[2, 3, 2], [2, 3, 3], [2, 1, 1]]"
+    }
+   ],
+   "expectedRaw": "\"111\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[2, 3, 3], [2, 1, 2], [2, 3, 2], [2, 1, 1], [1, 2], [2, 1, 2], [1, 5]]"
+    }
+   ],
+   "expectedRaw": "\"11110\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[1, 5], [2, 3, 2], [2, 3, 3], [2, 1, 1], [2, 1, 2]]"
+    }
+   ],
+   "expectedRaw": "\"1011\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[1, 5], [2, 3, 2], [2, 3, 3], [2, 3, 2], [1, 2]]"
+    }
+   ],
+   "expectedRaw": "\"101\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[2, 1, 1], [2, 3, 2], [2, 3, 3], [2, 1, 2], [1, 2], [1, 5]]"
+    }
+   ],
+   "expectedRaw": "\"1111\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [1, 5], [2, 3, 2], [2, 3, 2], [2, 1, 1], [2, 1, 2]]"
+    }
+   ],
+   "expectedRaw": "\"1110\""
+  }
+ ]
+}

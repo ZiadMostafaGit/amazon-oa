@@ -1,0 +1,68 @@
+{
+ "problemId": "airbnb-worker-management-level-4-worker-merge",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Mia\", \"Engineer\", \"10\"], [\"SET_OVERTIME_RULE\", \"Mia\", \"2\", \"5\"], [\"REGISTER\", \"Mia\", \"10\"], [\"REGISTER\", \"Mia\", \"14\"], [\"REGISTER\", \"Noah\", \"20\"], [\"REGISTER\", \"Noah\", \"23\"], [\"GET\", \"Mia\"], [\"TOP_N_WORKERS\", \"5\", \"Engineer\"], [\"TOP_N_WORKERS\", \"5\", \"Analyst\"], [\"CALC_SALARY\", \"Mia\", \"0\", \"100\"], [\"GET\", \"Noah\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"success\", \"registered\", \"registered\", \"invalid_request\", \"invalid_request\", \"4\", \"Mia(4)\", \"\", \"60\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Mia\", \"Engineer\", \"10\"], [\"ADD_WORKER\", \"Noah\", \"Analyst\", \"20\"], [\"SET_OVERTIME_RULE\", \"Mia\", \"2\", \"5\"], [\"SET_OVERTIME_RULE\", \"Noah\", \"1\", \"6\"], [\"REGISTER\", \"Mia\", \"10\"], [\"REGISTER\", \"Mia\", \"14\"], [\"REGISTER\", \"Noah\", \"20\"], [\"REGISTER\", \"Noah\", \"23\"], [\"TOP_N_WORKERS\", \"5\", \"Engineer\"], [\"TOP_N_WORKERS\", \"5\", \"Analyst\"], [\"CALC_SALARY\", \"Mia\", \"0\", \"100\"], [\"GET\", \"Noah\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"success\", \"success\", \"registered\", \"registered\", \"registered\", \"registered\", \"Mia(4)\", \"Noah(3)\", \"60\", \"3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"1\", \"abc\", \"bc\"], [\"x\", \"abc\", \"abc\"], [\"10\", \"10\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"10\", \"a\", \"yz\", \"10\", \"bc\", \"red\"], [\"dog\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Mia\", \"Engineer\", \"10\"], [\"ADD_WORKER\", \"Noah\", \"Analyst\", \"20\"], [\"SET_OVERTIME_RULE\", \"Mia\", \"2\", \"5\"], [\"1\"], [\"REGISTER\", \"Mia\", \"10\"], [\"REGISTER\", \"Noah\", \"20\"], [\"REGISTER\", \"Noah\", \"23\"], [\"MERGE_WORKERS\", \"Mia\", \"Noah\", \"30\"], [\"GET\", \"Mia\"], [\"TOP_N_WORKERS\", \"5\", \"Engineer\"], [\"TOP_N_WORKERS\", \"5\", \"Analyst\"], [\"CALC_SALARY\", \"Mia\", \"0\", \"100\"], [\"GET\", \"Noah\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"success\", \"\", \"registered\", \"registered\", \"registered\", \"invalid_request\", \"0\", \"Mia(0)\", \"Noah(3)\", \"0\", \"3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Mia\", \"Engineer\", \"10\"], [\"GET\", \"Noah\"], [\"REGISTER\", \"Mia\", \"10\"], [\"TOP_N_WORKERS\", \"5\", \"Analyst\"], [\"Noah\", \"6\"], [\"REGISTER\", \"Mia\", \"14\"], [\"TOP_N_WORKERS\", \"5\", \"Engineer\"], [\"GET\", \"Mia\"], [\"REGISTER\", \"Noah\", \"23\"], [\"MERGE_WORKERS\", \"Mia\", \"Noah\", \"30\"], [\"REGISTER\", \"Noah\", \"20\"], [\"CALC_SALARY\", \"Mia\", \"0\", \"100\"], [\"SET_OVERTIME_RULE\", \"Mia\", \"2\", \"5\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"\", \"registered\", \"\", \"\", \"registered\", \"Mia(4)\", \"4\", \"invalid_request\", \"invalid_request\", \"invalid_request\", \"40\", \"success\"]"
+  }
+ ]
+}

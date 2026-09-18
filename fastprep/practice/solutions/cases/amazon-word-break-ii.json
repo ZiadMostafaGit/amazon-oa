@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-word-break-ii",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"and\", \"sand\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "[\"dog\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bc\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"yz\", \"dog\", \"blue\", \"0\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"cat\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"cats\", \"catsanddog\", \"sand\", \"cat\"]"
+    }
+   ],
+   "expectedRaw": "[\"cat\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"blue\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"and\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"dog\", \"cats\", \"sand\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"catsanddog\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"cat\", \"sand\", \"catsanddog\"]"
+    }
+   ],
+   "expectedRaw": "[\"catsanddog\"]"
+  }
+ ]
+}

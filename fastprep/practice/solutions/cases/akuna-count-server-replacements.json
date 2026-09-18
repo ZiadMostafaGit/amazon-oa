@@ -1,0 +1,98 @@
+{
+ "problemId": "akuna-count-server-replacements",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"s1 error\", \"s2 error\", \"s1 error\", \"s1 error\", \"s2 success\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"s1 error\", \"s1 error\", \"s1 error\", \"s2 error\", \"s1 error\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"s2 success\", \"s1 error\", \"s1 error\", \"s2 error\", \"s1 error\", \"s1 error\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"s1 error\", \"s1 error\", \"s2 error\", \"s1 error\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"s1 error\", \"s1 error\", \"s2 error\", \"s1 error\", \"s2 success\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"s1 error\", \"s1 error\", \"s1 error\", \"s2 error\", \"s1 error\", \"s1 error\", \"s2 success\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

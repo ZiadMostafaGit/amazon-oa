@@ -1,0 +1,98 @@
+{
+ "problemId": "confluent-least-recently-used-cache",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT 2 20\", \"GET 1\", \"PUT 3 30\", \"GET 2\", \"GET 3\"]"
+    }
+   ],
+   "expectedRaw": "[-1, 20, 30]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT 6 4\", \"PUT 5 7\", \"PUT 5 9\", \"GET 5\"]"
+    }
+   ],
+   "expectedRaw": "[9]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT 8 0\", \"GET 8\", \"PUT 8 0\", \"GET 8\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT 1 10\", \"PUT 2 20\", \"GET 1\", \"GET 2\"]"
+    }
+   ],
+   "expectedRaw": "[10, 20]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT 1 10\", \"PUT 2 20\", \"GET 1\", \"GET 2\", \"GET 3\"]"
+    }
+   ],
+   "expectedRaw": "[10, 20, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT 6 4\", \"PUT 5 7\", \"PUT 5 9\", \"GET 5\", \"PUT 6 4\", \"GET 5\"]"
+    }
+   ],
+   "expectedRaw": "[9, -1]"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "phone-calls",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 10,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[15, 30]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[30, 35, 12, 20]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[50, 10, 51, 20, 25, 10]"
+    }
+   ],
+   "expectedRaw": "50"
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[30, 5, 18, 10]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[30, 0, 20, 35]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[50, 51, 20, 25]"
+    }
+   ],
+   "expectedRaw": "101"
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[18, 30, 15, 10, 5]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[30, 0, 0, 35, 35, 35]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[13, 20, 51, 25, 50]"
+    }
+   ],
+   "expectedRaw": "71"
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[18, 5, 18, 10, 30]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[30, 0, 30, 20, 35, 30, 35]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[51, 25, 10, 20, 50]"
+    }
+   ],
+   "expectedRaw": "95"
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[3, 1]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[-1, -3]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[0, 3, -3]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[13, 5, 30, 10, 18]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[30, -35, 20, 35, 12]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[10, 51, 20, 25, 10]"
+    }
+   ],
+   "expectedRaw": "81"
+  }
+ ]
+}

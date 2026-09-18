@@ -1,0 +1,68 @@
+{
+ "problemId": "affirm-propagating-fraud-detector",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"underwriting\", \"3 Pine St\", \"333\", \"b@example.com\", \"S3\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"fraud_flag\", \"\", \"same\", \"\", \"\", \"\"], [\"fraud_flag\", \"same\", \"\", \"\", \"\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"underwriting\", \"\", \"same\", \"\", \"\"], [\"fraud_flag\", \"same\", \"\", \"\", \"\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"underwriting\", \"C\", \"P\", \"\", \"\"], [\"underwriting\", \"A\", \"Q\", \"\", \"\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"B\", \"Q\", \"\", \"B\", \"\", \"A\"], [\"underwriting\", \"C\", \"P\", \"\", \"\"], [\"underwriting\", \"A\", \"Q\", \"\", \"\"], [\"underwriting\", \"C\", \"P\", \"\", \"\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"0\", \"0\", \"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"underwriting\", \"4 Elm St\", \"444\", \"d@example.com\", \"S4\"], [\"underwriting\", \"2 Oak St\", \"111\", \"b@example.com\"], [\"fraud_flag\", \"1 Main St\", \"111\", \"\", \"\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"0\", \"\"]"
+  }
+ ]
+}

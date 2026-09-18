@@ -1,0 +1,98 @@
+{
+ "problemId": "atlassian-peeking-iterator",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 3]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"peek\", \"peek\", \"next\"]"
+    }
+   ],
+   "expectedRaw": "[\"2\", \"2\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-5]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"a\", \"yz\", \"x\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[0, 2, 3]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"peek\", \"peek\", \"next\", \"peek\", \"next\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"0\", \"0\", \"2\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-2, 2, -3, -3]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 3, 2, 3]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"peek\", \"next\", \"next\", \"hasNext\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"1\", \"3\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"peek\", \"next\", \"hasNext\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"0\", \"0\", \"true\"]"
+  }
+ ]
+}

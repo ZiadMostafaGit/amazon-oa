@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-stable-robot-configurations",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "coordinationThreshold",
+     "type": "int[]",
+     "rawValue": "[0, 3, 6, 2, 7]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "coordinationThreshold",
+     "type": "int[]",
+     "rawValue": "[6, 0, 3, 6, 10, 3, 2, 7]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "coordinationThreshold",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "coordinationThreshold",
+     "type": "int[]",
+     "rawValue": "[6, 6, 7, 2, 6, 3, 0, 3, 7]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "coordinationThreshold",
+     "type": "int[]",
+     "rawValue": "[6, 0, 3, 3, 7, 2, 7]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "coordinationThreshold",
+     "type": "int[]",
+     "rawValue": "[6, 0, 3, 3, 6, 7, 2]"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

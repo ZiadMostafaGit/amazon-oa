@@ -1,0 +1,98 @@
+{
+ "problemId": "makemytripcom-bounded-producer-consumer",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"PRODUCE b\", \"PRODUCE c\", \"CONSUME\", \"CONSUME\", \"CONSUME\"]"
+    }
+   ],
+   "expectedRaw": "[\"ENQUEUED b\", \"ENQUEUED c\", \"CONSUMED b\", \"CONSUMED c\", \"IDLE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"CONSUME\", \"PRODUCE x\", \"CONSUME\"]"
+    }
+   ],
+   "expectedRaw": "[\"IDLE\", \"ENQUEUED x\", \"CONSUMED x\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"cat\"]"
+    }
+   ],
+   "expectedRaw": "[\"IDLE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"CONSUME\", \"PRODUCE x\", \"CONSUME\", \"CONSUME\", \"PRODUCE y\", \"CONSUME\"]"
+    }
+   ],
+   "expectedRaw": "[\"IDLE\", \"WAIT x\", \"IDLE\", \"IDLE\", \"WAIT y\", \"IDLE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"PRODUCE a\", \"PRODUCE b\", \"PRODUCE c\", \"CONSUME\"]"
+    }
+   ],
+   "expectedRaw": "[\"ENQUEUED a\", \"ENQUEUED b\", \"WAIT c\", \"CONSUMED a RESUMED c\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"PRODUCE a\", \"PRODUCE b\", \"PRODUCE c\", \"CONSUME\", \"CONSUME\"]"
+    }
+   ],
+   "expectedRaw": "[\"ENQUEUED a\", \"ENQUEUED b\", \"WAIT c\", \"CONSUMED a RESUMED c\", \"CONSUMED b\"]"
+  }
+ ]
+}

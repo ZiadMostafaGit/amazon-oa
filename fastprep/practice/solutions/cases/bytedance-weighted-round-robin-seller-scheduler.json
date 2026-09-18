@@ -1,0 +1,188 @@
+{
+ "problemId": "bytedance-weighted-round-robin-seller-scheduler",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"RECEIVE\", \"RECEIVE\", \"PROCESS\", \"PROCESS\", \"PROCESS\"]"
+    },
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"v1\", \"v3\", \"RECEIVE\", \"\", \"VIP\", \"\", \"v2\"]"
+    },
+    {
+     "name": "sellerIds",
+     "type": "String[]",
+     "rawValue": "[\"S\", \"V\", \"V\", \"\", \"S\", \"\", \"\", \"V\", \"\"]"
+    },
+    {
+     "name": "sellerTiers",
+     "type": "String[]",
+     "rawValue": "[\"VIP\", \"VIP\", \"STANDARD\", \"\", \"\", \"\", \"\", \"\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3, 1, 0, -2, 0, 3]"
+    }
+   ],
+   "expectedRaw": "[\"S:\", \"V:v1\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"RECEIVE\", \"RECEIVE\", \"RECEIVE\", \"RECEIVE\", \"PROCESS\", \"PROCESS\", \"PROCESS\"]"
+    },
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"VIP\", \"v1\", \"v3\", \"\", \"\", \"\", \"s1\"]"
+    },
+    {
+     "name": "sellerIds",
+     "type": "String[]",
+     "rawValue": "[\"V\", \"V\", \"V\", \"S\", \"\", \"\", \"\", \"V\", \"\"]"
+    },
+    {
+     "name": "sellerTiers",
+     "type": "String[]",
+     "rawValue": "[\"VIP\", \"VIP\", \"v2\", \"STANDARD\", \"\", \"\", \"\", \"\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[1, 1, 0, 0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[\"V:\", \"V:VIP\", \"S:v3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"b\", \"dog\"]"
+    },
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"cat\"]"
+    },
+    {
+     "name": "sellerIds",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"10\", \"bc\", \"ab\", \"10\", \"10\"]"
+    },
+    {
+     "name": "sellerTiers",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"blue\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"RECEIVE\", \"RECEIVE\", \"RECEIVE\", \"RECEIVE\", \"PROCESS\", \"PROCESS\", \"PROCESS\", \"S\", \"PROCESS\", \"PROCESS\"]"
+    },
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"v2\", \"v3\", \"s1\", \"\", \"\", \"\", \"\"]"
+    },
+    {
+     "name": "sellerIds",
+     "type": "String[]",
+     "rawValue": "[\"V\", \"V\", \"V\", \"\", \"\", \"s1\", \"\"]"
+    },
+    {
+     "name": "sellerTiers",
+     "type": "String[]",
+     "rawValue": "[\"VIP\", \"V\", \"VIP\", \"\", \"\", \"\", \"\", \"\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3, 1, 0, 0, 2, 0]"
+    }
+   ],
+   "expectedRaw": "[\"V:v2\", \"V:v3\", \":\", \"V:s1\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PROCESS\", \"RECEIVE\", \"RECEIVE\", \"RECEIVE\", \"PROCESS\", \"RECEIVE\", \"PROCESS\", \"PROCESS\"]"
+    },
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"a2\", \"\", \"b2\", \"a1\", \"\", \"RECEIVE\", \"\", \"\", \"b2\"]"
+    },
+    {
+     "name": "sellerIds",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"\", \"\", \"\", \"A\", \"B\", \"\", \"B\"]"
+    },
+    {
+     "name": "sellerTiers",
+     "type": "String[]",
+     "rawValue": "[\"STANDARD\", \"STANDARD\", \"\", \"STANDARD\", \"\", \"\", \"\", \"STANDARD\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[1, 1, 0, 0, 1, 1, 0, 0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[\"\", \":\", \":b2\", \"B:RECEIVE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"yz\", \"dog\", \"0\"]"
+    },
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"x\"]"
+    },
+    {
+     "name": "sellerIds",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"bc\"]"
+    },
+    {
+     "name": "sellerTiers",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"10\", \"0\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[-2, 3, 3]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  }
+ ]
+}

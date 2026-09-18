@@ -1,0 +1,98 @@
+{
+ "problemId": "visa-collect-branches-for-nest",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "forest",
+     "type": "int[]",
+     "rawValue": "[20, 48, 80, 30]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "forest",
+     "type": "int[]",
+     "rawValue": "[0, 45, 0, 0, 40]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[4, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "forest",
+     "type": "int[]",
+     "rawValue": "[0, 45, 0, 30, 30, 0, 0]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[4, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "forest",
+     "type": "int[]",
+     "rawValue": "[0, 45, 0, 0, 30, 0, 45, 40]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[4, 1, 6]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "forest",
+     "type": "int[]",
+     "rawValue": "[20, 50, 80]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[2, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "forest",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0, 30, 0, 40]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[4, 6]"
+  }
+ ]
+}

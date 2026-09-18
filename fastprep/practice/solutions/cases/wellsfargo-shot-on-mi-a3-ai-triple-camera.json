@@ -1,0 +1,98 @@
+{
+ "problemId": "wellsfargo-shot-on-mi-a3-ai-triple-camera",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numSystem",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "count",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numSystem",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "count",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numSystem",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "count",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numSystem",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "count",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numSystem",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "count",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numSystem",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "count",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

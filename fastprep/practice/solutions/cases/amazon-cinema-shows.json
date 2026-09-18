@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-cinema-shows",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 10,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[15, 30]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[20, 35, 12, 20]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[50, 10, 51, 20, 25, 10]"
+    }
+   ],
+   "expectedRaw": "50"
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[1, 4, 4]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[0, 2, 1]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[3, 4, 1]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[1, -1]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[5, 4, -3]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[1, 5]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[10, 5, 15, 18]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[20, 12, 35, 35]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[50, 0, 0, 25, 10, 10]"
+    }
+   ],
+   "expectedRaw": "50"
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[-4, -4, 2, 0]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[4, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[15, 18]"
+    },
+    {
+     "name": "duration",
+     "type": "int[]",
+     "rawValue": "[20, 35, 20, 10, 12, 35]"
+    },
+    {
+     "name": "volume",
+     "type": "int[]",
+     "rawValue": "[23, 51, 10, 50]"
+    }
+   ],
+   "expectedRaw": "51"
+  }
+ ]
+}

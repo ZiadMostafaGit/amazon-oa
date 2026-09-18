@@ -1,0 +1,68 @@
+{
+ "problemId": "omnissa-build-and-check-palindrome-list",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[5]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[3, 8, 5, 3]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[5, 5, 3, 3, 5]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[5, 5, 5, 5]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[3, 5, 5]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

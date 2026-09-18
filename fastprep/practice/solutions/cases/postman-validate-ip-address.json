@@ -1,0 +1,68 @@
+{
+ "problemId": "postman-validate-ip-address",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "queryIP",
+     "type": "String",
+     "rawValue": "\"172..16.254.1\""
+    }
+   ],
+   "expectedRaw": "\"Neither\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "queryIP",
+     "type": "String",
+     "rawValue": "\"172.16254.1\""
+    }
+   ],
+   "expectedRaw": "\"Neither\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "queryIP",
+     "type": "String",
+     "rawValue": "\"256.256.2556.256\""
+    }
+   ],
+   "expectedRaw": "\"Neither\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "queryIP",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"Neither\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "queryIP",
+     "type": "String",
+     "rawValue": "\"2001:0db8:85a3:0:0:8A22E:0370:7334\""
+    }
+   ],
+   "expectedRaw": "\"Neither\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "queryIP",
+     "type": "String",
+     "rawValue": "\"256.256.256.2256\""
+    }
+   ],
+   "expectedRaw": "\"Neither\""
+  }
+ ]
+}

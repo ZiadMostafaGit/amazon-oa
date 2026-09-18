@@ -1,0 +1,98 @@
+{
+ "problemId": "confluent-wildcard-star-matching",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"*a*b\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"*a*b\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"adceb\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"adceb\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"***\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"a*c*d\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"acdcb\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"*a*b\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"adceb\""
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

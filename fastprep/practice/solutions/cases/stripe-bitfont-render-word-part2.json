@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-bitfont-render-word-part2",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"111\""
+    },
+    {
+     "name": "characters",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "bitmaps",
+     "type": "String[][]",
+     "rawValue": "[[\"10\", \"11\"]]"
+    }
+   ],
+   "expectedRaw": "[\"#.#.#.\", \"######\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"A\""
+    },
+    {
+     "name": "characters",
+     "type": "String",
+     "rawValue": "\"A\""
+    },
+    {
+     "name": "bitmaps",
+     "type": "String[][]",
+     "rawValue": "[[\"1\", \"1\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"#\", \"#\", \"#\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"11\""
+    },
+    {
+     "name": "characters",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "bitmaps",
+     "type": "String[][]",
+     "rawValue": "[[\"10\", \"11\"]]"
+    }
+   ],
+   "expectedRaw": "[\"#.#.\", \"####\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"111\""
+    },
+    {
+     "name": "characters",
+     "type": "String",
+     "rawValue": "\"11\""
+    },
+    {
+     "name": "bitmaps",
+     "type": "String[][]",
+     "rawValue": "[[\"111\", \"010\", \"010\"], [\"10\", \"11\"]]"
+    }
+   ],
+   "expectedRaw": "[\"#.#.#.\", \"######\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"0\""
+    },
+    {
+     "name": "characters",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "bitmaps",
+     "type": "String[][]",
+     "rawValue": "[[\"b\", \"bc\", \"10\"], [\"blue\"], [\"ab\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[\"blue\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"\""
+    },
+    {
+     "name": "characters",
+     "type": "String",
+     "rawValue": "\"A\""
+    },
+    {
+     "name": "bitmaps",
+     "type": "String[][]",
+     "rawValue": "[[\"1\", \"A\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

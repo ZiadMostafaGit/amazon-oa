@@ -1,0 +1,68 @@
+{
+ "problemId": "docusign-text-editor-operations",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[][]",
+     "rawValue": "[[\"Left\", \"4\"], [\"Right\", \"2\"], [\"Backspace\", \"1\"], [\"Print\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[][]",
+     "rawValue": "[[\"Print\", \"2\"], [\"2\", \"2\", \"2\"], [\"Print\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[][]",
+     "rawValue": "[[\"Print\", \"3\"], [\"Insert\", \"XY\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[][]",
+     "rawValue": "[[\"Print\", \"10\"], [\"Delete\", \"1\"], [\"Insert\", \"addthis\"], [\"Backspace\", \"1\"], [\"Right\", \"2\"], [\"10\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[][]",
+     "rawValue": "[[\"Insert\", \"addthis\"], [\"Left\", \"4\"], [\"Right\", \"2\"], [\"Backspace\", \"1\"], [\"Delete\", \"1\"], [\"Print\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[\"addts\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[][]",
+     "rawValue": "[[\"Left\", \"2\"], [\"Insert\", \"abc\"], [\"Insert\", \"XY\"], [\"Print\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[\"cXY\"]"
+  }
+ ]
+}

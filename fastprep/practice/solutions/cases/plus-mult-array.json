@@ -1,0 +1,68 @@
+{
+ "problemId": "plus-mult-array",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[5, 7, 13]"
+    }
+   ],
+   "expectedRaw": "\"NEUTRAL\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[7, 12, 5, 13, 12, 12, 3]"
+    }
+   ],
+   "expectedRaw": "\"EVEN\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[3, 5, 7, 13, 12]"
+    }
+   ],
+   "expectedRaw": "\"NEUTRAL\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[12, 5, 7, -12]"
+    }
+   ],
+   "expectedRaw": "\"NEUTRAL\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[4, 5, 7, 12]"
+    }
+   ],
+   "expectedRaw": "\"NEUTRAL\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[3, 12, 7, 13]"
+    }
+   ],
+   "expectedRaw": "\"EVEN\""
+  }
+ ]
+}

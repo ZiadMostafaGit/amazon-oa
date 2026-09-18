@@ -1,0 +1,128 @@
+{
+ "problemId": "meta-minimum-time-target-courses",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[5, 1, 2]"
+    },
+    {
+     "name": "prerequisites",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "targets",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[2, 5]"
+    },
+    {
+     "name": "prerequisites",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "targets",
+     "type": "int[]",
+     "rawValue": "[0, 1]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[2, 4, 3, 2, 7]"
+    },
+    {
+     "name": "prerequisites",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [2, 0]]"
+    },
+    {
+     "name": "targets",
+     "type": "int[]",
+     "rawValue": "[1, -1]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[3, 5, 5]"
+    },
+    {
+     "name": "prerequisites",
+     "type": "int[][]",
+     "rawValue": "[[2, 1]]"
+    },
+    {
+     "name": "targets",
+     "type": "int[]",
+     "rawValue": "[0]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[2, 4, -7, 3, 0]"
+    },
+    {
+     "name": "prerequisites",
+     "type": "int[][]",
+     "rawValue": "[[1, 0]]"
+    },
+    {
+     "name": "targets",
+     "type": "int[]",
+     "rawValue": "[0, 2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[5, 1, 2, 2]"
+    },
+    {
+     "name": "prerequisites",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "targets",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

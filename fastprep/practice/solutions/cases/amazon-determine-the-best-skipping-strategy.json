@@ -1,0 +1,158 @@
+{
+ "problemId": "amazon-determine-the-best-skipping-strategy",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "inventory",
+     "type": "int[]",
+     "rawValue": "[12, 8, 15]"
+    },
+    {
+     "name": "dispatch1",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "dispatch2",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "skips",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inventory",
+     "type": "int[]",
+     "rawValue": "[-2, -3, 2, 5, -3]"
+    },
+    {
+     "name": "dispatch1",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "dispatch2",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "skips",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inventory",
+     "type": "int[]",
+     "rawValue": "[4, 6, -5, 1]"
+    },
+    {
+     "name": "dispatch1",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "dispatch2",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "skips",
+     "type": "int",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inventory",
+     "type": "int[]",
+     "rawValue": "[10, 6, 12, 8]"
+    },
+    {
+     "name": "dispatch1",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "dispatch2",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "skips",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inventory",
+     "type": "int[]",
+     "rawValue": "[6, 1, 8, 10, 15]"
+    },
+    {
+     "name": "dispatch1",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "dispatch2",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "skips",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inventory",
+     "type": "int[]",
+     "rawValue": "[10, 6, 12, 8, 15, 8, 1]"
+    },
+    {
+     "name": "dispatch1",
+     "type": "int",
+     "rawValue": "12"
+    },
+    {
+     "name": "dispatch2",
+     "type": "int",
+     "rawValue": "12"
+    },
+    {
+     "name": "skips",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "7"
+  }
+ ]
+}

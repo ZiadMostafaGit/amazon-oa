@@ -1,0 +1,128 @@
+{
+ "problemId": "hrt-format-newspaper-page",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"Please look\", \"and align\", \"to right\"], [\"Please look\", \"and align\", \"to right\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"Please look\", \"RIGHT\", \"RIGHT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "16"
+    }
+   ],
+   "expectedRaw": "[\"******************\", \"*Please look     *\", \"*and align       *\", \"*to right        *\", \"*Please look     *\", \"*and align       *\", \"*to right        *\", \"******************\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"How\", \"areYou\", \"doing\"], [\"hello\", \"world\"], [\"How\", \"areYou\", \"doing\"], [\"Please look\", \"and align\", \"to right\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"LEFT\", \"How\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "16"
+    }
+   ],
+   "expectedRaw": "[\"******************\", \"*How areYou doing*\", \"*hello world     *\", \"*How areYou doing*\", \"*Please look     *\", \"*and align       *\", \"*to right        *\", \"******************\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\", \"abc\", \"a\", \"ab\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "[\"\", \"*blue*\", \"*abc*\", \"*a*\", \"*ab*\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"hello\", \"world\"], [\"How\", \"areYou\", \"doing\"], [\"Please look\", \"and align\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"RIGHT\", \"RIGHT\", \"RIGHT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "16"
+    }
+   ],
+   "expectedRaw": "[\"******************\", \"*hello world     *\", \"*How areYou doing*\", \"*     Please look*\", \"*       and align*\", \"******************\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"Please look\", \"and align\", \"to right\"], [\"How\", \"areYou\"], [\"hello\", \"world\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"RIGHT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"**\", \"*Please look*\", \"*and align*\", \"*to right*\", \"*How*\", \"*areYou*\", \"*hello*\", \"*world*\", \"**\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[][]",
+     "rawValue": "[[\"How\", \"areYou\", \"doing\"], [\"Please look\", \"and align\", \"to right\"], [\"hello\", \"world\"]]"
+    },
+    {
+     "name": "aligns",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"RIGHT\", \"RIGHT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "16"
+    }
+   ],
+   "expectedRaw": "[\"******************\", \"*How areYou doing*\", \"*     Please look*\", \"*       and align*\", \"*        to right*\", \"*     hello world*\", \"******************\"]"
+  }
+ ]
+}

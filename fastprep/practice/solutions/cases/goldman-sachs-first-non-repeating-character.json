@@ -1,0 +1,68 @@
+{
+ "problemId": "goldman-sachs-first-non-repeating-character",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"swwiss\""
+    }
+   ],
+   "expectedRaw": "\"i\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"swis\""
+    }
+   ],
+   "expectedRaw": "\"w\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"aabbb\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"aaabb\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"aabbcc\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  }
+ ]
+}

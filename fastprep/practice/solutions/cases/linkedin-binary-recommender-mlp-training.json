@@ -1,0 +1,308 @@
+{
+ "problemId": "linkedin-binary-recommender-mlp-training",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 30,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "members",
+     "type": "double[][]",
+     "rawValue": "[[1.0]]"
+    },
+    {
+     "name": "items",
+     "type": "double[][]",
+     "rawValue": "[[1.0], [1.0]]"
+    },
+    {
+     "name": "pairs",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [0, 0, 0], [0, 0, 0]]"
+    },
+    {
+     "name": "hiddenWeights",
+     "type": "double[][]",
+     "rawValue": "[[-0.5, -0.5], [-0.5, -0.5]]"
+    },
+    {
+     "name": "hiddenBias",
+     "type": "double[]",
+     "rawValue": "[0.0, 0.0]"
+    },
+    {
+     "name": "outputWeights",
+     "type": "double[]",
+     "rawValue": "[0.0]"
+    },
+    {
+     "name": "outputBias",
+     "type": "double",
+     "rawValue": "-0.952"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "0.0"
+    }
+   ],
+   "expectedRaw": "[0.2784827837485628, 0.2784827837485628, 0.2784827837485628, 0.3263990393045448]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "members",
+     "type": "double[][]",
+     "rawValue": "[[0.0], [1.0, 1.0]]"
+    },
+    {
+     "name": "items",
+     "type": "double[][]",
+     "rawValue": "[[1.0]]"
+    },
+    {
+     "name": "pairs",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0]]"
+    },
+    {
+     "name": "hiddenWeights",
+     "type": "double[][]",
+     "rawValue": "[[-0.5, -0.5], [-0.5, -0.5]]"
+    },
+    {
+     "name": "hiddenBias",
+     "type": "double[]",
+     "rawValue": "[0.0, 0.0]"
+    },
+    {
+     "name": "outputWeights",
+     "type": "double[]",
+     "rawValue": "[0.0, 0.0]"
+    },
+    {
+     "name": "outputBias",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "-0.673"
+    }
+   ],
+   "expectedRaw": "[0.5, 0.6931471805599453]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "members",
+     "type": "double[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "items",
+     "type": "double[][]",
+     "rawValue": "[[2.665]]"
+    },
+    {
+     "name": "pairs",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "hiddenWeights",
+     "type": "double[][]",
+     "rawValue": "[[-0.37, -1.833, 0.619, -1.97], [-2.961, 2.164, 3.793], [-1.246, 3.828, -0.174, -2.039]]"
+    },
+    {
+     "name": "hiddenBias",
+     "type": "double[]",
+     "rawValue": "[0.863, -3.13, -2.919, 2.947]"
+    },
+    {
+     "name": "outputWeights",
+     "type": "double[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "outputBias",
+     "type": "double",
+     "rawValue": "-2.629"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "3.069"
+    }
+   ],
+   "expectedRaw": "[0.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "members",
+     "type": "double[][]",
+     "rawValue": "[[1.0], [1.0, 1.0]]"
+    },
+    {
+     "name": "items",
+     "type": "double[][]",
+     "rawValue": "[[1.0]]"
+    },
+    {
+     "name": "pairs",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1], [0, 0, 1]]"
+    },
+    {
+     "name": "hiddenWeights",
+     "type": "double[][]",
+     "rawValue": "[[0.5, 0.5]]"
+    },
+    {
+     "name": "hiddenBias",
+     "type": "double[]",
+     "rawValue": "[0.0]"
+    },
+    {
+     "name": "outputWeights",
+     "type": "double[]",
+     "rawValue": "[0.0, 0.0]"
+    },
+    {
+     "name": "outputBias",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "0.0"
+    }
+   ],
+   "expectedRaw": "[0.5, 0.5, 0.6931471805599453]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "members",
+     "type": "double[][]",
+     "rawValue": "[[1.0], [1.0, 1.0]]"
+    },
+    {
+     "name": "items",
+     "type": "double[][]",
+     "rawValue": "[[1.0], [1.0], [1.0]]"
+    },
+    {
+     "name": "pairs",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1]]"
+    },
+    {
+     "name": "hiddenWeights",
+     "type": "double[][]",
+     "rawValue": "[[0.5, 0.5], [0.5, 0.5]]"
+    },
+    {
+     "name": "hiddenBias",
+     "type": "double[]",
+     "rawValue": "[-0.396, -0.396]"
+    },
+    {
+     "name": "outputWeights",
+     "type": "double[]",
+     "rawValue": "[0.0, 0.0]"
+    },
+    {
+     "name": "outputBias",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "-0.974"
+    }
+   ],
+   "expectedRaw": "[0.3010441211405063, 1.2004984431131855]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "members",
+     "type": "double[][]",
+     "rawValue": "[[1.0], [1.0, 1.0, 1.0]]"
+    },
+    {
+     "name": "items",
+     "type": "double[][]",
+     "rawValue": "[[1.0]]"
+    },
+    {
+     "name": "pairs",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1]]"
+    },
+    {
+     "name": "hiddenWeights",
+     "type": "double[][]",
+     "rawValue": "[[0.5, 0.5], [0.5, 0.5]]"
+    },
+    {
+     "name": "hiddenBias",
+     "type": "double[]",
+     "rawValue": "[0.0, 1.907]"
+    },
+    {
+     "name": "outputWeights",
+     "type": "double[]",
+     "rawValue": "[0.0, 0.0, 0.0]"
+    },
+    {
+     "name": "outputBias",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "0.1"
+    }
+   ],
+   "expectedRaw": "[0.5, 0.6931471805599453]"
+  }
+ ]
+}

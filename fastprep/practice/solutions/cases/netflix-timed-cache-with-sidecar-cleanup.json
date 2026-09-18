@@ -1,0 +1,68 @@
+{
+ "problemId": "netflix-timed-cache-with-sidecar-cleanup",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"GET a 6\", \"GET a 6\"]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"yz\", \"0\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET a 1 5 0\", \"GET a 3\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET a 1 5 0\", \"SET b 2 2 0\", \"CLEANUP 3\", \"GET a 3\", \"CLEANUP 3\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET b 2 2 0\", \"CLEANUP 3\", \"GET a 3\", \"GET b 3\"]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET a 1 5 0\", \"SET b 2 2 0\", \"SET b 2 2 0\", \"CLEANUP 3\", \"CLEANUP 3\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

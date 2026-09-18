@@ -1,0 +1,68 @@
+{
+ "problemId": "datadog-query-log-match",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String[]",
+     "rawValue": "[\"Q: database\", \"Q: loading failed\", \"Q: snapshot loading\", \"L: Started processing events\", \"L: Loading main DB snapshot\", \"L: Loading snapshot failed no stacktrace available\"]"
+    }
+   ],
+   "expectedRaw": "[\"ACK: database; ID=1\", \"ACK: loading failed; ID=2\", \"ACK: snapshot loading; ID=3\", \"M: Loading main DB snapshot; Q=3\", \"M: Loading snapshot failed no stacktrace available; Q=2,3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String[]",
+     "rawValue": "[\"L: alpha beta\", \"Q: alpha\", \"Q: alpha\", \"Q: alpha\", \"Q: beta\"]"
+    }
+   ],
+   "expectedRaw": "[\"ACK: alpha; ID=1\", \"ACK: alpha; ID=2\", \"ACK: alpha; ID=3\", \"ACK: beta; ID=4\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String[]",
+     "rawValue": "[\"L: alpha beta\", \"Q: alpha\", \"L: beta alpa\", \"Q: beta\", \"L: alpha beta\"]"
+    }
+   ],
+   "expectedRaw": "[\"ACK: alpha; ID=1\", \"ACK: beta; ID=2\", \"M: alpha beta; Q=1,2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String[]",
+     "rawValue": "[\"L: Started processing events\", \"L: Loading snapshot failed no stacktrace available\", \"Q: Stacktrace\", \"Q: database\", \"L: Loading main DB snapshot\", \"Q: snapshot loading\", \"L: Database service started\", \"Q: snapshot loading\", \"Q: loading failed\", \"Q: fail\"]"
+    }
+   ],
+   "expectedRaw": "[\"ACK: Stacktrace; ID=1\", \"ACK: database; ID=2\", \"ACK: snapshot loading; ID=3\", \"M: Database service started; Q=2\", \"ACK: snapshot loading; ID=4\", \"ACK: loading failed; ID=5\", \"ACK: fail; ID=6\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"b\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String[]",
+     "rawValue": "[\"0\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "spacex-number-of-islands-ii",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "-4"
+    },
+    {
+     "name": "positions",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "positions",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 1], [0, 1], [0, 0], [0, 2]]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 1, 2, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "positions",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 1], [0, 0]]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "positions",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 2], [0, 1], [0, 0], [0, 2]]"
+    }
+   ],
+   "expectedRaw": "[1, 2, 2, 3, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "positions",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [0, 1], [1, 2], [2, 1], [1, 1], [2, 1]]"
+    }
+   ],
+   "expectedRaw": "[1, 2, 3, 3, 3, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "positions",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [2, 1], [0, 1], [1, 1], [0, 0]]"
+    }
+   ],
+   "expectedRaw": "[1, 2, 3, 4, 5]"
+  }
+ ]
+}

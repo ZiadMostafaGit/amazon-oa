@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-calculate-warehouse-efficiency",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "parcelWeights",
+     "type": "int[]",
+     "rawValue": "[8, 5, 3]"
+    }
+   ],
+   "expectedRaw": "13"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parcelWeights",
+     "type": "int[]",
+     "rawValue": "[5, 2, 8, 3, 4, 2, 4]"
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parcelWeights",
+     "type": "int[]",
+     "rawValue": "[1, 8, 5, 6, 2, 4]"
+    }
+   ],
+   "expectedRaw": "19"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parcelWeights",
+     "type": "int[]",
+     "rawValue": "[2, 1, 8, 5, -2]"
+    }
+   ],
+   "expectedRaw": "15"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parcelWeights",
+     "type": "int[]",
+     "rawValue": "[2, 8, 5, 6, 2]"
+    }
+   ],
+   "expectedRaw": "19"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parcelWeights",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

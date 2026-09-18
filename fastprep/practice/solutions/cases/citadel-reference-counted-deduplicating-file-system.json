@@ -1,0 +1,68 @@
+{
+ "problemId": "citadel-reference-counted-deduplicating-file-system",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"READ\", \"/b\"], [\"DELETE\", \"/a\"], [\"READ\", \"/b\"], [\"READ\", \"/b\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"false\"], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"WRITE\", \"/x\", \"red\"], [\"WRITE\", \"/y\", \"red\"], [\"WRITE\", \"/x\", \"blue\"], [\"READ\", \"/x\"], [\"READ\", \"/y\"], [\"WRITE\", \"/y\", \"blue\"], [\"/y\", \"/y\", \"/y\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"false\"], [\"true\"], [\"blue\"], [\"red\"], [\"false\"], [\"true\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"READ\", \"/y\"], [\"READ\", \"/x\"], [\"READ\", \"/y\"], [\"WRITE\", \"/y\", \"blue\"], [\"WRITE\", \"/x\", \"red\"], [\"WRITE\", \"/y\", \"red\"], [\"DELETE\", \"/missing\"], [\"WRITE\", \"/x\", \"blue\"], [\"WRITE\", \"/y\", \"red\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], [], [\"true\"], [\"true\"], [\"false\"], [\"false\"], [\"true\"], [\"true\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"WRITE\", \"/right\", \"ba\"], [\"WRITE\", \"/copy\", \"ab\"], [\"READ\", \"/copy\"], [\"READ\", \"/right\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"ab\"], [\"ba\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"WRITE\", \"/right\", \"ba\"], [\"DELETE\", \"/left\"], [\"READ\", \"/right\"], [\"WRITE\", \"/left\", \"ab\"], [\"WRITE\", \"/copy\", \"ab\"], [\"READ\", \"/copy\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"false\"], [\"ba\"], [\"true\"], [\"false\"], [\"ab\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"WRITE\", \"/left\", \"ab\"], [\"WRITE\", \"/right\", \"ba\"], [\"WRITE\", \"/copy\", \"ab\"], [\"DELETE\", \"/left\"], [\"READ\", \"/copy\"], [\"READ\", \"/copy\"], [\"READ\", \"/right\"], [\"DELETE\", \"/left\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"false\"], [\"true\"], [\"ab\"], [\"ab\"], [\"ba\"], [\"false\"]]"
+  }
+ ]
+}

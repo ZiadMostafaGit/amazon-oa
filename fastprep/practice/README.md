@@ -162,6 +162,16 @@ a legitimate lookup table trips it too.
 A solution the app shows as *verified* passed `tools/verify.py` on the date in
 `solutions/VERIFIED.json`. Anything without that badge is stored but unconfirmed.
 
+**Where it stands.** 1,484 of the 1,500 targeted problems have a reference
+solution, and every one of them was re-verified in a single pass after the fact
+(18 s at `--jobs 10`), not merely trusted from whoever wrote it. 1,403 of those
+carry generated cases — 8,411 in total. `tools/audit.py` flags 48 solutions;
+reading them, 44 are a problem's own required sentinel (`"INVALID"`, `"-1"`,
+`["None"]`) and 4 are branch-heavy closed forms (the knight-distance formula
+with its two known exceptions, factorial counting, list slicing). None is a
+memorised answer — which is the point of reading the report rather than
+trusting the count.
+
 ### Languages
 
 The bank's starter code is Java (and MySQL / PostgreSQL / pandas for tabular

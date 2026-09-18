@@ -1,0 +1,98 @@
+{
+ "problemId": "harvey-in-memory-vault-file-system",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"add_file\"]"
+    },
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/docs\", \"get_files\", \"/docs/report.txt\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"add_file\", \"add_file\", \"add_file\", \"get_files\", \"add_file\"]"
+    },
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/docs/report.txt\", \"/docs\", \"/docs/image.png\", \"/docs\"]"
+    }
+   ],
+   "expectedRaw": "[[\"image.png\", \"report.txt\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"add_file\", \"get_files\", \"get_files\"]"
+    },
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/docs/report.txt\", \"docs/report.txt\", \"/docs/image.png\", \"/docs\"]"
+    }
+   ],
+   "expectedRaw": "[[], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"/a/b\", \"add_file\", \"get_files\", \"get_files\"]"
+    },
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/a\", \"/a/c/note\", \"/a/b\", \"/a/b/note\"]"
+    }
+   ],
+   "expectedRaw": "[[], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"add_file\", \"add_file\", \"get_files\", \"add_file\", \"get_files\"]"
+    },
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/a/b/note\", \"add_file\", \"/a/b\", \"/a\"]"
+    }
+   ],
+   "expectedRaw": "[[\"note\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

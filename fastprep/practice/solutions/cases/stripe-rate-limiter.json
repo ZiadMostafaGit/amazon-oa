@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-rate-limiter",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"hit user_1 1\", \"hit user_1 2\", \"allowed user_1 3\", \"hit user_1 1\", \"alllowed user_1 4\", \"allowed user_1 12\", \"allowed user_2 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"true\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "13"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"hit user_1 2\", \"hit user_1 3\", \"allowed user_1 12\", \"hit user_1 1\", \"allowed user_1 3\", \"allowed user_1 4\", \"hit user_1 2\", \"allowed user_2 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"false\", \"false\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"hit user_1 1\", \"hit user_1 2\", \"allowed user_1 3\", \"allowed user_1 12\", \"hit user_1 3\", \"alllowed user_1 4\", \"allowed user_1 12\"]"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"false\", \"false\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"allowed user_2 5\", \"hit user_1 1\", \"allowed user_1 3\", \"hit user_1 3\", \"hit user_1 2\", \"allowed user_1 4\", \"allowed user_1 12\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"false\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"hit user_1 5\", \"hit user_1 5\", \"allowed user_1 5\", \"hit user_1 5\", \"hit user_1 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "windowSeconds",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"hit user_1 5\", \"allowed user_1 5\", \"hit user_1 5\", \"allowed user_1 5\", \"hit user_1 5\", \"allowed user_1 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"false\"]"
+  }
+ ]
+}

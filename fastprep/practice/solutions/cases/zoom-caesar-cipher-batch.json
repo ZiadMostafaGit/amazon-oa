@@ -1,0 +1,128 @@
+{
+ "problemId": "zoom-caesar-cipher-batch",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"encrypt\", \"encrypt\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"Abc-XYZ!\", \"Hello, Word!\", \"Hello, World!\", \"Bcd-YZA!\"]"
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[1, 13, 13]"
+    }
+   ],
+   "expectedRaw": "[\"Bcd-YZA!\", \"Uryyb, Jbeq!\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"decrypt\", \"encrypt\", \"decrypt\", \"encrypt\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"Abc-XYZ!\", \"Abc-XYZ!\", \"Abc-XYZ!\"]"
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[1]"
+    }
+   ],
+   "expectedRaw": "[\"Zab-WXY!\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"encrypt\", \"encrypt\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"No changge 123\", \"Zz\"]"
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[52, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[\"No changge 123\", \"Zz\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"0\", \"10\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"yz\"]"
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[-6]"
+    }
+   ],
+   "expectedRaw": "[\"lyx\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"encrypt\", \"Zz\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"No change 123\", \"decrypt\"]"
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[3, 52]"
+    }
+   ],
+   "expectedRaw": "[\"Qr fkdqjh 123\", \"decrypt\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"decrypt\", \"encrypt\"]"
+    },
+    {
+     "name": "texts",
+     "type": "String[]",
+     "rawValue": "[\"No change 123\", \"No change 123\"]"
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[0, 55]"
+    }
+   ],
+   "expectedRaw": "[\"No change 123\", \"Qr fkdqjh 123\"]"
+  }
+ ]
+}

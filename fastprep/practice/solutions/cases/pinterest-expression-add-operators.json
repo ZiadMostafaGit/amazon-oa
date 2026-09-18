@@ -1,0 +1,98 @@
+{
+ "problemId": "pinterest-expression-add-operators",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"1123\""
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "[\"1*1*2*3\", \"1*1+2+3\", \"1+1*2+3\", \"1-1+2*3\", \"11-2-3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"1055\""
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[\"1*0*5+5\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"105\""
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"1*0*5\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"123\""
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"1+2-3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"23\""
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"1123\""
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[\"1*1*2+3\", \"1-1+2+3\", \"11-2*3\"]"
+  }
+ ]
+}

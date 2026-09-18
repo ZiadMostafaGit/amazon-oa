@@ -1,0 +1,68 @@
+{
+ "problemId": "roblox-shift-ops",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[13, 31, 13, 546, 654, 456]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[13, 5604, 2, 13, 4563, 2, 546, 654, 456]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[546, 456, 5604, 13, 654, 13, 2, 13, 31, 4560]"
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[-2, -2]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[3]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

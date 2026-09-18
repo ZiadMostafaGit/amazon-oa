@@ -1,0 +1,68 @@
+{
+ "problemId": "okta-role-based-network-access-control",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_PERMISSION\", \"prod-read\", \"ALLOW\", \"1\", \"env\", \"prod\"], [\"ASSIGN_PERMISSION\", \"engineer\", \"prod-read\"], [\"ASSIGN_ROLE\", \"alice\", \"engineer\"], [\"CHECK\", \"alice\", \"1\", \"env\", \"dev\"]]"
+    }
+   ],
+   "expectedRaw": "[\"ERROR\", \"ERROR\", \"ERROR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_USER\", \"u\"], [\"CREATE_ROLE\", \"r\"], [\"CREATE_PERMISSION\", \"p\", \"ALLOW\", \"0\"], [\"ASSIGN_PERMISSION\", \"r\", \"p\"], [\"ASSIGN_PERMISSION\", \"r\", \"p\"], [\"ASSIGN_ROLE\", \"r\", \"u\", \"r\"], [\"ASSIGN_PERMISSION\", \"r\", \"p\"], [\"ASSIGN_ROLE\", \"u\", \"r\"], [\"CHECK\", \"u\", \"0\"], [\"ASSIGN_ROLE\", \"u\", \"missing\"]]"
+    }
+   ],
+   "expectedRaw": "[\"ERROR\", \"ALLOW\", \"ERROR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ASSIGN_PERMISSION\", \"r\", \"p\"], [\"ASSIGN_ROLE\", \"u\", \"r\"], [\"CHECK\", \"missing\", \"0\"], [\"CHECK\", \"u\", \"0\"], [\"ASSIGN_ROLE\", \"u\", \"missing\"], [\"CREATE_PERMISSION\", \"p\", \"ALLOW\", \"0\"], [\"CREATE_USER\", \"u\"], [\"ASSIGN_PERMISSION\", \"r\", \"p\"], [\"ASSIGN_ROLE\", \"u\", \"r\"], [\"ASSIGN_ROLE\", \"u\", \"r\"], [\"CHECK\", \"u\", \"0\"], [\"CREATE_ROLE\", \"r\"]]"
+    }
+   ],
+   "expectedRaw": "[\"ERROR\", \"ERROR\", \"ERROR\", \"ERROR\", \"ERROR\", \"ERROR\", \"ERROR\", \"ERROR\", \"DENY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_USER\", \"alice\"], [\"CREATE_ROLE\", \"engineer\"], [\"CREATE_PERMISSION\", \"prod-read\", \"ALLOW\", \"1\", \"env\", \"prod\"], [\"ASSIGN_ROLE\", \"alice\", \"engineer\"], [\"CHECK\", \"alice\", \"1\", \"env\", \"dev\"]]"
+    }
+   ],
+   "expectedRaw": "[\"DENY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CHECK\", \"alice\", \"1\", \"env\", \"prod\"], [\"CHECK\", \"alice\", \"1\", \"env\", \"dev\"], [\"CREATE_USER\", \"alice\"], [\"ASSIGN_ROLE\", \"alice\", \"engineer\"], [\"ASSIGN_PERMISSION\", \"engineer\", \"prod-read\"], [\"CREATE_PERMISSION\", \"prod-read\", \"ALLOW\", \"1\", \"env\", \"prod\"]]"
+    }
+   ],
+   "expectedRaw": "[\"ERROR\", \"ERROR\", \"ERROR\", \"ERROR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

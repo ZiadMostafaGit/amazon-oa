@@ -1,0 +1,158 @@
+{
+ "problemId": "snowflake-minimum-height",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "tree_nodes",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "tree_from",
+     "type": "int[]",
+     "rawValue": "[1, 2]"
+    },
+    {
+     "name": "tree_to",
+     "type": "int[]",
+     "rawValue": "[2, 3, 3, 3]"
+    },
+    {
+     "name": "max_operations",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tree_nodes",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "tree_from",
+     "type": "int[]",
+     "rawValue": "[-3]"
+    },
+    {
+     "name": "tree_to",
+     "type": "int[]",
+     "rawValue": "[5, -3, 4]"
+    },
+    {
+     "name": "max_operations",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tree_nodes",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "tree_from",
+     "type": "int[]",
+     "rawValue": "[1, 2]"
+    },
+    {
+     "name": "tree_to",
+     "type": "int[]",
+     "rawValue": "[3]"
+    },
+    {
+     "name": "max_operations",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tree_nodes",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "tree_from",
+     "type": "int[]",
+     "rawValue": "[1, 1, 2]"
+    },
+    {
+     "name": "tree_to",
+     "type": "int[]",
+     "rawValue": "[4, 2, 3]"
+    },
+    {
+     "name": "max_operations",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tree_nodes",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "tree_from",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "tree_to",
+     "type": "int[]",
+     "rawValue": "[1, 0]"
+    },
+    {
+     "name": "max_operations",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tree_nodes",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "tree_from",
+     "type": "int[]",
+     "rawValue": "[-4, -2, -2]"
+    },
+    {
+     "name": "tree_to",
+     "type": "int[]",
+     "rawValue": "[2, -3, -3, -3]"
+    },
+    {
+     "name": "max_operations",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

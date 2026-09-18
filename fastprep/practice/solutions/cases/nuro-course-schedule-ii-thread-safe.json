@@ -1,0 +1,98 @@
+{
+ "problemId": "nuro-course-schedule-ii-thread-safe",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numCourses",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_PREREQUISITE\", \"2\", \"0\"], [\"GET_ORDER\"], [\"ADD_PREREQUISITE\", \"0\", \"1\"], [\"GET_ORDER\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"[0,1,2,3,4]\", \"null\", \"[1,0,2,3,4]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numCourses",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET_ORDER\"], [\"ADD_PEREQUISITE\", \"1\", \"1\"], [\"GET_ORDER\"]]"
+    }
+   ],
+   "expectedRaw": "[\"[0,1,2]\", \"[0,1,2]\", \"[0,1,2]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numCourses",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numCourses",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET_ORDER\"], [\"ADD_PREREQUISITE\", \"2\", \"1\"], [\"GET_ORDER\"], [\"ADD_PREREQUISITE\", \"2\", \"1\"], [\"GET_ORDER\"]]"
+    }
+   ],
+   "expectedRaw": "[\"[0,1,2]\", \"null\", \"[0,1,2]\", \"null\", \"[0,1,2]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numCourses",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_PREREQUISITE\", \"1\", \"0\"], [\"GET_ORDER\"], [\"ADD_PREREQUISITE\", \"0\", \"1\"], [\"1\", \"1\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"[0,1,2,3]\", \"null\", \"[]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numCourses",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"red\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[\"[]\"]"
+  }
+ ]
+}

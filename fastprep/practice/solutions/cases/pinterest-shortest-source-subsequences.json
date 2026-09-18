@@ -1,0 +1,98 @@
+{
+ "problemId": "pinterest-shortest-source-subsequences",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"abcbc\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"abcbc\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"xyz\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"abcbc\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"acdbc\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"acdbc\""
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

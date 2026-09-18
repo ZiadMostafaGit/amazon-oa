@@ -1,0 +1,98 @@
+{
+ "problemId": "num-ways",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"vldoh\", \"vldoh\"]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"vldoh\""
+    }
+   ],
+   "expectedRaw": "32"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"valya\", \"lyglb\"]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"val\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"0\"]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"lyglb\", \"valya\", \"lyglb\", \"vldoh\"]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"lyglb\""
+    }
+   ],
+   "expectedRaw": "32"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"valya\", \"lyglb\", \"vldoh\", \"valya\"]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"vldoh\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "uber-jump-game-prime-3-steps",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[4]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[7, 10, 7]"
+    }
+   ],
+   "expectedRaw": "24"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[-100, -100, 5, 10]"
+    }
+   ],
+   "expectedRaw": "-90"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[5, -100, 10]"
+    }
+   ],
+   "expectedRaw": "-85"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[5, -100, 4]"
+    }
+   ],
+   "expectedRaw": "-91"
+  }
+ ]
+}

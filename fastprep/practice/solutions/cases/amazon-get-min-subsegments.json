@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-get-min-subsegments",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "frames",
+     "type": "String",
+     "rawValue": "\"11100011000\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "frames",
+     "type": "String",
+     "rawValue": "\"111001000\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "frames",
+     "type": "String",
+     "rawValue": "\"1001110\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "frames",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "frames",
+     "type": "String",
+     "rawValue": "\"1100111\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "frames",
+     "type": "String",
+     "rawValue": "\"1100110\""
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

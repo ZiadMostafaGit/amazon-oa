@@ -1,0 +1,98 @@
+{
+ "problemId": "snowflake-generating-login-codes",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "initialLogin",
+     "type": "int[]",
+     "rawValue": "[3, 10]"
+    },
+    {
+     "name": "standardLogin",
+     "type": "int[]",
+     "rawValue": "[10, 8, 6]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialLogin",
+     "type": "int[]",
+     "rawValue": "[10, 4, 3, 7, 2]"
+    },
+    {
+     "name": "standardLogin",
+     "type": "int[]",
+     "rawValue": "[5, 10, 5, 10]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialLogin",
+     "type": "int[]",
+     "rawValue": "[2, 3, 7, 3]"
+    },
+    {
+     "name": "standardLogin",
+     "type": "int[]",
+     "rawValue": "[5, 10]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialLogin",
+     "type": "int[]",
+     "rawValue": "[10, 4, 7, 2]"
+    },
+    {
+     "name": "standardLogin",
+     "type": "int[]",
+     "rawValue": "[6, 5, 5]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialLogin",
+     "type": "int[]",
+     "rawValue": "[-1, 7, 3, 7, 10]"
+    },
+    {
+     "name": "standardLogin",
+     "type": "int[]",
+     "rawValue": "[5, 10, 6, 2]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialLogin",
+     "type": "int[]",
+     "rawValue": "[2, 4, 7, 3, 7, 7, 10]"
+    },
+    {
+     "name": "standardLogin",
+     "type": "int[]",
+     "rawValue": "[5, 5, 10]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

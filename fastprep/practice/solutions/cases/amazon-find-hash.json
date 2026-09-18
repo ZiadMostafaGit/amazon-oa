@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-find-hash",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "param",
+     "type": "int[]",
+     "rawValue": "[4, 4]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "param",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "param",
+     "type": "int[]",
+     "rawValue": "[-1, 1, 1]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "param",
+     "type": "int[]",
+     "rawValue": "[2, 1, 2, 4]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "param",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "param",
+     "type": "int[]",
+     "rawValue": "[2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

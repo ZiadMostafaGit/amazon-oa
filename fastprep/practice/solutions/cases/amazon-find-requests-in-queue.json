@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-find-requests-in-queue",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "wait",
+     "type": "int[]",
+     "rawValue": "[3]"
+    }
+   ],
+   "expectedRaw": "[1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wait",
+     "type": "int[]",
+     "rawValue": "[1, 3]"
+    }
+   ],
+   "expectedRaw": "[2, 1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wait",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 4, -3, -4, 1]"
+    }
+   ],
+   "expectedRaw": "[6, 4, 3, 2, 1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wait",
+     "type": "int[]",
+     "rawValue": "[1, 2, 1, 1]"
+    }
+   ],
+   "expectedRaw": "[4, 1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wait",
+     "type": "int[]",
+     "rawValue": "[2, 1, 3, 1]"
+    }
+   ],
+   "expectedRaw": "[4, 1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wait",
+     "type": "int[]",
+     "rawValue": "[2, 2, 1]"
+    }
+   ],
+   "expectedRaw": "[3, 1, 0]"
+  }
+ ]
+}

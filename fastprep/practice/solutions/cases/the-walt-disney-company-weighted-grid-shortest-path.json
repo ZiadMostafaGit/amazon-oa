@@ -1,0 +1,98 @@
+{
+ "problemId": "the-walt-disney-company-weighted-grid-shortest-path",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"...\", \"...\"]"
+    },
+    {
+     "name": "directionCosts",
+     "type": "int[]",
+     "rawValue": "[3, 7, 1, 2]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"#T\", \"#T\"]"
+    },
+    {
+     "name": "directionCosts",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, 1]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"S..\", \"...\"]"
+    },
+    {
+     "name": "directionCosts",
+     "type": "int[]",
+     "rawValue": "[2, 3, 1, 4, 4, 2]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"...\", \"S..\", \"S..\"]"
+    },
+    {
+     "name": "directionCosts",
+     "type": "int[]",
+     "rawValue": "[3, 4, 2]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"#T\"]"
+    },
+    {
+     "name": "directionCosts",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, 1]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"S#\", \"#T\", \"#T\", \"#T\"]"
+    },
+    {
+     "name": "directionCosts",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

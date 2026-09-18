@@ -1,0 +1,68 @@
+{
+ "problemId": "doordash-random-dasher-set",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PICK 0\", \"REMOVE d1\", \"PICK 0\"]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"false\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"REMOVE d1\", \"REMOVE d1\", \"PICK 0\", \"PICK 0\", \"ADD d1\", \"REMOVE d1\", \"ADD d2\"]"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"false\", \"null\", \"null\", \"true\", \"true\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD b\", \"ADD c\", \"REMOVE b\", \"PICK 1\", \"REMOVE c\", \"PICK -1\", \"REMOVE a\", \"PICK 7\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"true\", \"c\", \"true\", \"null\", \"false\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD a\", \"ADD b\", \"ADD c\", \"ADD c\", \"REMOVE b\", \"PICK 1\", \"REMOVE c\", \"PICK -1\", \"ADD a\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"true\", \"false\", \"true\", \"c\", \"true\", \"a\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PICK 7\", \"REMOVE c\", \"REMOVE a\", \"ADD a\", \"PICK 1\", \"REMOVE c\", \"ADD b\", \"REMOVE b\", \"PICK -1\"]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"false\", \"false\", \"true\", \"a\", \"false\", \"true\", \"true\", \"a\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD d1\", \"ADD d2\", \"PICK 0\", \"REMOVE d1\", \"ADD d2\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"d1\", \"true\", \"false\"]"
+  }
+ ]
+}

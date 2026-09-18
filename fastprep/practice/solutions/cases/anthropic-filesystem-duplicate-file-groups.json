@@ -1,0 +1,98 @@
+{
+ "problemId": "anthropic-filesystem-duplicate-file-groups",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/c/z.txt\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"/d/w.txt\", \"red\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"abc\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"abc\", \"10\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/d/w.txt\", \"/c/z.txt\", \"/a/x.txt\", \"/d/w.txt\", \"/b/y.txt\", \"/a/x.txt\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"blue\", \"blue\", \"red\", \"blue\"]"
+    }
+   ],
+   "expectedRaw": "[[\"/a/x.txt\", \"/b/y.txt\", \"/c/z.txt\"], [\"/d/w.txt\", \"/d/w.txt\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"b\", \"0\", \"abc\", \"0\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"abc\", \"dog\", \"blue\", \"abc\", \"a\", \"ab\"]"
+    }
+   ],
+   "expectedRaw": "[[\"0\", \"b\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/c\", \"one\", \"/b\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"two\", \"three\", \"one\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/c\", \"/a\", \"/a\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"one\", \"two\", \"three\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

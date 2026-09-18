@@ -1,0 +1,158 @@
+{
+ "problemId": "confluent-variadic-function-signature-match",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "functionNames",
+     "type": "String[]",
+     "rawValue": "[\"FuncC\", \"FuncD\", \"FuncE\", \"FuncG\"]"
+    },
+    {
+     "name": "functionArgumentTypes",
+     "type": "String[][]",
+     "rawValue": "[[\"Integer\"], [\"Integer\", \"String\", \"Integer\"], [\"String\"], [\"Integer\", \"Integer\"], [\"FuncG\"], [\"String\", \"Integer\", \"Integer\"], [\"Integer\", \"Integer\", \"Integer\"]]"
+    },
+    {
+     "name": "isVariadic",
+     "type": "boolean[]",
+     "rawValue": "[false, true, true, true, false, false, false]"
+    },
+    {
+     "name": "callArgumentTypes",
+     "type": "String[]",
+     "rawValue": "[\"String\", \"Integer\", \"Integer\", \"String\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "functionNames",
+     "type": "String[]",
+     "rawValue": "[\"FuncA\", \"FuncB\", \"FuncC\", \"FuncD\", \"FuncG\"]"
+    },
+    {
+     "name": "functionArgumentTypes",
+     "type": "String[][]",
+     "rawValue": "[[\"Integer\", \"Integer\"], [\"Integer\"], [\"String\"], [\"Integer\", \"Integer\", \"Integer\"], [\"String\", \"Integer\"], [\"Integer\"], [\"String\", \"Integer\", \"Integer\"]]"
+    },
+    {
+     "name": "isVariadic",
+     "type": "boolean[]",
+     "rawValue": "[true, true, true, false, false, false]"
+    },
+    {
+     "name": "callArgumentTypes",
+     "type": "String[]",
+     "rawValue": "[\"Integer\", \"FuncG\", \"Integer\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "functionNames",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "functionArgumentTypes",
+     "type": "String[][]",
+     "rawValue": "[[]]"
+    },
+    {
+     "name": "isVariadic",
+     "type": "boolean[]",
+     "rawValue": "[false, true]"
+    },
+    {
+     "name": "callArgumentTypes",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"bc\", \"10\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "functionNames",
+     "type": "String[]",
+     "rawValue": "[\"FuncA\", \"FuncC\", \"FuncG\", \"FuncE\", \"FuncB\", \"FuncF\", \"FuncG\"]"
+    },
+    {
+     "name": "functionArgumentTypes",
+     "type": "String[][]",
+     "rawValue": "[[\"String\", \"Integer\", \"Integer\"], [\"Integer\"], [\"Integer\"], [\"String\", \"Integer\"], [\"String\", \"Integer\", \"Integer\"], [\"Integer\", \"Integer\"], [\"String\"], [\"Integer\", \"Integer\", \"Integer\"]]"
+    },
+    {
+     "name": "isVariadic",
+     "type": "boolean[]",
+     "rawValue": "[false, true, true, true, true, false, false, true, false]"
+    },
+    {
+     "name": "callArgumentTypes",
+     "type": "String[]",
+     "rawValue": "[\"String\"]"
+    }
+   ],
+   "expectedRaw": "[\"FuncG\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "functionNames",
+     "type": "String[]",
+     "rawValue": "[\"FuncA\", \"FuncB\", \"FuncC\", \"FuncC\", \"FuncA\", \"FuncF\", \"FuncG\"]"
+    },
+    {
+     "name": "functionArgumentTypes",
+     "type": "String[][]",
+     "rawValue": "[[\"String\", \"Integer\", \"Integer\"], [\"String\", \"Integer\"], [\"Integer\"], [\"Integer\", \"Integer\"], [\"Integer\", \"Integer\", \"Integer\"], [\"String\"], [\"Integer\"], [\"String\", \"Integer\", \"Integer\"]]"
+    },
+    {
+     "name": "isVariadic",
+     "type": "boolean[]",
+     "rawValue": "[false, true, false, false, false, true, true]"
+    },
+    {
+     "name": "callArgumentTypes",
+     "type": "String[]",
+     "rawValue": "[\"Integer\", \"Integer\"]"
+    }
+   ],
+   "expectedRaw": "[\"FuncC\", \"FuncG\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "functionNames",
+     "type": "String[]",
+     "rawValue": "[\"FuncD\", \"FuncF\", \"FuncA\", \"FuncC\", \"FuncB\", \"FuncE\", \"FuncG\"]"
+    },
+    {
+     "name": "functionArgumentTypes",
+     "type": "String[][]",
+     "rawValue": "[[\"String\", \"Integer\", \"Integer\"], [\"String\", \"Integer\"], [\"Integer\"], [\"Integer\", \"FuncD\"], [\"String\", \"Integer\"], [\"Integer\", \"Integer\", \"Integer\"], [\"String\"], [\"Integer\"]]"
+    },
+    {
+     "name": "isVariadic",
+     "type": "boolean[]",
+     "rawValue": "[false, true, true, true, false, false, true]"
+    },
+    {
+     "name": "callArgumentTypes",
+     "type": "String[]",
+     "rawValue": "[\"String\", \"String\"]"
+    }
+   ],
+   "expectedRaw": "[\"FuncG\"]"
+  }
+ ]
+}

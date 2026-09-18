@@ -1,0 +1,68 @@
+{
+ "problemId": "snowflake-minimum-clicks-between-wiki-pages",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"5\\nA B\\nB  C\\nA D\\nD C\\nC E\\nA C\""
+    }
+   ],
+   "expectedRaw": "[\"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"5\\nA B\\nB C\\nA \\nD C\\nC E\\nA C\""
+    }
+   ],
+   "expectedRaw": "[\"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[\"-1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"5\\nA B\\nB C\\nA D\\nD C\\nCC E\\nA C\""
+    }
+   ],
+   "expectedRaw": "[\"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"5\\nA B\\nB C\\nA DD\\nD C\\nC E\\nA C\""
+    }
+   ],
+   "expectedRaw": "[\"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"5\\nA B\\nB C\\nA  D\\nD C\\nC E\\nA C\""
+    }
+   ],
+   "expectedRaw": "[\"2\"]"
+  }
+ ]
+}

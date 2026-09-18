@@ -1,0 +1,68 @@
+{
+ "problemId": "atlassian-error-digit-range",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "112"
+    }
+   ],
+   "expectedRaw": "882"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "-111"
+    }
+   ],
+   "expectedRaw": "999"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "8"
+  }
+ ]
+}

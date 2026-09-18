@@ -1,0 +1,98 @@
+{
+ "problemId": "stripe-http-accept-language-quality",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"fr-FR;q==1, fr-CA;q=0, fr;q=0.5\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[\"fr-CA\", \"fr-BG\"]"
+    }
+   ],
+   "expectedRaw": "[\"fr-BG\", \"fr-CA\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"fr-FR;q=1, fr-CA;q=0, **;q=0.5\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[\"fr-CA\", \"fr-FR\"]"
+    }
+   ],
+   "expectedRaw": "[\"fr-FR\", \"fr-CA\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"1\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"yz\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"blue\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"en;q=0.8, fr;q=0.9, deq=0.7\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[\"fr-FR\", \"de-DE\", \"fr-FR\", \"en-US\"]"
+    }
+   ],
+   "expectedRaw": "[\"fr-FR\", \"fr-FR\", \"en-US\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

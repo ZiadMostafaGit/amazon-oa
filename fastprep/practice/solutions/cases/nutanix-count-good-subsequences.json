@@ -1,0 +1,68 @@
+{
+ "problemId": "nutanix-count-good-subsequences",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"abbca\""
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"aaaa\""
+    }
+   ],
+   "expectedRaw": "15"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"abccd\""
+    }
+   ],
+   "expectedRaw": "24"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"bcd\""
+    }
+   ],
+   "expectedRaw": "7"
+  }
+ ]
+}

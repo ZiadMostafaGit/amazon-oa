@@ -1,0 +1,98 @@
+{
+ "problemId": "openai-versioned-social-network",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"FOLLOW 0 1\", \"SNAPSHOT\", \"UNFOLLOW 0 1\", \"SNAPSHOT\", \"IS_FOLLOWING 0 1 0\", \"IS_FOLLOWING 0 1 1\", \"IS_FOLLOWING 0 2 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"1\", \"true\", \"false\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SNAPSHOT\", \"FOLLOW 1 2\", \"IS_FOLLOWING 1 2 0\", \"FOLLOW 1 0\", \"UNFOLLOW 1 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"IS_FOLLOWING 2 1 2\", \"FOLLOW 2 1\", \"SNAPSHOT\", \"IS_FOLLOWING 2 1 0\", \"SNAPSHOT\", \"FOLLOW 2 1\", \"UNFOLLOW 2 1\", \"SNAPSHOT\", \"FOLLOW 2 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"0\", \"true\", \"1\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SNAPSHOT\", \"SNAPSHOT\", \"FOLLOW 0 1\", \"IS_FOLLOWING 0 1 0\", \"FOLLOW 0 2\", \"IS_FOLLOWING 0 2 1\", \"UNFOLLOW 0 1\", \"FOLLOW 0 1\", \"IS_FOLLOWING 0 1 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"1\", \"false\", \"false\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SNAPSHOT\", \"UNFOLLOW 0 1\", \"FOLLOW 0 1\", \"IS_FOLLOWING 0 1 1\", \"IS_FOLLOWING 0 1 0\", \"SNAPSHOT\", \"FOLLOW 0 2\", \"IS_FOLLOWING 0 2 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"true\", \"false\", \"1\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SNAPSHOT\", \"FOLLOW 2 1\", \"SNAPSHOT\", \"UNFOLLOW 2 1\", \"FOLLOW 2 1\", \"IS_FOLLOWING 2 1 1\", \"IS_FOLLOWING 2 1 0\", \"FOLLOW 2 1\", \"IS_FOLLOWING 2 1 0\", \"IS_FOLLOWING 2 1 1\", \"IS_FOLLOWING 2 1 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"1\", \"true\", \"false\", \"false\", \"true\", \"true\"]"
+  }
+ ]
+}

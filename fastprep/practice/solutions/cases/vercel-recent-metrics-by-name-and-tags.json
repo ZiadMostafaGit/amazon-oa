@@ -1,0 +1,68 @@
+{
+ "problemId": "vercel-recent-metrics-by-name-and-tags",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SEARCH\", \"cpu\", \"2\", \"host=a\"], [\"SEARCH\", \"cpu\", \"2\", \"host=a\"]]"
+    }
+   ],
+   "expectedRaw": "[[], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SEARCH\", \"memory\", \"3\", \"host=a\"], [\"RECORD\", \"cpu\", \"1\", \"5\", \"host=a\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"null\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"RECORD\", \"latency\", \"20\", \"8\", \"region=us\", \"tier=api\"], [\"SEARCH\", \"latency\", \"5\", \"region=us\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"latency|20|8|region=us,tier=api\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"RECORD\", \"latency\", \"20\", \"4\", \"region=us\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"RECORD\", \"cpu\", \"12\", \"9\", \"host=a\"], [\"RECORD\", \"cpu\", \"10\", \"7\", \"host=a\", \"zone=west\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"null\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"RECORD\", \"latency\", \"20\", \"4\", \"region=us\"], [\"SEARCH\", \"latency\", \"5\", \"region=us\"], [\"SEARCH\", \"latency\", \"5\", \"region=us\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"latency|20|4|region=us\"], [\"latency|20|4|region=us\"]]"
+  }
+ ]
+}

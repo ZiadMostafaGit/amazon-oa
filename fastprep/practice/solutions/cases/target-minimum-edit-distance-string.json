@@ -1,0 +1,98 @@
+{
+ "problemId": "target-minimum-edit-distance-string",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"rat\", \"rat\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"hat\", \"cats\"]"
+    }
+   ],
+   "expectedRaw": "[\"rat\", \"rat\", \"rat\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"bat\", \"rat\", \"bat\", \"bat\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"hat\", \"cats\"]"
+    }
+   ],
+   "expectedRaw": "[\"bat\", \"cat\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"bat\", \"cat\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"hat\"]"
+    }
+   ],
+   "expectedRaw": "[\"bat\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"Apple\", \"apple\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"apple\", \"apple\"]"
+    }
+   ],
+   "expectedRaw": "[\"apple\", \"apple\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"rat\", \"cat\", \"cat\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"cats\"]"
+    }
+   ],
+   "expectedRaw": "[\"cat\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"apple\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"apple\"]"
+    }
+   ],
+   "expectedRaw": "[\"apple\"]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "ibm-count-increasing-contiguous-windows",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "yCoordinates",
+     "type": "int[]",
+     "rawValue": "[7, 8, 3, 6]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "yCoordinates",
+     "type": "int[]",
+     "rawValue": "[1, 1, 4, 2]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "yCoordinates",
+     "type": "int[]",
+     "rawValue": "[4, 4, 5, 5]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "yCoordinates",
+     "type": "int[]",
+     "rawValue": "[-7, -2, -5, -4, 7, 4, -5]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "yCoordinates",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "yCoordinates",
+     "type": "int[]",
+     "rawValue": "[6, 5, 7, 8, 3, 6]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

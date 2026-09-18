@@ -1,0 +1,98 @@
+{
+ "problemId": "salesforce-minimum-window-required-words",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"the quick brownn fox jumps over the lazy dog\""
+    },
+    {
+     "name": "requiredWords",
+     "type": "String[]",
+     "rawValue": "[\"dog\"]"
+    }
+   ],
+   "expectedRaw": "\"dog\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "requiredWords",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"b\", \"b\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "requiredWords",
+     "type": "String[]",
+     "rawValue": "[\"cat\"]"
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"a\""
+    },
+    {
+     "name": "requiredWords",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"b\", \"a\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "requiredWords",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"the  quick brown fox jumps over the lazy dog\""
+    },
+    {
+     "name": "requiredWords",
+     "type": "String[]",
+     "rawValue": "[\"dog\"]"
+    }
+   ],
+   "expectedRaw": "\"dog\""
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "squarepoint-strong-weak-reference-lifecycle",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 67,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE\", \"owner\"], [\"MAKE_WEAK\", \"owner\", \"observer\"], [\"LOCK_WEAK\", \"observer\", \"locked\"], [\"RELEASE\", \"locked\"], [\"RELEASE\", \"observer\"]]"
+    }
+   ],
+   "expectedRaw": "[\"1:0:LIVE\", \"1:1:LIVE\", \"2:1:LIVE\", \"1:1:LIVE\", \"1:0:LIVE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE\", \"a\"], [\"CREATE\", \"b\"], [\"CREATE\", \"b\"], [\"MAKE_WEAK\", \"a\", \"wa\"], [\"RELEASE\", \"a\"], [\"QUERY\", \"b\"], [\"RELEASE\", \"wa\"], [\"RELEASE\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "[\"1:0:LIVE\", \"1:0:LIVE\", \"1:0:LIVE\", \"1:1:LIVE\", \"0:1:EXPIRED\", \"1:0:LIVE\", \"0:0:REMOVED\", \"0:0:REMOVED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE\", \"s\"], [\"MAKE_WEAK\", \"s\", \"w\"], [\"CLONE_STRONG\", \"s\", \"s2\"], [\"RELEASE\", \"s\"], [\"RELEASE\", \"s2\"], [\"LOCK_WEAK\", \"w\", \"late\"], [\"QUERY\", \"w\"], [\"CREATE\", \"s\"], [\"RELEASE\", \"w\"]]"
+    }
+   ],
+   "expectedRaw": "[\"1:0:LIVE\", \"1:1:LIVE\", \"2:1:LIVE\", \"1:1:LIVE\", \"0:1:EXPIRED\", \"0:1:EXPIRED\", \"0:1:EXPIRED\", \"1:0:LIVE\", \"0:0:REMOVED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE\", \"owner\"], [\"MAKE_WEAK\", \"owner\", \"observer\"], [\"CREATE\", \"owner\"], [\"LOCK_WEAK\", \"observer\", \"locked\"], [\"LOCK_WEAK\", \"observer\", \"locked\"], [\"RELEASE\", \"owner\"], [\"QUERY\", \"locked\"], [\"RELEASE\", \"locked\"], [\"RELEASE\", \"observer\"]]"
+    }
+   ],
+   "expectedRaw": "[\"1:0:LIVE\", \"1:1:LIVE\", \"1:0:LIVE\", \"2:1:LIVE\", \"3:1:LIVE\", \"0:0:REMOVED\", \"3:1:LIVE\", \"2:1:LIVE\", \"2:0:LIVE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE\", \"a\"], [\"CREATE\", \"b\"], [\"MAKE_WEAK\", \"a\", \"wa\"], [\"RELEASE\", \"a\"], [\"QUERY\", \"b\"], [\"CREATE\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "[\"1:0:LIVE\", \"1:0:LIVE\", \"1:1:LIVE\", \"0:1:EXPIRED\", \"1:0:LIVE\", \"1:0:LIVE\"]"
+  }
+ ]
+}

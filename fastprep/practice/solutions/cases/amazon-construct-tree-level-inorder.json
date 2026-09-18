@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-construct-tree-level-inorder",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 10,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "int[]",
+     "rawValue": "[7, 9, 20, 15, 3]"
+    },
+    {
+     "name": "inorder",
+     "type": "int[]",
+     "rawValue": "[9, 15, 20]"
+    }
+   ],
+   "expectedRaw": "[9, null, 20, 15]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "int[]",
+     "rawValue": "[3, 20, 15, 20]"
+    },
+    {
+     "name": "inorder",
+     "type": "int[]",
+     "rawValue": "[20, 3, 15]"
+    }
+   ],
+   "expectedRaw": "[3, 20, 15]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    },
+    {
+     "name": "inorder",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "null"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "int[]",
+     "rawValue": "[-4, 4]"
+    },
+    {
+     "name": "inorder",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "null"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "int[]",
+     "rawValue": "[3, 9, 20, 15, 7]"
+    },
+    {
+     "name": "inorder",
+     "type": "int[]",
+     "rawValue": "[15, 20, 20, 7]"
+    }
+   ],
+   "expectedRaw": "[20, 15, 20, null, null, null, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "int[]",
+     "rawValue": "[3, 20, 9, 20, 15, 7]"
+    },
+    {
+     "name": "inorder",
+     "type": "int[]",
+     "rawValue": "[7, 20, 3, 15, 9]"
+    }
+   ],
+   "expectedRaw": "[3, 20, 9, 7, null, 15]"
+  }
+ ]
+}

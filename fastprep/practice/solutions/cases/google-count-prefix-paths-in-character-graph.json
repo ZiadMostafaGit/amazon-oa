@@ -1,0 +1,128 @@
+{
+ "problemId": "google-count-prefix-paths-in-character-graph",
+ "generatedAt": "2026-09-18T23:33:42",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "labels",
+     "type": "String",
+     "rawValue": "\"aaaaa\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [0, 1], [1, 2], [0, 0], [1, 2], [0, 3]]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"aaaaa\""
+    }
+   ],
+   "expectedRaw": "[5, 6, 4, 2, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "labels",
+     "type": "String",
+     "rawValue": "\"treetr\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[4, 5]]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"trees\""
+    }
+   ],
+   "expectedRaw": "[2, 1, 0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "labels",
+     "type": "String",
+     "rawValue": "\"treetr\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [1, 2], [2, 0], [4, 5]]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"trees\""
+    }
+   ],
+   "expectedRaw": "[2, 2, 1, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "labels",
+     "type": "String",
+     "rawValue": "\"treetr\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [1, 2], [4, 5], [2, 3], [4, 5]]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"treetr\""
+    }
+   ],
+   "expectedRaw": "[2, 2, 1, 1, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "labels",
+     "type": "String",
+     "rawValue": "\"bc\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "labels",
+     "type": "String",
+     "rawValue": "\"aaaa\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 3], [1, 2], [2, 3], [0, 3]]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"aaa\""
+    }
+   ],
+   "expectedRaw": "[4, 8, 8]"
+  }
+ ]
+}

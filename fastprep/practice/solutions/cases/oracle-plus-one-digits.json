@@ -1,0 +1,68 @@
+{
+ "problemId": "oracle-plus-one-digits",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "int[]",
+     "rawValue": "[9, 9]"
+    }
+   ],
+   "expectedRaw": "[1, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "[-2, 1, 5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "int[]",
+     "rawValue": "[7, 9, 9]"
+    }
+   ],
+   "expectedRaw": "[8, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "int[]",
+     "rawValue": "[2, 1, 2, 9]"
+    }
+   ],
+   "expectedRaw": "[2, 1, 3, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "int[]",
+     "rawValue": "[2, 1, 9]"
+    }
+   ],
+   "expectedRaw": "[2, 2, 0]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "google-meeting-rooms-ii",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int[]",
+     "rawValue": "[6, 3]"
+    },
+    {
+     "name": "E",
+     "type": "int[]",
+     "rawValue": "[5, 6, 5, 7]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int[]",
+     "rawValue": "[3, 2, 6, 5, 1]"
+    },
+    {
+     "name": "E",
+     "type": "int[]",
+     "rawValue": "[5, 7, 6]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int[]",
+     "rawValue": "[1, 6, 5, 6]"
+    },
+    {
+     "name": "E",
+     "type": "int[]",
+     "rawValue": "[6, 5, 7]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int[]",
+     "rawValue": "[-5]"
+    },
+    {
+     "name": "E",
+     "type": "int[]",
+     "rawValue": "[2, -7, -1, -2]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int[]",
+     "rawValue": "[0, 2, 6, 5, 3]"
+    },
+    {
+     "name": "E",
+     "type": "int[]",
+     "rawValue": "[5, 10, 6, 7, 5]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int[]",
+     "rawValue": "[1, 6, 5, 3]"
+    },
+    {
+     "name": "E",
+     "type": "int[]",
+     "rawValue": "[5, 6, 7, 6, 8]"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-worker-management-level-4",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"REGISTER\", \"Alice\", \"30\"], [\"SET_DOUBLE_PAID\", \"15\", \"25\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"]]"
+    }
+   ],
+   "expectedRaw": "[\"invalid_request\", \"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"REGISTER\", \"Alice\", \"10\"], [\"ADD_WORKER\", \"Alice\", \"Engineer\", \"100\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"SET_DOUBLE_PAID\", \"20\", \"35\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"SET_DOUBLE_PAID\", \"15\", \"25\"], [\"SET_DOUBLE_PAID\", \"20\", \"35\"], [\"REGISTER\", \"Alice\", \"30\"]]"
+    }
+   ],
+   "expectedRaw": "[\"invalid_request\", \"true\", \"0\", \"\", \"0\", \"\", \"\", \"registered\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Alice\", \"Engineer\", \"100\"], [\"REGISTER\", \"Alice\", \"30\"], [\"SET_DOUBLE_PAID\", \"15\", \"25\"], [\"ADD_WORKER\", \"Alice\", \"Engineer\", \"100\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"ADD_WORKER\", \"Alice\", \"Engineer\", \"100\"], [\"SET_DOUBLE_PAID\", \"20\", \"35\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"registered\", \"\", \"false\", \"0\", \"false\", \"\", \"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Alice\", \"Engineer\", \"100\"], [\"REGISTER\", \"Alice\", \"10\"], [\"REGISTER\", \"Alice\", \"30\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"registered\", \"registered\", \"2000\", \"2000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET_DOUBLE_PAID\", \"20\", \"35\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"ADD_WORKER\", \"Alice\", \"Engineer\", \"100\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"SET_DOUBLE_PAID\", \"15\", \"25\"], [\"REGISTER\", \"Alice\", \"30\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"true\", \"0\", \"\", \"registered\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"100\", \"0\", \"ADD_WORKER\"], [\"REGISTER\", \"Alice\", \"10\"], [\"REGISTER\", \"Alice\", \"30\"], [\"SET_DOUBLE_PAID\", \"15\", \"25\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"], [\"SET_DOUBLE_PAID\", \"20\", \"35\"], [\"CALC_SALARY\", \"Alice\", \"0\", \"40\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"invalid_request\", \"invalid_request\", \"\", \"\", \"\", \"\"]"
+  }
+ ]
+}

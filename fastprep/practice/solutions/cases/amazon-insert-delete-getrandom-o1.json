@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-insert-delete-getrandom-o1",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"remove 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert 1\", \"insert 1\", \"remove 1\", \"insert 2\", \"getRandom\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"true\", \"true\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert 2\", \"remove 1\", \"insert 1\", \"getRandom\", \"insert 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"true\", \"2\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert 1\", \"remove 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert 2\", \"insert 2\", \"insert 2\", \"remove 1\", \"remove 1\", \"getRandom\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"false\", \"false\", \"false\", \"2\"]"
+  }
+ ]
+}

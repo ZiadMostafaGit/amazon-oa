@@ -1,0 +1,68 @@
+{
+ "problemId": "google-maximum-coins-with-moving-tokens",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "String",
+     "rawValue": "\"TT.TT.CCCCC\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "String",
+     "rawValue": "\"TT.T.CCCC\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "String",
+     "rawValue": "\"C..TT.CT.CC\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "String",
+     "rawValue": "\"T...CCCCC\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "String",
+     "rawValue": "\"C...TT.CT.C\""
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

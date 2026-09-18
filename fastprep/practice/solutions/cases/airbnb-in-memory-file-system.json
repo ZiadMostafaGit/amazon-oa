@@ -1,0 +1,68 @@
+{
+ "problemId": "airbnb-in-memory-file-system",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"COPY_FILE\", \"/docs/a.txt\", \"/docs/b.txt\"], [\"COMPRESS_FILE\", \"alice\", \"/docs/a.txt\"], [\"COPY_FILE\", \"/docs/a.txt.COMPRESSED\", \"/docs/b.txt.COMPRESSED\"], [\"DECOMPRESS_FILE\", \"alice\", \"/docs/a.txt.COMPRESSED\"]]"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"false\", \"false\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"FIND_FILES\", \"/tmp/\", \".log\"], [\"ADD_FILE\", \"dev\", \"/src/a.log\", \"8\"], [\"ADD_USER\", \"dev\", \"30\"], [\"ADD_FILE\", \"dev\", \"/src/z.log\", \"3\"], [\"FIND_FILES\", \"/tmp/\", \".log\"], [\"ADD_FILE\", \"dev\", \"/src/b.log\", \"8\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"false\", \"true\", \"true\", \"\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"FIND_FILES\", \"/src/\", \".log\"], [\"ADD_FILE\", \"dev\", \"/src/b.log\", \"8\"], [\"ADD_FILE\", \"dev\", \"/src/z.log\", \"3\"], [\"ADD_FILE\", \"dev\", \"/src/a.log\", \"8\"], [\"ADD_USER\", \"dev\", \"30\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"false\", \"false\", \"false\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_USER\", \"dev\", \"30\"], [\"ADD_FILE\", \"dev\", \"/src/z.log\", \"3\"], [\"FIND_FILES\", \"/src/\", \".log\"], [\"ADD_FILE\", \"dev\", \"/src/b.log\", \"8\"], [\"ADD_FILE\", \"dev\", \"/src/a.log\", \"8\"], [\"FIND_FILES\", \"/src/\", \".log\"], [\"FIND_FILES\", \"/tmp/\", \".log\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"/src/z.log(3)\", \"true\", \"true\", \"/src/a.log(8), /src/b.log(8), /src/z.log(3)\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_FILE\", \"dev\", \"/src/a.log\", \"8\"], [\"FIND_FILES\", \"/src/\", \".log\"], [\"FIND_FILES\", \"/tmp/\", \".log\"], [\"ADD_FILE\", \"dev\", \"/src/z.log\", \"3\"], [\"ADD_FILE\", \"dev\", \"/src/b.log\", \"8\"], [\"ADD_USER\", \"dev\", \"30\"]]"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"\", \"\", \"false\", \"false\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"FIND_FILES\", \"/\", \".COMPRESSED\"], [\"ADD_FILE\", \"admin\", \"/odd.txt\", \"5\"], [\"FIND_FILES\", \"/\", \".txt\"], [\"admin\", \"COMPRESS_FILE\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"true\", \"/odd.txt(5)\", \"false\"]"
+  }
+ ]
+}

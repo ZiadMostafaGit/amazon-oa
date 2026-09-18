@@ -1,0 +1,68 @@
+{
+ "problemId": "drw-largest-number-even-digit-frequencies",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"1221212\""
+    }
+   ],
+   "expectedRaw": "\"221212\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"12112\""
+    }
+   ],
+   "expectedRaw": "\"2112\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"11111\""
+    }
+   ],
+   "expectedRaw": "\"1111\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"21211222\""
+    }
+   ],
+   "expectedRaw": "\"221122\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"1212212\""
+    }
+   ],
+   "expectedRaw": "\"212212\""
+  }
+ ]
+}

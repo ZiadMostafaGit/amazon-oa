@@ -1,0 +1,68 @@
+{
+ "problemId": "meta-in-memory-database-historical-fields",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"5\", \"a\", \"x\", \"20\", \"5\"], [\"GET_WHEN\", \"6\", \"a\", \"x\", \"2\"], [\"GET\", \"10\", \"a\", \"x\"], [\"DELETE\", \"12\", \"a\", \"x\"], [\"GET_WHEN\", \"13\", \"a\", \"x\", \"4\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"NULL\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"2\", \"a\", \"y\", \"8\", \"0\"], [\"DELETE\", \"4\", \"a\", \"x\"], [\"GET_WHEN\", \"5\", \"a\", \"x\", \"3\"], [\"GET\", \"6\", \"a\", \"x\"], [\"GET\", \"7\", \"a\", \"y\"], [\"GET_WHEN\", \"8\", \"a\", \"y\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"NULL\", \"8\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"5\", \"a\", \"x\", \"20\", \"5\"], [\"GET_WHEN\", \"6\", \"a\", \"x\", \"2\"], [\"GET_WHEN\", \"7\", \"a\", \"x\", \"5\"], [\"GET\", \"10\", \"a\", \"x\"], [\"GET_WHEN\", \"11\", \"a\", \"x\", \"9\"], [\"DELETE\", \"12\", \"a\", \"x\"], [\"GET_WHEN\", \"13\", \"a\", \"x\", \"4\"], [\"DELETE\", \"12\", \"a\", \"x\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"20\", \"NULL\", \"20\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"1\", \"a\", \"x\", \"10\", \"0\"], [\"SET\", \"5\", \"a\", \"x\", \"20\", \"5\"], [\"GET_WHEN\", \"6\", \"13\", \"x\", \"2\"], [\"GET\", \"10\", \"a\", \"x\"], [\"GET_WHEN\", \"11\", \"a\", \"x\", \"9\"], [\"DELETE\", \"12\", \"a\", \"x\"], [\"GET_WHEN\", \"13\", \"a\", \"x\", \"4\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"NULL\", \"20\", \"10\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET_WHEN\", \"8\", \"a\", \"y\", \"0\"], [\"GET\", \"7\", \"a\", \"y\"], [\"GET\", \"6\", \"a\", \"x\"], [\"GET_WHEN\", \"5\", \"a\", \"x\", \"3\"], [\"SET\", \"2\", \"a\", \"y\", \"8\", \"0\"], [\"DELETE\", \"4\", \"a\", \"x\"], [\"SET\", \"0\", \"a\", \"x\", \"7\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"NULL\", \"NULL\", \"NULL\"]"
+  }
+ ]
+}

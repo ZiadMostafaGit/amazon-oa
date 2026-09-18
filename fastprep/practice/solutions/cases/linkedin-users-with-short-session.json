@@ -1,0 +1,98 @@
+{
+ "problemId": "linkedin-users-with-short-session",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"5 alice SIGNOUT\"]"
+    },
+    {
+     "name": "maxTime",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"0 a SIGNIN\", \"20 a SIGNOUT\", \"10 a SIGNIN\", \"20 a SIGNOUT\", \"3 a SIGNOUT\"]"
+    },
+    {
+     "name": "maxTime",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"5 alice SIGNOUTT\", \"2 bob SIGNIN\", \"1 alice SIGNIN\", \"12 bob SIGNOUT\"]"
+    },
+    {
+     "name": "maxTime",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"5 alice SIGNOUT\", \"1 alice SIGNIN\"]"
+    },
+    {
+     "name": "maxTime",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"0 a SIGNIN\", \"3 a SIGNOUT\"]"
+    },
+    {
+     "name": "maxTime",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"9 z SIGNOUT\", \"1 z SIGNIN\"]"
+    },
+    {
+     "name": "maxTime",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

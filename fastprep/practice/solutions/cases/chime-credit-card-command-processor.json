@@ -1,0 +1,68 @@
+{
+ "problemId": "chime-credit-card-command-processor",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"Add\", \"Lisa\", \"5454545454545454\", \"$3000\"], [\"Add\", \"Quincy\", \"12345678901234\", \"$2000\"], [\"Charge\", \"Tom\", \"$800\"], [\"Credit\", \"Lisa\", \"$100\"], [\"Credit\", \"Quincy\", \"$200\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Lisa\", \"$-100\"], [\"Quincy\", \"error\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"Add\", \"Tom\", \"4111111111111111\", \"$1000\"], [\"Add\", \"Lisa\", \"5454545454545454\", \"$3000\"], [\"Add\", \"Quincy\", \"12345678901234\", \"$2000\"], [\"Charge\", \"Tom\", \"$500\"], [\"Charge\", \"Tom\", \"$800\"], [\"$200\", \"$7\", \"Lisa\", \"$7\"], [\"Charge\", \"Tom\", \"$500\"], [\"Credit\", \"Lisa\", \"$100\"], [\"Add\", \"Lisa\", \"5454545454545454\", \"$3000\"], [\"Credit\", \"Quincy\", \"$200\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Lisa\", \"$0\"], [\"Quincy\", \"error\"], [\"Tom\", \"$1000\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"Add\", \"Zed\", \"123456789012\", \"$50\"], [\"Charge\", \"Amy\", \"$100\"], [\"Charge\", \"Amy\", \"$1\"], [\"Credit\", \"Amy\", \"$25\"], [\"Credit\", \"Zed\", \"$10\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Zed\", \"error\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"Add\", \"Amy\", \"4012888888881881\", \"$100\"], [\"Add\", \"Zed\", \"123456789012\", \"$50\"], [\"Charge\", \"Amy\", \"$100\"], [\"Credit\", \"$100\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Amy\", \"$100\"], [\"Zed\", \"error\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"Charge\", \"Tom\", \"$500\"], [\"Credit\", \"Lisa\", \"$100\"], [\"Add\", \"Tom\", \"4111111111111111\", \"$1000\"], [\"Charge\", \"Lisa\", \"$7\"], [\"Add\", \"Lisa\", \"5454545454545454\", \"$3000\"], [\"Add\", \"Quincy\", \"12345678901234\", \"$2000\"], [\"Charge\", \"Tom\", \"$800\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Lisa\", \"$0\"], [\"Quincy\", \"error\"], [\"Tom\", \"$800\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"$100\", \"$1\", \"Add\"], [\"Add\", \"Zed\", \"123456789012\", \"$50\"], [\"Charge\", \"Amy\", \"$100\"], [\"Charge\", \"Amy\", \"$1\"], [\"Credit\", \"Amy\", \"$25\"], [\"Credit\", \"Zed\", \"$10\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Zed\", \"error\"]]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "oracle-swap-two-integers-without-temporary-variable",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "31"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "40"
+    }
+   ],
+   "expectedRaw": "[40, 31]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "-7"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[0, -7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "[8, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "30"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[0, 30]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "40"
+    }
+   ],
+   "expectedRaw": "[40, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[4, 5]"
+  }
+ ]
+}

@@ -1,0 +1,188 @@
+{
+ "problemId": "rippling-maximum-simple-path-currency-conversion",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 28,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "currencyCount",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [0, 2]]"
+    },
+    {
+     "name": "rates",
+     "type": "double[]",
+     "rawValue": "[2.0, 3.0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[2, 0], [0, 2]]"
+    },
+    {
+     "name": "amounts",
+     "type": "double[]",
+     "rawValue": "[10.0, 10.0, 5.85]"
+    }
+   ],
+   "expectedRaw": "[-1.0, 30.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "currencyCount",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[-2, -3, 2]]"
+    },
+    {
+     "name": "rates",
+     "type": "double[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[-3, -2, 1], [-1], [-2, 0, 1]]"
+    },
+    {
+     "name": "amounts",
+     "type": "double[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "currencyCount",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2]]"
+    },
+    {
+     "name": "rates",
+     "type": "double[]",
+     "rawValue": "[3.169]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [2, 0], [1, 1]]"
+    },
+    {
+     "name": "amounts",
+     "type": "double[]",
+     "rawValue": "[10.0, 7.0, 10.0]"
+    }
+   ],
+   "expectedRaw": "[-1.0, -1.0, 10.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "currencyCount",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 2], [-1, 2, 1], [1, 0]]"
+    },
+    {
+     "name": "rates",
+     "type": "double[]",
+     "rawValue": "[3.0, 2.0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [0, 0], [0, 2], [1, 2]]"
+    },
+    {
+     "name": "amounts",
+     "type": "double[]",
+     "rawValue": "[6.48, 5.0, 5.0]"
+    }
+   ],
+   "expectedRaw": "[12.96, 5.0, 10.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "currencyCount",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [0, 2]]"
+    },
+    {
+     "name": "rates",
+     "type": "double[]",
+     "rawValue": "[3.0, 4.0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [2, 0]]"
+    },
+    {
+     "name": "amounts",
+     "type": "double[]",
+     "rawValue": "[10.0, 10.0, 10.0, 7.0]"
+    }
+   ],
+   "expectedRaw": "[40.0, -1.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "currencyCount",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [1, 2], [0, 0]]"
+    },
+    {
+     "name": "rates",
+     "type": "double[]",
+     "rawValue": "[1.0, 3.0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [0, 0], [1, 2]]"
+    },
+    {
+     "name": "amounts",
+     "type": "double[]",
+     "rawValue": "[5.0, 5.0]"
+    }
+   ],
+   "expectedRaw": "[15.0, 5.0]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "databricks-snapshot-set-iterator",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"b\"], [\"ITERATOR\", \"it\"], [\"REMOVE\", \"a\"], [\"NEXT\", \"it\"], [\"NEXT\", \"it\"]]"
+    }
+   ],
+   "expectedRaw": "[\"b\", \"<END>\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"a\"], [\"ADD\", \"b\"], [\"ITERATOR\", \"it\"], [\"ADD\", \"c\"], [\"REMOVE\", \"a\"], [\"it\", \"NEXT\", \"it\"], [\"ADD\", \"c\"], [\"NEXT\", \"it\"]]"
+    }
+   ],
+   "expectedRaw": "[\"a\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"a\"], [\"REMOVE\", \"a\"], [\"NEXT\", \"it\"], [\"NEXT\", \"it\"], [\"REMOVE\", \"a\"], [\"ADD\", \"c\"], [\"ADD\", \"b\"], [\"ITERATOR\", \"it\"], [\"NEXT\", \"it\"]]"
+    }
+   ],
+   "expectedRaw": "[\"<END>\", \"<END>\", \"c\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"a\"], [\"ADD\", \"b\"], [\"ADD\", \"c\"], [\"a\", \"a\"], [\"NEXT\", \"it\"], [\"NEXT\", \"it\"], [\"NEXT\", \"it\"]]"
+    }
+   ],
+   "expectedRaw": "[\"<END>\", \"<END>\", \"<END>\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"b\"], [\"ITERATOR\", \"it\"], [\"ADD\", \"c\"], [\"REMOVE\", \"a\"], [\"NEXT\", \"it\"], [\"NEXT\", \"it\"], [\"NEXT\", \"it\"], [\"NEXT\", \"it\"]]"
+    }
+   ],
+   "expectedRaw": "[\"b\", \"<END>\", \"<END>\", \"<END>\"]"
+  }
+ ]
+}

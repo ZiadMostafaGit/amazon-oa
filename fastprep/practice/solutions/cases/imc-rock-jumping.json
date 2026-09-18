@@ -1,0 +1,218 @@
+{
+ "problemId": "imc-rock-jumping",
+ "generatedAt": "2026-09-18T23:33:46",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "11"
+    },
+    {
+     "name": "numRocks",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "maxJump",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "maxEnergy",
+     "type": "long",
+     "rawValue": "2"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[10]"
+    },
+    {
+     "name": "heights",
+     "type": "int[]",
+     "rawValue": "[5, 3, 5]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "numRocks",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "maxJump",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "maxEnergy",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[10]"
+    },
+    {
+     "name": "heights",
+     "type": "int[]",
+     "rawValue": "[5]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "-10"
+    },
+    {
+     "name": "numRocks",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "maxJump",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxEnergy",
+     "type": "long",
+     "rawValue": "43"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[4, 0]"
+    },
+    {
+     "name": "heights",
+     "type": "int[]",
+     "rawValue": "[5, 3, 5, 5]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "numRocks",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxJump",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "maxEnergy",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[-4]"
+    },
+    {
+     "name": "heights",
+     "type": "int[]",
+     "rawValue": "[0, 5]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "numRocks",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "maxJump",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "maxEnergy",
+     "type": "long",
+     "rawValue": "41"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "heights",
+     "type": "int[]",
+     "rawValue": "[3, 5]"
+    }
+   ],
+   "expectedRaw": "1000000000"
+  },
+  {
+   "inputs": [
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "numRocks",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "maxJump",
+     "type": "int",
+     "rawValue": "40"
+    },
+    {
+     "name": "maxEnergy",
+     "type": "long",
+     "rawValue": "7"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[6, 7]"
+    },
+    {
+     "name": "heights",
+     "type": "int[]",
+     "rawValue": "[5, 3]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

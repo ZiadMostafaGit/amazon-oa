@@ -1,0 +1,98 @@
+{
+ "problemId": "confluent-implement-tail-n",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "fileContents",
+     "type": "String",
+     "rawValue": "\"\\nb\\nc\\n\""
+    }
+   ],
+   "expectedRaw": "[\"b\", \"c\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "fileContents",
+     "type": "String",
+     "rawValue": "\"a\\nb\\n\\nc\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "fileContents",
+     "type": "String",
+     "rawValue": "\"a\\nb\\nc\\n\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "fileContents",
+     "type": "String",
+     "rawValue": "\"a\\nb\\n\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "fileContents",
+     "type": "String",
+     "rawValue": "\"a\\nb\\n\\n\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "fileContents",
+     "type": "String",
+     "rawValue": "\"a\\n\\nb\\nc\\n\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

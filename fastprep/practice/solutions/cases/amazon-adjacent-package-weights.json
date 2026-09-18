@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-adjacent-package-weights",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[8, 7]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[6, 6, 6, 6, 3]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[9, 1]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[6]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[9]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[9, 1, 1]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

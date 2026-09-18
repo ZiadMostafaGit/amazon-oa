@@ -1,0 +1,68 @@
+{
+ "problemId": "linkedin-restricted-decimal-number-validator",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "toTest",
+     "type": "String",
+     "rawValue": "\"-4455\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "toTest",
+     "type": "String",
+     "rawValue": "\"24\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "toTest",
+     "type": "String",
+     "rawValue": "\"2.2.44\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "toTest",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "toTest",
+     "type": "String",
+     "rawValue": "\"12^^2\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "toTest",
+     "type": "String",
+     "rawValue": "\"22.2.4\""
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

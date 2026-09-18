@@ -1,0 +1,68 @@
+{
+ "problemId": "inmobi-minimum-range-selection",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "sets",
+     "type": "int[][]",
+     "rawValue": "[[16, 17, 18, 19], [16, 17, 18, 19]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sets",
+     "type": "int[][]",
+     "rawValue": "[[1], [4, 4, -2, 0, 1], [-2, -3, 2, 5, -3]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sets",
+     "type": "int[][]",
+     "rawValue": "[[], [2, 4, 6, -5, 1]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sets",
+     "type": "int[][]",
+     "rawValue": "[[30, 20, 10, 40], [16, 17, 18, 19], [30, 20, 10, 40], [22, 33, 44, 99]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sets",
+     "type": "int[][]",
+     "rawValue": "[[22, 33, 44, 99], [34, 44], [16, 17, 18, 19]]"
+    }
+   ],
+   "expectedRaw": "15"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sets",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

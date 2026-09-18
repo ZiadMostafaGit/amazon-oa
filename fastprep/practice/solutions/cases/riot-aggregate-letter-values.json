@@ -1,0 +1,68 @@
+{
+ "problemId": "riot-aggregate-letter-values",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"A12BB3C32B9\""
+    }
+   ],
+   "expectedRaw": "\"A12B12C32\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"A12B3C2B9\""
+    }
+   ],
+   "expectedRaw": "\"A12B12C2\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"C10A1C7B3AA4\""
+    }
+   ],
+   "expectedRaw": "\"A5B3C17\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"Z55\""
+    }
+   ],
+   "expectedRaw": "\"Z55\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"C110A1C7B3A4\""
+    }
+   ],
+   "expectedRaw": "\"A5B3C117\""
+  }
+ ]
+}

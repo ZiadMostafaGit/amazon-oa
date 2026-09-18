@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-execute-processes",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "execution",
+     "type": "int[]",
+     "rawValue": "[3, 6, 5]"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "execution",
+     "type": "int[]",
+     "rawValue": "[6, 3, 3, 5, 5, 3, 5]"
+    }
+   ],
+   "expectedRaw": "22"
+  },
+  {
+   "inputs": [
+    {
+     "name": "execution",
+     "type": "int[]",
+     "rawValue": "[5, 3, 6, 5, 3]"
+    }
+   ],
+   "expectedRaw": "19"
+  },
+  {
+   "inputs": [
+    {
+     "name": "execution",
+     "type": "int[]",
+     "rawValue": "[5, 3, 6, -3]"
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "execution",
+     "type": "int[]",
+     "rawValue": "[6, 3, 6, 3]"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "execution",
+     "type": "int[]",
+     "rawValue": "[5, 5, 6, 5]"
+    }
+   ],
+   "expectedRaw": "16"
+  }
+ ]
+}

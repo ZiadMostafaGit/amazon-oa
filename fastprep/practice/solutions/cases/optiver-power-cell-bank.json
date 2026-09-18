@@ -1,0 +1,98 @@
+{
+ "problemId": "optiver-power-cell-bank",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numRacks",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"load_cell\", \"0\", \"b\", \"5\"], [\"load_cell\", \"2\", \"c\", \"10\"], [\"load_cell\", \"2\", \"d\", \"10\"], [\"discharge\", \"6\", \"3\"], [\"discharge\", \"9\", \"2\"], [\"load_cell\", \"9\", \"a\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"true\"], [\"c:charged\", \"d:charged\", \"b:depleted\"], [], [\"true\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numRacks",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"discharge\", \"1\", \"1\"], [\"load_cell\", \"0\", \"x\", \"10\"], [\"load_cell\", \"0\", \"y\", \"10\"], [\"load_cell\", \"1\", \"z\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"true\"], [\"true\"], [\"false\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numRacks",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"discharge\", \"9\", \"2\"], [\"load_cell\", \"0\", \"b\", \"5\"], [\"load_cell\", \"0\", \"a\", \"4\"], [\"load_cell\", \"2\", \"c\", \"10\"], [\"load_cell\", \"2\", \"d\", \"10\"], [\"load_cell\", \"0\", \"a\", \"4\"], [\"load_cell\", \"9\", \"a\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"true\"], [\"true\"], [\"true\"], [\"true\"], [\"true\"], [\"true\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numRacks",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"load_cell\", \"0\", \"a\", \"4\"], [\"load_cell\", \"0\", \"b\", \"5\"], [\"load_cell\", \"2\", \"c\", \"10\"], [\"discharge\", \"6\", \"3\"], [\"load_cell\", \"9\", \"a\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"true\"], [\"c:charged\", \"b:depleted\", \"a:depleted\"], [\"true\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numRacks",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"load_cell\", \"0\", \"a\", \"4\"], [\"load_cell\", \"0\", \"b\", \"5\"], [\"load_cell\", \"2\", \"c\", \"10\"], [\"discharge\", \"6\", \"3\"], [\"discharge\", \"9\", \"2\"], [\"load_cell\", \"9\", \"a\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"true\"], [\"c:charged\", \"b:depleted\", \"a:depleted\"], [], [\"true\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numRacks",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"discharge\", \"1\", \"1\"], [\"load_cell\", \"0\", \"x\", \"10\"], [\"load_cell\", \"0\", \"y\", \"10\"], [\"load_cell\", \"1\", \"z\", \"10\"], [\"discharge\", \"1\", \"1\"], [\"load_cell\", \"1\", \"z\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"true\"], [\"true\"], [\"false\"], [\"x:charged\"], [\"true\"]]"
+  }
+ ]
+}

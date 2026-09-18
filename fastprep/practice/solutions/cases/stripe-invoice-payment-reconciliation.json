@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-invoice-payment-reconciliation",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "payment",
+     "type": "String",
+     "rawValue": "\"pay_2, 1100, March rent, thanks\""
+    },
+    {
+     "name": "invoices",
+     "type": "String[]",
+     "rawValue": "[\"INV-4, 2026-01-15, 100\"]"
+    },
+    {
+     "name": "forgiveness",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"Payment pay_2 could not be matched to any invoice\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "payment",
+     "type": "String",
+     "rawValue": "\"pay_1, 100, paying for: INV-7\""
+    },
+    {
+     "name": "invoices",
+     "type": "String[]",
+     "rawValue": "[\"INV-3, 2026-02-01, 100\"]"
+    },
+    {
+     "name": "forgiveness",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"Payment pay_1 paid 100 for invoice INV-3 due on 2026-02-01\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "payment",
+     "type": "String",
+     "rawValue": "\"pay_3, 98, bank transfr\""
+    },
+    {
+     "name": "invoices",
+     "type": "String[]",
+     "rawValue": "[\"INV-2, 2026-06-01, 130\", \"INV-1, 2026-05-01, 100\"]"
+    },
+    {
+     "name": "forgiveness",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "\"Payment pay_3 could not be matched to any invoice\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "payment",
+     "type": "String",
+     "rawValue": "\"pay_2, 100, March rent, thanks\""
+    },
+    {
+     "name": "invoices",
+     "type": "String[]",
+     "rawValue": "[\"INV-4, 2026-01-15, 100\"]"
+    },
+    {
+     "name": "forgiveness",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "\"Payment pay_2 paid 100 for invoice INV-4 due on 2026-01-15\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "payment",
+     "type": "String",
+     "rawValue": "\"pay_, 100, paying for: INV-7\""
+    },
+    {
+     "name": "invoices",
+     "type": "String[]",
+     "rawValue": "[\"INV-7, 2026-03-01, 250\", \"INV-7, 2026-03-01, 250\", \"INV-3, 2026-02-01, 100\", \"INV-7, 2026-03-01, 250\", \"INV-7, 2026-03-01, 250\"]"
+    },
+    {
+     "name": "forgiveness",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"Payment pay_ paid 100 for invoice INV-7 due on 2026-03-01\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "payment",
+     "type": "String",
+     "rawValue": "\"paay_1, 100, paying for: INV-7\""
+    },
+    {
+     "name": "invoices",
+     "type": "String[]",
+     "rawValue": "[\"INV-7, 2026-03-01, 250\", \"INV-7, 2026-03-01, 250\"]"
+    },
+    {
+     "name": "forgiveness",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"Payment paay_1 paid 100 for invoice INV-7 due on 2026-03-01\""
+  }
+ ]
+}

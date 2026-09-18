@@ -1,0 +1,68 @@
+{
+ "problemId": "pinterest-phone-spam-report-counter",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"COUNT 4155550100\"]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"REPORT 999\", \"REPORT 999\", \"COUNT 999\"]"
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"abc\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"REPORT 4155550100\", \"COUNT 4155550100\", \"REPORT 4155550100\", \"COUNT 2125550199\", \"REPORT 4155550100\"]"
+    }
+   ],
+   "expectedRaw": "[1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"COUNT 7\", \"REPORT 7\", \"COUNT 8\", \"REPORT 8\", \"REPORT 8\", \"COUNT 7\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"a\", \"ab\", \"a\", \"abc\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

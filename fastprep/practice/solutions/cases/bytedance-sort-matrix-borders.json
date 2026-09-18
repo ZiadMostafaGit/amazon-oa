@@ -1,0 +1,68 @@
+{
+ "problemId": "bytedance-sort-matrix-borders",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[12, 20, 2, 0], [12, 20, 2, 0]]"
+    }
+   ],
+   "expectedRaw": "[[20, 20, 12, 12], [20, 20, 12, 12]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1], [4, 4, -2, 0, 1], [-2, -3, 2, 5, -3]]"
+    }
+   ],
+   "expectedRaw": "[[-2], [1, 4, -2, 0, 1], [4, -3, 2, 5, -3]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[], [2, 4, 6, -5, 1]]"
+    }
+   ],
+   "expectedRaw": "[[], [2, 4, 6, -5, 1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[9, 7, -4, 5], [12, 20, 2, 0], [9, 7, -4, 5], [1, 6, 2, -6]]"
+    }
+   ],
+   "expectedRaw": "[[9, 20, 2, 5], [12, -4, 0, 2], [9, 20, 2, 5], [9, 7, 6, 5]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[5, -4, 9], [1, 6, 2, -6], [12, 20, 2, 0], [9, 7, -4, 5]]"
+    }
+   ],
+   "expectedRaw": "[[-4, -4, 1], [12, 6, 2, -6], [9, 20, 2, 0], [9, 7, 5, 5]]"
+  }
+ ]
+}

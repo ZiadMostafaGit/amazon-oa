@@ -1,0 +1,68 @@
+{
+ "problemId": "rippling-in-memory-spreadsheet",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET_RAW\", \"A1\"], [\"GET_RAW\", \"B2\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET_RAW\", \"C3\"], [\"GET_COMPUTED\", \"D4\"], [\"SET\", \"C3\", \"=100+2\"], [\"GET_COMPUTED\", \"C3\"], [\"GET_COMPUTED\", \"C3\"], [\"GET_COMPUTED\", \"C3\"], [\"SET\", \"D4\", \"=-9+23\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"102\", \"102\", \"102\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"C3\", \"7\"], [\"GET_COMPUTED\", \"C3\"], [\"SET\", \"D4\", \"=-9+23\"], [\"GET_COMPUTED\", \"C3\"], [\"GET_COMPUTED\", \"D4\"], [\"SET\", \"C3\", \"=100+2\"]]"
+    }
+   ],
+   "expectedRaw": "[\"7\", \"7\", \"14\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"A1\", \"23\"], [\"GET_RAW\", \"A1\"], [\"GET_COMPUTED\", \"B2\"]]"
+    }
+   ],
+   "expectedRaw": "[\"23\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"A1\", \"SET\", \"A1\", \"-9\"], [\"GET_COMPUTED\", \"A1\"], [\"SET\", \"A1\", \"\"], [\"GET_RAW\", \"A1\"], [\"GET_COMPUTED\", \"A1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"C3\", \"=100+2\"], [\"SET\", \"D4\", \"=-9+23\"], [\"GET_COMPUTED\", \"C3\"], [\"GET_COMPUTED\", \"D4\"], [\"SET\", \"C3\", \"7\"], [\"GET_RAW\", \"C3\", \"C3\"]]"
+    }
+   ],
+   "expectedRaw": "[\"102\", \"14\", \"7\"]"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "harness-encode-decode-string-stream",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 23,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operation",
+     "type": "String",
+     "rawValue": "\"ENCODE\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"\", \"a#b\"]"
+    },
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"a#b\""
+    }
+   ],
+   "expectedRaw": "[\"0#3#a#b\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operation",
+     "type": "String",
+     "rawValue": "\"\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"a#b\", \"api\", \"api\"]"
+    },
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operation",
+     "type": "String",
+     "rawValue": "\"DECOD\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"5#hello5#world0#\""
+    }
+   ],
+   "expectedRaw": "[\"hello\", \"world\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operation",
+     "type": "String",
+     "rawValue": "\"ENCODE\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"api\", \"api\"]"
+    },
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"\""
+    }
+   ],
+   "expectedRaw": "[\"3#api3#api\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operation",
+     "type": "String",
+     "rawValue": "\"DCODE\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"5#hello5#world0#\""
+    }
+   ],
+   "expectedRaw": "[\"hello\", \"world\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operation",
+     "type": "String",
+     "rawValue": "\"DECDE\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"5#hello5#world0#\""
+    }
+   ],
+   "expectedRaw": "[\"hello\", \"world\", \"\"]"
+  }
+ ]
+}

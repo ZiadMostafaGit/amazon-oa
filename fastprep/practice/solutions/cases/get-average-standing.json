@@ -1,0 +1,98 @@
+{
+ "problemId": "get-average-standing",
+ "generatedAt": "2026-09-18T23:33:40",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "records",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 200], [2, 1, 500]]"
+    }
+   ],
+   "expectedRaw": "[[-1, -1], [1, 1], [1, 1], [-1, -1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "records",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 200], [2, 1, 500]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "records",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 200], [1, 1, 100]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "records",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 200], [1, 1, 100], [1, 2, 200], [2, 1, 500]]"
+    }
+   ],
+   "expectedRaw": "[[-1, -1], [1, 1], [5, 2]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "records",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 100], [2, 1, 500]]"
+    }
+   ],
+   "expectedRaw": "[[-1, -1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "records",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 200], [2, -2, 500]]"
+    }
+   ],
+   "expectedRaw": "[[-1, -1], [-1, -1]]"
+  }
+ ]
+}

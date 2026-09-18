@@ -1,0 +1,68 @@
+{
+ "problemId": "find-minimum-inefficiency",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "serverType",
+     "type": "String",
+     "rawValue": "\"??0111??0\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "serverType",
+     "type": "String",
+     "rawValue": "\"??011?0\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "serverType",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "serverType",
+     "type": "String",
+     "rawValue": "\"00?10???1?\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "serverType",
+     "type": "String",
+     "rawValue": "\"??011???0\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "serverType",
+     "type": "String",
+     "rawValue": "\"???011??0\""
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

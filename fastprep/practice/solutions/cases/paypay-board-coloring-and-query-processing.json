@@ -1,0 +1,128 @@
+{
+ "problemId": "paypay-board-coloring-and-query-processing",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 14,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "w",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"v 1 2\", \"x 2 2\", \"v 1 2\", \"> 2 1\", \"> 2 1\", \"< 2 0\"]"
+    }
+   ],
+   "expectedRaw": "[[2, 2], [3, 2], [2, 3], [2, 3], [-1, -1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "w",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"v 1 2\", \"x 2 2\", \"v 1 2\", \"x 2 3\", \"> 2 1\", \"< 2 0\"]"
+    }
+   ],
+   "expectedRaw": "[[2, 2], [-1, -1], [2, 4], [-1, -1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "w",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"v 1 2\", \"x 2 2\", \"x 2 3\", \"v 1 2\", \"> 2 1\", \"x 2 3\", \"> 2 1\", \"< 2 0\"]"
+    }
+   ],
+   "expectedRaw": "[[2, 2], [-1, -1], [2, 4], [2, 4], [-1, -1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "w",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"v 1 2\", \"x 2 2\", \"v 1 2\", \"> 2 1\", \"x 2 2\", \"x 2 3\", \"x 2 2\", \"< 2 0\"]"
+    }
+   ],
+   "expectedRaw": "[[2, 2], [-1, -1], [2, 3], [-1, -1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "w",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"x 2 2\", \"> 2 1\", \"v 1 2\", \"v 1 2\", \"> 2 1\", \"< 2 0\"]"
+    }
+   ],
+   "expectedRaw": "[[2, 3], [-1, -1], [-1, -1], [2, 3], [-1, -1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "w",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"v 1 2\", \"v 1 2\", \"> 2 1\", \"x 2 3\", \"> 2 1\", \"< 2 0\"]"
+    }
+   ],
+   "expectedRaw": "[[2, 2], [2, 2], [2, 2], [2, 2], [-1, -1]]"
+  }
+ ]
+}

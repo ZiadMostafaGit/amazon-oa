@@ -1,0 +1,128 @@
+{
+ "problemId": "agoda-chemical-formula-weight",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "formula",
+     "type": "String",
+     "rawValue": "\"H\""
+    },
+    {
+     "name": "elements",
+     "type": "String[]",
+     "rawValue": "[\"H\"]"
+    },
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[12]"
+    }
+   ],
+   "expectedRaw": "12"
+  },
+  {
+   "inputs": [
+    {
+     "name": "formula",
+     "type": "String",
+     "rawValue": "\"Na2Cl\""
+    },
+    {
+     "name": "elements",
+     "type": "String[]",
+     "rawValue": "[\"Na\", \"Cl\"]"
+    },
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[-2, 35]"
+    }
+   ],
+   "expectedRaw": "31"
+  },
+  {
+   "inputs": [
+    {
+     "name": "formula",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "elements",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[2, 4, 6, -5, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "formula",
+     "type": "String",
+     "rawValue": "\"CH4\""
+    },
+    {
+     "name": "elements",
+     "type": "String[]",
+     "rawValue": "[\"H\", \"H\"]"
+    },
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[1]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "formula",
+     "type": "String",
+     "rawValue": "\"H\""
+    },
+    {
+     "name": "elements",
+     "type": "String[]",
+     "rawValue": "[\"H\"]"
+    },
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[12, 12]"
+    }
+   ],
+   "expectedRaw": "12"
+  },
+  {
+   "inputs": [
+    {
+     "name": "formula",
+     "type": "String",
+     "rawValue": "\"H\""
+    },
+    {
+     "name": "elements",
+     "type": "String[]",
+     "rawValue": "[\"C\", \"H\", \"H\"]"
+    },
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[12, 1, 1]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

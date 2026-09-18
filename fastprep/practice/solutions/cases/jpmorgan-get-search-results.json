@@ -1,0 +1,98 @@
+{
+ "problemId": "jpmorgan-get-search-results",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"dule\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"deul\", \"deul\", \"deul\"]"
+    }
+   ],
+   "expectedRaw": "[[\"dule\"], [\"dule\"], [\"dule\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"yz\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"abc\", \"cat\", \"blue\", \"abc\"]"
+    }
+   ],
+   "expectedRaw": "[[], [], [], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"0\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"1\", \"ab\", \"cat\"]"
+    }
+   ],
+   "expectedRaw": "[[], [], [\"ab\"], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"dule\", \"speed\", \"duel\", \"cars\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"spede\", \"spede\", \"cars\"]"
+    }
+   ],
+   "expectedRaw": "[[\"speed\"], [\"speed\"], [\"cars\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"dog\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"a\"]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"duel\", \"dule\", \"cars\", \"speed\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"deul\", \"deul\"]"
+    }
+   ],
+   "expectedRaw": "[[\"duel\", \"dule\"], [\"duel\", \"dule\"]]"
+  }
+ ]
+}

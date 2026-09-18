@@ -1,0 +1,218 @@
+{
+ "problemId": "postman-configuration-system",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 11,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "-4"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "16"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

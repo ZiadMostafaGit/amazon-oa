@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-anagram-start-indices",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aabc\""
+    },
+    {
+     "name": "p",
+     "type": "String",
+     "rawValue": "\"aabc\""
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"acbadabcaa\""
+    },
+    {
+     "name": "p",
+     "type": "String",
+     "rawValue": "\"acbadabcaa\""
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "p",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "p",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"cat\""
+    },
+    {
+     "name": "p",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aabc\""
+    },
+    {
+     "name": "p",
+     "type": "String",
+     "rawValue": "\"acbadabcaa\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

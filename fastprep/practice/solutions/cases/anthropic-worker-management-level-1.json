@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-worker-management-level-1",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Ashley\", \"Middle Developer\", \"150\"], [\"REGISTER\", \"Ashley\", \"10\"], [\"GET\", \"Ashley\"], [\"REGISTER\", \"Ashley\", \"40\"], [\"REGISTER\", \"Ashley\", \"67\"], [\"REGISTER\", \"Ashley\", \"100\"], [\"GET\", \"Walter\"], [\"REGISTER\", \"Walter\", \"120\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"registered\", \"0\", \"registered\", \"registered\", \"registered\", \"\", \"invalid_request\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET\", \"Walter\"], [\"GET\", \"Ashley\"], [\"ADD_WORKER\", \"Ashley\", \"Middle Developer\", \"150\"], [\"REGISTER\", \"Ashley\", \"100\"], [\"GET\", \"Ashley\"], [\"ADD_WORKER\", \"Ashley\", \"Junior Developer\", \"100\"], [\"GET\", \"Walter\"], [\"REGISTER\", \"Walter\", \"120\"], [\"REGISTER\", \"Ashley\", \"67\"], [\"REGISTER\", \"Ashley\", \"10\"], [\"REGISTER\", \"Ashley\", \"25\"], [\"GET\", \"Walter\"], [\"REGISTER\", \"Ashley\", \"40\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"true\", \"registered\", \"0\", \"false\", \"\", \"invalid_request\", \"registered\", \"registered\", \"registered\", \"\", \"registered\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Ashley\", \"Middle Developer\", \"150\"], [\"ADD_WORKER\", \"Ashley\", \"Junior Developer\", \"100\"], [\"REGISTER\", \"Ashley\", \"10\"], [\"REGISTER\", \"Ashley\", \"25\"], [\"GET\", \"Ashley\"], [\"REGISTER\", \"Ashley\", \"40\"], [\"REGISTER\", \"Ashley\", \"67\"], [\"REGISTER\", \"Ashley\", \"100\"], [\"REGISTER\", \"Walter\", \"120\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"registered\", \"registered\", \"15\", \"registered\", \"registered\", \"registered\", \"invalid_request\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"REGISTER\", \"Ashley\", \"67\"], [\"GET\", \"Walter\"], [\"Junior Developer\", \"Ashley\", \"ADD_WORKER\", \"100\", \"Ashley\"], [\"GET\", \"Ashley\"], [\"REGISTER\", \"Ashley\", \"25\"], [\"REGISTER\", \"Ashley\", \"10\"], [\"REGISTER\", \"Walter\", \"120\"], [\"REGISTER\", \"Ashley\", \"100\"], [\"REGISTER\", \"Ashley\", \"40\"], [\"GET\", \"Ashley\"]]"
+    }
+   ],
+   "expectedRaw": "[\"invalid_request\", \"\", \"\", \"\", \"invalid_request\", \"invalid_request\", \"invalid_request\", \"invalid_request\", \"invalid_request\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Ashley\", \"Middle Developer\", \"150\"], [\"Junior Developer\", \"100\", \"Ashley\"], [\"REGISTER\", \"Ashley\", \"10\"], [\"REGISTER\", \"Ashley\", \"25\"], [\"GET\", \"Ashley\"], [\"REGISTER\", \"Ashley\", \"40\"], [\"REGISTER\", \"Ashley\", \"67\"], [\"REGISTER\", \"Ashley\", \"100\"], [\"GET\", \"Ashley\"], [\"GET\", \"Walter\"], [\"REGISTER\", \"Walter\", \"120\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"\", \"registered\", \"registered\", \"15\", \"registered\", \"registered\", \"registered\", \"42\", \"\", \"invalid_request\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WORKER\", \"Ashley\", \"Middle Developer\", \"150\"], [\"ADD_WORKER\", \"Ashley\", \"Junior Developer\", \"100\"], [\"REGISTER\", \"Ashley\", \"10\"], [\"REGISTER\", \"Ashley\", \"25\"], [\"GET\", \"Ashley\"], [\"25\", \"67\", \"Ashley\", \"67\", \"25\"], [\"REGISTER\", \"Ashley\", \"100\"], [\"GET\", \"Ashley\"], [\"GET\", \"Walter\"], [\"REGISTER\", \"Walter\", \"120\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"registered\", \"registered\", \"15\", \"\", \"registered\", \"15\", \"\", \"invalid_request\"]"
+  }
+ ]
+}

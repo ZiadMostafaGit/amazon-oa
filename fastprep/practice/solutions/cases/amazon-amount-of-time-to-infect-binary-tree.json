@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-amount-of-time-to-infect-binary-tree",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "graph",
+     "type": "String[]",
+     "rawValue": "[\"5->4\", \"4->9\", \"4->2\", \"3->6\"]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "graph",
+     "type": "String[]",
+     "rawValue": "[\"3->4\", \"2->3\"]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "graph",
+     "type": "String[]",
+     "rawValue": "[\"2->3\", \"2->3\", \"3->4\", \"2->3\"]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "graph",
+     "type": "String[]",
+     "rawValue": "[\"1->2\", \"1->3\", \"1->4\", \"1->5\", \"1->6\", \"1->7\", \"1->8\", \"1->3\", \"1->10\"]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "graph",
+     "type": "String[]",
+     "rawValue": "[\"3->6\", \"1->5\", \"5->4\", \"4->9\", \"1->3\", \"4->2\", \"3->10\"]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "graph",
+     "type": "String[]",
+     "rawValue": "[\"1->2\", \"2->3\", \"3->4\", \"1->2\"]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

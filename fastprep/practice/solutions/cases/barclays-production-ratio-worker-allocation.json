@@ -1,0 +1,188 @@
+{
+ "problemId": "barclays-production-ratio-worker-allocation",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "total",
+     "type": "int",
+     "rawValue": "2161"
+    },
+    {
+     "name": "firstRatio",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "secondRatio",
+     "type": "int",
+     "rawValue": "18"
+    },
+    {
+     "name": "firstRate",
+     "type": "int",
+     "rawValue": "18"
+    },
+    {
+     "name": "secondRate",
+     "type": "int",
+     "rawValue": "25"
+    }
+   ],
+   "expectedRaw": "[12, 77]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "total",
+     "type": "int",
+     "rawValue": "-630"
+    },
+    {
+     "name": "firstRatio",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "secondRatio",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "firstRate",
+     "type": "int",
+     "rawValue": "-7"
+    },
+    {
+     "name": "secondRate",
+     "type": "int",
+     "rawValue": "14"
+    }
+   ],
+   "expectedRaw": "[90, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "total",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "firstRatio",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "secondRatio",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "firstRate",
+     "type": "int",
+     "rawValue": "20"
+    },
+    {
+     "name": "secondRate",
+     "type": "int",
+     "rawValue": "25"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "total",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "firstRatio",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "secondRatio",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "firstRate",
+     "type": "int",
+     "rawValue": "15"
+    },
+    {
+     "name": "secondRate",
+     "type": "int",
+     "rawValue": "24"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "total",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "firstRatio",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "secondRatio",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "firstRate",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "secondRate",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[-1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "total",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "firstRatio",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "secondRatio",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "firstRate",
+     "type": "int",
+     "rawValue": "-20"
+    },
+    {
+     "name": "secondRate",
+     "type": "int",
+     "rawValue": "25"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  }
+ ]
+}

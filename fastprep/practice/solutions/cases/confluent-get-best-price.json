@@ -1,0 +1,98 @@
+{
+ "problemId": "confluent-get-best-price",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "menu",
+     "type": "String[][]",
+     "rawValue": "[[\"4.00\", \"pasta\"], [\"2.00\", \"coke\"], [\"6.00\", \"pasta, coke, pizza\"], [\"5.00\", \"sandwich\"]]"
+    },
+    {
+     "name": "userWants",
+     "type": "String[]",
+     "rawValue": "[\"pasta\", \"6.00\", \"pasta\"]"
+    }
+   ],
+   "expectedRaw": "-1.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "menu",
+     "type": "String[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "userWants",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"yz\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "-1.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "menu",
+     "type": "String[][]",
+     "rawValue": "[[\"5.00\", \"pizza\"], [\"8.00\", \"sandwich, coke\"], [\"4.00\", \"pasta\"], [\"2.00\", \"coke\"], [\"5.00\", \"sandwich\"]]"
+    },
+    {
+     "name": "userWants",
+     "type": "String[]",
+     "rawValue": "[\"pasta\", \"burger\"]"
+    }
+   ],
+   "expectedRaw": "-1.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "menu",
+     "type": "String[][]",
+     "rawValue": "[[\"2.00\", \"coke\"], [\"8.00\", \"sandwich, coke\"], [\"4.00\", \"pasta\"], [\"6.00\", \"pasta, coke, pizza\"], [\"6.00\", \"pasta, coke, pizza\"], [\"8.00\", \"burger, coke, pizza\"], [\"5.00\", \"pizza\"]]"
+    },
+    {
+     "name": "userWants",
+     "type": "String[]",
+     "rawValue": "[\"5.00\", \"pasta\"]"
+    }
+   ],
+   "expectedRaw": "-1.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "menu",
+     "type": "String[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "userWants",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "menu",
+     "type": "String[][]",
+     "rawValue": "[[\"5.00\", \"pizza\"], [\"8.00\", \"sandwich, coke\"], [\"4.00\", \"pasta\"], [\"2.00\", \"pasta\"], [\"6.00\", \"pasta, coke, pizza\"], [\"8.00\", \"burger, coke, pizza\"], [\"5.00\", \"sandwich\"]]"
+    },
+    {
+     "name": "userWants",
+     "type": "String[]",
+     "rawValue": "[\"burger\", \"pasta\"]"
+    }
+   ],
+   "expectedRaw": "10.0"
+  }
+ ]
+}

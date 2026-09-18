@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-request-routing-system",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"REGISTER us-west 38 -122 100\\nREGISTER us-east 41 -74 150\\nREEGISTER us-west 50 -100 50\\nREGISTER invalid-node 91 0 100\\nREGISTER invalid-cap 0 0 0\\nSET_HEALTHY us-east false\\nSET_HEALTHY fake-node true\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"ERROR\", \"ERROR\", \"ERROR\", \"OK\", \"ERROR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"REGISTER us-west 38 -122 100\\nREGISTER us-east 41 -74 150\\nREGISTER us-west 50 -100 50\\nREGISTER invaid-node 91 0 100\\nREGISTER invalid-cap 0 0 0\\nSET_HEALTHY us-east false\\nSET_HEALTHY fake-node true\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"ERROR\", \"ERROR\", \"ERROR\", \"OK\", \"ERROR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"REGISTER node-A 0 0 1\\nREGISTER node-B 0 0 1\\nREGISTER node-C 10 10 100\\nSET_HEALTHY node-C false\\nROUTE 0 0\\nROUTE 0 0\\nROUTE  0 0\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"OK\", \"node-A 0 node-A,node-B\", \"node-B 0 node-A,node-B\", \"None node-A,node-B\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"REGISTER us-west 38 -122 100\\nREGISTER us-east 41 -74 150\\nREGISTER us-west 50 -100 50\\nREGISTER invalid-node 91 0 100\\nREGISTER invalid-cap 0 0 0\\nSET_HEALTHY uss-east false\\nSET_HEALTHY fake-node true\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"ERROR\", \"ERROR\", \"ERROR\", \"ERROR\", \"ERROR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"REGISTER node-A 0 0 1\\nREGISTER node-B 0 0 1\\nREGISTER node-C 10 10 100\\nSE_HEALTHY node-C false\\nROUTE 0 0\\nROUTE 0 0\\nROUTE 0 0\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"ERROR\", \"node-A 0 node-A,node-B,node-C\", \"node-B 0 node-A,node-B,node-C\", \"node-C 1569 node-A,node-B,node-C\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"REGISTER node-A 0 0 1\\nREGISTER node-B 0 0 1\\nREGISTER node-C 10 10 100\\nSET_HEALTHY node-C false\\nROUTEE 0 0\\nROUTE 0 0\\nROUTE 0 0\""
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"OK\", \"ERROR\", \"node-A 0 node-A,node-B\", \"node-B 0 node-A,node-B\"]"
+  }
+ ]
+}

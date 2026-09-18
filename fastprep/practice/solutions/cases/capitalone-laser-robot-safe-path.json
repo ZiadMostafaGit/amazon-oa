@@ -1,0 +1,188 @@
+{
+ "problemId": "capitalone-laser-robot-safe-path",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numRows",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "numColumns",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "curRow",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "curColumn",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "laserCoordinates",
+     "type": "int[][]",
+     "rawValue": "[[0, 0]]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numRows",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "numColumns",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "curRow",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "curColumn",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "laserCoordinates",
+     "type": "int[][]",
+     "rawValue": "[[8, 8]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numRows",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "numColumns",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "curRow",
+     "type": "int",
+     "rawValue": "-4"
+    },
+    {
+     "name": "curColumn",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "laserCoordinates",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numRows",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "numColumns",
+     "type": "int",
+     "rawValue": "11"
+    },
+    {
+     "name": "curRow",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "curColumn",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "laserCoordinates",
+     "type": "int[][]",
+     "rawValue": "[[1, 6], [8, 8]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numRows",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "numColumns",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "curRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "curColumn",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "laserCoordinates",
+     "type": "int[][]",
+     "rawValue": "[[-3, 3]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numRows",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "numColumns",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "curRow",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "curColumn",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "laserCoordinates",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

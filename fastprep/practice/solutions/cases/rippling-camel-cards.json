@@ -1,0 +1,98 @@
+{
+ "problemId": "rippling-camel-cards",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "hand1",
+     "type": "String",
+     "rawValue": "\"2332\""
+    },
+    {
+     "name": "hand2",
+     "type": "String",
+     "rawValue": "\"2332\""
+    }
+   ],
+   "expectedRaw": "\"TIE\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "hand1",
+     "type": "String",
+     "rawValue": "\"2442\""
+    },
+    {
+     "name": "hand2",
+     "type": "String",
+     "rawValue": "\"2442\""
+    }
+   ],
+   "expectedRaw": "\"TIE\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "hand1",
+     "type": "String",
+     "rawValue": "\"2442\""
+    },
+    {
+     "name": "hand2",
+     "type": "String",
+     "rawValue": "\"2332\""
+    }
+   ],
+   "expectedRaw": "\"HAND_1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "hand1",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "hand2",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "\"HAND_2\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "hand1",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "hand2",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "\"HAND_2\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "hand1",
+     "type": "String",
+     "rawValue": "\"cat\""
+    },
+    {
+     "name": "hand2",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "\"HAND_2\""
+  }
+ ]
+}

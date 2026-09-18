@@ -1,0 +1,68 @@
+{
+ "problemId": "capital-one-queue-check-in-simulation",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3\\n\\n0 0 0\""
+    }
+   ],
+   "expectedRaw": "[\"0\", \"30\", \"60\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3\\n00 0\""
+    }
+   ],
+   "expectedRaw": "[\"0\", \"30\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3\\n0 0 00\""
+    }
+   ],
+   "expectedRaw": "[\"0\", \"30\", \"60\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3\\n0  0 0\""
+    }
+   ],
+   "expectedRaw": "[\"0\", \"30\", \"60\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3\\n00 0 0\""
+    }
+   ],
+   "expectedRaw": "[\"0\", \"30\", \"60\"]"
+  }
+ ]
+}

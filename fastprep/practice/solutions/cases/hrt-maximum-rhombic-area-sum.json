@@ -1,0 +1,98 @@
+{
+ "problemId": "hrt-maximum-rhombic-area-sum",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[7, 8, 9], [7, 8, 9]]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 1, 1], [0, 5, 1, 1], [1, 1, 1]]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[-5, -5, -5], [3, 1], [3, 1]]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 1, 1], [1, 1, 4, 1], [1, 1, 1, 1]]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[7, 8, 9], [1, 2, 3], [4, 5, 6], [3, 2]]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 3], [], [-5]]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

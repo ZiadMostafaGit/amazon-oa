@@ -1,0 +1,98 @@
+{
+ "problemId": "chewy-prefix-length-letter-shifts",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abbcd\""
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[2, 3, 4]"
+    }
+   ],
+   "expectedRaw": "\"deddd\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aezz\""
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[1, 4, 1]"
+    }
+   ],
+   "expectedRaw": "\"dfaa\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ab\""
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "\"cd\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ae\""
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[1, 1, 3, 3]"
+    }
+   ],
+   "expectedRaw": "\"eg\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"acd\""
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[1, 3, 4, 2]"
+    }
+   ],
+   "expectedRaw": "\"eff\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abbcd\""
+    },
+    {
+     "name": "shifts",
+     "type": "int[]",
+     "rawValue": "[1, 3, 2, 4]"
+    }
+   ],
+   "expectedRaw": "\"eeddd\""
+  }
+ ]
+}

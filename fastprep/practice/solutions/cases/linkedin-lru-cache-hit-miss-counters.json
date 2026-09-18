@@ -1,0 +1,98 @@
+{
+ "problemId": "linkedin-lru-cache-hit-miss-counters",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT b 20\", \"GET a\", \"PUT c 30\", \"GET b\", \"GET c\"]"
+    }
+   ],
+   "expectedRaw": "[\"MISS\", \"HIT 20\", \"HIT 30\", \"STATS 2 1 0.667\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT x new\", \"PUT x old\"]"
+    }
+   ],
+   "expectedRaw": "[\"STATS 0 0 0.000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT x old\", \"GET x\", \"GET x\"]"
+    }
+   ],
+   "expectedRaw": "[\"MISS\", \"MISS\", \"STATS 0 2 0.000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT a 10\", \"PUT b 20\", \"GET b\", \"PUT c 30\", \"GET b\"]"
+    }
+   ],
+   "expectedRaw": "[\"HIT 20\", \"HIT 20\", \"STATS 2 0 1.000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT x new\"]"
+    }
+   ],
+   "expectedRaw": "[\"STATS 0 0 0.000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PUT x old\", \"PUT x new\"]"
+    }
+   ],
+   "expectedRaw": "[\"STATS 0 0 0.000\"]"
+  }
+ ]
+}

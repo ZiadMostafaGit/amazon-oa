@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-product-array-except-self",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 6, 2, 4]"
+    }
+   ],
+   "expectedRaw": "[48, 8, 24, 12]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "[5, -5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 3, 4, 1, 3]"
+    }
+   ],
+   "expectedRaw": "[36, 24, 18, 72, 24]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3, 2, 3, 2]"
+    }
+   ],
+   "expectedRaw": "[12, 18, 12, 18]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3]"
+    }
+   ],
+   "expectedRaw": "[6, 3, 2]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-largest-lexicographic-unique-letters",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bccabc\""
+    }
+   ],
+   "expectedRaw": "\"cab\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bcac\""
+    }
+   ],
+   "expectedRaw": "\"bca\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bcabcc\""
+    }
+   ],
+   "expectedRaw": "\"cab\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bcabbc\""
+    }
+   ],
+   "expectedRaw": "\"cab\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bcaabc\""
+    }
+   ],
+   "expectedRaw": "\"cab\""
+  }
+ ]
+}

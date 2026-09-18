@@ -1,0 +1,68 @@
+{
+ "problemId": "figma-rich-text-parser-part1",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"(\", \"b\", \")\", \")\"]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"(\", \"a\", \"(\", \")\", \")\", \"b\", \")\", \"b\", \"c\", \")\"]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"abc\"]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"(\", \"b\", \")\", \"c\", \"b\", \"(\", \"b\", \"a\", \")\"]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"(\", \"a\", \"(\", \")\", \")\"]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"c\", \")\", \"(\", \")\", \"b\", \"(\"]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

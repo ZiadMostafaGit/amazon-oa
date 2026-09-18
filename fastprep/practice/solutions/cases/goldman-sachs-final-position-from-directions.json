@@ -1,0 +1,68 @@
+{
+ "problemId": "goldman-sachs-final-position-from-directions",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"LRRUDx\""
+    }
+   ],
+   "expectedRaw": "[1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"LRUx\""
+    }
+   ],
+   "expectedRaw": "[0, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"RRuLdd??\""
+    }
+   ],
+   "expectedRaw": "[1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"LRUDDx\""
+    }
+   ],
+   "expectedRaw": "[0, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"LRUUDx\""
+    }
+   ],
+   "expectedRaw": "[0, 1]"
+  }
+ ]
+}

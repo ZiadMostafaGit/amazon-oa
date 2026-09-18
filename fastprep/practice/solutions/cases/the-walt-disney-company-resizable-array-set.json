@@ -1,0 +1,98 @@
+{
+ "problemId": "the-walt-disney-company-resizable-array-set",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD 4\", \"CONTAINS 7\", \"SIZE\"]"
+    },
+    {
+     "name": "initialCapacity",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"REMOVE 2\", \"CAPACITY\", \"ADD 3\", \"REMOVE 3\", \"ADD 1\", \"CAPACITY\", \"REMOVE 2\", \"ADD 2\"]"
+    },
+    {
+     "name": "initialCapacity",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"0\", \"true\", \"true\", \"true\", \"0\", \"false\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"REMOVE 9\", \"CAPACITY\", \"CONTAINS 9\", \"SIZE\", \"CAPACITY\"]"
+    },
+    {
+     "name": "initialCapacity",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"0\", \"false\", \"0\", \"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"REMOVE 9\", \"CONTAINS 9\", \"SIZE\", \"CONTAINS 9\"]"
+    },
+    {
+     "name": "initialCapacity",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"false\", \"0\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD 7\", \"SIZE\", \"ADD 4\", \"CAPACITY\", \"CONTAINS 7\"]"
+    },
+    {
+     "name": "initialCapacity",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"1\", \"true\", \"-2\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"REMOVE 3\", \"ADD 2\", \"ADD 3\", \"CAPACITY\", \"REMOVE 2\", \"REMOVE 3\", \"CAPACITY\"]"
+    },
+    {
+     "name": "initialCapacity",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"true\", \"true\", \"-2\", \"true\", \"true\", \"-2\"]"
+  }
+ ]
+}

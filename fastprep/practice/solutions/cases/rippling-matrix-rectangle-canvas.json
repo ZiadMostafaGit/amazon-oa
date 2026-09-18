@@ -1,0 +1,128 @@
+{
+ "problemId": "rippling-matrix-rectangle-canvas",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"DRAW back 0 0 3 4 A\", \"DRAW back 0 0 3 4 A\", \"DRAW front 1 2 2 4 B\"]"
+    }
+   ],
+   "expectedRaw": "[\"AAAA...\", \"AABBBB.\", \"AABBBB.\", \".......\", \".......\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"abc\", \"cat\", \"blue\", \"abc\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"dog\", \"blue\", \"1\", \"ab\", \"cat\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"DRAW front 1 2 2 4 B\", \"DRAW back 0 0 3 4 A\", \"DRAW front 1 2 2 4 B\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"0\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"DRAW low 0 0 2 3 L\", \"MOVE low 1 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"......\", \"..LLL.\", \"..LLL.\", \"......\"]"
+  }
+ ]
+}

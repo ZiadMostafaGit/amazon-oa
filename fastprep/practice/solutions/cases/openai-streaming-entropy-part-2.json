@@ -1,0 +1,68 @@
+{
+ "problemId": "openai-streaming-entropy-part-2",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[-1000.0, -1000.0]"
+    }
+   ],
+   "expectedRaw": "0.6931471805599453"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[-3.005, 2.222, 0.884]"
+    }
+   ],
+   "expectedRaw": "0.5362856728667917"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[-1.512, -1.343, 2.188, -4.173, 1.927, 4.2]"
+    }
+   ],
+   "expectedRaw": "0.6570685879936847"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[1000000000.907]"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[999999999.0]"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[999999998.0, 999999999.0, 999999998.344]"
+    }
+   ],
+   "expectedRaw": "1.010276748702312"
+  }
+ ]
+}

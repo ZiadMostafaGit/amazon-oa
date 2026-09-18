@@ -1,0 +1,68 @@
+{
+ "problemId": "walmart-best-meeting-point",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1, 0, 0], [0, 0, 1, 0, 0]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1], [4, 4, -2, 0, 1], [-2, -3, 2, 5, -3]]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[], [2, 4, 6, -5, 1]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 0, 0, 1], [0, 0, 1, 0, 0], [1, 0, 0, 0, 1], [0, 0, 0, 0, 0]]"
+    }
+   ],
+   "expectedRaw": "12"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0, 0, 0], [1, 0, 0], [0, 0, 1, 0, 0]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [1, 1]]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

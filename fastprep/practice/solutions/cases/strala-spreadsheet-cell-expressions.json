@@ -1,0 +1,68 @@
+{
+ "problemId": "strala-spreadsheet-cell-expressions",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 12,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET A1 10\", \"SET B1 A1+3\", \"GET B1\", \"GET B1\", \"SET A1 5\", \"GET B1\"]"
+    }
+   ],
+   "expectedRaw": "[13, 13, 8]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET X1 -4\", \"SET Y1 X1+10+X1\", \"SET Y1 X1+10+X1\", \"GET Y1\", \"GET Y1\"]"
+    }
+   ],
+   "expectedRaw": "[2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET A1 5\", \"SET B1 A1+3\", \"SET A1 10\", \"SET A1 10\", \"SET A1 10\", \"GET B1\", \"SET A1 10\"]"
+    }
+   ],
+   "expectedRaw": "[13]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET A1 5\", \"SET B1 A1+3\", \"GET B1\", \"SET B1 A1+3\", \"GET B1\"]"
+    }
+   ],
+   "expectedRaw": "[8, 8]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET X1 -4\", \"SET X1 3\", \"SET X1 3\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

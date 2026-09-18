@@ -1,0 +1,68 @@
+{
+ "problemId": "google-shortest-round-trip-all-deliveries",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"D..\", \"D..\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"yz\", \"0\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"S.D\", \"...\"]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"S..#\", \"##.#\", \"S..#\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"yz\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"...\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

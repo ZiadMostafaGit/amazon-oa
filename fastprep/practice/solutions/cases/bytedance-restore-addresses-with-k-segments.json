@@ -1,0 +1,98 @@
+{
+ "problemId": "bytedance-restore-addresses-with-k-segments",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"255225511135\""
+    },
+    {
+     "name": "segmentCount",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"0100100\""
+    },
+    {
+     "name": "segmentCount",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[\"0.10.0.100\", \"0.100.10.0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"010010\""
+    },
+    {
+     "name": "segmentCount",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "segmentCount",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"25525511135\""
+    },
+    {
+     "name": "segmentCount",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"5525511135\""
+    },
+    {
+     "name": "segmentCount",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

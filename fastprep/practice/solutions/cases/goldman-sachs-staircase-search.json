@@ -1,0 +1,98 @@
+{
+ "problemId": "goldman-sachs-staircase-search",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[3, 6, 9], [3, 6, 9]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1, 4, 7], [2, 5, 8]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[2, 5, 8], [1, 4, 7], [2, 5, 8], [3, 6, 9]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[2, 5, 8], [5, 5, 8], [3, 6, 9]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[7, 1, 1], [2, 5, 8], [3, 6, 9], [1, 4, 7]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[2, -3, -3, -3]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

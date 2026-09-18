@@ -1,0 +1,68 @@
+{
+ "problemId": "tiktok-viral-content-balancer",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "content",
+     "type": "String",
+     "rawValue": "\"xzzyzxa\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "content",
+     "type": "String",
+     "rawValue": "\"xzyxa\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "content",
+     "type": "String",
+     "rawValue": "\"aabbcc\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "content",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "content",
+     "type": "String",
+     "rawValue": "\"ababcc\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "content",
+     "type": "String",
+     "rawValue": "\"aaabbc\""
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "atlassian-next-permutation",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3, 3]"
+    }
+   ],
+   "expectedRaw": "[3, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "[-2, 4, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-1, 3, 3]"
+    }
+   ],
+   "expectedRaw": "[3, -1, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 1, 2, 3]"
+    }
+   ],
+   "expectedRaw": "[2, 1, 3, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 1, 3]"
+    }
+   ],
+   "expectedRaw": "[2, 3, 1]"
+  }
+ ]
+}

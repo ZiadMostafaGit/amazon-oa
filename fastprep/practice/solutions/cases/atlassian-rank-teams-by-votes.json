@@ -1,0 +1,68 @@
+{
+ "problemId": "atlassian-rank-teams-by-votes",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "votes",
+     "type": "String[]",
+     "rawValue": "[\"ABC\", \"ACB\"]"
+    }
+   ],
+   "expectedRaw": "\"ABC\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "votes",
+     "type": "String[]",
+     "rawValue": "[\"ACB\", \"ACB\", \"ABC\", \"ACB\", \"ABC\", \"ACB\"]"
+    }
+   ],
+   "expectedRaw": "\"ACB\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "votes",
+     "type": "String[]",
+     "rawValue": "[\"ACB\", \"ABC\", \"ACB\", \"ACB\"]"
+    }
+   ],
+   "expectedRaw": "\"ACB\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "votes",
+     "type": "String[]",
+     "rawValue": "[\"ABC\", \"ACB\", \"ACB\", \"ABC\", \"ABC\"]"
+    }
+   ],
+   "expectedRaw": "\"ABC\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "votes",
+     "type": "String[]",
+     "rawValue": "[\"ABC\", \"ABC\", \"ACB\"]"
+    }
+   ],
+   "expectedRaw": "\"ABC\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "votes",
+     "type": "String[]",
+     "rawValue": "[\"ACB\", \"ACB\", \"ACB\", \"ABC\"]"
+    }
+   ],
+   "expectedRaw": "\"ACB\""
+  }
+ ]
+}

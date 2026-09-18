@@ -1,0 +1,158 @@
+{
+ "problemId": "snowflake-web-crawler-shortest-path",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "String[]",
+     "rawValue": "[\"alpha\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"alpha\", \"goal\"], [\"alpha\", \"beta\", \"alpha\"], [\"home\", \"beta\"]]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"alpha\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"alpha\""
+    }
+   ],
+   "expectedRaw": "[\"alpha\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "String[]",
+     "rawValue": "[\"mid\", \"end\", \"island\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"mid\", \"start\"]]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"start\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"end\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "String[]",
+     "rawValue": "[\"alpha\", \"home\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"home\", \"beta\"], [\"beta\", \"goal\"], [\"home\", \"alpha\"], [\"home\", \"beta\"], [\"alpha\", \"goal\"]]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"home\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"alpha\""
+    }
+   ],
+   "expectedRaw": "[\"home\", \"alpha\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "String[]",
+     "rawValue": "[\"home\", \"goal\", \"alpha\", \"goal\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"beta\", \"beta\"], [\"home\", \"alpha\"], [\"alpha\", \"goal\"]]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"goal\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"beta\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "String[]",
+     "rawValue": "[\"beta\", \"goal\", \"home\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"home\", \"beta\"], [\"beta\", \"goal\"]]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"beta\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"alpha\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "String[]",
+     "rawValue": "[\"home\", \"beta\", \"home\", \"alpha\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"goal\"], [\"home\", \"home\", \"home\"], [\"alpha\", \"goal\"]]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"home\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"home\""
+    }
+   ],
+   "expectedRaw": "[\"home\"]"
+  }
+ ]
+}

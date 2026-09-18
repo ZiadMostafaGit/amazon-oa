@@ -1,0 +1,98 @@
+{
+ "problemId": "bcg-find-submatrix-matching-pattern",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[2, 0, 2, 1], [2, 1, 2]]"
+    },
+    {
+     "name": "pattern",
+     "type": "String[]",
+     "rawValue": "[\"ba\", \"ab\", \"ab\"]"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 2, 3], [6, 5, 6]]"
+    },
+    {
+     "name": "pattern",
+     "type": "String[]",
+     "rawValue": "[\"9a\", \"9a\"]"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[2, 1, 2], [2, 1, 2]]"
+    },
+    {
+     "name": "pattern",
+     "type": "String[]",
+     "rawValue": "[\"ba\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[], [4, 6], [2, -1]]"
+    },
+    {
+     "name": "pattern",
+     "type": "String[]",
+     "rawValue": "[\"ab\"]"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 2, 3], [4, 5, 9, 7], [8, 9, 5, 1]]"
+    },
+    {
+     "name": "pattern",
+     "type": "String[]",
+     "rawValue": "[\"a6\", \"a6\"]"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 1], [1, 2, 1]]"
+    },
+    {
+     "name": "pattern",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"ba\"]"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  }
+ ]
+}

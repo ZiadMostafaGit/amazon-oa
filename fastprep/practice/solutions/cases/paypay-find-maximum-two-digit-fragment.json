@@ -1,0 +1,68 @@
+{
+ "problemId": "paypay-find-maximum-two-digit-fragment",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"500552\""
+    }
+   ],
+   "expectedRaw": "55"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"5052\""
+    }
+   ],
+   "expectedRaw": "52"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"505522\""
+    }
+   ],
+   "expectedRaw": "55"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"505552\""
+    }
+   ],
+   "expectedRaw": "55"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"550552\""
+    }
+   ],
+   "expectedRaw": "55"
+  }
+ ]
+}

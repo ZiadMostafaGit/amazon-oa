@@ -1,0 +1,68 @@
+{
+ "problemId": "citadel-count-stable-segments",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int[]",
+     "rawValue": "[3, 9]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int[]",
+     "rawValue": "[3, 3, 3, 9, 9, 9]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int[]",
+     "rawValue": "[3, 1, 2, 3, 9, 10]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int[]",
+     "rawValue": "[9, 3, 1, 2, -9]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int[]",
+     "rawValue": "[4, 1, 2, 3, 9]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

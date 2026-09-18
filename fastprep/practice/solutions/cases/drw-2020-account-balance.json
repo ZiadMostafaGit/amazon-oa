@@ -1,0 +1,98 @@
+{
+ "problemId": "drw-2020-account-balance",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[-40]"
+    },
+    {
+     "name": "D",
+     "type": "String[]",
+     "rawValue": "[\"2020-01-30\", \"2020-01-30\", \"2020-01-01\"]"
+    }
+   ],
+   "expectedRaw": "-100"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[-3]"
+    },
+    {
+     "name": "D",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"abc\", \"10\"]"
+    }
+   ],
+   "expectedRaw": "-63"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[-30, -40, 100, -30, -30, 100]"
+    },
+    {
+     "name": "D",
+     "type": "String[]",
+     "rawValue": "[\"2020-01-01\", \"2020-01-30\", \"2020-01-10\", \"2020-01-20\", \"2020-01-30\"]"
+    }
+   ],
+   "expectedRaw": "15"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[-5, -4, 7, 4, -5]"
+    },
+    {
+     "name": "D",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"abc\", \"dog\", \"blue\", \"abc\", \"a\", \"ab\"]"
+    }
+   ],
+   "expectedRaw": "-63"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[100, 100, 100]"
+    },
+    {
+     "name": "D",
+     "type": "String[]",
+     "rawValue": "[\"2020-12--01\"]"
+    }
+   ],
+   "expectedRaw": "240"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[100, 100]"
+    },
+    {
+     "name": "D",
+     "type": "String[]",
+     "rawValue": "[\"2020-122-01\"]"
+    }
+   ],
+   "expectedRaw": "140"
+  }
+ ]
+}

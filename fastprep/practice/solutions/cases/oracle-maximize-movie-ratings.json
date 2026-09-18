@@ -1,0 +1,68 @@
+{
+ "problemId": "oracle-maximize-movie-ratings",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[-3, -3]"
+    }
+   ],
+   "expectedRaw": "-3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[5, 4, 5, -1]"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[-2, -5, -3]"
+    }
+   ],
+   "expectedRaw": "-5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ratings",
+     "type": "int[]",
+     "rawValue": "[5, 4]"
+    }
+   ],
+   "expectedRaw": "9"
+  }
+ ]
+}

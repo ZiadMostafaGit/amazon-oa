@@ -1,0 +1,98 @@
+{
+ "problemId": "salesforce-surviving-balls-directional-collisions",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "directions",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    },
+    {
+     "name": "strengths",
+     "type": "int[]",
+     "rawValue": "[5, 7, 5]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "directions",
+     "type": "int[]",
+     "rawValue": "[1, -1, 1, -1, 1]"
+    },
+    {
+     "name": "strengths",
+     "type": "int[]",
+     "rawValue": "[3, 5, 4, 5]"
+    }
+   ],
+   "expectedRaw": "[1, 3, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "directions",
+     "type": "int[]",
+     "rawValue": "[1, -1, -1]"
+    },
+    {
+     "name": "strengths",
+     "type": "int[]",
+     "rawValue": "[3, 5]"
+    }
+   ],
+   "expectedRaw": "[1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "directions",
+     "type": "int[]",
+     "rawValue": "[-1, 1, 1]"
+    },
+    {
+     "name": "strengths",
+     "type": "int[]",
+     "rawValue": "[0, 7, 1]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "directions",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "strengths",
+     "type": "int[]",
+     "rawValue": "[1, 7, 1]"
+    }
+   ],
+   "expectedRaw": "[0, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "directions",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    },
+    {
+     "name": "strengths",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  }
+ ]
+}

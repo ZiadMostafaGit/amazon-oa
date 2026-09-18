@@ -1,0 +1,68 @@
+{
+ "problemId": "goldman-sachs-best-average-student-score",
+ "generatedAt": "2026-09-18T23:33:40",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"Alice\", \"70\"]]"
+    }
+   ],
+   "expectedRaw": "\"Alice\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"Alice\", \"90\"], [\"Bob\", \"80\"], [\"70\", \"70\", \"70\"], [\"Bob\", \"80\"]]"
+    }
+   ],
+   "expectedRaw": "\"Alice\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"Bob\", \"80\"], [\"Alice\", \"70\"], [\"Bob\", \"100\"], [\"Alice\", \"90\"], [\"Alice\", \"70\"]]"
+    }
+   ],
+   "expectedRaw": "\"Bob\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "null"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"Alice\", \"90\"], [\"Bob\", \"100\"], [\"Alice\", \"70\"], [\"Bob\", \"100\"]]"
+    }
+   ],
+   "expectedRaw": "\"Bob\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"Alice\", \"90\"], [\"Bob\", \"80\"], [\"Alice\", \"70\"], [\"Bob\", \"80\"]]"
+    }
+   ],
+   "expectedRaw": "\"Alice\""
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-match-strings",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String[]",
+     "rawValue": "[\"coder\", \"coder\"]"
+    },
+    {
+     "name": "pat",
+     "type": "String[]",
+     "rawValue": "[\"co*d\", \"co*er\", \"co*d\"]"
+    }
+   ],
+   "expectedRaw": "[\"NO\", \"YES\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String[]",
+     "rawValue": "[\"coder\"]"
+    },
+    {
+     "name": "pat",
+     "type": "String[]",
+     "rawValue": "[\"co*d\", \"co*er\"]"
+    }
+   ],
+   "expectedRaw": "[\"NO\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String[]",
+     "rawValue": "[\"co*d\"]"
+    },
+    {
+     "name": "pat",
+     "type": "String[]",
+     "rawValue": "[\"co*d\"]"
+    }
+   ],
+   "expectedRaw": "[\"YES\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String[]",
+     "rawValue": "[\"hac*rank\", \"hackerrnak\"]"
+    },
+    {
+     "name": "pat",
+     "type": "String[]",
+     "rawValue": "[\"hac*rank\", \"hac*rank\", \"hac*rank\"]"
+    }
+   ],
+   "expectedRaw": "[\"YES\", \"NO\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String[]",
+     "rawValue": "[\"code\"]"
+    },
+    {
+     "name": "pat",
+     "type": "String[]",
+     "rawValue": "[\"co*er\", \"co*d\", \"co*d\"]"
+    }
+   ],
+   "expectedRaw": "[\"NO\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String[]",
+     "rawValue": "[\"coder\", \"coder\"]"
+    },
+    {
+     "name": "pat",
+     "type": "String[]",
+     "rawValue": "[\"co*d\", \"co*er\"]"
+    }
+   ],
+   "expectedRaw": "[\"NO\", \"YES\"]"
+  }
+ ]
+}

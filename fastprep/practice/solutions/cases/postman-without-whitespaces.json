@@ -1,0 +1,158 @@
+{
+ "problemId": "postman-without-whitespaces",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "c",
+     "type": "long",
+     "rawValue": "1234567"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"12345667\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "12"
+    },
+    {
+     "name": "c",
+     "type": "long",
+     "rawValue": "-12"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"2\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "c",
+     "type": "long",
+     "rawValue": "1234567"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"123467\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "c",
+     "type": "long",
+     "rawValue": "1234566"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"12234567\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "c",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-9"
+    },
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1234567\""
+    }
+   ],
+   "expectedRaw": "9.999999377184086e-10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "c",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-9"
+    },
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"123456\""
+    }
+   ],
+   "expectedRaw": "0.0"
+  }
+ ]
+}

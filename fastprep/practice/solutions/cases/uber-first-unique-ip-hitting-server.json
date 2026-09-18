@@ -1,0 +1,68 @@
+{
+ "problemId": "uber-first-unique-ip-hitting-server",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"ADD 1.1.1.1\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"ADD 1.1.1.1\", \"ADD 1.1.1.1\", \"ADD 2.2.2.2\", \"ADD 2.2.2.2\", \"FIRST_UNIQUE\"]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"ADD 2.2.2.2\", \"ADD 1.1.1.1\", \"ADD 1.1.1.1\", \"FIRST_UNIQUE\", \"ADD 1.1.1.1\"]"
+    }
+   ],
+   "expectedRaw": "[\"2.2.2.2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"ADD 1.1.1.1\", \"ADD 2.2.2.2\", \"ADD 2.2.2.2\", \"ADD 3.3.3.3\", \"FIRST_UNIQUE\", \"FIRST_UNIQUE\"]"
+    }
+   ],
+   "expectedRaw": "[\"1.1.1.1\", \"1.1.1.1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"FIRST_UNIQUE\", \"ADD 1.1.1.1\", \"FIRST_UNIQUE\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"1.1.1.1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"FIRST_UNIQUE\", \"ADD 2.2.2.2\", \"ADD 2.2.2.2\", \"ADD 3.3.3.3\", \"FIRST_UNIQUE\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"3.3.3.3\"]"
+  }
+ ]
+}

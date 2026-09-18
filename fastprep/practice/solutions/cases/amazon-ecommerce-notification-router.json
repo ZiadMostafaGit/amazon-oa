@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-ecommerce-notification-router",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "preferredChannels",
+     "type": "String[]",
+     "rawValue": "[\"PUSH\", \"PUSH\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "String[]",
+     "rawValue": "[\"NORMAL\", \"NORMAL\", \"NORMAL\", \"URGENT\"]"
+    }
+   ],
+   "expectedRaw": "[[\"PUSH\"], [\"PUSH\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "preferredChannels",
+     "type": "String[]",
+     "rawValue": "[\"EMAIL\", \"SMS\", \"PUSH\", \"SMS\", \"SMS\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "String[]",
+     "rawValue": "[\"NORMAL\", \"NORMAL\", \"NORMAL\"]"
+    }
+   ],
+   "expectedRaw": "[[\"EMAIL\"], [\"SMS\"], [\"PUSH\"], [\"SMS\"], [\"SMS\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "preferredChannels",
+     "type": "String[]",
+     "rawValue": "[\"SMS\", \"NORMAL\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "String[]",
+     "rawValue": "[\"NORMAL\", \"URGENT\", \"NORMAL\", \"NORMAL\"]"
+    }
+   ],
+   "expectedRaw": "[[\"SMS\"], [\"EMAIL\", \"SMS\", \"PUSH\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "preferredChannels",
+     "type": "String[]",
+     "rawValue": "[\"abc\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"a\", \"yz\", \"x\"]"
+    }
+   ],
+   "expectedRaw": "[[\"abc\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "preferredChannels",
+     "type": "String[]",
+     "rawValue": "[\"NORMAL\", \"SMS\", \"PUSH\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "String[]",
+     "rawValue": "[\"PUSH\", \"NORMAL\"]"
+    }
+   ],
+   "expectedRaw": "[[\"NORMAL\"], [\"SMS\"], [\"PUSH\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "preferredChannels",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"abc\", \"0\"]"
+    },
+    {
+     "name": "priorities",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"0\", \"abc\", \"red\"]"
+    }
+   ],
+   "expectedRaw": "[[\"a\"], [\"abc\"], [\"0\"]]"
+  }
+ ]
+}

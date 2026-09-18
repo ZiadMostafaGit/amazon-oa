@@ -1,0 +1,68 @@
+{
+ "problemId": "rippling-numeric-poker-operations",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"COMPARE\", \"12345\", \"12345\"], [\"COMPARE\", \"12345\", \"12345\"]]"
+    }
+   ],
+   "expectedRaw": "[\"TIE\", \"TIE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"BEST\", \"1234\"], [\"WORST\", \"1\"], [\"BEST\", \"1\"], [\"COMPARE\", \"12349\", \"92341\"]]"
+    }
+   ],
+   "expectedRaw": "[\"12344\", \"15432\", \"11111\", \"FIRST\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"BEST\", \"12345\"], [\"WORST\", \"12345\"], [\"BEST\", \"12345\"], [\"BEST\", \"99\"]]"
+    }
+   ],
+   "expectedRaw": "[\"12345\", \"12345\", \"12345\", \"99999\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\", \"abc\", \"a\", \"ab\"]]"
+    }
+   ],
+   "expectedRaw": "[\"abc21\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"WORST\", \"99\"], [\"BEST\", \"12345\"], [\"WORST\", \"12345\"], [\"WORST\", \"12345\"]]"
+    }
+   ],
+   "expectedRaw": "[\"99321\", \"12345\", \"12345\", \"12345\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"BEST\", \"99\"], [\"12345\", \"12345\"], [\"WORST\", \"12345\"], [\"WORST\", \"99\"]]"
+    }
+   ],
+   "expectedRaw": "[\"99999\", \"12345\", \"12345\", \"99321\"]"
+  }
+ ]
+}

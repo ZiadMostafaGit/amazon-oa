@@ -1,0 +1,68 @@
+{
+ "problemId": "purestorage-find-doubles",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "List<Integer>",
+     "rawValue": "[1, 3, 5, 6, 7, 8, 0, 8]"
+    }
+   ],
+   "expectedRaw": "[0, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "List<Integer>",
+     "rawValue": "[1, 4, 1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "List<Integer>",
+     "rawValue": "[1, 2, 2]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "List<Integer>",
+     "rawValue": "[2, 9, 5, 8, 7, 4, 0, 1, 8, 5, 3, 6]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 2, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "List<Integer>",
+     "rawValue": "[1, 2, 3, 4, 5, 6, 7, 9, 0, 8]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 2, 3, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "List<Integer>",
+     "rawValue": "[11, 17, 11, 1, 23]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "autocorrect-prototype",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"speed\", \"dule\", \"cars\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"spede\", \"spede\", \"deul\"]"
+    }
+   ],
+   "expectedRaw": "[[\"speed\"], [\"speed\"], [\"dule\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"blue\", \"b\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"cat\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"duel\", \"speed\", \"cars\", \"duel\", \"dule\", \"cars\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"deul\", \"spede\", \"deul\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"0\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"0\", \"1\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"duel\", \"speed\", \"dule\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"dule\", \"deul\", \"dule\"]"
+    }
+   ],
+   "expectedRaw": "[[\"duel\", \"dule\"], [\"duel\", \"dule\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"duel\", \"speed\", \"dule\"]"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"spede\", \"spede\", \"spede\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "adobe-top-funded-village-and-project",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 9,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "villages",
+     "type": "String[][]",
+     "rawValue": "[[\"v3\", \"Hill\"], [\"v3\", \"Hill\"]]"
+    },
+    {
+     "name": "projects",
+     "type": "String[][]",
+     "rawValue": "[[\"p4\", \"v2\", \"School\"], [\"p2\", \"v1\", \"Library\"], [\"p3\", \"v2\", \"Bridge\"], [\"p5\", \"v3\", \"Well\"], [\"p1\", \"v1\", \"Clinic\"], [\"p5\", \"v3\", \"Well\"]]"
+    },
+    {
+     "name": "funds",
+     "type": "String[][]",
+     "rawValue": "[[\"p3\", \"2024-12-15\", \"40\"], [\"p5\", \"2024-04-12\", \"80\"], [\"p4\", \"2023-08-01\", \"200\"], [\"p3\", \"2024-02-01\", \"60\"], [\"p2\", \"2024-05-20\", \"50\"], [\"p1\", \"2024-01-10\", \"50\"], [\"p3\", \"2024-02-01\", \"60\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"\", \"Bridge\", \"160\"], [\"Hill\", \"Well\", \"80\"], [\"Hill\", \"Well\", \"80\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "villages",
+     "type": "String[][]",
+     "rawValue": "[[\"v1\", \"Alpha\"]]"
+    },
+    {
+     "name": "projects",
+     "type": "String[][]",
+     "rawValue": "[[\"p1\", \"v1\", \"Garden\"], [\"p1\", \"v1\", \"Garden\"]]"
+    },
+    {
+     "name": "funds",
+     "type": "String[][]",
+     "rawValue": "[[\"p1\", \"2023-12-31\", \"90\"], [\"p2\", \"90\", \"90\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Alpha\", \"Garden\", \"0\"], [\"Alpha\", \"Garden\", \"0\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "villages",
+     "type": "String[][]",
+     "rawValue": "[[\"v2\", \"Beta\"], [\"v1\", \"Alpha\"], [\"v2\", \"Beta\"]]"
+    },
+    {
+     "name": "projects",
+     "type": "String[][]",
+     "rawValue": "[[\"p2\", \"v2\", \"Orchard\"], [\"p2\", \"v2\", \"Orchard\"], [\"p1\", \"v1\", \"Garden\"]]"
+    },
+    {
+     "name": "funds",
+     "type": "String[][]",
+     "rawValue": "[[\"p1\", \"2023-12-31\", \"90\"], [\"p1\", \"2023-12-31\", \"90\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Alpha\", \"Garden\", \"0\"], [\"Beta\", \"Orchard\", \"0\"], [\"Beta\", \"Orchard\", \"0\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "villages",
+     "type": "String[][]",
+     "rawValue": "[[\"v1\", \"Maple\"], [\"River\", \"River\", \"River\"], [\"v3\", \"Hill\"]]"
+    },
+    {
+     "name": "projects",
+     "type": "String[][]",
+     "rawValue": "[[\"p1\", \"v1\", \"Clinic\"], [\"p5\", \"v3\", \"Well\"], [\"p4\", \"v2\", \"School\"], [\"p2\", \"v1\", \"Library\"], [\"p3\", \"v2\", \"Bridge\"]]"
+    },
+    {
+     "name": "funds",
+     "type": "String[][]",
+     "rawValue": "[[\"p4\", \"2023-08-01\", \"200\"], [\"p3\", \"2024-02-01\", \"60\"], [\"p3\", \"2024-12-15\", \"40\"], [\"p5\", \"2024-04-12\", \"80\"], [\"p2\", \"2024-05-20\", \"50\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"\", \"Bridge\", \"100\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "villages",
+     "type": "String[][]",
+     "rawValue": "[[\"v2\", \"River\"], [\"v3\", \"Hill\"]]"
+    },
+    {
+     "name": "projects",
+     "type": "String[][]",
+     "rawValue": "[[\"p3\", \"v2\", \"Bridge\"], [\"p2\", \"v1\", \"Library\"], [\"p2\", \"v1\", \"Library\"], [\"p5\", \"v3\", \"Well\"], [\"p4\", \"v2\", \"School\"], [\"p1\", \"v1\", \"Clinic\"]]"
+    },
+    {
+     "name": "funds",
+     "type": "String[][]",
+     "rawValue": "[[\"p1\", \"2024-01-10\", \"50\"], [\"p2\", \"2024-05-20\", \"50\"], [\"p3\", \"2024-02-01\", \"60\"], [\"p4\", \"2023-08-01\", \"200\"], [\"p4\", \"2023-08-01\", \"200\"], [\"p5\", \"2024-04-12\", \"80\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"\", \"Clinic\", \"50\"], [\"\", \"Library\", \"50\"], [\"\", \"Library\", \"50\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "villages",
+     "type": "String[][]",
+     "rawValue": "[[\"v2\", \"River\"], [\"v2\", \"River\"], [\"v3\", \"Hill\"], [\"v1\", \"Maple\"]]"
+    },
+    {
+     "name": "projects",
+     "type": "String[][]",
+     "rawValue": "[[\"p4\", \"v2\", \"School\"], [\"p2\", \"v1\", \"Library\"], [\"p3\", \"v2\", \"Bridge\"], [\"p1\", \"v1\", \"Clinic\"]]"
+    },
+    {
+     "name": "funds",
+     "type": "String[][]",
+     "rawValue": "[[\"p1\", \"2024-01-10\", \"50\"], [\"p2\", \"2024-05-20\", \"50\"], [\"p3\", \"2024-02-01\", \"60\"], [\"p3\", \"2024-12-15\", \"40\"], [\"p5\", \"2024-04-12\", \"80\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"Maple\", \"Clinic\", \"50\"], [\"Maple\", \"Library\", \"50\"], [\"River\", \"Bridge\", \"100\"]]"
+  }
+ ]
+}

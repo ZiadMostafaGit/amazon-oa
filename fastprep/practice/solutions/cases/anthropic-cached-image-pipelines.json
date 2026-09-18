@@ -1,0 +1,98 @@
+{
+ "problemId": "anthropic-cached-image-pipelines",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "image",
+     "type": "int[][]",
+     "rawValue": "[[3, 6], [3, 4]]"
+    },
+    {
+     "name": "pipelines",
+     "type": "String[][]",
+     "rawValue": "[[\"ROTATE_CW\", \"INVERT\"], [\"ROTATE_CW\", \"FLIP_HORIZONTAL\"], [\"ROTATE_CW\", \"INVERT\"]]"
+    }
+   ],
+   "expectedRaw": "[\"steps=3\", \"252,252/251,249\", \"3,3/6,4\", \"252,252/251,249\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "image",
+     "type": "int[][]",
+     "rawValue": "[[3, 4]]"
+    },
+    {
+     "name": "pipelines",
+     "type": "String[][]",
+     "rawValue": "[[\"ROTATE_CW\", \"INVERT\"], [\"FLIP_HORIZONTAL\"], [\"ROTATE_CW\", \"INVERT\"]]"
+    }
+   ],
+   "expectedRaw": "[\"steps=3\", \"252/251\", \"4,3\", \"252/251\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "image",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [0, 0, 0]]"
+    },
+    {
+     "name": "pipelines",
+     "type": "String[][]",
+     "rawValue": "[[], [\"INVERT\", \"INVERT\"], [\"INVERT\"]]"
+    }
+   ],
+   "expectedRaw": "[\"steps=2\", \"0,0,0/0,0,0\", \"0,0,0/0,0,0\", \"255,255,255/255,255,255\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "image",
+     "type": "int[][]",
+     "rawValue": "[[3, 1]]"
+    },
+    {
+     "name": "pipelines",
+     "type": "String[][]",
+     "rawValue": "[[\"ROTATE_CW\", \"INVERT\"], [\"ROTATE_CW\", \"FLIP_HORIZONTAL\"], [\"ROTATE_CW\", \"INVERT\"]]"
+    }
+   ],
+   "expectedRaw": "[\"steps=3\", \"252/254\", \"3/1\", \"252/254\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "image",
+     "type": "int[][]",
+     "rawValue": "[[255]]"
+    },
+    {
+     "name": "pipelines",
+     "type": "String[][]",
+     "rawValue": "[[], [\"INVERT\"]]"
+    }
+   ],
+   "expectedRaw": "[\"steps=1\", \"255\", \"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "image",
+     "type": "int[][]",
+     "rawValue": "[[4]]"
+    },
+    {
+     "name": "pipelines",
+     "type": "String[][]",
+     "rawValue": "[[\"ROTATE_CW\", \"INVERT\"], [\"ROTATE_CW\", \"FLIP_HORIZONTAL\"], [\"ROTATE_CW\", \"INVERT\"]]"
+    }
+   ],
+   "expectedRaw": "[\"steps=3\", \"251\", \"4\", \"251\"]"
+  }
+ ]
+}

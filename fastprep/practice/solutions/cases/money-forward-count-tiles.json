@@ -1,0 +1,68 @@
+{
+ "problemId": "money-forward-count-tiles",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"RRRLL\""
+    }
+   ],
+   "expectedRaw": "[7, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"RRL\""
+    }
+   ],
+   "expectedRaw": "[4, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[3, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"LLRLRLRR\""
+    }
+   ],
+   "expectedRaw": "[0, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"RRLLL\""
+    }
+   ],
+   "expectedRaw": "[1, 6]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "[5, 0]"
+  }
+ ]
+}

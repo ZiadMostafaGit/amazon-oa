@@ -1,0 +1,68 @@
+{
+ "problemId": "squarepoint-mutable-record-store",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"UPDATE a two\", \"GET a\", \"REMOVE a\"]"
+    }
+   ],
+   "expectedRaw": "[\"ERROR\", \"ERROR\", \"ERROR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"REMOVE q\", \"UPDATE q 9\"]"
+    }
+   ],
+   "expectedRaw": "[\"ERROR\", \"ERROR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"UPDATE a two\", \"INSERT a one\", \"GET a\", \"REMOVE a\", \"GET a\", \"GET a\", \"REMOVE a\"]"
+    }
+   ],
+   "expectedRaw": "[\"ERROR\", \"OK\", \"one\", \"OK\", \"ERROR\", \"ERROR\", \"ERROR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"INSERT a one\", \"GET a\", \"UPDATE a two\", \"REMOVE a\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"one\", \"OK\", \"OK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"GET a\", \"GET a\", \"GET a\", \"INSERT a one\", \"REMOVE a\"]"
+    }
+   ],
+   "expectedRaw": "[\"ERROR\", \"ERROR\", \"ERROR\", \"OK\", \"OK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"INSERT x 2\", \"GET x\", \"INSERT x 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"2\", \"ERROR\"]"
+  }
+ ]
+}

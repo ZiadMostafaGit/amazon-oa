@@ -1,0 +1,98 @@
+{
+ "problemId": "google-template-variable-expansion",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "mappings",
+     "type": "String[][]",
+     "rawValue": "[[\"/%x%/docs\", \"x\", \"user\"], [\"y\", \"user\"]]"
+    },
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "\"x\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "mappings",
+     "type": "String[][]",
+     "rawValue": "[[\"%y%/home\", \"%y%/home\", \"x\"], [\"y\", \"user\"]]"
+    },
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"user\""
+    }
+   ],
+   "expectedRaw": "\"user\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "mappings",
+     "type": "String[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"cat\""
+    }
+   ],
+   "expectedRaw": "\"cat\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "mappings",
+     "type": "String[][]",
+     "rawValue": "[[\"y\", \"user\"]]"
+    },
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"y\""
+    }
+   ],
+   "expectedRaw": "\"y\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "mappings",
+     "type": "String[][]",
+     "rawValue": "[[\"y\", \"user\"], [\"y\", \"user\"]]"
+    },
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"/%x%/docs\""
+    }
+   ],
+   "expectedRaw": "\"ERROR\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "mappings",
+     "type": "String[][]",
+     "rawValue": "[[\"x\", \"%y%/home\"], [\"y\", \"user\"], [\"y\", \"user\"]]"
+    },
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"%y%/home\""
+    }
+   ],
+   "expectedRaw": "\"user/home\""
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "oracle-count-dropped-rate-limited-requests",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[23, 32, 4, 13, 9, 45, 37, 52, 48, 47, 11, 8, 38, 48, 16, 55, 19, 59, 41, 39, 31, 34, 5, 49, 2, 42, 20, 7, 28, 17, 15, 50, 57, 56, 27, 1, 35, 18, 3, 26, 21, 30, 46, 54, 33, 6, 22, 36, 12, 43, 29, 10, 60, 44, 25, 53, 24, 60, 58, 51, 14]"
+    }
+   ],
+   "expectedRaw": "47"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, 1, 1, 1]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3, 4, 5, 6, 7, 9, 0, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 60]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[-2, -2, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, 5, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7]"
+    }
+   ],
+   "expectedRaw": "10"
+  }
+ ]
+}

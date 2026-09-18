@@ -1,0 +1,98 @@
+{
+ "problemId": "atlassian-design-hit-counter",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"hit\", \"getHits\", \"hit\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[3, 0, 301, 4, 0, 300]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"1\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"0\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[5, -4, 2, 0]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"hit\", \"hit\", \"hit\", \"getHits\", \"hit\", \"hit\", \"getHits\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[1, 2, 1, 2, 300, 301]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\", \"3\", \"null\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"hit\", \"hit\", \"hit\", \"hit\", \"getHits\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[1, 2, 4, 301]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"getHits\", \"hit\", \"hit\", \"getHits\", \"hit\", \"getHits\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[1, 0, 3, 300, 301]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"null\", \"null\", \"1\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"0\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[-2, 2, -3, -3]"
+    }
+   ],
+   "expectedRaw": "[\"null\"]"
+  }
+ ]
+}

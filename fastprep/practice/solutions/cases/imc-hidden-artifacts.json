@@ -1,0 +1,128 @@
+{
+ "problemId": "imc-hidden-artifacts",
+ "generatedAt": "2026-09-18T23:33:46",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 21,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "artifacts",
+     "type": "String",
+     "rawValue": "\"1B 2C, 2D  4D\""
+    },
+    {
+     "name": "searched",
+     "type": "String",
+     "rawValue": "\"2B 2D 3D 4D 44A\""
+    }
+   ],
+   "expectedRaw": "[1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "artifacts",
+     "type": "String",
+     "rawValue": "\"1B 2C, 2D 4D\""
+    },
+    {
+     "name": "searched",
+     "type": "String",
+     "rawValue": "\"2B  2D 3D 4D 4A\""
+    }
+   ],
+   "expectedRaw": "[1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "artifacts",
+     "type": "String",
+     "rawValue": "\"1B 22C, 2D 4D\""
+    },
+    {
+     "name": "searched",
+     "type": "String",
+     "rawValue": "\"2B 2D 3D 4D 4A\""
+    }
+   ],
+   "expectedRaw": "[1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "artifacts",
+     "type": "String",
+     "rawValue": "\"1A 1B, 2C 2C\""
+    },
+    {
+     "name": "searched",
+     "type": "String",
+     "rawValue": "\"1B\""
+    }
+   ],
+   "expectedRaw": "[0, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "artifacts",
+     "type": "String",
+     "rawValue": "\"1A 1B, 2C 2C\""
+    },
+    {
+     "name": "searched",
+     "type": "String",
+     "rawValue": "\"1B\""
+    }
+   ],
+   "expectedRaw": "[0, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "artifacts",
+     "type": "String",
+     "rawValue": "\"1B 2C, 2D 44D\""
+    },
+    {
+     "name": "searched",
+     "type": "String",
+     "rawValue": "\"2B 2D 3D 4D 4A\""
+    }
+   ],
+   "expectedRaw": "[0, 2]"
+  }
+ ]
+}

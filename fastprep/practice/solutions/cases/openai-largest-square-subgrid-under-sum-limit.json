@@ -1,0 +1,98 @@
+{
+ "problemId": "openai-largest-square-subgrid-under-sum-limit",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 1], [1, 1, 1]]"
+    },
+    {
+     "name": "maxSum",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 1], [1, 1, 1]]"
+    },
+    {
+     "name": "maxSum",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1]]"
+    },
+    {
+     "name": "maxSum",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1]]"
+    },
+    {
+     "name": "maxSum",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[2, -3, -3, -3]]"
+    },
+    {
+     "name": "maxSum",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 1], [1, -2, 1]]"
+    },
+    {
+     "name": "maxSum",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "google-count-code-with-sum",
+ "generatedAt": "2026-09-18T23:33:42",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int",
+     "rawValue": "36"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int",
+     "rawValue": "34"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "int",
+     "rawValue": "32"
+    }
+   ],
+   "expectedRaw": "35"
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "problemId": "citadel-maximize-workday-earnings",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "schedule",
+     "type": "String",
+     "rawValue": "\"WOOWO\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "dailyPay",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "consecutiveBonus",
+     "type": "long",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schedule",
+     "type": "String",
+     "rawValue": "\"WWOOOOW\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "dailyPay",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "consecutiveBonus",
+     "type": "long",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "48"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schedule",
+     "type": "String",
+     "rawValue": "\"WWOOW\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "dailyPay",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "consecutiveBonus",
+     "type": "long",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schedule",
+     "type": "String",
+     "rawValue": "\"WOWWO\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "dailyPay",
+     "type": "long",
+     "rawValue": "1"
+    },
+    {
+     "name": "consecutiveBonus",
+     "type": "long",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "-2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schedule",
+     "type": "String",
+     "rawValue": "\"WWOOW\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "dailyPay",
+     "type": "long",
+     "rawValue": "10"
+    },
+    {
+     "name": "consecutiveBonus",
+     "type": "long",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "58"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schedule",
+     "type": "String",
+     "rawValue": "\"OOO\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "dailyPay",
+     "type": "long",
+     "rawValue": "10"
+    },
+    {
+     "name": "consecutiveBonus",
+     "type": "long",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "40"
+  }
+ ]
+}

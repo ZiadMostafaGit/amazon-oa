@@ -1,0 +1,158 @@
+{
+ "problemId": "infosys-maximize-purchases-cooler-bag",
+ "generatedAt": "2026-09-18T23:33:46",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[7]"
+    },
+    {
+     "name": "types",
+     "type": "int[]",
+     "rawValue": "[0, 4, 0]"
+    },
+    {
+     "name": "budget",
+     "type": "long",
+     "rawValue": "8"
+    },
+    {
+     "name": "coolerCost",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[2, 7, 1, 4, 7]"
+    },
+    {
+     "name": "types",
+     "type": "int[]",
+     "rawValue": "[0, 0, -1, 1]"
+    },
+    {
+     "name": "budget",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "coolerCost",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[4, 2, 7, 4, 1]"
+    },
+    {
+     "name": "types",
+     "type": "int[]",
+     "rawValue": "[1, 1, 0, 0, 1]"
+    },
+    {
+     "name": "budget",
+     "type": "long",
+     "rawValue": "8"
+    },
+    {
+     "name": "coolerCost",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[4, 2, 7, 7]"
+    },
+    {
+     "name": "types",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0]"
+    },
+    {
+     "name": "budget",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "coolerCost",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[5, 3, 4]"
+    },
+    {
+     "name": "types",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "budget",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "coolerCost",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[]",
+     "rawValue": "[4, 7, 1]"
+    },
+    {
+     "name": "types",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 1]"
+    },
+    {
+     "name": "budget",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "coolerCost",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

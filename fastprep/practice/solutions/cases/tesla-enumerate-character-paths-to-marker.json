@@ -1,0 +1,68 @@
+{
+ "problemId": "tesla-enumerate-character-paths-to-marker",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"c\", \"*\"], [\"c\", \"*\"]]"
+    }
+   ],
+   "expectedRaw": "[\"ac\", \"ac\", \"ac\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[[\"c\", \"*\"], [\"a\", \"b\"], [\"a\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "[\"c\", \"caabb\", \"cab\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[[\"*\", \"*\"], [\"*\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"b\"], [\"c\", \"*\"], [\"c\", \"*\"]]"
+    }
+   ],
+   "expectedRaw": "[\"ab\", \"ac\", \"acc\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[[\"*\"], [\"*\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "capital-one-longest-common-prefix-of-number-pairs",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[2655, 54546, 54]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[266, 255, 5, 244, -54547, 2, 28]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[2655, 25, 54546, 54, 555, 288, 54]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[266, 2, 266, 2655, 26, 5, 54547]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[25, 288, 2655, 54, 555]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[2, 255, 244, 5, 54547]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[0, 288, 2655, 544, 54, 555]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[5, 26, 2, 244, 266, 256, 5444444]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[25, 2655, 544, 54, 555]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[2, 5, 266, 244, 26, 5, 5444444]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[28, 288, 2655, 544, 54, 555]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[255, 244, 26, 5, 5, 5444444]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

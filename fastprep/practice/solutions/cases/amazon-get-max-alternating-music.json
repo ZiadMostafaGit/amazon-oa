@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-get-max-alternating-music",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "music",
+     "type": "String",
+     "rawValue": "\"10001\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "music",
+     "type": "String",
+     "rawValue": "\"11001\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "music",
+     "type": "String",
+     "rawValue": "\"1001\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "music",
+     "type": "String",
+     "rawValue": "\"1001\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "music",
+     "type": "String",
+     "rawValue": "\"11001\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "music",
+     "type": "String",
+     "rawValue": "\"10011\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

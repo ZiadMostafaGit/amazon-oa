@@ -1,0 +1,158 @@
+{
+ "problemId": "zip-graph-pursuit-survival-time",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 33,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [2, 3]]"
+    },
+    {
+     "name": "tomStart",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "jerryStart",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 3], [0, 1]]"
+    },
+    {
+     "name": "tomStart",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "jerryStart",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 2], [0, 2]]"
+    },
+    {
+     "name": "tomStart",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "jerryStart",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [2, 3], [1, 2], [2, 3], [3, 4], [1, 2], [4, 5]]"
+    },
+    {
+     "name": "tomStart",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "jerryStart",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 3]]"
+    },
+    {
+     "name": "tomStart",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "jerryStart",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roomCount",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[5, 5, 3]]"
+    },
+    {
+     "name": "tomStart",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "jerryStart",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

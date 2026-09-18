@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-rearrange-digits-adjacent-sum-at-most-nine",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"1188\""
+    }
+   ],
+   "expectedRaw": "\"8181\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"18\""
+    }
+   ],
+   "expectedRaw": "\"81\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"8899\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"12334\""
+    }
+   ],
+   "expectedRaw": "\"43321\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"8889\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  }
+ ]
+}

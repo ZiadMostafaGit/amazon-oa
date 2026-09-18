@@ -1,0 +1,98 @@
+{
+ "problemId": "arcesium-reverse-first-k-every-2k-block",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abcddefgh\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "\"bacdedfgh\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abcdeffg\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"cbadefgf\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "\"b\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bcdefgh\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "\"bcdefgh\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "\"dog\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aabcdefgh\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "\"aabcdefgh\""
+  }
+ ]
+}

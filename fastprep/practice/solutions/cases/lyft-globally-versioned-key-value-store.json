@@ -1,0 +1,68 @@
+{
+ "problemId": "lyft-globally-versioned-key-value-store",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET color blue\", \"GET_AT color 2\", \"GET_AT size 1\", \"GET_AT color 3\"]"
+    }
+   ],
+   "expectedRaw": "[\"blue\", \"NULL\", \"blue\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET size small\", \"SET color red\", \"GET_AT size 1\", \"GET color\", \"GET_AT color 3\", \"GET_AT color 2\", \"GET color\", \"SET color blue\"]"
+    }
+   ],
+   "expectedRaw": "[\"small\", \"red\", \"red\", \"red\", \"red\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET a one\", \"SET b three\", \"SET a four\", \"SET a one\", \"GET_AT a 3\", \"SET a one\", \"GET_AT b 4\", \"GET_AT c 10\"]"
+    }
+   ],
+   "expectedRaw": "[\"four\", \"three\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET color red\", \"SET size small\", \"SET color blue\", \"GET_AT size 1\", \"GET_AT color 3\"]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"blue\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"GET color\", \"GET_AT color 3\", \"SET color red\", \"GET_AT size 1\", \"GET_AT color 2\", \"SET color blue\"]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"NULL\", \"NULL\", \"red\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET b three\", \"SET b two\", \"SET b three\", \"SET a four\", \"GET_AT a 3\", \"GET_AT b 4\", \"GET_AT c 10\"]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"three\", \"NULL\"]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "bytedance-alien-dictionary",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"er\", \"rftt\"]"
+    }
+   ],
+   "expectedRaw": "\"efrt\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"abc\"]"
+    }
+   ],
+   "expectedRaw": "\"abc\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"rftt\", \"wrf\", \"er\", \"ett\", \"wrt\"]"
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"cb\", \"ca\"]"
+    }
+   ],
+   "expectedRaw": "\"bac\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"abc\", \"bc\", \"red\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "\"\""
+  }
+ ]
+}

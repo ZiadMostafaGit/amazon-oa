@@ -1,0 +1,98 @@
+{
+ "problemId": "block-case-insensitive-autocorrect",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"GhOSt\", \"GhOSt\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"dogs\""
+    }
+   ],
+   "expectedRaw": "\"dogs\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"dogs\", \"Cats\", \"dogs\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"Cats\""
+    }
+   ],
+   "expectedRaw": "\"Cats\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"1\", \"ab\", \"cat\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "\"x\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"dogs\", \"dogs\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"dogs\""
+    }
+   ],
+   "expectedRaw": "\"dogs\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"b\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"0\""
+    }
+   ],
+   "expectedRaw": "\"0\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"Cats\", \"dogs\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"Cats\""
+    }
+   ],
+   "expectedRaw": "\"Cats\""
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "roblox-most-frequent-call-stack-per-thread",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "samples",
+     "type": "String[]",
+     "rawValue": "[\"t2|root>alpha\"]"
+    }
+   ],
+   "expectedRaw": "[\"t2|root>alpha|1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "samples",
+     "type": "String[]",
+     "rawValue": "[\"worker-1|main>cache\", \"worker-2|main>parse\", \"worker-1|main>cache\", \"worker-2|main>render\", \"worker-3|run\", \"worker-1|main>db\", \"worker-2|main>render\", \"worker-2|main>parse\"]"
+    }
+   ],
+   "expectedRaw": "[\"worker-1|main>cache|2\", \"worker-2|main>parse|2\", \"worker-3|run|1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "samples",
+     "type": "String[]",
+     "rawValue": "[\"alpha|run>work\", \"alpha|run>work\", \"alpha|run>work>work\", \"alpha|run>work>work\", \"beta|main\", \"alpha|run>work\"]"
+    }
+   ],
+   "expectedRaw": "[\"alpha|run>work|3\", \"beta|main|1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "samples",
+     "type": "String[]",
+     "rawValue": "[\"worker-2|main>parse\", \"worker-1|main>cache\", \"worker-2|main>parse\", \"worker-1|main>cache\", \"worker-3|run\"]"
+    }
+   ],
+   "expectedRaw": "[\"worker-1|main>cache|2\", \"worker-2|main>parse|2\", \"worker-3|run|1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "samples",
+     "type": "String[]",
+     "rawValue": "[\"t1|root>beta\", \"t1|root>alpha\"]"
+    }
+   ],
+   "expectedRaw": "[\"t1|root>alpha|1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "samples",
+     "type": "String[]",
+     "rawValue": "[\"t1|root>alpha\", \"t1|root>beta\", \"t2|root>alpha\", \"t2|root>zeta\"]"
+    }
+   ],
+   "expectedRaw": "[\"t1|root>alpha|1\", \"t2|root>alpha|1\"]"
+  }
+ ]
+}

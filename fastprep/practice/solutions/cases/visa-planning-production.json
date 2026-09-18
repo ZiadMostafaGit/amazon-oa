@@ -1,0 +1,98 @@
+{
+ "problemId": "visa-planning-production",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "worstCase",
+     "type": "int[]",
+     "rawValue": "[7, 7]"
+    },
+    {
+     "name": "expected",
+     "type": "int[]",
+     "rawValue": "[4, -1, 1, 2]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "worstCase",
+     "type": "int[]",
+     "rawValue": "[-4, 3]"
+    },
+    {
+     "name": "expected",
+     "type": "int[]",
+     "rawValue": "[-4, 2, 0, 1, -5]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "worstCase",
+     "type": "int[]",
+     "rawValue": "[5]"
+    },
+    {
+     "name": "expected",
+     "type": "int[]",
+     "rawValue": "[2, 5, 1]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "worstCase",
+     "type": "int[]",
+     "rawValue": "[0, 5, 7]"
+    },
+    {
+     "name": "expected",
+     "type": "int[]",
+     "rawValue": "[1, 5, 4]"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "worstCase",
+     "type": "int[]",
+     "rawValue": "[7, 5, 7]"
+    },
+    {
+     "name": "expected",
+     "type": "int[]",
+     "rawValue": "[4, -1, 1]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "worstCase",
+     "type": "int[]",
+     "rawValue": "[6, 7, 7]"
+    },
+    {
+     "name": "expected",
+     "type": "int[]",
+     "rawValue": "[4, 2, 0]"
+    }
+   ],
+   "expectedRaw": "8"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "pinterest-attribute-cartesian-product",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[\"red\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\"], [\"S\", \"M\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"blue\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[\"region\", \"tier\", \"free\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[][]",
+     "rawValue": "[[\"free\", \"pro\"], [\"us\"], [\"free\", \"pro\"], [\"light\", \"dark\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"free\", \"us\", \"free\"], [\"free\", \"us\", \"pro\"], [\"pro\", \"us\", \"free\"], [\"pro\", \"us\", \"pro\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "values",
+     "type": "String[][]",
+     "rawValue": "[[\"bc\", \"dog\", \"yz\"]]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[\"x\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[][]",
+     "rawValue": "[[], [\"0\"], [\"0\", \"red\", \"1\", \"0\", \"abc\", \"red\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[\"color\", \"color\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[][]",
+     "rawValue": "[[\"red\", \"size\"], [\"S\", \"M\", \"S\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"red\", \"S\"], [\"red\", \"M\"], [\"red\", \"S\"], [\"size\", \"S\"], [\"size\", \"M\"], [\"size\", \"S\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[\"region\", \"tier\", \"region\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[][]",
+     "rawValue": "[[\"us\"], [\"free\", \"pro\"], [\"pro\", \"light\", \"pro\", \"pro\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"us\", \"free\", \"pro\"], [\"us\", \"free\", \"light\"], [\"us\", \"free\", \"pro\"], [\"us\", \"free\", \"pro\"], [\"us\", \"pro\", \"pro\"], [\"us\", \"pro\", \"light\"], [\"us\", \"pro\", \"pro\"], [\"us\", \"pro\", \"pro\"]]"
+  }
+ ]
+}

@@ -1,0 +1,218 @@
+{
+ "problemId": "arcesium-robo-data-sharing-direction",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "col",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "\"Front\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "col",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "\"Right\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "col",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "\"Front\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "-7"
+    },
+    {
+     "name": "col",
+     "type": "int",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "\"Left\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "col",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"Right\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "col",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "\"Left\""
+  }
+ ]
+}

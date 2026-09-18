@@ -1,0 +1,68 @@
+{
+ "problemId": "imc-adding-stack-2-0",
+ "generatedAt": "2026-09-18T23:33:46",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 12,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push 2\", \"inc 1 10\", \"pop\"]"
+    }
+   ],
+   "expectedRaw": "[2, 12, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push 5\", \"push 4\", \"push 5\", \"inc 2 1\", \"inc 2 1\", \"pop\", \"pop\"]"
+    }
+   ],
+   "expectedRaw": "[5, 9, 14, 16, 18, 13, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push 1\", \"inc 1 10\", \"pop\"]"
+    }
+   ],
+   "expectedRaw": "[1, 11, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push 2\", \"push 1\", \"inc 1 10\", \"pop\"]"
+    }
+   ],
+   "expectedRaw": "[2, 3, 13, 12]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push 1\", \"pop\", \"push 2\", \"inc 1 10\", \"pop\"]"
+    }
+   ],
+   "expectedRaw": "[1, 0, 2, 12, 0]"
+  }
+ ]
+}

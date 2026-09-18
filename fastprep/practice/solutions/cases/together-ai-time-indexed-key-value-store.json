@@ -1,0 +1,68 @@
+{
+ "problemId": "together-ai-time-indexed-key-value-store",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET\", \"model\", \"7\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"a\", \"3\", \"new\"], [\"GET\", \"a\", \"3\"], [\"SET\", \"a\", \"3\", \"new\"], [\"SET\", \"a\", \"3\", \"old\"]]"
+    }
+   ],
+   "expectedRaw": "[\"new\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"k\", \"10\", \"late\"], [\"SET\", \"k\", \"2\", \"early\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"k\", \"10\", \"late\"], [\"GET\", \"k\", \"5\"], [\"GET\", \"missing\", \"99\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"model\", \"4\", \"v1\"], [\"GET\", \"9\", \"7\"], [\"GET\", \"model\", \"9\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"v1\"]"
+  }
+ ]
+}

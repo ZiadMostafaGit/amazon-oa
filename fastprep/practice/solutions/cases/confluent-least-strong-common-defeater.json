@@ -1,0 +1,128 @@
+{
+ "problemId": "confluent-least-strong-common-defeater",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 30,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "monsters",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"B\", \"X\", \"C\", \"X\", \"X\", \"Y\"]"
+    },
+    {
+     "name": "defeats",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"Y\"], [\"B\", \"X\"], [\"B\", \"Y\"], [\"C\", \"A\"]]"
+    },
+    {
+     "name": "targets",
+     "type": "String[]",
+     "rawValue": "[\"X\"]"
+    }
+   ],
+   "expectedRaw": "\"B\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "monsters",
+     "type": "String[]",
+     "rawValue": "[\"B\", \"A\"]"
+    },
+    {
+     "name": "defeats",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"A\", \"B\"]]"
+    },
+    {
+     "name": "targets",
+     "type": "String[]",
+     "rawValue": "[\"B\", \"B\", \"B\"]"
+    }
+   ],
+   "expectedRaw": "\"A\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "monsters",
+     "type": "String[]",
+     "rawValue": "[\"bc\", \"ab\", \"cat\", \"yz\"]"
+    },
+    {
+     "name": "defeats",
+     "type": "String[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "targets",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "\"ab\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "monsters",
+     "type": "String[]",
+     "rawValue": "[\"Y\", \"X\", \"B\", \"C\", \"A\"]"
+    },
+    {
+     "name": "defeats",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"X\"], [\"A\", \"Y\"], [\"B\", \"Y\"]]"
+    },
+    {
+     "name": "targets",
+     "type": "String[]",
+     "rawValue": "[\"X\", \"Y\", \"Y\"]"
+    }
+   ],
+   "expectedRaw": "\"A\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "monsters",
+     "type": "String[]",
+     "rawValue": "[\"B\", \"A\"]"
+    },
+    {
+     "name": "defeats",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"A\", \"B\"]]"
+    },
+    {
+     "name": "targets",
+     "type": "String[]",
+     "rawValue": "[\"B\"]"
+    }
+   ],
+   "expectedRaw": "\"A\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "monsters",
+     "type": "String[]",
+     "rawValue": "[\"Dragons\", \"Dragons\", \"Zombies\", \"Goblins\"]"
+    },
+    {
+     "name": "defeats",
+     "type": "String[][]",
+     "rawValue": "[[\"Zombies\", \"Goblins\"], [\"Dragons\", \"Zombies\"], [\"Zombies\", \"Goblins\"]]"
+    },
+    {
+     "name": "targets",
+     "type": "String[]",
+     "rawValue": "[\"Dragons\", \"Goblins\", \"Dragons\"]"
+    }
+   ],
+   "expectedRaw": "\"\""
+  }
+ ]
+}

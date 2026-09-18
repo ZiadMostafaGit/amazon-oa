@@ -1,0 +1,68 @@
+{
+ "problemId": "oracle-prescription-doctor-drug-window",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 9,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"P2\", \"D3\", \"Metformin\", \"2025-03-01\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"P1\", \"D2\", \"A\", \"2025-02-01\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"P1\", \"D1\", \"Atorvastatin\", \"2025-01-10\"], [\"P2\", \"D3\", \"2025-03-01\", \"2025-03-01\"], [\"P2\", \"D4\", \"Metformin\", \"2025-03-25\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"P1\", \"D1\", \"Atorvastatin\", \"2025-01-10\"], [\"P1\", \"D2\", \"Atorvastatin\", \"2025-02-05\"], [\"P2\", \"D3\", \"Metformin\", \"2025-03-01\"], [\"P1\", \"D2\", \"Atorvastatin\", \"2025-02-05\"]]"
+    }
+   ],
+   "expectedRaw": "[\"P1 Atorvastatin\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"P1\", \"D2\", \"A\", \"2025-02-01\"], [\"P1\", \"D1\", \"A\", \"2025-01-01\"], [\"P1\", \"D2\", \"A\", \"2025-02-01\"], [\"P1\", \"D2\", \"A\", \"2025-02-01\"]]"
+    }
+   ],
+   "expectedRaw": "[\"P1 A\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"P1\", \"D2\", \"Atorvastatin\", \"2025-02-05\"], [\"P2\", \"D4\", \"Metformin\", \"2025-03-25\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

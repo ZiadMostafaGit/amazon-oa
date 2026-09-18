@@ -1,0 +1,68 @@
+{
+ "problemId": "snowflake-design-in-memory-file-system",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"addContentToFile\", \"/a/b/c/d\", \"hello\"], [\"readContentFromFile\", \"/a/b/c/d\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"hello\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ls\", \"/\"], [\"mkdir\", \"/a/b/c\"], [\"addContentToFile\", \"/a/b/c/d\", \"hello\"], [\"readContentFromFile\", \"/a/b/c/d\"], [\"ls\", \"/\"], [\"readContentFromFile\", \"/a/b/c/d\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"hello\"], [\"a\"], [\"hello\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"addContentToFile\", \"/work/logs/run\", \"hello\"], [\"addContentToFile\", \"/work/logs/run\", \" world\"], [\"mkdir\", \"/work/cache\"], [\"ls\", \"/work\"], [\"ls\", \"/work/logs/run\"], [\"readContentFromFile\", \"/work/logs/run\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"cache\", \"logs\"], [\"run\"], [\"hello world\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"mkdir\", \"mkdir\", \"mkdir\"], [\"addContentToFile\", \"/work/logs/run\", \"hello\"], [\"addContentToFile\", \"/work/logs/run\", \" world\"], [\"mkdir\", \"/work/cache\"], [\"ls\", \"/work\"], [\"ls\", \"/work/logs/run\"], [\"addContentToFile\", \"/work/logs/run\", \"hello\"], [\"readContentFromFile\", \"/work/logs/run\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"cache\", \"logs\"], [\"run\"], [\"hello worldhello\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"1\", \"0\", \"abc\", \"red\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

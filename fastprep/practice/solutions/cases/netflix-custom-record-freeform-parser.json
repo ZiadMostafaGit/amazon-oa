@@ -1,0 +1,128 @@
+{
+ "problemId": "netflix-custom-record-freeform-parser",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "encodedRecord",
+     "type": "String",
+     "rawValue": "\"123,1700,AAA,BBBB,$[v1:SSS,v2:[x,y],v1:TTT]&\""
+    },
+    {
+     "name": "machineEnum",
+     "type": "String[]",
+     "rawValue": "[\"123=TYPE1\", \"123=TYPE1\"]"
+    },
+    {
+     "name": "keyMap",
+     "type": "String[]",
+     "rawValue": "[\"v1=name\", \"123=TYPE1\", \"123=TYPE1\", \"v1=name\"]"
+    }
+   ],
+   "expectedRaw": "[\"machine_code=TYPE1\", \"timestamp=1700\", \"field1=AAA\", \"field2=BBBB\", \"name=SSS\", \"v2=[x,y]\", \"name=TTT\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "encodedRecord",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "machineEnum",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"abc\", \"cat\", \"blue\", \"abc\"]"
+    },
+    {
+     "name": "keyMap",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"ab\", \"0\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "[\"machine_code=10\", \"timestamp=\", \"field1=\", \"field2=\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "encodedRecord",
+     "type": "String",
+     "rawValue": "\"123,1700,AAA,BBB,$[v1:SSS,,v2:[x,y],v1:TTT]&\""
+    },
+    {
+     "name": "machineEnum",
+     "type": "String[]",
+     "rawValue": "[\"123=TYPE1\", \"123=TYPE1\"]"
+    },
+    {
+     "name": "keyMap",
+     "type": "String[]",
+     "rawValue": "[\"v1=name\", \"v2=tags\", \"v1=name\"]"
+    }
+   ],
+   "expectedRaw": "[\"machine_code=TYPE1\", \"timestamp=1700\", \"field1=AAA\", \"field2=BBB\", \"name=SSS\", \"tags=[x,y]\", \"name=TTT\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "encodedRecord",
+     "type": "String",
+     "rawValue": "\"123,,1700,AAA,BBB,$[v1:SSS,v2:[x,y],v1:TTT]&\""
+    },
+    {
+     "name": "machineEnum",
+     "type": "String[]",
+     "rawValue": "[\"123=TYPE1\", \"123=TYPE1\"]"
+    },
+    {
+     "name": "keyMap",
+     "type": "String[]",
+     "rawValue": "[\"v1=name\", \"v1=name\"]"
+    }
+   ],
+   "expectedRaw": "[\"machine_code=TYPE1\", \"timestamp=\", \"field1=1700\", \"field2=AAA\", \"name=SSS\", \"v2=[x,y]\", \"name=TTT\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "encodedRecord",
+     "type": "String",
+     "rawValue": "\"blue\""
+    },
+    {
+     "name": "machineEnum",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "keyMap",
+     "type": "String[]",
+     "rawValue": "[\"bc\"]"
+    }
+   ],
+   "expectedRaw": "[\"machine_code=blue\", \"timestamp=\", \"field1=\", \"field2=\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "encodedRecord",
+     "type": "String",
+     "rawValue": "\"7,9,A,B,$[raw:ok&\""
+    },
+    {
+     "name": "machineEnum",
+     "type": "String[]",
+     "rawValue": "[\"7=TYPE7\", \"7=TYPE7\", \"7=TYPE7\"]"
+    },
+    {
+     "name": "keyMap",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"machine_code=TYPE7\", \"timestamp=9\", \"field1=A\", \"field2=B\"]"
+  }
+ ]
+}

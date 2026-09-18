@@ -1,0 +1,128 @@
+{
+ "problemId": "pinterest-minimum-bus-routes",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "routes",
+     "type": "int[][]",
+     "rawValue": "[[3, 5, 7, 6], [3, 6, 7]]"
+    },
+    {
+     "name": "sourceStop",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "targetStop",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "routes",
+     "type": "int[][]",
+     "rawValue": "[[3, 6, 7]]"
+    },
+    {
+     "name": "sourceStop",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "targetStop",
+     "type": "int",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "routes",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [4, 4]]"
+    },
+    {
+     "name": "sourceStop",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "targetStop",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "routes",
+     "type": "int[][]",
+     "rawValue": "[[3, 5], [1, 5, 7]]"
+    },
+    {
+     "name": "sourceStop",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "targetStop",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "routes",
+     "type": "int[][]",
+     "rawValue": "[[3, 6], [1, 2, 7]]"
+    },
+    {
+     "name": "sourceStop",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "targetStop",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "routes",
+     "type": "int[][]",
+     "rawValue": "[[3, 3, 7]]"
+    },
+    {
+     "name": "sourceStop",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "targetStop",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

@@ -1,0 +1,188 @@
+{
+ "problemId": "hsbc-find-id-of-soldier",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "11"
+    },
+    {
+     "name": "actions",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "numSoldiers",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "swaps",
+     "type": "int[][]",
+     "rawValue": "[[1, 4], [1, 4]]"
+    },
+    {
+     "name": "posSoldier",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "-10"
+    },
+    {
+     "name": "actions",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "numSoldiers",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "swaps",
+     "type": "int[][]",
+     "rawValue": "[[1, 5], [10, 10]]"
+    },
+    {
+     "name": "posSoldier",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "actions",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "numSoldiers",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "swaps",
+     "type": "int[][]",
+     "rawValue": "[[1, 2]]"
+    },
+    {
+     "name": "posSoldier",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "-2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "actions",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "numSoldiers",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "swaps",
+     "type": "int[][]",
+     "rawValue": "[[1, 5], [6, 10]]"
+    },
+    {
+     "name": "posSoldier",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "actions",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "numSoldiers",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "swaps",
+     "type": "int[][]",
+     "rawValue": "[[1, 5], [10], [10]]"
+    },
+    {
+     "name": "posSoldier",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "-10"
+    },
+    {
+     "name": "actions",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "numSoldiers",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "swaps",
+     "type": "int[][]",
+     "rawValue": "[[1, 5], [6, -10, -10]]"
+    },
+    {
+     "name": "posSoldier",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "-3"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "oracle-enumerate-right-down-matrix-paths",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1, 4], [1, 1]]"
+    }
+   ],
+   "expectedRaw": "[\"DR\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1, 1]]"
+    }
+   ],
+   "expectedRaw": "[\"R\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0], [0, 1]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1], [0, 1]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [1, 1]]"
+    }
+   ],
+   "expectedRaw": "[\"DR\", \"RD\"]"
+  }
+ ]
+}

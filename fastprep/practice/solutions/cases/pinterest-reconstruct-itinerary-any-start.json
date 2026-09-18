@@ -1,0 +1,68 @@
+{
+ "problemId": "pinterest-reconstruct-itinerary-any-start",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[[\"LAX\", \"SFO\"], [\"LAX\", \"SFO\"]]"
+    }
+   ],
+   "expectedRaw": "[\"LAX\", \"SFO\", \"SFO\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"A\", \"B\"]]"
+    }
+   ],
+   "expectedRaw": "[\"A\", \"B\", \"B\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[[\"ATL\", \"LAX\"]]"
+    }
+   ],
+   "expectedRaw": "[\"ATL\", \"LAX\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[[\"SFO\", \"ATL\"]]"
+    }
+   ],
+   "expectedRaw": "[\"SFO\", \"ATL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[[\"ATL\", \"LAX\"], [\"SFO\", \"ATL\"]]"
+    }
+   ],
+   "expectedRaw": "[\"SFO\", \"ATL\", \"LAX\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"B\", \"A\"], [\"B\", \"A\"]]"
+    }
+   ],
+   "expectedRaw": "[\"B\", \"A\", \"B\", \"A\"]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-remove-k-digits",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "String",
+     "rawValue": "\"14432219\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"12219\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "String",
+     "rawValue": "\"102000\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "\"102000\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "String",
+     "rawValue": "\"100\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "\"0\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "String",
+     "rawValue": "\"1\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "String",
+     "rawValue": "\"432219\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "\"432219\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "\"dog\""
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-first-unique-character-stream",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"aaabc\""
+    }
+   ],
+   "expectedRaw": "\"a##bb\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"aab\""
+    }
+   ],
+   "expectedRaw": "\"a#b\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"aabbc\""
+    }
+   ],
+   "expectedRaw": "\"a#b#c\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"aabcc\""
+    }
+   ],
+   "expectedRaw": "\"a#bbb\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "stream",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "\"ddd\""
+  }
+ ]
+}

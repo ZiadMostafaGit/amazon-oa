@@ -1,0 +1,68 @@
+{
+ "problemId": "perplexity-ai-in-memory-filesystem-commands",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"MKDIR\", \"/docs\"], [\"CD\", \"/docs\"], [\"TOUCH\", \"drafts/plan\"], [\"LS\", \"/docs\"], [\"CD\", \"drafts\"], [\"RM\", \"plan\"], [\"CD\", \"/\"], [\"RMDIR\", \"/docs/drafts\"], [\"LS\", \"/docs\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"false\", \"\", \"false\", \"false\", \"true\", \"false\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CD\", \"/\"], [\"RMDIR\", \"/docs\"], [\"MKDIR\", \"/docs\"], [\"RM\", \"plan\"], [\"TOUCH\", \"drafts/plan\"], [\"TOUCH\", \"/docs/readme\"], [\"CD\", \"/\"], [\"RMDIR\", \"/docs/drafts\"], [\"CD\", \"drafts\"], [\"CD\", \"/docs\"], [\"LS\", \"/docs\"], [\"LS\", \"/docs\"], [\"LS\", \"/docs\"], [\"MKDIR\", \"drafts\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"true\", \"false\", \"false\", \"true\", \"true\", \"false\", \"false\", \"true\", \"readme\", \"readme\", \"readme\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"MKDIR\", \"/docs\"], [\"TOUCH\", \"/docs/readme\"], [\"CD\", \"/docs\"], [\"MKDIR\", \"drafts\"], [\"TOUCH\", \"drafts/plan\"], [\"LS\", \"/docs\"], [\"CD\", \"drafts\"], [\"RM\", \"plan\"], [\"RMDIR\", \"/docs/drafts\"], [\"LS\", \"/docs\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"true\", \"true\", \"true\", \"drafts,readme\", \"true\", \"true\", \"false\", \"drafts,readme\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"MKDIR\", \"/a\", \"MKDIR\"], [\"TOUCH\", \"/a/z\"], [\"TOUCH\", \"/a/m\"], [\"LS\", \"/\"], [\"LS\", \"/a\"], [\"LS\", \"/a/z\"], [\"CD\", \"/missing\"], [\"LS\", \"/a/z\"], [\"RM\", \"/a\"], [\"RMDIR\", \"/\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"true\", \"a\", \"m,z\", \"NULL\", \"false\", \"NULL\", \"false\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"LS\", \"/a/z\"], [\"RMDIR\", \"/\"], [\"RM\", \"/a\"], [\"LS\", \"/\"], [\"MKDIR\", \"/a\"], [\"MKDIR\", \"/b\"], [\"CD\", \"/missing\"], [\"LS\", \"/a\"], [\"TOUCH\", \"/a/z\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"false\", \"false\", \"\", \"true\", \"true\", \"false\", \"\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"MKDIR\", \"/docs\"], [\"TOUCH\", \"/docs/readme\"], [\"CD\", \"/docs\"], [\"RMDIR\", \"/docs\"], [\"MKDIR\", \"drafts\"], [\"TOUCH\", \"drafts/plan\"], [\"LS\", \"/docs\"], [\"CD\", \"drafts\"], [\"RM\", \"plan\"], [\"RMDIR\", \"/docs\"], [\"CD\", \"/\"], [\"RMDIR\", \"/docs/drafts\"], [\"LS\", \"/docs\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"true\", \"false\", \"true\", \"true\", \"drafts,readme\", \"true\", \"true\", \"false\", \"true\", \"true\", \"readme\"]"
+  }
+ ]
+}

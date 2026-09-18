@@ -1,0 +1,68 @@
+{
+ "problemId": "snorkel-ai-snapshot-map-sparse-history",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"PUT\", \"a\", \"blue\"], [\"GET\", \"a\"], [\"GET_AT\", \"a\", \"0\"], [\"GET_AT\", \"a\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"blue\", \"blue\", \"blue\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SNAPSHOT\"], [\"PUT\", \"a\", \"red\"], [\"GET_AT\", \"a\", \"0\"], [\"SNAPSHOT\"], [\"GET_AT\", \"a\", \"1\"], [\"GET\", \"a\"], [\"SNAPSHOT\"], [\"PUT\", \"a\", \"blue\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"<NULL>\", \"1\", \"red\", \"red\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET\", \"x\"], [\"GET\", \"x\"], [\"DELETE\", \"x\"], [\"SNAPSHOT\"], [\"GET_AT\", \"x\", \"0\"], [\"GET\", \"x\"]]"
+    }
+   ],
+   "expectedRaw": "[\"<NULL>\", \"<NULL>\", \"0\", \"<NULL>\", \"<NULL>\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"PUT\", \"a\", \"red\"], [\"SNAPSHOT\"], [\"PUT\", \"a\", \"blue\"], [\"GET_AT\", \"a\", \"0\"], [\"GET_AT\", \"a\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"red\", \"blue\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SNAPSHOT\"], [\"GET_AT\", \"a\", \"1\"], [\"PUT\", \"a\", \"red\"], [\"GET_AT\", \"a\", \"0\"], [\"GET\", \"a\"], [\"PUT\", \"a\", \"blue\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"<NULL>\", \"<NULL>\", \"red\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

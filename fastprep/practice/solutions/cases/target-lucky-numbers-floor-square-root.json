@@ -1,0 +1,98 @@
+{
+ "problemId": "target-lucky-numbers-floor-square-root",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "long",
+     "rawValue": "2"
+    },
+    {
+     "name": "r",
+     "type": "long",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "long",
+     "rawValue": "16"
+    },
+    {
+     "name": "r",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "r",
+     "type": "long",
+     "rawValue": "1000000000000000003"
+    }
+   ],
+   "expectedRaw": "2999999998"
+  },
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "long",
+     "rawValue": "1"
+    },
+    {
+     "name": "r",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "r",
+     "type": "long",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "long",
+     "rawValue": "1000000000000000000"
+    },
+    {
+     "name": "r",
+     "type": "long",
+     "rawValue": "999999999999999999"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

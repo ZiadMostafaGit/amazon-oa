@@ -1,0 +1,98 @@
+{
+ "problemId": "openai-backpropagation-through-sort-and-median",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double[]",
+     "rawValue": "[1.0, 1.0]"
+    },
+    {
+     "name": "v",
+     "type": "double[]",
+     "rawValue": "[1.0, 0.0, 1.0, 1.0]"
+    }
+   ],
+   "expectedRaw": "[1.0, -1.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double[]",
+     "rawValue": "[3.0, 2.0, 1.0]"
+    },
+    {
+     "name": "v",
+     "type": "double[]",
+     "rawValue": "[1.0, 1.0, 1.0, 1.0]"
+    }
+   ],
+   "expectedRaw": "[0.5, -1.0, 0.5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double[]",
+     "rawValue": "[1.0, 3.0]"
+    },
+    {
+     "name": "v",
+     "type": "double[]",
+     "rawValue": "[1.0, 1.0, 1.0, 1.0]"
+    }
+   ],
+   "expectedRaw": "[0.3333333333333333, -0.1111111111111111]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "v",
+     "type": "double[]",
+     "rawValue": "[-1.141]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double[]",
+     "rawValue": "[2.0, 1.0, 3.0]"
+    },
+    {
+     "name": "v",
+     "type": "double[]",
+     "rawValue": "[1.0, 1.0, 1.0]"
+    }
+   ],
+   "expectedRaw": "[-1.0, 0.5, 0.5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double[]",
+     "rawValue": "[2.386]"
+    },
+    {
+     "name": "v",
+     "type": "double[]",
+     "rawValue": "[0.997, 2.472, 1.08, -0.917, -4.035]"
+    }
+   ],
+   "expectedRaw": "[5.551115123125783e-17]"
+  }
+ ]
+}

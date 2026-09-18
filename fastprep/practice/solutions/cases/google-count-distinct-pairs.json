@@ -1,0 +1,68 @@
+{
+ "problemId": "google-count-distinct-pairs",
+ "generatedAt": "2026-09-18T23:33:42",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 156, 321, 231, 651, 32]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 23, 4738, 321, 72995, 4738, 231, 651, 32]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[231, 32, 23, 1, 651, 321, 4738, 321, 156, 72992]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[72992, 651, 1, 321, 156, 23, 4738, 231]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 23, 4738, 32, 72992, 156, 231, 321, 651]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

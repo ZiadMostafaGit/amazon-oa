@@ -1,0 +1,158 @@
+{
+ "problemId": "visa-grid-walk-with-teleports",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[[2, 5]]"
+    },
+    {
+     "name": "teleports",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 1, 1], [1, 2, 0, 2], [3, 2, 1, 1]]"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[[2, 0], [1, 0]]"
+    },
+    {
+     "name": "teleports",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 1, 1], [0, 3, 2, 1], [0, 3, 2, 1]]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[[1, 1]]"
+    },
+    {
+     "name": "teleports",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "teleports",
+     "type": "int[][]",
+     "rawValue": "[[0, 2, 0, 1], [0, 2, 0, 1], [0, 2, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "-2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "-4"
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "teleports",
+     "type": "int[][]",
+     "rawValue": "[[0, 2, 0, 1], [0, 2, 0, 1], [0, 2, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "obstacles",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [1, 1]]"
+    },
+    {
+     "name": "teleports",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

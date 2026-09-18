@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-longest-happy-prefix",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"leevel\""
+    }
+   ],
+   "expectedRaw": "\"l\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"levl\""
+    }
+   ],
+   "expectedRaw": "\"l\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"levell\""
+    }
+   ],
+   "expectedRaw": "\"l\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"leveel\""
+    }
+   ],
+   "expectedRaw": "\"l\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"levvel\""
+    }
+   ],
+   "expectedRaw": "\"l\""
+  }
+ ]
+}

@@ -1,0 +1,188 @@
+{
+ "problemId": "google-fastest-favorite-city-via-required-vertex",
+ "generatedAt": "2026-09-18T23:33:42",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 9,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "roads",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 2], [0, 3, 10], [2, 4, 1]]"
+    },
+    {
+     "name": "favorites",
+     "type": "int[]",
+     "rawValue": "[4, 4, 4]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "required",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "roads",
+     "type": "int[][]",
+     "rawValue": "[[2, 4, 1], [0, 3, 10], [0, 1, 2], [2, 4, 1], [1, 2, 2], [0, 1, 2]]"
+    },
+    {
+     "name": "favorites",
+     "type": "int[]",
+     "rawValue": "[4, 3, 4]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "required",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "roads",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 2], [1, 2, 2], [0, 3, 10]]"
+    },
+    {
+     "name": "favorites",
+     "type": "int[]",
+     "rawValue": "[4, 3, 4, 4]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "required",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "roads",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 2], [2, 2, 2], [0, 3, 10], [2, 4, 1]]"
+    },
+    {
+     "name": "favorites",
+     "type": "int[]",
+     "rawValue": "[3, 1]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "required",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "roads",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 2], [2, 2, 1], [0, 3, 10], [2, 4, 1]]"
+    },
+    {
+     "name": "favorites",
+     "type": "int[]",
+     "rawValue": "[3, 4]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "required",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "roads",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "favorites",
+     "type": "int[]",
+     "rawValue": "[-2]"
+    },
+    {
+     "name": "source",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "required",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

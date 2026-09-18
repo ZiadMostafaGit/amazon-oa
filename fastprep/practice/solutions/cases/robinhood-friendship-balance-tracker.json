@@ -1,0 +1,68 @@
+{
+ "problemId": "robinhood-friendship-balance-tracker",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"3 REQUEST a b\", \"5 TRANSFER a b 30\"]"
+    }
+   ],
+   "expectedRaw": "[\"3 REJECTED\", \"5 REJECTED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"1 REGISTERa 5\", \"1 REGISTER a 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"1 REJECTED\", \"1 OK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"2 REGISTER a 9\", \"2 REGISTER a 9\"]"
+    }
+   ],
+   "expectedRaw": "[\"2 OK\", \"2 REJECTED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"1 REGISTER a 100\", \"3 REQUEST a b\", \"4 ACCEPT 3\"]"
+    }
+   ],
+   "expectedRaw": "[\"1 OK\", \"3 REJECTED\", \"4 REJECTED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"1 REGISTER a 100\", \"3 REQUEST a b\", \"4 ACCEPT 3\", \"5 TRANNSFER a b 30\"]"
+    }
+   ],
+   "expectedRaw": "[\"1 OK\", \"3 REJECTED\", \"4 REJECTED\", \"5 REJECTED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"3 REQUEST a b\", \"5 TRANSFER a b 30\", \"2 REGISTER b 0\", \"1 REGISTER a 100\"]"
+    }
+   ],
+   "expectedRaw": "[\"3 REJECTED\", \"5 REJECTED\", \"2 OK\", \"1 OK\"]"
+  }
+ ]
+}

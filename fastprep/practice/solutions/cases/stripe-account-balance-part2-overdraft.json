@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-account-balance-part2-overdraft",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_B,50\", \"account_B,-100\"]"
+    }
+   ],
+   "expectedRaw": "[\"account_B,-100\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,-80\", \"account_A,-150\", \"account_B,50\", \"account_B,-100\", \"account_A,100\", \"account_B,-100\"]"
+    }
+   ],
+   "expectedRaw": "[\"account_A,-80\", \"account_A,-150\", \"account_B,-100\", \"account_B,-100\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,-40\", \"account_A,-1\"]"
+    }
+   ],
+   "expectedRaw": "[\"account_A,-40\", \"account_A,-1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,40\", \"account_A,40\", \"account_A,-40\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,-40\"]"
+    }
+   ],
+   "expectedRaw": "[\"account_A,-40\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,40\", \"account_A,-1\", \"account_A,-1\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

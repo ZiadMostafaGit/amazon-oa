@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-prefix-search-collection",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"INSERT moneypot\", \"INSERT monitor\", \"INSERT mousepad\", \"SEARCH mou\"]"
+    }
+   ],
+   "expectedRaw": "[[\"mousepad\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"INSERT mobile\", \"INSERT mouse\", \"INSERT mousepad\", \"SEARCH mo\", \"SEARCH mou\", \"INSERT monitor\", \"SEARCH mo\", \"INSERT moneypot\"]"
+    }
+   ],
+   "expectedRaw": "[[\"mobile\", \"mouse\", \"mousepad\"], [\"mouse\", \"mousepad\"], [\"mobile\", \"monitor\", \"mouse\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"INSERT mouse\", \"INSERT moneypot\", \"INSERT monitor\", \"INSERT mouse\", \"INSERT mousepad\", \"INSERT mouse\", \"SEARCH mo\", \"SEARCH mou\"]"
+    }
+   ],
+   "expectedRaw": "[[\"moneypot\", \"monitor\", \"mouse\"], [\"mouse\", \"mousepad\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"INSERT mouse\", \"INSERT mobile\", \"INSERT moneypot\", \"INSERT mousepad\", \"SEARCH mou\"]"
+    }
+   ],
+   "expectedRaw": "[[\"mouse\", \"mousepad\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SEARCH mo\", \"SEARCH mou\", \"INSERT mouse\", \"INSERT mousepad\", \"INSERT monitor\", \"INSERT moneypot\"]"
+    }
+   ],
+   "expectedRaw": "[[], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SEARCH mou\", \"INSERT mobile\", \"INSERT moneypot\", \"INSERT monitor\", \"INSERT mousepad\", \"SEARCH mo\", \"SEARCH mou\"]"
+    }
+   ],
+   "expectedRaw": "[[], [\"mobile\", \"moneypot\", \"monitor\"], [\"mousepad\"]]"
+  }
+ ]
+}

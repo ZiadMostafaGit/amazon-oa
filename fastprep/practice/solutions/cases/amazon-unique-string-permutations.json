@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-unique-string-permutations",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aaab\""
+    }
+   ],
+   "expectedRaw": "[\"aaab\", \"aaba\", \"abaa\", \"baaa\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ab\""
+    }
+   ],
+   "expectedRaw": "[\"ab\", \"ba\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aabb\""
+    }
+   ],
+   "expectedRaw": "[\"aabb\", \"abab\", \"abba\", \"baab\", \"baba\", \"bbaa\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "[\"dgo\", \"dog\", \"gdo\", \"god\", \"odg\", \"ogd\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "[\"belu\", \"beul\", \"bleu\", \"blue\", \"buel\", \"bule\", \"eblu\", \"ebul\", \"elbu\", \"elub\", \"eubl\", \"eulb\", \"lbeu\", \"lbue\", \"lebu\", \"leub\", \"lube\", \"lueb\", \"ubel\", \"uble\", \"uebl\", \"uelb\", \"ulbe\", \"uleb\"]"
+  }
+ ]
+}

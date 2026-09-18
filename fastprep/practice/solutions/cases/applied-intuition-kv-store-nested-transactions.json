@@ -1,0 +1,68 @@
+{
+ "problemId": "applied-intuition-kv-store-nested-transactions",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"GET a\", \"GET a\", \"GET a\"]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"NULL\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"GET a\", \"GET a\", \"SET a 10\"]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"GET a\"]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"SET a 10\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"SET a 10\", \"GET a\", \"GET a\"]"
+    }
+   ],
+   "expectedRaw": "[\"10\", \"10\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"abc\", \"0\", \"10\", \"0\", \"red\", \"1\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

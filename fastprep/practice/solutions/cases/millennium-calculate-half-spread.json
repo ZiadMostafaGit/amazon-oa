@@ -1,0 +1,158 @@
+{
+ "problemId": "millennium-calculate-half-spread",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "baseHalfSpread",
+     "type": "double",
+     "rawValue": "0.02"
+    },
+    {
+     "name": "volatility",
+     "type": "double",
+     "rawValue": "0.5"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "-0.245"
+    },
+    {
+     "name": "minimumHalfSpread",
+     "type": "double",
+     "rawValue": "0.0"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "baseHalfSpread",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "volatility",
+     "type": "double",
+     "rawValue": "0.1"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "2.17"
+    },
+    {
+     "name": "minimumHalfSpread",
+     "type": "double",
+     "rawValue": "0.0"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "baseHalfSpread",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "volatility",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "1.0"
+    },
+    {
+     "name": "minimumHalfSpread",
+     "type": "double",
+     "rawValue": "-0.104"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "baseHalfSpread",
+     "type": "double",
+     "rawValue": "0.02"
+    },
+    {
+     "name": "volatility",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "-0.607"
+    },
+    {
+     "name": "minimumHalfSpread",
+     "type": "double",
+     "rawValue": "0.03"
+    }
+   ],
+   "expectedRaw": "0.03"
+  },
+  {
+   "inputs": [
+    {
+     "name": "baseHalfSpread",
+     "type": "double",
+     "rawValue": "1.282"
+    },
+    {
+     "name": "volatility",
+     "type": "double",
+     "rawValue": "-3.704"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "-3.814"
+    },
+    {
+     "name": "minimumHalfSpread",
+     "type": "double",
+     "rawValue": "-0.21"
+    }
+   ],
+   "expectedRaw": "0.908896"
+  },
+  {
+   "inputs": [
+    {
+     "name": "baseHalfSpread",
+     "type": "double",
+     "rawValue": "-4.188"
+    },
+    {
+     "name": "volatility",
+     "type": "double",
+     "rawValue": "-0.746"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "-4.14"
+    },
+    {
+     "name": "minimumHalfSpread",
+     "type": "double",
+     "rawValue": "-1.902"
+    }
+   ],
+   "expectedRaw": "0.256945"
+  }
+ ]
+}

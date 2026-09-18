@@ -1,0 +1,98 @@
+{
+ "problemId": "bytedance-binary-tree-target-sum-paths",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]"
+    },
+    {
+     "name": "targetSum",
+     "type": "int",
+     "rawValue": "23"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "null"
+    },
+    {
+     "name": "targetSum",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]"
+    },
+    {
+     "name": "targetSum",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]"
+    },
+    {
+     "name": "targetSum",
+     "type": "int",
+     "rawValue": "19"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[1, 2, 3]"
+    },
+    {
+     "name": "targetSum",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[[1, 2]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]"
+    },
+    {
+     "name": "targetSum",
+     "type": "int",
+     "rawValue": "20"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "spacex-monster-registry",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 142,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "databaseRows",
+     "type": "String[]",
+     "rawValue": "[\"ID,Name,Types,Weaknesses,Evolution\", \"005,Banubeleon,Fire,\\\"Ground,Rock,Water\\\",006\", \"004,Banub,Fire,\\\"Ground,Rock,Water\\\",005\", \"006,Banubizard,\\\"Fire,Flying\\\",\\\"Rock,Electric,Water\\\",\", \"044,Octoplat,\\\"Grass,Poison\\\",\\\"Fire,Flying,Ice,Psychic\\\",\\\"045,182\\\"\", \"043,Octopeat,\\\"Grass,Poison\\\",\\\"Fire,Flying,Ice,Psychic\\\",044\"]"
+    },
+    {
+     "name": "monsterName",
+     "type": "String",
+     "rawValue": "\"Banubeleon\""
+    }
+   ],
+   "expectedRaw": "\"ID:\\n    005\\nStrong against:\\n    Octopeat\\n    Octoplat\\nWeak against:\\n    None\\nEvolution:\\n    Banubeleon > Banubizard\\n\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "databaseRows",
+     "type": "String[]",
+     "rawValue": "[\"ID,Name,Types,Weaknesses,Evolution\", \"004,Banub,Fire,\\\"Ground,Rock,Water\\\",005\", \"005,Banubeleon,Fire,\\\"Ground,Rock,Water\\\",006\", \"006,Banubizard,\\\"Fire,Flying\\\",\\\"Rock,Electric,Water\\\",\", \"043,Octopeat,\\\"Grass,Poison\\\",\\\"Fire,Flying,Ice,PPsychic\\\",044\", \"045,Octonyte,\\\"Grass,Poison\\\",\\\"Fire,Flying,Ice,Psychic\\\",\", \"182,Bibyss,Grass,\\\"Bug,Fire,Flying,Ice,Poison\\\",\"]"
+    },
+    {
+     "name": "monsterName",
+     "type": "String",
+     "rawValue": "\"Banubeleon\""
+    }
+   ],
+   "expectedRaw": "\"ID:\\n    005\\nStrong against:\\n    Octopeat\\n    Octonyte\\n    Bibyss\\nWeak against:\\n    None\\nEvolution:\\n    Banubeleon > Banubizard\\n\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "databaseRows",
+     "type": "String[]",
+     "rawValue": "[\"ID,Name,Types,Weaknesses,Evolution\", \"005,Banubeleon,Fire,\\\"Ground,Rock,Water\\\",006\", \"006,Banubizard,\\\"Fire,Flying\\\",\\\"Rock,Electric,Water\\\",\", \"043,Octoppeat,\\\"Grass,Poison\\\",\\\"Fire,Flying,Ice,Psychic\\\",044\", \"044,Octoplat,\\\"Grass,Poison\\\",\\\"Fire,Flying,Ice,Psychic\\\",\\\"045,182\\\"\", \"045,Octonyte,\\\"Grass,Poison\\\",\\\"Fire,Flying,Ice,Psychic\\\",\", \"182,Bibyss,Grass,\\\"Bug,Fire,Flying,Ice,Poison\\\",\"]"
+    },
+    {
+     "name": "monsterName",
+     "type": "String",
+     "rawValue": "\"Octoppeat\""
+    }
+   ],
+   "expectedRaw": "\"ID:\\n    043\\nStrong against:\\n    Bibyss\\nWeak against:\\n    Banubeleon\\n    Banubizard\\nEvolution:\\n    Octoppeat > Octoplat > Octonyte\\n    Octoppeat > Octoplat > Bibyss\\n\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "databaseRows",
+     "type": "String[]",
+     "rawValue": "[\"ID,Name,Types,Weaknesses,Evolution\", \"005,Banubeleon,Fire,\\\"Ground,Rock,Water\\\",006\", \"045,Octonyte,\\\"Grass,Poison\\\",\\\"Fire,Flying,Ice,Psychic\\\",\", \"182,Bibyss,Grass,\\\"Bug,Fire,Flying,Ice,Poison\\\",\", \"044,Octoplat,\\\"Grass,Poison\\\",\\\"Fire,Flyng,Ice,Psychic\\\",\\\"045,182\\\"\", \"006,Banubizard,\\\"Fire,Flying\\\",\\\"Rock,Electric,Water\\\",\", \"043,Octopeat,\\\"Grass,Poison\\\",\\\"Fire,Flying,Ice,Psychic\\\",044\"]"
+    },
+    {
+     "name": "monsterName",
+     "type": "String",
+     "rawValue": "\"Banubeleon\""
+    }
+   ],
+   "expectedRaw": "\"ID:\\n    005\\nStrong against:\\n    Octopeat\\n    Octoplat\\n    Octonyte\\n    Bibyss\\nWeak against:\\n    None\\nEvolution:\\n    Banubeleon > Banubizard\\n\""
+  }
+ ]
+}

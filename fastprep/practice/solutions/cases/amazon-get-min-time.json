@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-get-min-time",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "total_servers",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "servers",
+     "type": "int[]",
+     "rawValue": "[6, 8]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "total_servers",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "servers",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "total_servers",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "servers",
+     "type": "int[]",
+     "rawValue": "[5, 1, 5]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "total_servers",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "servers",
+     "type": "int[]",
+     "rawValue": "[4, 6, 9, 4, 2, 9]"
+    }
+   ],
+   "expectedRaw": "-3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "total_servers",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "servers",
+     "type": "int[]",
+     "rawValue": "[4, 6, 6, 2, 9]"
+    }
+   ],
+   "expectedRaw": "-3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "total_servers",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "servers",
+     "type": "int[]",
+     "rawValue": "[5]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

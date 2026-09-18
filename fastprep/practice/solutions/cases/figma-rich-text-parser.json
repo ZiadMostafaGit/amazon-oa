@@ -1,0 +1,68 @@
+{
+ "problemId": "figma-rich-text-parser",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 10,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"2\", \"b\", \"1\"]"
+    }
+   ],
+   "expectedRaw": "\"[[['b']]]\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"3\", \"a\", \"2\", \"b\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "\"[[[['a'], 'b']]]\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"3\", \"a\", \"3\", \"b\"]"
+    }
+   ],
+   "expectedRaw": "\"[[[['a', 'b']]]]\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"a\", \"1\", \"b\", \"1\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "\"[['a', 'b', 'a']]\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"3\", \"b\"]"
+    }
+   ],
+   "expectedRaw": "\"[['3']]\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"cat\", \"b\"]"
+    }
+   ],
+   "expectedRaw": "\"[['cat']]\""
+  }
+ ]
+}

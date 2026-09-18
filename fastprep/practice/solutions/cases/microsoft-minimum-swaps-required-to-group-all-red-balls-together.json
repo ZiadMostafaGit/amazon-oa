@@ -1,0 +1,68 @@
+{
+ "problemId": "microsoft-minimum-swaps-required-to-group-all-red-balls-together",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "colors",
+     "type": "String",
+     "rawValue": "\"WWRWWWWWWWWWWRWR\""
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "colors",
+     "type": "String",
+     "rawValue": "\"WRRR\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "colors",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "colors",
+     "type": "String",
+     "rawValue": "\"WRRWRRW\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "colors",
+     "type": "String",
+     "rawValue": "\"WRRWWR\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "colors",
+     "type": "String",
+     "rawValue": "\"WRRRWR\""
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

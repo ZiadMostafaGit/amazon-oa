@@ -1,0 +1,98 @@
+{
+ "problemId": "attentive-remove-adjacent-duplicates-ii",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"deeeedbbcccbdaa\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"deddaa\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"pbbcggttciiippooaaais\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "\"pbbcggttciiippooaaais\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abccd\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "\"abccd\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abd\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"abd\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"eeedbbcccbdaa\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "\"eeedbbcccbdaa\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "\"dog\""
+  }
+ ]
+}

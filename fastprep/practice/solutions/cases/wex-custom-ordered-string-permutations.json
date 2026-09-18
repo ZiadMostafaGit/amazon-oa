@@ -1,0 +1,68 @@
+{
+ "problemId": "wex-custom-ordered-string-permutations",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"00aA\""
+    }
+   ],
+   "expectedRaw": "[\"00aA\", \"00Aa\", \"0a0A\", \"0aA0\", \"0A0a\", \"0Aa0\", \"a00A\", \"a0A0\", \"aA00\", \"A00a\", \"A0a0\", \"Aa00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"0A\""
+    }
+   ],
+   "expectedRaw": "[\"0A\", \"A0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"b1bb\""
+    }
+   ],
+   "expectedRaw": "[\"1bbb\", \"b1bb\", \"bb1b\", \"bbb1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"b1\""
+    }
+   ],
+   "expectedRaw": "[\"1b\", \"b1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"0a\""
+    }
+   ],
+   "expectedRaw": "[\"0a\", \"a0\"]"
+  }
+ ]
+}

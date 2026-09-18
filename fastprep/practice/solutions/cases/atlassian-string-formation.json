@@ -1,0 +1,98 @@
+{
+ "problemId": "atlassian-string-formation",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"efg\", \"efg\"]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"efg\""
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"adc\", \"aec\"]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"adc\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"0\"]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"aec\", \"adc\", \"aec\", \"efg\"]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"ac\""
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"aec\", \"adc\", \"efg\"]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"adc\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"adc\", \"aec\", \"efg\", \"adc\"]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"efg\""
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

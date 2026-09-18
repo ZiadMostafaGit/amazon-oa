@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-get-redundant-substrings",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"abbbacc\""
+    },
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"abbacc\""
+    },
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"abbacc\""
+    },
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"abbbacc\""
+    },
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"abacc\""
+    },
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

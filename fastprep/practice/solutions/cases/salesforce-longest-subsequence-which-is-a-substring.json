@@ -1,0 +1,98 @@
+{
+ "problemId": "salesforce-longest-subsequence-which-is-a-substring",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"abcd\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"abcd\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"abdc\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"abdc\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"abdc\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"abcd\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"cat\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

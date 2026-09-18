@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-find-minimum-city-hops",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"acd\"]"
+    },
+    {
+     "name": "startCity",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "endCity",
+     "type": "String",
+     "rawValue": "\"xyz\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"abd\", \"xyz\", \"abd\"]"
+    },
+    {
+     "name": "startCity",
+     "type": "String",
+     "rawValue": "\"abd\""
+    },
+    {
+     "name": "endCity",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"1\", \"ab\", \"cat\"]"
+    },
+    {
+     "name": "startCity",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "endCity",
+     "type": "String",
+     "rawValue": "\"yz\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"abd\", \"xyz\", \"xyz\"]"
+    },
+    {
+     "name": "startCity",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "endCity",
+     "type": "String",
+     "rawValue": "\"abd\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"acd\", \"abd\", \"acd\", \"abd\"]"
+    },
+    {
+     "name": "startCity",
+     "type": "String",
+     "rawValue": "\"abd\""
+    },
+    {
+     "name": "endCity",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cities",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"acd\", \"xyz\", \"abd\"]"
+    },
+    {
+     "name": "startCity",
+     "type": "String",
+     "rawValue": "\"xyz\""
+    },
+    {
+     "name": "endCity",
+     "type": "String",
+     "rawValue": "\"acd\""
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

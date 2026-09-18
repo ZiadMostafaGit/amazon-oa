@@ -1,0 +1,68 @@
+{
+ "problemId": "linkedin-n-ary-tree-codec-operations",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DESERIALIZE\", \"7:3|8:0|9:1|10:0|11:0\"], [\"SERIALIZE\", \"1(2,3(4,5))\"], [\"SERIALIZE\", \"1(2,3(4,5))\"]]"
+    }
+   ],
+   "expectedRaw": "[\"7(8,9(10),11)\", \"1:2|2:0|3:2|4:0|5:0\", \"1:2|2:0|3:2|4:0|5:0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DESERIALIZE\", \"5:2|6:0|7:0\"]]"
+    }
+   ],
+   "expectedRaw": "[\"5(6,7)\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SERIALIZE\", \"1(2,3(4,5))\"], [\"DESERIALIZE\", \"7:3|8:0|9:1|10:0|11:0\", \"7:3|8:0|9:1|10:0|11:0\"]]"
+    }
+   ],
+   "expectedRaw": "[\"1:2|2:0|3:2|4:0|5:0\", \"7(8,9(10),11)\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DESERIALIZE\", \"5:2|6:0|7:0\"], [\"SERIALIZE\", \"42\"], [\"DESERIALIZE\", \"5:2|6:0|7:0\"], [\"DESERIALIZE\", \"5:2|6:0|7:0\"]]"
+    }
+   ],
+   "expectedRaw": "[\"5(6,7)\", \"42:0\", \"5(6,7)\", \"5(6,7)\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DESERIALIZE\", \"1:1|2:1|3:1|4:0\", \"1:1|2:|3:1|4:0\"], [\"SERIALIZE\", \"0(10(20),30)\"]]"
+    }
+   ],
+   "expectedRaw": "[\"1(2(3(4)))\", \"0:2|10:1|20:0|30:0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SERIALIZE\", \"42\"], [\"DESERIALIZE\", \"5:2|6:0|7:0\"], [\"DESERIALIZE\", \"5:2|6:0|7:0\"]]"
+    }
+   ],
+   "expectedRaw": "[\"42:0\", \"5(6,7)\", \"5(6,7)\"]"
+  }
+ ]
+}

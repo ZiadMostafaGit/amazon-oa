@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-get-data-dependence-sum",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "14"
+    }
+   ],
+   "expectedRaw": "31"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "12"
+    }
+   ],
+   "expectedRaw": "28"
+  }
+ ]
+}

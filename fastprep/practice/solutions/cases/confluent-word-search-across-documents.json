@@ -1,0 +1,98 @@
+{
+ "problemId": "confluent-word-search-across-documents",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"green blue\", \"green blue\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"green blue\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"red blue green\", \"bluebird flies\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"0\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"bluebird flies\", \"red blue green\", \"bluebird flies\", \"green blue\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "[1, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"bluebird flies\", \"bluuebird flies\", \"green blue\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"red blue green\", \"bluebird flies\", \"green blue\", \"red blue green\"]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"green blue\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

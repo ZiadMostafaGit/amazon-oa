@@ -1,0 +1,98 @@
+{
+ "problemId": "astrotalk-edit-distance",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"horse\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"horse\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"ros\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"ros\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"eat\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"sea\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"ros\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"horse\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"eat\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"eat\""
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

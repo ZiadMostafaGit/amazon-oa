@@ -1,0 +1,68 @@
+{
+ "problemId": "matroid-validate-3x3-digit-windows",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 11,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 3, 2, 5, 7], [7, 8, 9, 4, 8, 3], [1, 2, 3, 2, 5, 7], [4, 5, 6, 1, 7, 6]]"
+    }
+   ],
+   "expectedRaw": "[false, false, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[][]",
+     "rawValue": "[[4, 5, 6, 1, 7, 6], [4, 6, 1, 4, 7, 6], [7, 8, 9, 4, 8, 3]]"
+    }
+   ],
+   "expectedRaw": "[false, false, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[][]",
+     "rawValue": "[[1, 5, 5, 2, 2], [4, 5, 6, 1, 7, 6], [7, 8, 9, 4, 8, 3], [1, 2, 3, 2, 5, 7]]"
+    }
+   ],
+   "expectedRaw": "[false, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[][]",
+     "rawValue": "[[7, 8, 9, 4, 8, 3], [4, 5, 6, 1, 7, 6], [7, 8, 9, 4, 8, 3]]"
+    }
+   ],
+   "expectedRaw": "[false, false, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 3, 2, 5, 7], [7, 8, 9, 4, 8, 3], [4, 5, 6, 1, 7, 6], [7, 8, 9, 4, 8, 3], [1, 2, 3, 2, 5, 7]]"
+    }
+   ],
+   "expectedRaw": "[true, false, true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[][]",
+     "rawValue": "[[2, 3, 2, 6, 7], [4, 5, 6, 1, 7], [1, 2, 3, 2, 5, 7], [7, 8, 9, 4, 8, 3]]"
+    }
+   ],
+   "expectedRaw": "[false, false, false]"
+  }
+ ]
+}

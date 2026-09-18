@@ -1,0 +1,98 @@
+{
+ "problemId": "meta-exclusive-user-dictionary-values",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "userValues",
+     "type": "String[][]",
+     "rawValue": "[[\"yellow\"], [\"yellow\"]]"
+    },
+    {
+     "name": "currentUser",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userValues",
+     "type": "String[][]",
+     "rawValue": "[[\"x\"]]"
+    },
+    {
+     "name": "currentUser",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"x\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userValues",
+     "type": "String[][]",
+     "rawValue": "[[\"x\"], [\"x\"], [\"x\"], [\"x\"]]"
+    },
+    {
+     "name": "currentUser",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userValues",
+     "type": "String[][]",
+     "rawValue": "[[\"x\"], [\"x\"]]"
+    },
+    {
+     "name": "currentUser",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userValues",
+     "type": "String[][]",
+     "rawValue": "[[\"x\"], [\"x\"], [\"x\"], [\"x\"]]"
+    },
+    {
+     "name": "currentUser",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userValues",
+     "type": "String[][]",
+     "rawValue": "[[\"red\", \"blue\"], [\"red\", \"blue\"], [\"blue\", \"green\", \"green\"]]"
+    },
+    {
+     "name": "currentUser",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

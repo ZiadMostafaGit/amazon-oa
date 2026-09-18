@@ -1,0 +1,68 @@
+{
+ "problemId": "openai-key-value-store-operations",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"a\", \"-2\"], [\"GET\", \"a\"], [\"DELETE\", \"a\"], [\"DELETE\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[\"VALUE:-2\", \"true\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"only\", \"-2147483648\"], [\"-2147483648\", \"-2147483648\", \"only\", \"-2147483648\"], [\"SET\", \"only\", \"-2147483648\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"only\", \"-2147483648\"], [\"SET\", \"only\", \"-2147483648\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DELETE\", \"a\"], [\"GET\", \"a\"], [\"SET\", \"a\", \"1\"], [\"DELETE\", \"a\"], [\"GET\", \"a\"], [\"-2\"]]"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"NULL\", \"true\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"a\", \"1\"], [\"SET\", \"a\", \"-2\"], [\"GET\", \"1\"], [\"DELETE\", \"a\"], [\"GET\", \"a\"], [\"DELETE\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"true\", \"NULL\", \"false\"]"
+  }
+ ]
+}

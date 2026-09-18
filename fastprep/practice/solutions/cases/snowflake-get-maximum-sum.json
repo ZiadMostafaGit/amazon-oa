@@ -1,0 +1,128 @@
+{
+ "problemId": "snowflake-get-maximum-sum",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "no_adjacent",
+     "type": "int[]",
+     "rawValue": "[3]"
+    },
+    {
+     "name": "one_adjacent",
+     "type": "int[]",
+     "rawValue": "[1, 5, 4]"
+    },
+    {
+     "name": "both_adjacent",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1, 1, 0]"
+    }
+   ],
+   "expectedRaw": "12"
+  },
+  {
+   "inputs": [
+    {
+     "name": "no_adjacent",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "one_adjacent",
+     "type": "int[]",
+     "rawValue": "[4, -5, -4]"
+    },
+    {
+     "name": "both_adjacent",
+     "type": "int[]",
+     "rawValue": "[3, -6]"
+    }
+   ],
+   "expectedRaw": "\"-inf\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "no_adjacent",
+     "type": "int[]",
+     "rawValue": "[4, 1, 3]"
+    },
+    {
+     "name": "one_adjacent",
+     "type": "int[]",
+     "rawValue": "[4, 7, 2, 2, 1]"
+    },
+    {
+     "name": "both_adjacent",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0]"
+    }
+   ],
+   "expectedRaw": "17"
+  },
+  {
+   "inputs": [
+    {
+     "name": "no_adjacent",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3, -4]"
+    },
+    {
+     "name": "one_adjacent",
+     "type": "int[]",
+     "rawValue": "[4, 4, 2, 2, 1]"
+    },
+    {
+     "name": "both_adjacent",
+     "type": "int[]",
+     "rawValue": "[0, -1, 1, 0]"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "no_adjacent",
+     "type": "int[]",
+     "rawValue": "[1, 3, 4]"
+    },
+    {
+     "name": "one_adjacent",
+     "type": "int[]",
+     "rawValue": "[4, 1, 2, 4]"
+    },
+    {
+     "name": "both_adjacent",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1]"
+    }
+   ],
+   "expectedRaw": "13"
+  },
+  {
+   "inputs": [
+    {
+     "name": "no_adjacent",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3, 4]"
+    },
+    {
+     "name": "one_adjacent",
+     "type": "int[]",
+     "rawValue": "[2, 1, 4, 1]"
+    },
+    {
+     "name": "both_adjacent",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1, 1, 1, 0]"
+    }
+   ],
+   "expectedRaw": "11"
+  }
+ ]
+}

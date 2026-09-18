@@ -1,0 +1,98 @@
+{
+ "problemId": "pinterest-mark-deleted-forest-subtree",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[2, 0, 0, 2]"
+    },
+    {
+     "name": "deleteIndex",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[2, 4, 4, 0, 0, 0, 0]"
+    },
+    {
+     "name": "deleteIndex",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, -1, -1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "deleteIndex",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[0, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1]"
+    },
+    {
+     "name": "deleteIndex",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[0, 1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 4, 4, 4]"
+    },
+    {
+     "name": "deleteIndex",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0, -1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 2, 4, 0]"
+    },
+    {
+     "name": "deleteIndex",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, -1, 4, -1]"
+  }
+ ]
+}

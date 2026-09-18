@@ -1,0 +1,128 @@
+{
+ "problemId": "tokopedia-interleaving-string",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s1",
+     "type": "String",
+     "rawValue": "\"dbbca\""
+    },
+    {
+     "name": "s2",
+     "type": "String",
+     "rawValue": "\"aabcc\""
+    },
+    {
+     "name": "s3",
+     "type": "String",
+     "rawValue": "\"aabcc\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s1",
+     "type": "String",
+     "rawValue": "\"aadbbcbcac\""
+    },
+    {
+     "name": "s2",
+     "type": "String",
+     "rawValue": "\"dbbca\""
+    },
+    {
+     "name": "s3",
+     "type": "String",
+     "rawValue": "\"aadbbcbcac\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s1",
+     "type": "String",
+     "rawValue": "\"aadbbbaccc\""
+    },
+    {
+     "name": "s2",
+     "type": "String",
+     "rawValue": "\"dbbca\""
+    },
+    {
+     "name": "s3",
+     "type": "String",
+     "rawValue": "\"aabcc\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s1",
+     "type": "String",
+     "rawValue": "\"aabcc\""
+    },
+    {
+     "name": "s2",
+     "type": "String",
+     "rawValue": "\"aadbbbaccc\""
+    },
+    {
+     "name": "s3",
+     "type": "String",
+     "rawValue": "\"dbbca\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s1",
+     "type": "String",
+     "rawValue": "\"aadbbcbcac\""
+    },
+    {
+     "name": "s2",
+     "type": "String",
+     "rawValue": "\"dbbca\""
+    },
+    {
+     "name": "s3",
+     "type": "String",
+     "rawValue": "\"aabcc\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s1",
+     "type": "String",
+     "rawValue": "\"dbbca\""
+    },
+    {
+     "name": "s2",
+     "type": "String",
+     "rawValue": "\"aadbbcbcac\""
+    },
+    {
+     "name": "s3",
+     "type": "String",
+     "rawValue": "\"aabcc\""
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

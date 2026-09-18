@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-find-maximum-num",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "answered",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "needed",
+     "type": "int[]",
+     "rawValue": "[51, 98, 100, 52]"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "-100"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "answered",
+     "type": "int[]",
+     "rawValue": "[4, 2]"
+    },
+    {
+     "name": "needed",
+     "type": "int[]",
+     "rawValue": "[5, 5]"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "answered",
+     "type": "int[]",
+     "rawValue": "[2, 4]"
+    },
+    {
+     "name": "needed",
+     "type": "int[]",
+     "rawValue": "[5]"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "answered",
+     "type": "int[]",
+     "rawValue": "[0, 27, 0, 24]"
+    },
+    {
+     "name": "needed",
+     "type": "int[]",
+     "rawValue": "[100, 27, 51]"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "103"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "answered",
+     "type": "int[]",
+     "rawValue": "[27, 0]"
+    },
+    {
+     "name": "needed",
+     "type": "int[]",
+     "rawValue": "[100, 52, 100]"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "203"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "answered",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "needed",
+     "type": "int[]",
+     "rawValue": "[-2, -3]"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

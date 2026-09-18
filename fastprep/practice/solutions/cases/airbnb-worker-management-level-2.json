@@ -1,0 +1,68 @@
+{
+ "problemId": "airbnb-worker-management-level-2",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 11,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"1\", \"abc\", \"bc\", \"cat\", \"x\", \"abc\"], [\"cat\", \"10\"], [\"yz\", \"dog\", \"0\", \"abc\", \"x\", \"bc\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"red\", \"1\", \"red\", \"abc\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"abc\", \"abc\", \"blue\"], [\"abc\", \"bc\", \"0\", \"blue\", \"1\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"dog\", \"abc\"], [\"a\", \"0\", \"bc\", \"b\", \"abc\", \"blue\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"1\", \"10\", \"a\", \"ab\"], [\"red\"], [\"abc\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  }
+ ]
+}

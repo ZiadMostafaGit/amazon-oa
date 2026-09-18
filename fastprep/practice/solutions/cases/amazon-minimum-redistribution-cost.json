@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-minimum-redistribution-cost",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "int[]",
+     "rawValue": "[1, 11, 1, 1, 1, 1]"
+    }
+   ],
+   "expectedRaw": "23"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "int[]",
+     "rawValue": "[6, 0]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "int[]",
+     "rawValue": "[3]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "int[]",
+     "rawValue": "[6]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "products",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

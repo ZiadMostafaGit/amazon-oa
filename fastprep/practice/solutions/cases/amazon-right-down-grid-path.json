@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-right-down-grid-path",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"OOO\", \"OOO\"]"
+    },
+    {
+     "name": "source",
+     "type": "int[]",
+     "rawValue": "[0, 3]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[2, 0]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"OOO\", \"OXO\"]"
+    },
+    {
+     "name": "source",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[2, 2, 2]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"OOO\", \"OOO\", \"OOO\"]"
+    },
+    {
+     "name": "source",
+     "type": "int[]",
+     "rawValue": "[0, 3]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"OOO\", \"OOO\", \"OOO\"]"
+    },
+    {
+     "name": "source",
+     "type": "int[]",
+     "rawValue": "[0, 3]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[2, 0]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"blue\"]"
+    },
+    {
+     "name": "source",
+     "type": "int[]",
+     "rawValue": "[-4, 6, 4, -2, 4]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[5, 6, 5]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"OOO\", \"OOO\", \"OOO\"]"
+    },
+    {
+     "name": "source",
+     "type": "int[]",
+     "rawValue": "[0, 1]"
+    },
+    {
+     "name": "destination",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "true"
+  }
+ ]
+}

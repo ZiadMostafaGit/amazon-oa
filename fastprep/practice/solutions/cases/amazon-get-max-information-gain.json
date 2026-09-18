@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-get-max-information-gain",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "dataSet",
+     "type": "String[]",
+     "rawValue": "[\"mo\", \"mo\"]"
+    },
+    {
+     "name": "max_common_features",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dataSet",
+     "type": "String[]",
+     "rawValue": "[\"abofh\", \"ab\"]"
+    },
+    {
+     "name": "max_common_features",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dataSet",
+     "type": "String[]",
+     "rawValue": "[\"bcdef\", \"bcdef\"]"
+    },
+    {
+     "name": "max_common_features",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dataSet",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"abofh\"]"
+    },
+    {
+     "name": "max_common_features",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dataSet",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"bcdef\"]"
+    },
+    {
+     "name": "max_common_features",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dataSet",
+     "type": "String[]",
+     "rawValue": "[\"ab\"]"
+    },
+    {
+     "name": "max_common_features",
+     "type": "int",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

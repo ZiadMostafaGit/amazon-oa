@@ -1,0 +1,98 @@
+{
+ "problemId": "pinterest-insert-addition-multiplication-operators",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[3]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[0, 0, 2]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[2, 4, 3, 4]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "-10"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[1, 3, 4, 2]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[\"1+3+4+2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[1, 3, 2, 4]"
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "-10"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

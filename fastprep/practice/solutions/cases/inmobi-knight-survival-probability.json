@@ -1,0 +1,158 @@
+{
+ "problemId": "inmobi-knight-survival-probability",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 12,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "column",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "0.875"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "column",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0.9375"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "column",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "column",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "column",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0.75"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "row",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "column",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0.0"
+  }
+ ]
+}

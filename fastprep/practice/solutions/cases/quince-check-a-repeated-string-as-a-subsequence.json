@@ -1,0 +1,128 @@
+{
+ "problemId": "quince-check-a-repeated-string-as-a-subsequence",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"abacb\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"ab\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"abcabcabc\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"abcabcabc\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"abacb\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"abcabcabc\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "true"
+  }
+ ]
+}

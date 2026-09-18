@@ -1,0 +1,98 @@
+{
+ "problemId": "epic-minimum-adjacent-transpositions",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"GUM\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"GUM\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"MUG\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"MUG\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"MUG\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"GUM\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"bbaa\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"aabb\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "source",
+     "type": "String",
+     "rawValue": "\"aabb\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"aabb\""
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

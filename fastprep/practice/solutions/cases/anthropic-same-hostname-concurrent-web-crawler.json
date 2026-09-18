@@ -1,0 +1,158 @@
+{
+ "problemId": "anthropic-same-hostname-concurrent-web-crawler",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"https://docs.accme.com/root#intro\""
+    },
+    {
+     "name": "pageUrls",
+     "type": "String[]",
+     "rawValue": "[\"https://docs.acme.com/a\", \"https://docs.acme.com/b\"]"
+    },
+    {
+     "name": "linkLists",
+     "type": "String[]",
+     "rawValue": "[\"https://docs.acme.com/a#one https://docs.acme.com/a#two https://other.com/out\", \"https://docs.acme.com/b#part https://docs.acme.com/root#back\"]"
+    },
+    {
+     "name": "workerCount",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"https://docs.accme.com/root\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"https://sol.example.com\""
+    },
+    {
+     "name": "pageUrls",
+     "type": "String[]",
+     "rawValue": "[\"https://known.examplecom/page\", \"https://known.examplecom/page\"]"
+    },
+    {
+     "name": "linkLists",
+     "type": "String[]",
+     "rawValue": "[\"htps://solo.example.com/hidden\", \"htps://solo.example.com/hidden\"]"
+    },
+    {
+     "name": "workerCount",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[\"https://sol.example.com\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"https://solo.example.com\""
+    },
+    {
+     "name": "pageUrls",
+     "type": "String[]",
+     "rawValue": "[\"https:://known.example.com/page\"]"
+    },
+    {
+     "name": "linkLists",
+     "type": "String[]",
+     "rawValue": "[\"https://solo.example.com/hidden\", \"https://solo.example.com/hidden\", \"https://solo.example.com/hidden\"]"
+    },
+    {
+     "name": "workerCount",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[\"https://solo.example.com\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"https://ocs.acme.com/root#intro\""
+    },
+    {
+     "name": "pageUrls",
+     "type": "String[]",
+     "rawValue": "[\"https://docs.acme.com/b\", \"https://docs.acme.com/root\", \"https://docs.acme.com/b\"]"
+    },
+    {
+     "name": "linkLists",
+     "type": "String[]",
+     "rawValue": "[\"https://docs.acme.com/a#one https://docs.acme.com/a#ttwo https://other.com/out\", \"https://docs.acme.com/b#part https://docs.acme.com/root#back\", \"https://docs.acme.com/a\"]"
+    },
+    {
+     "name": "workerCount",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[\"https://ocs.acme.com/root\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"yz\""
+    },
+    {
+     "name": "pageUrls",
+     "type": "String[]",
+     "rawValue": "[\"b\"]"
+    },
+    {
+     "name": "linkLists",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"cat\"]"
+    },
+    {
+     "name": "workerCount",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"yz\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"https://apisite.com/home\""
+    },
+    {
+     "name": "pageUrls",
+     "type": "String[]",
+     "rawValue": "[\"https://api.site.com/home\", \"http://api.site.com/v1\"]"
+    },
+    {
+     "name": "linkLists",
+     "type": "String[]",
+     "rawValue": "[\"https://api.site.com/home#again\", \"http://api.site.com/v1 https://api.site.com/unlisted#top\"]"
+    },
+    {
+     "name": "workerCount",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"https://apisite.com/home\"]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "cisco-find-sub-string",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"YABCCCBAZ\""
+    }
+   ],
+   "expectedRaw": "\"ABCCCBA\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"YABCCBZ\""
+    }
+   ],
+   "expectedRaw": "\"BCCB\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"None\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"ABCC\""
+    }
+   ],
+   "expectedRaw": "\"CC\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"YABCCBAAZ\""
+    }
+   ],
+   "expectedRaw": "\"ABCCBA\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"YABCCBBAZ\""
+    }
+   ],
+   "expectedRaw": "\"BCCB\""
+  }
+ ]
+}

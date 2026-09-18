@@ -1,0 +1,98 @@
+{
+ "problemId": "oracle-authentication-manager",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "timeToLive",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"RENEW\", \"aaa\", \"2\"], [\"COUNT\", \"\", \"6\"], [\"GENERATE\", \"bbb\", \"7\"], [\"RENEW\", \"aaa\", \"8\"], [\"RENEW\", \"bbb\", \"10\"], [\"COUNT\", \"\", \"12\"]]"
+    }
+   ],
+   "expectedRaw": "[0, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timeToLive",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"COUNT\", \"\", \"3\"], [\"GENERATE\", \"alpha\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timeToLive",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timeToLive",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GENERATE\", \"alpha\", \"1\"], [\"COUNT\", \"\", \"3\"], [\"COUNT\", \"\", \"4\"], [\"COUNT\", \"\", \"4\"]]"
+    }
+   ],
+   "expectedRaw": "[1, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timeToLive",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"RENEW\", \"ghost\", \"1\"], [\"GENERATE\", \"x\", \"2\"], [\"GENERATE\", \"y\", \"3\"], [\"COUNT\", \"\", \"5\"], [\"COUNT\", \"\", \"8\"]]"
+    }
+   ],
+   "expectedRaw": "[2, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timeToLive",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GENERATE\", \"aaa\", \"1\"], [\"RENEW\", \"aaa\", \"2\"], [\"COUNT\", \"\", \"6\"], [\"RENEW\", \"aaa\", \"8\"], [\"RENEW\", \"bbb\", \"10\"], [\"COUNT\", \"\", \"12\"]]"
+    }
+   ],
+   "expectedRaw": "[1, 0]"
+  }
+ ]
+}

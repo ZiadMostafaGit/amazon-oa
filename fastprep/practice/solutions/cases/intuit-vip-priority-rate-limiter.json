@@ -1,0 +1,98 @@
+{
+ "problemId": "intuit-vip-priority-rate-limiter",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[[2, 103, 1], [3, 104, 0], [4, 105, 1], [6, 107, 1]]"
+    },
+    {
+     "name": "periodLength",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[true, true, true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[[3, 4, 0], [3, 1, 0], [3, 5, 0], [3, 3, 0], [3, 2, 0]]"
+    },
+    {
+     "name": "periodLength",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[true, true, true, true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0], [0, 1, 0], [10, 3, 0], [19, 4, 1], [20, 5, 0], [0, 1, 0], [20, 6, 1]]"
+    },
+    {
+     "name": "periodLength",
+     "type": "int",
+     "rawValue": "-10"
+    }
+   ],
+   "expectedRaw": "[true, true, true, true, true, true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[[3, 1, 0], [3, 2, 0], [3, 3, 0], [4, 4, 0], [3, 5, 0], [3, 6, 1]]"
+    },
+    {
+     "name": "periodLength",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[true, true, true, true, false, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [1, 102, 0], [2, 103, 1], [3, 104, 0], [4, 105, 1], [5, 106, 0], [1, 102, 0], [6, 107, 1]]"
+    },
+    {
+     "name": "periodLength",
+     "type": "int",
+     "rawValue": "102"
+    }
+   ],
+   "expectedRaw": "[true, true, true, false, true, false, false, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[[1, -4, -4, -4]]"
+    },
+    {
+     "name": "periodLength",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[true]"
+  }
+ ]
+}

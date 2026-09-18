@@ -1,0 +1,68 @@
+{
+ "problemId": "two-sigma-closest-color",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "pixels",
+     "type": "String[]",
+     "rawValue": "[\"000000001111111100111100\", \"00000000111111110011110\"]"
+    }
+   ],
+   "expectedRaw": "[\"Green\", \"Green\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pixels",
+     "type": "String[]",
+     "rawValue": "[\"00000000111111110011100\", \"00000000111111110011100\"]"
+    }
+   ],
+   "expectedRaw": "[\"Green\", \"Green\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pixels",
+     "type": "String[]",
+     "rawValue": "[\"000000001111111100111100\", \"000000001111111100111100\"]"
+    }
+   ],
+   "expectedRaw": "[\"Green\", \"Green\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pixels",
+     "type": "String[]",
+     "rawValue": "[\"0000000001111111100111100\"]"
+    }
+   ],
+   "expectedRaw": "[\"Blue\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pixels",
+     "type": "String[]",
+     "rawValue": "[\"0000000011111111100111100\", \"000000001111111100111100\"]"
+    }
+   ],
+   "expectedRaw": "[\"Green\", \"Green\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pixels",
+     "type": "String[]",
+     "rawValue": "[\"00000001111111100111100\"]"
+    }
+   ],
+   "expectedRaw": "[\"Green\"]"
+  }
+ ]
+}

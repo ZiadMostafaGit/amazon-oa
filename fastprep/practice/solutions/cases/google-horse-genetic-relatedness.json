@@ -1,0 +1,188 @@
+{
+ "problemId": "google-horse-genetic-relatedness",
+ "generatedAt": "2026-09-18T23:33:42",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "horseIds",
+     "type": "String[]",
+     "rawValue": "[\"Blaze\", \"Blaze\"]"
+    },
+    {
+     "name": "motherIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"Blaze\", \"\", \"Nova\"]"
+    },
+    {
+     "name": "fatherIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\"]"
+    },
+    {
+     "name": "horseA",
+     "type": "String",
+     "rawValue": "\"\""
+    },
+    {
+     "name": "horseB",
+     "type": "String",
+     "rawValue": "\"Nova\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "horseIds",
+     "type": "String[]",
+     "rawValue": "[\"Nova\", \"Blaze\", \"Nova\", \"Comet\"]"
+    },
+    {
+     "name": "motherIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"Blaze\"]"
+    },
+    {
+     "name": "fatherIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"Blaze\", \"\"]"
+    },
+    {
+     "name": "horseA",
+     "type": "String",
+     "rawValue": "\"Blaze\""
+    },
+    {
+     "name": "horseB",
+     "type": "String",
+     "rawValue": "\"\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "horseIds",
+     "type": "String[]",
+     "rawValue": "[\"Blaze\", \"Nova\", \"\"]"
+    },
+    {
+     "name": "motherIds",
+     "type": "String[]",
+     "rawValue": "[\"Nova\", \"\", \"Nova\", \"\"]"
+    },
+    {
+     "name": "fatherIds",
+     "type": "String[]",
+     "rawValue": "[\"\"]"
+    },
+    {
+     "name": "horseA",
+     "type": "String",
+     "rawValue": "\"Blaze\""
+    },
+    {
+     "name": "horseB",
+     "type": "String",
+     "rawValue": "\"Nova\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "horseIds",
+     "type": "String[]",
+     "rawValue": "[\"Nova\", \"Comet\", \"Blaze\", \"Nova\"]"
+    },
+    {
+     "name": "motherIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"Nova\", \"Blaze\"]"
+    },
+    {
+     "name": "fatherIds",
+     "type": "String[]",
+     "rawValue": "[\"\"]"
+    },
+    {
+     "name": "horseA",
+     "type": "String",
+     "rawValue": "\"Nova\""
+    },
+    {
+     "name": "horseB",
+     "type": "String",
+     "rawValue": "\"Blaze\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "horseIds",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"cat\"]"
+    },
+    {
+     "name": "motherIds",
+     "type": "String[]",
+     "rawValue": "[\"10\"]"
+    },
+    {
+     "name": "fatherIds",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"10\"]"
+    },
+    {
+     "name": "horseA",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "horseB",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "horseIds",
+     "type": "String[]",
+     "rawValue": "[\"Nova\", \"Blaze\", \"Blaze\"]"
+    },
+    {
+     "name": "motherIds",
+     "type": "String[]",
+     "rawValue": "[\"Nova\", \"\", \"\"]"
+    },
+    {
+     "name": "fatherIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"Nova\"]"
+    },
+    {
+     "name": "horseA",
+     "type": "String",
+     "rawValue": "\"Blaze\""
+    },
+    {
+     "name": "horseB",
+     "type": "String",
+     "rawValue": "\"Comet\""
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

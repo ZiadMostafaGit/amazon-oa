@@ -1,0 +1,218 @@
+{
+ "problemId": "rippling-filter-sort-and-deduplicate-tasks",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 7,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"dup\", \"p2\", \"c2\", \"done-child\"]"
+    },
+    {
+     "name": "descriptions",
+     "type": "String[]",
+     "rawValue": "[\"Launch\", \"Docs\", \"Archive\", \"Payroll\", \"Docs\", \"Launch\", \"Payroll\"]"
+    },
+    {
+     "name": "dueDates",
+     "type": "long[]",
+     "rawValue": "[10, 6, 10, 5, 4, 1, 2]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[7, 9, 9, 9, 3, 5, 2, 10]"
+    },
+    {
+     "name": "completed",
+     "type": "boolean[]",
+     "rawValue": "[false, false, false, false, false, true, false]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"p1\", \"\", \"\", \"p2\", \"Cleanup\", \"done\"]"
+    }
+   ],
+   "expectedRaw": "[\"done-child\", \"c2\", \"dup\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"Test\", \"root\", \"a\", \"b\", \"grand\"]"
+    },
+    {
+     "name": "descriptions",
+     "type": "String[]",
+     "rawValue": "[\"Plan\", \"Review\", \"Other\", \"Build\", \"Test\"]"
+    },
+    {
+     "name": "dueDates",
+     "type": "long[]",
+     "rawValue": "[2, 20, 10, 1, 1]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[6, 1, 5, 7, 9]"
+    },
+    {
+     "name": "completed",
+     "type": "boolean[]",
+     "rawValue": "[false, false, false, false, false, false]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"a\", \"root\", \"root\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "[\"Test\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"c1\", \"p2\", \"p1\", \"dup\", \"done\", \"done-child\"]"
+    },
+    {
+     "name": "descriptions",
+     "type": "String[]",
+     "rawValue": "[\"Launch\", \"Docs\", \"Launch\", \"Launch\", \"Launch\", \"Payroll\", \"Tax\", \"Archive\", \"Cleanup\"]"
+    },
+    {
+     "name": "dueDates",
+     "type": "long[]",
+     "rawValue": "[5, 2, 10, 4, 10, 8, 0]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[3, 10, 9, 9, 7, 5, 2]"
+    },
+    {
+     "name": "completed",
+     "type": "boolean[]",
+     "rawValue": "[false, false, false, false, false, true, false, false]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"p1\", \"p2\", \"\", \"done\", \"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[\"dup\", \"c1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"done\", \"p1\", \"p2\", \"c1\", \"dup\", \"c2\"]"
+    },
+    {
+     "name": "descriptions",
+     "type": "String[]",
+     "rawValue": "[\"Launch\", \"Docs\", \"Launch\", \"Payroll\", \"Launch\", \"Tax\", \"Archive\", \"Cleanup\"]"
+    },
+    {
+     "name": "dueDates",
+     "type": "long[]",
+     "rawValue": "[8, 2, 10, 1, 10, 5, 2, 4]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[10, 2, 2, 3, 7, 9, 9, 7]"
+    },
+    {
+     "name": "completed",
+     "type": "boolean[]",
+     "rawValue": "[false, false, false, false, false, true, false]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"p2\", \"\", \"p2\", \"\", \"Archive\"]"
+    }
+   ],
+   "expectedRaw": "[\"done\", \"p2\", \"c1\", \"p1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"grand\"]"
+    },
+    {
+     "name": "descriptions",
+     "type": "String[]",
+     "rawValue": "[\"Other\", \"Plan\", \"Review\", \"Test\"]"
+    },
+    {
+     "name": "dueDates",
+     "type": "long[]",
+     "rawValue": "[2, 10, 5, 1]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[3, 1, 9, 6, 4]"
+    },
+    {
+     "name": "completed",
+     "type": "boolean[]",
+     "rawValue": "[false, true, false, false, false]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"root\", \"root\"]"
+    }
+   ],
+   "expectedRaw": "[\"a\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "taskIds",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"Done\", \"Sync\"]"
+    },
+    {
+     "name": "descriptions",
+     "type": "String[]",
+     "rawValue": "[\"Sync\", \"Sync\", \"Done\"]"
+    },
+    {
+     "name": "dueDates",
+     "type": "long[]",
+     "rawValue": "[1, 1, 2]"
+    },
+    {
+     "name": "priorities",
+     "type": "int[]",
+     "rawValue": "[-1, -9, 5]"
+    },
+    {
+     "name": "completed",
+     "type": "boolean[]",
+     "rawValue": "[true, false, true, true, true]"
+    },
+    {
+     "name": "parentIds",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

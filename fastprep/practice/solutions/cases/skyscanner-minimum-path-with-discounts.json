@@ -1,0 +1,128 @@
+{
+ "problemId": "skyscanner-minimum-path-with-discounts",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 13,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 4, 8], [0, 2, 2], [2, 3, 2], [3, 4, 10]]"
+    },
+    {
+     "name": "discounts",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "discounts",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 5], [0, 1, 5]]"
+    },
+    {
+     "name": "discounts",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 5], [0, 1, 5], [0, 1, 5]]"
+    },
+    {
+     "name": "discounts",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 5, 5], [0, 1, 5, 5], [0, 1, 5, 5]]"
+    },
+    {
+     "name": "discounts",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 4], [0, 4, 8, 0, 0], [2, 2, 2, 2], [2, 3, 2], [3, 4, 10]]"
+    },
+    {
+     "name": "discounts",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

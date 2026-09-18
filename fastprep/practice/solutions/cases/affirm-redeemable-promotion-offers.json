@@ -1,0 +1,128 @@
+{
+ "problemId": "affirm-redeemable-promotion-offers",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "offers",
+     "type": "String[]",
+     "rawValue": "[\"O2,2015-06-01,2016-01-31,1\", \"O2,2015-06-01,2016-01-31,1\"]"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"u1,2015-09-01,unredeem,O1\", \"u1,2015-07-01,redeem,O1\", \"u1,2015-07-02,redeem,O1\", \"u1,2015-08-01,redeem,O2\"]"
+    },
+    {
+     "name": "cutoffDate",
+     "type": "String",
+     "rawValue": "\"205-12-31\""
+    }
+   ],
+   "expectedRaw": "[\"None\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "offers",
+     "type": "String[]",
+     "rawValue": "[\"A,2015-01-01,2015-01-31,1\", \"A,2015--01-01,2015-01-31,1\"]"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"u1,2015-01-02,redeem,A\", \"u1,2015-01-02,redeem,A\"]"
+    },
+    {
+     "name": "cutoffDate",
+     "type": "String",
+     "rawValue": "\"2015-12-31\""
+    }
+   ],
+   "expectedRaw": "[\"None\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "offers",
+     "type": "String[]",
+     "rawValue": "[\"O1,2015-01-01,2015-12-31,2\"]"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"u2,2015-08-01,redeem,O1\", \"u1,2015-07-02,redeem,O1\", \"u1,2015-07-01,redeem,O1\", \"u1,2015-09-01,unredeem,O1\", \"u1,2015-08-01,redeem,O2\", \"u1,2015-07-02,redeem,O1\"]"
+    },
+    {
+     "name": "cutoffDate",
+     "type": "String",
+     "rawValue": "\"22015-12-31\""
+    }
+   ],
+   "expectedRaw": "[\"None\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "offers",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "cutoffDate",
+     "type": "String",
+     "rawValue": "\"ab\""
+    }
+   ],
+   "expectedRaw": "[\"None\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "offers",
+     "type": "String[]",
+     "rawValue": "[\"O2,2015-06-01,2016-01-31,1\", \"O1,2015-01-01,2015-12-31,2\", \"O2,2015-06-01,2016-01-31,1\"]"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"u1,2015-07-02,redeem,O1\", \"u1,2015-08-1,redeem,O2\", \"u1,2015-09-01,unredeem,O1\", \"u2,2015-08-01,redeem,O1\"]"
+    },
+    {
+     "name": "cutoffDate",
+     "type": "String",
+     "rawValue": "\"22015-12-31\""
+    }
+   ],
+   "expectedRaw": "[\"None\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "offers",
+     "type": "String[]",
+     "rawValue": "[\"O1,2015-01-01,2015-12-31,2\", \"O1,2015-01-01,2015-12-31,2\"]"
+    },
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"u1,2015-07-01,redeem,O1\", \"u1,2015-07-02,redeem,O1\", \"u1,2015-08-01,redeem,O2\", \"u1,2015-07-02,redeem,O1\", \"u,2015-08-01,redeem,O1\"]"
+    },
+    {
+     "name": "cutoffDate",
+     "type": "String",
+     "rawValue": "\"201-12-31\""
+    }
+   ],
+   "expectedRaw": "[\"None\"]"
+  }
+ ]
+}

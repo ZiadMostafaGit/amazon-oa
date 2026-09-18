@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-banking-system-part-3",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"1\", \"account1\"], [\"DEPOSIT\", \"3\", \"account1\", \"2000\"], [\"SCHEDULE_PAYMENT\", \"5\", \"account1\", \"50\", \"10\"], [\"SCHEDULE_PAYMENT\", \"6\", \"account2\", \"1000\", \"5\"], [\"SCHEDULE_PAYMENT\", \"7\", \"account1\", \"3000\", \"7\"], [\"DEPOSIT\", \"11\", \"account2\", \"5\"], [\"CANCEL_PAYMENT\", \"13\", \"account1\", \"payment1\"], [\"DEPOSIT\", \"14\", \"account1\", \"5\"], [\"DEPOSIT\", \"15\", \"account1\", \"5\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"2000\"], [\"payment1\"], [\"null\"], [\"payment2\"], [\"null\"], [\"true\"], [\"2005\"], [\"2010\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"2\", \"a\", \"100\"], [\"SCHEDULE_PAYMENT\", \"3\", \"a\", \"80\", \"7\"], [\"CANCEL_PAYMENT\", \"10\", \"a\", \"payment2\"], [\"DEPOSIT\", \"11\", \"a\", \"1\"], [\"TOP_SPENDERS\", \"12\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"null\"], [\"false\"], [\"null\"], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"11\", \"a\", \"1\"], [\"CANCEL_PAYMENT\", \"10\", \"a\", \"payment2\"], [\"CREATE_ACCOUNT\", \"1\", \"a\"], [\"SCHEDULE_PAYMENT\", \"4\", \"a\", \"30\", \"6\"], [\"SCHEDULE_PAYMENT\", \"3\", \"a\", \"80\", \"7\"], [\"a\", \"100\"], [\"TOP_SPENDERS\", \"12\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"false\"], [\"true\"], [\"payment1\"], [\"payment2\"], [\"null\"], [\"a(0)\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"11\", \"a\", \"1\"], [\"SCHEDULE_PAYMENT\", \"4\", \"a\", \"30\", \"6\"], [\"DEPOSIT\", \"2\", \"a\", \"100\"], [\"TOP_SPENDERS\", \"12\", \"1\"], [\"CREATE_ACCOUNT\", \"1\", \"a\"], [\"SCHEDULE_PAYMENT\", \"3\", \"a\", \"80\", \"7\"], [\"CANCEL_PAYMENT\", \"10\", \"a\", \"payment2\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"null\"], [\"null\"], [], [\"true\"], [\"payment1\"], [\"false\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"2\", \"a\", \"100\"], [\"SCHEDULE_PAYMENT\", \"3\", \"a\", \"80\", \"7\"], [\"SCHEDULE_PAYMENT\", \"4\", \"a\", \"30\", \"6\"], [\"CANCEL_PAYMENT\", \"10\", \"a\", \"payment2\"], [\"CANCEL_PAYMENT\", \"10\", \"a\", \"payment2\"], [\"DEPOSIT\", \"11\", \"a\", \"1\"], [\"TOP_SPENDERS\", \"12\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"null\"], [\"null\"], [\"false\"], [\"false\"], [\"null\"], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"2\", \"a\", \"100\"], [\"CREATE_ACCOUNT\", \"1\", \"a\"], [\"CANCEL_PAYMENT\", \"10\", \"a\", \"payment2\"], [\"DEPOSIT\", \"11\", \"a\", \"1\"], [\"TOP_SPENDERS\", \"12\", \"1\"], [\"SCHEDULE_PAYMENT\", \"3\", \"a\", \"80\", \"7\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"true\"], [\"false\"], [\"1\"], [\"a(0)\"], [\"payment1\"]]"
+  }
+ ]
+}

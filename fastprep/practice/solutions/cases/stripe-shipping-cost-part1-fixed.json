@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-shipping-cost-part1-fixed",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"mouse,20\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"laptop,5\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,mouse,550\", \"US,laptop,1000\", \"CA,mouse,750\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"mouse,20\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"laptop,5\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,mouse,550\", \"US,laptop,1000\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"laptop,5\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"mouse,20\", \"mouse,20\", \"laptop,5\", \"laptop,5\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,mouse,550\", \"CA,laptop,1100\", \"US,laptop,1000\", \"CA,mouse,750\", \"CA,laptop,1100\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"0\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"0\", \"1\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"US\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"laptop,5\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,mouse,550\", \"US,laptop,1000\", \"CA,mouse,750\", \"CA,laptop,1100\"]"
+    }
+   ],
+   "expectedRaw": "5000"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"mouse,20\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"laptop,5\", \"laptop,5\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,laptop,1000\", \"US,mouse,550\", \"US,laptop,1000\", \"CA,mouse,750\", \"CA,laptop,110\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

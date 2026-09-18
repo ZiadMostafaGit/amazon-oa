@@ -1,0 +1,68 @@
+{
+ "problemId": "infosys-all-subsequences",
+ "generatedAt": "2026-09-18T23:33:46",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aabc\""
+    }
+   ],
+   "expectedRaw": "[\"\", \"a\", \"a\", \"aa\", \"aab\", \"aabc\", \"aac\", \"ab\", \"ab\", \"abc\", \"abc\", \"ac\", \"ac\", \"b\", \"bc\", \"c\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ac\""
+    }
+   ],
+   "expectedRaw": "[\"\", \"a\", \"ac\", \"c\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[\"\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aaa\""
+    }
+   ],
+   "expectedRaw": "[\"\", \"a\", \"a\", \"a\", \"aa\", \"aa\", \"aa\", \"aaa\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abbc\""
+    }
+   ],
+   "expectedRaw": "[\"\", \"a\", \"ab\", \"ab\", \"abb\", \"abbc\", \"abc\", \"abc\", \"ac\", \"b\", \"b\", \"bb\", \"bbc\", \"bc\", \"bc\", \"c\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "[\"\", \"d\", \"dg\", \"do\", \"dog\", \"g\", \"o\", \"og\"]"
+  }
+ ]
+}

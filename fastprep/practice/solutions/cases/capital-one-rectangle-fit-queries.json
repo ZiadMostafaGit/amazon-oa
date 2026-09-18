@@ -1,0 +1,68 @@
+{
+ "problemId": "capital-one-rectangle-fit-queries",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 4, 1, 1]]"
+    }
+   ],
+   "expectedRaw": "[true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[1, 3, 4], [1, 3, 2], [1, 3, 4], [0, 1, 3]]"
+    }
+   ],
+   "expectedRaw": "[true, true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 1], [1, 1, 1], [1, 1, 1]]"
+    }
+   ],
+   "expectedRaw": "[true, true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 1], [1, 1, 1]]"
+    }
+   ],
+   "expectedRaw": "[true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[5, 3, 6, 5, -4]]"
+    }
+   ],
+   "expectedRaw": "[true]"
+  }
+ ]
+}

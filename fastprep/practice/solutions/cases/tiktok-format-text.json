@@ -1,0 +1,128 @@
+{
+ "problemId": "tiktok-format-text",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"abc\"]"
+    },
+    {
+     "name": "alignments",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"abc\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"*****\", \"*abc*\", \"*abc*\", \"*****\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"abc\"]"
+    },
+    {
+     "name": "alignments",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"LEFT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"*****\", \"*abc*\", \"*abc*\", \"*****\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"abc\"]"
+    },
+    {
+     "name": "alignments",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"LEFT\", \"LEFT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"*****\", \"*abc*\", \"*abc*\", \"*****\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"abc\"]"
+    },
+    {
+     "name": "alignments",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\", \"LEFT\", \"LEFT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"*****\", \"*LEFT*\", \"*abc*\", \"*****\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[]",
+     "rawValue": "[\"red\"]"
+    },
+    {
+     "name": "alignments",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"ab\", \"ab\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[\"\", \"*red*\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paragraphs",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"abc\"]"
+    },
+    {
+     "name": "alignments",
+     "type": "String[]",
+     "rawValue": "[\"LEFT\"]"
+    },
+    {
+     "name": "width",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"*****\", \"*abc*\", \"*abc*\", \"*****\"]"
+  }
+ ]
+}

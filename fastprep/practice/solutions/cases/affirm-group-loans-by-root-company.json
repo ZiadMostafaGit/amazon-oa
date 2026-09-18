@@ -1,0 +1,128 @@
+{
+ "problemId": "affirm-group-loans-by-root-company",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[-1, -1]"
+    },
+    {
+     "name": "loanCompanies",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[4, -1]"
+    }
+   ],
+   "expectedRaw": "[[0, 3]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[-1, 0, -1, 0]"
+    },
+    {
+     "name": "loanCompanies",
+     "type": "int[]",
+     "rawValue": "[1, 3, 0]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[5, 2, 7, 2]"
+    }
+   ],
+   "expectedRaw": "[[0, 14]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[0, 0, 2]"
+    },
+    {
+     "name": "loanCompanies",
+     "type": "int[]",
+     "rawValue": "[1, 0]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[5, 9]"
+    }
+   ],
+   "expectedRaw": "[[0, 14]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[-1, -1]"
+    },
+    {
+     "name": "loanCompanies",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[0, 6]"
+    }
+   ],
+   "expectedRaw": "[[0, 6]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[-1, 0, -1, 1, 2]"
+    },
+    {
+     "name": "loanCompanies",
+     "type": "int[]",
+     "rawValue": "[0, 1, 3]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[5, 7, 2, 5]"
+    }
+   ],
+   "expectedRaw": "[[0, 14]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[0, -1, -1]"
+    },
+    {
+     "name": "loanCompanies",
+     "type": "int[]",
+     "rawValue": "[1, 0]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[7, 7, 2]"
+    }
+   ],
+   "expectedRaw": "[[0, 7], [1, 7]]"
+  }
+ ]
+}

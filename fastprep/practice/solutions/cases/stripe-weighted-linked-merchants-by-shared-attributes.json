@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-weighted-linked-merchants-by-shared-attributes",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "merchants",
+     "type": "String[][]",
+     "rawValue": "[[\"m3\", \"email\", \"z@x\", \"country\", \"US\", \"phone\", \"111\"], [\"m5\", \"email\", \"z@x\", \"country\", \"CA\"]]"
+    },
+    {
+     "name": "attributeWeights",
+     "type": "String[]",
+     "rawValue": "[\"phone|3\", \"country|2\", \"country|2\", \"country|2\"]"
+    },
+    {
+     "name": "targetMerchantId",
+     "type": "String",
+     "rawValue": "\"m4\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "merchants",
+     "type": "String[][]",
+     "rawValue": "[[\"cat\"]]"
+    },
+    {
+     "name": "attributeWeights",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"10\", \"red\", \"x\", \"ab\"]"
+    },
+    {
+     "name": "targetMerchantId",
+     "type": "String",
+     "rawValue": "\"0\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "merchants",
+     "type": "String[][]",
+     "rawValue": "[[\"m4\", \"email\", \"a@x\", \"country\", \"CA\", \"phone\", \"111\"], [\"m3\", \"email\", \"z@x\", \"country\", \"US\", \"phone\", \"111\"], [\"m5\", \"email\", \"z@x\", \"country\", \"CA\"], [\"m2\", \"email\", \"a@x\", \"country\", \"US\", \"phone\", \"999\"], [\"m1\", \"email\", \"a@x\", \"country\", \"US\", \"phone\", \"111\"], [\"m3\", \"email\", \"z@x\", \"country\", \"US\", \"phone\", \"111\"]]"
+    },
+    {
+     "name": "attributeWeights",
+     "type": "String[]",
+     "rawValue": "[\"country|2\", \"a@x\", \"email|5\"]"
+    },
+    {
+     "name": "targetMerchantId",
+     "type": "String",
+     "rawValue": "\"country|2\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "merchants",
+     "type": "String[][]",
+     "rawValue": "[[\"red\", \"abc\", \"dog\", \"blue\", \"abc\", \"a\", \"ab\"]]"
+    },
+    {
+     "name": "attributeWeights",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "targetMerchantId",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "merchants",
+     "type": "String[][]",
+     "rawValue": "[[\"note\", \"target\", \"email\", \"root@x\", \"note\", \"same\"], [\"b\", \"email\", \"root@x\"], [\"a\", \"email\", \"root@x\"], [\"c\", \"note\", \"same\"]]"
+    },
+    {
+     "name": "attributeWeights",
+     "type": "String[]",
+     "rawValue": "[\"email|4\", \"email|4\"]"
+    },
+    {
+     "name": "targetMerchantId",
+     "type": "String",
+     "rawValue": "\"root@x\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "merchants",
+     "type": "String[][]",
+     "rawValue": "[[\"target\", \"email\", \"root@x\", \"note\", \"same\"], [\"b\", \"email\", \"root@x\"], [\"a\", \"email\", \"root@x\"], [\"target\", \"email\", \"root@x\", \"note\", \"same\"], [\"c\", \"note\", \"same\"]]"
+    },
+    {
+     "name": "attributeWeights",
+     "type": "String[]",
+     "rawValue": "[\"target\", \"note|0\"]"
+    },
+    {
+     "name": "targetMerchantId",
+     "type": "String",
+     "rawValue": "\"note|0\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

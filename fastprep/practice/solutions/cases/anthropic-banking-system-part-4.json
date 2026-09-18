@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-banking-system-part-4",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 8,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"10\", \"a\", \"10\"], [\"CANCEL_PAYMENT\", \"13\", \"a\", \"payment1\"], [\"TOP_SPENDERS\", \"12\", \"1\"], [\"SCHEDULE_PAYMENT\", \"5\", \"b\", \"70\", \"5\"], [\"CREATE_ACCOUNT\", \"2\", \"b\"], [\"CREATE_ACCOUNT\", \"1\", \"a\"], [\"GET_BALANCE\", \"11\", \"a\", \"10\"], [\"MERGE_ACCOUNTS\", \"6\", \"a\", \"b\"], [\"DEPOSIT\", \"3\", \"a\", \"50\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"], [\"false\"], [], [\"null\"], [\"true\"], [\"true\"], [\"0\"], [\"true\"], [\"50\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"1\", \"a\"], [\"b\", \"2\"], [\"DEPOSIT\", \"3\", \"a\", \"50\"], [\"DEPOSIT\", \"4\", \"b\", \"100\"], [\"SCHEDULE_PAYMENT\", \"5\", \"b\", \"70\", \"5\"], [\"MERGE_ACCOUNTS\", \"6\", \"a\", \"b\"], [\"DEPOSIT\", \"10\", \"a\", \"10\"], [\"GET_BALANCE\", \"11\", \"a\", \"10\"], [\"TOP_SPENDERS\", \"12\", \"1\"], [\"CANCEL_PAYMENT\", \"13\", \"a\", \"payment1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"null\"], [\"50\"], [\"null\"], [\"null\"], [\"false\"], [\"60\"], [\"60\"], [\"a(0)\"], [\"false\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"1\", \"a\"], [\"CREATE_ACCOUNT\", \"2\", \"b\"], [\"DEPOSIT\", \"3\", \"a\", \"50\"], [\"MERGE_ACCOUNTS\", \"6\", \"a\", \"b\"], [\"DEPOSIT\", \"4\", \"b\", \"100\"], [\"SCHEDULE_PAYMENT\", \"5\", \"b\", \"70\", \"5\"], [\"MERGE_ACCOUNTS\", \"6\", \"a\", \"b\"], [\"DEPOSIT\", \"10\", \"a\", \"10\"], [\"GET_BALANCE\", \"11\", \"a\", \"10\"], [\"TOP_SPENDERS\", \"12\", \"1\"], [\"CANCEL_PAYMENT\", \"13\", \"a\", \"payment1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"50\"], [\"true\"], [\"null\"], [\"null\"], [\"false\"], [\"60\"], [\"60\"], [\"a(0)\"], [\"false\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"1\", \"a\"], [\"CANCEL_PAYMENT\", \"13\", \"a\", \"payment1\"], [\"CREATE_ACCOUNT\", \"2\", \"b\"], [\"DEPOSIT\", \"3\", \"3\", \"3\"], [\"SCHEDULE_PAYMENT\", \"5\", \"b\", \"70\", \"5\"], [\"MERGE_ACCOUNTS\", \"6\", \"a\", \"b\"], [\"DEPOSIT\", \"10\", \"a\", \"10\"], [\"GET_BALANCE\", \"11\", \"a\", \"10\"], [\"TOP_SPENDERS\", \"12\", \"1\"], [\"CANCEL_PAYMENT\", \"13\", \"a\", \"payment1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"false\"], [\"true\"], [\"null\"], [\"payment1\"], [\"true\"], [\"10\"], [\"10\"], [\"a(0)\"], [\"false\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"cat\", \"0\", \"1\", \"red\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"null\"]]"
+  }
+ ]
+}

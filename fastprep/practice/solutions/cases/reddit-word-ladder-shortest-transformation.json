@@ -1,0 +1,128 @@
+{
+ "problemId": "reddit-word-ladder-shortest-transformation",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"hot\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"dot\", \"dog\", \"lot\", \"log\", \"cog\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"hot\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"log\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"dog\", \"dot\", \"lot\", \"lot\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"a\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"a\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"b\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"hit\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"dot\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"hot\", \"dog\", \"lot\", \"cog\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"a\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"hot\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"dot\", \"dog\", \"lot\", \"dot\", \"log\", \"cog\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

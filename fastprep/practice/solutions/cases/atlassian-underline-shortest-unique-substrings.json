@@ -1,0 +1,68 @@
+{
+ "problemId": "atlassian-underline-shortest-unique-substrings",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"Cow\", \"Wallaby\"]"
+    }
+   ],
+   "expectedRaw": "[\"<u>C</u>ow\", \"W<u>a</u>llaby\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"Dog\", \"Cat\", \"Cow\", \"Wallaby\", \"Bird\", \"Wallaby\"]"
+    }
+   ],
+   "expectedRaw": "[\"Do<u>g</u>\", \"Ca<u>t</u>\", \"<u>Co</u>w\", \"Wallaby\", \"B<u>i</u>rd\", \"Wallaby\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"rose\"]"
+    }
+   ],
+   "expectedRaw": "[\"<u>r</u>ose\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"Rose\"]"
+    }
+   ],
+   "expectedRaw": "[\"<u>R</u>ose\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"Bird\", \"Cow\", \"Dog\", \"Cat\"]"
+    }
+   ],
+   "expectedRaw": "[\"<u>B</u>ird\", \"Co<u>w</u>\", \"Do<u>g</u>\", \"C<u>a</u>t\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strings",
+     "type": "String[]",
+     "rawValue": "[\"Cat\", \"Cow\", \"Dog\", \"Dog\", \"Wallaby\"]"
+    }
+   ],
+   "expectedRaw": "[\"Ca<u>t</u>\", \"<u>Co</u>w\", \"Dog\", \"Dog\", \"Wa<u>l</u>laby\"]"
+  }
+ ]
+}

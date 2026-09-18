@@ -1,0 +1,68 @@
+{
+ "problemId": "nuro-thread-safe-task-storage-and-worker-dispatch",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"t2\"], [\"DISPATCH\", \"w1\"], [\"DISPATCH\", \"w2\"], [\"DISPATCH\", \"w1\"], [\"RELEASE\", \"w1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"t2:QUEUED\", \"t2:RUNNING\", \"NONE\", \"NONE\", \"t2:QUEUED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"t1\"], [\"ADD\", \"t2\"], [\"DISPATCH\", \"w1\"], [\"FAIL\", \"w1\", \"t1\"], [\"DISPATCH\", \"w2\"], [\"DISPATCH\", \"t1\", \"w2\", \"t1\"], [\"FAIL\", \"w1\", \"t1\"], [\"DISPATCH\", \"w1\"], [\"ADD\", \"t2\"], [\"RELEASE\", \"w1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"t1:QUEUED\", \"t2:QUEUED\", \"t1:RUNNING\", \"t1:QUEUED\", \"t1:RUNNING\", \"t2:RUNNING\", \"t1:QUEUED\", \"t1:RUNNING\", \"t2:QUEUED\", \"t1:QUEUED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"RELEASE\", \"w0\"], [\"ADD\", \"job\"], [\"DISPATCH\", \"w0\"], [\"COMPLETE\", \"w0\", \"job\"], [\"COMPLETE\", \"w0\", \"job\"], [\"DISPATCH\", \"w1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NONE\", \"job:QUEUED\", \"job:RUNNING\", \"job:COMPLETED\", \"job:COMPLETED\", \"NONE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"t1\"], [\"ADD\", \"t2\"], [\"FAIL\", \"w1\", \"t1\"], [\"COMPLETE\", \"w2\", \"t1\"], [\"DISPATCH\", \"w2\"], [\"COMPLETE\", \"w2\", \"t1\"], [\"DISPATCH\", \"w1\"], [\"RELEASE\", \"w1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"t1:QUEUED\", \"t2:QUEUED\", \"t1:QUEUED\", \"t1:COMPLETED\", \"t1:RUNNING\", \"t1:COMPLETED\", \"t2:RUNNING\", \"t2:QUEUED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"w0\"], [\"RELEASE\", \"w0\"], [\"ADD\", \"job\"], [\"DISPATCH\", \"w0\"], [\"COMPLETE\", \"w0\", \"job\"], [\"COMPLETE\", \"w0\", \"job\"], [\"DISPATCH\", \"w1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NONE\", \"job:QUEUED\", \"job:RUNNING\", \"job:COMPLETED\", \"job:COMPLETED\", \"NONE\"]"
+  }
+ ]
+}

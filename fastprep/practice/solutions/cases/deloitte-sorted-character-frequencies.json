@@ -1,0 +1,68 @@
+{
+ "problemId": "deloitte-sorted-character-frequencies",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"heello\""
+    }
+   ],
+   "expectedRaw": "\"e2h1l2o1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"helo\""
+    }
+   ],
+   "expectedRaw": "\"e1h1l1o1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"aaaaaaaaaaaaa\""
+    }
+   ],
+   "expectedRaw": "\"a13\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"11\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"zzzaabbb\""
+    }
+   ],
+   "expectedRaw": "\"a2b3z3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"helllo\""
+    }
+   ],
+   "expectedRaw": "\"e1h1l3o1\""
+  }
+ ]
+}

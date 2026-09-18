@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-cousins-in-binary-tree-ii",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "String[]",
+     "rawValue": "[\"9\", \"1\", \"10\", \"7\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"0\", \"0\", \"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "String[]",
+     "rawValue": "[\"5\", \"4\", \"1\", \"6\", \"6\", \"3\", \"2\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"0\", \"0\", \"5\", \"5\", \"12\", \"12\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "String[]",
+     "rawValue": "[\"null\", \"6\", \"2\", \"3\", \"4\", \"1\"]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"6\", \"2\", \"3\", \"4\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "String[]",
+     "rawValue": "[\"5\", \"4\", \"9\", \"1\", \"7\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"0\", \"0\", \"0\", \"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"2\", \"3\", \"5\", \"null\", \"5\", \"6\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"0\", \"0\", \"11\", \"null\", \"5\", \"5\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "levelOrder",
+     "type": "String[]",
+     "rawValue": "[\"5\", \"4\", \"9\", \"10\", \"null\", \"7\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"0\", \"0\", \"7\", \"null\", \"10\"]"
+  }
+ ]
+}

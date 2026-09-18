@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-csv-task-tree-renderer",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"01/01/2025,subtask,T1,T2,buy groceries\", \"01/01/2025,subtask,T1,T2,buy groceries\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"01/01/2025,subtask,T3,T4,record video\", \"01/01/2025,task,T5,review metrics\", \"01/01/2025,subtask,T1,T3,build deo\", \"01/01/2025,subtask,T1,T2,write brief\"]"
+    }
+   ],
+   "expectedRaw": "[\"T5 review metrics\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"01/01/2025,subtask,T1,T2,buy groceries\", \"01/01/2025,subtask,T1,T2,buy groceries\", \"01/01/2025,task,T1,cook dinner\"]"
+    }
+   ],
+   "expectedRaw": "[\"T1 cook dinner\", \"|- T2 buy groceries\", \"\\\\- T2 buy groceries\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"2025-01-01,task,A,alpha\", \"2025-01-01,subtask,D,E,epsilon\", \"2025-01-01,task,B,beta\", \"2025-01-01,subtask,B,C,gamma\", \"2025-01-01,subtask,B,D,delta\", \"2025-01-01,subtask,D,E,epsilon\"]"
+    }
+   ],
+   "expectedRaw": "[\"A alpha\", \"B beta\", \"|- C gamma\", \"\\\\- D delta\", \"  |- E epsilon\", \"  \\\\- E epsilon\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"01/01/2025,ssubtask,T1,T2,buy groceries\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"01/01/2025,task,T1,cook dinner\"]"
+    }
+   ],
+   "expectedRaw": "[\"T1 cook dinner\"]"
+  }
+ ]
+}

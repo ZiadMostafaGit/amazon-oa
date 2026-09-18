@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-minimum-starting-health-to-win-the-game",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "power",
+     "type": "int[]",
+     "rawValue": "[6]"
+    },
+    {
+     "name": "armor",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "power",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "armor",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "power",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 3]"
+    },
+    {
+     "name": "armor",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "power",
+     "type": "int[]",
+     "rawValue": "[2, 7, 6, 7]"
+    },
+    {
+     "name": "armor",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "23"
+  },
+  {
+   "inputs": [
+    {
+     "name": "power",
+     "type": "int[]",
+     "rawValue": "[1, 6, 7, 1]"
+    },
+    {
+     "name": "armor",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "power",
+     "type": "int[]",
+     "rawValue": "[2, 6, 7, 7]"
+    },
+    {
+     "name": "armor",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "23"
+  }
+ ]
+}

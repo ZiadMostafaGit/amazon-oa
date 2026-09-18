@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-minimum-merge-conflicts",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "primary",
+     "type": "String",
+     "rawValue": "\"d\""
+    },
+    {
+     "name": "secondary",
+     "type": "String",
+     "rawValue": "\"d\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "primary",
+     "type": "String",
+     "rawValue": "\"zc\""
+    },
+    {
+     "name": "secondary",
+     "type": "String",
+     "rawValue": "\"zc\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "primary",
+     "type": "String",
+     "rawValue": "\"add\""
+    },
+    {
+     "name": "secondary",
+     "type": "String",
+     "rawValue": "\"dae\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "primary",
+     "type": "String",
+     "rawValue": "\"d\""
+    },
+    {
+     "name": "secondary",
+     "type": "String",
+     "rawValue": "\"zc\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "primary",
+     "type": "String",
+     "rawValue": "\"add\""
+    },
+    {
+     "name": "secondary",
+     "type": "String",
+     "rawValue": "\"add\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "primary",
+     "type": "String",
+     "rawValue": "\"dae\""
+    },
+    {
+     "name": "secondary",
+     "type": "String",
+     "rawValue": "\"dae\""
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

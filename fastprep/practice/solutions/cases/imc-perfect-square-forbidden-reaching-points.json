@@ -1,0 +1,188 @@
+{
+ "problemId": "imc-perfect-square-forbidden-reaching-points",
+ "generatedAt": "2026-09-18T23:33:46",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 7,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "startX",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "startY",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "targetX",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "targetY",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "\"No\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startX",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "startY",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "targetX",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "targetY",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"No\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "startX",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startY",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "targetX",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "targetY",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "\"No\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "startX",
+     "type": "int",
+     "rawValue": "-4"
+    },
+    {
+     "name": "startY",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "targetX",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "targetY",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "\"No\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "startX",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "startY",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "targetX",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "targetY",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "\"No\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "startX",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "startY",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "targetX",
+     "type": "int",
+     "rawValue": "-10"
+    },
+    {
+     "name": "targetY",
+     "type": "int",
+     "rawValue": "12"
+    }
+   ],
+   "expectedRaw": "\"No\""
+  }
+ ]
+}

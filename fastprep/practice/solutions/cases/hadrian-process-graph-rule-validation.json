@@ -1,0 +1,98 @@
+{
+ "problemId": "hadrian-process-graph-rule-validation",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "processTypes",
+     "type": "String",
+     "rawValue": "\"BCCAD\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [2, 3]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "processTypes",
+     "type": "String",
+     "rawValue": "\"AAB\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[-2, 0], [0, 1], [-2, 0]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "processTypes",
+     "type": "String",
+     "rawValue": "\"BCAD\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[2, 3], [0, 1], [2, 1]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "processTypes",
+     "type": "String",
+     "rawValue": "\"AB\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 1]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "processTypes",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, -1]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "processTypes",
+     "type": "String",
+     "rawValue": "\"BCBD\""
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 2], [2, 3], [2, 3]]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

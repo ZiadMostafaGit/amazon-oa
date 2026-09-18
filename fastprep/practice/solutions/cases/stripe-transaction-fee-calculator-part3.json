@@ -1,0 +1,98 @@
+{
+ "problemId": "stripe-transaction-fee-calculator-part3",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"id,amount,transaction_type,payment_provider,status,merchant_id\\np1,6000,payment,card,payment_completed,m1\\np2,5000,payment,card,payment_completed,m1\\np3,100,payment,card,payment_completed,m1\\np4,100,payment,card,payment_completed,m2\""
+    },
+    {
+     "name": "feeRules",
+     "type": "String[]",
+     "rawValue": "[\"card,0.02,0\", \"card,0.02,30\"]"
+    }
+   ],
+   "expectedRaw": "[\"id,transaction_type,payment_provider,fee\", \"p1,payment,card,150\", \"p2,payment,card,130\", \"p3,payment,card,0\", \"p4,payment,card,32\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"id,amount,transaction_type,payment_provider,status,merchant_id\\na,11000,payment,card,payment_completed,m1\\nb,500,payment,bank,payment_completed,m1\\nc,100,payment,card,payment_failed,m1\\nd,100,payment,card,payment_completed,m1\""
+    },
+    {
+     "name": "feeRules",
+     "type": "String[]",
+     "rawValue": "[\"bank,0.005,0\"]"
+    }
+   ],
+   "expectedRaw": "[\"id,transaction_type,payment_provider,fee\", \"a,payment,card,0\", \"b,payment,bank,2\", \"c,payment,card,0\", \"d,payment,card,0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"card,0.02,30\""
+    },
+    {
+     "name": "feeRules",
+     "type": "String[]",
+     "rawValue": "[\"card,0.02,30\", \"card,0.02,30\"]"
+    }
+   ],
+   "expectedRaw": "[\"id,transaction_type,payment_provider,fee\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"id,amount,transaction_type,payment_provider,status,merchant_id\\na,11000,payment,card,payment_completed,m1\\nb,50,payment,bank,payment_completed,m1\\nc,100,payment,card,payment_failed,m1\\nd,100,payment,card,payment_completed,m1\""
+    },
+    {
+     "name": "feeRules",
+     "type": "String[]",
+     "rawValue": "[\"card,0.01,10\", \"card,0.01,10\"]"
+    }
+   ],
+   "expectedRaw": "[\"id,transaction_type,payment_provider,fee\", \"a,payment,card,120\", \"b,payment,bank,0\", \"c,payment,card,0\", \"d,payment,card,0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"id,amount,transaction_type,payment_provider,status,merchant_id\\np1,6000,payment,card,payment_completed,m1\\np2,5000,ppayment,card,payment_completed,m1\\np3,100,payment,card,payment_completed,m1\\np4,100,payment,card,payment_completed,m2\""
+    },
+    {
+     "name": "feeRules",
+     "type": "String[]",
+     "rawValue": "[\"card,0.02,3\"]"
+    }
+   ],
+   "expectedRaw": "[\"id,transaction_type,payment_provider,fee\", \"p1,payment,card,123\", \"p2,ppayment,card,103\", \"p3,payment,card,0\", \"p4,payment,card,5\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "csvData",
+     "type": "String",
+     "rawValue": "\"id,amount,transaction_type,payment_provider,status,merchant_id\\np1,6000,payment,card,payment_completed,m1\\np2,5000,payment,card,payment_completed,m1\\np3,100,payment,card,payment_completed,m1\\np4,100,payment,card,payment_complted,m2\""
+    },
+    {
+     "name": "feeRules",
+     "type": "String[]",
+     "rawValue": "[\"crd,0.02,30\", \"crd,0.02,30\"]"
+    }
+   ],
+   "expectedRaw": "[\"id,transaction_type,payment_provider,fee\", \"p1,payment,card,0\", \"p2,payment,card,0\", \"p3,payment,card,0\", \"p4,payment,card,0\"]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-minimum-dag-completion-time",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 11,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[3, 5, 3, 2]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[0, 2]]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[-5, 3, 2]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [0, 2]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[3, 2, 5]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[1, 2]]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[1, -3, -1]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[-3, -3], [1, 1, 3], [-3, 0, -1, -2, -1]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[3, 0, 5]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 2]]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "durations",
+     "type": "int[]",
+     "rawValue": "[1, -3, 0, -2, 4]"
+    },
+    {
+     "name": "dependencies",
+     "type": "int[][]",
+     "rawValue": "[[-5, 0]]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

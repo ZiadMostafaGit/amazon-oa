@@ -1,0 +1,68 @@
+{
+ "problemId": "datologyai-multiline-cursor-text-editor",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"LEFT\"], [\"NEWLINE\"], [\"PRINT\"], [\"INSERT\", \"z\"], [\"PRINT\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"\", \"\"], [\"\", \"z\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"INSERT\", \"abc\"], [\"LEFT\"], [\"NEWLINE\"], [\"INSERT\", \"x\"], [\"PRINT\"], [\"NEWLINE\", \"NEWLINE\"], [\"INSERT\", \"x\"], [\"INSERT\", \"z\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"ab\", \"xc\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"INSERT\", \"abc\"], [\"PRINT\"], [\"PRINT\"], [\"INSERT\", \"z\"], [\"PRINT\"], [\"INSERT\", \"x\"], [\"LEFT\"], [\"NEWLINE\"], [\"UP\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"abc\"], [\"abc\"], [\"abcz\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"INSERT\", \"abc\"], [\"LEFT\"], [\"INSERT\", \"x\"], [\"NEWLINE\", \"NEWLINE\", \"NEWLINE\"], [\"UP\"], [\"INSERT\", \"z\"], [\"PRINT\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"zabx\", \"c\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"LEFT\"], [\"NEWLINE\"], [\"INSERT\", \"x\"], [\"PRINT\"], [\"UP\"], [\"INSERT\", \"z\"], [\"PRINT\"], [\"INSERT\", \"z\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"\", \"x\"], [\"z\", \"x\"]]"
+  }
+ ]
+}

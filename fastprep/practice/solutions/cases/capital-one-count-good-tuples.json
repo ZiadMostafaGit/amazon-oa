@@ -1,0 +1,68 @@
+{
+ "problemId": "capital-one-count-good-tuples",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[1, 2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, 3, 4, 2, 3, 1]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[1, 1, 2, 1, 1, 1, 3, 4]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, 1, 4]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[3, 4, 1, 1, 2, 1]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1, 2, 1, 3, 4]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "tiktok-obstacle-placement-queries",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[2, 0, 2]]"
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[2, 0, 2], [1, 1], [0, 0, 2], [2, 0, 2], [1, 1], [2, 2, 2]]"
+    }
+   ],
+   "expectedRaw": "\"1110\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [2, 2, 2], [2, 0, 2], [2, 2, 2]]"
+    }
+   ],
+   "expectedRaw": "\"010\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[2, 0, 2], [1, 1]]"
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[2, 0, 2], [2, 0, 2], [2, 2, 2]]"
+    }
+   ],
+   "expectedRaw": "\"111\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[2, 0, 2], [2, -3, 2], [2, 2, 2]]"
+    }
+   ],
+   "expectedRaw": "\"111\""
+  }
+ ]
+}

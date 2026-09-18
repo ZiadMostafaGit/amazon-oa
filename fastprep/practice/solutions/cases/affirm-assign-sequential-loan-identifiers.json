@@ -1,0 +1,68 @@
+{
+ "problemId": "affirm-assign-sequential-loan-identifiers",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "transactionRefs",
+     "type": "String[]",
+     "rawValue": "[\"txn-c\"]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactionRefs",
+     "type": "String[]",
+     "rawValue": "[\"only-transaction\", \"only-transaction\", \"only-transaction\"]"
+    }
+   ],
+   "expectedRaw": "[1, 2, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactionRefs",
+     "type": "String[]",
+     "rawValue": "[\"ony-transaction\"]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactionRefs",
+     "type": "String[]",
+     "rawValue": "[\"retry\", \"settled\"]"
+    }
+   ],
+   "expectedRaw": "[1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactionRefs",
+     "type": "String[]",
+     "rawValue": "[\"retry\", \"retry\", \"retry\"]"
+    }
+   ],
+   "expectedRaw": "[1, 2, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactionRefs",
+     "type": "String[]",
+     "rawValue": "[\"retry\"]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  }
+ ]
+}

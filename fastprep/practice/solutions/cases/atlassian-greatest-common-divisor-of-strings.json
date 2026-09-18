@@ -1,0 +1,98 @@
+{
+ "problemId": "atlassian-greatest-common-divisor-of-strings",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"ABC\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"ABC\""
+    }
+   ],
+   "expectedRaw": "\"ABC\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"ABCABC\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"ABCABC\""
+    }
+   ],
+   "expectedRaw": "\"ABCABC\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"cat\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"ABC\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"ABCABC\""
+    }
+   ],
+   "expectedRaw": "\"ABC\""
+  }
+ ]
+}

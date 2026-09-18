@@ -1,0 +1,68 @@
+{
+ "problemId": "rippling-delivery-cost-tracker",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET_TOTAL_COST\"], [\"GET_UNPAID_COST\"], [\"PAY_UP_TO\", \"5400\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0.00\", \"0.00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET_UNPAID_COST\"], [\"GET_UNPAID_COST\"], [\"GET_TOTAL_COST\"], [\"PAY_UP_TO\", \"5400\"], [\"ADD_DRIVER\", \"alice\", \"10.00\"], [\"GET_UNPAID_COST\"], [\"RECORD_DELIVERY\", \"alice\", \"0\", \"5400\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0.00\", \"0.00\", \"0.00\", \"0.00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_DRIVER\", \"b\", \"24.00\"], [\"RECORD_DELIVERY\", \"a\", \"100\", \"1300\"], [\"RECORD_DELIVERY\", \"b\", \"500\", \"2300\"], [\"GET_TOTAL_COST\"], [\"PAY_UP_TO\", \"1500\"], [\"GET_UNPAID_COST\"]]"
+    }
+   ],
+   "expectedRaw": "[\"12.00\", \"12.00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_DRIVER\", \"a\", \"18.00\"], [\"ADD_DRIVER\", \"b\", \"24.00\"], [\"RECORD_DELIVERY\", \"a\", \"100\", \"1300\"], [\"PAY_UP_TO\", \"500\", \"2300\"], [\"1500\"], [\"GET_UNPAID_COST\"]]"
+    }
+   ],
+   "expectedRaw": "[\"6.00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET_UNPAID_COST\"], [\"PAY_UP_TO\", \"1500\"], [\"ADD_DRIVER\", \"b\", \"24.00\"], [\"RECORD_DELIVERY\", \"b\", \"500\", \"2300\"], [\"GET_TOTAL_COST\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0.00\", \"12.00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"PAY_UP_TO\", \"1500\"], [\"GET_TOTAL_COST\"], [\"ADD_DRIVER\", \"a\", \"18.00\"], [\"RECORD_DELIVERY\", \"b\", \"500\", \"2300\"], [\"RECORD_DELIVERY\", \"a\", \"100\", \"1300\"], [\"1300\", \"24.00\"], [\"GET_UNPAID_COST\"]]"
+    }
+   ],
+   "expectedRaw": "[\"0.00\", \"6.00\"]"
+  }
+ ]
+}

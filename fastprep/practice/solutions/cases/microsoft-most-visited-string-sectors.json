@@ -1,0 +1,98 @@
+{
+ "problemId": "microsoft-most-visited-string-sectors",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 12,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "sectors",
+     "type": "String[]",
+     "rawValue": "[\"west\", \"south\", \"north\", \"west\", \"east\", \"north\"]"
+    },
+    {
+     "name": "rounds",
+     "type": "String[]",
+     "rawValue": "[\"north\", \"east\", \"south\", \"north\", \"east\"]"
+    }
+   ],
+   "expectedRaw": "[\"west\", \"south\", \"north\", \"west\", \"east\", \"north\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sectors",
+     "type": "String[]",
+     "rawValue": "[\"green\", \"green\", \"blue\"]"
+    },
+    {
+     "name": "rounds",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"green\"]"
+    }
+   ],
+   "expectedRaw": "[\"green\", \"green\", \"blue\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sectors",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"blue\", \"green\", \"red\"]"
+    },
+    {
+     "name": "rounds",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"blue\"]"
+    }
+   ],
+   "expectedRaw": "[\"red\", \"blue\", \"red\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sectors",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"blue\", \"green\"]"
+    },
+    {
+     "name": "rounds",
+     "type": "String[]",
+     "rawValue": "[\"green\", \"green\"]"
+    }
+   ],
+   "expectedRaw": "[\"green\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sectors",
+     "type": "String[]",
+     "rawValue": "[\"green\", \"blue\", \"red\"]"
+    },
+    {
+     "name": "rounds",
+     "type": "String[]",
+     "rawValue": "[\"green\", \"blue\", \"blue\"]"
+    }
+   ],
+   "expectedRaw": "[\"green\", \"blue\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sectors",
+     "type": "String[]",
+     "rawValue": "[\"green\", \"blue\", \"green\"]"
+    },
+    {
+     "name": "rounds",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"green\"]"
+    }
+   ],
+   "expectedRaw": "[\"blue\", \"green\"]"
+  }
+ ]
+}

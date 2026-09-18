@@ -1,0 +1,98 @@
+{
+ "problemId": "charta-bst-inorder-successor",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[20, 10, 30, 5, 15, 25, 35]"
+    },
+    {
+     "name": "targetValue",
+     "type": "int",
+     "rawValue": "16"
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[2, 1, 3]"
+    },
+    {
+     "name": "targetValue",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[2, 1, 3]"
+    },
+    {
+     "name": "targetValue",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[20, 10, 30, 5, 15, 25, 35]"
+    },
+    {
+     "name": "targetValue",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[20, 10, 30, 5, 15, 25, 35]"
+    },
+    {
+     "name": "targetValue",
+     "type": "int",
+     "rawValue": "12"
+    }
+   ],
+   "expectedRaw": "15"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[20, 10, 30, 5, 15, 25, 35, 2, 7, 13, 17]"
+    },
+    {
+     "name": "targetValue",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "10"
+  }
+ ]
+}

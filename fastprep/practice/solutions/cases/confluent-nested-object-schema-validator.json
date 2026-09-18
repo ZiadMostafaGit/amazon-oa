@@ -1,0 +1,98 @@
+{
+ "problemId": "confluent-nested-object-schema-validator",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"{\\\"name\\\":\\\"stringg\\\",\\\"location\\\":{\\\"x\\\":\\\"number\\\",\\\"y\\\":\\\"number\\\"}}\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"{\\\"nam\\\":\\\"bob\\\",\\\"location\\\":{\\\"x\\\":5,\\\"y\\\":6}}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"{\\\"name\\\":\\\"string\\\",\\\"location\\\":{\\\"x\\\":\\\"nnumber\\\"}}\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"{\\\"name\\\":\\\"bob\\\",\\\"location\\\":{\\\"x\\\":\\\"\\\"}}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"{\\\"user\\\"\\\":{\\\"id\\\":\\\"number\\\"}}\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"{\\\"user\\\":{\\\"id\\\":7,\\\"name\\\":\\\"Lin\\\"}}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"{\\\"name\\\":\\\"string\\\",\\\"location\\\":{\\\"x\\\":\\\"nummber\\\"}}\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"{\\\"name\\\":\\\"bob\\\",\\\"location\\\":{\\\"x\\\":\\\"5\\\"}\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "schema",
+     "type": "String",
+     "rawValue": "\"{\\\"name\\\":\\\"string\\\",\\\"locationn\\\":{\\\"x\\\":\\\"number\\\",\\\"y\\\":\\\"number\\\"}}\""
+    },
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"{\\\"name\\\":\\\"bob\\\",\\\"location\\\":{\\\"x\\\":5,\\\"y\\\"6}}\""
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

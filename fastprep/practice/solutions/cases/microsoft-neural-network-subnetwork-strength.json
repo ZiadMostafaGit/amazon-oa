@@ -1,0 +1,158 @@
+{
+ "problemId": "microsoft-neural-network-subnetwork-strength",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 30,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "neuronFrom",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "neuronTo",
+     "type": "int[]",
+     "rawValue": "[2, 1, 4]"
+    },
+    {
+     "name": "strongConnectivity",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 0]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "neuronFrom",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, -1]"
+    },
+    {
+     "name": "neuronTo",
+     "type": "int[]",
+     "rawValue": "[4, 3, 3, 4]"
+    },
+    {
+     "name": "strongConnectivity",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 1]"
+    }
+   ],
+   "expectedRaw": "[0, 0, -1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "neuronFrom",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1]"
+    },
+    {
+     "name": "neuronTo",
+     "type": "int[]",
+     "rawValue": "[2, 3, 4, 4]"
+    },
+    {
+     "name": "strongConnectivity",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[0, 1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "neuronFrom",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "neuronTo",
+     "type": "int[]",
+     "rawValue": "[2, 3, 4, 4]"
+    },
+    {
+     "name": "strongConnectivity",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[1, 0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "neuronFrom",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "neuronTo",
+     "type": "int[]",
+     "rawValue": "[2, 3, 4, 4]"
+    },
+    {
+     "name": "strongConnectivity",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 1]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, 0, 0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "neuronFrom",
+     "type": "int[]",
+     "rawValue": "[1, 1, 2]"
+    },
+    {
+     "name": "neuronTo",
+     "type": "int[]",
+     "rawValue": "[2, 3, -4]"
+    },
+    {
+     "name": "strongConnectivity",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 0]"
+    }
+   ],
+   "expectedRaw": "[0, -1, 1, 0, 0, 0]"
+  }
+ ]
+}

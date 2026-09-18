@@ -1,0 +1,98 @@
+{
+ "problemId": "optiver-multi-level-inventory-storage-system",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "String[]",
+     "rawValue": "[\"pine:1\"]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"HideNut 1 oak shared 4 10\", \"HideNut 2 pine shared 9 10\", \"RetrieveNuts 3 oak 1\", \"HideNut 4 pine shared 9 10\"]"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"true\", \"[]\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "String[]",
+     "rawValue": "[\"pine:1\", \"pine:1\"]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"HideNut 4 pine shared 9 10\", \"RetrieveNuts 5 missing 2\", \"RetrieveNuts 6 pine 1\", \"RetrieveNuts 3 oak 1\", \"HideNut 2 pine shared 9 10\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"[]\", \"[shared]\", \"[]\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "String[]",
+     "rawValue": "[\"pine:1\", \"oak:1\"]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"HideNut 1 oak shared 4 10\", \"HideNut 2 pine shared 9 10\", \"RetrieveNuts 3 oak 1\", \"RetrieveNuts 5 missing 2\", \"RetrieveNuts 5 missing 2\", \"RetrieveNuts 6 pine 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"[shared]\", \"[]\", \"[]\", \"[]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "String[]",
+     "rawValue": "[\"pine:1\", \"pine:1\"]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"HideNut 1 oak shared 4 10\", \"HideNut 2 pine shared 9 10\", \"RetrieveNuts 3 oak 1\", \"HideNut 4 pine shared 9 10\", \"RetrieveNuts 5 missing 2\", \"RetrievNuts 6 pine 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"true\", \"[]\", \"false\", \"[]\", \"[shared]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "String[]",
+     "rawValue": "[\"oak:1\", \"pine:1\"]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"HideNut 2 pine shared 9 10\", \"HideNut 1 oak shared 4 10\", \"RetrieveNuts 5 missing 2\", \"HideNut 4 pine shared 9 10\", \"RetrieveNuts 3 oak 1\", \"RetrieveNuts 6 pine 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"[]\", \"false\", \"[]\", \"[shared]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "locations",
+     "type": "String[]",
+     "rawValue": "[\"oak:1\"]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"HideNut 1 oak shared 4 10\", \"HideNut 2 pine shared 9 10\", \"HideNut 2 pine shared 9 10\", \"HideNut 4 pine shared 9 10\", \"RetrieveNuts 5 missig 2\", \"RetrieveNuts 6 pine 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"false\", \"false\", \"false\", \"[]\", \"[]\"]"
+  }
+ ]
+}

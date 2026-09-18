@@ -1,0 +1,98 @@
+{
+ "problemId": "akuna-difference-calculator",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "15"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[3, 2, 2, 5, 5, 5, 5, 5, 3, 3, 3, 2, 2]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1, 2, 2, 4, 4, 4, 4, 4, 2, 2]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "13"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1, 2, 2, 2, 4, 4, 4, 4, 2, 2, 2]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[3, 2, 2, 5, 5, 5, 5, 5, 3, 3, 3, 2, 2]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1, 2, 4, 4, 4, 4, 2, 2, -2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "11"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[3, 3, 5, 5, 2, 3, 5, 5, 2, 2, 3, 2, 5]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

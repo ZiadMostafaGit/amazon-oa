@@ -1,0 +1,68 @@
+{
+ "problemId": "epic-first-appearance-character-frequencies",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Amount CCharacters\""
+    }
+   ],
+   "expectedRaw": "[\"a:3\", \"m:1\", \"o:1\", \"u:1\", \"n:1\", \"t:2\", \"c:3\", \"h:1\", \"r:2\", \"e:1\", \"s:1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Amount Charaters\""
+    }
+   ],
+   "expectedRaw": "[\"a:3\", \"m:1\", \"o:1\", \"u:1\", \"n:1\", \"t:2\", \"c:1\", \"h:1\", \"r:2\", \"e:1\", \"s:1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"A b AA\""
+    }
+   ],
+   "expectedRaw": "[\"a:3\", \"b:1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Amount Characcters\""
+    }
+   ],
+   "expectedRaw": "[\"a:3\", \"m:1\", \"o:1\", \"u:1\", \"n:1\", \"t:2\", \"c:3\", \"h:1\", \"r:2\", \"e:1\", \"s:1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Amount Charaacters\""
+    }
+   ],
+   "expectedRaw": "[\"a:4\", \"m:1\", \"o:1\", \"u:1\", \"n:1\", \"t:2\", \"c:2\", \"h:1\", \"r:2\", \"e:1\", \"s:1\"]"
+  }
+ ]
+}

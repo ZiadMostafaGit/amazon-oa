@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-cloud-storage-compression",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"dog\", \"bc\", \"a\", \"red\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"yz\", \"yz\", \"x\"], [\"yz\", \"yz\", \"10\", \"x\", \"dog\", \"ab\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\", \"abc\", \"1\", \"blue\", \"bc\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"dog\", \"0\", \"abc\"], [\"bc\", \"b\"], [\"cat\", \"red\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"10\"], [\"red\", \"blue\", \"cat\"], [\"abc\", \"ab\", \"dog\", \"b\", \"cat\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\"]"
+  }
+ ]
+}

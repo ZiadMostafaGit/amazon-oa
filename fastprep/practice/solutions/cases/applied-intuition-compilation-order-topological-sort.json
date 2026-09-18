@@ -1,0 +1,98 @@
+{
+ "problemId": "applied-intuition-compilation-order-topological-sort",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "modules",
+     "type": "String[]",
+     "rawValue": "[\"C\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"C\"], [\"B\", \"A\", \"B\", \"A\"], [\"D\", \"A\"]]"
+    }
+   ],
+   "expectedRaw": "[\"C\", \"A\", \"B\", \"D\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "modules",
+     "type": "String[]",
+     "rawValue": "[\"B\", \"B\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"B\", \"A\"], [\"A\", \"B\"]]"
+    }
+   ],
+   "expectedRaw": "[\"IMPOSSIBLE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "modules",
+     "type": "String[]",
+     "rawValue": "[\"B\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"B\", \"A\"], [\"B\", \"A\"]]"
+    }
+   ],
+   "expectedRaw": "[\"A\", \"B\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "modules",
+     "type": "String[]",
+     "rawValue": "[\"B\", \"A\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"A\", \"B\"]]"
+    }
+   ],
+   "expectedRaw": "[\"B\", \"A\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "modules",
+     "type": "String[]",
+     "rawValue": "[\"B\", \"B\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"B\", \"A\"]]"
+    }
+   ],
+   "expectedRaw": "[\"IMPOSSIBLE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "modules",
+     "type": "String[]",
+     "rawValue": "[\"B\", \"A\", \"D\", \"C\", \"A\"]"
+    },
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"A\", \"C\"], [\"A\", \"C\"], [\"D\", \"A\"]]"
+    }
+   ],
+   "expectedRaw": "[\"B\", \"C\", \"A\", \"D\"]"
+  }
+ ]
+}

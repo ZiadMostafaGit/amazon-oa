@@ -1,0 +1,128 @@
+{
+ "problemId": "tiktok-decision-tree-classifier",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[[2.0]]"
+    },
+    {
+     "name": "yTrain",
+     "type": "int[]",
+     "rawValue": "[1, 4, 0]"
+    },
+    {
+     "name": "xTest",
+     "type": "double[][]",
+     "rawValue": "[[2.5], [0.5], [2.5]]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[[3.0], [1.0, 1.0], [0.0]]"
+    },
+    {
+     "name": "yTrain",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1]"
+    },
+    {
+     "name": "xTest",
+     "type": "double[][]",
+     "rawValue": "[[2.5], [2.5]]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[[-5.359, 4.513, -4.397, -5.987]]"
+    },
+    {
+     "name": "yTrain",
+     "type": "int[]",
+     "rawValue": "[-7, 2, 6, -7]"
+    },
+    {
+     "name": "xTest",
+     "type": "double[][]",
+     "rawValue": "[[-1.722, -2.285, 4.373], [-1.203, -1.806, -5.703, 5.314, 5.923, 3.103]]"
+    }
+   ],
+   "expectedRaw": "[-7, -7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[[], [-5.616, -5.3, -2.403, 5.65]]"
+    },
+    {
+     "name": "yTrain",
+     "type": "int[]",
+     "rawValue": "[5, 3, 3, -2, -3]"
+    },
+    {
+     "name": "xTest",
+     "type": "double[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[[2.0], [1.0], [1.0], [2.0], [3.0]]"
+    },
+    {
+     "name": "yTrain",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "xTest",
+     "type": "double[][]",
+     "rawValue": "[[0.5], [2.5]]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[[3.0], [1.0], [2.0], [0.0]]"
+    },
+    {
+     "name": "yTrain",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 1, 1]"
+    },
+    {
+     "name": "xTest",
+     "type": "double[][]",
+     "rawValue": "[[0.5], [0.0, 2.5]]"
+    }
+   ],
+   "expectedRaw": "[0, 1]"
+  }
+ ]
+}

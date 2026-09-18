@@ -1,0 +1,68 @@
+{
+ "problemId": "bytedance-match-consecutive-word-boundaries",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"da\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"abcd\", \"abdd\", \"dd\", \"abdd\", \"dd\"]"
+    }
+   ],
+   "expectedRaw": "[true, false, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"abdd\", \"da\", \"abcd\", \"dd\", \"abcd\"]"
+    }
+   ],
+   "expectedRaw": "[false, false, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"a\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"abdd\", \"da\", \"abdd\", \"da\", \"da\", \"dd\"]"
+    }
+   ],
+   "expectedRaw": "[false, false, false, true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"abc\", \"0\"]"
+    }
+   ],
+   "expectedRaw": "[false, false]"
+  }
+ ]
+}

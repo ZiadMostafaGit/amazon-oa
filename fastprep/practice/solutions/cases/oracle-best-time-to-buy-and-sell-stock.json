@@ -1,0 +1,68 @@
+{
+ "problemId": "oracle-best-time-to-buy-and-sell-stock",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[5, 3, 6]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[3, 4, 5, 6, 7, 4, 1]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[6, 4, 3, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[7, 4, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[7, 4, 3, 7, 1]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

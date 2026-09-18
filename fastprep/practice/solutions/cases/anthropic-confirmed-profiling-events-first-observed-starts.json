@@ -1,0 +1,128 @@
+{
+ "problemId": "anthropic-confirmed-profiling-events-first-observed-starts",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[30, 50]"
+    },
+    {
+     "name": "stacks",
+     "type": "String[][]",
+     "rawValue": "[[\"main\"], [\"main\"], [\"main\", \"parse\"], [\"main\", \"parse\"]]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[-4, 3]"
+    },
+    {
+     "name": "stacks",
+     "type": "String[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[30, 40, 10, 50, 20, 40]"
+    },
+    {
+     "name": "stacks",
+     "type": "String[][]",
+     "rawValue": "[[\"main\"], [\"main\", \"parse\"], [\"parse\"], [\"main\", \"main\", \"main\"], [\"main\"]]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[[\"start\", \"30\", \"main\"], [\"end\", \"10\", \"main\"], [\"start\", \"50\", \"main\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[20, 30, 40, 40, 50]"
+    },
+    {
+     "name": "stacks",
+     "type": "String[][]",
+     "rawValue": "[[\"main\"], [\"parse\"], [\"main\"], [\"main\", \"parse\"]]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[[\"start\", \"40\", \"main\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[3, 0]"
+    },
+    {
+     "name": "stacks",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"10\"]]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[10, 20, 0, 40, 40]"
+    },
+    {
+     "name": "stacks",
+     "type": "String[][]",
+     "rawValue": "[[\"main\"], [\"main\", \"parse\"], [\"main\", \"parse\"], [\"main\"], [\"main\", \"main\"]]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

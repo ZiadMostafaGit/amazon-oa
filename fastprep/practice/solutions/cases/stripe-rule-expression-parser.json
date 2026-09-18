@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-rule-expression-parser",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rule",
+     "type": "String",
+     "rawValue": "\"age >= 118 AND country == \\\"US\\\"\""
+    }
+   ],
+   "expectedRaw": "\"(AND (>= age 118) (== country \\\"US\\\"))\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rule",
+     "type": "String",
+     "rawValue": "\"age >= 18 AN country == \\\"US\\\"\""
+    }
+   ],
+   "expectedRaw": "\"INVALID\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rule",
+     "type": "String",
+     "rawValue": "\"age >= AND active === 1\""
+    }
+   ],
+   "expectedRaw": "\"INVALID\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rule",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"INVALID\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rule",
+     "type": "String",
+     "rawValue": "\"NOT (status == \\\"blocked\\\" OR retries >> +003)\""
+    }
+   ],
+   "expectedRaw": "\"INVALID\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rule",
+     "type": "String",
+     "rawValue": "\"agee >= AND active == 1\""
+    }
+   ],
+   "expectedRaw": "\"INVALID\""
+  }
+ ]
+}

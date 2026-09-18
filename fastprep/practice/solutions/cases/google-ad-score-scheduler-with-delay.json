@@ -1,0 +1,68 @@
+{
+ "problemId": "google-ad-score-scheduler-with-delay",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"GET\", \"GET\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"GET\", \"INSERT beta 4 0\", \"GET\", \"GET\", \"INSERT alpha 5 0\", \"GET\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"beta\", \"\", \"alpha\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"INSERT beta 4 0\", \"GET\", \"GET\", \"GET\"]"
+    }
+   ],
+   "expectedRaw": "[\"beta\", \"\", \"beta\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"INSERT alpha 5 0\", \"INSERT beta 4 0\", \"INSERT beta 4 0\", \"GET\", \"GET\"]"
+    }
+   ],
+   "expectedRaw": "[\"alpha\", \"beta\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"INSERT beta 4 0\", \"GET\", \"GET\", \"INSERT beta 4 0\", \"GET\", \"INSERT alpha 5 0\"]"
+    }
+   ],
+   "expectedRaw": "[\"beta\", \"\", \"beta\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

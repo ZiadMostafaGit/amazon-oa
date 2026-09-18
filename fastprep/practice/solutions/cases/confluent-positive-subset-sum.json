@@ -1,0 +1,98 @@
+{
+ "problemId": "confluent-positive-subset-sum",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[61, 5, 9]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[5, 5]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[5, 5, 11, 11]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3, -4, 1, -2]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[12, 1, 61, 5, 9]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "24"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-5]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

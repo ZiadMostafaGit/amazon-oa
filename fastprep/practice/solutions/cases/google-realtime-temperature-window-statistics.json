@@ -1,0 +1,98 @@
+{
+ "problemId": "google-realtime-temperature-window-statistics",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"AVERAGE\", \"ADD 5\", \"MAX\", \"ADD 1\", \"ADD 9\", \"AVERAGE\", \"ADD 3\", \"AVERAGE\", \"MAX\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"5\", \"5/1\", \"13/3\", \"9\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD -2\", \"MAX\", \"AVERAGE\", \"AVERAGE\", \"ADD -4\", \"MAX\", \"ADD -2\", \"ADD 2\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"MAX\", \"MAX\", \"ADD 5\", \"MAX\", \"AVERAGE\", \"ADD 9\", \"MAX\", \"ADD 1\", \"AVERAGE\", \"AVERAGE\", \"ADD 3\", \"AVERAGE\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"5\", \"5/1\", \"9\", \"5/1\", \"5/1\", \"13/3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD -4\", \"ADD 2\", \"AVERAGE\", \"MAX\", \"ADD -2\", \"ADD -2\", \"MAX\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[\"-1/1\", \"2\", \"-2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"AVERAGE\", \"AVERAGE\", \"ADD -2\", \"MAX\", \"MAX\", \"ADD -4\", \"ADD 2\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"abc\", \"0\"]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"null\"]"
+  }
+ ]
+}

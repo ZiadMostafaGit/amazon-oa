@@ -1,0 +1,68 @@
+{
+ "problemId": "plaid-evaluation-chain-validity",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"E5\", \"false\"], [\"E5\", \"false\"]]"
+    }
+   ],
+   "expectedRaw": "[\"INVALID\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"check\", \"missing\"], [\"check\", \"missing\"], [\"check\", \"missing\"]]"
+    }
+   ],
+   "expectedRaw": "[\"INVALID\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"B\", \"A\"], [\"A\", \"B\"]]"
+    }
+   ],
+   "expectedRaw": "[\"INVALID\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"B\", \"A\", \"B\"], [\"B\", \"A\"]]"
+    }
+   ],
+   "expectedRaw": "[\"INVALID\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"0\", \"cat\", \"a\", \"abc\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[\"INVALID\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"ab\", \"ab\"]]"
+    }
+   ],
+   "expectedRaw": "[\"INVALID\"]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-word-break",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"leetcode\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"code\"]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bc\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"yz\", \"dog\", \"blue\", \"0\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"code\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"code\", \"code\"]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"leetcode\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"code\", \"code\"]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"leet\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"leet\", \"code\", \"leet\"]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"code\""
+    },
+    {
+     "name": "wordDict",
+     "type": "String[]",
+     "rawValue": "[\"leet\", \"code\"]"
+    }
+   ],
+   "expectedRaw": "true"
+  }
+ ]
+}

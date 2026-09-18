@@ -1,0 +1,68 @@
+{
+ "problemId": "openai-streaming-entropy-part-1",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[1.754, 0.0]"
+    }
+   ],
+   "expectedRaw": "0.4184240776659487"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[1.0, 0.0, 1.0, 2.0]"
+    }
+   ],
+   "expectedRaw": "1.164406217776436"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[-0.531]"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[2.86, -0.855, -1.705]"
+    }
+   ],
+   "expectedRaw": "0.16753973986468843"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[1.98]"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "logits",
+     "type": "double[]",
+     "rawValue": "[-4.968, -2.282, -5.932, -2.044, 0.281]"
+    }
+   ],
+   "expectedRaw": "0.5605845233662515"
+  }
+ ]
+}

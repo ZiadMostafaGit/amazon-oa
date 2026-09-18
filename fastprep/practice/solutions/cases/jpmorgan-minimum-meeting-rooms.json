@@ -1,0 +1,68 @@
+{
+ "problemId": "jpmorgan-minimum-meeting-rooms",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "meetingTimings",
+     "type": "int[][]",
+     "rawValue": "[[5, 6], [7, 9]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "meetingTimings",
+     "type": "int[][]",
+     "rawValue": "[[6, 10], [1, 5], [5, 6], [7, 9], [1, 4], [7, 9]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "meetingTimings",
+     "type": "int[][]",
+     "rawValue": "[[1, 5], [5, 6], [6, 10], [7, 9]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "meetingTimings",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "meetingTimings",
+     "type": "int[][]",
+     "rawValue": "[[1, 5], [5, 6], [6, 10], [6, 10], [7, 9]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "meetingTimings",
+     "type": "int[][]",
+     "rawValue": "[[1, 4], [9, 9], [6, 10], [5, 6], [1, 5]]"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

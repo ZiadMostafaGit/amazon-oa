@@ -1,0 +1,68 @@
+{
+ "problemId": "akuna-maximum-remaining-drone-power",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "city",
+     "type": "int[][]",
+     "rawValue": "[[10, 10, 10, 10]]"
+    }
+   ],
+   "expectedRaw": "90"
+  },
+  {
+   "inputs": [
+    {
+     "name": "city",
+     "type": "int[][]",
+     "rawValue": "[[10, 8, 0, 10], [10, 20, 30, 40], [60, 50, 20, 80], [10, 8, 0, 10], [60, 50, 20, 80], [60, 50, 60, 50]]"
+    }
+   ],
+   "expectedRaw": "-10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "city",
+     "type": "int[][]",
+     "rawValue": "[[4, 16, 14, 21], [17, 0, 5, 5], [4, 41, 22, 3], [2, 51, 6, 0], [4, 16, 14, 21]]"
+    }
+   ],
+   "expectedRaw": "86"
+  },
+  {
+   "inputs": [
+    {
+     "name": "city",
+     "type": "int[][]",
+     "rawValue": "[[10, 10, 10, 10], [60, 50, 20, 80], [10, 10, 10, 10], [60, 60, 50, 60]]"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "city",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "100"
+  },
+  {
+   "inputs": [
+    {
+     "name": "city",
+     "type": "int[][]",
+     "rawValue": "[[60, 50, 20, 80], [10, 10, 10, 10], [60, 50, 60, 50], [60, 50, 60, 50]]"
+    }
+   ],
+   "expectedRaw": "-30"
+  }
+ ]
+}

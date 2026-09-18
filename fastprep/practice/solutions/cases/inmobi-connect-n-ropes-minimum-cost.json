@@ -1,0 +1,68 @@
+{
+ "problemId": "inmobi-connect-n-ropes-minimum-cost",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "ropes",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ropes",
+     "type": "int[]",
+     "rawValue": "[10, 13, 10]"
+    }
+   ],
+   "expectedRaw": "53"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ropes",
+     "type": "int[]",
+     "rawValue": "[0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ropes",
+     "type": "int[]",
+     "rawValue": "[3, 3, 4, 6]"
+    }
+   ],
+   "expectedRaw": "32"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ropes",
+     "type": "int[]",
+     "rawValue": "[4, 3, 6]"
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ropes",
+     "type": "int[]",
+     "rawValue": "[4, 3, 2]"
+    }
+   ],
+   "expectedRaw": "14"
+  }
+ ]
+}

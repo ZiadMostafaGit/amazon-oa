@@ -1,0 +1,98 @@
+{
+ "problemId": "google-score-points",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[]",
+     "rawValue": "[2, 5, 2]"
+    },
+    {
+     "name": "tokens",
+     "type": "String",
+     "rawValue": "\"TTT\""
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    },
+    {
+     "name": "tokens",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[]",
+     "rawValue": "[2, 5, 3, 4, 3, 5]"
+    },
+    {
+     "name": "tokens",
+     "type": "String",
+     "rawValue": "\"TEEETT\""
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[]",
+     "rawValue": "[5, 3, 4, 3]"
+    },
+    {
+     "name": "tokens",
+     "type": "String",
+     "rawValue": "\"TETT\""
+    }
+   ],
+   "expectedRaw": "13"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[]",
+     "rawValue": "[0, 2, 1, 2, 2]"
+    },
+    {
+     "name": "tokens",
+     "type": "String",
+     "rawValue": "\"ETTE\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    },
+    {
+     "name": "tokens",
+     "type": "String",
+     "rawValue": "\"0\""
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

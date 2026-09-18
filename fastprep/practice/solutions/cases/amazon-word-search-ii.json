@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-word-search-ii",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[[\"i\", \"h\", \"k\", \"r\"]]"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"rain\", \"r\", \"oath\"]"
+    }
+   ],
+   "expectedRaw": "[\"r\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[[\"1\"]]"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"10\", \"red\", \"x\", \"ab\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"yz\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[[\"e\", \"t\", \"a\", \"e\"], [\"i\", \"f\", \"l\", \"v\"], [\"i\", \"h\", \"k\", \"r\"], [\"i\", \"f\", \"l\", \"v\"]]"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"oath\", \"h\", \"rain\"]"
+    }
+   ],
+   "expectedRaw": "[\"h\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[[\"o\", \"a\", \"a\", \"n\"], [\"e\", \"t\", \"a\", \"e\"], [\"i\", \"h\", \"k\", \"r\"], [\"o\", \"a\", \"a\", \"n\"], [\"i\", \"f\", \"l\", \"v\"]]"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"oath\", \"rain\", \"eat\", \"rain\"]"
+    }
+   ],
+   "expectedRaw": "[\"oath\", \"eat\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[[\"o\", \"a\", \"a\", \"n\"], [\"i\", \"h\", \"k\", \"r\"], [\"i\", \"f\", \"l\", \"v\"]]"
+    },
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"oath\", \"v\", \"rain\"]"
+    }
+   ],
+   "expectedRaw": "[\"v\"]"
+  }
+ ]
+}

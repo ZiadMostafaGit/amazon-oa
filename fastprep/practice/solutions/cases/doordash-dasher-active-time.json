@@ -1,0 +1,98 @@
+{
+ "problemId": "doordash-dasher-active-time",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[620, 735, 765]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"PICKUP\", \"DROPOFF\", \"PICKUP\", \"PICKUP\", \"DROPOFF\", \"DROPOFF\"]"
+    }
+   ],
+   "expectedRaw": "115"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[-3]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"abc\", \"10\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[865, 550, 510, 620, 735, 510]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"PICKUP\", \"DROPOFF\", \"DROPOFF\", \"PICKUP\", \"PICKUP\", \"DROPOFF\", \"DROPOFF\"]"
+    }
+   ],
+   "expectedRaw": "-315"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[510, 550, 620, 765]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"DROPOFF\", \"PICKUP\", \"PICKUP\", \"DROPOFF\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[0, 5]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"DROPOFF\", \"PICKUP\", \"DROPOFF\", \"DROPOFF\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[765, 550, 550, 865, 513, 620, 735]"
+    },
+    {
+     "name": "actions",
+     "type": "String[]",
+     "rawValue": "[\"PICKUP\", \"DROPOFF\", \"PICKUP\", \"PICKUP\", \"DROPOFF\", \"DROPOFF\", \"DROPOFF\", \"PICKUP\"]"
+    }
+   ],
+   "expectedRaw": "-145"
+  }
+ ]
+}

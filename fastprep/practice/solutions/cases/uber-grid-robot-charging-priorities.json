@@ -1,0 +1,68 @@
+{
+ "problemId": "uber-grid-robot-charging-priorities",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"...\", \"...\", \"...\"]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"...\", \"...\", \"SCT\"]"
+    }
+   ],
+   "expectedRaw": "[0, 4, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"...\"]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"SCT\"]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"SCT\", \"...\", \"...\"]"
+    }
+   ],
+   "expectedRaw": "[0, 4, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"abc\", \"0\", \"10\", \"0\", \"red\", \"1\"]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "cisco-fizz-buzz-problem",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "inputNum",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"2\", \"Fizz\", \"4\", \"Buzz\", \"Fizz\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputNum",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputNum",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputNum",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"2\", \"Fizz\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputNum",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputNum",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  }
+ ]
+}

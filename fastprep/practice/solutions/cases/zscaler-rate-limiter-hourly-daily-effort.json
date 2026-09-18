@@ -1,0 +1,188 @@
+{
+ "problemId": "zscaler-rate-limiter-hourly-daily-effort",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"alice\", \"alice\"]"
+    },
+    {
+     "name": "efforts",
+     "type": "long[]",
+     "rawValue": "[4, 5, 6, 1]"
+    },
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[0, 7200, 60, 120, 3600, 7200]"
+    },
+    {
+     "name": "hourlyLimit",
+     "type": "long",
+     "rawValue": "6"
+    },
+    {
+     "name": "dailyLimit",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"alice\", \"alice\", \"alice\", \"alice\", \"alice\", \"alice\"]"
+    },
+    {
+     "name": "efforts",
+     "type": "long[]",
+     "rawValue": "[4, 6, -1, 1, 1]"
+    },
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[3600, 60, 120]"
+    },
+    {
+     "name": "hourlyLimit",
+     "type": "long",
+     "rawValue": "10"
+    },
+    {
+     "name": "dailyLimit",
+     "type": "long",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[false, false, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"alice\", \"alice\", \"bob\", \"alice\", \"alice\"]"
+    },
+    {
+     "name": "efforts",
+     "type": "long[]",
+     "rawValue": "[5, 0, 5, 8]"
+    },
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[10, 20, 20, 3601]"
+    },
+    {
+     "name": "hourlyLimit",
+     "type": "long",
+     "rawValue": "11"
+    },
+    {
+     "name": "dailyLimit",
+     "type": "long",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "[true, true, true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"alice\", \"alice\", \"alice\", \"alice\", \"alice\"]"
+    },
+    {
+     "name": "efforts",
+     "type": "long[]",
+     "rawValue": "[6, 5, 4, -2, 1]"
+    },
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[0, 60, 120, 7200, 7200]"
+    },
+    {
+     "name": "hourlyLimit",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "dailyLimit",
+     "type": "long",
+     "rawValue": "15"
+    }
+   ],
+   "expectedRaw": "[false, false, false, true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"cat\", \"b\"]"
+    },
+    {
+     "name": "efforts",
+     "type": "long[]",
+     "rawValue": "[3, 2]"
+    },
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "hourlyLimit",
+     "type": "long",
+     "rawValue": "2"
+    },
+    {
+     "name": "dailyLimit",
+     "type": "long",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "[false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "userIds",
+     "type": "String[]",
+     "rawValue": "[\"u\", \"u\", \"u\"]"
+    },
+    {
+     "name": "efforts",
+     "type": "long[]",
+     "rawValue": "[7, 10]"
+    },
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[100, 0, 100]"
+    },
+    {
+     "name": "hourlyLimit",
+     "type": "long",
+     "rawValue": "-10"
+    },
+    {
+     "name": "dailyLimit",
+     "type": "long",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[false, false]"
+  }
+ ]
+}

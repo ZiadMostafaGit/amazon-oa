@@ -1,0 +1,98 @@
+{
+ "problemId": "point72-initial-public-offering",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[3, 7, 7, 2]]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 5, 5], [2, 7, 8, 1], [3, 7, 7, 2], [4, 6, 3, 4]]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "18"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[2, 7, 8, 1], [3, 7, 7, 2], [4, 10, 6, 3], [4, 10, 6, 3]]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[2, 3, 4, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 5, 0], [2, 2, 5, 1], [3, 1, 4, 2], [1, 2, 5, 0]]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[2, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[2, -3, -3, -3]]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[1, 5, 7, 0], [7, 2, 3, 4], [4, 10, 6, 3]]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[1, 4, 7]"
+  }
+ ]
+}

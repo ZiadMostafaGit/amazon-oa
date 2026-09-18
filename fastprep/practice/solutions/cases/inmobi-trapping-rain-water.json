@@ -1,0 +1,68 @@
+{
+ "problemId": "inmobi-trapping-rain-water",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "heights",
+     "type": "long[]",
+     "rawValue": "[0, 2, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "heights",
+     "type": "long[]",
+     "rawValue": "[2, 4, 0, 0, 3, 4, 0]"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "heights",
+     "type": "long[]",
+     "rawValue": "[1, 8, 2, 4]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "heights",
+     "type": "long[]",
+     "rawValue": "[8, 8, -1]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "heights",
+     "type": "long[]",
+     "rawValue": "[8, 8, 2, 8, 4]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "heights",
+     "type": "long[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

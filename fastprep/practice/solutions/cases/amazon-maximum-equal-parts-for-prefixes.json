@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-maximum-equal-parts-for-prefixes",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "String",
+     "rawValue": "\"ABBAB\""
+    }
+   ],
+   "expectedRaw": "[1, 1, 1, 2, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "String",
+     "rawValue": "\"ABA\""
+    }
+   ],
+   "expectedRaw": "[1, 1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "String",
+     "rawValue": "\"ABAAB\""
+    }
+   ],
+   "expectedRaw": "[1, 1, 1, 1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "String",
+     "rawValue": "\"ABABB\""
+    }
+   ],
+   "expectedRaw": "[1, 1, 1, 2, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packages",
+     "type": "String",
+     "rawValue": "\"AABAB\""
+    }
+   ],
+   "expectedRaw": "[1, 2, 1, 1, 1]"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-find-capable-winners",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 8,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "power_a",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "power_b",
+     "type": "int[]",
+     "rawValue": "[5, 8, 10, 12]"
+    },
+    {
+     "name": "power_c",
+     "type": "int[]",
+     "rawValue": "[11, 3, 13, 3, 3]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "power_a",
+     "type": "int[]",
+     "rawValue": "[4, 0]"
+    },
+    {
+     "name": "power_b",
+     "type": "int[]",
+     "rawValue": "[10, 5, 12, 5]"
+    },
+    {
+     "name": "power_c",
+     "type": "int[]",
+     "rawValue": "[11, 11, 3, 13]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "power_a",
+     "type": "int[]",
+     "rawValue": "[9, 4, 0]"
+    },
+    {
+     "name": "power_b",
+     "type": "int[]",
+     "rawValue": "[-10, 5, 12]"
+    },
+    {
+     "name": "power_c",
+     "type": "int[]",
+     "rawValue": "[11, 13, 3, 0, 3]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "power_a",
+     "type": "int[]",
+     "rawValue": "[2, 4]"
+    },
+    {
+     "name": "power_b",
+     "type": "int[]",
+     "rawValue": "[12, 5, 12, 10]"
+    },
+    {
+     "name": "power_c",
+     "type": "int[]",
+     "rawValue": "[11, 11]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "power_a",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "power_b",
+     "type": "int[]",
+     "rawValue": "[-2, 0, 0]"
+    },
+    {
+     "name": "power_c",
+     "type": "int[]",
+     "rawValue": "[-3, 4]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "power_a",
+     "type": "int[]",
+     "rawValue": "[-9, 4, 2]"
+    },
+    {
+     "name": "power_b",
+     "type": "int[]",
+     "rawValue": "[10, 5, 5, 12, 10]"
+    },
+    {
+     "name": "power_c",
+     "type": "int[]",
+     "rawValue": "[11, -3, 13]"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

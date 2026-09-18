@@ -1,0 +1,68 @@
+{
+ "problemId": "snap-inc-sort-characters-by-frequency",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"trree\""
+    }
+   ],
+   "expectedRaw": "\"eerrt\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"tre\""
+    }
+   ],
+   "expectedRaw": "\"ert\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"Aabbb\""
+    }
+   ],
+   "expectedRaw": "\"bbbAa\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"Aaabb\""
+    }
+   ],
+   "expectedRaw": "\"aabbA\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"cccaaaa\""
+    }
+   ],
+   "expectedRaw": "\"aaaaccc\""
+  }
+ ]
+}

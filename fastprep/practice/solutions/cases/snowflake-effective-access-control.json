@@ -1,0 +1,128 @@
+{
+ "problemId": "snowflake-effective-access-control",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 12,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[[\"READ\"], [\"WRITE\", \"WRITE\", \"WRITE\"], [\"DEPLOY\"]]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[], [\"WRITE\"], [\"WRITE\", \"WRITE\"]]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [1, 2]]"
+    }
+   ],
+   "expectedRaw": "[[\"READ\"], [], [\"DEPLOY\", \"READ\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[[\"C\"], [\"B\", \"B\"], [], [\"D\"]]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[\"B\"], [], [\"D\", \"D\"], []]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [2, 1], [2, 3], [0, 0]]"
+    }
+   ],
+   "expectedRaw": "[[\"C\"], [\"B\"], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[[\"B\", \"C\"], [\"A\", \"B\"], [\"D\"], []]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[\"C\"], [], [], [\"C\"], []]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [0, 2]]"
+    }
+   ],
+   "expectedRaw": "[[\"B\"], [\"A\", \"B\"], [\"B\", \"D\"], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"cat\", \"yz\", \"1\"], [\"a\"]]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[\"red\", \"blue\"], [\"10\", \"x\", \"blue\", \"x\", \"1\"]]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[[\"1\", \"ab\", \"cat\", \"yz\"], [\"a\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[\"abc\", \"b\", \"0\", \"red\"], [\"b\", \"0\", \"10\"]]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"B\", \"C\"], [\"D\"]]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[\"B\", \"B\"], [\"B\"], [], [\"C\"], []]"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [2, 2]]"
+    }
+   ],
+   "expectedRaw": "[[\"A\"], [\"C\"], [\"A\", \"D\"]]"
+  }
+ ]
+}

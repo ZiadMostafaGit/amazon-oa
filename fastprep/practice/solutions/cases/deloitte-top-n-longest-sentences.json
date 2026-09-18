@@ -1,0 +1,98 @@
+{
+ "problemId": "deloitte-top-n-longest-sentences",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[\"medium text\"]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[\"medium text\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[\"bbb\", \"d\", \"bbb\", \"d\", \"aa\"]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[\"short\", \"the longest one\", \"short\", \"tiny\"]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[\"the longest one\", \"short\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[\"short\", \"tiny\", \"tiny\"]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[\"short\", \"tiny\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[\"short\", \"medium text\", \"tiny\", \"the longest one\"]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[\"the longest one\", \"medium text\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sentences",
+     "type": "String[]",
+     "rawValue": "[\"short\", \"medium text\", \"the longest one\", \"tiny\"]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[\"the longest one\", \"medium text\"]"
+  }
+ ]
+}

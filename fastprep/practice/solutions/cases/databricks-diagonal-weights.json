@@ -1,0 +1,68 @@
+{
+ "problemId": "databricks-diagonal-weights",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 1], [1, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "[1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1], [4, 4, -2, 0, 1], [-2, -3, 2, 5, -3]]"
+    }
+   ],
+   "expectedRaw": "[-2, 1, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[2, 3, 2], [1, 0, 1], [2, 3, 2], [0, 2, 5]]"
+    }
+   ],
+   "expectedRaw": "[0, 2, 2, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[0, 2, 5], [2, 2, 5], [1, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[2, 2, 2], [0, 2, 5], [1, 0, 1], [2, 3, 2]]"
+    }
+   ],
+   "expectedRaw": "[1, 2, 0, 2]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "imc-stack-batch-removal",
+ "generatedAt": "2026-09-18T23:33:46",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push 2\", \"push 4\", \"remove_upper 3\", \"pop\", \"pop\"]"
+    }
+   ],
+   "expectedRaw": "[\"2\", \"4\", \"2\", \"EMPTY\", \"EMPTY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push 3\", \"push 2\", \"push 4\", \"remove_lowr 3\", \"remove_upper 3\", \"push 4\", \"remove_lower 3\", \"pop\", \"pop\"]"
+    }
+   ],
+   "expectedRaw": "[\"3\", \"2\", \"4\", \"4\", \"2\", \"4\", \"4\", \"3\", \"EMPTY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push 3\", \"push 4\", \"push 4\", \"remove_lower 3\", \"remove_upper 3\", \"push 2\", \"pop\", \"pop\"]"
+    }
+   ],
+   "expectedRaw": "[\"3\", \"4\", \"4\", \"4\", \"3\", \"2\", \"3\", \"EMPTY\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"pop\", \"push 3\", \"push 2\", \"remove_upper 3\", \"push 4\", \"remove_lower 3\", \"pop\", \"push 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"EMPTY\", \"3\", \"2\", \"2\", \"4\", \"4\", \"3\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"remove_lower 3\", \"pop\", \"push 3\", \"push 2\", \"push 2\", \"push 4\", \"remove_upper 3\"]"
+    }
+   ],
+   "expectedRaw": "[\"EMPTY\", \"EMPTY\", \"3\", \"2\", \"2\", \"4\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push 2\", \"push 2\", \"push 4\", \"remove_lower 3\", \"remove_upper 3\", \"push 2\", \"pop\", \"pop\"]"
+    }
+   ],
+   "expectedRaw": "[\"2\", \"2\", \"4\", \"4\", \"EMPTY\", \"2\", \"EMPTY\", \"EMPTY\"]"
+  }
+ ]
+}

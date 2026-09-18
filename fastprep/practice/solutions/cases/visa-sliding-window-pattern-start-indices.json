@@ -1,0 +1,98 @@
+{
+ "problemId": "visa-sliding-window-pattern-start-indices",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "String",
+     "rawValue": "\"abra\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"abra\""
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "String",
+     "rawValue": "\"abracadabra\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"abracadabra\""
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "String",
+     "rawValue": "\"aa\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"aaaa\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "String",
+     "rawValue": "\"abra\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"abracadabra\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "String",
+     "rawValue": "\"aa\""
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"aa\""
+    }
+   ],
+   "expectedRaw": "[0]"
+  }
+ ]
+}

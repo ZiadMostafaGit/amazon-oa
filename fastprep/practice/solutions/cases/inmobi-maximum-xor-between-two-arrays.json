@@ -1,0 +1,98 @@
+{
+ "problemId": "inmobi-maximum-xor-between-two-arrays",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[0, 6, 8, 6]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[1, 7, 0, 7, -2, 1, 10]"
+    }
+   ],
+   "expectedRaw": "2147483646"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[6, 6, 6, 5, 6, 0, 6, 6, 8]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, 0, 8, 0, 2]"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[6, 6, 0, 8, 5, 6]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[1, 7, 7, 0, 2]"
+    }
+   ],
+   "expectedRaw": "15"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[0, 10, 2]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[3, 10, 8]"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[-3, -3, -3]"
+    }
+   ],
+   "expectedRaw": "2147483644"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[6, 6, 0, 8, 6, 8, 5, 6]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[1, 7, 1, 7, 8, 0]"
+    }
+   ],
+   "expectedRaw": "15"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "inmobi-classify-number-series",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "long[]",
+     "rawValue": "[2, 11, 5, 11]"
+    }
+   ],
+   "expectedRaw": "-999"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "long[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "15"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "long[]",
+     "rawValue": "[5, 8, 11, 2, 8]"
+    }
+   ],
+   "expectedRaw": "-999"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "long[]",
+     "rawValue": "[12, 6, 12, 6]"
+    }
+   ],
+   "expectedRaw": "-999"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "long[]",
+     "rawValue": "[2, 5, 8]"
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sequence",
+     "type": "long[]",
+     "rawValue": "[4, 2, 4, 7]"
+    }
+   ],
+   "expectedRaw": "-999"
+  }
+ ]
+}

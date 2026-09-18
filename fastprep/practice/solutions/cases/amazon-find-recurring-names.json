@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-find-recurring-names",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "realNames",
+     "type": "String[]",
+     "rawValue": "[\"daisy\", \"daisy\"]"
+    },
+    {
+     "name": "allNames",
+     "type": "String[]",
+     "rawValue": "[\"ryhen\", \"daisy\", \"henry\", \"aisyd\"]"
+    }
+   ],
+   "expectedRaw": "[\"daisy\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "realNames",
+     "type": "String[]",
+     "rawValue": "[\"rohn\", \"henry\", \"daisy\", \"henry\", \"henry\"]"
+    },
+    {
+     "name": "allNames",
+     "type": "String[]",
+     "rawValue": "[\"henry\", \"daisy\", \"ryhen\"]"
+    }
+   ],
+   "expectedRaw": "[\"henry\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "realNames",
+     "type": "String[]",
+     "rawValue": "[\"henry\", \"daisy\"]"
+    },
+    {
+     "name": "allNames",
+     "type": "String[]",
+     "rawValue": "[\"ryhen\", \"aisyd\", \"henry\", \"ryhen\"]"
+    }
+   ],
+   "expectedRaw": "[\"henry\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "realNames",
+     "type": "String[]",
+     "rawValue": "[\"abc\"]"
+    },
+    {
+     "name": "allNames",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"a\", \"yz\", \"x\"]"
+    }
+   ],
+   "expectedRaw": "[\"None\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "realNames",
+     "type": "String[]",
+     "rawValue": "[\"mot\", \"jerry\"]"
+    },
+    {
+     "name": "allNames",
+     "type": "String[]",
+     "rawValue": "[\"reyjr\", \"mto\", \"tom\", \"mto\"]"
+    }
+   ],
+   "expectedRaw": "[\"mot\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "realNames",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"abc\", \"0\"]"
+    },
+    {
+     "name": "allNames",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"0\", \"abc\", \"red\"]"
+    }
+   ],
+   "expectedRaw": "[\"None\"]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "citadel-reconcile-unmatched-trades",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[][]",
+     "rawValue": "[[\"b2\", \"MSFT\", \"BUY\", \"25000\", \"2\", \"200\"], [\"b3\", \"AAPL\", \"BUY\", \"10000\", \"7\", \"105\"]]"
+    },
+    {
+     "name": "tolerance",
+     "type": "long",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[\"b2\", \"b3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[][]",
+     "rawValue": "[[\"b1\", \"AAPL\", \"BUY\", \"10000\", \"5\", \"100\"], [\"b2\", \"MSFT\", \"BUY\", \"25000\", \"2\", \"200\"], [\"s2\", \"MSFT\", \"SELL\", \"25000\", \"2\", \"206\"]]"
+    },
+    {
+     "name": "tolerance",
+     "type": "long",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[\"b1\", \"b2\", \"s2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[][]",
+     "rawValue": "[[\"b1\", \"AAPL\", \"BUY\", \"10000\", \"5\", \"100\"], [\"b2\", \"MSFT\", \"BUY\", \"25000\", \"2\", \"200\"], [\"s1\", \"AAPL\", \"SELL\", \"10000\", \"5\", \"102\"]]"
+    },
+    {
+     "name": "tolerance",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"b1\", \"b2\", \"s1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[][]",
+     "rawValue": "[[\"b1\", \"XYZ\", \"BUY\", \"500\", \"1\", \"10\"], [\"b2\", \"XYZ\", \"BUY\", \"500\", \"1\", \"12\"]]"
+    },
+    {
+     "name": "tolerance",
+     "type": "long",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "[\"b1\", \"b2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[][]",
+     "rawValue": "[[\"b1\", \"XYZ\", \"BUY\", \"500\", \"1\", \"10\"], [\"b2\", \"XYZ\", \"BUY\", \"500\", \"1\", \"12\"], [\"s1\", \"XYZ\", \"SELL\", \"500\", \"1\", \"11\"], [\"b1\", \"XYZ\", \"BUY\", \"500\", \"1\", \"10\"], [\"s2\", \"XYZ\", \"SELL\", \"500\", \"1\", \"20\"]]"
+    },
+    {
+     "name": "tolerance",
+     "type": "long",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[\"b2\", \"b1\", \"s2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "tolerance",
+     "type": "long",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

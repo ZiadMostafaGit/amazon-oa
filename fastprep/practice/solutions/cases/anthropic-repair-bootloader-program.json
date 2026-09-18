@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-repair-bootloader-program",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "instructions",
+     "type": "String[]",
+     "rawValue": "[\"jump -1\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "instructions",
+     "type": "String[]",
+     "rawValue": "[\"plus +1\", \"next +0\", \"plus +3\", \"next +0\", \"plus +3\"]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "instructions",
+     "type": "String[]",
+     "rawValue": "[\"next +0\", \"jump -1\", \"plus +1\", \"plus +3\", \"plus +1\"]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "instructions",
+     "type": "String[]",
+     "rawValue": "[\"plus +3\", \"jump -1\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "instructions",
+     "type": "String[]",
+     "rawValue": "[\"next +0\", \"jump -1\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "instructions",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

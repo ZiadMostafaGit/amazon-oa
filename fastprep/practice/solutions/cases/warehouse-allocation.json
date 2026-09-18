@@ -1,0 +1,68 @@
+{
+ "problemId": "warehouse-allocation",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "int[]",
+     "rawValue": "[8]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "int[]",
+     "rawValue": "[4, 4, 7, 4, 4]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "int[]",
+     "rawValue": "[4, 1]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "int[]",
+     "rawValue": "[1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "int[]",
+     "rawValue": "[4]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "int[]",
+     "rawValue": "[2, 1, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

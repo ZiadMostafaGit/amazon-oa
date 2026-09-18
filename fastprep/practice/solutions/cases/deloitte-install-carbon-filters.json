@@ -1,0 +1,68 @@
+{
+ "problemId": "deloitte-install-carbon-filters",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"???abb\""
+    }
+   ],
+   "expectedRaw": "\"aababb\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"a?b\""
+    }
+   ],
+   "expectedRaw": "\"aab\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"aa??aaa\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"a?bbb\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  }
+ ]
+}

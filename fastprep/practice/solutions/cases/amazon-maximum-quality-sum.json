@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-maximum-quality-sum",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "packets",
+     "type": "int[]",
+     "rawValue": "[3, 5]"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packets",
+     "type": "int[]",
+     "rawValue": "[48, 89]"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "137"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packets",
+     "type": "int[]",
+     "rawValue": "[-4]"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "-4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packets",
+     "type": "int[]",
+     "rawValue": "[89, 48, 14, 14]"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "151"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packets",
+     "type": "int[]",
+     "rawValue": "[3, -4, 1, -2]"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "packets",
+     "type": "int[]",
+     "rawValue": "[-3, 2, 4, -3, 3]"
+    },
+    {
+     "name": "channels",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

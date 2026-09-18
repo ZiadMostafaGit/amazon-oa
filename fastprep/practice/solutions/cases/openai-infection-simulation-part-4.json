@@ -1,0 +1,158 @@
+{
+ "problemId": "openai-infection-simulation-part-4",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"X.\", \"X.\"]"
+    },
+    {
+     "name": "infectionThreshold",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "duration",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "deathThreshold",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[2, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"dog\"]"
+    },
+    {
+     "name": "infectionThreshold",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "duration",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "deathThreshold",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"X.\", \"X.\"]"
+    },
+    {
+     "name": "infectionThreshold",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "duration",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "deathThreshold",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[1, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"X.\", \"X.\"]"
+    },
+    {
+     "name": "infectionThreshold",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "duration",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "deathThreshold",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[1, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"X.\", \"X.\", \"X.\"]"
+    },
+    {
+     "name": "infectionThreshold",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "duration",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "deathThreshold",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[1, 6]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"X.\"]"
+    },
+    {
+     "name": "infectionThreshold",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "duration",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "deathThreshold",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[5, 2]"
+  }
+ ]
+}

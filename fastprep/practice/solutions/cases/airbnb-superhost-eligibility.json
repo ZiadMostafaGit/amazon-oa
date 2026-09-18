@@ -1,0 +1,158 @@
+{
+ "problemId": "airbnb-superhost-eligibility",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "listings",
+     "type": "String[]",
+     "rawValue": "[\"a 470 1\", \"b 500 1\"]"
+    },
+    {
+     "name": "minListings",
+     "type": "int",
+     "rawValue": "90"
+    },
+    {
+     "name": "minAverageRating",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "minRecentPercent",
+     "type": "int",
+     "rawValue": "475"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "listings",
+     "type": "String[]",
+     "rawValue": "[\"x 500 0\", \"x 500 1\", \"x 500 0\", \"x 500 1\"]"
+    },
+    {
+     "name": "minListings",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "minAverageRating",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "minRecentPercent",
+     "type": "int",
+     "rawValue": "90"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "listings",
+     "type": "String[]",
+     "rawValue": "[\"a 490 1\", \"a 470 1\", \"b 500 1\"]"
+    },
+    {
+     "name": "minListings",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "minAverageRating",
+     "type": "int",
+     "rawValue": "474"
+    },
+    {
+     "name": "minRecentPercent",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "listings",
+     "type": "String[]",
+     "rawValue": "[\"a 480 1\", \"a 470 1\", \"b 500 1\", \"a 480 1\", \"b 500 1\", \"a 470 1\"]"
+    },
+    {
+     "name": "minListings",
+     "type": "int",
+     "rawValue": "475"
+    },
+    {
+     "name": "minAverageRating",
+     "type": "int",
+     "rawValue": "-475"
+    },
+    {
+     "name": "minRecentPercent",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "listings",
+     "type": "String[]",
+     "rawValue": "[\"a 490 1\", \"a 480 1\", \"b 500 1\", \"a 480 1\"]"
+    },
+    {
+     "name": "minListings",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "minAverageRating",
+     "type": "int",
+     "rawValue": "472"
+    },
+    {
+     "name": "minRecentPercent",
+     "type": "int",
+     "rawValue": "89"
+    }
+   ],
+   "expectedRaw": "[\"a\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "listings",
+     "type": "String[]",
+     "rawValue": "[\"a 480 1\", \"a 470 1\", \"a 480 1\", \"b 500 1\", \"b 500 1\"]"
+    },
+    {
+     "name": "minListings",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "minAverageRating",
+     "type": "int",
+     "rawValue": "-475"
+    },
+    {
+     "name": "minRecentPercent",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"a\"]"
+  }
+ ]
+}

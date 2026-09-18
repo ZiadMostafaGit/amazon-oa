@@ -1,0 +1,158 @@
+{
+ "problemId": "linkedin-merge-n-ary-trees-by-key",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 66,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "keys1",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"c\", \"d\", \"c\"]"
+    },
+    {
+     "name": "parents1",
+     "type": "int[]",
+     "rawValue": "[-1, 0, -1, 1]"
+    },
+    {
+     "name": "keys2",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"d\"]"
+    },
+    {
+     "name": "parents2",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 1, 0]"
+    }
+   ],
+   "expectedRaw": "[\"b\", \"b/c\", \"b/c/c\", \"b/d\", \"d\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "keys1",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"a\"]"
+    },
+    {
+     "name": "parents1",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 0]"
+    },
+    {
+     "name": "keys2",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"e\", \"d\"]"
+    },
+    {
+     "name": "parents2",
+     "type": "int[]",
+     "rawValue": "[-1, 0, -1, 0]"
+    }
+   ],
+   "expectedRaw": "[\"b\", \"b/a\", \"b/e\", \"d\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "keys1",
+     "type": "String[]",
+     "rawValue": "[\"bc\"]"
+    },
+    {
+     "name": "parents1",
+     "type": "int[]",
+     "rawValue": "[-1, 3, -1]"
+    },
+    {
+     "name": "keys2",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "parents2",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "[\"bc\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "keys1",
+     "type": "String[]",
+     "rawValue": "[\"red\"]"
+    },
+    {
+     "name": "parents1",
+     "type": "int[]",
+     "rawValue": "[-1, 1]"
+    },
+    {
+     "name": "keys2",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "parents2",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"red\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "keys1",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "parents1",
+     "type": "int[]",
+     "rawValue": "[-3]"
+    },
+    {
+     "name": "keys2",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "parents2",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "keys1",
+     "type": "String[]",
+     "rawValue": "[\"r\", \"a\", \"a\", \"b\", \"x\"]"
+    },
+    {
+     "name": "parents1",
+     "type": "int[]",
+     "rawValue": "[-1, 0, -1, 0, 0, 3]"
+    },
+    {
+     "name": "keys2",
+     "type": "String[]",
+     "rawValue": "[\"r\", \"a\", \"b\", \"r\"]"
+    },
+    {
+     "name": "parents2",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 1, 0, 3]"
+    }
+   ],
+   "expectedRaw": "[\"a\", \"r\", \"r/a\", \"r/a/b\", \"r/b\", \"r/r\", \"r/x\"]"
+  }
+ ]
+}

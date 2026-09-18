@@ -1,0 +1,98 @@
+{
+ "problemId": "salesforce-maximum-requests-in-window",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "timestamp",
+     "type": "int[]",
+     "rawValue": "[7]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamp",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamp",
+     "type": "int[]",
+     "rawValue": "[0, 0, 3]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamp",
+     "type": "int[]",
+     "rawValue": "[1, 7, 5, 1]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamp",
+     "type": "int[]",
+     "rawValue": "[2, 2, 3, 2]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamp",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "windowSize",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

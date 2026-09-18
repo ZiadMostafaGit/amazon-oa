@@ -1,0 +1,128 @@
+{
+ "problemId": "threshold-alerts",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "precedingMinutes",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "alertThreshold",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "numCalls",
+     "type": "int[]",
+     "rawValue": "[0, 11, 10, 10]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "precedingMinutes",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "alertThreshold",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "numCalls",
+     "type": "int[]",
+     "rawValue": "[0, 9, 10, 10, 7]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "precedingMinutes",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "alertThreshold",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "numCalls",
+     "type": "int[]",
+     "rawValue": "[0, 11, 7, 10, 10, 7]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "precedingMinutes",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "alertThreshold",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "numCalls",
+     "type": "int[]",
+     "rawValue": "[0, 10, 11]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "precedingMinutes",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "alertThreshold",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "numCalls",
+     "type": "int[]",
+     "rawValue": "[0, 7, 11, 10, 10, 7]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "precedingMinutes",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "alertThreshold",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "numCalls",
+     "type": "int[]",
+     "rawValue": "[0, 11, 10, 10, 7, 10]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

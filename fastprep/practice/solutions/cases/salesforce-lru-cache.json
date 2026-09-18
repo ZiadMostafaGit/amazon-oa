@@ -1,0 +1,128 @@
+{
+ "problemId": "salesforce-lru-cache",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 17,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put\", \"put\", \"get\", \"put\", \"get\"]"
+    },
+    {
+     "name": "arguments",
+     "type": "int[][]",
+     "rawValue": "[[5, 20], [6, 30], [5], [6, 30]]"
+    }
+   ],
+   "expectedRaw": "[-1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"yz\", \"0\", \"1\", \"10\", \"0\"]"
+    },
+    {
+     "name": "arguments",
+     "type": "int[][]",
+     "rawValue": "[[-1, 4, 0]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"get\", \"get\", \"put\", \"get\", \"get\", \"get\"]"
+    },
+    {
+     "name": "arguments",
+     "type": "int[][]",
+     "rawValue": "[[7], [7], [7, 70], [7], [7, 70]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, 70, 70]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"cat\", \"blue\", \"abc\"]"
+    },
+    {
+     "name": "arguments",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"get\", \"put\", \"put\"]"
+    },
+    {
+     "name": "arguments",
+     "type": "int[][]",
+     "rawValue": "[[7], [7, 70], [7, 70], [7], [7]]"
+    }
+   ],
+   "expectedRaw": "[-1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "capacity",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put\", \"get\", \"get\", \"get\"]"
+    },
+    {
+     "name": "arguments",
+     "type": "int[][]",
+     "rawValue": "[[5, 10], [5, 20], [5], [6, 30, 30], [5]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1]"
+  }
+ ]
+}

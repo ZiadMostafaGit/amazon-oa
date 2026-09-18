@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-find-max-value",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "limit",
+     "type": "int[]",
+     "rawValue": "[2, 1, 2, 1]"
+    },
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 3]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "limit",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[7, 8, 9]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "limit",
+     "type": "int[]",
+     "rawValue": "[1, 2, 1, 1]"
+    },
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 3], [4, 5, 6], [9]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "15"
+  },
+  {
+   "inputs": [
+    {
+     "name": "limit",
+     "type": "int[]",
+     "rawValue": "[3, 0]"
+    },
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[-3, 3]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "limit",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0]"
+    },
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 3], [4, 5, 6], [7, 9]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "limit",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 3], [4, 8, 5]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

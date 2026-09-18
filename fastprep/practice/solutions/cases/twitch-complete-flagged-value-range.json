@@ -1,0 +1,128 @@
+{
+ "problemId": "twitch-complete-flagged-value-range",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 7,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[3, 7]"
+    },
+    {
+     "name": "startFlags",
+     "type": "boolean[]",
+     "rawValue": "[false, false, true, false]"
+    },
+    {
+     "name": "endFlags",
+     "type": "boolean[]",
+     "rawValue": "[false, false, false, true, false, false]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[true, 8, 6, 10]"
+    },
+    {
+     "name": "startFlags",
+     "type": "boolean[]",
+     "rawValue": "[true, false, false, false, false]"
+    },
+    {
+     "name": "endFlags",
+     "type": "boolean[]",
+     "rawValue": "[false, true, false, false]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 2, 2]"
+    },
+    {
+     "name": "startFlags",
+     "type": "boolean[]",
+     "rawValue": "[false, true, false, false, true]"
+    },
+    {
+     "name": "endFlags",
+     "type": "boolean[]",
+     "rawValue": "[false, true, false, false, true]"
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[1, 3, 2, 1]"
+    },
+    {
+     "name": "startFlags",
+     "type": "boolean[]",
+     "rawValue": "[false, false, true, false, false]"
+    },
+    {
+     "name": "endFlags",
+     "type": "boolean[]",
+     "rawValue": "[true, false, true, false, false, false]"
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[6, 4, -10]"
+    },
+    {
+     "name": "startFlags",
+     "type": "boolean[]",
+     "rawValue": "[true, false, false]"
+    },
+    {
+     "name": "endFlags",
+     "type": "boolean[]",
+     "rawValue": "[false, false, false, true]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[10, 4, 6, 8]"
+    },
+    {
+     "name": "startFlags",
+     "type": "boolean[]",
+     "rawValue": "[true, false, false, false, true]"
+    },
+    {
+     "name": "endFlags",
+     "type": "boolean[]",
+     "rawValue": "[false, true, false, true]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

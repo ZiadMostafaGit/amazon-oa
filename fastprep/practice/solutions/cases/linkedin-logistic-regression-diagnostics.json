@@ -1,0 +1,128 @@
+{
+ "problemId": "linkedin-logistic-regression-diagnostics",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "features",
+     "type": "double[][]",
+     "rawValue": "[[1.0, 1.0], [1.0, 1.0]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    },
+    {
+     "name": "weights",
+     "type": "double[]",
+     "rawValue": "[0.0, 0.0]"
+    }
+   ],
+   "expectedRaw": "[[0.6931471805599453], [0.5, 0.5], [0.25, 0.25]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "features",
+     "type": "double[][]",
+     "rawValue": "[[1.432, 0.0]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "weights",
+     "type": "double[]",
+     "rawValue": "[0.0, 0.0]"
+    }
+   ],
+   "expectedRaw": "[[0.6931471805599453], [-0.716, 0.0], [0.25]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "features",
+     "type": "double[][]",
+     "rawValue": "[[1.0, 0.0], [1.0, 1.0]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0]"
+    },
+    {
+     "name": "weights",
+     "type": "double[]",
+     "rawValue": "[0.0]"
+    }
+   ],
+   "expectedRaw": "[[0.6931471805599453], [0.0], [0.25, 0.25]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "features",
+     "type": "double[][]",
+     "rawValue": "[[1.0, -1.0], [2.0, 1.0]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "weights",
+     "type": "double[]",
+     "rawValue": "[0.633]"
+    }
+   ],
+   "expectedRaw": "[[1.2866533746146167], [1.1066419407524455], [0.22653913749882526, 0.1715679395295887]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "features",
+     "type": "double[][]",
+     "rawValue": "[[1.0, 2.0]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "weights",
+     "type": "double[]",
+     "rawValue": "[1.0, 0.0]"
+    }
+   ],
+   "expectedRaw": "[[0.31326168751822286], [-0.2689414213699951, -0.5378828427399902], [0.19661193324148185]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "features",
+     "type": "double[][]",
+     "rawValue": "[[1.0, 0.0]]"
+    },
+    {
+     "name": "labels",
+     "type": "int[]",
+     "rawValue": "[0, 1]"
+    },
+    {
+     "name": "weights",
+     "type": "double[]",
+     "rawValue": "[-0.061, 0.0]"
+    }
+   ],
+   "expectedRaw": "[[0.663112233464074], [0.48475472701191996, 0.0], [0.24976758165151894]]"
+  }
+ ]
+}

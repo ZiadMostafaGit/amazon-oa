@@ -1,0 +1,68 @@
+{
+ "problemId": "akuna-vowel-substring-game",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "datasets",
+     "type": "String[]",
+     "rawValue": "[\"dry\", \"dry\", \"dry\"]"
+    }
+   ],
+   "expectedRaw": "[\"Chris\", \"Chris\", \"Chris\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "datasets",
+     "type": "String[]",
+     "rawValue": "[\"dry\", \"dry\", \"git\"]"
+    }
+   ],
+   "expectedRaw": "[\"Chris\", \"Chris\", \"Alex\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "datasets",
+     "type": "String[]",
+     "rawValue": "[\"dry\"]"
+    }
+   ],
+   "expectedRaw": "[\"Chris\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "datasets",
+     "type": "String[]",
+     "rawValue": "[\"git\"]"
+    }
+   ],
+   "expectedRaw": "[\"Alex\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "datasets",
+     "type": "String[]",
+     "rawValue": "[\"git\", \"dry\", \"dry\"]"
+    }
+   ],
+   "expectedRaw": "[\"Alex\", \"Chris\", \"Chris\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "datasets",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"abc\", \"0\", \"10\", \"0\", \"red\", \"1\"]"
+    }
+   ],
+   "expectedRaw": "[\"Alex\", \"Alex\", \"Chris\", \"Chris\", \"Chris\", \"Alex\", \"Chris\"]"
+  }
+ ]
+}

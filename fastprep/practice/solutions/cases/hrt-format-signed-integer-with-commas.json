@@ -1,0 +1,68 @@
+{
+ "problemId": "hrt-format-signed-integer-with-commas",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "1235"
+    }
+   ],
+   "expectedRaw": "\"1,235\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "\"-3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "\"1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "1233"
+    }
+   ],
+   "expectedRaw": "\"1,233\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "int",
+     "rawValue": "1231"
+    }
+   ],
+   "expectedRaw": "\"1,231\""
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-choose-warehouses-location",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "dist_centers",
+     "type": "int[]",
+     "rawValue": "[7, 6]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dist_centers",
+     "type": "int[]",
+     "rawValue": "[-1, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dist_centers",
+     "type": "int[]",
+     "rawValue": "[6]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dist_centers",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dist_centers",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dist_centers",
+     "type": "int[]",
+     "rawValue": "[6, 6]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

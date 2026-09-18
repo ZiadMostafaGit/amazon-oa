@@ -1,0 +1,68 @@
+{
+ "problemId": "salesforce-flatten-nested-map-paths",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"c=1\", \"}\", \"d=2\"]"
+    }
+   ],
+   "expectedRaw": "[\"c=1\", \"d=2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"x=1\", \"x=1\"]"
+    }
+   ],
+   "expectedRaw": "[\"x=1\", \"x=1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"c=1\", \"a{\", \"}\", \"d=2\", \"}\", \"b{\", \"d=2\"]"
+    }
+   ],
+   "expectedRaw": "[\"c=1\", \"d=2\", \"b.d=2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"a{\", \"b{\", \"c=1\", \"d=2\"]"
+    }
+   ],
+   "expectedRaw": "[\"a.b.c=1\", \"a.b.d=2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"b{\", \"}\", \"}\", \"a{\", \"d=2\"]"
+    }
+   ],
+   "expectedRaw": "[\"a.d=2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tokens",
+     "type": "String[]",
+     "rawValue": "[\"items=[x,y]\", \"}\", \"root{\"]"
+    }
+   ],
+   "expectedRaw": "[\"items=[x,y]\"]"
+  }
+ ]
+}

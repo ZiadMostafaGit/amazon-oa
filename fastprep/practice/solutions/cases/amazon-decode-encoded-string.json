@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-decode-encoded-string",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"3[a22[c]]\""
+    }
+   ],
+   "expectedRaw": "\"accccccccccccccccccccccaccccccccccccccccccccccacccccccccccccccccccccc\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"3[a2[c]\""
+    }
+   ],
+   "expectedRaw": "\"acc\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"3[a2[cc]]\""
+    }
+   ],
+   "expectedRaw": "\"accccaccccacccc\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "\"dog\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"33[a2[c]]\""
+    }
+   ],
+   "expectedRaw": "\"accaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccaccacc\""
+  }
+ ]
+}

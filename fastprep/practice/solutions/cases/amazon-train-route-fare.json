@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-train-route-fare",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "route",
+     "type": "String[]",
+     "rawValue": "[\"H\", \"I\"]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"U\""
+    },
+    {
+     "name": "stop",
+     "type": "String",
+     "rawValue": "\"U\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "route",
+     "type": "String[]",
+     "rawValue": "[\"G\", \"U\", \"H\", \"K\", \"I\", \"I\"]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"H\""
+    },
+    {
+     "name": "stop",
+     "type": "String",
+     "rawValue": "\"I\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "route",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"b\", \"abc\", \"cat\", \"blue\", \"abc\"]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "stop",
+     "type": "String",
+     "rawValue": "\"red\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "route",
+     "type": "String[]",
+     "rawValue": "[\"K\", \"H\", \"I\", \"U\", \"G\", \"H\"]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"K\""
+    },
+    {
+     "name": "stop",
+     "type": "String",
+     "rawValue": "\"U\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "route",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"x\", \"abc\"]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "stop",
+     "type": "String",
+     "rawValue": "\"0\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "route",
+     "type": "String[]",
+     "rawValue": "[\"U\", \"H\", \"K\", \"U\", \"I\", \"G\"]"
+    },
+    {
+     "name": "start",
+     "type": "String",
+     "rawValue": "\"K\""
+    },
+    {
+     "name": "stop",
+     "type": "String",
+     "rawValue": "\"G\""
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "purestorage-compare-boxes-to-template",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "String[][]",
+     "rawValue": "[[\"pm\", \"mc\"]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "String[][]",
+     "rawValue": "[[\"cm\", \"mc\"], [\"ccm\", \"mc\"], [\"mc\", \"ccm\", \"mc\"], [\"ccm\", \"mc\"]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "String[][]",
+     "rawValue": "[[\"ccm\", \"mc\"], [\"pm\", \"mc\"], [\"c\", \"mc\"], [\"cm\", \"mc\"], [\"pm\", \"mc\"]]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "String[][]",
+     "rawValue": "[[\"mc\", \"cm\", \"mc\"], [\"ccm\", \"mc\"], [\"pm\", \"mc\"], [\"c\", \"mc\"]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "boxes",
+     "type": "String[][]",
+     "rawValue": "[[\"cm\", \"mc\"], [\"c\", \"mc\"], [\"pm\", \"mc\"], [\"c\", \"mc\"]]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

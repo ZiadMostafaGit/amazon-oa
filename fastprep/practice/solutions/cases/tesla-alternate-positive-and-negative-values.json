@@ -1,0 +1,68 @@
+{
+ "problemId": "tesla-alternate-positive-and-negative-values",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-1, 4, 1, 4, 5]"
+    }
+   ],
+   "expectedRaw": "[4, -1, 1, 4, 5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 2, -5]"
+    }
+   ],
+   "expectedRaw": "[1, -5, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-5, 2]"
+    }
+   ],
+   "expectedRaw": "[2, -5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-4, 2, -5, -4]"
+    }
+   ],
+   "expectedRaw": "[-4, 2, -5, -4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-4, -3, -1, 4, -5]"
+    }
+   ],
+   "expectedRaw": "[-4, 4, -3, -1, -5]"
+  }
+ ]
+}

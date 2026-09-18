@@ -1,0 +1,68 @@
+{
+ "problemId": "atlassian-chairs-requirement",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "simulations",
+     "type": "String[]",
+     "rawValue": "[\"CCCC\", \"CCCC\"]"
+    }
+   ],
+   "expectedRaw": "[4, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "simulations",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"yz\", \"0\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "simulations",
+     "type": "String[]",
+     "rawValue": "[\"CCRUCL\", \"CRUC\"]"
+    }
+   ],
+   "expectedRaw": "[3, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "simulations",
+     "type": "String[]",
+     "rawValue": "[\"CCRUCL\", \"CRUC\", \"CRUC\"]"
+    }
+   ],
+   "expectedRaw": "[3, 2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "simulations",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"yz\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "simulations",
+     "type": "String[]",
+     "rawValue": "[\"CRUC\"]"
+    }
+   ],
+   "expectedRaw": "[2]"
+  }
+ ]
+}

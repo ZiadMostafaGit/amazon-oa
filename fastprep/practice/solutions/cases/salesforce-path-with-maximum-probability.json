@@ -1,0 +1,188 @@
+{
+ "problemId": "salesforce-path-with-maximum-probability",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [0, 2]]"
+    },
+    {
+     "name": "probabilities",
+     "type": "double[]",
+     "rawValue": "[0.5, 0.5]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2]]"
+    },
+    {
+     "name": "probabilities",
+     "type": "double[]",
+     "rawValue": "[0.5, 0.5, 0.2]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [0, 1], [1, 2], [0, 2]]"
+    },
+    {
+     "name": "probabilities",
+     "type": "double[]",
+     "rawValue": "[0.3]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1], [1, 2], [0, 2]]"
+    },
+    {
+     "name": "probabilities",
+     "type": "double[]",
+     "rawValue": "[0.2, 0.5, 0.5]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [1, 2], [0]]"
+    },
+    {
+     "name": "probabilities",
+     "type": "double[]",
+     "rawValue": "[0.5, 0.5, 0.3]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [0, 2], [0]]"
+    },
+    {
+     "name": "probabilities",
+     "type": "double[]",
+     "rawValue": "[0.2, 0.5]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1.0"
+  }
+ ]
+}

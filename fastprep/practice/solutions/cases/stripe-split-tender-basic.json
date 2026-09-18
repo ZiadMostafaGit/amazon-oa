@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-split-tender-basic",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"3,CHARGE,chg1,cust2,30,10000\"]"
+    }
+   ],
+   "expectedRaw": "[\"30.00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"1,ADD_GIFTCARD,cust1,gc1,25.50,50\", \"3,CHARGE,ch2,cust1,20.00,10000\", \"2,CHARGE,ch1,cust1,10.25,10000\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"0.00,gc1:20.00\", \"4.75,gc1:5.50\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"1,CHARGE,ch1,cust1,12.50,94105\", \"1,CHARRGE,ch1,cust1,12.50,9410\"]"
+    }
+   ],
+   "expectedRaw": "[\"12.50\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"1,ADD_GIFTCARD,cust1,gc1,50,10\", \"3,CHARGE,chg1,cust2,30,10000\", \"4,CHARGE,chg2,cust1,30,10000\", \"2,ADD_GIFTCARD,cust2,gc2,20,15\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"30.00\", \"0.00,gc1:30.00\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"2,ADD_GIFTCARD,cust2,gc2,20,15\", \"1,ADD_GIFTCARD,cust1,g1,50,10\", \"2,ADD_GIFTCARD,cust2,gc2,20,15\", \"3,CHARGE,chg1,cust2,30,10000\", \"3,CHARGE,chg1,cust2,30,10000\", \"4,CHARGE,chg2,cust1,30,10000\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"0.00,gc2:20.00,gc2:10.00\", \"20.00,gc2:10.00\", \"0.00,g1:30.00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[]",
+     "rawValue": "[\"1,ADD_GIFTCARD,cust1,gc1,50,10\", \"2,ADD_GIFTCARDD,cust2,gc2,20,15\", \"3,CHARGE,chg1,cust2,30,10000\", \"4,CHARGE,chg2,cust1,30,10000\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"30.00\", \"0.00,gc1:30.00\"]"
+  }
+ ]
+}

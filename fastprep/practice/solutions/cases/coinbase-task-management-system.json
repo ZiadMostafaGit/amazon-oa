@@ -1,0 +1,68 @@
+{
+ "problemId": "coinbase-task-management-system",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"WRITE\", \"1\", \"t1\", \"Fix login\", \"5\", \"10\"], [\"LIST\", \"3\"], [\"ASSIGN\", \"5\", \"t1\", \"u1\"], [\"CHECK_OVERDUE\", \"10\", \"u1\"], [\"CHECK_OVERDUE\", \"11\", \"u1\"], [\"COMPLETE\", \"12\", \"t1\"], [\"READ\", \"14\", \"t1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"OK\"], [\"t1\"], [\"OK\"], [], [\"t1\"], [\"OK\"], [\"t1\", \"Fix login\", \"5\", \"10\", \"u1\", \"COMPLETED\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ASSIGN\", \"6\", \"b\", \"u\"], [\"WRITE\", \"5\", \"c\", \"gamma\", \"3\", \"15\"], [\"LIST\", \"8\"], [\"READ\", \"1\", \"missing\"], [\"ASSIGN\", \"7\", \"c\", \"u\"], [\"WRITE\", \"3\", \"b\", \"beta\", \"2\", \"15\"], [\"WRITE\", \"4\", \"a\", \"alpha\", \"2\", \"20\"], [\"ASSIGN\", \"2\", \"missing\", \"u\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"NOT_FOUND\"], [\"OK\"], [\"c\"], [], [\"OK\"], [\"OK\"], [\"OK\"], [\"NOT_FOUND\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ASSIGN\", \"2\", \"missing\", \"u\"], [\"LIST\", \"8\"], [\"ASSIGN\", \"7\", \"c\", \"u\"], [\"WRITE\", \"3\", \"b\", \"beta\", \"2\", \"15\"], [\"WRITE\", \"5\", \"c\", \"gamma\", \"3\", \"15\"], [\"ASSIGN\", \"6\", \"b\", \"u\"], [\"WRITE\", \"4\", \"a\", \"alpha\", \"2\", \"20\"], [\"CHECK_OVERDUE\", \"16\", \"u\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"NOT_FOUND\"], [], [\"NOT_FOUND\"], [\"OK\"], [\"OK\"], [\"OK\"], [\"OK\"], [\"b\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"10\", \"0\", \"red\", \"1\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"WRITE\", \"1\", \"a\", \"draft\", \"1\", \"9\"], [\"COMPLETE\", \"2\", \"a\"], [\"WRITE\", \"4\", \"a\", \"revised\", \"7\", \"12\"], [\"READ\", \"5\", \"a\"], [\"COMPLETE\", \"6\", \"a\"], [\"WRITE\", \"7\", \"a\", \"again\", \"9\", \"20\"], [\"ASSIGN\", \"8\", \"a\", \"sam\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"OK\"], [\"NOT_ASSIGNED\"], [\"OK\"], [\"a\", \"revised\", \"7\", \"12\", \"\", \"OPEN\"], [\"NOT_ASSIGNED\"], [\"OK\"], [\"OK\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"WRITE\", \"1\", \"t1\", \"Fix login\", \"5\", \"10\"], [\"WRITE\", \"2\", \"t2\", \"Add logs\", \"8\", \"6\"], [\"LIST\", \"3\"], [\"ASSIGN\", \"5\", \"t1\", \"u1\"], [\"CHECK_OVERDUE\", \"10\", \"u1\"], [\"CHECK_OVERDUE\", \"14\", \"u1\"], [\"COMPLETE\", \"12\", \"t1\"], [\"CHECK_OVERDUE\", \"13\", \"u1\"], [\"READ\", \"14\", \"t1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"OK\"], [\"OK\"], [\"t2\", \"t1\"], [\"OK\"], [], [\"t1\"], [\"OK\"], [], [\"t1\", \"Fix login\", \"5\", \"10\", \"u1\", \"COMPLETED\"]]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "cisco-maximum-chocolates-from-jars",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "jars",
+     "type": "int[]",
+     "rawValue": "[99, 60, 5]"
+    }
+   ],
+   "expectedRaw": "104"
+  },
+  {
+   "inputs": [
+    {
+     "name": "jars",
+     "type": "int[]",
+     "rawValue": "[60, 10, 99, 5, 5, 10, 30]"
+    }
+   ],
+   "expectedRaw": "194"
+  },
+  {
+   "inputs": [
+    {
+     "name": "jars",
+     "type": "int[]",
+     "rawValue": "[30, 99, 60, 5, 10]"
+    }
+   ],
+   "expectedRaw": "109"
+  },
+  {
+   "inputs": [
+    {
+     "name": "jars",
+     "type": "int[]",
+     "rawValue": "[5, 99, 60, -10]"
+    }
+   ],
+   "expectedRaw": "99"
+  },
+  {
+   "inputs": [
+    {
+     "name": "jars",
+     "type": "int[]",
+     "rawValue": "[31, 99, 60, 10]"
+    }
+   ],
+   "expectedRaw": "109"
+  },
+  {
+   "inputs": [
+    {
+     "name": "jars",
+     "type": "int[]",
+     "rawValue": "[30, 5, 60, 5]"
+    }
+   ],
+   "expectedRaw": "90"
+  }
+ ]
+}

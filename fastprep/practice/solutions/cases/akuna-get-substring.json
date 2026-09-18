@@ -1,0 +1,98 @@
+{
+ "problemId": "akuna-get-substring",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input_str",
+     "type": "String",
+     "rawValue": "\"01101101\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"1011\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "input_str",
+     "type": "String",
+     "rawValue": "\"01011001\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"1011\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "input_str",
+     "type": "String",
+     "rawValue": "\"00101101\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "\"11\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "input_str",
+     "type": "String",
+     "rawValue": "\"101101\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"1011\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "input_str",
+     "type": "String",
+     "rawValue": "\"01011101\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"111\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "input_str",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "\"\""
+  }
+ ]
+}

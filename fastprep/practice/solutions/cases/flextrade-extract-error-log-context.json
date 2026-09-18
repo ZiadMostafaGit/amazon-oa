@@ -1,0 +1,68 @@
+{
+ "problemId": "flextrade-extract-error-log-context",
+ "generatedAt": "2026-09-18T23:33:40",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"ERROR timeout\", \"INFO retry\", \"INFO done\"]"
+    }
+   ],
+   "expectedRaw": "[\"ERROR timeout\", \"INFO retry\", \"INFO done\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"INFO start\", \"INFO start\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"ERROR timeout\", \"INFO start\", \"INFO retry\", \"INFO done\", \"DEBUG close\", \"DEBUG cache\", \"INFO done\"]"
+    }
+   ],
+   "expectedRaw": "[\"ERROR timeout\", \"INFO start\", \"INFO retry\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"INFO start\", \"DEBUG cache\", \"ERROR timeout\", \"INFO done\"]"
+    }
+   ],
+   "expectedRaw": "[\"INFO start\", \"DEBUG cache\", \"ERROR timeout\", \"INFO done\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"DEBUG cache\", \"DEBUG close\", \"INFO retry\", \"INFO start\", \"INFO done\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "lines",
+     "type": "String[]",
+     "rawValue": "[\"INFO recovered\", \"DEBUG done\", \"ERROR failed\"]"
+    }
+   ],
+   "expectedRaw": "[\"INFO recovered\", \"DEBUG done\", \"ERROR failed\"]"
+  }
+ ]
+}

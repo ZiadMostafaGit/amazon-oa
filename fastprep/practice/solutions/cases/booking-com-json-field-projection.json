@@ -1,0 +1,98 @@
+{
+ "problemId": "booking-com-json-field-projection",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 7,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "sourceFields",
+     "type": "String[][]",
+     "rawValue": "[[\"active\", \"true\"], [\"active\", \"true\"]]"
+    },
+    {
+     "name": "targetFields",
+     "type": "String[][]",
+     "rawValue": "[[\"displayName\", \"user.name\"], [\"user.city\", \"city\", \"user.city\"], [\"city\", \"user.city\"], [\"years\", \"user.age\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"displayName\", \"null\"], [\"user.city\", \"null\"], [\"city\", \"null\"], [\"years\", \"null\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sourceFields",
+     "type": "String[][]",
+     "rawValue": "[[\"name\", \"\\\"lower\\\"\"], [\"Name\", \"\\\"upper\\\"\"]]"
+    },
+    {
+     "name": "targetFields",
+     "type": "String[][]",
+     "rawValue": "[[\"second\", \"Name\"], [\"second\", \"Name\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"second\", \"\\\"upper\\\"\"], [\"second\", \"\\\"upper\\\"\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sourceFields",
+     "type": "String[][]",
+     "rawValue": "[[\"order.meta\", \"{\\\"priority\\\":true}\"]]"
+    },
+    {
+     "name": "targetFields",
+     "type": "String[][]",
+     "rawValue": "[[\"metadata\", \"order.meta\"], [\"metadata\", \"order.meta\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"metadata\", \"{\\\"priority\\\":true}\"], [\"metadata\", \"{\\\"priority\\\":true}\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sourceFields",
+     "type": "String[][]",
+     "rawValue": "[[\"bc\", \"cat\", \"1\"]]"
+    },
+    {
+     "name": "targetFields",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sourceFields",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"dog\", \"bc\", \"blue\"], [\"1\", \"cat\", \"dog\", \"abc\", \"bc\"], [\"bc\", \"yz\", \"blue\", \"10\", \"red\", \"abc\"]]"
+    },
+    {
+     "name": "targetFields",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\", \"blue\", \"red\", \"10\", \"red\", \"blue\"], [\"b\", \"yz\", \"x\", \"b\", \"x\", \"a\", \"blue\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"blue\", \"null\"], [\"b\", \"null\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sourceFields",
+     "type": "String[][]",
+     "rawValue": "[[\"\\\"Ada\\\"\", \"user.name\"], [\"user.age\", \"37\"], [\"active\", \"true\"]]"
+    },
+    {
+     "name": "targetFields",
+     "type": "String[][]",
+     "rawValue": "[[\"city\", \"user.city\"], [\"years\", \"user.age\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"city\", \"null\"], [\"years\", \"37\"]]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "google-out-of-order-logger-rate-limiter",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[5]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[\"foo\", \"foo\", \"foo\"]"
+    }
+   ],
+   "expectedRaw": "[true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[15, 5, 10, 20, 10]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[\"foo\", \"foo\", \"foo\", \"foo\"]"
+    }
+   ],
+   "expectedRaw": "[true, true, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[10, 15, 20]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[\"foo\", \"foo\"]"
+    }
+   ],
+   "expectedRaw": "[true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[11, 20, 21, 30]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"a\", \"a\", \"a\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "[true, false, true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[20, 12, 21, 30, 22]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"b\", \"a\", \"a\", \"a\", \"b\"]"
+    }
+   ],
+   "expectedRaw": "[true, true, false, true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timestamps",
+     "type": "long[]",
+     "rawValue": "[23, 11, 12, 21, 30, 22]"
+    },
+    {
+     "name": "messages",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"a\", \"a\", \"b\", \"b\"]"
+    }
+   ],
+   "expectedRaw": "[true, true, false, true, false]"
+  }
+ ]
+}

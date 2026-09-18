@@ -1,0 +1,128 @@
+{
+ "problemId": "microsoft-xor-multiplication",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "B",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "B",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "B",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int",
+     "rawValue": "-4"
+    },
+    {
+     "name": "B",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "B",
+     "type": "int",
+     "rawValue": "-6"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "B",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

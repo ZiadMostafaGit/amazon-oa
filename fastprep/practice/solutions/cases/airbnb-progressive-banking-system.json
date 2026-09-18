@@ -1,0 +1,68 @@
+{
+ "problemId": "airbnb-progressive-banking-system",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"3\", \"alice\", \"100\"], [\"TOP_SPENDERS\", \"5\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"GET_BALANCE\", \"10\", \"a\", \"10\"], [\"SCHEDULE_PAYMENT\", \"5\", \"b\", \"5\", \"5\"], [\"MERGE_ACCOUNTS\", \"6\", \"a\", \"b\"], [\"GET_BALANCE\", \"7\", \"b\", \"5\"], [\"CREATE_ACCOUNT\", \"1\", \"a\"], [\"CREATE_ACCOUNT\", \"2\", \"b\"], [\"DEPOSIT\", \"4\", \"b\", \"25\"], [\"DEPOSIT\", \"3\", \"a\", \"10\"], [\"CREATE_ACCOUNT\", \"2\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"false\", \"\", \"true\", \"true\", \"25\", \"10\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"2\", \"a\", \"50\"], [\"SCHEDULE_PAYMENT\", \"3\", \"a\", \"20\", \"5\"], [\"GET_BALANCE\", \"8\", \"a\", \"8\"], [\"CANCEL_PAYMENT\", \"9\", \"a\", \"payment1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"1\", \"alice\"], [\"DEPOSIT\", \"3\", \"alice\", \"100\"], [\"TRANSFER\", \"4\", \"2\", \"bob\", \"30\"], [\"TOP_SPENDERS\", \"5\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"100\", \"\", \"alice(0)\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"CREATE_ACCOUNT\", \"2\", \"b\"], [\"DEPOSIT\", \"3\", \"a\", \"10\"], [\"DEPOSIT\", \"4\", \"b\", \"25\"], [\"SCHEDULE_PAYMENT\", \"5\", \"b\", \"5\", \"5\"], [\"MERGE_ACCOUNTS\", \"6\", \"a\", \"b\"], [\"GET_BALANCE\", \"7\", \"b\", \"5\"], [\"GET_BALANCE\", \"8\", \"b\", \"6\"], [\"GET_BALANCE\", \"8\", \"b\", \"6\"], [\"GET_BALANCE\", \"10\", \"a\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"\", \"25\", \"payment1\", \"false\", \"25\", \"25\", \"25\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"DEPOSIT\", \"2\", \"a\", \"50\"], [\"GET_BALANCE\", \"8\", \"a\", \"8\"], [\"SCHEDULE_PAYMENT\", \"3\", \"a\", \"20\", \"5\"], [\"GET_BALANCE\", \"7\", \"a\", \"7\"], [\"GET_BALANCE\", \"8\", \"a\", \"8\"], [\"CANCEL_PAYMENT\", \"9\", \"a\", \"payment1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"\", \"\", \"false\"]"
+  }
+ ]
+}

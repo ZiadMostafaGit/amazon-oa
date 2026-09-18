@@ -1,0 +1,98 @@
+{
+ "problemId": "capital-one-leftmost-memory-block-allocator",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[1, 0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [-1, 0], [0, 2]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 1, 1, 0, 0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [1, 1], [0, 2]]"
+    }
+   ],
+   "expectedRaw": "[0, 2, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [0, 3], [0, 2], [1, 1], [1, 1], [0, 3]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, 0, 2, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 3], [1, 1], [0, 3], [1, 1], [0, 2], [1, 1]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, -1, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [0, 1], [1, 1, 1], [0, 2]]"
+    }
+   ],
+   "expectedRaw": "[2, 0, 2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "memory",
+     "type": "int[]",
+     "rawValue": "[-7, 3, -2, 4, -3]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[5, 3]]"
+    }
+   ],
+   "expectedRaw": "[-1]"
+  }
+ ]
+}

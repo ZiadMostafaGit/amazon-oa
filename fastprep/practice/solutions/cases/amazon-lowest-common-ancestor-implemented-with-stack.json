@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-lowest-common-ancestor-implemented-with-stack",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 13,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String[]",
+     "rawValue": "[\"15\", \"4\", \"8\", \"null\", \"7\", \"6\", \"5\", \"12\", \"3\", \"18\"]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"5\", \"15\", \"3\", \"7\", \"12\", \"18\", \"10\", \"4\", \"8\"]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"6\", \"4\", \"null\", \"5\", \"8\", \"18\", \"7\", \"15\", \"3\"]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"5\", \"15\", \"3\", \"7\", \"12\", \"18\", \"4\", \"8\", \"6\", \"8\"]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String[]",
+     "rawValue": "[\"6\", \"7\", \"3\", \"8\", \"10\", \"5\", \"12\", \"null\", \"15\", \"18\"]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"5\", \"15\", \"3\", \"7\", \"7\", \"12\", \"18\", \"null\", \"4\", \"6\", \"8\"]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

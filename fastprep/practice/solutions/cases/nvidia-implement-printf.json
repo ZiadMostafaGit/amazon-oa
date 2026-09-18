@@ -1,0 +1,98 @@
+{
+ "problemId": "nvidia-implement-printf",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"[%s] %d\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"[%s] %d\", \"-0000\", \"-0000\"]"
+    }
+   ],
+   "expectedRaw": "\"[[%s] %d] 0\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"cat\"]"
+    }
+   ],
+   "expectedRaw": "\"b\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"%%%\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "\"%%\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"s scored %d%%\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"+007\", \"+007\"]"
+    }
+   ],
+   "expectedRaw": "\"s scored 7%\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"b\"]"
+    }
+   ],
+   "expectedRaw": "\"x\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"0\""
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"0\"]"
+    }
+   ],
+   "expectedRaw": "\"0\""
+  }
+ ]
+}

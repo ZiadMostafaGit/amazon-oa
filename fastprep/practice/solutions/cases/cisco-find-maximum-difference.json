@@ -1,0 +1,98 @@
+{
+ "problemId": "cisco-find-maximum-difference",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "inputArray",
+     "type": "List<Integer>",
+     "rawValue": "[3, 10, 6, 4, 8, 1]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "inputArray",
+     "type": "List<Integer>",
+     "rawValue": "[3, 4]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "inputArray",
+     "type": "List<Integer>",
+     "rawValue": "[0, 4]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "inputArray",
+     "type": "List<Integer>",
+     "rawValue": "[3, 4]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "inputArray",
+     "type": "List<Integer>",
+     "rawValue": "[4, 3, 1, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "inputArray",
+     "type": "List<Integer>",
+     "rawValue": "[2, 3, 10, 4, 1]"
+    }
+   ],
+   "expectedRaw": "8"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "microsoft-word-search",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[[\"A\", \"D\", \"E\", \"E\"], [\"A\", \"D\", \"E\", \"E\"]]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"S\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[[\"A\"], [\"A\"]]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"A\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[[\"E\", \"A\", \"A\"], [\"S\", \"F\", \"C\", \"S\"], [\"A\", \"D\", \"E\", \"E\"], [\"A\", \"B\", \"C\", \"E\"]]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"B\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[[\"A\", \"A\"], [\"A\", \"A\"]]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"A\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "char[][]",
+     "rawValue": "[[\"S\", \"F\", \"C\", \"S\"], [\"A\", \"D\", \"E\", \"E\"], [\"A\", \"D\", \"E\", \"E\"]]"
+    },
+    {
+     "name": "word",
+     "type": "String",
+     "rawValue": "\"E\""
+    }
+   ],
+   "expectedRaw": "true"
+  }
+ ]
+}

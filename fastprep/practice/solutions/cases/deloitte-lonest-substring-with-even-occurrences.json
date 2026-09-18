@@ -1,0 +1,68 @@
+{
+ "problemId": "deloitte-lonest-substring-with-even-occurrences",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"bdaaaadadb\""
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"bdaaaddb\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"zthtzzh\""
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"abacbb\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"zzthtzh\""
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "S",
+     "type": "String",
+     "rawValue": "\"abac\""
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

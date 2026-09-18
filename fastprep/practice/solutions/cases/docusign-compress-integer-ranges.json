@@ -1,0 +1,68 @@
+{
+ "problemId": "docusign-compress-integer-ranges",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[5, 3, 6]"
+    }
+   ],
+   "expectedRaw": "\"3,5-6\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3, -1, -3, -2, 3, -2]"
+    }
+   ],
+   "expectedRaw": "\"-3--1,3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, -2, -2, -1, -3]"
+    }
+   ],
+   "expectedRaw": "\"-3--1,2\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-3, -2, 2, -2, -1, 2, 3]"
+    }
+   ],
+   "expectedRaw": "\"-3--1,2-3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-1, 2, 3, -2, -2, -3]"
+    }
+   ],
+   "expectedRaw": "\"-3--1,2-3\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 5, 7, 1, 9]"
+    }
+   ],
+   "expectedRaw": "\"1,5,7,9\""
+  }
+ ]
+}

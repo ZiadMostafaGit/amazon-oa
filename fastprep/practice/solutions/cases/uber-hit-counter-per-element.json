@@ -1,0 +1,68 @@
+{
+ "problemId": "uber-hit-counter-per-element",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"HIT a 2\", \"GET a 2\", \"GET b 2\"]"
+    }
+   ],
+   "expectedRaw": "[1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"GET a 2\", \"TOTAL 2\", \"HIT a 2\", \"GET b 2\", \"HIT a 1\", \"TOTAL 2\", \"HIT b 2\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"HIT a 2\", \"HIT b 300\", \"GET a 301\", \"GET b 301\", \"TOTAL 301\"]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"HIT a 1\", \"HIT a 2\", \"GET b 301\", \"GET a 301\", \"HIT a 2\"]"
+    }
+   ],
+   "expectedRaw": "[0, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"HIT b 2\", \"HIT a 2\", \"GET a 2\", \"GET b 2\", \"GET b 2\"]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"HIT a 1\", \"HIT a 2\", \"HIT b 300\", \"GET a 301\", \"GET b 301\", \"GET a 301\"]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 1]"
+  }
+ ]
+}

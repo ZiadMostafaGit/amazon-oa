@@ -1,0 +1,98 @@
+{
+ "problemId": "atlassian-minimum-grid-moves",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[[1, 4], [1, 0]]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[[1, 0], [1, 0], [0, 0]]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[[1, 0]]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[[0, 0]]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "maze",
+     "type": "int[][]",
+     "rawValue": "[[1, 0], [1, 0]]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

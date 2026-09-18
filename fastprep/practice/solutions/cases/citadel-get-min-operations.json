@@ -1,0 +1,128 @@
+{
+ "problemId": "citadel-get-min-operations",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "executionTime",
+     "type": "int[]",
+     "rawValue": "[0, 5, 3]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "executionTime",
+     "type": "int[]",
+     "rawValue": "[4, 1, 7, 4, 6, -3]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "executionTime",
+     "type": "int[]",
+     "rawValue": "[3, 2, 6, 4]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "executionTime",
+     "type": "int[]",
+     "rawValue": "[3, 7, 1, 7, 6]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "executionTime",
+     "type": "int[]",
+     "rawValue": "[-3, 5]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "-4"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "executionTime",
+     "type": "int[]",
+     "rawValue": "[2, 3, 5, 3]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

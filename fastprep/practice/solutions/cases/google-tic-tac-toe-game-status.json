@@ -1,0 +1,128 @@
+{
+ "problemId": "google-tic-tac-toe-game-status",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 9,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "moves",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 0], [2, 0, 0], [1, 0, 1], [1, 0, 2]]"
+    }
+   ],
+   "expectedRaw": "[\"In Progress\", \"Invalid Move\", \"In Progress\", \"Player 1 won\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "moves",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 0], [2, 0, 1], [3, 3, 3], [1, 1, 1], [2, 1, 0], [1, 2, 2], [1, 2, 2]]"
+    }
+   ],
+   "expectedRaw": "[\"In Progress\", \"In Progress\", \"In Progress\", \"In Progress\", \"In Progress\", \"Player 1 won\", \"Game Over\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "moves",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "moves",
+     "type": "int[][]",
+     "rawValue": "[[2, 1, 0], [1, 0, 0], [2, 1, 1], [1, 0, 2], [1, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "[\"In Progress\", \"In Progress\", \"In Progress\", \"In Progress\", \"Player 1 won\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "moves",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 2], [3, 3, 3], [2, 0, 1], [3, 2, 1], [1, 0, 0], [2, 1, 0], [1, 1, 1]]"
+    }
+   ],
+   "expectedRaw": "[\"In Progress\", \"In Progress\", \"In Progress\", \"In Progress\", \"In Progress\", \"In Progress\", \"Player 1 won\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "moves",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 0], [3, 3, 3], [1, 1, 1], [2, 1, 0], [3, 2, 1], [1, 2, 2]]"
+    }
+   ],
+   "expectedRaw": "[\"In Progress\", \"In Progress\", \"In Progress\", \"In Progress\", \"In Progress\", \"Player 1 won\"]"
+  }
+ ]
+}

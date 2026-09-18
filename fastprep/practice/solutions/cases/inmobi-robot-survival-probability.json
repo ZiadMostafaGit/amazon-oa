@@ -1,0 +1,188 @@
+{
+ "problemId": "inmobi-robot-survival-probability",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 23,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0.375"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "1.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0.75"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "1.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0.3125"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0.75"
+  }
+ ]
+}

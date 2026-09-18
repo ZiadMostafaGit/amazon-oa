@@ -1,0 +1,98 @@
+{
+ "problemId": "tekion-koko-eating-bananas",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "piles",
+     "type": "int[]",
+     "rawValue": "[7]"
+    },
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "piles",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "piles",
+     "type": "int[]",
+     "rawValue": "[30, 9, 5, 4, 20]"
+    },
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "30"
+  },
+  {
+   "inputs": [
+    {
+     "name": "piles",
+     "type": "int[]",
+     "rawValue": "[7, 6, 3, 11]"
+    },
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "piles",
+     "type": "int[]",
+     "rawValue": "[7, 3]"
+    },
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "piles",
+     "type": "int[]",
+     "rawValue": "[20, 11, 4, 30]"
+    },
+    {
+     "name": "h",
+     "type": "int",
+     "rawValue": "23"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

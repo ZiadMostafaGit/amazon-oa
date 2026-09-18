@@ -1,0 +1,158 @@
+{
+ "problemId": "amazon-latest-timestamp-key-value-store",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[]",
+     "rawValue": "[1, 0, 1, 1]"
+    },
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"a\", \"a\", \"a\", \"a\", \"a\", \"newer\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"newer\", \"a\", \"\", \"\", \"tie\", \"\", \"newest\", \"\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[10, 10, 1, 12, 10, 0, 10, 3, 99]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"a\", \"a\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 1, 1]"
+    },
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"a\", \"a\", \"a\", \"a\", \"a\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"\", \"newest\", \"older\", \"tie\", \"\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[1, 12, 10, 99, 10, 4]"
+    }
+   ],
+   "expectedRaw": "[\"newest\", \"newest\", \"newest\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[]",
+     "rawValue": "[1, 0, 1, 1]"
+    },
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"x\", \"y\", \"x\", \"y\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"ignored\", \"red\", \"blue\", \"\", \"\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[0, 999, 0, 999]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"red\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[]",
+     "rawValue": "[4]"
+    },
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"bc\", \"0\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"dog\", \"dog\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[0, -1, -4, -3]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"a\", \"yz\", \"bc\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"dog\", \"blue\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[4, 4, -1, -2, -4]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0, 1, 1, 0]"
+    },
+    {
+     "name": "keys",
+     "type": "String[]",
+     "rawValue": "[\"y\", \"x\", \"x\", \"blue\", \"y\", \"y\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"ignored\", \"red\", \"blue\", \"\", \"ignored\", \"\"]"
+    },
+    {
+     "name": "timestamps",
+     "type": "int[]",
+     "rawValue": "[8, 0, 5, 999, 0, 8]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  }
+ ]
+}

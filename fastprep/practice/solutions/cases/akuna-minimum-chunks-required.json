@@ -1,0 +1,98 @@
+{
+ "problemId": "akuna-minimum-chunks-required",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "totalPackets",
+     "type": "long",
+     "rawValue": "11"
+    },
+    {
+     "name": "uploadedChunks",
+     "type": "long[][]",
+     "rawValue": "[[9, 10]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "totalPackets",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "uploadedChunks",
+     "type": "long[][]",
+     "rawValue": "[[9, 10]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "totalPackets",
+     "type": "long",
+     "rawValue": "10"
+    },
+    {
+     "name": "uploadedChunks",
+     "type": "long[][]",
+     "rawValue": "[[1, 2], [1, 2], [9, 10], [1, 2], [1, 2]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "totalPackets",
+     "type": "long",
+     "rawValue": "10"
+    },
+    {
+     "name": "uploadedChunks",
+     "type": "long[][]",
+     "rawValue": "[[1, 2]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "totalPackets",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "uploadedChunks",
+     "type": "long[][]",
+     "rawValue": "[[9, 17]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "totalPackets",
+     "type": "long",
+     "rawValue": "16"
+    },
+    {
+     "name": "uploadedChunks",
+     "type": "long[][]",
+     "rawValue": "[[9, 17], [9, 17], [9, 17]]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

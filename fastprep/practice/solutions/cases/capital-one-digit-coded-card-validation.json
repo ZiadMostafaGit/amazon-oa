@@ -1,0 +1,128 @@
+{
+ "problemId": "capital-one-digit-coded-card-validation",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "cardNumbers",
+     "type": "String[]",
+     "rawValue": "[\"1234567890123011\", \"1234567890123010\"]"
+    },
+    {
+     "name": "transactionIds",
+     "type": "String[]",
+     "rawValue": "[\"12345600\", \"12345611\", \"12345600\", \"12345600\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "int[]",
+     "rawValue": "[99, 100]"
+    }
+   ],
+   "expectedRaw": "[false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cardNumbers",
+     "type": "String[]",
+     "rawValue": "[\"1234567891011111\", \"1234567891011111\"]"
+    },
+    {
+     "name": "transactionIds",
+     "type": "String[]",
+     "rawValue": "[\"507811000\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "int[]",
+     "rawValue": "[150]"
+    }
+   ],
+   "expectedRaw": "[true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cardNumbers",
+     "type": "String[]",
+     "rawValue": "[\"12345678901230000\"]"
+    },
+    {
+     "name": "transactionIds",
+     "type": "String[]",
+     "rawValue": "[\"1234567890123000\", \"12345601\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "int[]",
+     "rawValue": "[50]"
+    }
+   ],
+   "expectedRaw": "[false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cardNumbers",
+     "type": "String[]",
+     "rawValue": "[\"1234567890123101\", \"1234567890123000\", \"1234567890123011\", \"1234567890123010\", \"1234567890123011\", \"1234567890123011\"]"
+    },
+    {
+     "name": "transactionIds",
+     "type": "String[]",
+     "rawValue": "[\"12345611\", \"12345600\", \"12345611\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "int[]",
+     "rawValue": "[500, 99, 99, 99, 103]"
+    }
+   ],
+   "expectedRaw": "[true, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cardNumbers",
+     "type": "String[]",
+     "rawValue": "[\"1234567890123000\"]"
+    },
+    {
+     "name": "transactionIds",
+     "type": "String[]",
+     "rawValue": "[\"12345601\", \"12345601\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "int[]",
+     "rawValue": "[50, 50]"
+    }
+   ],
+   "expectedRaw": "[false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cardNumbers",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"0\", \"cat\", \"b\"]"
+    },
+    {
+     "name": "transactionIds",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"b\", \"x\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

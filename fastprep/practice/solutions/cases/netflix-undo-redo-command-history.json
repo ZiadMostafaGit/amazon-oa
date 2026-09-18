@@ -1,0 +1,68 @@
+{
+ "problemId": "netflix-undo-redo-command-history",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"UNDO\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"REDO\"], [\"UNDO\"], [\"UNDO\"], [\"REDO\"], [\"REDO\"], [\"EXECUTE\", \"x\"], [\"REDO\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"\", \"\", \"x\", \"x\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"UNDO\"], [\"REDO\"], [\"REDO\"], [\"EXECUTE\", \"x\"], [\"UNDO\"], [\"UNDO\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"x\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"EXECUTE\", \"test\"], [\"REDO\"], [\"UNDO\"], [\"REDO\"]]"
+    }
+   ],
+   "expectedRaw": "[\"test\", \"test\", \"\", \"test\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"EXECUTE\", \"build\"], [\"test\", \"test\"], [\"REDO\"]]"
+    }
+   ],
+   "expectedRaw": "[\"build\", \"build\", \"build\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"EXECUTE\", \"a\"], [\"b\", \"EXECUTE\", \"b\"], [\"EXECUTE\", \"c\"], [\"UNDO\"], [\"UNDO\"], [\"EXECUTE\", \"d\"], [\"REDO\"], [\"UNDO\"]]"
+    }
+   ],
+   "expectedRaw": "[\"a\", \"a\", \"a|c\", \"a\", \"\", \"d\", \"d\", \"\"]"
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "problemId": "minimum-time-spent",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "comedyReleaseTime",
+     "type": "int[]",
+     "rawValue": "[5, 4]"
+    },
+    {
+     "name": "comedyDuration",
+     "type": "int[]",
+     "rawValue": "[-2, 2]"
+    },
+    {
+     "name": "dramaReleaseTime",
+     "type": "int[]",
+     "rawValue": "[2, 5, 5]"
+    },
+    {
+     "name": "dramaDuration",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "comedyReleaseTime",
+     "type": "int[]",
+     "rawValue": "[-3, -2]"
+    },
+    {
+     "name": "comedyDuration",
+     "type": "int[]",
+     "rawValue": "[-3, 2, 4, -3, 3]"
+    },
+    {
+     "name": "dramaReleaseTime",
+     "type": "int[]",
+     "rawValue": "[-3, -5, -4, -5, -3]"
+    },
+    {
+     "name": "dramaDuration",
+     "type": "int[]",
+     "rawValue": "[5, 1, -4]"
+    }
+   ],
+   "expectedRaw": "-8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "comedyReleaseTime",
+     "type": "int[]",
+     "rawValue": "[-5, -4, -2, 3, -6]"
+    },
+    {
+     "name": "comedyDuration",
+     "type": "int[]",
+     "rawValue": "[-1, -4, 2]"
+    },
+    {
+     "name": "dramaReleaseTime",
+     "type": "int[]",
+     "rawValue": "[-3, 6, -6]"
+    },
+    {
+     "name": "dramaDuration",
+     "type": "int[]",
+     "rawValue": "[-3, 1, -2, 2, 0]"
+    }
+   ],
+   "expectedRaw": "-8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "comedyReleaseTime",
+     "type": "int[]",
+     "rawValue": "[-2, 4]"
+    },
+    {
+     "name": "comedyDuration",
+     "type": "int[]",
+     "rawValue": "[7, -7, -5, 4, 6, 4, 2]"
+    },
+    {
+     "name": "dramaReleaseTime",
+     "type": "int[]",
+     "rawValue": "[2, -1]"
+    },
+    {
+     "name": "dramaDuration",
+     "type": "int[]",
+     "rawValue": "[-6]"
+    }
+   ],
+   "expectedRaw": "-4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "comedyReleaseTime",
+     "type": "int[]",
+     "rawValue": "[1, 2]"
+    },
+    {
+     "name": "comedyDuration",
+     "type": "int[]",
+     "rawValue": "[3, 4]"
+    },
+    {
+     "name": "dramaReleaseTime",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "dramaDuration",
+     "type": "int[]",
+     "rawValue": "[-2, 2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "comedyReleaseTime",
+     "type": "int[]",
+     "rawValue": "[0, -2, 5, -2, 1]"
+    },
+    {
+     "name": "comedyDuration",
+     "type": "int[]",
+     "rawValue": "[2, -4]"
+    },
+    {
+     "name": "dramaReleaseTime",
+     "type": "int[]",
+     "rawValue": "[1, -1, -4]"
+    },
+    {
+     "name": "dramaDuration",
+     "type": "int[]",
+     "rawValue": "[-1, 5, 0, 2]"
+    }
+   ],
+   "expectedRaw": "-6"
+  }
+ ]
+}

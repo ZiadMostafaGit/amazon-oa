@@ -1,0 +1,68 @@
+{
+ "problemId": "capital-one-count-even-digit-numbers",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"12 3345 2 6 7896\""
+    }
+   ],
+   "expectedRaw": "[\"3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"12 3452 6 7896\""
+    }
+   ],
+   "expectedRaw": "[\"3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[\"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"12 345 2 6 78996\""
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"12 345  2 6 7896\""
+    }
+   ],
+   "expectedRaw": "[\"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"12 3455 2 6 7896\""
+    }
+   ],
+   "expectedRaw": "[\"3\"]"
+  }
+ ]
+}

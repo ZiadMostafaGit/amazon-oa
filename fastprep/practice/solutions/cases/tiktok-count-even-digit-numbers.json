@@ -1,0 +1,68 @@
+{
+ "problemId": "tiktok-count-even-digit-numbers",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[111, 10]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[1111, 134, 111, 10, 12, 10]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[134, 111, 1111, 10]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[12, 111, 1108]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[12, 111, 1111, 12, 10]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

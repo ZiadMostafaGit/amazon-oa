@@ -1,0 +1,98 @@
+{
+ "problemId": "dropbox-find-duplicate-files-by-content",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/images/c.png\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"draft\", \"pixels\", \"draft\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"abc\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"abc\", \"10\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/tmp/d.txt\", \"/images/c.png\", \"/docs/a.txt\", \"/tmp/d.txt\", \"/docs/archive/b.txt\", \"/docs/a.txt\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"draft\", \"draft\", \"draft\", \"pixels\", \"draft\"]"
+    }
+   ],
+   "expectedRaw": "[[\"/docs/a.txt\", \"/docs/archive/b.txt\", \"/images/c.png\", \"/tmp/d.txt\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"b\", \"0\", \"abc\", \"0\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"abc\", \"dog\", \"blue\", \"abc\", \"a\", \"ab\"]"
+    }
+   ],
+   "expectedRaw": "[[\"0\", \"b\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"/c/q\", \"/a/x\", \"red\", \"/a/z\", \"/d/r\", \"/a/x\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"blue\", \"solo\", \"red\"]"
+    }
+   ],
+   "expectedRaw": "[[\"/a/z\", \"/c/q\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "paths",
+     "type": "String[]",
+     "rawValue": "[\"x\"]"
+    },
+    {
+     "name": "contents",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"abc\", \"0\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

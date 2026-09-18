@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-get-total-requests",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "server",
+     "type": "int[]",
+     "rawValue": "[11, 10]"
+    },
+    {
+     "name": "replaced",
+     "type": "int[]",
+     "rawValue": "[-2, 20]"
+    },
+    {
+     "name": "newId",
+     "type": "int[]",
+     "rawValue": "[1, 20, 20]"
+    }
+   ],
+   "expectedRaw": "[21, 21]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "server",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "replaced",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "newId",
+     "type": "int[]",
+     "rawValue": "[1, 5, 1]"
+    }
+   ],
+   "expectedRaw": "[1, 5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "server",
+     "type": "int[]",
+     "rawValue": "[23, 20, 10]"
+    },
+    {
+     "name": "replaced",
+     "type": "int[]",
+     "rawValue": "[20, 10]"
+    },
+    {
+     "name": "newId",
+     "type": "int[]",
+     "rawValue": "[20, 20]"
+    }
+   ],
+   "expectedRaw": "[53, 63]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "server",
+     "type": "int[]",
+     "rawValue": "[2, -5, 0]"
+    },
+    {
+     "name": "replaced",
+     "type": "int[]",
+     "rawValue": "[2, 3]"
+    },
+    {
+     "name": "newId",
+     "type": "int[]",
+     "rawValue": "[3, 1, 5, 5]"
+    }
+   ],
+   "expectedRaw": "[-2, -4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "server",
+     "type": "int[]",
+     "rawValue": "[10, 20, 20]"
+    },
+    {
+     "name": "replaced",
+     "type": "int[]",
+     "rawValue": "[20]"
+    },
+    {
+     "name": "newId",
+     "type": "int[]",
+     "rawValue": "[1, 20]"
+    }
+   ],
+   "expectedRaw": "[12]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "server",
+     "type": "int[]",
+     "rawValue": "[3]"
+    },
+    {
+     "name": "replaced",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "newId",
+     "type": "int[]",
+     "rawValue": "[1, 5]"
+    }
+   ],
+   "expectedRaw": "[3]"
+  }
+ ]
+}

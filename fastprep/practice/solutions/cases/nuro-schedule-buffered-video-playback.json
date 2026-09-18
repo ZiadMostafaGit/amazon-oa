@@ -1,0 +1,68 @@
+{
+ "problemId": "nuro-schedule-buffered-video-playback",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "readDurations",
+     "type": "long[]",
+     "rawValue": "[10, 10]"
+    }
+   ],
+   "expectedRaw": "[10, 50]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "readDurations",
+     "type": "long[]",
+     "rawValue": "[-2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "[0, 40, 80]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "readDurations",
+     "type": "long[]",
+     "rawValue": "[68, 10, 10]"
+    }
+   ],
+   "expectedRaw": "[68, 108, 148]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "readDurations",
+     "type": "long[]",
+     "rawValue": "[10, 10, 10, 10]"
+    }
+   ],
+   "expectedRaw": "[10, 50, 90, 130]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "readDurations",
+     "type": "long[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "readDurations",
+     "type": "long[]",
+     "rawValue": "[70, 70, -10]"
+    }
+   ],
+   "expectedRaw": "[100, 140, 180]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "goldman-sachs-largest-tree-root",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "children",
+     "type": "int[]",
+     "rawValue": "[11, 7, 2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[1, 2, 1, 10, 1]"
+    },
+    {
+     "name": "children",
+     "type": "int[]",
+     "rawValue": "[3, 11, 4, 11]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[1, 2, 10]"
+    },
+    {
+     "name": "children",
+     "type": "int[]",
+     "rawValue": "[3, 11]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[5, 8]"
+    },
+    {
+     "name": "children",
+     "type": "int[]",
+     "rawValue": "[0, 9, 10, 11]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[5, 8, 8, 5, 9]"
+    },
+    {
+     "name": "children",
+     "type": "int[]",
+     "rawValue": "[6, 9, 10, 11]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[1, 10, 2, 10]"
+    },
+    {
+     "name": "children",
+     "type": "int[]",
+     "rawValue": "[2, 3, 1, 11]"
+    }
+   ],
+   "expectedRaw": "10"
+  }
+ ]
+}

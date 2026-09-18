@@ -1,0 +1,98 @@
+{
+ "problemId": "agoda-minimum-daily-printing-limit",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[]",
+     "rawValue": "[300]"
+    },
+    {
+     "name": "days",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "300"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "days",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[]",
+     "rawValue": "[100, 198, 300, 400]"
+    },
+    {
+     "name": "days",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "998"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[]",
+     "rawValue": "[200, 400, 300, 400]"
+    },
+    {
+     "name": "days",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "1300"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[]",
+     "rawValue": "[100, 300, 400, 100]"
+    },
+    {
+     "name": "days",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "400"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[]",
+     "rawValue": "[200, 300, 400, 400]"
+    },
+    {
+     "name": "days",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1300"
+  }
+ ]
+}

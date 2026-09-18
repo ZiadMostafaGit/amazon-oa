@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-min-operations-to-sort-all-packages",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "sortingSequence",
+     "type": "int[]",
+     "rawValue": "[1, 3, 4, 2, 5, 2]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sortingSequence",
+     "type": "int[]",
+     "rawValue": "[3, 4, 1, 2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sortingSequence",
+     "type": "int[]",
+     "rawValue": "[5, 4, 1, 5, 2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sortingSequence",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sortingSequence",
+     "type": "int[]",
+     "rawValue": "[3, 4, 1, 1, 2]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sortingSequence",
+     "type": "int[]",
+     "rawValue": "[5, 4, 1, 4, 3]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

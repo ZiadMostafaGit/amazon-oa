@@ -1,0 +1,98 @@
+{
+ "problemId": "stripe-deployment-window-scheduler",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 12,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "part",
+     "type": "String",
+     "rawValue": "\"1020,0,10,5\""
+    },
+    {
+     "name": "inputCsv",
+     "type": "String[]",
+     "rawValue": "[\"1020,0,10,5\", \"550,55,freeze,-480\", \"550,565,freeze,-480\", \"540,600,allowed,-480\"]"
+    }
+   ],
+   "expectedRaw": "[[1020, 1030], [1045, 1080]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "part",
+     "type": "String",
+     "rawValue": "\"1020,0,10,5\""
+    },
+    {
+     "name": "inputCsv",
+     "type": "String[]",
+     "rawValue": "[\"1020,0,10,5\", \"550,565,freeze,-480\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "part",
+     "type": "String",
+     "rawValue": "\"part1\""
+    },
+    {
+     "name": "inputCsv",
+     "type": "String[]",
+     "rawValue": "[\"540,600,allowed\"]"
+    }
+   ],
+   "expectedRaw": "[[540, 600]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "part",
+     "type": "String",
+     "rawValue": "\"part2\""
+    },
+    {
+     "name": "inputCsv",
+     "type": "String[]",
+     "rawValue": "[\"1020,0,10,5\", \"550,565,freeze,-480\", \"540,600,allowed,-480\"]"
+    }
+   ],
+   "expectedRaw": "[[1020, 1030], [1045, 1080]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "part",
+     "type": "String",
+     "rawValue": "\"1020,0,10,5\""
+    },
+    {
+     "name": "inputCsv",
+     "type": "String[]",
+     "rawValue": "[\"1020,0,10,5\", \"540,600,allowed,-480\", \"550,565,freeze,-480\"]"
+    }
+   ],
+   "expectedRaw": "[[1020, 1030], [1045, 1080]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "part",
+     "type": "String",
+     "rawValue": "\"part1\""
+    },
+    {
+     "name": "inputCsv",
+     "type": "String[]",
+     "rawValue": "[\"540,600,alloweed\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

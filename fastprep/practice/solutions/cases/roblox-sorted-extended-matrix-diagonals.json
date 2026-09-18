@@ -1,0 +1,68 @@
+{
+ "problemId": "roblox-sorted-extended-matrix-diagonals",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"b\", \"a\"], [\"c\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[2, 3, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"a\"]]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"c\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"c\", \"a\"], [\"b\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "[3, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"b\"]]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "String[][]",
+     "rawValue": "[[\"b\", \"b\"], [\"b\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[2, 1, 3]"
+  }
+ ]
+}

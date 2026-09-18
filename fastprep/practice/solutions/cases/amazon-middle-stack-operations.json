@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-middle-stack-operations",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"push\", \"3\"], [\"middle\"], [\"top\"], [\"middle\"]]"
+    }
+   ],
+   "expectedRaw": "[\"3\", \"3\", \"3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"push\", \"2\"], [\"push\", \"1\"], [\"top\"], [\"pop\"], [\"middle\"], [\"middle\"], [\"pop\"], [\"push\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"1\", \"2\", \"2\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"push\", \"1\"], [\"push\", \"3\"], [\"middle\"], [\"push\", \"1\"], [\"top\"], [\"push\", \"1\"], [\"pop\"], [\"middle\"]]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"1\", \"1\", \"3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"push\", \"1\"], [\"push\", \"2\"], [\"push\", \"3\"], [\"top\"], [\"middle\"]]"
+    }
+   ],
+   "expectedRaw": "[\"3\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"pop\"], [\"middle\"], [\"push\", \"1\"], [\"top\"], [\"middle\"], [\"push\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[\"EMPTY\", \"EMPTY\", \"1\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"3\"], [\"push\", \"2\"], [\"push\", \"3\"], [\"middle\"], [\"top\"], [\"pop\"], [\"middle\"]]"
+    }
+   ],
+   "expectedRaw": "[\"2\", \"3\", \"3\", \"2\"]"
+  }
+ ]
+}

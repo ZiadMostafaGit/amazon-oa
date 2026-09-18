@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-get-special-string",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abbbd\""
+    }
+   ],
+   "expectedRaw": "\"abcab\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abb\""
+    }
+   ],
+   "expectedRaw": "\"abc\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"zzabb\""
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"zzzab\""
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"2\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abccdde\""
+    }
+   ],
+   "expectedRaw": "\"abcdaba\""
+  }
+ ]
+}

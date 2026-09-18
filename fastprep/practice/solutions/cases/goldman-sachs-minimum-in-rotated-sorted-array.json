@@ -1,0 +1,68 @@
+{
+ "problemId": "goldman-sachs-minimum-in-rotated-sorted-array",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[5, 2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[13, 11]"
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 4, -3, -4, 1]"
+    }
+   ],
+   "expectedRaw": "-4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[13, 15, 17, 13]"
+    }
+   ],
+   "expectedRaw": "13"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[3, 5, 1]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[3, 5, 1, 4]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

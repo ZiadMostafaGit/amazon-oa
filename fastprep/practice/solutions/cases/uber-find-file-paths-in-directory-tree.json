@@ -1,0 +1,128 @@
+{
+ "problemId": "uber-find-file-paths-in-directory-tree",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "directoryPaths",
+     "type": "String[]",
+     "rawValue": "[\"/tmp\", \"/tmp\"]"
+    },
+    {
+     "name": "filePaths",
+     "type": "String[]",
+     "rawValue": "[\"/home/docs/report.txt\", \"/home/phot.jpg\", \"/home/photo.jpg\", \"/tmp/report.txt\"]"
+    },
+    {
+     "name": "targetName",
+     "type": "String",
+     "rawValue": "\"/home/docs\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "directoryPaths",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"0\"]"
+    },
+    {
+     "name": "filePaths",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"1\", \"ab\", \"cat\"]"
+    },
+    {
+     "name": "targetName",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "directoryPaths",
+     "type": "String[]",
+     "rawValue": "[\"/a/b\", \"/a/b\"]"
+    },
+    {
+     "name": "filePaths",
+     "type": "String[]",
+     "rawValue": "[\"/a//b/readme.md\"]"
+    },
+    {
+     "name": "targetName",
+     "type": "String",
+     "rawValue": "\"missing.md\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "directoryPaths",
+     "type": "String[]",
+     "rawValue": "[\"/home\", \"/tmp\"]"
+    },
+    {
+     "name": "filePaths",
+     "type": "String[]",
+     "rawValue": "[\"/home/photo.jpg\", \"/home/docs/report.txt\", \"/tmp/report.txt\"]"
+    },
+    {
+     "name": "targetName",
+     "type": "String",
+     "rawValue": "\"/home/docs\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "directoryPaths",
+     "type": "String[]",
+     "rawValue": "[\"/home\", \"/tmp\", \"/home/docs\"]"
+    },
+    {
+     "name": "filePaths",
+     "type": "String[]",
+     "rawValue": "[\"/home/docs/report.txt\", \"/tmp/report.txt\", \"/home/photo.jpg\"]"
+    },
+    {
+     "name": "targetName",
+     "type": "String",
+     "rawValue": "\"report.txt\""
+    }
+   ],
+   "expectedRaw": "[\"/home/docs/report.txt\", \"/tmp/report.txt\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "directoryPaths",
+     "type": "String[]",
+     "rawValue": "[\"/home/docs\", \"/tmp\"]"
+    },
+    {
+     "name": "filePaths",
+     "type": "String[]",
+     "rawValue": "[\"/tmp/report.txt\", \"report.txt\"]"
+    },
+    {
+     "name": "targetName",
+     "type": "String",
+     "rawValue": "\"/home/docs\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

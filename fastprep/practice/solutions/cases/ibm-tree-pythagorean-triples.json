@@ -1,0 +1,188 @@
+{
+ "problemId": "ibm-tree-pythagorean-triples",
+ "generatedAt": "2026-09-18T23:33:46",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 16,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "z",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[2, 3], [6, 7], [8, 8], [3, 4], [1, 2], [8, 9], [5, 6], [4, 5]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "z",
+     "type": "int",
+     "rawValue": "9"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "12"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [8, 9]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "z",
+     "type": "int",
+     "rawValue": "9"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 4], [1, 2]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "z",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [6, 7], [7, 8], [8, 9]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "z",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [2, 3], [3, 4], [5, 6], [6, 7], [7, 8], [8, 9]]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "y",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "z",
+     "type": "int",
+     "rawValue": "9"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

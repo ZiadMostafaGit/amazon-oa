@@ -1,0 +1,68 @@
+{
+ "problemId": "runloop-in-memory-meeting-room-manager",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<String>",
+     "rawValue": "[\"RESERVE m3 atlas 15 25\", \"RESERVE m3 zephyr 15 25\", \"DELETE m1\", \"DELETE missing\"]"
+    }
+   ],
+   "expectedRaw": "[true, false, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<String>",
+     "rawValue": "[\"RESERVE m2 atlas 20 30\", \"RESERVE m1 atlas 10 20\", \"DELETE m1\", \"RESERVE m4 atlas 12 18\", \"DELETE missing\", \"RESERVE m3 zephyr 15 25\", \"RESERVE m4 atlas 12 18\", \"RESERVE m3 atlas 15 25\"]"
+    }
+   ],
+   "expectedRaw": "[true, true, true, true, false, true, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<String>",
+     "rawValue": "[\"RESERVE r1 north 5 10\", \"DELETE r1\", \"DELETE r1\", \"RESERVE r1 north 5 10\", \"RESERVE r1 south 10 15\", \"RESERVE r1 north 5 10\", \"RESERVE r2 south 9 10\", \"RESERVE r3 south 14 16\"]"
+    }
+   ],
+   "expectedRaw": "[true, true, false, true, false, false, true, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<String>",
+     "rawValue": "[\"RESERVE m1 atlas 10 20\", \"RESERVE m2 atlas 20 30\", \"RESERVE m3 atlas 15 25\", \"DELETE m1\", \"DELETE missing\"]"
+    }
+   ],
+   "expectedRaw": "[true, true, false, true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<String>",
+     "rawValue": "[\"RESERVE m4 atlas 12 18\", \"DELETE missing\", \"RESERVE m1 atlas 10 20\", \"DELETE m1\", \"RESERVE m3 zephyr 15 25\", \"RESERVE m3 atlas 15 25\"]"
+    }
+   ],
+   "expectedRaw": "[true, false, false, false, true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<String>",
+     "rawValue": "[\"RESERVE r1 nortth 5 10\", \"RESERVE r1 south 10 15\", \"DELETE r1\", \"DELETE r1\", \"RESERVE r1 south 10 15\", \"RESERVE r2 south 9 10\", \"RESERVE r3 south 14 16\"]"
+    }
+   ],
+   "expectedRaw": "[true, false, true, false, true, true, false]"
+  }
+ ]
+}

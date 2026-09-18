@@ -1,0 +1,68 @@
+{
+ "problemId": "scale-ai-task-scheduler-with-dependencies",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"ADD\", \"C\", \"1\", \"A\", \"B\"], [\"CONSUME\"], [\"CONSUME\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NONE\", \"NONE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"ADD\", \"A\", \"3\", \"B\"], [\"CONSUME\"], [\"3\", \"1\", \"C\", \"1\"], [\"CONSUME\"], [\"CONSUME\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NONE\", \"NONE\", \"NONE\", \"NONE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"CONSUME\"], [\"CONSUME\"], [\"CONSUME\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NONE\", \"NONE\", \"NONE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"ADD\", \"C\", \"9\"], [\"CONSUME\"], [\"ADD\", \"A\", \"9\"], [\"ADD\", \"B\", \"10\"], [\"CONSUME\"], [\"CONSUME\"], [\"CONSUME\"]]"
+    }
+   ],
+   "expectedRaw": "[\"C\", \"A\", \"B\", \"NONE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"ADD\", \"A\", \"5\"], [\"B\", \"B\"], [\"CONSUME\"]]"
+    }
+   ],
+   "expectedRaw": "[\"A\", \"NONE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"A\", \"ADD\", \"A\", \"10\"], [\"ADD\", \"B\", \"5\", \"A\"], [\"UPDATE\", \"B\", \"1\"], [\"CONSUME\"], [\"CONSUME\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NONE\", \"NONE\", \"NONE\"]"
+  }
+ ]
+}

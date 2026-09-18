@@ -1,0 +1,68 @@
+{
+ "problemId": "rippling-employee-access-management",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GRANT\", \"e1\", \"repo\", \"READ\"], [\"GRANT\", \"e1\", \"db\", \"ADMIN\"], [\"GET_RESOURCES\", \"e1\"], [\"GET_ACCESS\", \"e1\", \"repo\"], [\"REVOKE\", \"e1\", \"repo\", \"ALL\"], [\"GET_RESOURCES\", \"e1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"db\", \"repo\"], [\"READ\"], [\"true\"], [\"db\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GRANT\", \"e1\", \"repo\", \"READ\"], [\"GRANT\", \"e1\", \"repo\", \"WRITE\"], [\"GRANT\", \"e1\", \"db\", \"ADMIN\"], [\"GET_ACCESS\", \"e1\", \"repo\"], [\"GET_RESOURCES\", \"e1\"], [\"REVOKE\", \"repo\", \"GET_ACCESS\", \"repo\", \"READ\"], [\"GET_ACCESS\", \"e1\", \"repo\"], [\"GET_ACCESS\", \"e1\", \"repo\"], [\"GET_RESOURCES\", \"e1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"true\"], [\"READ\", \"WRITE\"], [\"db\", \"repo\"], [\"false\"], [\"READ\", \"WRITE\"], [\"READ\", \"WRITE\"], [\"db\", \"repo\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET_ACCESS\", \"e1\", \"repo\"], [\"GET_RESOURCES\", \"e1\"], [\"GRANT\", \"e1\", \"repo\", \"WRITE\"], [\"GRANT\", \"e1\", \"repo\", \"READ\"], [\"REVOKE\", \"e1\", \"repo\", \"ALL\"], [\"GET_RESOURCES\", \"e1\"], [\"GET_ACCESS\", \"e1\", \"repo\"], [\"GET_RESOURCES\", \"e1\"], [\"GRANT\", \"e1\", \"db\", \"ADMIN\"], [\"REVOKE\", \"e1\", \"repo\", \"READ\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], [\"true\"], [\"true\"], [\"true\"], [], [], [], [\"true\"], [\"false\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"b\", \"0\"], [\"0\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[[], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"REVOKE\", \"e1\", \"repo\", \"READ\"], [\"REVOKE\", \"e1\", \"repo\", \"ALL\"], [\"GRANT\", \"e1\", \"repo\", \"READ\"], [\"GET_RESOURCES\", \"e1\"], [\"GRANT\", \"e1\", \"db\", \"ADMIN\"], [\"GRANT\", \"e1\", \"repo\", \"WRITE\"], [\"GET_ACCESS\", \"e1\", \"repo\"], [\"GET_ACCESS\", \"e1\", \"repo\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"false\"], [\"false\"], [\"true\"], [\"repo\"], [\"true\"], [\"true\"], [\"READ\", \"WRITE\"], [\"READ\", \"WRITE\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GRANT\", \"e1\", \"repo\", \"READ\"], [\"GRANT\", \"e1\", \"repo\", \"WRITE\"], [\"GET_ACCESS\", \"e1\", \"repo\"], [\"GET_RESOURCES\", \"e1\"], [\"REVOKE\", \"e1\", \"repo\", \"READ\"], [\"GRANT\", \"e1\", \"db\", \"ADMIN\"], [\"GET_ACCESS\", \"e1\", \"repo\"], [\"GET_RESOURCES\", \"e1\"], [\"REVOKE\", \"e1\", \"repo\", \"ALL\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"true\"], [\"true\"], [\"READ\", \"WRITE\"], [\"repo\"], [\"true\"], [\"true\"], [\"WRITE\"], [\"db\", \"repo\"], [\"true\"]]"
+  }
+ ]
+}

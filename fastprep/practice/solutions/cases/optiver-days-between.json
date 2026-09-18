@@ -1,0 +1,218 @@
+{
+ "problemId": "optiver-days-between",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "year1",
+     "type": "int",
+     "rawValue": "2011"
+    },
+    {
+     "name": "month1",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "day1",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "year2",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "month2",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "day2",
+     "type": "int",
+     "rawValue": "2011"
+    }
+   ],
+   "expectedRaw": "-732277"
+  },
+  {
+   "inputs": [
+    {
+     "name": "year1",
+     "type": "int",
+     "rawValue": "2023"
+    },
+    {
+     "name": "month1",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "day1",
+     "type": "int",
+     "rawValue": "-27"
+    },
+    {
+     "name": "year2",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "month2",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "day2",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "-738492"
+  },
+  {
+   "inputs": [
+    {
+     "name": "year1",
+     "type": "int",
+     "rawValue": "-2010"
+    },
+    {
+     "name": "month1",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "day1",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "year2",
+     "type": "int",
+     "rawValue": "-2011"
+    },
+    {
+     "name": "month2",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "day2",
+     "type": "int",
+     "rawValue": "2011"
+    }
+   ],
+   "expectedRaw": "1731"
+  },
+  {
+   "inputs": [
+    {
+     "name": "year1",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "month1",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "day1",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "year2",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "month2",
+     "type": "int",
+     "rawValue": "-7"
+    },
+    {
+     "name": "day2",
+     "type": "int",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "-254"
+  },
+  {
+   "inputs": [
+    {
+     "name": "year1",
+     "type": "int",
+     "rawValue": "2020"
+    },
+    {
+     "name": "month1",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "day1",
+     "type": "int",
+     "rawValue": "27"
+    },
+    {
+     "name": "year2",
+     "type": "int",
+     "rawValue": "-2020"
+    },
+    {
+     "name": "month2",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "day2",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "-1475671"
+  },
+  {
+   "inputs": [
+    {
+     "name": "year1",
+     "type": "int",
+     "rawValue": "-2019"
+    },
+    {
+     "name": "month1",
+     "type": "int",
+     "rawValue": "12"
+    },
+    {
+     "name": "day1",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "year2",
+     "type": "int",
+     "rawValue": "2023"
+    },
+    {
+     "name": "month2",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "day2",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "1475974"
+  }
+ ]
+}

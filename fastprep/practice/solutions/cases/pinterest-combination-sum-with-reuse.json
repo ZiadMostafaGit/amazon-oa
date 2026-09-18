@@ -1,0 +1,98 @@
+{
+ "problemId": "pinterest-combination-sum-with-reuse",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[6]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[3, 7, 6, 7]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-7"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[3, 3]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[2, 6, 7, 3]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "[[2, 2, 3], [7]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[2, 6, 3, 7]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-7"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[2, 6, 3, 6, 7]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[[2, 2, 2, 2, 2], [2, 2, 3, 3], [2, 2, 6], [2, 2, 6], [3, 7]]"
+  }
+ ]
+}

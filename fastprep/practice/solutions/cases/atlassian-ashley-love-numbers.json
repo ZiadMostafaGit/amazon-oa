@@ -1,0 +1,98 @@
+{
+ "problemId": "atlassian-ashley-love-numbers",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "right",
+     "type": "int",
+     "rawValue": "20"
+    }
+   ],
+   "expectedRaw": "18"
+  },
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "right",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "right",
+     "type": "int",
+     "rawValue": "23"
+    }
+   ],
+   "expectedRaw": "22"
+  },
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "right",
+     "type": "int",
+     "rawValue": "20"
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "right",
+     "type": "int",
+     "rawValue": "19"
+    }
+   ],
+   "expectedRaw": "18"
+  },
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "right",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "count-spikes",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[8, 5, 3]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[1, 2, 8, 5, 3, 3, 4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[4, -3, -4, 1, 4, -4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[5, 4, 3, 8, 2, 1, 8]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[3, 8, 1, 2]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[2, 1, 5, 3]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

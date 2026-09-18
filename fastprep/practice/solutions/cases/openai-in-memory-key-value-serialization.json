@@ -1,0 +1,68 @@
+{
+ "problemId": "openai-in-memory-key-value-serialization",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SERIALIZE\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"PUT\", \"a\", \"one\"], [\"SERIALIZE\"], [\"GET\", \"a\"], [\"PUT\", \"b\", \"two\"], [\"SERIALIZE\"]]"
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"00000001a00000003one\", \"VALUE:one\", \"OK\", \"00000001a00000003one00000001b00000003two\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SERIALIZE\"], [\"PUT\", \"a\", \"one\"], [\"SERIALIZE\"], [\"b\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"OK\", \"00000001a00000003one\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"x:y\", \"PUT\", \"x:y\", \"\"], [\"SERIALIZE\"], [\"DESERIALIZE\", \"00000001a00000003one\"], [\"GET\", \"x:y\"], [\"GET\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"OK\", \"NOT_FOUND\", \"VALUE:one\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"\", \"PUT\", \"PUT\"], [\"SERIALIZE\"], [\"DESERIALIZE\", \"00000001a00000003one\"], [\"GET\", \"x:y\"], [\"GET\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"OK\", \"NOT_FOUND\", \"VALUE:one\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"10\", \"0\", \"red\", \"1\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

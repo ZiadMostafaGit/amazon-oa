@@ -1,0 +1,278 @@
+{
+ "problemId": "hrt-order-and-batch-open-close-lifecycle",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 16,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "openTimestamps",
+     "type": "long[]",
+     "rawValue": "[7, 5, 9]"
+    },
+    {
+     "name": "openOrderIds",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"c\", \"c\"]"
+    },
+    {
+     "name": "openBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"x\", \"x\", \"y\", \"y\"]"
+    },
+    {
+     "name": "closeTimestamps",
+     "type": "long[]",
+     "rawValue": "[11, 20, 20, 15]"
+    },
+    {
+     "name": "closeOrderIds",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"b\", \"c\"]"
+    },
+    {
+     "name": "closeBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"x\", \"a\"]"
+    },
+    {
+     "name": "queryType",
+     "type": "String",
+     "rawValue": "\"y\""
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"b\""
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "openTimestamps",
+     "type": "long[]",
+     "rawValue": "[9, 20]"
+    },
+    {
+     "name": "openOrderIds",
+     "type": "String[]",
+     "rawValue": "[\"o3\", \"o3\"]"
+    },
+    {
+     "name": "openBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"b2\", \"b2\"]"
+    },
+    {
+     "name": "closeTimestamps",
+     "type": "long[]",
+     "rawValue": "[20, 20, 25]"
+    },
+    {
+     "name": "closeOrderIds",
+     "type": "String[]",
+     "rawValue": "[\"ORDER\"]"
+    },
+    {
+     "name": "closeBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"b1\", \"b1\"]"
+    },
+    {
+     "name": "queryType",
+     "type": "String",
+     "rawValue": "\"b1\""
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"ORDER\""
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "openTimestamps",
+     "type": "long[]",
+     "rawValue": "[10, 12, 12]"
+    },
+    {
+     "name": "openOrderIds",
+     "type": "String[]",
+     "rawValue": "[\"o2\", \"o3\"]"
+    },
+    {
+     "name": "openBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"b1\", \"b1\", \"b2\"]"
+    },
+    {
+     "name": "closeTimestamps",
+     "type": "long[]",
+     "rawValue": "[20, 20]"
+    },
+    {
+     "name": "closeOrderIds",
+     "type": "String[]",
+     "rawValue": "[\"o3\"]"
+    },
+    {
+     "name": "closeBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"b1\", \"b2\"]"
+    },
+    {
+     "name": "queryType",
+     "type": "String",
+     "rawValue": "\"b1\""
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"b2\""
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "openTimestamps",
+     "type": "long[]",
+     "rawValue": "[5, 4, 1, -7, -6]"
+    },
+    {
+     "name": "openOrderIds",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "openBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"0\", \"0\", \"a\"]"
+    },
+    {
+     "name": "closeTimestamps",
+     "type": "long[]",
+     "rawValue": "[-4, 3, 1, 5, 0, 0, 3]"
+    },
+    {
+     "name": "closeOrderIds",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "closeBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"0\", \"a\", \"red\"]"
+    },
+    {
+     "name": "queryType",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "openTimestamps",
+     "type": "long[]",
+     "rawValue": "[15, 13, 10]"
+    },
+    {
+     "name": "openOrderIds",
+     "type": "String[]",
+     "rawValue": "[\"o1\", \"b1\"]"
+    },
+    {
+     "name": "openBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"b1\", \"o3\", \"b2\", \"b2\"]"
+    },
+    {
+     "name": "closeTimestamps",
+     "type": "long[]",
+     "rawValue": "[22, 25, 20]"
+    },
+    {
+     "name": "closeOrderIds",
+     "type": "String[]",
+     "rawValue": "[\"b1\", \"o3\"]"
+    },
+    {
+     "name": "closeBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"b1\", \"b2\"]"
+    },
+    {
+     "name": "queryType",
+     "type": "String",
+     "rawValue": "\"b2\""
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"b1\""
+    }
+   ],
+   "expectedRaw": "[15, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "openTimestamps",
+     "type": "long[]",
+     "rawValue": "[5, 9, 7, 9, 9]"
+    },
+    {
+     "name": "openOrderIds",
+     "type": "String[]",
+     "rawValue": "[\"a\"]"
+    },
+    {
+     "name": "openBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"b\"]"
+    },
+    {
+     "name": "closeTimestamps",
+     "type": "long[]",
+     "rawValue": "[13, 11, 20]"
+    },
+    {
+     "name": "closeOrderIds",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"c\"]"
+    },
+    {
+     "name": "closeBatchIds",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"x\"]"
+    },
+    {
+     "name": "queryType",
+     "type": "String",
+     "rawValue": "\"BATCH\""
+    },
+    {
+     "name": "queryId",
+     "type": "String",
+     "rawValue": "\"BATCH\""
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  }
+ ]
+}

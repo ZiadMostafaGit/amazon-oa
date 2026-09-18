@@ -1,0 +1,68 @@
+{
+ "problemId": "postman-large-responses",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[\"d104.aa.net - - [01/Jul/1995:00:00:15 -0400] \\\"GET /shuttle/countdown/count.gif HTTP/1.0\\\" 200 40310\", \"d104.aa.net - - [01/Jul/1995:00:00:15 -0400] \\\"GET /shuttle/countdown/count.gif HTTP/1.0\\\" 200 40310\"]"
+    }
+   ],
+   "expectedRaw": "[2, 80620]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"yz\", \"0\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[\"unicom96.unicomp.net - - [01/Jul/1995:00:00:06 -0400] \\\"GET /shuttle/countdown/ HTTP/1.0\\\" 200 3985\", \"unicom96.unicomp.net - - [01/Jul/1995:00:00:14 -0400] \\\"GET /shuttle/countdown/count.gif HTTP/1.0\\\" 200 40310\", \"d104.aa.net - - [01/Jul/1995:00:00:15 -0400] \\\"GET /shuttle/ountdown/count.gif HTTP/1.0\\\" 200 40310\"]"
+    }
+   ],
+   "expectedRaw": "[2, 80620]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[\"unicom96.unicomp.net - - [01/Jul/1995:00:00:14 -0400] \\\"GET /shuttle/countdown/count.gif HTTP/1.0\\\" 200 40310\", \"unicom96.unicomp.net -  - [01/Jul/1995:00:00:14 -0400] \\\"GET /shuttle/countdown/count.gif HTTP/1.0\\\" 200 40310\", \"d104.aa.net - - [01/Jul/1995:00:00:15 -0400] \\\"GET /shuttle/countdown/count.gif HTTP/1.0\\\" 200 40310\"]"
+    }
+   ],
+   "expectedRaw": "[3, 120930]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"a\", \"ab\", \"a\", \"abc\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  }
+ ]
+}

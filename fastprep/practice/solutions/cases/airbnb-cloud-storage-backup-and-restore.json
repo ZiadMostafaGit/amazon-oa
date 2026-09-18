@@ -1,0 +1,68 @@
+{
+ "problemId": "airbnb-cloud-storage-backup-and-restore",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_FILE\", \"/logs/a.log\", \"7\"], [\"GET_FILE_SIZE\", \"/a.txt\"], [\"GET_N_LARGEST\", \"/\", \"2\"], [\"GET_FILE_SIZE\", \"/a.txt\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"\", \"/logs/a.log(7)\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"cat\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"RESTORE_USER\", \"alice\"], [\"ADD_FILE_BY\", \"alice\", \"/c\", \"13\"], [\"MERGE_USER\", \"alice\", \"bob\"], [\"ADD_USER\", \"bob\", \"15\"], [\"DELETE_FILE\", \"/b\"], [\"ADD_FILE_BY\", \"bob\", \"/c\", \"6\"], [\"ADD_FILE_BY\", \"alice\", \"/a\", \"12\"], [\"BACKUP_USER\", \"alice\"], [\"GET_N_LARGEST\", \"/\", \"3\"], [\"ADD_USER\", \"alice\", \"20\"], [\"ADD_FILE_BY\", \"bob\", \"/b\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"true\", \"\", \"9\", \"\", \"\", \"/c(6)\", \"true\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"10\", \"0\", \"red\", \"1\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_USER\", \"alice\", \"20\"], [\"ADD_USER\", \"bob\", \"15\"], [\"ADD_FILE_BY\", \"bob\", \"/b\", \"10\"], [\"ADD_FILE_BY\", \"bob\", \"/c\", \"6\"], [\"MERGE_USER\", \"alice\", \"bob\"], [\"ADD_FILE_BY\", \"alice\", \"/c\", \"13\"], [\"BACKUP_USER\", \"alice\"], [\"DELETE_FILE\", \"/b\"], [\"RESTORE_USER\", \"alice\"], [\"GET_N_LARGEST\", \"/\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"5\", \"\", \"25\", \"12\", \"2\", \"10\", \"2\", \"/c(13), /b(10)\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_FILE\", \"/a.txt\", \"10\"], [\"ADD_FILE\", \"/logs/a.log\", \"7\"], [\"GET_FILE_SIZE\", \"/logs/a.log\"], [\"GET_N_LARGEST\", \"/\", \"2\"], [\"DELETE_FILE\", \"/a.txt\"], [\"GET_FILE_SIZE\", \"/a.txt\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"7\", \"/a.txt(10), /logs/a.log(7)\", \"10\", \"\"]"
+  }
+ ]
+}

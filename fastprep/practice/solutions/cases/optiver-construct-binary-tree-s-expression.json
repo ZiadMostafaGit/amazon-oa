@@ -1,0 +1,68 @@
+{
+ "problemId": "optiver-construct-binary-tree-s-expression",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "pairs",
+     "type": "String",
+     "rawValue": "\"(A,B) (BB,C) (A,D)\""
+    }
+   ],
+   "expectedRaw": "\"E1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "pairs",
+     "type": "String",
+     "rawValue": "\"(A,B) (B,C) A,D)\""
+    }
+   ],
+   "expectedRaw": "\"E1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "pairs",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"E1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "pairs",
+     "type": "String",
+     "rawValue": "\"(A,B) (A,BB)\""
+    }
+   ],
+   "expectedRaw": "\"E1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "pairs",
+     "type": "String",
+     "rawValue": "\"(A,B) (B,C) ((A,D)\""
+    }
+   ],
+   "expectedRaw": "\"E1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "pairs",
+     "type": "String",
+     "rawValue": "\"(A,B) (B,C)  (A,D)\""
+    }
+   ],
+   "expectedRaw": "\"E1\""
+  }
+ ]
+}

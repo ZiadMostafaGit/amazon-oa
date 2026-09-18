@@ -1,0 +1,68 @@
+{
+ "problemId": "rippling-corporate-card-rules-engine",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "expenses",
+     "type": "String[][]",
+     "rawValue": "[[\"e3\", \"trip2\", \"300\", \"AIRFARE\", \"AIRLINE\", \"Sky\"], [\"e3\", \"trip2\", \"300\", \"AIRFARE\", \"AIRLINE\", \"Sky\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"e3\", \"NO_AIRFARE\", \"EXPENSE_LIMIT\"], [\"e3\", \"NO_AIRFARE\", \"EXPENSE_LIMIT\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expenses",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"trip9\", \"1000\", \"LODGING\", \"HOTEL\", \"North\"], [\"b\", \"trip9\", \"1100\", \"LODGING\", \"HOTEL\", \"South\"], [\"c\", \"RESTAURANT\", \"50\", \"LODGING\", \"RESTAURANT\", \"Deli\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"a\", \"EXPENSE_LIMIT\", \"TRIP_LIMIT\"], [\"b\", \"EXPENSE_LIMIT\", \"TRIP_LIMIT\"], [\"c\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expenses",
+     "type": "String[][]",
+     "rawValue": "[[\"e3\", \"trip2\", \"300\", \"AIRFARE\", \"AIRLINE\", \"Sky\"], [\"e2\", \"trip1\", \"130\", \"MEAL\", \"CAFE\"], [\"e1\", \"trip1\", \"80\", \"MEAL\", \"RESTAURANT\", \"Bistro\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"e3\", \"NO_AIRFARE\", \"EXPENSE_LIMIT\"], [\"e2\", \"MEAL_LIMIT\"], [\"e1\", \"RESTAURANT_LIMIT\", \"MEAL_LIMIT\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expenses",
+     "type": "String[][]",
+     "rawValue": "[[\"e3\", \"trip2\", \"300\", \"AIRFARE\", \"AIRLINE\", \"Sky\"], [\"e1\", \"trip1\", \"80\", \"MEAL\", \"RESTAURANT\", \"Bistro\"], [\"e1\", \"trip1\", \"80\", \"MEAL\", \"RESTAURANT\", \"Bistro\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"e3\", \"NO_AIRFARE\", \"EXPENSE_LIMIT\"], [\"e1\", \"RESTAURANT_LIMIT\"], [\"e1\", \"RESTAURANT_LIMIT\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expenses",
+     "type": "String[][]",
+     "rawValue": "[[\"b\", \"trip9\", \"1100\", \"LODGING\", \"HOTEL\", \"South\"], [\"c\", \"trip10\", \"50\", \"MEAL\", \"RESTAURANT\", \"Deli\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"b\", \"EXPENSE_LIMIT\"], [\"c\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expenses",
+     "type": "String[][]",
+     "rawValue": "[[\"c\", \"trip10\", \"50\", \"MEAL\", \"RESTAURANT\", \"Deli\"], [\"b\", \"trip9\", \"1100\", \"LODGING\", \"HOTEL\", \"South\"], [\"a\", \"trip9\", \"1000\", \"LODGING\", \"HOTEL\", \"North\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"c\"], [\"b\", \"EXPENSE_LIMIT\", \"TRIP_LIMIT\"], [\"a\", \"EXPENSE_LIMIT\", \"TRIP_LIMIT\"]]"
+  }
+ ]
+}

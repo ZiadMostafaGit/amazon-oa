@@ -1,0 +1,98 @@
+{
+ "problemId": "snowflake-find-min-weight",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[25, 25]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[30, 25, 30, 20]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "20"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[30]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "20"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[30, 25]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "15"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

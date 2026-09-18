@@ -1,0 +1,218 @@
+{
+ "problemId": "goldman-sachs-role-permissions",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "roles",
+     "type": "String[]",
+     "rawValue": "[\"intern\", \"intern\"]"
+    },
+    {
+     "name": "parents",
+     "type": "String[]",
+     "rawValue": "[\"\", \"deploy\", \"engineer\", \"employee\"]"
+    },
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[[\"read\"], [\"deploy\"]]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[], [\"deploy\"], [], []]"
+    },
+    {
+     "name": "role",
+     "type": "String",
+     "rawValue": "\"intern\""
+    },
+    {
+     "name": "permission",
+     "type": "String",
+     "rawValue": "\"\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roles",
+     "type": "String[]",
+     "rawValue": "[\"engineer\", \"intern\", \"intern\"]"
+    },
+    {
+     "name": "parents",
+     "type": "String[]",
+     "rawValue": "[\"\", \"employee\", \"deploy\"]"
+    },
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[[\"deploy\"], []]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[\"deploy\"], [], []]"
+    },
+    {
+     "name": "role",
+     "type": "String",
+     "rawValue": "\"deploy\""
+    },
+    {
+     "name": "permission",
+     "type": "String",
+     "rawValue": "\"employee\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roles",
+     "type": "String[]",
+     "rawValue": "[\"intern\"]"
+    },
+    {
+     "name": "parents",
+     "type": "String[]",
+     "rawValue": "[\"engineer\", \"\", \"\"]"
+    },
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[[\"read\"], [\"deploy\"]]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[], [\"deploy\"]]"
+    },
+    {
+     "name": "role",
+     "type": "String",
+     "rawValue": "\"deploy\""
+    },
+    {
+     "name": "permission",
+     "type": "String",
+     "rawValue": "\"deploy\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roles",
+     "type": "String[]",
+     "rawValue": "[\"engineer\", \"intern\", \"employee\"]"
+    },
+    {
+     "name": "parents",
+     "type": "String[]",
+     "rawValue": "[\"\", \"deploy\", \"deploy\"]"
+    },
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[[\"deploy\"], [], []]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[], []]"
+    },
+    {
+     "name": "role",
+     "type": "String",
+     "rawValue": "\"deploy\""
+    },
+    {
+     "name": "permission",
+     "type": "String",
+     "rawValue": "\"read\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roles",
+     "type": "String[]",
+     "rawValue": "[\"engineer\", \"read\"]"
+    },
+    {
+     "name": "parents",
+     "type": "String[]",
+     "rawValue": "[\"engineer\", \"\", \"employee\", \"\"]"
+    },
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[[\"read\"], [\"deploy\", \"deploy\", \"deploy\"], [\"deploy\"], []]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[], [], [\"deploy\"]]"
+    },
+    {
+     "name": "role",
+     "type": "String",
+     "rawValue": "\"deploy\""
+    },
+    {
+     "name": "permission",
+     "type": "String",
+     "rawValue": "\"read\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "roles",
+     "type": "String[]",
+     "rawValue": "[\"engineer\", \"employee\", \"engineer\", \"read\", \"intern\"]"
+    },
+    {
+     "name": "parents",
+     "type": "String[]",
+     "rawValue": "[\"employee\", \"\", \"engineer\"]"
+    },
+    {
+     "name": "allowLists",
+     "type": "String[][]",
+     "rawValue": "[[\"deploy\", \"deploy\"], []]"
+    },
+    {
+     "name": "denyLists",
+     "type": "String[][]",
+     "rawValue": "[[], [], [\"deploy\"]]"
+    },
+    {
+     "name": "role",
+     "type": "String",
+     "rawValue": "\"\""
+    },
+    {
+     "name": "permission",
+     "type": "String",
+     "rawValue": "\"\""
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "bytedance-design-hashmap",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"get\", \"put\", \"get\", \"get\"]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[4, 9, 4, 4, -4, 4, 6]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[30, 25, 0, 20, 0, 0, 30, 0]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put\", \"put\", \"get\", \"put\", \"get\"]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[4, 4, 4, 4, 9, 4, 4]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[30, 0, 25, -2, 0]"
+    }
+   ],
+   "expectedRaw": "[0, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[4, -5, -4]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[3, -6]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[-2, 2]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put\", \"put\", \"get\", \"put\", \"get\", \"get\", \"put\", \"get\"]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[4, 4, 4, 4, 4, 4, 4, 9]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[20, -30, 0, 0, 0, 30, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[-30, 0, 0, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"remove\", \"get\", \"get\", \"remove\"]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "microsoft-maximum-score-with-prime-jumps",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "cell",
+     "type": "int[]",
+     "rawValue": "[-20, 50]"
+    }
+   ],
+   "expectedRaw": "30"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cell",
+     "type": "int[]",
+     "rawValue": "[-30, -10, -20, 50, 0, 50]"
+    }
+   ],
+   "expectedRaw": "70"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cell",
+     "type": "int[]",
+     "rawValue": "[-10, -20, -30, 50]"
+    }
+   ],
+   "expectedRaw": "40"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cell",
+     "type": "int[]",
+     "rawValue": "[0, -20, -33]"
+    }
+   ],
+   "expectedRaw": "-53"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cell",
+     "type": "int[]",
+     "rawValue": "[0, -20, -30, 0, 50]"
+    }
+   ],
+   "expectedRaw": "50"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cell",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

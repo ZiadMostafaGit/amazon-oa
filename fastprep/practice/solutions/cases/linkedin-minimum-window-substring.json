@@ -1,0 +1,98 @@
+{
+ "problemId": "linkedin-minimum-window-substring",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ADOBBECODEBANC\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"BC\""
+    }
+   ],
+   "expectedRaw": "\"BEC\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ab\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"abdcab\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"DOBECODEBANC\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"ABBC\""
+    }
+   ],
+   "expectedRaw": "\"BECODEBA\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"ab\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"AADOBECODEBANC\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"BC\""
+    }
+   ],
+   "expectedRaw": "\"BEC\""
+  }
+ ]
+}

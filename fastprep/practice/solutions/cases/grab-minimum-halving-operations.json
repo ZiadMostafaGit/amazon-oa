@@ -1,0 +1,68 @@
+{
+ "problemId": "grab-minimum-halving-operations",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[8]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[7, 11, 4, 1]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[4, 8, 1, 7, 8]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[8, 4, 8, 4]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[7, 4, 8]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

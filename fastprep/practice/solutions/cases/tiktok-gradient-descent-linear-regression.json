@@ -1,0 +1,218 @@
+{
+ "problemId": "tiktok-gradient-descent-linear-regression",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "yTrain",
+     "type": "double[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "initialBias",
+     "type": "double",
+     "rawValue": "-4.575"
+    },
+    {
+     "name": "initialThetas",
+     "type": "double[]",
+     "rawValue": "[-3.91, -3.868]"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "-4.254"
+    },
+    {
+     "name": "iterations",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[-4.575, -3.91, -3.868]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[[4.172, 4.846, -5.359, 4.513, -4.397, -5.987, -2.972], []]"
+    },
+    {
+     "name": "yTrain",
+     "type": "double[]",
+     "rawValue": "[-3.971, -1.413, 4.513, -1.408, -1.203]"
+    },
+    {
+     "name": "initialBias",
+     "type": "double",
+     "rawValue": "-1.806"
+    },
+    {
+     "name": "initialThetas",
+     "type": "double[]",
+     "rawValue": "[-4.463]"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "-6.474"
+    },
+    {
+     "name": "iterations",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[-1.806, -4.463]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[[2.0]]"
+    },
+    {
+     "name": "yTrain",
+     "type": "double[]",
+     "rawValue": "[3.0, 3.0]"
+    },
+    {
+     "name": "initialBias",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "initialThetas",
+     "type": "double[]",
+     "rawValue": "[0.0, 0.0]"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "iterations",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[0.0, 0.0, 0.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[[1.0], [0.0]]"
+    },
+    {
+     "name": "yTrain",
+     "type": "double[]",
+     "rawValue": "[3.0, 5.0]"
+    },
+    {
+     "name": "initialBias",
+     "type": "double",
+     "rawValue": "-0.333"
+    },
+    {
+     "name": "initialThetas",
+     "type": "double[]",
+     "rawValue": "[0.0]"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "-0.841"
+    },
+    {
+     "name": "iterations",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[-0.333, 0.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[[0.743, 2.581, -1.682], [-2.717], [4.132, 2.397, -3.796, 4.952]]"
+    },
+    {
+     "name": "yTrain",
+     "type": "double[]",
+     "rawValue": "[0.874, 1.51, 4.992]"
+    },
+    {
+     "name": "initialBias",
+     "type": "double",
+     "rawValue": "1.98"
+    },
+    {
+     "name": "initialThetas",
+     "type": "double[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "0.38"
+    },
+    {
+     "name": "iterations",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[2.3437866666666665]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "xTrain",
+     "type": "double[][]",
+     "rawValue": "[[1.0, 1.0], [2.0]]"
+    },
+    {
+     "name": "yTrain",
+     "type": "double[]",
+     "rawValue": "[5.0, 5.0]"
+    },
+    {
+     "name": "initialBias",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "initialThetas",
+     "type": "double[]",
+     "rawValue": "[0.0, 0.0]"
+    },
+    {
+     "name": "learningRate",
+     "type": "double",
+     "rawValue": "0.1"
+    },
+    {
+     "name": "iterations",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[0.0, 0.0, 0.0]"
+  }
+ ]
+}

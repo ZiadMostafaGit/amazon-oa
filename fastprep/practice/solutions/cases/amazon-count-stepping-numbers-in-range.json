@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-count-stepping-numbers-in-range",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "low",
+     "type": "long",
+     "rawValue": "1"
+    },
+    {
+     "name": "high",
+     "type": "long",
+     "rawValue": "21"
+    }
+   ],
+   "expectedRaw": "12"
+  },
+  {
+   "inputs": [
+    {
+     "name": "low",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "high",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "low",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "high",
+     "type": "long",
+     "rawValue": "24"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "low",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "high",
+     "type": "long",
+     "rawValue": "20"
+    }
+   ],
+   "expectedRaw": "12"
+  },
+  {
+   "inputs": [
+    {
+     "name": "low",
+     "type": "long",
+     "rawValue": "-3"
+    },
+    {
+     "name": "high",
+     "type": "long",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "low",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "high",
+     "type": "long",
+     "rawValue": "18"
+    }
+   ],
+   "expectedRaw": "12"
+  }
+ ]
+}

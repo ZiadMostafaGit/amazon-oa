@@ -1,0 +1,68 @@
+{
+ "problemId": "airbnb-city-price-medians",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "entries",
+     "type": "String[]",
+     "rawValue": "[\"sf 20\", \"sf 30\"]"
+    }
+   ],
+   "expectedRaw": "[\"sf=25\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "entries",
+     "type": "String[]",
+     "rawValue": "[\"z 0\", \"z 0\", \"z 0\"]"
+    }
+   ],
+   "expectedRaw": "[\"z=0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "entries",
+     "type": "String[]",
+     "rawValue": "[\"ny 8\", \"sf 20\", \"sf 30\", \"ny 4\", \"sf 10\", \"sf 20\"]"
+    }
+   ],
+   "expectedRaw": "[\"ny=6\", \"sf=20\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "entries",
+     "type": "String[]",
+     "rawValue": "[\"sf 20\", \"sf 10\", \"ny 4\", \"ny 8\"]"
+    }
+   ],
+   "expectedRaw": "[\"ny=6\", \"sf=15\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "entries",
+     "type": "String[]",
+     "rawValue": "[\"ny 4\", \"sf 20\", \"ny 8\", \"ny 4\", \"sf 30\", \"ny 4\"]"
+    }
+   ],
+   "expectedRaw": "[\"ny=4\", \"sf=25\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "entries",
+     "type": "String[]",
+     "rawValue": "[\"z 0\", \"z 0\"]"
+    }
+   ],
+   "expectedRaw": "[\"z=0\"]"
+  }
+ ]
+}

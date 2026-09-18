@@ -1,0 +1,128 @@
+{
+ "problemId": "ibm-count-paginated-medical-records-in-range",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[][]",
+     "rawValue": "[[], []]"
+    },
+    {
+     "name": "lowerBound",
+     "type": "int",
+     "rawValue": "111"
+    },
+    {
+     "name": "upperBound",
+     "type": "int",
+     "rawValue": "110"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[][]",
+     "rawValue": "[[100, 115], [110, 120, 125, 120], [100, 115], []]"
+    },
+    {
+     "name": "lowerBound",
+     "type": "int",
+     "rawValue": "110"
+    },
+    {
+     "name": "upperBound",
+     "type": "int",
+     "rawValue": "120"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[][]",
+     "rawValue": "[[110, 125, 120], [100]]"
+    },
+    {
+     "name": "lowerBound",
+     "type": "int",
+     "rawValue": "110"
+    },
+    {
+     "name": "upperBound",
+     "type": "int",
+     "rawValue": "120"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[][]",
+     "rawValue": "[[100, 115], [], [110, 125, 120]]"
+    },
+    {
+     "name": "lowerBound",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "upperBound",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[][]",
+     "rawValue": "[[2, 0]]"
+    },
+    {
+     "name": "lowerBound",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "upperBound",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pages",
+     "type": "int[][]",
+     "rawValue": "[[], [100, 115], []]"
+    },
+    {
+     "name": "lowerBound",
+     "type": "int",
+     "rawValue": "113"
+    },
+    {
+     "name": "upperBound",
+     "type": "int",
+     "rawValue": "120"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

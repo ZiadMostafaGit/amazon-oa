@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-task-management-system",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_USER\", \"1\", \"u1\", \"2\"], [\"CREATE\", \"3\", \"t2\", \"u1\", \"7\", \"4\", \"30\"], [\"COMPLETE\", \"6\", \"t2\"], [\"SET_QUOTA\", \"8\", \"u1\", \"1\"], [\"CREATE\", \"9\", \"t3\", \"u1\", \"9\", \"12\", \"40\"], [\"GET\", \"20\", \"t1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"OK\"], [\"OK\"], [\"OK\"], [\"OK\"], [\"OK\"], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET_QUOTA\", \"8\", \"u1\", \"1\"], [\"GET\", \"20\", \"t1\"], [\"CREATE\", \"2\", \"t1\", \"u1\", \"5\", \"10\", \"20\"], [\"ADD_USER\", \"1\", \"u1\", \"2\"], [\"CREATE\", \"9\", \"t3\", \"u1\", \"9\", \"12\", \"40\"], [\"COMPLETE\", \"6\", \"t2\"], [\"SEARCH\", \"5\", \"u1\"], [\"COMPLETE\", \"6\", \"t2\"], [\"CREATE\", \"3\", \"t2\", \"u1\", \"7\", \"4\", \"30\"], [\"HISTORY\", \"7\", \"u1\", \"COMPLETED\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"UNKNOWN_USER\"], [], [\"UNKNOWN_USER\"], [\"OK\"], [\"OK\"], [\"NOT_FOUND\"], [\"t3\"], [\"NOT_FOUND\"], [\"OK\"], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"b\", \"0\"], [\"0\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[[], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"HISTORY\", \"7\", \"u1\", \"COMPLETED\"], [\"CREATE\", \"9\", \"t3\", \"u1\", \"9\", \"12\", \"40\"], [\"ADD_USER\", \"1\", \"u1\", \"2\"], [\"COMPLETE\", \"6\", \"t2\"], [\"CREATE\", \"3\", \"t2\", \"u1\", \"7\", \"4\", \"30\"], [\"CREATE\", \"2\", \"t1\", \"u1\", \"5\", \"10\", \"20\"], [\"SEARCH\", \"5\", \"u1\"], [\"SET_QUOTA\", \"8\", \"u1\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"UNKNOWN_USER\"], [\"UNKNOWN_USER\"], [\"OK\"], [\"NOT_FOUND\"], [\"OK\"], [\"OK\"], [\"t2\", \"t1\"], [\"OK\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_USER\", \"1\", \"u1\", \"2\"], [\"CREATE\", \"2\", \"t1\", \"u1\", \"5\", \"10\", \"20\"], [\"SEARCH\", \"5\", \"u1\"], [\"GET\", \"20\", \"t1\"], [\"HISTORY\", \"7\", \"u1\", \"COMPLETED\"], [\"CREATE\", \"3\", \"t2\", \"u1\", \"7\", \"4\", \"30\"], [\"SET_QUOTA\", \"8\", \"u1\", \"1\"], [\"COMPLETE\", \"6\", \"t2\"], [\"CREATE\", \"9\", \"t3\", \"u1\", \"9\", \"12\", \"40\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"OK\"], [\"OK\"], [\"t1\"], [\"t1\", \"u1\", \"5\", \"2\", \"10\", \"20\", \"EXPIRED\"], [], [\"OK\"], [\"OK\"], [\"OK\"], [\"OK\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_USER\", \"1\", \"u1\", \"2\"], [\"u1\", \"5\", \"t1\", \"20\", \"10\", \"2\"], [\"CREATE\", \"3\", \"t2\", \"u1\", \"7\", \"4\", \"30\"], [\"SEARCH\", \"5\", \"u1\"], [\"COMPLETE\", \"6\", \"t2\"], [\"SET_QUOTA\", \"8\", \"u1\", \"1\"], [\"HISTORY\", \"7\", \"u1\", \"COMPLETED\"], [\"SET_QUOTA\", \"8\", \"u1\", \"1\"], [\"SEARCH\", \"5\", \"u1\"], [\"CREATE\", \"9\", \"t3\", \"u1\", \"9\", \"12\", \"40\"], [\"GET\", \"20\", \"t1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"OK\"], [], [\"OK\"], [\"t2\"], [\"OK\"], [\"OK\"], [\"t2\"], [\"OK\"], [], [\"OK\"], []]"
+  }
+ ]
+}

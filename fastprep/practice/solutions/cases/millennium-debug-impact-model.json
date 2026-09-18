@@ -1,0 +1,188 @@
+{
+ "problemId": "millennium-debug-impact-model",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "10.0"
+    },
+    {
+     "name": "impactParams",
+     "type": "double[]",
+     "rawValue": "[0.0, 0.1, 0.0, 0.2]"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "sides",
+     "type": "String[]",
+     "rawValue": "[\"BUY\", \"BUY\", \"BUY\"]"
+    },
+    {
+     "name": "quantities",
+     "type": "double[]",
+     "rawValue": "[3.0, 3.0, 4.0]"
+    }
+   ],
+   "expectedRaw": "[10.0, 10.0, 10.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "50.0"
+    },
+    {
+     "name": "impactParams",
+     "type": "double[]",
+     "rawValue": "[0.2, 0.7, 0.0]"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "-0.398"
+    },
+    {
+     "name": "sides",
+     "type": "String[]",
+     "rawValue": "[\"BUY\"]"
+    },
+    {
+     "name": "quantities",
+     "type": "double[]",
+     "rawValue": "[250.0, 250.0]"
+    }
+   ],
+   "expectedRaw": "[50.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "49.596"
+    },
+    {
+     "name": "impactParams",
+     "type": "double[]",
+     "rawValue": "[0.7, 0.05, 0.05]"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "sides",
+     "type": "String[]",
+     "rawValue": "[\"SELL\", \"BUY\"]"
+    },
+    {
+     "name": "quantities",
+     "type": "double[]",
+     "rawValue": "[100.0, 0.0]"
+    }
+   ],
+   "expectedRaw": "[49.546, 46.145999999999994]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "99.534"
+    },
+    {
+     "name": "impactParams",
+     "type": "double[]",
+     "rawValue": "[0.01, 2.355, 0.1]"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "-0.921"
+    },
+    {
+     "name": "sides",
+     "type": "String[]",
+     "rawValue": "[\"BUY\", \"BUY\", \"SELL\"]"
+    },
+    {
+     "name": "quantities",
+     "type": "double[]",
+     "rawValue": "[10.0, 5.0, 20.0, 5.0, 10.0]"
+    }
+   ],
+   "expectedRaw": "[99.634, 100.0863955, 100.7255891525]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "impactParams",
+     "type": "double[]",
+     "rawValue": "[0.1, 0.0, 0.2, 0.2]"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "sides",
+     "type": "String[]",
+     "rawValue": "[\"BUY\"]"
+    },
+    {
+     "name": "quantities",
+     "type": "double[]",
+     "rawValue": "[3.0, 0.0]"
+    }
+   ],
+   "expectedRaw": "[0.2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "impactParams",
+     "type": "double[]",
+     "rawValue": "[0.2, 0.7, 0.7, 0.05]"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "sides",
+     "type": "String[]",
+     "rawValue": "[\"SELL\"]"
+    },
+    {
+     "name": "quantities",
+     "type": "double[]",
+     "rawValue": "[250.0, 100.0]"
+    }
+   ],
+   "expectedRaw": "[-0.7]"
+  }
+ ]
+}

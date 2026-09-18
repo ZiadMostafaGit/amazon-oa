@@ -1,0 +1,158 @@
+{
+ "problemId": "doordash-customer-bootstrap-api",
+ "generatedAt": "2026-09-18T23:33:39",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "email",
+     "type": "String",
+     "rawValue": "\"alex@exaample.com\""
+    },
+    {
+     "name": "timeoutMs",
+     "type": "int",
+     "rawValue": "100"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "responses",
+     "type": "String[][]",
+     "rawValue": "[[\"PAYMENT\", \"1\", \"150\", \"200\", \"card-old\"], [\"PAYMENT\", \"2\", \"40\", \"200\", \"card-7\"], [\"200\", \"1\", \"20\", \"c42\", \"USER\", \"c42\"], [\"ADDRESS\", \"1\", \"30\", \"503\", \"\"], [\"ADDRESS\", \"2\", \"25\", \"200\", \"12 Main St\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "email",
+     "type": "String",
+     "rawValue": "\"alex@example.com\""
+    },
+    {
+     "name": "timeoutMs",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "100"
+    },
+    {
+     "name": "responses",
+     "type": "String[][]",
+     "rawValue": "[[\"USER\", \"1\", \"20\", \"200\", \"c42\"], [\"PAYMENT\", \"1\", \"150\", \"200\", \"card-old\"], [\"PAYMENT\", \"40\", \"200\", \"card-7\"], [\"card-old\", \"30\", \"503\", \"card-old\", \"\", \"ADDRESS\"], [\"ADDRESS\", \"2\", \"25\", \"200\", \"12 Main St\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "email",
+     "type": "String",
+     "rawValue": "\"2\""
+    },
+    {
+     "name": "timeoutMs",
+     "type": "int",
+     "rawValue": "-100"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "responses",
+     "type": "String[][]",
+     "rawValue": "[[\"USER\", \"1\", \"20\", \"200\", \"c42\"], [\"PAYMENT\", \"1\", \"150\", \"200\", \"card-old\"], [\"PAYMENT\", \"2\", \"40\", \"200\", \"card-7\"], [\"\", \"30\", \"ADDRESS\", \"503\"], [\"ADDRESS\", \"2\", \"25\", \"200\", \"12 Main St\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "email",
+     "type": "String",
+     "rawValue": "\"alex@example.cm\""
+    },
+    {
+     "name": "timeoutMs",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "responses",
+     "type": "String[][]",
+     "rawValue": "[[\"USER\", \"1\", \"20\", \"200\", \"c42\"], [\"PAYMENT\", \"1\", \"200\", \"150\", \"20\", \"card-old\"], [\"ADDRESS\", \"1\", \"30\", \"503\", \"\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "email",
+     "type": "String",
+     "rawValue": "\"alex@example.com\""
+    },
+    {
+     "name": "timeoutMs",
+     "type": "int",
+     "rawValue": "-100"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "responses",
+     "type": "String[][]",
+     "rawValue": "[[\"PAYMENT\", \"1\", \"150\", \"200\", \"card-old\"], [\"USER\", \"1\", \"20\", \"200\", \"c42\"], [\"ADDRESS\", \"1\", \"30\", \"503\", \"\"], [\"ADDRESS\", \"2\", \"25\", \"200\", \"12 Main St\"], [\"PAYMENT\", \"2\", \"40\", \"200\", \"card-7\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "email",
+     "type": "String",
+     "rawValue": "\"alex@eexample.com\""
+    },
+    {
+     "name": "timeoutMs",
+     "type": "int",
+     "rawValue": "101"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "responses",
+     "type": "String[][]",
+     "rawValue": "[[\"PAYMENT\", \"1\", \"150\", \"200\", \"card-old\"], [\"ADDRESS\", \"1\", \"30\", \"503\", \"\"], [\"c42\", \"20\", \"1\", \"200\", \"USER\"], [\"PAYMENT\", \"2\", \"40\", \"200\", \"card-7\"], [\"2\", \"25\", \"c42\", \"PAYMENT\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  }
+ ]
+}

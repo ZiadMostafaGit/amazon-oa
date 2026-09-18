@@ -1,0 +1,98 @@
+{
+ "problemId": "bharatpe-wallet-balance-on-selected-day",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[]",
+     "rawValue": "[20]"
+    },
+    {
+     "name": "selectedDay",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "selectedDay",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[]",
+     "rawValue": "[-52, 0, -20]"
+    },
+    {
+     "name": "selectedDay",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-52"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[]",
+     "rawValue": "[-30, -10, 20, -10]"
+    },
+    {
+     "name": "selectedDay",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[]",
+     "rawValue": "[5, 0, -2, 0]"
+    },
+    {
+     "name": "selectedDay",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "int[]",
+     "rawValue": "[100, 20, -10, -30]"
+    },
+    {
+     "name": "selectedDay",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "110"
+  }
+ ]
+}

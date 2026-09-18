@@ -1,0 +1,68 @@
+{
+ "problemId": "nvidia-reference-counted-smart-pointer",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"use_count a\", \"get b\", \"reset a\"]"
+    }
+   ],
+   "expectedRaw": "[\"use_count:0\", \"get:-1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"get a\", \"use_count a\", \"create a 5\", \"copy a a\", \"get a\", \"move a a\"]"
+    }
+   ],
+   "expectedRaw": "[\"get:-1\", \"use_count:0\", \"get:5\", \"destroy:5\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"reset a\", \"move a a\", \"copy a a\", \"use_count a\", \"create a 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"use_count:0\", \"destroy:5\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"create a 5\", \"copy a a\", \"reset a\", \"move a a\", \"use_count a\", \"reset a\", \"get a\"]"
+    }
+   ],
+   "expectedRaw": "[\"destroy:5\", \"use_count:0\", \"get:-1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"use_count a\", \"reset a\", \"get a\", \"copy a a\", \"move a a\", \"create a 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"use_count:0\", \"get:-1\", \"destroy:5\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"move a b\", \"use_count a\", \"get b\", \"create a 1\", \"move a b\", \"get a\"]"
+    }
+   ],
+   "expectedRaw": "[\"use_count:0\", \"get:-1\", \"destroy:1\", \"get:-1\"]"
+  }
+ ]
+}

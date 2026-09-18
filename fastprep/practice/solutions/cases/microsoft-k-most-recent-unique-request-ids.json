@@ -1,0 +1,98 @@
+{
+ "problemId": "microsoft-k-most-recent-unique-request-ids",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[\"item3\", \"item3\"]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"item3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[\"item1\", \"item3\", \"item1\", \"item2\"]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"item2\", \"item1\", \"item3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[\"item3\", \"item1\", \"item1\", \"item3\", \"item2\", \"item1\"]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[\"item1\", \"item2\", \"item3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[\"item1\", \"item3\", \"item1\", \"item1\"]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"item1\", \"item3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[\"item2\", \"item3\", \"item1\", \"item1\", \"item3\"]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"item3\", \"item1\", \"item2\"]"
+  }
+ ]
+}

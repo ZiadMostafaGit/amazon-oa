@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-minimum-adjacent-swaps-binary-groups",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "int[]",
+     "rawValue": "[0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "int[]",
+     "rawValue": "[0, 3, 1, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "int[]",
+     "rawValue": "[1, 0, 1, 0, 0]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bits",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 0]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-web-services-fixed-k-kth-largest-stream",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "initialValues",
+     "type": "int[]",
+     "rawValue": "[5, 8, 2]"
+    },
+    {
+     "name": "additions",
+     "type": "int[]",
+     "rawValue": "[3, 5, 10, 5, 4]"
+    }
+   ],
+   "expectedRaw": "[2, 3, 5, 5, 5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "initialValues",
+     "type": "int[]",
+     "rawValue": "[5, 5, 5]"
+    },
+    {
+     "name": "additions",
+     "type": "int[]",
+     "rawValue": "[5, 4, 0]"
+    }
+   ],
+   "expectedRaw": "[5, 4, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "initialValues",
+     "type": "int[]",
+     "rawValue": "[5, 2, 8, 2]"
+    },
+    {
+     "name": "additions",
+     "type": "int[]",
+     "rawValue": "[3, 5, 8, 5, 4]"
+    }
+   ],
+   "expectedRaw": "[3, 5, 5, 5, 5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "initialValues",
+     "type": "int[]",
+     "rawValue": "[-10, -10]"
+    },
+    {
+     "name": "additions",
+     "type": "int[]",
+     "rawValue": "[-7, -5, -7]"
+    }
+   ],
+   "expectedRaw": "[-7, -5, -5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "initialValues",
+     "type": "int[]",
+     "rawValue": "[5, 5]"
+    },
+    {
+     "name": "additions",
+     "type": "int[]",
+     "rawValue": "[5, 4, 0]"
+    }
+   ],
+   "expectedRaw": "[5, 5, 5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "initialValues",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    },
+    {
+     "name": "additions",
+     "type": "int[]",
+     "rawValue": "[5, 5]"
+    }
+   ],
+   "expectedRaw": "[5, 5]"
+  }
+ ]
+}

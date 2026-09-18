@@ -1,0 +1,308 @@
+{
+ "problemId": "millennium-risk-limits-and-skew",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "currentInventory",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "side",
+     "type": "String",
+     "rawValue": "\"UY\""
+    },
+    {
+     "name": "quantity",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "halfSpread",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "0.957"
+    },
+    {
+     "name": "baseLimit",
+     "type": "int",
+     "rawValue": "50000"
+    },
+    {
+     "name": "softFraction",
+     "type": "double",
+     "rawValue": "-0.533"
+    },
+    {
+     "name": "skewCoefficient",
+     "type": "double",
+     "rawValue": "0.0"
+    }
+   ],
+   "expectedRaw": "[\"widen\", \"0.000000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "currentInventory",
+     "type": "int",
+     "rawValue": "300"
+    },
+    {
+     "name": "side",
+     "type": "String",
+     "rawValue": "\"BU\""
+    },
+    {
+     "name": "quantity",
+     "type": "int",
+     "rawValue": "50"
+    },
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "99.876"
+    },
+    {
+     "name": "halfSpread",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "0.5"
+    },
+    {
+     "name": "baseLimit",
+     "type": "int",
+     "rawValue": "1000"
+    },
+    {
+     "name": "softFraction",
+     "type": "double",
+     "rawValue": "0.3"
+    },
+    {
+     "name": "skewCoefficient",
+     "type": "double",
+     "rawValue": "0.001"
+    }
+   ],
+   "expectedRaw": "[\"widen\", \"99.576000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "currentInventory",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "side",
+     "type": "String",
+     "rawValue": "\"BBUY\""
+    },
+    {
+     "name": "quantity",
+     "type": "int",
+     "rawValue": "101"
+    },
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "100.0"
+    },
+    {
+     "name": "halfSpread",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "1.0"
+    },
+    {
+     "name": "baseLimit",
+     "type": "int",
+     "rawValue": "50000"
+    },
+    {
+     "name": "softFraction",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "skewCoefficient",
+     "type": "double",
+     "rawValue": "-1.977"
+    }
+   ],
+   "expectedRaw": "[\"widen\", \"100.000000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "currentInventory",
+     "type": "int",
+     "rawValue": "298"
+    },
+    {
+     "name": "side",
+     "type": "String",
+     "rawValue": "\"BUYY\""
+    },
+    {
+     "name": "quantity",
+     "type": "int",
+     "rawValue": "-50"
+    },
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "101.765"
+    },
+    {
+     "name": "halfSpread",
+     "type": "double",
+     "rawValue": "0.05"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "baseLimit",
+     "type": "int",
+     "rawValue": "1001"
+    },
+    {
+     "name": "softFraction",
+     "type": "double",
+     "rawValue": "0.732"
+    },
+    {
+     "name": "skewCoefficient",
+     "type": "double",
+     "rawValue": "0.001"
+    }
+   ],
+   "expectedRaw": "[\"reject\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "currentInventory",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "side",
+     "type": "String",
+     "rawValue": "\"BUY\""
+    },
+    {
+     "name": "quantity",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "101.192"
+    },
+    {
+     "name": "halfSpread",
+     "type": "double",
+     "rawValue": "-1.481"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "1.0"
+    },
+    {
+     "name": "baseLimit",
+     "type": "int",
+     "rawValue": "50000"
+    },
+    {
+     "name": "softFraction",
+     "type": "double",
+     "rawValue": "0.6"
+    },
+    {
+     "name": "skewCoefficient",
+     "type": "double",
+     "rawValue": "-0.65"
+    }
+   ],
+   "expectedRaw": "[\"accept\", \"98.411000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "currentInventory",
+     "type": "int",
+     "rawValue": "-300"
+    },
+    {
+     "name": "side",
+     "type": "String",
+     "rawValue": "\"BBUY\""
+    },
+    {
+     "name": "quantity",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "reference",
+     "type": "double",
+     "rawValue": "100.0"
+    },
+    {
+     "name": "halfSpread",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "liquidityScore",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "baseLimit",
+     "type": "int",
+     "rawValue": "-1000"
+    },
+    {
+     "name": "softFraction",
+     "type": "double",
+     "rawValue": "0.0"
+    },
+    {
+     "name": "skewCoefficient",
+     "type": "double",
+     "rawValue": "0.001"
+    }
+   ],
+   "expectedRaw": "[\"reject\", \"null\"]"
+  }
+ ]
+}

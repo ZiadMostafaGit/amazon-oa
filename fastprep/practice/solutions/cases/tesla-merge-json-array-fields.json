@@ -1,0 +1,128 @@
+{
+ "problemId": "tesla-merge-json-array-fields",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 58,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "baseJson",
+     "type": "String",
+     "rawValue": "\"{\\\"b\\\":[33],\\\"a\\\":[1,2]}\""
+    },
+    {
+     "name": "incomingJson",
+     "type": "String",
+     "rawValue": "\"{\\\"a\\\":[],\\\"d\\\":[7]}\""
+    },
+    {
+     "name": "behavior",
+     "type": "String",
+     "rawValue": "\"OVERWWRITE\""
+    }
+   ],
+   "expectedRaw": "\"{\\\"a\\\":[],\\\"b\\\":[33],\\\"d\\\":[7]}\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "baseJson",
+     "type": "String",
+     "rawValue": "\"{\\\"b\\\":[3],\\\"a\\\":[1,2]}\""
+    },
+    {
+     "name": "incomingJson",
+     "type": "String",
+     "rawValue": "\"{\\\"a\\\":[],\\\"d\\\":[]}\""
+    },
+    {
+     "name": "behavior",
+     "type": "String",
+     "rawValue": "\"OVERWRITEE\""
+    }
+   ],
+   "expectedRaw": "\"{\\\"a\\\":[],\\\"b\\\":[3],\\\"d\\\":[]}\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "baseJson",
+     "type": "String",
+     "rawValue": "\"{\\\"a\\\":[1,2],\\\"b\\\":[3]}\""
+    },
+    {
+     "name": "incomingJson",
+     "type": "String",
+     "rawValue": "\"{\\\"a\\\":[4],\\\"c\\\":[5]}\""
+    },
+    {
+     "name": "behavior",
+     "type": "String",
+     "rawValue": "\"APPEEND\""
+    }
+   ],
+   "expectedRaw": "\"{\\\"a\\\":[4],\\\"b\\\":[3],\\\"c\\\":[5]}\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "baseJson",
+     "type": "String",
+     "rawValue": "\"{\\\"a\\\":[1,2],\\\"b\\\":[3]}\""
+    },
+    {
+     "name": "incomingJson",
+     "type": "String",
+     "rawValue": "\"{\\\"a\\\":[1,2],\\\"b\\\":[3]}\""
+    },
+    {
+     "name": "behavior",
+     "type": "String",
+     "rawValue": "\"PPEND\""
+    }
+   ],
+   "expectedRaw": "\"{\\\"a\\\":[1,2],\\\"b\\\":[3]}\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "baseJson",
+     "type": "String",
+     "rawValue": "\"{\\\"a\\\":[1,2],\\\"b\\\":[3]}\""
+    },
+    {
+     "name": "incomingJson",
+     "type": "String",
+     "rawValue": "\"{\\\"aa\\\":[4],\\\"c\\\":[5]}\""
+    },
+    {
+     "name": "behavior",
+     "type": "String",
+     "rawValue": "\"APPEND\""
+    }
+   ],
+   "expectedRaw": "\"{\\\"a\\\":[1,2],\\\"aa\\\":[4],\\\"b\\\":[3],\\\"c\\\":[5]}\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "baseJson",
+     "type": "String",
+     "rawValue": "\"{\\\"bb\\\":[3],\\\"a\\\":[1,2]}\""
+    },
+    {
+     "name": "incomingJson",
+     "type": "String",
+     "rawValue": "\"{\\\"a\\\":[],\\\"d\\\":[77]}\""
+    },
+    {
+     "name": "behavior",
+     "type": "String",
+     "rawValue": "\"OVERWRTE\""
+    }
+   ],
+   "expectedRaw": "\"{\\\"a\\\":[],\\\"bb\\\":[3],\\\"d\\\":[77]}\""
+  }
+ ]
+}

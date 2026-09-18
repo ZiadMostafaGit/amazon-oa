@@ -1,0 +1,98 @@
+{
+ "problemId": "stripe-url-segment-compression-part2",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"stripe.com/paymments/checkout/customer.john.doe\""
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "\"s4e.c1m/p7s/c6t/c6r.j5e\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"www.api.stripe.com/checckout\""
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"w1w.a1i.s7m/c7t\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"www.api.stripe.com/checkout\""
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"w1w.a1i.s4e.c1m/c6t\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "\"b-1b\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"stripe.com/payments/checkout/customer.john.doe\""
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"s4e.c1m/p6s/c6t/c6r.j2n.d1e\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"tripe.com/payments/checkout/customer.john.doe\""
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "\"t6m/p6s/c6t/c13e\""
+  }
+ ]
+}

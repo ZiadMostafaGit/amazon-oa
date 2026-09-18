@@ -1,0 +1,68 @@
+{
+ "problemId": "openai-gpu-credit-ledger",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SUBTRACT 2 30\", \"BALANCE 40\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"BALANCE 30\", \"ADD b 3 30 40\", \"SUBTRACT 2 30\", \"BALANCE 40\", \"ADD a 4 20 60\", \"BALANCE 40\"]"
+    }
+   ],
+   "expectedRaw": "[\"5\", \"4\", \"4\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD b 3 30 40\", \"SUBTRACT 2 30\", \"BALANCE 30\", \"BALANCE 40\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD a 4 20 60\", \"ADD b 3 30 40\", \"ADD b 3 30 40\", \"SUBTRACT 2 30\", \"BALANCE 30\"]"
+    }
+   ],
+   "expectedRaw": "[\"8\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD b 3 30 40\", \"SUBTRACT 2 30\", \"BALANCE 30\", \"ADD b 3 30 40\", \"BALANCE 40\", \"ADD a 4 20 60\"]"
+    }
+   ],
+   "expectedRaw": "[\"8\", \"4\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

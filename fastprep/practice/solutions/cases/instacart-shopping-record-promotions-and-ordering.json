@@ -1,0 +1,98 @@
+{
+ "problemId": "instacart-shopping-record-promotions-and-ordering",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"bad|row\", \"bad|row\"]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[\"a100|PERCENT|10\", \"i200|ice cream|2|450|frozen|true\"]"
+    }
+   ],
+   "expectedRaw": "[\"units=0\", \"base=$0.00\", \"promoted=$0.00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"b|bread|1|199|bakery|false\", \"m|milk|3|101|dairy|false\", \"p|ppeas|0|75|a01|true\"]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[\"m|BUY_X_GET_Y|1|1\", \"m|PERCENT|50\", \"m|BUY_X_GET_Y|1|1\", \"m|PERCENT|101\"]"
+    }
+   ],
+   "expectedRaw": "[\"units=4\", \"base=$5.02\", \"promoted=$3.51\", \"b|bread|1|199|bakery|false\", \"m|milk|3|101|dairy|false\", \"p|ppeas|0|75|a01|true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"cat\", \"dog\", \"b\"]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"a\", \"x\", \"abc\"]"
+    }
+   ],
+   "expectedRaw": "[\"units=0\", \"base=$0.00\", \"promoted=$0.00\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"i200|ice cream|2|450|frozen|true\", \"a100|apple|6|123|produce|false\"]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[\"a100|PERCENT|10\"]"
+    }
+   ],
+   "expectedRaw": "[\"units=8\", \"base=$16.38\", \"promoted=$15.64\", \"a100|apple|6|123|produce|false\", \"i200|ice cream|2|450|frozen|true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"b|bread|1|199|bakery|false\", \"m|milk|3|101|dairy|false\", \"p|peas|0|5|a01|true\"]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[\"m|PERCENT|50\", \"m|PERCENT|50\"]"
+    }
+   ],
+   "expectedRaw": "[\"units=4\", \"base=$5.02\", \"promoted=$3.51\", \"b|bread|1|199|bakery|false\", \"m|milk|3|101|dairy|false\", \"p|peas|0|5|a01|true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "String[]",
+     "rawValue": "[\"b|bread|1|199|bakery|false\", \"m|milk|3|101|dairy|false\", \"p|peas|0|75|a01|true\", \"b|bread|1|199|bakery|false\"]"
+    },
+    {
+     "name": "promotions",
+     "type": "String[]",
+     "rawValue": "[\"m|PERCENT|50\", \"m|BUY_X_GET_Y|1|1\", \"m|PERCENT|1001\"]"
+    }
+   ],
+   "expectedRaw": "[\"units=5\", \"base=$7.01\", \"promoted=$5.50\", \"b|bread|1|199|bakery|false\", \"b|bread|1|199|bakery|false\", \"m|milk|3|101|dairy|false\", \"p|peas|0|75|a01|true\"]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "odoo-html-elements-single-tag-correction",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "str",
+     "type": "String",
+     "rawValue": "\"<div><i>>hello</i>world</b>\""
+    }
+   ],
+   "expectedRaw": "\"div\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str",
+     "type": "String",
+     "rawValue": "\"<div><b><p>hello world</></b></div>\""
+    }
+   ],
+   "expectedRaw": "\"true\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"true\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str",
+     "type": "String",
+     "rawValue": "\"<div>abc</div><p><em><i>test test tesst</b></em></p>\""
+    }
+   ],
+   "expectedRaw": "\"i\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str",
+     "type": "String",
+     "rawValue": "\"<div><b><p>hello world</p>></b></div>\""
+    }
+   ],
+   "expectedRaw": "\"true\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str",
+     "type": "String",
+     "rawValue": "\"<div><b><p>hello world<//p></b></div>\""
+    }
+   ],
+   "expectedRaw": "\"true\""
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-bitfont-decode-rle-part3",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "encodedRows",
+     "type": "String[]",
+     "rawValue": "[\"b0\", \"b0\"]"
+    }
+   ],
+   "expectedRaw": "[\"00000000000\", \"00000000000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "encodedRows",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"yz\", \"0\"]"
+    }
+   ],
+   "expectedRaw": "[\"00000000000\", \"000000000000000000000000000000000011111111111111111111111111111111111\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "encodedRows",
+     "type": "String[]",
+     "rawValue": "[\"23\", \"1a\"]"
+    }
+   ],
+   "expectedRaw": "[\"00111\", \"01111111111\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "encodedRows",
+     "type": "String[]",
+     "rawValue": "[\"3c2\", \"3c2\"]"
+    }
+   ],
+   "expectedRaw": "[\"00011111111111100\", \"00011111111111100\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "encodedRows",
+     "type": "String[]",
+     "rawValue": "[\"1a\"]"
+    }
+   ],
+   "expectedRaw": "[\"01111111111\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "encodedRows",
+     "type": "String[]",
+     "rawValue": "[\"23\"]"
+    }
+   ],
+   "expectedRaw": "[\"00111\"]"
+  }
+ ]
+}

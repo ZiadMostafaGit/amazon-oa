@@ -1,0 +1,68 @@
+{
+ "problemId": "microsoft-racer-precedence-analysis",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[][]",
+     "rawValue": "[[\"C\", \"D\"], [\"C\", \"D\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"C\", \"D\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[][]",
+     "rawValue": "[[\"B\", \"A\"], [\"B\", \"A\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"B\", \"A\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[][]",
+     "rawValue": "[[\"B\", \"C\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"B\", \"C\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"A\", \"B\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[][]",
+     "rawValue": "[[\"B\", \"C\"], [\"A\", \"B\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"A\", \"C\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"C\"], [\"A\", \"C\"]]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"A\", \"C\"]"
+  }
+ ]
+}

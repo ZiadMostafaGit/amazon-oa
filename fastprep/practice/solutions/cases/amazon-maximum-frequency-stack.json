@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-maximum-frequency-stack",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"push\", \"push\", \"push\", \"pop\", \"pop\", \"pop\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[5, 5, 5, -2, 4, 7, 0, 0, 7, 0]"
+    }
+   ],
+   "expectedRaw": "[5, 5, -2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"push\", \"push\", \"push\", \"push\", \"pop\", \"pop\", \"pop\", \"pop\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[5, 4, 0, 0, 5, 0, 0, 7]"
+    }
+   ],
+   "expectedRaw": "[5, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-2, -3]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"push\", \"push\", \"push\", \"push\", \"pop\", \"pop\", \"pop\", \"pop\", \"pop\", \"pop\", \"pop\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[7, 5, 7, 4, 5, 0, 0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[5, 7, 4, 5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"push\", \"pop\", \"pop\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[2, 1, 2, 0, 0, 2]"
+    }
+   ],
+   "expectedRaw": "[1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"pop\", \"push\", \"pop\", \"pop\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[1, 2, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[1, 0]"
+  }
+ ]
+}

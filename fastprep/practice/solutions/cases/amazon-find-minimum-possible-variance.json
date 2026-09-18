@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-find-minimum-possible-variance",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[5]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[4, 8, 2, 4]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[2, 5, 4, 4, 5]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[5, 2, 5, 2]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[4, 2, 5]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

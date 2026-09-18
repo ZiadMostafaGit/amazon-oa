@@ -1,0 +1,128 @@
+{
+ "problemId": "upstart-buffet-day-gains",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nbSeats",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "payingGuests",
+     "type": "int[]",
+     "rawValue": "[9, 9, 9]"
+    },
+    {
+     "name": "guestMovements",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nbSeats",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "payingGuests",
+     "type": "int[]",
+     "rawValue": "[20, 20]"
+    },
+    {
+     "name": "guestMovements",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 1, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nbSeats",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "payingGuests",
+     "type": "int[]",
+     "rawValue": "[20, 10, 10]"
+    },
+    {
+     "name": "guestMovements",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nbSeats",
+     "type": "int",
+     "rawValue": "-4"
+    },
+    {
+     "name": "payingGuests",
+     "type": "int[]",
+     "rawValue": "[-3, 5]"
+    },
+    {
+     "name": "guestMovements",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nbSeats",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "payingGuests",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    },
+    {
+     "name": "guestMovements",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nbSeats",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "payingGuests",
+     "type": "int[]",
+     "rawValue": "[9]"
+    },
+    {
+     "name": "guestMovements",
+     "type": "int[]",
+     "rawValue": "[0]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "moloco-longest-consecutive-ones-across-partitions",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "partitions",
+     "type": "String[]",
+     "rawValue": "[\"1101\", \"1101\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "partitions",
+     "type": "String[]",
+     "rawValue": "[\"1101\", \"011\", \"1101\"]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "partitions",
+     "type": "String[]",
+     "rawValue": "[\"1101\", \"1101\", \"011\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "partitions",
+     "type": "String[]",
+     "rawValue": "[\"011\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "partitions",
+     "type": "String[]",
+     "rawValue": "[\"011\", \"1101\", \"1101\"]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "partitions",
+     "type": "String[]",
+     "rawValue": "[\"1101\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

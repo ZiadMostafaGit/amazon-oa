@@ -1,0 +1,98 @@
+{
+ "problemId": "uber-freight-maximize-compatible-car-riders",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "minCoRiders",
+     "type": "int[]",
+     "rawValue": "[1, 2]"
+    },
+    {
+     "name": "maxCoRiders",
+     "type": "int[]",
+     "rawValue": "[1, 4, 2, 2]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "minCoRiders",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    },
+    {
+     "name": "maxCoRiders",
+     "type": "int[]",
+     "rawValue": "[2, 0, 0]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "minCoRiders",
+     "type": "int[]",
+     "rawValue": "[0, 2, 1, 2, 2]"
+    },
+    {
+     "name": "maxCoRiders",
+     "type": "int[]",
+     "rawValue": "[2, 4, 1, -1, 4]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "minCoRiders",
+     "type": "int[]",
+     "rawValue": "[-3, 0, 1, 2, 2]"
+    },
+    {
+     "name": "maxCoRiders",
+     "type": "int[]",
+     "rawValue": "[2, 1, 4, 4, 2]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "minCoRiders",
+     "type": "int[]",
+     "rawValue": "[0, -1]"
+    },
+    {
+     "name": "maxCoRiders",
+     "type": "int[]",
+     "rawValue": "[2, 3, 1]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "minCoRiders",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "maxCoRiders",
+     "type": "int[]",
+     "rawValue": "[2, -2]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

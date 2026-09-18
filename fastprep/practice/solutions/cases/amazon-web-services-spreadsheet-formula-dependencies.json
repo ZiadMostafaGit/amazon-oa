@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-web-services-spreadsheet-formula-dependencies",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"FORMULA C1 A1+B1\", \"GET C1\", \"SET A1 10\"]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET A1 -3\", \"SET Z26 2\", \"GET Z26\", \"GET A1\", \"GET A1\", \"GET A1\", \"FORMULA A1 Z26+5\"]"
+    }
+   ],
+   "expectedRaw": "[2, -3, -3, -3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"GET A1\", \"GET A1\", \"FORMULA A1 Z26+5\", \"GET A1\", \"SET Z26 2\", \"GET Z26\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 5, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET A1 5\", \"SET B1 7\", \"FORMULA C1 A1+B1\", \"GET C1\"]"
+    }
+   ],
+   "expectedRaw": "[12]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"GET Z26\", \"FORMULA A1 Z26+5\", \"GET A1\", \"GET Z26\", \"GET A1\", \"SET A1 -3\", \"GET A1\"]"
+    }
+   ],
+   "expectedRaw": "[0, 5, 0, 5, -3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET A1 3\", \"FORMULA B1 A1+A1+2\", \"GET B1\", \"FORMULA C1 B1+A1\", \"GET C1\", \"GET B1\", \"GET C1\"]"
+    }
+   ],
+   "expectedRaw": "[8, 11, 8, 11]"
+  }
+ ]
+}

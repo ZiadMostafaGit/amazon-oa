@@ -1,0 +1,68 @@
+{
+ "problemId": "decoding-string",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "encode",
+     "type": "String",
+     "rawValue": "\"70101179928411101701997927\""
+    }
+   ],
+   "expectedRaw": "\"HackerRcGe\\u0007\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "encode",
+     "type": "String",
+     "rawValue": "\"701011792841101701997927\""
+    }
+   ],
+   "expectedRaw": "\"Hacke\\u0094\\u001dGe\\u0007\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "encode",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"\\u0001\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "encode",
+     "type": "String",
+     "rawValue": "\"70101179284111017011997927\""
+    }
+   ],
+   "expectedRaw": "\"HacnG\\u0001rRank\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "encode",
+     "type": "String",
+     "rawValue": "\"70101179284111101701997927\""
+    }
+   ],
+   "expectedRaw": "\"Hackeo0\\u001dGe\\u0007\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "encode",
+     "type": "String",
+     "rawValue": "\"70010117928411101701997927\""
+    }
+   ],
+   "expectedRaw": "\"HackerRand\\u0007\""
+  }
+ ]
+}

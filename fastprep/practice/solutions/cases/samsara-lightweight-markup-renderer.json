@@ -1,0 +1,68 @@
+{
+ "problemId": "samsara-lightweight-markup-renderer",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Hello, **world***!\\nNext line.\\n\\n> quoted\\n> ~~old~~\""
+    }
+   ],
+   "expectedRaw": "\"<p>Hello, <strong>world</strong>*!<br>Next line.</p><blockquote>quoted<br><del>old</del></blockquote>\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Hello, **world**!\\nNext lne.\\n\\n> quoted\\n> ~~old~~\""
+    }
+   ],
+   "expectedRaw": "\"<p>Hello, <strong>world</strong>!<br>Next lne.</p><blockquote>quoted<br><del>old</del></blockquote>\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"<p>1</p>\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Keep **open\\n\\nNew ~~~text~~.\""
+    }
+   ],
+   "expectedRaw": "\"<p>Keep **open</p><p>New <del>~text</del>.</p>\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Hello, **world**!\\nNext linne.\\n\\n> quoted\\n> ~~old~~\""
+    }
+   ],
+   "expectedRaw": "\"<p>Hello, <strong>world</strong>!<br>Next linne.</p><blockquote>quoted<br><del>old</del></blockquote>\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Hello, **world**!\\nNext lline.\\n\\n> quoted\\n> ~~old~~\""
+    }
+   ],
+   "expectedRaw": "\"<p>Hello, <strong>world</strong>!<br>Next lline.</p><blockquote>quoted<br><del>old</del></blockquote>\""
+  }
+ ]
+}

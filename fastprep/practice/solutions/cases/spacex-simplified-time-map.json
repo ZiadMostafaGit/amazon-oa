@@ -1,0 +1,68 @@
+{
+ "problemId": "spacex-simplified-time-map",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"get\", \"foo\", \"3\"], [\"set\", \"foo\", \"bar2\", \"4\"], [\"get\", \"foo\", \"4\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"bar2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"get\", \"alpha\", \"8\"], [\"get\", \"alpha\", \"7\"], [\"set\", \"alpha\", \"a1\", \"2\"], [\"set\", \"beta\", \"b1\", \"3\"], [\"get\", \"alpha\", \"8\"], [\"set\", \"alpha\", \"a2\", \"8\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"a1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"get\", \"beta\", \"100\"], [\"set\", \"alpha\", \"a2\", \"8\"], [\"set\", \"beta\", \"b1\", \"3\"], [\"get\", \"alpha\", \"7\"], [\"set\", \"alpha\", \"a1\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"set\", \"alpha\", \"a1\", \"2\"], [\"set\", \"beta\", \"b1\", \"3\"], [\"get\", \"beta\", \"100\"], [\"set\", \"alpha\", \"a2\", \"8\"], [\"get\", \"alpha\", \"7\"], [\"get\", \"beta\", \"100\"], [\"get\", \"alpha\", \"8\"]]"
+    }
+   ],
+   "expectedRaw": "[\"b1\", \"a1\", \"b1\", \"a2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"get\", \"alpha\", \"7\"], [\"get\", \"beta\", \"100\"], [\"get\", \"alpha\", \"8\"], [\"set\", \"beta\", \"b1\", \"3\"], [\"set\", \"alpha\", \"a2\", \"8\"], [\"set\", \"alpha\", \"a1\", \"2\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"set\", \"foo\", \"bar\", \"1\"], [\"get\", \"foo\", \"3\"], [\"set\", \"foo\", \"4\", \"4\"], [\"get\", \"foo\", \"4\"], [\"get\", \"foo\", \"5\"]]"
+    }
+   ],
+   "expectedRaw": "[\"bar\", \"4\", \"4\"]"
+  }
+ ]
+}

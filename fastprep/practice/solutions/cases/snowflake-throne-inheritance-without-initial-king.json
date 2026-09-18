@@ -1,0 +1,68 @@
+{
+ "problemId": "snowflake-throne-inheritance-without-initial-king",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"BIRTH\", \"rhea\", \"amy\"], [\"BIRTH\", \"zoe\", \"leo\"], [\"ORDER\"], [\"ORDER\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"rhea\", \"amy\"], [\"rhea\", \"amy\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"BIRTH\", \"rhea\", \"zoe\"], [\"ORDER\"], [\"ORDER\"], [\"DEATH\", \"zoe\"], [\"ORDER\"], [\"BIRTH\", \"zoe\", \"leo\"], [\"DEATH\", \"zoe\"], [\"BIRTH\", \"rhea\", \"amy\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"rhea\", \"zoe\"], [\"rhea\", \"zoe\"], [\"rhea\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"BIRTH\", \"bea\", \"cal\"], [\"ORDER\"], [\"BIRTH\", \"bea\", \"cal\"], [\"BIRTH\", \"orin\", \"bea\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"bea\", \"cal\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"b\", \"0\"], [\"0\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[[], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DEATH\", \"zoe\"], [\"ORDER\"], [\"ORDER\"], [\"ORDER\"], [\"BIRTH\", \"zoe\", \"leo\"], [\"BIRTH\", \"rhea\", \"amy\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"bea\", \"BIRTH\", \"BIRTH\"], [\"DEATH\", \"orin\"], [\"BIRTH\", \"bea\", \"cal\"], [\"ORDER\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"bea\", \"cal\"]]"
+  }
+ ]
+}

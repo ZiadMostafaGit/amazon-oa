@@ -1,0 +1,68 @@
+{
+ "problemId": "linkedin-nested-list-weight-sum-ii",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"[2,[[3,[4]],5]\""
+    }
+   ],
+   "expectedRaw": "33"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"[2,[3,4]],5]\""
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"[-2,[5],[[[[]]],0]\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"[2,[3,[[4]],5]\""
+    }
+   ],
+   "expectedRaw": "36"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

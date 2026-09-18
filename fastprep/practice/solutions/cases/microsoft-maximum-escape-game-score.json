@@ -1,0 +1,68 @@
+{
+ "problemId": "microsoft-maximum-escape-game-score",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "elements",
+     "type": "int[]",
+     "rawValue": "[6, 11]"
+    }
+   ],
+   "expectedRaw": "17"
+  },
+  {
+   "inputs": [
+    {
+     "name": "elements",
+     "type": "int[]",
+     "rawValue": "[4, 6, 6, 11, 5, 11]"
+    }
+   ],
+   "expectedRaw": "38"
+  },
+  {
+   "inputs": [
+    {
+     "name": "elements",
+     "type": "int[]",
+     "rawValue": "[6, 6, 4, 11]"
+    }
+   ],
+   "expectedRaw": "27"
+  },
+  {
+   "inputs": [
+    {
+     "name": "elements",
+     "type": "int[]",
+     "rawValue": "[5, 6, 1]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "elements",
+     "type": "int[]",
+     "rawValue": "[5, 6, 4, 5, 11]"
+    }
+   ],
+   "expectedRaw": "21"
+  },
+  {
+   "inputs": [
+    {
+     "name": "elements",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

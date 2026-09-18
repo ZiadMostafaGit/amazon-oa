@@ -1,0 +1,68 @@
+{
+ "problemId": "walmart-meeting-rooms-ii",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[15, 20], [15, 20]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[0, 30], [15, 20], [0, 30], [5, 10]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[5, 10], [10, 10], [15, 20]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[15, 20], [0, 30], [15, 20]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[5, 10], [15, 20]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[5, 10], [15, 20], [0, 30]]"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

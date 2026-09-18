@@ -1,0 +1,68 @@
+{
+ "problemId": "roblox-event-id-check-completion-times",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[450]"
+    }
+   ],
+   "expectedRaw": "[750]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[4, 453, 400, 500]"
+    }
+   ],
+   "expectedRaw": "[304, 753, 1053, 1353]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "[295, 595]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[400, 450, 500, 4, 450]"
+    }
+   ],
+   "expectedRaw": "[700, 1000, 1300, 1600, 1900]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[450, 400, 450, 400]"
+    }
+   ],
+   "expectedRaw": "[750, 1050, 1350, 1650]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[4, 400, 450]"
+    }
+   ],
+   "expectedRaw": "[304, 700, 1000]"
+  }
+ ]
+}

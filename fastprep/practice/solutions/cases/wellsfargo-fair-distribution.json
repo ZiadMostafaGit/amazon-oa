@@ -1,0 +1,98 @@
+{
+ "problemId": "wellsfargo-fair-distribution",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[13, 17, 8, 22, 5]"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[18, 17, 8, 22]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[-2, 1, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[25, 13, 17, 38, 8, 9, 22, 5]"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[25, 17, 40, 9, 8, 9, 22, 5]"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[25, 13, 40, 8, 9, 22, 25, 5]"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[38, 40, 39, 30]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[13, 17, 40, 8, 9, 22, 5, 22]"
+    },
+    {
+     "name": "N",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

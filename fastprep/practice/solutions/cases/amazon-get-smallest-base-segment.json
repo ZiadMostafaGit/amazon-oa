@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-get-smallest-base-segment",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "segmentSize",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "missingData",
+     "type": "String",
+     "rawValue": "\"aavvav\""
+    }
+   ],
+   "expectedRaw": "\"aav\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "segmentSize",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "missingData",
+     "type": "String",
+     "rawValue": "\"abbc\""
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "segmentSize",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "missingData",
+     "type": "String",
+     "rawValue": "\"aavvavv\""
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "segmentSize",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "missingData",
+     "type": "String",
+     "rawValue": "\"ab\""
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "segmentSize",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "missingData",
+     "type": "String",
+     "rawValue": "\"aavvvv\""
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "segmentSize",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "missingData",
+     "type": "String",
+     "rawValue": "\"aaavvavv\""
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "atlassian-neighboring-house-groups",
+ "generatedAt": "2026-09-18T23:33:34",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "houses",
+     "type": "int[]",
+     "rawValue": "[3, 4, 6, 9]"
+    },
+    {
+     "name": "instructions",
+     "type": "int[]",
+     "rawValue": "[3, 9, 9]"
+    }
+   ],
+   "expectedRaw": "[3, 2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "houses",
+     "type": "int[]",
+     "rawValue": "[-3]"
+    },
+    {
+     "name": "instructions",
+     "type": "int[]",
+     "rawValue": "[5, -3, 4]"
+    }
+   ],
+   "expectedRaw": "[1, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "houses",
+     "type": "int[]",
+     "rawValue": "[6, 3, 9, 3, 4, 1, 2, 7]"
+    },
+    {
+     "name": "instructions",
+     "type": "int[]",
+     "rawValue": "[3, 3, 9]"
+    }
+   ],
+   "expectedRaw": "[4, 4, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "houses",
+     "type": "int[]",
+     "rawValue": "[2, 1, 3, 6, 7, 9]"
+    },
+    {
+     "name": "instructions",
+     "type": "int[]",
+     "rawValue": "[3, 6, 3, 9, 9]"
+    }
+   ],
+   "expectedRaw": "[3, 3, 3, 2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "houses",
+     "type": "int[]",
+     "rawValue": "[9, 7, 2, 6, 4, 3]"
+    },
+    {
+     "name": "instructions",
+     "type": "int[]",
+     "rawValue": "[9]"
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "houses",
+     "type": "int[]",
+     "rawValue": "[-2, -1, 4]"
+    },
+    {
+     "name": "instructions",
+     "type": "int[]",
+     "rawValue": "[3, -1]"
+    }
+   ],
+   "expectedRaw": "[2, 2]"
+  }
+ ]
+}

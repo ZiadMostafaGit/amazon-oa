@@ -1,0 +1,68 @@
+{
+ "problemId": "arcesium-capital-gains-tax-from-trades",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[]",
+     "rawValue": "[\"2024-01-02,ABC,S,4,120.00\", \"2024-01-02,ABC,S,4,120.00\"]"
+    }
+   ],
+   "expectedRaw": "\"$0.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[]",
+     "rawValue": "[\"2024-01-01,ABC,S,5,50.00\"]"
+    }
+   ],
+   "expectedRaw": "\"$0.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[]",
+     "rawValue": "[\"2024-01-02,ABC,S,4,120.00\", \"2024-01-02,ABC,S,4,120.00\", \"2024-01-01,ABC,B,10,100.00\"]"
+    }
+   ],
+   "expectedRaw": "\"$40.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[]",
+     "rawValue": "[\"024-01-01,ABC,B,10,100.00\"]"
+    }
+   ],
+   "expectedRaw": "\"$0.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[]",
+     "rawValue": "[\"2024-01-01,ABC,S,5,0.00\", \"2024-01-02,ABC,B,5,60.00\"]"
+    }
+   ],
+   "expectedRaw": "\"$0.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "trades",
+     "type": "String[]",
+     "rawValue": "[\"2024-01-02,ABC,B,5,60.00\", \"2024-01-01,ABC,S,5,50.00\"]"
+    }
+   ],
+   "expectedRaw": "\"$0.00\""
+  }
+ ]
+}

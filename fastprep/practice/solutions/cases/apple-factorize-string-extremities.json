@@ -1,0 +1,98 @@
+{
+ "problemId": "apple-factorize-string-extremities",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"1234yyabc\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"1234yyabc\""
+    }
+   ],
+   "expectedRaw": "\"1234yyabc\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"abcxxxx1234\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"abcxxxx1234\""
+    }
+   ],
+   "expectedRaw": "\"abcxxxx1234\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"UUUUUUUUUUUUUUU\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"UUUUUU\""
+    }
+   ],
+   "expectedRaw": "\"UUUUUUUUUUUUUUU\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"UUUUUUUUUUUUU\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"UUUU\""
+    }
+   ],
+   "expectedRaw": "\"UUUUUUUUUUUUU\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "\"babc\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "str1",
+     "type": "String",
+     "rawValue": "\"abcxxxx1234\""
+    },
+    {
+     "name": "str2",
+     "type": "String",
+     "rawValue": "\"1234yyabc\""
+    }
+   ],
+   "expectedRaw": "\"abcxxxx1234yyabc\""
+  }
+ ]
+}

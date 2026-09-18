@@ -1,0 +1,68 @@
+{
+ "problemId": "instacart-evaluate-formulas-with-cycle-detection",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "formulas",
+     "type": "String[]",
+     "rawValue": "[\"c = b - a + 2\", \"c = b - a + 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"CYCLE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "formulas",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"yz\", \"0\"]"
+    }
+   ],
+   "expectedRaw": "[\"b=0\", \"yz=0\", \"0=0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "formulas",
+     "type": "String[]",
+     "rawValue": "[\"a = 5\", \"b = a + 3\", \"c = b -a + 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"CYCLE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "formulas",
+     "type": "String[]",
+     "rawValue": "[\"b = a + 3\", \"a = 5\", \"b = a + 3\", \"c = b - a + 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"CYCLE\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "formulas",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "formulas",
+     "type": "String[]",
+     "rawValue": "[\"b = a + 3\", \"a = 5\", \"c = b - a + 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"b=8\", \"a=5\", \"c=5\"]"
+  }
+ ]
+}

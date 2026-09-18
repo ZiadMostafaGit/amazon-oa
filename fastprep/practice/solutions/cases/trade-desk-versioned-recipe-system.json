@@ -1,0 +1,68 @@
+{
+ "problemId": "trade-desk-versioned-recipe-system",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"GET|r1\", \"UPDATE|r1|u1|Pasta|tomato basil\", \"GET|r1\", \"UPDATE|r1|u1|Pasta|tomato basil\", \"HISTORY|r1\"]"
+    }
+   ],
+   "expectedRaw": "[\"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"ADD|r1|u1|Pasta|tomato\", \"GET|r1\", \"UPDATE|r1|u1|Pasta|tomato basil\", \"GET|r1\", \"GET|r1\", \"GET|r1|1\", \"GET|r1|1\", \"UPDATE|r1|u1|Pasta|tomato basil\", \"HISTORY|r1\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK v1\", \"r1|u1|v1|Pasta|tomato\", \"OK v2\", \"r1|u1|v2|Pasta|tomato basil\", \"r1|u1|v2|Pasta|tomato basil\", \"r1|u1|v1|Pasta|tomato\", \"r1|u1|v1|Pasta|tomato\", \"OK v2\", \"v1:Pasta;v2:Pasta\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"GET|r1\", \"UPDATE|r1|u1|Pasta|tomato basil\", \"GET|r1|1\", \"GET|r1\", \"HISTORY|r1\", \"ADD|r1|u1|Pasta|tomato\", \"UPDATE|r1|u1|Pasta|tomato basil\", \"HISTORY|r1\", \"GET|r1\"]"
+    }
+   ],
+   "expectedRaw": "[\"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"OK v1\", \"OK v2\", \"v1:Pasta;v2:Pasta\", \"r1|u1|v2|Pasta|tomato basil\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"ADD|r2|u2|Salad|greens\", \"UPDATE|r2|u3|Salad|greens and oil\", \"GET|r2\", \"SEARCH|GREEN\", \"LIST|u2\", \"HISTORY|r2\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK v1\", \"FORBIDDEN\", \"r2|u2|v1|Salad|greens\", \"r2:v1:Salad\", \"r2:v1:Salad\", \"v1:Salad\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"HISTORY|r1\", \"GET|r1\", \"UPDATE|r1|u1|Pasta|tomato basil\", \"GET|r1|1\", \"GET|r1\", \"UPDATE|r1|u1|Pasta|tomato basil\", \"ADD|r1|u1|Pasta|tomato\"]"
+    }
+   ],
+   "expectedRaw": "[\"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"OK v1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"HISTORY|r1\", \"UPDATE|r1|u1|Pasta|tomato basil\", \"GET|r1\", \"HISTORY|r1\", \"GET|r1|1\", \"GET|r1\", \"ADD|r1|u1|Pasta|tomato\", \"UPDATE|r1|u1|Pasta|tomato basil\"]"
+    }
+   ],
+   "expectedRaw": "[\"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"NOT_FOUND\", \"OK v1\", \"OK v2\"]"
+  }
+ ]
+}

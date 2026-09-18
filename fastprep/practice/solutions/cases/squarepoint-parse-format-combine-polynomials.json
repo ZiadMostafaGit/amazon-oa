@@ -1,0 +1,68 @@
+{
+ "problemId": "squarepoint-parse-format-combine-polynomials",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "polynomials",
+     "type": "String[]",
+     "rawValue": "[\"922332036854775807\", \"9223372036854775807\"]"
+    }
+   ],
+   "expectedRaw": "\"OVERFLOW\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "polynomials",
+     "type": "String[]",
+     "rawValue": "[\"-x^3+x\"]"
+    }
+   ],
+   "expectedRaw": "\"-x^3+x\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "polynomials",
+     "type": "String[]",
+     "rawValue": "[\"9223372036854775807\", \"9223372036854775807\"]"
+    }
+   ],
+   "expectedRaw": "\"OVERFLOW\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "polynomials",
+     "type": "String[]",
+     "rawValue": "[\"3x^2-x+4\"]"
+    }
+   ],
+   "expectedRaw": "\"3x^2-x+4\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "polynomials",
+     "type": "String[]",
+     "rawValue": "[\"3x^2-x+4\", \"-x^2+5x-4\", \"-x^2+5x-4\"]"
+    }
+   ],
+   "expectedRaw": "\"x^2+9x-4\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "polynomials",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "\"0\""
+  }
+ ]
+}

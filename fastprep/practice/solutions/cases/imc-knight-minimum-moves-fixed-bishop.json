@@ -1,0 +1,248 @@
+{
+ "problemId": "imc-knight-minimum-moves-fixed-bishop",
+ "generatedAt": "2026-09-18T23:33:46",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "endRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "endCol",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "bishopRow",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "bishopCol",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "endRow",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "endCol",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "bishopRow",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "bishopCol",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "endRow",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "endCol",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "bishopRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "bishopCol",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "endRow",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "endCol",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "bishopRow",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "bishopCol",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "endRow",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "endCol",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "bishopRow",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "bishopCol",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "endRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "endCol",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "bishopRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "bishopCol",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

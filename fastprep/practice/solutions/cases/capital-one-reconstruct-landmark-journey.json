@@ -1,0 +1,68 @@
+{
+ "problemId": "capital-one-reconstruct-landmark-journey",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "travelPhotos",
+     "type": "int[][]",
+     "rawValue": "[[2, 4]]"
+    }
+   ],
+   "expectedRaw": "[2, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "travelPhotos",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [3, 5], [1, 4], [0, 0], [1, 4], [1, 5]]"
+    }
+   ],
+   "expectedRaw": "[3, 5, 1, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "travelPhotos",
+     "type": "int[][]",
+     "rawValue": "[[3, 5], [1, 4], [2, 4], [1, 5], [3, 5]]"
+    }
+   ],
+   "expectedRaw": "[2, 4, 1, 5, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "travelPhotos",
+     "type": "int[][]",
+     "rawValue": "[[2, 4], [1, 4], [2, 4], [5, 5]]"
+    }
+   ],
+   "expectedRaw": "[1, 4, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "travelPhotos",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "travelPhotos",
+     "type": "int[][]",
+     "rawValue": "[[1, 4], [2, 4], [1, 5], [1, 5]]"
+    }
+   ],
+   "expectedRaw": "[2, 4, 1, 5]"
+  }
+ ]
+}

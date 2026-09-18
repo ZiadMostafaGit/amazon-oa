@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-task-scheduler",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "char[]",
+     "rawValue": "[\"A\", \"B\", \"B\"]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "char[]",
+     "rawValue": "[\"B\", \"A\", \"B\", \"B\"]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "char[]",
+     "rawValue": "[\"B\", \"B\", \"B\", \"A\", \"A\", \"A\", \"A\"]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "char[]",
+     "rawValue": "[\"B\", \"A\", \"A\", \"A\"]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "char[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "char[]",
+     "rawValue": "[\"A\", \"A\", \"A\", \"B\", \"B\", \"B\"]"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "6"
+  }
+ ]
+}

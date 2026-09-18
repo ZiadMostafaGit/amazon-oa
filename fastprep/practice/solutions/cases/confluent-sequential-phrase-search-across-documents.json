@@ -1,0 +1,98 @@
+{
+ "problemId": "confluent-sequential-phrase-search-across-documents",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"distributed reliable systems\", \"distributed reliable systems\"]"
+    },
+    {
+     "name": "phrase",
+     "type": "String",
+     "rawValue": "\"distributed systems\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"alpha gamma beta\", \"beta alpha gamma\", \"alpha beta gama\"]"
+    },
+    {
+     "name": "phrase",
+     "type": "String",
+     "rawValue": "\"alpha bea\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"careful distributed systems testing\", \"distributed systems need careful testing\", \"careful distributed systems testing\", \"distributed reliable systems\"]"
+    },
+    {
+     "name": "phrase",
+     "type": "String",
+     "rawValue": "\"distributed systems\""
+    }
+   ],
+   "expectedRaw": "[0, 1, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"alpha beta gamma\", \"allpha gamma beta\", \"beta alpha gamma\"]"
+    },
+    {
+     "name": "phrase",
+     "type": "String",
+     "rawValue": "\"alppha beta\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"a\"]"
+    },
+    {
+     "name": "phrase",
+     "type": "String",
+     "rawValue": "\"ab\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "documents",
+     "type": "String[]",
+     "rawValue": "[\"alpha gamma beta\", \"alpha beta gamma\", \"beta alpha gamma\"]"
+    },
+    {
+     "name": "phrase",
+     "type": "String",
+     "rawValue": "\"alpha eta\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

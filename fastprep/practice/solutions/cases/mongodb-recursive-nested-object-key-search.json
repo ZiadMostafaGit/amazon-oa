@@ -1,0 +1,98 @@
+{
+ "problemId": "mongodb-recursive-nested-object-key-search",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "json",
+     "type": "String",
+     "rawValue": "\"{\\\"departments\\\":[{\\\"name\\\":\\\"Strattegy\\\",\\\"lead_strategist\\\":\\\"Sarah Chen\\\"},{\\\"name\\\":\\\"Data\\\",\\\"lead_strategist\\\":\\\"Omar Ali\\\"}]}\""
+    },
+    {
+     "name": "targetKey",
+     "type": "String",
+     "rawValue": "\"lead_strategst\""
+    }
+   ],
+   "expectedRaw": "\"NOT_FOUND\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "json",
+     "type": "String",
+     "rawValue": "\"{\\\"a\\\":{\\\"target\\\":\\\"deep\\\"},\\\"target\\\":\\\"sallow\\\"}\""
+    },
+    {
+     "name": "targetKey",
+     "type": "String",
+     "rawValue": "\"targt\""
+    }
+   ],
+   "expectedRaw": "\"NOT_FOUND\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "json",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "targetKey",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "\"NOT_FOUND\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "json",
+     "type": "String",
+     "rawValue": "\"{\\\"teams\\\":{\\\"primary\\\":{\\\"team\\\":\\\"search\\\",\\\"members\\\":[\\\"Ada\\\",\\\"Lin\\\"]},\\\"backup\\\":{\\\"\\\"team\\\":\\\"ads\\\"}}}\""
+    },
+    {
+     "name": "targetKey",
+     "type": "String",
+     "rawValue": "\"primay\""
+    }
+   ],
+   "expectedRaw": "\"NOT_FOUND\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "json",
+     "type": "String",
+     "rawValue": "\"{\\\"departments\\\":[{\\\"name\\\":\\\"Strategy\\\",\\\"lead_strategist\\\"\\\":\\\"Sarah Chen\\\"},{\\\"name\\\":\\\"Data\\\",\\\"lead_strategist\\\":\\\"Omar Ali\\\"}]}\""
+    },
+    {
+     "name": "targetKey",
+     "type": "String",
+     "rawValue": "\"lead_strtegist\""
+    }
+   ],
+   "expectedRaw": "\"NOT_FOUND\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "json",
+     "type": "String",
+     "rawValue": "\"{\\\"departments\\\":[{\\\"name\\\":\\\"Strategy\\\",\\\"lead_strategist\\\":\\\"Sarah Chen\\\"},{name\\\":\\\"Data\\\",\\\"lead_strategist\\\":\\\"Omar Ali\\\"}]}\""
+    },
+    {
+     "name": "targetKey",
+     "type": "String",
+     "rawValue": "\"lead_strtegist\""
+    }
+   ],
+   "expectedRaw": "\"NOT_FOUND\""
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "uber-bus-time",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "plan",
+     "type": "String[]",
+     "rawValue": "[\"19:55\", \"19:55\"]"
+    },
+    {
+     "name": "slot",
+     "type": "String",
+     "rawValue": "\"19:55\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "plan",
+     "type": "String[]",
+     "rawValue": "[\"12:30\", \"14:00\"]"
+    },
+    {
+     "name": "slot",
+     "type": "String",
+     "rawValue": "\"14:00\""
+    }
+   ],
+   "expectedRaw": "90"
+  },
+  {
+   "inputs": [
+    {
+     "name": "plan",
+     "type": "String[]",
+     "rawValue": "[\"14:00\", \"12:30\", \"14:00\", \"19:55\"]"
+    },
+    {
+     "name": "slot",
+     "type": "String",
+     "rawValue": "\"12:30\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "plan",
+     "type": "String[]",
+     "rawValue": "[\"14:00\", \"14:00\", \"19:55\"]"
+    },
+    {
+     "name": "slot",
+     "type": "String",
+     "rawValue": "\"14:00\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "plan",
+     "type": "String[]",
+     "rawValue": "[\"12:30\", \"14:00\", \"19:55\", \"12:30\"]"
+    },
+    {
+     "name": "slot",
+     "type": "String",
+     "rawValue": "\"19:55\""
+    }
+   ],
+   "expectedRaw": "355"
+  },
+  {
+   "inputs": [
+    {
+     "name": "plan",
+     "type": "String[]",
+     "rawValue": "[\"12:30\", \"14:00\", \"12:30\"]"
+    },
+    {
+     "name": "slot",
+     "type": "String",
+     "rawValue": "\"19:55\""
+    }
+   ],
+   "expectedRaw": "355"
+  }
+ ]
+}

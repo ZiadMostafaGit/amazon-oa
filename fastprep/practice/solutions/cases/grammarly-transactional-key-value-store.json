@@ -1,0 +1,68 @@
+{
+ "problemId": "grammarly-transactional-key-value-store",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET\", \"item\"], [\"BEGIN\"], [\"GET\", \"item\"], [\"COMMIT\"], [\"GET\", \"item\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"true\", \"null\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"draft\", \"9\"], [\"ROLLBACK\"], [\"BEGIN\"], [\"GET\", \"draft\"], [\"GET\", \"draft\"], [\"GET\", \"draft\"], [\"SET\", \"draft\", \"7\"]]"
+    }
+   ],
+   "expectedRaw": "[\"false\", \"9\", \"9\", \"9\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET\", \"draft\"], [\"GET\", \"draft\"], [\"SET\", \"draft\", \"7\"], [\"GET\", \"draft\"], [\"ROLLBACK\"], [\"BEGIN\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"null\", \"7\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"item\", \"1\"], [\"BEGIN\"], [\"SET\", \"item\", \"2\"], [\"GET\", \"missing\"], [\"GET\", \"item\"], [\"GET\", \"missing\"], [\"COMMIT\"], [\"GET\", \"item\"]]"
+    }
+   ],
+   "expectedRaw": "[\"null\", \"2\", \"null\", \"true\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"item\", \"1\"], [\"GET\", \"item\"], [\"SET\", \"item\", \"2\"], [\"item\", \"item\"], [\"GET\", \"missing\"], [\"COMMIT\"], [\"GET\", \"item\"]]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"null\", \"false\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

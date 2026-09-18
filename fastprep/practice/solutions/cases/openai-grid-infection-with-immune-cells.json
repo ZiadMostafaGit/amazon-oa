@@ -1,0 +1,68 @@
+{
+ "problemId": "openai-grid-infection-with-immune-cells",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3 3\\n1\\nI...\\n.X.\\n...\""
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3 3\\n1\\nI..\\n.X\\n...\""
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3 3\\n1\\nI..\\n..X.\\n...\""
+    }
+   ],
+   "expectedRaw": "[\"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3 3\\n1\\nI..\\n.X..\\n...\""
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3 3\\n1\\nI..\\n.XX.\\n...\""
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "input",
+     "type": "String",
+     "rawValue": "\"3  3\\n1\\nI..\\n.X.\\n...\""
+    }
+   ],
+   "expectedRaw": "[\"1\"]"
+  }
+ ]
+}

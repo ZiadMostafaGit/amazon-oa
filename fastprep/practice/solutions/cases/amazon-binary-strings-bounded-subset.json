@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-binary-strings-bounded-subset",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"111\"]"
+    },
+    {
+     "name": "maxOnes",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "maxZeroes",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"100\", \"111\", \"10\", \"1\", \"11\", \"111\"]"
+    },
+    {
+     "name": "maxOnes",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "maxZeroes",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"11\", \"100\", \"111\", \"10\", \"11\"]"
+    },
+    {
+     "name": "maxOnes",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "maxZeroes",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"111\", \"1\", \"11\", \"111\", \"111\", \"100\"]"
+    },
+    {
+     "name": "maxOnes",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "maxZeroes",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"10\", \"1\", \"11\", \"111\"]"
+    },
+    {
+     "name": "maxOnes",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxZeroes",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"abc\", \"0\"]"
+    },
+    {
+     "name": "maxOnes",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "maxZeroes",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

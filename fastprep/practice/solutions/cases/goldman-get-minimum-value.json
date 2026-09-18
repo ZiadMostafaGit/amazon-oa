@@ -1,0 +1,98 @@
+{
+ "problemId": "goldman-get-minimum-value",
+ "generatedAt": "2026-09-18T23:33:40",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[50, 54, 62]"
+    },
+    {
+     "name": "maxOperations",
+     "type": "int",
+     "rawValue": "79"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[12, 5, 18, 3]"
+    },
+    {
+     "name": "maxOperations",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    },
+    {
+     "name": "maxOperations",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "-5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[54, 79, 62, 50, 47, 42, 50]"
+    },
+    {
+     "name": "maxOperations",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[62, 50, 42, 47]"
+    },
+    {
+     "name": "maxOperations",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "data",
+     "type": "int[]",
+     "rawValue": "[3, 2, 9, 4]"
+    },
+    {
+     "name": "maxOperations",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

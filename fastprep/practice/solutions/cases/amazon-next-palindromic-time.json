@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-next-palindromic-time",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "String",
+     "rawValue": "\"122:21\""
+    }
+   ],
+   "expectedRaw": "\"03:30\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "String",
+     "rawValue": "\"12:1\""
+    }
+   ],
+   "expectedRaw": "\"12:21\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "String",
+     "rawValue": "\"12:211\""
+    }
+   ],
+   "expectedRaw": "\"15:51\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "String",
+     "rawValue": "\"12:221\""
+    }
+   ],
+   "expectedRaw": "\"15:51\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "String",
+     "rawValue": "\"112:21\""
+    }
+   ],
+   "expectedRaw": "\"20:02\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "String",
+     "rawValue": "\"2:21\""
+    }
+   ],
+   "expectedRaw": "\"03:30\""
+  }
+ ]
+}

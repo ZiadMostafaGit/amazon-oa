@@ -1,0 +1,98 @@
+{
+ "problemId": "bytedance-interval-list-intersections",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "firstList",
+     "type": "int[][]",
+     "rawValue": "[[13, 23]]"
+    },
+    {
+     "name": "secondList",
+     "type": "int[][]",
+     "rawValue": "[[25, 26], [13, 0], [1, 5]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "firstList",
+     "type": "int[][]",
+     "rawValue": "[[13, 23], [5, 10], [0, 2], [24, 25]]"
+    },
+    {
+     "name": "secondList",
+     "type": "int[][]",
+     "rawValue": "[[1, 5], [24, 24], [25, 26]]"
+    }
+   ],
+   "expectedRaw": "[[24, 24], [25, 25]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "firstList",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "secondList",
+     "type": "int[][]",
+     "rawValue": "[[3, -6]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "firstList",
+     "type": "int[][]",
+     "rawValue": "[[5, 10], [0, 13], [5, 10], [13, 23], [13, 23], [24, 25]]"
+    },
+    {
+     "name": "secondList",
+     "type": "int[][]",
+     "rawValue": "[[1, 5], [8, 12], [25, 26]]"
+    }
+   ],
+   "expectedRaw": "[[5, 5], [8, 10], [8, 12], [25, 25]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "firstList",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [13, 20], [24, 25]]"
+    },
+    {
+     "name": "secondList",
+     "type": "int[][]",
+     "rawValue": "[[15, 24], [25, 26], [8, 12], [1, 5]]"
+    }
+   ],
+   "expectedRaw": "[[15, 20], [24, 24], [25, 25]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "firstList",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "secondList",
+     "type": "int[][]",
+     "rawValue": "[[2, 7, 2, 7], [2, 7]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

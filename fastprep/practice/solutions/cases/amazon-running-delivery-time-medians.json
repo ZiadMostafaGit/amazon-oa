@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-running-delivery-time-medians",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "deliveryTimes",
+     "type": "int[]",
+     "rawValue": "[100]"
+    }
+   ],
+   "expectedRaw": "[100]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "deliveryTimes",
+     "type": "int[]",
+     "rawValue": "[5, 103, 17, 11]"
+    }
+   ],
+   "expectedRaw": "[5, 5, 17, 11]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "deliveryTimes",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "[-5, -5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "deliveryTimes",
+     "type": "int[]",
+     "rawValue": "[17, 100, 11, 5, 100]"
+    }
+   ],
+   "expectedRaw": "[17, 17, 17, 11, 17]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "deliveryTimes",
+     "type": "int[]",
+     "rawValue": "[100, 17, 100, 17]"
+    }
+   ],
+   "expectedRaw": "[100, 17, 100, 17]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "deliveryTimes",
+     "type": "int[]",
+     "rawValue": "[5, 17, 100]"
+    }
+   ],
+   "expectedRaw": "[5, 5, 17]"
+  }
+ ]
+}

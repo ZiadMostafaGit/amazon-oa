@@ -1,0 +1,68 @@
+{
+ "problemId": "apple-palindrome-match-percentage",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"raacecar\""
+    }
+   ],
+   "expectedRaw": "\"50.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"raccar\""
+    }
+   ],
+   "expectedRaw": "\"100.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"abcdeefa\""
+    }
+   ],
+   "expectedRaw": "\"25.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"100.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"abcca\""
+    }
+   ],
+   "expectedRaw": "\"50.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"abcdefaa\""
+    }
+   ],
+   "expectedRaw": "\"25.00\""
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "getmyparking-remove-duplicates-sorted-array",
+ "generatedAt": "2026-09-18T23:33:40",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "[-2, 1, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, -1, 1, 2, 2, 3, 3, 4]"
+    }
+   ],
+   "expectedRaw": "[0, 1, -1, 1, 2, 3, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1, 1, 2, 2, 3, 3, 4]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 2, 3, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 1, 2, 2, 0, 4]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 2, 0, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 1, 2, 2, 0, 3, 3, 4]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 2, 0, 3, 4]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "openai-versioned-friend-recommendations",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"FOLLOW 0 2\", \"FOLLOW 1 3\", \"FOLLOW 2 3\", \"FOLLOW 2 4\", \"SNAPSHOT\", \"RECOMMEND 0 0 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"[3,4]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"FOLLOW 2 4\", \"FOLLOW 0 1\", \"SNAPSHOT\", \"FOLLOW 1 3\", \"FOLLOW 0 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SNAPSHOT\", \"FOLLOW 1 3\", \"RECOMMEND 0 1 3\", \"FOLLOW 0 2\", \"FOLLOW 0 1\", \"RECOMMEND 0 0 3\", \"FOLLOW 1 3\", \"SNAPSHOT\", \"FOLLOW 0 2\", \"FOLLOW 1 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"[]\", \"[]\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"0\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"FOLLOW 2 4\", \"FOLLOW 1 3\", \"FOLLOW 0 2\", \"RECOMMEND 0 0 5\"]"
+    }
+   ],
+   "expectedRaw": "[\"[4]\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"FOLLOW 0 2\", \"FOLLOW 1 3\", \"FOLLOW 2 4\", \"SNAPSHOT\", \"RECOMMEND 0 0 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"[4]\"]"
+  }
+ ]
+}

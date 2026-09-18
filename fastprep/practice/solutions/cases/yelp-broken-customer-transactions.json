@@ -1,0 +1,98 @@
+{
+ "problemId": "yelp-broken-customer-transactions",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "initiatedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"Ada\"]"
+    },
+    {
+     "name": "completedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"Bo\", \"Ada\", \"Ada\", \"Cy\"]"
+    }
+   ],
+   "expectedRaw": "[\"Ada\", \"Bo\", \"Cy\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initiatedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"abc\", \"cat\", \"blue\", \"abc\"]"
+    },
+    {
+     "name": "completedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"ab\", \"0\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "[\"0\", \"ab\", \"abc\", \"b\", \"blue\", \"cat\", \"dog\", \"x\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initiatedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"Bo\", \"Ada\", \"Cy\", \"Ada\", \"Ada\"]"
+    },
+    {
+     "name": "completedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"Cy\", \"Ada\", \"Ada\"]"
+    }
+   ],
+   "expectedRaw": "[\"Ada\", \"Bo\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initiatedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"Cy\", \"Ada\", \"Cy\"]"
+    },
+    {
+     "name": "completedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"Ada\", \"Bo\", \"Ada\"]"
+    }
+   ],
+   "expectedRaw": "[\"Ada\", \"Bo\", \"Cy\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initiatedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"Bo\", \"Ada\", \"Cy\", \"Cy\"]"
+    },
+    {
+     "name": "completedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"Cy\", \"Ada\", \"Ada\"]"
+    }
+   ],
+   "expectedRaw": "[\"Ada\", \"Bo\", \"Cy\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initiatedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"0\"]"
+    },
+    {
+     "name": "completedCustomers",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"0\", \"abc\", \"red\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"abc\", \"red\"]"
+  }
+ ]
+}

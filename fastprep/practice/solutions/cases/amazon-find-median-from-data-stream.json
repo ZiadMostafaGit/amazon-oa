@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-find-median-from-data-stream",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"add\", \"1\"], [\"median\"], [\"add\", \"9\"]]"
+    }
+   ],
+   "expectedRaw": "[1.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"median\"], [\"median\"], [\"add\", \"1\"], [\"add\", \"9\"], [\"add\", \"5\"], [\"median\"], [\"median\"]]"
+    }
+   ],
+   "expectedRaw": "[5.0, 5.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"median\"], [\"add\", \"1\"], [\"median\"], [\"add\", \"9\"], [\"median\"]]"
+    }
+   ],
+   "expectedRaw": "[1.0, 5.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"median\"], [\"add\", \"1\"], [\"add\", \"5\"], [\"5\", \"5\"], [\"median\"]]"
+    }
+   ],
+   "expectedRaw": "[5.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"add\", \"5\", \"add\"], [\"median\"], [\"add\", \"1\"], [\"median\"], [\"median\"], [\"add\", \"9\"]]"
+    }
+   ],
+   "expectedRaw": "[5.0, 3.0, 3.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"10\", \"0\", \"red\", \"1\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

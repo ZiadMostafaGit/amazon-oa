@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-num-of-suitable-places",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "center",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "9"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "center",
+     "type": "int[]",
+     "rawValue": "[-5, 0]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "center",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "center",
+     "type": "int[]",
+     "rawValue": "[0, -2]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "center",
+     "type": "int[]",
+     "rawValue": "[2, 0]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "20"
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "center",
+     "type": "int[]",
+     "rawValue": "[-3, 2]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

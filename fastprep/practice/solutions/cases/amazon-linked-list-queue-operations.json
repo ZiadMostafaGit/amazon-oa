@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-linked-list-queue-operations",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"enqueue\", \"enqueue\", \"enqueue\", \"dequeue\", \"delete\", \"dequeue\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[0, 3, 0, 1, 5, 1, 1, 0]"
+    }
+   ],
+   "expectedRaw": "[0, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"0\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[5, -4, 2, 0]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"enqueue\", \"dequeue\", \"dequeue\", \"enqueue\", \"enqueue\", \"dequeue\", \"enqueue\", \"enqueue\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[0, 6, 6, 4, 0, 5]"
+    }
+   ],
+   "expectedRaw": "[0, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"yz\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-5]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"enqueue\", \"enqueue\", \"enqueue\", \"enqueue\", \"removeAllDuplicates\", \"dequeue\", \"delete\", \"dequeue\", \"dequeue\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[0, 2, 3, 1, 0, 3, 1, 0]"
+    }
+   ],
+   "expectedRaw": "[0, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"b\", \"dog\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[3, -1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

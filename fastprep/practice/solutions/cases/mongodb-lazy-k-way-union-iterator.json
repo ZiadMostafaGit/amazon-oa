@@ -1,0 +1,98 @@
+{
+ "problemId": "mongodb-lazy-k-way-union-iterator",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "sortedIterators",
+     "type": "int[][]",
+     "rawValue": "[[2, 6, 8, 3], [2, 3, 8]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"next\", \"next\", \"has_next\", \"has_next\"]"
+    }
+   ],
+   "expectedRaw": "[\"2\", \"2\", \"3\", \"true\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sortedIterators",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 9], [1, 1, 2]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"next\", \"next\", \"next\", \"next\", \"has_next\", \"next\", \"next\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"1\", \"1\", \"1\", \"2\", \"true\", \"9\", \"ERROR_EXHAUSTED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sortedIterators",
+     "type": "int[][]",
+     "rawValue": "[[5, 1]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sortedIterators",
+     "type": "int[][]",
+     "rawValue": "[[2, 3, 8], [2, 3, 8]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"has_next\", \"next\", \"has_next\", \"has_next\", \"next\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"2\", \"true\", \"true\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sortedIterators",
+     "type": "int[][]",
+     "rawValue": "[[], [1, 2], [1, 1, 9]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"next\", \"next\", \"next\", \"next\", \"has_next\", \"next\", \"has_next\", \"next\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"1\", \"1\", \"2\", \"9\", \"false\", \"ERROR_EXHAUSTED\", \"false\", \"ERROR_EXHAUSTED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sortedIterators",
+     "type": "int[][]",
+     "rawValue": "[[]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"next\", \"next\", \"next\", \"next\", \"next\", \"has_next\", \"next\", \"next\"]"
+    }
+   ],
+   "expectedRaw": "[\"ERROR_EXHAUSTED\", \"ERROR_EXHAUSTED\", \"ERROR_EXHAUSTED\", \"ERROR_EXHAUSTED\", \"ERROR_EXHAUSTED\", \"false\", \"ERROR_EXHAUSTED\", \"ERROR_EXHAUSTED\"]"
+  }
+ ]
+}

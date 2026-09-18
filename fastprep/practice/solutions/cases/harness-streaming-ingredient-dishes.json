@@ -1,0 +1,68 @@
+{
+ "problemId": "harness-streaming-ingredient-dishes",
+ "generatedAt": "2026-09-18T23:33:44",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "ingredients",
+     "type": "String[]",
+     "rawValue": "[\"fat\", \"carb\", \"carb\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ingredients",
+     "type": "String[]",
+     "rawValue": "[\"carb\", \"fib\", \"fat\", \"carb\", \"fat\", \"fib\", \"fib\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0, 1, 0, 1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ingredients",
+     "type": "String[]",
+     "rawValue": "[\"fib\", \"carb\", \"fat\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ingredients",
+     "type": "String[]",
+     "rawValue": "[\"fat\", \"carb\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ingredients",
+     "type": "String[]",
+     "rawValue": "[\"fat\", \"fib\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "ingredients",
+     "type": "String[]",
+     "rawValue": "[\"fat\", \"fib\", \"carb\", \"carb\", \"fib\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0, 1, 0]"
+  }
+ ]
+}

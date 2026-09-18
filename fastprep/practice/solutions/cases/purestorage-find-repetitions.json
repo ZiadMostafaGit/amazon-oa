@@ -1,0 +1,98 @@
+{
+ "problemId": "purestorage-find-repetitions",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "short_s",
+     "type": "String",
+     "rawValue": "\"AB\""
+    },
+    {
+     "name": "long_s",
+     "type": "String",
+     "rawValue": "\"AB\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "short_s",
+     "type": "String",
+     "rawValue": "\"ABBAC\""
+    },
+    {
+     "name": "long_s",
+     "type": "String",
+     "rawValue": "\"ABBAC\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "short_s",
+     "type": "String",
+     "rawValue": "\"ABBAC\""
+    },
+    {
+     "name": "long_s",
+     "type": "String",
+     "rawValue": "\"AB\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "short_s",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "long_s",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "short_s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "long_s",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "short_s",
+     "type": "String",
+     "rawValue": "\"cat\""
+    },
+    {
+     "name": "long_s",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

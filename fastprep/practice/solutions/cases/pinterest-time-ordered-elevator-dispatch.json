@@ -1,0 +1,158 @@
+{
+ "problemId": "pinterest-time-ordered-elevator-dispatch",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "elevatorFloors",
+     "type": "int[]",
+     "rawValue": "[11, 10]"
+    },
+    {
+     "name": "requestFloors",
+     "type": "int[]",
+     "rawValue": "[0, 8, 0]"
+    },
+    {
+     "name": "requestDirections",
+     "type": "int[]",
+     "rawValue": "[1, -1, -1, -1, -1]"
+    },
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[4, 0, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "elevatorFloors",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "requestFloors",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "requestDirections",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[1, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "elevatorFloors",
+     "type": "int[]",
+     "rawValue": "[0, 10, 0, 20, 10]"
+    },
+    {
+     "name": "requestFloors",
+     "type": "int[]",
+     "rawValue": "[5, 0]"
+    },
+    {
+     "name": "requestDirections",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1]"
+    },
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "elevatorFloors",
+     "type": "int[]",
+     "rawValue": "[0, 1, -10, 20]"
+    },
+    {
+     "name": "requestFloors",
+     "type": "int[]",
+     "rawValue": "[-5]"
+    },
+    {
+     "name": "requestDirections",
+     "type": "int[]",
+     "rawValue": "[0, 1]"
+    },
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "elevatorFloors",
+     "type": "int[]",
+     "rawValue": "[0, 10]"
+    },
+    {
+     "name": "requestFloors",
+     "type": "int[]",
+     "rawValue": "[15, 15]"
+    },
+    {
+     "name": "requestDirections",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "elevatorFloors",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    },
+    {
+     "name": "requestFloors",
+     "type": "int[]",
+     "rawValue": "[1, -1]"
+    },
+    {
+     "name": "requestDirections",
+     "type": "int[]",
+     "rawValue": "[-1, -1]"
+    },
+    {
+     "name": "requestTimes",
+     "type": "int[]",
+     "rawValue": "[4, 0, 2, 4]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

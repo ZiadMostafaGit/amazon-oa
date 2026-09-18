@@ -1,0 +1,128 @@
+{
+ "problemId": "confluent-hostile-monster-defenders",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 9,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"oak\", \"oak\", \"goblin\"]"
+    },
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, 2, -1, -1]"
+    },
+    {
+     "name": "hostile",
+     "type": "boolean[]",
+     "rawValue": "[false, true, false, true]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"guardian\"]"
+    },
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, 1]"
+    },
+    {
+     "name": "hostile",
+     "type": "boolean[]",
+     "rawValue": "[false, true]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"oak\", \"goblin\", \"wolf\", \"wolf\"]"
+    },
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[-1, false, -1, -2]"
+    },
+    {
+     "name": "hostile",
+     "type": "boolean[]",
+     "rawValue": "[false, true, false, false, true]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"0\", \"10\"]"
+    },
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1]"
+    },
+    {
+     "name": "hostile",
+     "type": "boolean[]",
+     "rawValue": "[true, true]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"rat\", \"guardian\", \"atlas\"]"
+    },
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[-1, 0, -1, -1]"
+    },
+    {
+     "name": "hostile",
+     "type": "boolean[]",
+     "rawValue": "[false, false, false, false]"
+    }
+   ],
+   "expectedRaw": "[\"rat\", \"guardian\", \"atlas\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "names",
+     "type": "String[]",
+     "rawValue": "[\"oak\", \"elm\", \"goblin\"]"
+    },
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[1, 0, -1, 0]"
+    },
+    {
+     "name": "hostile",
+     "type": "boolean[]",
+     "rawValue": "[false, true, false]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

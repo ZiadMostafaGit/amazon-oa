@@ -311,16 +311,26 @@ class TestRunning(ServerCase):
             "problemId": "stripe-deployment-window-scheduler",
             "language": "python", "code": self.CORRECT})
         self.assertEqual(code, 200)
-        self.assertEqual((out["passed"], out["total"]), (2, 2), out)
+        # the count is not fixed: generated cases are added as they are written
+        self.assertEqual(out["passed"], out["total"], out)
+        self.assertGreaterEqual(out["total"], 2)
+        published = [r for r in out["results"] if not r.get("generated") and not r.get("custom")]
+        self.assertEqual(len(published), 2)
+        self.assertTrue(all(r["ok"] for r in published))
         self.assertIn("VISIBLE examples only", out["disclaimer"])
 
     def test_wrong_solution_fails_with_both_values(self):
         out, _ = self.post("/api/run", {
             "problemId": "stripe-deployment-window-scheduler", "language": "python",
             "code": "def scheduleDeploymentWindows(part, inputCsv):\n    return []\n"})
-        self.assertEqual(out["passed"], 0)
-        self.assertEqual(out["results"][0]["got"], "[]")
-        self.assertNotEqual(out["results"][0]["expected"], "[]")
+        # returning [] is right for some generated inputs, so judge it on the
+        # published examples: it must fail every one of those, with both values
+        published = [r for r in out["results"] if not r.get("generated") and not r.get("custom")]
+        self.assertTrue(published)
+        self.assertFalse(any(r["ok"] for r in published))
+        self.assertLess(out["passed"], out["total"])
+        self.assertEqual(published[0]["got"], "[]")
+        self.assertNotEqual(published[0]["expected"], "[]")
 
     def test_sql_runs_against_the_visible_cases(self):
         out, _ = self.post("/api/run", {

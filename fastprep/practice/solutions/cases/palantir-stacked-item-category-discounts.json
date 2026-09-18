@@ -1,0 +1,218 @@
+{
+ "problemId": "palantir-stacked-item-category-discounts",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "itemNames",
+     "type": "String[]",
+     "rawValue": "[\"item\", \"Milk\"]"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[503]"
+    },
+    {
+     "name": "categories",
+     "type": "String[]",
+     "rawValue": "[\"Dairy\", \"Dairy\", \"Dairy\"]"
+    },
+    {
+     "name": "discountTypes",
+     "type": "String[]",
+     "rawValue": "[\"category\", \"item\"]"
+    },
+    {
+     "name": "discountNames",
+     "type": "String[]",
+     "rawValue": "[\"Dairy\"]"
+    },
+    {
+     "name": "percentOff",
+     "type": "int[]",
+     "rawValue": "[20, 20]"
+    }
+   ],
+   "expectedRaw": "[503, 101, 402]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "itemNames",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"abc\", \"bc\", \"red\", \"a\"]"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[0, -3, 3]"
+    },
+    {
+     "name": "categories",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"1\", \"a\"]"
+    },
+    {
+     "name": "discountTypes",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"cat\", \"bc\", \"dog\", \"yz\"]"
+    },
+    {
+     "name": "discountNames",
+     "type": "String[]",
+     "rawValue": "[\"x\"]"
+    },
+    {
+     "name": "percentOff",
+     "type": "int[]",
+     "rawValue": "[2, -5, -3, 4, -3]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "itemNames",
+     "type": "String[]",
+     "rawValue": "[\"Laptop\", \"Laptop\"]"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[1000]"
+    },
+    {
+     "name": "categories",
+     "type": "String[]",
+     "rawValue": "[\"category\", \"category\"]"
+    },
+    {
+     "name": "discountTypes",
+     "type": "String[]",
+     "rawValue": "[\"item\"]"
+    },
+    {
+     "name": "discountNames",
+     "type": "String[]",
+     "rawValue": "[\"Laptop\", \"Laptop\", \"item\"]"
+    },
+    {
+     "name": "percentOff",
+     "type": "int[]",
+     "rawValue": "[70, 0]"
+    }
+   ],
+   "expectedRaw": "[1000, 700, 300]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "itemNames",
+     "type": "String[]",
+     "rawValue": "[\"A\"]"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[0, 105]"
+    },
+    {
+     "name": "categories",
+     "type": "String[]",
+     "rawValue": "[\"X\"]"
+    },
+    {
+     "name": "discountTypes",
+     "type": "String[]",
+     "rawValue": "[\"item\"]"
+    },
+    {
+     "name": "discountNames",
+     "type": "String[]",
+     "rawValue": "[\"item\", \"item\"]"
+    },
+    {
+     "name": "percentOff",
+     "type": "int[]",
+     "rawValue": "[-10]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "itemNames",
+     "type": "String[]",
+     "rawValue": "[\"blue\"]"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[3]"
+    },
+    {
+     "name": "categories",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"yz\"]"
+    },
+    {
+     "name": "discountTypes",
+     "type": "String[]",
+     "rawValue": "[\"yz\"]"
+    },
+    {
+     "name": "discountNames",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"yz\"]"
+    },
+    {
+     "name": "percentOff",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[3, 0, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "itemNames",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"A\"]"
+    },
+    {
+     "name": "prices",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "categories",
+     "type": "String[]",
+     "rawValue": "[\"X\", \"X\"]"
+    },
+    {
+     "name": "discountTypes",
+     "type": "String[]",
+     "rawValue": "[\"X\", \"X\"]"
+    },
+    {
+     "name": "discountNames",
+     "type": "String[]",
+     "rawValue": "[\"X\", \"X\"]"
+    },
+    {
+     "name": "percentOff",
+     "type": "int[]",
+     "rawValue": "[10]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "airbnb-round-prices-to-match-target",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "float[]",
+     "rawValue": "[5.8]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "18"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "float[]",
+     "rawValue": "[1.2, 0.0, 4.3]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "float[]",
+     "rawValue": "[5.8, 4.3, 1.2, 6.4]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "18"
+    }
+   ],
+   "expectedRaw": "[6, 4, 1, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "float[]",
+     "rawValue": "[5.8, 1.2]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "float[]",
+     "rawValue": "[1.2, 4.3]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "16"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "prices",
+     "type": "float[]",
+     "rawValue": "[1.2, 4.3, 5.8, 1.2, 6.4]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "18"
+    }
+   ],
+   "expectedRaw": "[1, 4, 6, 1, 6]"
+  }
+ ]
+}

@@ -1,0 +1,188 @@
+{
+ "problemId": "inmobi-cheapest-flights-within-k-stops",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 26,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "flights",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 100]]"
+    },
+    {
+     "name": "src",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "dst",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "flights",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 100], [0, 1, 100]]"
+    },
+    {
+     "name": "src",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "dst",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "100"
+    },
+    {
+     "name": "flights",
+     "type": "int[][]",
+     "rawValue": "[[0, 2, 500], [0, 1, 100], [0, 2, 500], [0, 2, 500]]"
+    },
+    {
+     "name": "src",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "dst",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "flights",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 100], [0, 1, 100], [1, 2, 100], [1, 2, 100]]"
+    },
+    {
+     "name": "src",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "dst",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "100"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "flights",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 100], [1, 2, 0], [0, 2, 500]]"
+    },
+    {
+     "name": "src",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "dst",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "flights",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "src",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "dst",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-minimum-window-substring",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ADOBBECODEBANC\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"BC\""
+    }
+   ],
+   "expectedRaw": "\"BEC\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ADOBECODEBANNC\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"ABCC\""
+    }
+   ],
+   "expectedRaw": "\"CODEBANNC\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ADOBECODEBBANC\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"AB\""
+    }
+   ],
+   "expectedRaw": "\"BA\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ADOBECOODEBANC\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"AB\""
+    }
+   ],
+   "expectedRaw": "\"BA\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ADOBECODBANC\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"AB\""
+    }
+   ],
+   "expectedRaw": "\"BA\""
+  }
+ ]
+}

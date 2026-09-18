@@ -1,0 +1,98 @@
+{
+ "problemId": "lyft-minimum-window-substring",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ADOBBECODEBANC\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"BC\""
+    }
+   ],
+   "expectedRaw": "\"BEC\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"ab\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"AADOBECODEBANC\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"BC\""
+    }
+   ],
+   "expectedRaw": "\"BEC\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"0\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ADBECODEBANC\""
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"ABBC\""
+    }
+   ],
+   "expectedRaw": "\"BECODEBA\""
+  }
+ ]
+}

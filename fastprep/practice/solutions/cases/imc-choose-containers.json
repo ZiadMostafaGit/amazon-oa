@@ -1,0 +1,128 @@
+{
+ "problemId": "imc-choose-containers",
+ "generatedAt": "2026-09-18T23:33:46",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "requirements",
+     "type": "int[]",
+     "rawValue": "[6]"
+    },
+    {
+     "name": "numContainerSets",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "containers",
+     "type": "int[][]",
+     "rawValue": "[[0, 3], [0, 5], [0, 7], [1, 6], [1, 8], [1, 9], [2, 3], [2, 5, 2], [2, 6]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requirements",
+     "type": "int[]",
+     "rawValue": "[1, 5]"
+    },
+    {
+     "name": "numContainerSets",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "containers",
+     "type": "int[][]",
+     "rawValue": "[[5, -3, 4]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requirements",
+     "type": "int[]",
+     "rawValue": "[6, 6, 7, 4, 6]"
+    },
+    {
+     "name": "numContainerSets",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "containers",
+     "type": "int[][]",
+     "rawValue": "[[1, 9], [0, 3], [0, 7], [1, 6], [1, 8], [1, 9], [2, 3], [5, 5], [2, 6]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requirements",
+     "type": "int[]",
+     "rawValue": "[-5]"
+    },
+    {
+     "name": "numContainerSets",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "containers",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requirements",
+     "type": "int[]",
+     "rawValue": "[6, 0, 6, 6, 6, 7]"
+    },
+    {
+     "name": "numContainerSets",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "containers",
+     "type": "int[][]",
+     "rawValue": "[[0, 3], [1, 6], [1, 8], [1, 9], [2, 5], [2, 6]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requirements",
+     "type": "int[]",
+     "rawValue": "[4, 5, -3, 0, -2]"
+    },
+    {
+     "name": "numContainerSets",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "containers",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

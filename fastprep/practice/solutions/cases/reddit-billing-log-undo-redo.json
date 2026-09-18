@@ -1,0 +1,98 @@
+{
+ "problemId": "reddit-billing-log-undo-redo",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"UNDO\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[0, 3, 5]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD\", \"UNDO\", \"ADD\", \"REDO\", \"ADD\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[3, 0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[3, 0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"ADD\", \"UNDO\", \"REDO\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[5, 3, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[5, 0, 5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"REDO\", \"ADD\", \"UNDO\", \"SET\", \"REDO\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[5, 10, 0, 7]"
+    }
+   ],
+   "expectedRaw": "[0, 10, 0, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"SET\", \"REDO\", \"SET\", \"UNDO\", \"ADD\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[7, 7, 0, 7, 0]"
+    }
+   ],
+   "expectedRaw": "[7, 7, 0, 7, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"10\"]"
+    },
+    {
+     "name": "amounts",
+     "type": "long[]",
+     "rawValue": "[-3, 1]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  }
+ ]
+}

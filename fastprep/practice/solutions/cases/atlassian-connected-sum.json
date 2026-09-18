@@ -1,0 +1,128 @@
+{
+ "problemId": "atlassian-connected-sum",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "graphFrom",
+     "type": "int[]",
+     "rawValue": "[2, 4]"
+    },
+    {
+     "name": "graphTo",
+     "type": "int[]",
+     "rawValue": "[2, 3]"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "graphFrom",
+     "type": "int[]",
+     "rawValue": "[4, 1]"
+    },
+    {
+     "name": "graphTo",
+     "type": "int[]",
+     "rawValue": "[2, 3, 5, 2]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "graphFrom",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "graphTo",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "graphFrom",
+     "type": "int[]",
+     "rawValue": "[2, 4, 1]"
+    },
+    {
+     "name": "graphTo",
+     "type": "int[]",
+     "rawValue": "[2, 0, 0]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "graphFrom",
+     "type": "int[]",
+     "rawValue": "[1, 2, 0]"
+    },
+    {
+     "name": "graphTo",
+     "type": "int[]",
+     "rawValue": "[2, 5, 3, 5]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "graphFrom",
+     "type": "int[]",
+     "rawValue": "[1, 0, 4]"
+    },
+    {
+     "name": "graphTo",
+     "type": "int[]",
+     "rawValue": "[4, 0]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

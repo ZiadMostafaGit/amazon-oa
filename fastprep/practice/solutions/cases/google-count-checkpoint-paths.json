@@ -1,0 +1,128 @@
+{
+ "problemId": "google-count-checkpoint-paths",
+ "generatedAt": "2026-09-18T23:33:42",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "columns",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "checkpoints",
+     "type": "int[][]",
+     "rawValue": "[[1, 4]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "columns",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "checkpoints",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [1, 1], [2, 3]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "columns",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "checkpoints",
+     "type": "int[][]",
+     "rawValue": "[[2, 3], [1, 1], [2, 3]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "columns",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "checkpoints",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [2, 3], [2, 3]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "columns",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "checkpoints",
+     "type": "int[][]",
+     "rawValue": "[[], [], []]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "columns",
+     "type": "int",
+     "rawValue": "-4"
+    },
+    {
+     "name": "checkpoints",
+     "type": "int[][]",
+     "rawValue": "[[2, 3], [1, 1]]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

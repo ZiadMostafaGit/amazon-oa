@@ -1,0 +1,98 @@
+{
+ "problemId": "stripe-http-accept-language-part1",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"fr-CA\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[\"fr-CA\", \"fr-FR\"]"
+    }
+   ],
+   "expectedRaw": "[\"fr-CA\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"en-US\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[\"en-US\", \"fr-CA\", \"fr-FR\", \"fr-CA\"]"
+    }
+   ],
+   "expectedRaw": "[\"en-US\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"fr-FR\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[\"en-US\", \"fr-CA\", \"en-US\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"en-US\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[\"en-US\", \"fr-FR\", \"en-US\", \"fr-CA\"]"
+    }
+   ],
+   "expectedRaw": "[\"en-US\", \"en-US\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"fr-FR, fr\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[\"en-US\", \"fr-FR\", \"fr-CA\", \"fr-FR\"]"
+    }
+   ],
+   "expectedRaw": "[\"fr-FR\", \"fr-FR\", \"fr-CA\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "acceptHeader",
+     "type": "String",
+     "rawValue": "\"fr-CA\""
+    },
+    {
+     "name": "supportedLanguages",
+     "type": "String[]",
+     "rawValue": "[\"fr-CA\", \"en-US\"]"
+    }
+   ],
+   "expectedRaw": "[\"fr-CA\"]"
+  }
+ ]
+}

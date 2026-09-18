@@ -1,0 +1,98 @@
+{
+ "problemId": "microsoft-authentication-system",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "time_to_live",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"renew aaa 2\", \"count 6\", \"generate bbb 7\", \"renew aaa 8\", \"renew bbb 10\", \"count 15\"]"
+    }
+   ],
+   "expectedRaw": "[0, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "time_to_live",
+     "type": "int",
+     "rawValue": "35"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"count 7\", \"generate token1 3\", \"generate token3 11\", \"generate token2 6\", \"count 4\"]"
+    }
+   ],
+   "expectedRaw": "[0, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "time_to_live",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"count 12\", \"renew token1 5\", \"generate token1 3\", \"generate token2 7\", \"renew token2 8\", \"generate token1 3\"]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "time_to_live",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"generate token1 3\", \"renew token1 5\", \"generate token2 7\", \"generate token3 9\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "time_to_live",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"generate aaa 1\", \"renew aaa 2\", \"count 6\", \"renew aaa 8\", \"renew bbb 10\", \"count 15\"]"
+    }
+   ],
+   "expectedRaw": "[1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "time_to_live",
+     "type": "int",
+     "rawValue": "35"
+    },
+    {
+     "name": "queries",
+     "type": "String[]",
+     "rawValue": "[\"count 7\", \"generate token1 3\", \"count 4\", \"generate token2 6\", \"count 7\", \"generate token3 11\", \"count 41\"]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 2, 1]"
+  }
+ ]
+}

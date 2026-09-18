@@ -1,0 +1,98 @@
+{
+ "problemId": "squadstack-weighted-decode-ways",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"112\""
+    },
+    {
+     "name": "letterCosts",
+     "type": "int[]",
+     "rawValue": "[5, 6, 20, 20, 20, 20, 20, 20, 20, 20, 4, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"2266\""
+    },
+    {
+     "name": "letterCosts",
+     "type": "int[]",
+     "rawValue": "[50, 50, 50, 50, 50, 50, 3, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 8, 50, 50, 10, 4, 50, 50, 50]"
+    }
+   ],
+   "expectedRaw": "110"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"2\""
+    },
+    {
+     "name": "letterCosts",
+     "type": "int[]",
+     "rawValue": "[20, 20, 20, 20, 20, 20, 20, 20, 4, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 5, 20, 6]"
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"006\""
+    },
+    {
+     "name": "letterCosts",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, -2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"112\""
+    },
+    {
+     "name": "letterCosts",
+     "type": "int[]",
+     "rawValue": "[5, 6, 20, 20, 20, 20, 20, 20, 20, 20, 20, 4, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "digits",
+     "type": "String",
+     "rawValue": "\"2226\""
+    },
+    {
+     "name": "letterCosts",
+     "type": "int[]",
+     "rawValue": "[50, 3, 50, 50, 50, 8, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 4, 50, 0, 50, 10]"
+    }
+   ],
+   "expectedRaw": "14"
+  }
+ ]
+}

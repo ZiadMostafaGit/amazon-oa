@@ -1,0 +1,68 @@
+{
+ "problemId": "cisco-find-largest-sum-contiguous-subarray",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "inputArr",
+     "type": "int[]",
+     "rawValue": "[3, -2, 4]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputArr",
+     "type": "int[]",
+     "rawValue": "[-2, -10, 3, 4, 2, -10, -8]"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputArr",
+     "type": "int[]",
+     "rawValue": "[-8, 3, -2, 4, -10]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputArr",
+     "type": "int[]",
+     "rawValue": "[2, 3, -2, 10]"
+    }
+   ],
+   "expectedRaw": "13"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputArr",
+     "type": "int[]",
+     "rawValue": "[-7, 3, -2, -10]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputArr",
+     "type": "int[]",
+     "rawValue": "[-8, 2, -2, 4]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

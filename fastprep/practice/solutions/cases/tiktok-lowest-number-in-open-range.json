@@ -1,0 +1,98 @@
+{
+ "problemId": "tiktok-lowest-number-in-open-range",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[23, 10]"
+    },
+    {
+     "name": "nRange",
+     "type": "int[]",
+     "rawValue": "[12, 9]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[-2, -3, 2, 5, -3]"
+    },
+    {
+     "name": "nRange",
+     "type": "int[]",
+     "rawValue": "[0, -4, 3, 5]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[-1, 0, -6]"
+    },
+    {
+     "name": "nRange",
+     "type": "int[]",
+     "rawValue": "[2, -6]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "nRange",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "nRange",
+     "type": "int[]",
+     "rawValue": "[-1, -4, 4, -5, 2, -2]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[11, 4, 23, 10, 10]"
+    },
+    {
+     "name": "nRange",
+     "type": "int[]",
+     "rawValue": "[-5, 15]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

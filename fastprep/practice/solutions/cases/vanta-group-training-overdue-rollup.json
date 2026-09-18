@@ -1,0 +1,248 @@
+{
+ "problemId": "vanta-group-training-overdue-rollup",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 14,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "String[]",
+     "rawValue": "[\"cy\", \"cy\"]"
+    },
+    {
+     "name": "dueDays",
+     "type": "int[]",
+     "rawValue": "[5, 2, 4, 7]"
+    },
+    {
+     "name": "completionDays",
+     "type": "int[]",
+     "rawValue": "[-1, 8, 6, 8, 8]"
+    },
+    {
+     "name": "groupNames",
+     "type": "String[]",
+     "rawValue": "[\"security\", \"ben\", \"eng\"]"
+    },
+    {
+     "name": "directEmployees",
+     "type": "String[][]",
+     "rawValue": "[[\"amy\"], [\"ben\"], [\"platform\"]]"
+    },
+    {
+     "name": "directSubgroups",
+     "type": "String[][]",
+     "rawValue": "[[\"platform\", \"security\"], [], []]"
+    },
+    {
+     "name": "checkDay",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[[0, 0], [0, 0], [0, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "String[]",
+     "rawValue": "[\"b\"]"
+    },
+    {
+     "name": "dueDays",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "completionDays",
+     "type": "int[]",
+     "rawValue": "[-1, -1, -1, -1]"
+    },
+    {
+     "name": "groupNames",
+     "type": "String[]",
+     "rawValue": "[\"root\", \"right\", \"b\"]"
+    },
+    {
+     "name": "directEmployees",
+     "type": "String[][]",
+     "rawValue": "[[], [], [], [\"a\", \"b\"]]"
+    },
+    {
+     "name": "directSubgroups",
+     "type": "String[][]",
+     "rawValue": "[[\"shared\"], [\"left\", \"right\"], [\"left\", \"right\"], []]"
+    },
+    {
+     "name": "checkDay",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "[[0, 0], [0, 0], [0, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "String[]",
+     "rawValue": "[\"amy\", \"cy\", \"ben\"]"
+    },
+    {
+     "name": "dueDays",
+     "type": "int[]",
+     "rawValue": "[7, 4]"
+    },
+    {
+     "name": "completionDays",
+     "type": "int[]",
+     "rawValue": "[-1, 8, 6]"
+    },
+    {
+     "name": "groupNames",
+     "type": "String[]",
+     "rawValue": "[\"eng\", \"platform\"]"
+    },
+    {
+     "name": "directEmployees",
+     "type": "String[][]",
+     "rawValue": "[[\"amy\"], [\"eng\", \"eng\"], [\"cy\"]]"
+    },
+    {
+     "name": "directSubgroups",
+     "type": "String[][]",
+     "rawValue": "[[\"platform\", \"platform\"], [], []]"
+    },
+    {
+     "name": "checkDay",
+     "type": "int",
+     "rawValue": "12"
+    }
+   ],
+   "expectedRaw": "[[1, 5], [0, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"b\"]"
+    },
+    {
+     "name": "dueDays",
+     "type": "int[]",
+     "rawValue": "[3, 3]"
+    },
+    {
+     "name": "completionDays",
+     "type": "int[]",
+     "rawValue": "[1, -1]"
+    },
+    {
+     "name": "groupNames",
+     "type": "String[]",
+     "rawValue": "[\"root\", \"left\", \"shared\"]"
+    },
+    {
+     "name": "directEmployees",
+     "type": "String[][]",
+     "rawValue": "[[], [\"a\", \"b\"], [], [\"a\", \"b\"], []]"
+    },
+    {
+     "name": "directSubgroups",
+     "type": "String[][]",
+     "rawValue": "[[], [\"left\", \"right\"], [], [\"shared\"], [\"shared\"]]"
+    },
+    {
+     "name": "checkDay",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[[0, 0], [2, 0], [0, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "String[]",
+     "rawValue": "[\"b\"]"
+    },
+    {
+     "name": "dueDays",
+     "type": "int[]",
+     "rawValue": "[2, 3]"
+    },
+    {
+     "name": "completionDays",
+     "type": "int[]",
+     "rawValue": "[0, -1]"
+    },
+    {
+     "name": "groupNames",
+     "type": "String[]",
+     "rawValue": "[\"right\", \"shared\"]"
+    },
+    {
+     "name": "directEmployees",
+     "type": "String[][]",
+     "rawValue": "[[], [\"a\", \"b\"], [], []]"
+    },
+    {
+     "name": "directSubgroups",
+     "type": "String[][]",
+     "rawValue": "[[\"left\", \"left\"], [\"shared\"], [\"shared\"], []]"
+    },
+    {
+     "name": "checkDay",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[[0, 0], [1, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "employeeIds",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"left\"]"
+    },
+    {
+     "name": "dueDays",
+     "type": "int[]",
+     "rawValue": "[3, 3]"
+    },
+    {
+     "name": "completionDays",
+     "type": "int[]",
+     "rawValue": "[0, -1]"
+    },
+    {
+     "name": "groupNames",
+     "type": "String[]",
+     "rawValue": "[\"right\", \"root\", \"left\", \"shared\"]"
+    },
+    {
+     "name": "directEmployees",
+     "type": "String[][]",
+     "rawValue": "[[], [], [], [\"a\", \"b\", \"b\", \"b\"]]"
+    },
+    {
+     "name": "directSubgroups",
+     "type": "String[][]",
+     "rawValue": "[[\"left\", \"right\"], [\"left\", \"right\"], [\"shared\"], []]"
+    },
+    {
+     "name": "checkDay",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[[1, 0], [1, 0], [1, 0], [1, 0]]"
+  }
+ ]
+}

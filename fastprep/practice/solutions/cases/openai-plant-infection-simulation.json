@@ -1,0 +1,128 @@
+{
+ "problemId": "openai-plant-infection-simulation",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "plants",
+     "type": "int[][]",
+     "rawValue": "[[0, 2, 0], [0, 2, 0]]"
+    },
+    {
+     "name": "threshold",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "recoveryDays",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "plants",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0], [0, 1, 0, 1], [0, 1, 0], [0, 2, 0]]"
+    },
+    {
+     "name": "threshold",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "recoveryDays",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "plants",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1]]"
+    },
+    {
+     "name": "threshold",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "recoveryDays",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "plants",
+     "type": "int[][]",
+     "rawValue": "[[0, 2, 0], [0, 0, 1], [0, 0, 1]]"
+    },
+    {
+     "name": "threshold",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "recoveryDays",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "plants",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "threshold",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "recoveryDays",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "plants",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1], [0, 2, 0], [0, 1, 0], [0, 2, 0]]"
+    },
+    {
+     "name": "threshold",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "recoveryDays",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

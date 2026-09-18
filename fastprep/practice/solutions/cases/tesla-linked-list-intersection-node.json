@@ -1,0 +1,128 @@
+{
+ "problemId": "tesla-linked-list-intersection-node",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 7,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nodes",
+     "type": "int[][]",
+     "rawValue": "[[7, 1], [6, 0], [9, -1]]"
+    },
+    {
+     "name": "headA",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "headB",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nodes",
+     "type": "int[][]",
+     "rawValue": "[[7, 1], [9, -1], [8, 2], [9, -1]]"
+    },
+    {
+     "name": "headA",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "headB",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nodes",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 1], [2, 2], [3, 3], [4, -1], [4, -1]]"
+    },
+    {
+     "name": "headA",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "headB",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nodes",
+     "type": "int[][]",
+     "rawValue": "[[2, -1], [1, 1], [3, 3], [4, -1]]"
+    },
+    {
+     "name": "headA",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "headB",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nodes",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [2, -1], [0, 3], [4, -1]]"
+    },
+    {
+     "name": "headA",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "headB",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nodes",
+     "type": "int[][]",
+     "rawValue": "[[2, -1], [1, 1], [3, 0], [4, -1]]"
+    },
+    {
+     "name": "headA",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "headB",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

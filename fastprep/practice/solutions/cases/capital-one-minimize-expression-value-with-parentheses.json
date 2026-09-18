@@ -1,0 +1,68 @@
+{
+ "problemId": "capital-one-minimize-expression-value-with-parentheses",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"7441+12\""
+    }
+   ],
+   "expectedRaw": "2976"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"999+9999\""
+    }
+   ],
+   "expectedRaw": "10998"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"247+338\""
+    }
+   ],
+   "expectedRaw": "585"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"2477+38\""
+    }
+   ],
+   "expectedRaw": "1030"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"247+8\""
+    }
+   ],
+   "expectedRaw": "110"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"71+12\""
+    }
+   ],
+   "expectedRaw": "28"
+  }
+ ]
+}

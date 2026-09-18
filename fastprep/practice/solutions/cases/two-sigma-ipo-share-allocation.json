@@ -1,0 +1,98 @@
+{
+ "problemId": "two-sigma-ipo-share-allocation",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[3, 5, 4, 6], [3, 5, 4, 6]]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[2, 1, 4, 2], [1, 2, 5, 0]]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[2, 1, 4, 2], [3, 5, 4, 6]]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 5, 0], [2, 1, 4, 2], [3, 5, 4, 6]]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[2, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bids",
+     "type": "int[][]",
+     "rawValue": "[[2, 4, -4, -2], [3, 5, 4, 6], [1, 2, 5, 0]]"
+    },
+    {
+     "name": "totalShares",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[1, 2, 3]"
+  }
+ ]
+}

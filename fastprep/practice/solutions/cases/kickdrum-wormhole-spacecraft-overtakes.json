@@ -1,0 +1,98 @@
+{
+ "problemId": "kickdrum-wormhole-spacecraft-overtakes",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "entryOrder",
+     "type": "String[]",
+     "rawValue": "[\"abc\"]"
+    },
+    {
+     "name": "exitOrder",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"abc\", \"10\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "entryOrder",
+     "type": "String[]",
+     "rawValue": "[\"D\", \"C\", \"A\", \"D\", \"B\", \"A\"]"
+    },
+    {
+     "name": "exitOrder",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"D\", \"C\", \"B\", \"D\"]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "entryOrder",
+     "type": "String[]",
+     "rawValue": "[\"C\", \"B\", \"B\"]"
+    },
+    {
+     "name": "exitOrder",
+     "type": "String[]",
+     "rawValue": "[\"B\", \"A\", \"C\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "entryOrder",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"C\", \"B\", \"C\", \"D\"]"
+    },
+    {
+     "name": "exitOrder",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"C\", \"B\", \"D\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "entryOrder",
+     "type": "String[]",
+     "rawValue": "[\"C\", \"B\", \"A\"]"
+    },
+    {
+     "name": "exitOrder",
+     "type": "String[]",
+     "rawValue": "[\"C\", \"B\", \"B\", \"A\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "entryOrder",
+     "type": "String[]",
+     "rawValue": "[\"B\"]"
+    },
+    {
+     "name": "exitOrder",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"B\", \"C\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

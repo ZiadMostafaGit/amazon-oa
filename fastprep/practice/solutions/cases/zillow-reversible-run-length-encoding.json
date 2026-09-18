@@ -1,0 +1,68 @@
+{
+ "problemId": "zillow-reversible-run-length-encoding",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ENCODE\", \"A;#\"], [\"ENCODE\", \"A;#\"]]"
+    }
+   ],
+   "expectedRaw": "[\"1#65;1#59;1#35;\", \"1#65;1#59;1#35;\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"cat\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ENCODE\", \"\"], [\"DECODE\", \"\"], [\"ENCODE\", \"ENCODE\", \"DECODE\", \"DECODE\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"1#69;1#78;1#67;1#79;1#68;1#69;\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DECODE\", \"2#97;2#49;2#33;\"], [\"2#97;2#49;2#33;\", \"2#97;2#49;2#33;\"], [\"ENCODE\", \"A;#\"]]"
+    }
+   ],
+   "expectedRaw": "[\"aa11!!\", \"aa11!!\", \"1#65;1#59;1#35;\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ENCODE\"], [\"DECODE\", \"2#97;2#49;2#33;\"], [\"ENCODE\", \"A;#\"], [\"ENCODE\", \"aa11!!\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"aa11!!\", \"1#65;1#59;1#35;\", \"2#97;2#49;2#33;\"]"
+  }
+ ]
+}

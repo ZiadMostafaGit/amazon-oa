@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-currency-conversion-rate",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rates",
+     "type": "String[][]",
+     "rawValue": "[[\"JPY\", \"GBP\", \"0.0070\"], [\"JPY\", \"GBP\", \"0.0070\"]]"
+    },
+    {
+     "name": "query",
+     "type": "String[]",
+     "rawValue": "[\"GBP\", \"GBP\", \"USD\", \"AUD\"]"
+    }
+   ],
+   "expectedRaw": "\"1.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rates",
+     "type": "String[][]",
+     "rawValue": "[[\"USD\", \"JPY\", \"110\"], [\"USD\", \"AUD\", \"1.45\"], [\"JPY\", \"GBP\", \"0.0070\"], [\"USD\", \"AUD\", \"1.45\"], [\"USD\", \"AUD\", \"1.45\"]]"
+    },
+    {
+     "name": "query",
+     "type": "String[]",
+     "rawValue": "[\"GBP\", \"AUD\"]"
+    }
+   ],
+   "expectedRaw": "\"1.88\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rates",
+     "type": "String[][]",
+     "rawValue": "[[\"GBP\", \"0.0070\"], [\"USD\", \"JPY\", \"110\"]]"
+    },
+    {
+     "name": "query",
+     "type": "String[]",
+     "rawValue": "[\"GBP\"]"
+    }
+   ],
+   "expectedRaw": "\"-1.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rates",
+     "type": "String[][]",
+     "rawValue": "[[\"USD\", \"JPY\", \"110\"], [\"USD\", \"AUD\", \"1.45\"]]"
+    },
+    {
+     "name": "query",
+     "type": "String[]",
+     "rawValue": "[\"JPY\", \"AUD\"]"
+    }
+   ],
+   "expectedRaw": "\"0.01\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rates",
+     "type": "String[][]",
+     "rawValue": "[[\"USD\", \"JPY\", \"110\"], [\"JPY\", \"GBP\"], [\"USD\", \"AUD\", \"1.45\"], [\"USD\", \"AUD\", \"1.45\"]]"
+    },
+    {
+     "name": "query",
+     "type": "String[]",
+     "rawValue": "[\"AUD\"]"
+    }
+   ],
+   "expectedRaw": "\"-1.00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "rates",
+     "type": "String[][]",
+     "rawValue": "[[\"USD\", \"AUD\", \"1.45\"], [\"JPY\", \"1.45\", \"0.0070\"]]"
+    },
+    {
+     "name": "query",
+     "type": "String[]",
+     "rawValue": "[\"GBP\"]"
+    }
+   ],
+   "expectedRaw": "\"-1.00\""
+  }
+ ]
+}

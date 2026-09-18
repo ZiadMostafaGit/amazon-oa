@@ -1,0 +1,68 @@
+{
+ "problemId": "paypay-palindromic-array-transformation",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[\"cde\", \"ab\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[\"aa\", \"aaaaaa\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"bab\", \"cde\", \"aba\", \"aa\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[\"palindrome\", \"paiindrome\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[\"a\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[\"cde\", \"ab\", \"bab\", \"aa\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "openai-resumable-list-iterator",
+ "generatedAt": "2026-09-18T23:33:53",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[9, 9]"
+    }
+   ],
+   "expectedRaw": "[[9, 9], [9], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "[[-2, 1, 4], [1, 4], [4], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[2, 9, 9]"
+    }
+   ],
+   "expectedRaw": "[[2, 9, 9], [9, 9], [9], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[7, 4, 7, 9]"
+    }
+   ],
+   "expectedRaw": "[[7, 4, 7, 9], [4, 7, 9], [7, 9], [9], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[7, 4, 9]"
+    }
+   ],
+   "expectedRaw": "[[7, 4, 9], [4, 9], [9], []]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "meta-word-break-reusable-dictionary",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"leetcode\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"code\"]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"bc\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"yz\", \"dog\", \"blue\", \"0\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"catsandog\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"cats\", \"dog\", \"sand\", \"and\", \"cat\", \"cat\"]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"pen\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[\"pen\"]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "dictionary",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

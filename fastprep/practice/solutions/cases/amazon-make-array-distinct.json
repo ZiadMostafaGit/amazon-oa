@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-make-array-distinct",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "size",
+     "type": "int[]",
+     "rawValue": "[3]"
+    },
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[1, 8, 2]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "size",
+     "type": "int[]",
+     "rawValue": "[3, 3, 2, 2, 2]"
+    },
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[4, 1, 5, 1]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "size",
+     "type": "int[]",
+     "rawValue": "[2, 3, 2]"
+    },
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[4, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "size",
+     "type": "int[]",
+     "rawValue": "[8, 7, 7, 3]"
+    },
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[5, 2, 5, 5]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "size",
+     "type": "int[]",
+     "rawValue": "[-1, 2, 3, 2]"
+    },
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[2, 4, 3, 1]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "size",
+     "type": "int[]",
+     "rawValue": "[2, 3, 3, 3]"
+    },
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[-2, 4, 5, 4]"
+    }
+   ],
+   "expectedRaw": "12"
+  }
+ ]
+}

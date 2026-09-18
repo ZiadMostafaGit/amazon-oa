@@ -1,0 +1,98 @@
+{
+ "problemId": "infosys-count-reachable-halving-decrement-states",
+ "generatedAt": "2026-09-18T23:33:46",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "steps",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

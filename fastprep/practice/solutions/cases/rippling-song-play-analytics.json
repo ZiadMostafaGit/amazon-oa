@@ -1,0 +1,68 @@
+{
+ "problemId": "rippling-song-play-analytics",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_SONG\", \"Song A\"], [\"ADD_SONG\", \"Song C\"], [\"PLAY\", \"1\", \"u2\"], [\"PLAY\", \"2\", \"u1\"], [\"ANALYTICS\"], [\"RECENT\", \"u1\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"1\"], [\"2\"], [\"Song A(1)\", \"Song C(1)\"], [\"Song C\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_SONG\", \"Song A\"], [\"ADD_SONG\", \"Song B\"], [\"ADD_SONG\", \"Song C\"], [\"PLAY\", \"1\", \"u1\"], [\"PLAY\", \"1\", \"u2\"], [\"3\", \"u1\", \"2\", \"u1\"], [\"PLAY\", \"1\", \"u1\"], [\"PLAY\", \"2\", \"u1\"], [\"ADD_SONG\", \"Song B\"], [\"ANALYTICS\"], [\"RECENT\", \"u1\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"1\"], [\"2\"], [\"3\"], [\"4\"], [\"Song A(2)\", \"Song B(1)\", \"Song B(0)\", \"Song C(0)\"], [\"Song B\", \"Song A\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_SONG\", \"Song B\"], [\"ADD_SONG\", \"Song C\"], [\"PLAY\", \"1\", \"u1\"], [\"PLAY\", \"1\", \"u2\"], [\"PLAY\", \"2\", \"u1\"], [\"PLAY\", \"2\", \"u1\"], [\"ANALYTICS\"], [\"RECENT\", \"u1\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"1\"], [\"2\"], [\"Song B(2)\", \"Song C(1)\"], [\"Song C\", \"Song B\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_SONG\", \"Song A\"], [\"ADD_SONG\", \"Song B\"], [\"ADD_SONG\", \"Song C\"], [\"PLAY\", \"1\", \"u1\"], [\"PLAY\", \"1\", \"u2\"], [\"PLAY\", \"2\", \"u1\"], [\"PLAY\", \"2\", \"u1\"], [\"Song B\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"1\"], [\"2\"], [\"3\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_SONG\", \"Song A\"], [\"Song B\", \"ADD_SONG\", \"Song B\"], [\"ADD_SONG\", \"Song C\"], [\"PLAY\", \"1\", \"u1\"], [\"PLAY\", \"1\", \"u2\"], [\"PLAY\", \"2\", \"u1\"], [\"PLAY\", \"2\", \"u1\"], [\"ANALYTICS\"], [\"RECENT\", \"u1\", \"3\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"1\"], [\"2\"], [\"Song A(2)\", \"Song C(1)\"], [\"Song C\", \"Song A\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

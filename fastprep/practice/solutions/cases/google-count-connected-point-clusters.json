@@ -1,0 +1,98 @@
+{
+ "problemId": "google-count-connected-point-clusters",
+ "generatedAt": "2026-09-18T23:33:42",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[4, 0]]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [2, 2], [1, 1], [1, 1]]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[4, 0], [0, 3], [4, 0], [10, 10]]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[0, 3], [4, 0], [10, 10], [10, 10]]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [3, 0], [6, 0], [0, 0], [20, 0]]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

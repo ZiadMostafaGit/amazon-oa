@@ -1,0 +1,128 @@
+{
+ "problemId": "uber-minimum-refueling-stops",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "101"
+    },
+    {
+     "name": "startFuel",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "stations",
+     "type": "int[][]",
+     "rawValue": "[[10, 13], [20, 30], [60, 40]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startFuel",
+     "type": "int",
+     "rawValue": "20"
+    },
+    {
+     "name": "stations",
+     "type": "int[][]",
+     "rawValue": "[[10, 60], [20, 30], [10, 60], [30, 30], [60, 40]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "100"
+    },
+    {
+     "name": "startFuel",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "stations",
+     "type": "int[][]",
+     "rawValue": "[[30, 30], [10, 60]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "100"
+    },
+    {
+     "name": "startFuel",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "stations",
+     "type": "int[][]",
+     "rawValue": "[[10, 100], [10, 100]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startFuel",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "stations",
+     "type": "int[][]",
+     "rawValue": "[[10, 60], [20, 30], [30, 30], [10, 60], [60, 40]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "100"
+    },
+    {
+     "name": "startFuel",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "stations",
+     "type": "int[][]",
+     "rawValue": "[[10, 60], [60, 40], [30, 30], [60, 40]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "capital-one-inventory-discount-tracker",
+ "generatedAt": "2026-09-18T23:33:36",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 32,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "pricelist",
+     "type": "String[]",
+     "rawValue": "[\"item2: 200\", \"item2: 200\", \"item1: 100\"]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"sell item2, 1\", \"discount_start item2, 40, 1\", \"discount_end item2\", \"sell item2, 2\", \"sell item1, 1\", \"selll item1, 2\", \"sell item2, 2\", \"sell item1, 1\"]"
+    }
+   ],
+   "expectedRaw": "1200"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pricelist",
+     "type": "String[]",
+     "rawValue": "[\"item2: 200\", \"item1: 100\"]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"sell item1, 2\", \"diiscount_start item2, 40, 1\", \"sell item2, 2\", \"discount_end item2\", \"sell item1, 1\", \"sell item2, 2\", \"sell item2, 1\"]"
+    }
+   ],
+   "expectedRaw": "1300"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pricelist",
+     "type": "String[]",
+     "rawValue": "[\"item1: 100\", \"item2: 200\"]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"sell item1, 2\", \"sell item2, 2\", \"discount_start item2, 40, 1\", \"sell item2, 2\", \"sell item1, 1\", \"discount_end item2\", \"sell item2, 1\"]"
+    }
+   ],
+   "expectedRaw": "1260"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pricelist",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pricelist",
+     "type": "String[]",
+     "rawValue": "[\"item1: 100\", \"item2: 200\"]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"discount_start item2, 40, 1\", \"sell item2, 2\", \"sell item1, 1\", \"sell item1, 1\", \"discount_end item2\", \"discount_start item2, 40, 1\", \"sell item2, 2\", \"discount_start item2, 40, 1\", \"sell item1, 2\", \"sell item2, 1\"]"
+    }
+   ],
+   "expectedRaw": "1280"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pricelist",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"a\", \"red\", \"ab\", \"blue\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

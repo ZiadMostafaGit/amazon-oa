@@ -1,0 +1,98 @@
+{
+ "problemId": "ibm-get-maximum-amount",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "quantity",
+     "type": "int[]",
+     "rawValue": "[8, 1]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "33"
+  },
+  {
+   "inputs": [
+    {
+     "name": "quantity",
+     "type": "int[]",
+     "rawValue": "[1, 2, 2, 4]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "15"
+  },
+  {
+   "inputs": [
+    {
+     "name": "quantity",
+     "type": "int[]",
+     "rawValue": "[1, 10, 8, 9, 10]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "quantity",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "quantity",
+     "type": "int[]",
+     "rawValue": "[-3, -1, -2]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "quantity",
+     "type": "int[]",
+     "rawValue": "[3]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

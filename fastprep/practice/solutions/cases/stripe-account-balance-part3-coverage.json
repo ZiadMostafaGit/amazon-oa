@@ -1,0 +1,98 @@
+{
+ "problemId": "stripe-account-balance-part3-coverage",
+ "generatedAt": "2026-09-18T23:33:57",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,-150\", \"account_B,50\", \"account_B,-100\"]"
+    },
+    {
+     "name": "platformAccount",
+     "type": "String",
+     "rawValue": "\"account_B,50\""
+    }
+   ],
+   "expectedRaw": "200"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,20\", \"account_A,-20\", \"account_A,20\", \"account_A,-20\"]"
+    },
+    {
+     "name": "platformAccount",
+     "type": "String",
+     "rawValue": "\"platform\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_B,50\", \"account_A,-30\", \"account_B,-100\", \"account_A,-150\", \"account_A,100\", \"platform,1000\", \"account_A,-150\"]"
+    },
+    {
+     "name": "platformAccount",
+     "type": "String",
+     "rawValue": "\"platform\""
+    }
+   ],
+   "expectedRaw": "280"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,20\", \"platform,500\"]"
+    },
+    {
+     "name": "platformAccount",
+     "type": "String",
+     "rawValue": "\"platform,500\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "platformAccount",
+     "type": "String",
+     "rawValue": "\"yz\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"account_A,-30\", \"account_B,-100\", \"account_A,100\", \"account_A,-150\", \"account_B,50\"]"
+    },
+    {
+     "name": "platformAccount",
+     "type": "String",
+     "rawValue": "\"account_B,50\""
+    }
+   ],
+   "expectedRaw": "180"
+  }
+ ]
+}

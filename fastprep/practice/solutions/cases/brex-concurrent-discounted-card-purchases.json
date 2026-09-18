@@ -1,0 +1,128 @@
+{
+ "problemId": "brex-concurrent-discounted-card-purchases",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "gems",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 3, 3, 0]"
+    },
+    {
+     "name": "cards",
+     "type": "int[][]",
+     "rawValue": "[[0, 2, 1, 0, 0, 0], [1, 2, 2, 0, 0, 0]]"
+    },
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[[0, 0]]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "gems",
+     "type": "int[]",
+     "rawValue": "[3, 0, 0, 3, 0, -3]"
+    },
+    {
+     "name": "cards",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0, 0, 2], [0, 2, 1, 0, 0, 0]]"
+    },
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [1, 1]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, 0, 3, 0, 0, 3, 0, -3, 0, 0, 0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "gems",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0, 0, 0]"
+    },
+    {
+     "name": "cards",
+     "type": "int[][]",
+     "rawValue": "[[4, 1, 0, 0, 0, 0], [4, 1, 0, 0, 0, 0]]"
+    },
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[[0, 0]]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "gems",
+     "type": "int[]",
+     "rawValue": "[-3, 3, 2, -2, -1]"
+    },
+    {
+     "name": "cards",
+     "type": "int[][]",
+     "rawValue": "[[3, 3, 5], [5, 4, -1, -2], [-5, -4, -1, -4, 4]]"
+    },
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[0, -3, 3, 2, -2, -1, 0, 0, 0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "gems",
+     "type": "int[]",
+     "rawValue": "[3, 3, 0, 3, 0]"
+    },
+    {
+     "name": "cards",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 2, 0, 0, 0], [0, 2, 1, 0, 0, 0]]"
+    },
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [1, 1], [0, 0]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, 1, 1, 1, 1, 0, 3, 0, 0, 1, 0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "gems",
+     "type": "int[]",
+     "rawValue": "[3, 0, 0, 3]"
+    },
+    {
+     "name": "cards",
+     "type": "int[][]",
+     "rawValue": "[[0, 2, 1, 0, 0, 0], [1, 2, 2, 0, 0, 0, 0]]"
+    },
+    {
+     "name": "requests",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 0], [1, 1]]"
+    }
+   ],
+   "expectedRaw": "[0, 0, -1, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0]"
+  }
+ ]
+}

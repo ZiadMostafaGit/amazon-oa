@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-get-max-racers",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "speed",
+     "type": "int[]",
+     "rawValue": "[4, 2, 2]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "speed",
+     "type": "int[]",
+     "rawValue": "[4, -3, -4, 1, 4, -4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "speed",
+     "type": "int[]",
+     "rawValue": "[2, 4, 2, 4, 4, 1, 4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "speed",
+     "type": "int[]",
+     "rawValue": "[2, 4, 1, 4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "speed",
+     "type": "int[]",
+     "rawValue": "[4, 1, 2, 2]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "speed",
+     "type": "int[]",
+     "rawValue": "[1, 4, 4, 2, 2, 2, 4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

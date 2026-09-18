@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-find-maximum-calories",
+ "generatedAt": "2026-09-18T23:33:29",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[5, 5]"
+    }
+   ],
+   "expectedRaw": "25"
+  },
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "61"
+  },
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[3, 5, 5]"
+    }
+   ],
+   "expectedRaw": "33"
+  },
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[2, 5, 2, 5]"
+    }
+   ],
+   "expectedRaw": "52"
+  },
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[2, 5, 5]"
+    }
+   ],
+   "expectedRaw": "43"
+  },
+  {
+   "inputs": [
+    {
+     "name": "height",
+     "type": "int[]",
+     "rawValue": "[5, 2, -5]"
+    }
+   ],
+   "expectedRaw": "174"
+  }
+ ]
+}

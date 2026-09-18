@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-group-anagrams",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"tan\", \"ate\", \"nat\"]"
+    }
+   ],
+   "expectedRaw": "[[\"ate\"], [\"nat\", \"tan\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"ate\", \"bat\", \"tan\", \"nat\", \"eat\", \"bat\", \"tea\"]"
+    }
+   ],
+   "expectedRaw": "[[\"ate\", \"eat\", \"tea\"], [\"bat\", \"bat\"], [\"nat\", \"tan\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[[\"\", \"\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"tan\", \"bat\", \"eat\", \"ate\", \"nat\"]"
+    }
+   ],
+   "expectedRaw": "[[\"ate\", \"eat\"], [\"bat\"], [\"nat\", \"tan\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"bat\", \"tea\", \"eat\", \"ate\", \"nat\", \"tan\", \"ate\"]"
+    }
+   ],
+   "expectedRaw": "[[\"ate\", \"ate\", \"eat\", \"tea\"], [\"bat\"], [\"nat\", \"tan\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "strs",
+     "type": "String[]",
+     "rawValue": "[\"ate\", \"ate\", \"nat\", \"bat\"]"
+    }
+   ],
+   "expectedRaw": "[[\"ate\", \"ate\"], [\"bat\"], [\"nat\"]]"
+  }
+ ]
+}

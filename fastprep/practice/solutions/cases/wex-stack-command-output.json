@@ -1,0 +1,68 @@
+{
+ "problemId": "wex-stack-command-output",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"U 3  U -3 O O X\""
+    }
+   ],
+   "expectedRaw": "[-3, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"U 3 U 3 O O X\""
+    }
+   ],
+   "expectedRaw": "[3, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"U 8 O U 4 UU 9 O X\""
+    }
+   ],
+   "expectedRaw": "[8, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"U 3 U  -3 O O X\""
+    }
+   ],
+   "expectedRaw": "[-3, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "arcesium-add-digits",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "39"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "99996"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "-99999"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "num",
+     "type": "int",
+     "rawValue": "37"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

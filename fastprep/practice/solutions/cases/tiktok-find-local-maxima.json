@@ -1,0 +1,98 @@
+{
+ "problemId": "tiktok-find-local-maxima",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rawData",
+     "type": "int[]",
+     "rawValue": "[2, 4, 11, 5, 2, 6, 3, 2]"
+    },
+    {
+     "name": "localArea",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rawData",
+     "type": "int[]",
+     "rawValue": "[2, 10, 4, 3, 11, 5, 2, 6, 12, 3, 3, 2]"
+    },
+    {
+     "name": "localArea",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rawData",
+     "type": "int[]",
+     "rawValue": "[-4]"
+    },
+    {
+     "name": "localArea",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rawData",
+     "type": "int[]",
+     "rawValue": "[2, 10, 4, 3, 11, 5, 2, 6, 0, 3, 2]"
+    },
+    {
+     "name": "localArea",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rawData",
+     "type": "int[]",
+     "rawValue": "[2, 10, 4, 3, 11, 5, 2, 6, 2]"
+    },
+    {
+     "name": "localArea",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[0, 1, 2, 3, 4, 5, 6, 7, 8]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rawData",
+     "type": "int[]",
+     "rawValue": "[-2, -1]"
+    },
+    {
+     "name": "localArea",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[0, 1]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "inmobi-maximum-frequency-stack",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"push\", \"push\", \"push\", \"pop\", \"pop\", \"pop\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[5, 5, 5, -2, 4, 7, 0, 0, 7, 0]"
+    }
+   ],
+   "expectedRaw": "[5, 5, -2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"pop\", \"pop\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[2, 0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"push\", \"push\", \"push\", \"push\", \"pop\", \"pop\", \"pop\", \"pop\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[5, 4, 0, 0, 5, 0, 0, 7]"
+    }
+   ],
+   "expectedRaw": "[5, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"pop\", \"push\", \"pop\", \"pop\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[1, 2, 0]"
+    }
+   ],
+   "expectedRaw": "[2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"push\", \"pop\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[9, 3, 9, 3, 0]"
+    }
+   ],
+   "expectedRaw": "[9]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"10\"]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[-3, 1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

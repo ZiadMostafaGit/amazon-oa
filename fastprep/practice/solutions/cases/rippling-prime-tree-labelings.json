@@ -1,0 +1,128 @@
+{
+ "problemId": "rippling-prime-tree-labelings",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 16,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "edgeFrom",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "edgeTo",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "25"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "edgeFrom",
+     "type": "int[]",
+     "rawValue": "[-2, -1, 5]"
+    },
+    {
+     "name": "edgeTo",
+     "type": "int[]",
+     "rawValue": "[5]"
+    }
+   ],
+   "expectedRaw": "25"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edgeFrom",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "edgeTo",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "25"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "edgeFrom",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "edgeTo",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "25"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "edgeFrom",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "edgeTo",
+     "type": "int[]",
+     "rawValue": "[0]"
+    }
+   ],
+   "expectedRaw": "25"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edgeFrom",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "edgeTo",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "25"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "bytedance-minimize-expression-value-with-parentheses",
+ "generatedAt": "2026-09-18T23:33:35",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"2447+38\""
+    }
+   ],
+   "expectedRaw": "970"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"999+9999\""
+    }
+   ],
+   "expectedRaw": "10998"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"12+344\""
+    }
+   ],
+   "expectedRaw": "144"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"12+3\""
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"27+38\""
+    }
+   ],
+   "expectedRaw": "65"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expr",
+     "type": "String",
+     "rawValue": "\"122+34\""
+    }
+   ],
+   "expectedRaw": "56"
+  }
+ ]
+}

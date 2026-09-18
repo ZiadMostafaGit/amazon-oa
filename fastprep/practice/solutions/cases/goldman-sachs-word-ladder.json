@@ -1,0 +1,128 @@
+{
+ "problemId": "goldman-sachs-word-ladder",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"hot\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"dot\", \"dog\", \"lot\", \"log\", \"cog\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"hot\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"log\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"dog\", \"dot\", \"lot\", \"lot\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"hit\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"cog\", \"cog\", \"dot\", \"dog\", \"lot\", \"hot\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"hit\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"hot\", \"cog\", \"dot\", \"dog\", \"lot\", \"cog\", \"cog\"]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"dot\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"hot\", \"dot\", \"dog\", \"lot\", \"log\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "beginWord",
+     "type": "String",
+     "rawValue": "\"hot\""
+    },
+    {
+     "name": "endWord",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordList",
+     "type": "String[]",
+     "rawValue": "[\"dot\", \"dog\", \"lot\", \"dot\", \"log\", \"cog\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

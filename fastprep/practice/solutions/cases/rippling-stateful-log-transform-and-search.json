@@ -1,0 +1,68 @@
+{
+ "problemId": "rippling-stateful-log-transform-and-search",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"TRUNCATE\", \"abcdef\", \"3\"], [\"SEARCH\", \"false\", \"a\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"0\"], [\"abc\", \"abc\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SEARCH\", \"true\", \"x\"], [\"TRUNCATE\", \"hello\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"0\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"yz\", \"10\", \"blue\", \"b\", \"abc\", \"cat\"], [\"abc\", \"10\", \"red\", \"x\", \"ab\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"TRUNCATE\", \"alphabet\", \"5\"], [\"REMOVE\", \"aaaa\", \"aa\"], [\"SEARCH\", \"true\", \"alpha\", \"ALP\"], [\"SEARCH\", \"false\", \"a\", \"aa\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"0\"], [\"1\"], [\"alpha\"], [\"alpha\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"CAPITALIZE\", \"alpha\"], [\"TRUNCATE\", \"alphabet\", \"5\"], [\"REMOVE\", \"aaaa\", \"aa\"], [\"aaaa\", \"true\", \"alpha\", \"aaaa\", \"ALP\", \"SEARCH\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"0\"], [\"1\"], [\"2\"]]"
+  }
+ ]
+}

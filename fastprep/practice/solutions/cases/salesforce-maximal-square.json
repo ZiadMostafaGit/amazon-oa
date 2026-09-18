@@ -1,0 +1,68 @@
+{
+ "problemId": "salesforce-maximal-square",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "char[][]",
+     "rawValue": "[[\"1\", \"1\", \"1\", \"1\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "char[][]",
+     "rawValue": "[[\"0\"], [\"0\"], [\"0\"]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "char[][]",
+     "rawValue": "[[\"1\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "char[][]",
+     "rawValue": "[[\"0\", \"b\", \"b\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "char[][]",
+     "rawValue": "[[\"1\", \"0\", \"1\", \"0\", \"0\"], [\"1\", \"1\", \"1\", \"1\", \"1\"], [\"1\", \"0\", \"1\", \"1\", \"1\"], [\"1\", \"1\", \"1\", \"1\", \"1\"], [\"1\", \"0\", \"0\", \"1\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "char[][]",
+     "rawValue": "[[\"b\", \"z\", \"c\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

@@ -1,0 +1,218 @@
+{
+ "problemId": "weride-paint-the-ceiling",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 8,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "15"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "15"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "-7"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "15"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "12"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "-15"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "15"
+    }
+   ],
+   "expectedRaw": "25"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s0",
+     "type": "int",
+     "rawValue": "-6"
+    },
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-7"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "-7"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "a",
+     "type": "long",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

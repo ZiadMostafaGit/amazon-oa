@@ -1,0 +1,68 @@
+{
+ "problemId": "lyft-nested-transaction-key-value-store",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"SET a 20\", \"GET a\", \"ROLLBACK\", \"COUNTVALUES 10\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"20\", \"NO_TRANSACTION\", \"0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"BEGIN\", \"SET a 10\", \"ROLLBACK\", \"GET a\", \"COUNTVALUES 10\", \"GET a\", \"GET a\", \"SET a 20\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"NULL\", \"0\", \"NULL\", \"NULL\", \"OK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"SET x red\", \"BEGIN\", \"SET y red\", \"COMMIT\", \"DELETE x\", \"COUNTVALUES red\", \"COMMIT\", \"ROLLBACK\", \"COUNTVALUES red\", \"BEGIN\", \"COMMIT\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"OK\", \"OK\", \"1\", \"NO_TRANSACTION\", \"NO_TRANSACTION\", \"1\", \"OK\", \"OK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"SET a 10\", \"BEGIN\", \"SET a 20\", \"ROLLBACK\", \"COUNTVALUES 10\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"OK\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"GET a\", \"COUNTVALUES 10\", \"SET a 10\", \"ROLLBACK\", \"GET a\", \"SET a 20\"]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"0\", \"OK\", \"NO_TRANSACTION\", \"10\", \"OK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"SET y red\", \"BEGIN\", \"SET y red\", \"BEGIN\", \"DELETE x\", \"COUNTVALUES red\", \"COMMIT\", \"ROLLBACK\", \"COUNTVALUES red\", \"COMMIT\"]"
+    }
+   ],
+   "expectedRaw": "[\"OK\", \"OK\", \"OK\", \"OK\", \"OK\", \"1\", \"OK\", \"OK\", \"1\", \"NO_TRANSACTION\"]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "ibm-maximize-consecutive-xor",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "13"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "-16"
+    }
+   ],
+   "expectedRaw": "30"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

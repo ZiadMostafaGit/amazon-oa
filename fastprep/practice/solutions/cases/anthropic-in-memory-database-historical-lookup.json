@@ -1,0 +1,68 @@
+{
+ "problemId": "anthropic-in-memory-database-historical-lookup",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET_AT\", \"A\", \"score\", \"10\", \"1\"], [\"GET_WHEN\", \"6\", \"A\", \"score\", \"2\"], [\"GET_WHEN\", \"10\", \"A\", \"score\", \"9\"], [\"GET_WHEN\", \"11\", \"A\", \"score\", \"10\"], [\"SET_AT\", \"A\", \"score\", \"30\", \"12\"], [\"GET_WHEN\", \"13\", \"A\", \"score\", \"0\"], [\"GET_WHEN\", \"15\", \"A\", \"score\", \"13\"], [\"GET_WHEN\", \"16\", \"A\", \"score\", \"14\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"10\", \"10\", \"10\", \"\", \"30\", \"30\", \"30\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET_AT\", \"A\", \"score\", \"10\", \"1\"], [\"SET_AT_WITH_TTL\", \"A\", \"score\", \"20\", \"5\", \"5\"], [\"GET_WHEN\", \"6\", \"A\", \"score\", \"2\"], [\"GET_WHEN\", \"7\", \"A\", \"score\", \"5\"], [\"GET_WHEN\", \"10\", \"A\", \"score\", \"9\"], [\"GET_WHEN\", \"11\", \"A\", \"score\", \"10\"], [\"SET_AT\", \"A\", \"score\", \"30\", \"12\"], [\"GET_WHEN\", \"13\", \"A\", \"score\", \"0\"], [\"GET_WHEN\", \"16\", \"A\", \"score\", \"14\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"10\", \"20\", \"20\", \"null\", \"\", \"30\", \"30\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET_AT\", \"A\", \"score\", \"30\", \"12\"], [\"GET_WHEN\", \"15\", \"A\", \"score\", \"13\"], [\"20\", \"5\", \"5\", \"score\", \"A\"], [\"GET_WHEN\", \"10\", \"A\", \"score\", \"9\"], [\"GET_WHEN\", \"7\", \"A\", \"score\", \"5\"], [\"GET_WHEN\", \"6\", \"A\", \"score\", \"2\"], [\"GET_WHEN\", \"16\", \"A\", \"score\", \"14\"], [\"GET_WHEN\", \"13\", \"A\", \"score\", \"0\"], [\"GET_WHEN\", \"11\", \"A\", \"score\", \"10\"], [\"DELETE_AT\", \"A\", \"score\", \"14\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"30\", \"\", \"null\", \"null\", \"null\", \"30\", \"30\", \"null\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"b\", \"bc\", \"10\", \"blue\", \"b\", \"blue\", \"0\"], [\"ab\", \"10\", \"0\", \"0\"], [\"b\", \"1\", \"1\", \"0\", \"blue\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET_AT\", \"A\", \"score\", \"10\", \"1\"], [\"GET_WHEN\", \"7\", \"A\", \"score\", \"5\"], [\"GET_WHEN\", \"13\", \"A\", \"score\", \"0\"], [\"GET_WHEN\", \"6\", \"A\", \"score\", \"2\"], [\"SET_AT_WITH_TTL\", \"A\", \"score\", \"20\", \"5\", \"5\"], [\"GET_WHEN\", \"11\", \"A\", \"score\", \"10\"], [\"GET_WHEN\", \"15\", \"A\", \"score\", \"13\"], [\"GET_WHEN\", \"16\", \"A\", \"score\", \"14\"], [\"SET_AT\", \"A\", \"score\", \"30\", \"12\"], [\"GET_WHEN\", \"10\", \"A\", \"score\", \"9\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"10\", \"10\", \"10\", \"\", \"null\", \"null\", \"null\", \"\", \"20\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\", \"bc\", \"blue\", \"yz\", \"0\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\"]"
+  }
+ ]
+}

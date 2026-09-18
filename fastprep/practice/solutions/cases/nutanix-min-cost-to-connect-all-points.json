@@ -1,0 +1,68 @@
+{
+ "problemId": "nutanix-min-cost-to-connect-all-points",
+ "generatedAt": "2026-09-18T23:33:52",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[3, 10], [7, 0]]"
+    }
+   ],
+   "expectedRaw": "14"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[5, 2], [2, 2], [3, 10], [7, 0], [0, 0], [7, 0]]"
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[-2, 5], [-4, 1]]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[3, 12], [-4, 1], [-4, 1]]"
+    }
+   ],
+   "expectedRaw": "18"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [2, 2], [7, 0], [2, 2]]"
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "points",
+     "type": "int[][]",
+     "rawValue": "[[2, 2], [3, 10], [2, 2], [5, 2], [7, 0]]"
+    }
+   ],
+   "expectedRaw": "16"
+  }
+ ]
+}

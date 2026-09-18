@@ -1,0 +1,68 @@
+{
+ "problemId": "affirm-count-distinct-underwriting-pii",
+ "generatedAt": "2026-09-18T23:33:28",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"fraud_flag\", \"9 Oak St\", \"999\", \"fraud@example.com\", \"F9\"], [\"fraud_flag\", \"9 Oak St\", \"999\", \"fraud@example.com\", \"F9\"]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"yz\"], [\"red\", \"red\", \"b\", \"1\", \"1\"], [\"10\", \"yz\"]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"cat\"]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"underwriting\", \"same\", \"\", \"\", \"\"], [\"underwriting\", \"same\", \"\", \"\", \"\"]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"underwriting\", \"1 Main St\", \"222\", \"a@example.com\", \"S2\"]]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "events",
+     "type": "String[][]",
+     "rawValue": "[[\"underwriting\", \"1 Main St\", \"111\", \"a@example.com\", \"S1\"]]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

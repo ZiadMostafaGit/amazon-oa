@@ -1,0 +1,68 @@
+{
+ "problemId": "tiktok-construct-wdl-string",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"LDDWDL\""
+    }
+   ],
+   "expectedRaw": "\"WDLDLD\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"LDWL\""
+    }
+   ],
+   "expectedRaw": "\"WDLL\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "\"\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"LLDWWW\""
+    }
+   ],
+   "expectedRaw": "\"WDLWLW\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"LDWDDL\""
+    }
+   ],
+   "expectedRaw": "\"WDLDLD\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "inputStr",
+     "type": "String",
+     "rawValue": "\"LDWWDL\""
+    }
+   ],
+   "expectedRaw": "\"WDLWDL\""
+  }
+ ]
+}

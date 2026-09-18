@@ -1,0 +1,158 @@
+{
+ "problemId": "is-possible",
+ "generatedAt": "2026-09-18T23:33:48",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "\"Yes\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "\"No\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "\"No\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "\"No\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "\"No\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "a",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "b",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "c",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "\"No\""
+  }
+ ]
+}

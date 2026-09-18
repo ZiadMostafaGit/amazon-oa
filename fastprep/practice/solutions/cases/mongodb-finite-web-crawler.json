@@ -1,0 +1,128 @@
+{
+ "problemId": "mongodb-finite-web-crawler",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "urls",
+     "type": "String[]",
+     "rawValue": "[\"https://b.test/news\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[], [\"https//a.test/end\", \"https://a.test/sart\"], [\"https://a.test/docs\", \"https://b.test/news\", \"https://missing.test/page\"]]"
+    },
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"htttps://a.test/start\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "urls",
+     "type": "String[]",
+     "rawValue": "[\"https://site.test/a\", \"https://site.test/b\", \"https://site.test/isolated\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"https://site.test/b\"], [\"https://site.test/root\"], [\"https://site.test/root\"], [\"https://site.test/root\"]]"
+    },
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"htttps://site.test/root\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "urls",
+     "type": "String[]",
+     "rawValue": "[\"https://b.test/news\", \"https://a.test/start\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"https://a.test/docs\", \"https://b.test/news\", \"https://missing.test/page\"], [\"https://a.test/end\"], [\"https://a.test/end\", \"https://a.test/start\"], [\"https://a.test/docs\", \"https://b.test/news\", \"https://missing.test/page\"], []]"
+    },
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"https://a.test/start\""
+    }
+   ],
+   "expectedRaw": "[\"https://a.test/start\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "urls",
+     "type": "String[]",
+     "rawValue": "[\"https://a.test/end\", \"https://a.test/docs\", \"https://b.test/news\", \"https://a.test/start\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"https://a.test/docs\", \"https://b.test/news\"], [\"https://a.test/end\"], [\"https://a.test/end\", \"https://a.test/start\"]]"
+    },
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"httpss://a.test/start\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "urls",
+     "type": "String[]",
+     "rawValue": "[\"https://site.test/root\", \"https://site.test/b\", \"https://site.test/isolated\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"https://site.test/a\", \"https://site.test/a\"], [\"https://site.test/root\"], [\"https://site.test/root\"], [\"https://site.test/root\"]]"
+    },
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"https://site.tet/root\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "urls",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"10\"]"
+    },
+    {
+     "name": "links",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\"], []]"
+    },
+    {
+     "name": "startUrl",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-two-knights-minimum-meeting-moves",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[1, 0]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[-2, 2]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[-4, 3]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[-4, 2, 0, 1, -5]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[1, 1, 2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[1, 2, 1]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[2, 1, 1]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    },
+    {
+     "name": "second",
+     "type": "int[]",
+     "rawValue": "[1, -1]"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

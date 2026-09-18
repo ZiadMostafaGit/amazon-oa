@@ -1,0 +1,68 @@
+{
+ "problemId": "databricks-customer-revenue-referrals",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"LOWEST_K\", \"2\", \"0\"], [\"LOWEST_K\", \"2\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[[], []]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"10\"], [\"ADD_WITH_REFERRER\", \"0\", \"0\"], [\"LOWEST_K\", \"2\", \"10\"], [\"ADD\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[[0], [1], [0], [2]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"40\"]]"
+    }
+   ],
+   "expectedRaw": "[[0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"100\"]]"
+    }
+   ],
+   "expectedRaw": "[[0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"40\"], [\"ADD\", \"100\"]]"
+    }
+   ],
+   "expectedRaw": "[[0], [1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD_WITH_REFERRER\", \"20\", \"0\"], [\"ADD\", \"50\"], [\"LOWEST_K\", \"3\", \"25\"], [\"ADD_WITH_REFERRER\", \"40\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[[0], [1], [0, 1], [2]]"
+  }
+ ]
+}

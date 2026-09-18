@@ -1,0 +1,158 @@
+{
+ "problemId": "amperity-minesweeper-game-operations",
+ "generatedAt": "2026-09-18T23:33:32",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 56,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "mines",
+     "type": "int[][]",
+     "rawValue": "[[0, 1]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"OPEN 1 1\", \"OPEN 0 1\", \"OPEN 1 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"RUNNING|##/#1\", \"LOST|#*/#1\", \"LOST|#*/#1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "mines",
+     "type": "int[][]",
+     "rawValue": "[[0, 0], [0, 0], [0, 0]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"OPEN 2 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"RUNNING|#10/110/000/000/000\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "mines",
+     "type": "int[][]",
+     "rawValue": "[[0, 1]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"OPEN 0 1\", \"OPEN 0 0\", \"OPEN 0 0\", \"OPEN 0 1\", \"OPEN 0 1\", \"OPEN 1 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"LOST|#*/##/##/##/##\", \"LOST|#*/##/##/##/##\", \"LOST|#*/##/##/##/##\", \"LOST|#*/##/##/##/##\", \"LOST|#*/##/##/##/##\", \"LOST|#*/##/##/##/##\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "mines",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "mines",
+     "type": "int[][]",
+     "rawValue": "[[1, 1]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"OPEN 0 1\", \"OPEN 1 1\"]"
+    }
+   ],
+   "expectedRaw": "[\"RUNNING|#1#/###\", \"LOST|#1#/#*#\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "cols",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "mines",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [1, 2], [1, 2]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"OPEN 1 1\", \"OPEN 0 0\", \"OPEN 0 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"RUNNING|###/#2#/###\", \"RUNNING|1##/#2#/###\", \"RUNNING|1#2/#2#/###\"]"
+  }
+ ]
+}

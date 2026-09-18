@@ -1,0 +1,68 @@
+{
+ "problemId": "meta-partition-deck-into-fifteens",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "cards",
+     "type": "int[]",
+     "rawValue": "[9, 2, 6]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cards",
+     "type": "int[]",
+     "rawValue": "[5, 5, 5, 5, 5]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cards",
+     "type": "int[]",
+     "rawValue": "[5, 5, 5, 5, 5, 5, 5]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cards",
+     "type": "int[]",
+     "rawValue": "[1]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cards",
+     "type": "int[]",
+     "rawValue": "[1, 7, 6, 2, 5]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cards",
+     "type": "int[]",
+     "rawValue": "[2, -1]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

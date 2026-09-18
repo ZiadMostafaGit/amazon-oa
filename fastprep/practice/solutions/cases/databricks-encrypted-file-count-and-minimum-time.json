@@ -1,0 +1,188 @@
+{
+ "problemId": "databricks-encrypted-file-count-and-minimum-time",
+ "generatedAt": "2026-09-18T23:33:38",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 8,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, 1]"
+    },
+    {
+     "name": "type",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 1]"
+    },
+    {
+     "name": "encrypted",
+     "type": "boolean[]",
+     "rawValue": "[false, true, false, false, false, true]"
+    },
+    {
+     "name": "requestTime",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "fileTime",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[1, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    },
+    {
+     "name": "type",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0]"
+    },
+    {
+     "name": "encrypted",
+     "type": "boolean[]",
+     "rawValue": "[true, true]"
+    },
+    {
+     "name": "requestTime",
+     "type": "long",
+     "rawValue": "4"
+    },
+    {
+     "name": "fileTime",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[1, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 0, 1]"
+    },
+    {
+     "name": "type",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 1]"
+    },
+    {
+     "name": "encrypted",
+     "type": "boolean[]",
+     "rawValue": "[false, true, false, true, true]"
+    },
+    {
+     "name": "requestTime",
+     "type": "long",
+     "rawValue": "6"
+    },
+    {
+     "name": "fileTime",
+     "type": "long",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[1, 1, 8]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 0]"
+    },
+    {
+     "name": "type",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1, 1]"
+    },
+    {
+     "name": "encrypted",
+     "type": "boolean[]",
+     "rawValue": "[false, true, true]"
+    },
+    {
+     "name": "requestTime",
+     "type": "long",
+     "rawValue": "true"
+    },
+    {
+     "name": "fileTime",
+     "type": "long",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "[2, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[-1, 0]"
+    },
+    {
+     "name": "type",
+     "type": "int[]",
+     "rawValue": "[1, 0, 1, 1]"
+    },
+    {
+     "name": "encrypted",
+     "type": "boolean[]",
+     "rawValue": "[true, false, false, true]"
+    },
+    {
+     "name": "requestTime",
+     "type": "long",
+     "rawValue": "6"
+    },
+    {
+     "name": "fileTime",
+     "type": "long",
+     "rawValue": "true"
+    }
+   ],
+   "expectedRaw": "[1, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[7]"
+    },
+    {
+     "name": "type",
+     "type": "int[]",
+     "rawValue": "[7, 7]"
+    },
+    {
+     "name": "encrypted",
+     "type": "boolean[]",
+     "rawValue": "[false, true]"
+    },
+    {
+     "name": "requestTime",
+     "type": "long",
+     "rawValue": "-2"
+    },
+    {
+     "name": "fileTime",
+     "type": "long",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  }
+ ]
+}

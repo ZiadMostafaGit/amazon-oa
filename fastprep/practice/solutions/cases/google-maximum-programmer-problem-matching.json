@@ -1,0 +1,98 @@
+{
+ "problemId": "google-maximum-programmer-problem-matching",
+ "generatedAt": "2026-09-18T23:33:43",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "problemTags",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"go\"], [\"go\"]]"
+    },
+    {
+     "name": "programmerSkills",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"java\", \"python\"], [\"go\", \"rust\", \"go\"], [\"rust\", \"go\"], [\"java\"]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "problemTags",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"python\", \"sql\"], [\"java\"], [\"python\", \"sql\"], [\"go\"]]"
+    },
+    {
+     "name": "programmerSkills",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"java\", \"python\"], [\"sql\"]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "problemTags",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"java\"], [\"python\"], [\"sql\", \"sql\"]]"
+    },
+    {
+     "name": "programmerSkills",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"java\", \"python\"], [\"java\", \"python\"]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "problemTags",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"java\"], [\"python\"], [\"sql\"], [\"java\"]]"
+    },
+    {
+     "name": "programmerSkills",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"java\", \"java\"], [\"python\"]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "problemTags",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"java\"], [\"python\", \"sql\"], [\"go\"], [\"java\"], [\"java\"]]"
+    },
+    {
+     "name": "programmerSkills",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"java\", \"python\"], [\"java\"], [\"python\", \"go\"]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "problemTags",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"java\"], [\"python\"], [\"python\", \"python\", \"python\"]]"
+    },
+    {
+     "name": "programmerSkills",
+     "type": "List<List<String>>",
+     "rawValue": "[[\"java\", \"python\", \"java\"], [\"java\", \"python\", \"java\"]]"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

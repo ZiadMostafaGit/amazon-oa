@@ -1,0 +1,98 @@
+{
+ "problemId": "hsbc-find-most-frequently-purchased-products",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "tag",
+     "type": "int[][]",
+     "rawValue": "[[8, 3, 11, 12]]"
+    },
+    {
+     "name": "K",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tag",
+     "type": "int[][]",
+     "rawValue": "[[8, 11, 3, 11, 12], [2, 3, 6, 8], [2, 3, 4, 8]]"
+    },
+    {
+     "name": "K",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[2, 3, 4, 6, 8, 11, 12]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tag",
+     "type": "int[][]",
+     "rawValue": "[[2, 3, 4, 8], [2, 3, 6, 8], [8, 3, 11, 12], [2, 3, 6, 8]]"
+    },
+    {
+     "name": "K",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[2, 3, 4, 6, 8, 11, 12]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tag",
+     "type": "int[][]",
+     "rawValue": "[[8, 3, 11, 12], [3, 8], [1, 2, 3, 2], [2, 3, 6, 8], [3, 8]]"
+    },
+    {
+     "name": "K",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[1, 2, 3, 6, 8, 11, 12]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tag",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 3, 2], [2, 3, 4, 8], [8, 3, 11, 12], [1, 2, 3, 2], [2, 3, 6, 8]]"
+    },
+    {
+     "name": "K",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[1, 2, 3, 8]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tag",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "K",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

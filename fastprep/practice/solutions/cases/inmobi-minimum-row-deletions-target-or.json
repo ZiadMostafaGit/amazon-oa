@@ -1,0 +1,98 @@
+{
+ "problemId": "inmobi-minimum-row-deletions-target-or",
+ "generatedAt": "2026-09-18T23:33:47",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0, 1, 0], [0, 0, 1, 1, 1]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int[][]",
+     "rawValue": "[[-1, 0, 0]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int[][]",
+     "rawValue": "[[1, 0]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0, 1, 0], [0, 0, 0, 0, 1], [0, 0, 1, 0, 0], [0, 0, 1, 1, 0]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rows",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0, 0, 1], [0, 0, 1, 0, 0], [0, 1, 0, 1, 0], [0, 0, 1, 1, 1]]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "14"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

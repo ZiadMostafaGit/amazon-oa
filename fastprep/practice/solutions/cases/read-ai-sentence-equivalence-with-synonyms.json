@@ -1,0 +1,128 @@
+{
+ "problemId": "read-ai-sentence-equivalence-with-synonyms",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "firstSentence",
+     "type": "String[]",
+     "rawValue": "[\"useful\", \"useful\"]"
+    },
+    {
+     "name": "secondSentence",
+     "type": "String[]",
+     "rawValue": "[\"flatting\", \"flatting\", \"useful\", \"is\"]"
+    },
+    {
+     "name": "synonymPairs",
+     "type": "String[][]",
+     "rawValue": "[[\"useful\", \"flatting\"]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "firstSentence",
+     "type": "String[]",
+     "rawValue": "[\"flat\", \"useful\", \"flat\", \"is\"]"
+    },
+    {
+     "name": "secondSentence",
+     "type": "String[]",
+     "rawValue": "[\"flatting\", \"flatting\"]"
+    },
+    {
+     "name": "synonymPairs",
+     "type": "String[][]",
+     "rawValue": "[[\"flatting\", \"flatting\"]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "firstSentence",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"abc\", \"bc\", \"red\", \"a\"]"
+    },
+    {
+     "name": "secondSentence",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"abc\", \"dog\"]"
+    },
+    {
+     "name": "synonymPairs",
+     "type": "String[][]",
+     "rawValue": "[[\"1\"], [], [\"b\", \"cat\", \"bc\", \"dog\", \"yz\"]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "firstSentence",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"0\"]"
+    },
+    {
+     "name": "secondSentence",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"abc\", \"0\", \"10\", \"0\", \"red\", \"1\"]"
+    },
+    {
+     "name": "synonymPairs",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"ab\", \"ab\", \"abc\", \"bc\", \"abc\"]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "firstSentence",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"b\", \"dog\"]"
+    },
+    {
+     "name": "secondSentence",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"cat\"]"
+    },
+    {
+     "name": "synonymPairs",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "firstSentence",
+     "type": "String[]",
+     "rawValue": "[\"blue\"]"
+    },
+    {
+     "name": "secondSentence",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "synonymPairs",
+     "type": "String[][]",
+     "rawValue": "[[], [\"10\", \"a\", \"x\", \"b\"]]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

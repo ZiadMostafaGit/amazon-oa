@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-financial-account-ledger",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"FUND 5 acct_1 WIRE 5000\", \"BALANCE 5 acct_1\", \"BALANCE 6 acct_1\", \"BALANCE 8 acct_1\", \"BALANCE 9 acct_1\"]"
+    }
+   ],
+   "expectedRaw": "\"FAILURE,FAILURE,FAILURE,FAILURE\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"BALANCE 1 acct_1\", \"FUND 1 acct_1 WIRE 5000\", \"FUND 1 acct_1 ACH 3000\", \"BALANCE 2 acct_1\", \"INIT acct_1 10000\", \"BALANCE 2 acct_1\"]"
+    }
+   ],
+   "expectedRaw": "\"FAILURE,FAILURE,10000\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"FUND 1,10 acct_1 ACH 5000000\", \"FUND 1,11 acct_1 ACH 1000\", \"FUND 2,11 acct_1 ACH 4000000\", \"BALANCE 2,12 acct_1\", \"BALANCE 3,0 acct_1\", \"FUND 3,10 acct_1 ACH 2000000\", \"BALANCE 4,0 acct_1\"]"
+    }
+   ],
+   "expectedRaw": "\"FAILURE,FAILURE,FAILURE\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"INIT acct_1 0\", \"FUND 1,16 acct_1 WIRE 5000\", \"FUND 1,16 acct_1 WIRE 5000\", \"FUND 1,17 acct_1 WIRE 3000\", \"BALANCE 1,18 acct_1\"]"
+    }
+   ],
+   "expectedRaw": "\"10000\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"BALANCE 3,0 acct_1\", \"BALANCE 2,12 acct_1\", \"FUND 1,11 acct_1 ACH 1000\", \"FUND 2,11 acct_1 ACH 4000000\", \"FUND 1,10 acct_1 ACH 5000000\", \"FUND 3,10 acct_1 ACH 2000000\", \"INIT acct_1 0\"]"
+    }
+   ],
+   "expectedRaw": "\"FAILURE,FAILURE\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "commands",
+     "type": "String[]",
+     "rawValue": "[\"FUND 6 acct_1 ACH 2000\", \"BALANCE 5 acct_1\", \"FUND 5 acct_1 WIRE 5000\", \"BALANCE 9 acct_1\", \"FUND 6 acct_1 STABLECOIN 1000\", \"BALANCE 6 acct_1\", \"INIT acct_1 0\", \"BALANCE 8 acct_1\"]"
+    }
+   ],
+   "expectedRaw": "\"FAILURE,FAILURE,FAILURE,0\""
+  }
+ ]
+}

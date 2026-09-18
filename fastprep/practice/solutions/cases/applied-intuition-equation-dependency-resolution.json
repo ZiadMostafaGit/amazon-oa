@@ -1,0 +1,68 @@
+{
+ "problemId": "applied-intuition-equation-dependency-resolution",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[]",
+     "rawValue": "[\"bar = 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"bar=2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[]",
+     "rawValue": "[\"foo = bar + 5\", \"abc = 3\", \"abc = 3\", \"bar = 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"foo=7\", \"abc=3\", \"abc=3\", \"bar=2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[]",
+     "rawValue": "[\"foo = bar + 5\", \"bar = 2\", \"g = abc + foo\", \"abc = 3\", \"g = abc + foo\"]"
+    }
+   ],
+   "expectedRaw": "[\"foo=7\", \"bar=2\", \"g=10\", \"abc=3\", \"g=10\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[]",
+     "rawValue": "[\"bar =abc + pqr + 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"Unresolvable equations\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[]",
+     "rawValue": "[\"foo = bar + 3\"]"
+    }
+   ],
+   "expectedRaw": "[\"Unresolvable equations\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[]",
+     "rawValue": "[\"foo = bar+ 3\", \"bar = foo + 2\"]"
+    }
+   ],
+   "expectedRaw": "[\"Cyclic Dependency\"]"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "tower-research-capital-stable-workload-redistribution-trees",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "workloads",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "workloads",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "workloads",
+     "type": "int[]",
+     "rawValue": "[-2, 2, 2]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "workloads",
+     "type": "int[]",
+     "rawValue": "[0, 2, 0, 2, 2]"
+    }
+   ],
+   "expectedRaw": "500000041"
+  },
+  {
+   "inputs": [
+    {
+     "name": "workloads",
+     "type": "int[]",
+     "rawValue": "[-2, -1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "workloads",
+     "type": "int[]",
+     "rawValue": "[-3, 2, 4, -3, 3]"
+    }
+   ],
+   "expectedRaw": "12"
+  }
+ ]
+}

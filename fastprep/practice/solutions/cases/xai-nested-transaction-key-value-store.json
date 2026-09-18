@@ -1,0 +1,68 @@
+{
+ "problemId": "xai-nested-transaction-key-value-store",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"x\", \"1\"], [\"BEGIN\"], [\"SET\", \"x\", \"2\"], [\"BEGIN\"], [\"SET\", \"x\", \"3\"], [\"3\", \"3\"], [\"BEGIN\"], [\"GET\", \"x\"], [\"GET\", \"x\"]]"
+    }
+   ],
+   "expectedRaw": "[\"3\", \"3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"GET\", \"x\"], [\"GET\", \"x\"], [\"BEGIN\"], [\"SET\", \"x\", \"1\"], [\"ROLLBACK\"], [\"SET\", \"x\", \"3\"], [\"BEGIN\"], [\"SET\", \"x\", \"3\"], [\"SET\", \"x\", \"2\"], [\"COMMIT\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"b\", \"0\"], [\"0\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SET\", \"x\", \"1\"], [\"BEGIN\"], [\"SET\", \"x\", \"2\"], [\"GET\", \"x\"], [\"BEGIN\"], [\"SET\", \"x\", \"3\"], [\"COMMIT\"], [\"GET\", \"x\"], [\"ROLLBACK\"], [\"GET\", \"x\"]]"
+    }
+   ],
+   "expectedRaw": "[\"2\", \"3\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"BEGIN\"], [\"outer\", \"a\"], [\"BEGIN\"], [\"SET\", \"b\", \"inner\"], [\"GET\", \"a\"], [\"GET\", \"b\"], [\"COMMIT\"], [\"COMMIT\"], [\"GET\", \"b\"], [\"GET\", \"missing\"]]"
+    }
+   ],
+   "expectedRaw": "[\"NULL\", \"inner\", \"inner\", \"NULL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"BEGIN\"], [\"SET\", \"a\", \"outer\"], [\"BEGIN\"], [\"SET\", \"b\", \"inner\"], [\"GET\", \"a\"], [\"GET\", \"b\"], [\"a\", \"COMMIT\"], [\"COMMIT\"], [\"GET\", \"b\"], [\"GET\", \"missing\"]]"
+    }
+   ],
+   "expectedRaw": "[\"outer\", \"inner\", \"inner\", \"NULL\"]"
+  }
+ ]
+}

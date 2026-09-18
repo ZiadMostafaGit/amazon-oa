@@ -1,0 +1,68 @@
+{
+ "problemId": "rippling-article-vote-tracker",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"Alpha\"], [\"ADD\", \"Gamma\"], [\"UPVOTE\", \"2\", \"u1\"], [\"DOWNVOTE\", \"1\", \"u1\"], [\"DOWNVOTE\", \"2\", \"u1\"], [\"UPVOTE\", \"1\", \"u1\"], [\"LAST_THREE\", \"u1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"1\"], [\"2\"], [\"Alpha\", \"Gamma\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"UPVOTE\", \"2\", \"u1\"], [\"UPVOTE\", \"3\", \"u1\"], [\"ADD\", \"Alpha\"], [\"DOWNVOTE\", \"2\", \"u1\"], [\"ADD\", \"Beta\"], [\"LAST_THREE\", \"u1\"], [\"UPVOTE\", \"2\", \"u1\"], [\"UPVOTE\", \"1\", \"u1\"], [\"ADD\", \"Gamma\"], [\"UPVOTE\", \"1\", \"u1\"], [\"LAST_THREE\", \"u1\"], [\"DOWNVOTE\", \"1\", \"u1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"1\"], [\"2\"], [\"Beta\"], [\"3\"], [\"Beta\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"Alpha\"], [\"ADD\", \"Beta\"], [\"ADD\", \"Gamma\"], [\"UPVOTE\", \"1\", \"u1\"], [\"UPVOTE\", \"2\", \"u1\"], [\"DOWNVOTE\", \"1\", \"u1\"], [\"DOWNVOTE\", \"2\", \"u1\"], [\"UPVOTE\", \"1\", \"u1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"1\"], [\"2\"], [\"3\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"Beta\", \"ADD\"], [\"ADD\", \"Gamma\"], [\"UPVOTE\", \"1\", \"u1\"], [\"UPVOTE\", \"2\", \"u1\"], [\"DOWNVOTE\", \"1\", \"u1\"], [\"DOWNVOTE\", \"2\", \"u1\"], [\"UPVOTE\", \"1\", \"u1\"], [\"DOWNVOTE\", \"2\", \"u1\"], [\"UPVOTE\", \"3\", \"u1\"], [\"LAST_THREE\", \"u1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"1\"], [\"2\"], [\"Beta\", \"Gamma\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"DOWNVOTE\", \"2\", \"u1\"], [\"LAST_THREE\", \"u1\"], [\"UPVOTE\", \"3\", \"u1\"], [\"UPVOTE\", \"2\", \"u1\"], [\"ADD\", \"Beta\"], [\"ADD\", \"Alpha\"], [\"UPVOTE\", \"1\", \"u1\"], [\"DOWNVOTE\", \"1\", \"u1\"], [\"ADD\", \"Gamma\"]]"
+    }
+   ],
+   "expectedRaw": "[[], [\"1\"], [\"2\"], [\"3\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"ADD\", \"Alpha\"], [\"ADD\", \"Beta\"], [\"ADD\", \"Gamma\"], [\"UPVOTE\", \"3\", \"u1\"], [\"UPVOTE\", \"1\", \"u1\"], [\"UPVOTE\", \"2\", \"u1\"], [\"DOWNVOTE\", \"1\", \"u1\"], [\"DOWNVOTE\", \"2\", \"u1\"], [\"UPVOTE\", \"1\", \"u1\"], [\"UPVOTE\", \"3\", \"u1\"], [\"LAST_THREE\", \"u1\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"1\"], [\"2\"], [\"3\"], [\"Alpha\", \"Beta\"]]"
+  }
+ ]
+}

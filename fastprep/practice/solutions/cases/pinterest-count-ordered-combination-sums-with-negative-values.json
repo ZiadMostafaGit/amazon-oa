@@ -1,0 +1,128 @@
+{
+ "problemId": "pinterest-count-ordered-combination-sums-with-negative-values",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[0, -1]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxLength",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[-2, 0]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "maxLength",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[-1, -2, -1]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-6"
+    },
+    {
+     "name": "maxLength",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxLength",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "maxLength",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "candidates",
+     "type": "int[]",
+     "rawValue": "[-4, -2, -2]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "maxLength",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

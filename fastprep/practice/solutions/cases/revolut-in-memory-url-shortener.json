@@ -1,0 +1,98 @@
+{
+ "problemId": "revolut-in-memory-url-shortener",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"restore\", \"restore\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"https://example.com/articles/alpha\", \"https://example.com/articles/alpha\", \"https://example.com/docs/beta\", \"1\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"restore\", \"shorten\", \"restore\", \"shorten\", \"shorten\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"https://example.com/articles/alpha\", \"1\", \"https://example.com/articles/alpha\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"1\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"shorten\", \"restore\", \"shorten\", \"2\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"https://example.com/docs/beta\", \"1\", \"https://example.com/articles/alpha\", \"https://example.com/docs/beta\", \"2\", \"https://example.comarticles/alpha\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"https://example.com/docs/beta\", \"2\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"shorten\", \"shorten\", \"shorten\", \"shorten\", \"shorten\", \"shorten\", \"shorten\", \"shorten\", \"restore\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"u8\", \"a\", \"u10\", \"u6\", \"u2\", \"u1\", \"u9\", \"u7\", \"u3\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"shorten\", \"restore\", \"shorten\", \"restore\", \"shorten\", \"restore\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"https://example.com/articles/alpha\", \"shorten\", \"2\", \"https://example.com/articles/alpha\", \"2\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"\", \"2\", \"\", \"2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"restore\", \"shorten\", \"shorten\", \"shorten\", \"shorten\", \"shorten\", \"shorten\", \"shorten\", \"shorten\", \"shorten\", \"shorten\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"u2\", \"u3\", \"u4\", \"u5\", \"u5\", \"u6\", \"u7\", \"u9\", \"u9\", \"u10\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"1\", \"2\", \"3\", \"3\", \"4\", \"5\", \"6\", \"6\", \"7\", \"8\"]"
+  }
+ ]
+}

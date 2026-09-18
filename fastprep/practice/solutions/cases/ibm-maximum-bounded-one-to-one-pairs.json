@@ -1,0 +1,128 @@
+{
+ "problemId": "ibm-maximum-bounded-one-to-one-pairs",
+ "generatedAt": "2026-09-18T23:33:45",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[35]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[50, 45]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "13"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[11, 11]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[8, 20, 45]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[50]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "12"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[20, 35, 45, 45]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "20"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[-3, -3, -3]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr1",
+     "type": "int[]",
+     "rawValue": "[8, 38, 45]"
+    },
+    {
+     "name": "arr2",
+     "type": "int[]",
+     "rawValue": "[25, 25]"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

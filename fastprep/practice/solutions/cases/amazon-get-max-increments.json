@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-get-max-increments",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[3, 3]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[2, -1, 0, 2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[2, 3, 2, 1]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[2, 3]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "goldman-sachs-maximum-rocks-north-east-path",
+ "generatedAt": "2026-09-18T23:33:41",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rocks",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 20], [1, 1, 20]]"
+    }
+   ],
+   "expectedRaw": "42"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rocks",
+     "type": "int[][]",
+     "rawValue": "[[1], [4, 4, -2, 0, 1], [-2, -3, 2, 5, -3]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rocks",
+     "type": "int[][]",
+     "rawValue": "[[], [2, 4, 6, -5, 1]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rocks",
+     "type": "int[][]",
+     "rawValue": "[[5, 1, 2], [1, 1, 20], [5, 1, 2], [2, 10, 1]]"
+    }
+   ],
+   "expectedRaw": "31"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rocks",
+     "type": "int[][]",
+     "rawValue": "[[2, 10, 1], [10, 10, 1], [1, 1, 20]]"
+    }
+   ],
+   "expectedRaw": "43"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rocks",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

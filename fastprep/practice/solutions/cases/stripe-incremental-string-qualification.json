@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-incremental-string-qualification",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 22,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "initialParts",
+     "type": "String[]",
+     "rawValue": "[\"SPLIT\", \"cdef\", \"SPLIT\"]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"MERGE\", \"0\"], [\"MERGE\", \"0\"]]"
+    },
+    {
+     "name": "maxPartLength",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[\"UNQUALIFIED\", \"UNQUALIFIED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialParts",
+     "type": "String[]",
+     "rawValue": "[\"0\", \"0\"]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SPLIT\", \"0\", \"3\"], [\"SPLIT\", \"0\", \"2\"], [\"SPLIT\", \"1\", \"2\"]]"
+    },
+    {
+     "name": "maxPartLength",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[\"UNQUALIFIED\", \"QUALIFIED\", \"QUALIFIED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialParts",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"cdef\"]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"MERGE\", \"0\"]]"
+    },
+    {
+     "name": "maxPartLength",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[\"UNQUALIFIED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialParts",
+     "type": "String[]",
+     "rawValue": "[\"abcdef\", \"abcdef\"]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SPLIT\", \"0\", \"3\"], [\"SPLIT\", \"1\", \"2\"], [\"MERGE\", \"0\"], [\"SPLIT\", \"0\", \"2\"], [\"SPLIT\", \"1\", \"2\"]]"
+    },
+    {
+     "name": "maxPartLength",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "[\"UNQUALIFIED\", \"UNQUALIFIED\", \"UNQUALIFIED\", \"UNQUALIFIED\", \"UNQUALIFIED\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialParts",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "maxPartLength",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "initialParts",
+     "type": "String[]",
+     "rawValue": "[\"SPLIT\", \"bc\", \"def\"]"
+    },
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"SPLIT\", \"0\", \"3\"]]"
+    },
+    {
+     "name": "maxPartLength",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "[\"UNQUALIFIED\"]"
+  }
+ ]
+}

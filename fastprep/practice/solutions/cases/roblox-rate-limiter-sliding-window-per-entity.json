@@ -1,0 +1,188 @@
+{
+ "problemId": "roblox-rate-limiter-sliding-window-per-entity",
+ "generatedAt": "2026-09-18T23:33:56",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "requestTimestamps",
+     "type": "int[]",
+     "rawValue": "[3, 5]"
+    },
+    {
+     "name": "userIds",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, 2]"
+    },
+    {
+     "name": "experienceIds",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"B\", \"A\", \"A\", \"A\", \"B\"]"
+    },
+    {
+     "name": "windowLength",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requestTimestamps",
+     "type": "int[]",
+     "rawValue": "[11, 10]"
+    },
+    {
+     "name": "userIds",
+     "type": "int[]",
+     "rawValue": "[1, 2]"
+    },
+    {
+     "name": "experienceIds",
+     "type": "String[]",
+     "rawValue": "[\"game-1\", \"game-1\", \"game-1\"]"
+    },
+    {
+     "name": "windowLength",
+     "type": "int",
+     "rawValue": "11"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requestTimestamps",
+     "type": "int[]",
+     "rawValue": "[11]"
+    },
+    {
+     "name": "userIds",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "experienceIds",
+     "type": "String[]",
+     "rawValue": "[\"gae-1\"]"
+    },
+    {
+     "name": "windowLength",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requestTimestamps",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "userIds",
+     "type": "int[]",
+     "rawValue": "[2, 0, -3]"
+    },
+    {
+     "name": "experienceIds",
+     "type": "String[]",
+     "rawValue": "[\"bc\", \"blue\", \"10\", \"x\"]"
+    },
+    {
+     "name": "windowLength",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requestTimestamps",
+     "type": "int[]",
+     "rawValue": "[10]"
+    },
+    {
+     "name": "userIds",
+     "type": "int[]",
+     "rawValue": "[2, 1, 2]"
+    },
+    {
+     "name": "experienceIds",
+     "type": "String[]",
+     "rawValue": "[\"game-1\", \"game-1\"]"
+    },
+    {
+     "name": "windowLength",
+     "type": "int",
+     "rawValue": "13"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "requestTimestamps",
+     "type": "int[]",
+     "rawValue": "[4, 1, 2]"
+    },
+    {
+     "name": "userIds",
+     "type": "int[]",
+     "rawValue": "[7, 7, 7, 0, 7]"
+    },
+    {
+     "name": "experienceIds",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"A\", \"A\", \"A\"]"
+    },
+    {
+     "name": "windowLength",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "maxRequests",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "[1, 1, 1]"
+  }
+ ]
+}

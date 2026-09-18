@@ -1,0 +1,68 @@
+{
+ "problemId": "microsoft-asteroid-collision",
+ "generatedAt": "2026-09-18T23:33:50",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "asteroids",
+     "type": "int[]",
+     "rawValue": "[-5, -5]"
+    }
+   ],
+   "expectedRaw": "[-5, -5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "asteroids",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    }
+   ],
+   "expectedRaw": "[-2, 1, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "asteroids",
+     "type": "int[]",
+     "rawValue": "[6, 0]"
+    }
+   ],
+   "expectedRaw": "[6, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "asteroids",
+     "type": "int[]",
+     "rawValue": "[5, -5, 5, 10]"
+    }
+   ],
+   "expectedRaw": "[5, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "asteroids",
+     "type": "int[]",
+     "rawValue": "[10, 5, -5]"
+    }
+   ],
+   "expectedRaw": "[10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "asteroids",
+     "type": "int[]",
+     "rawValue": "[5, -5]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "problemId": "nuro-reveal-minesweeper-region",
+ "generatedAt": "2026-09-18T23:33:51",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0, 0, 0]]"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[[-2, -2, -2, -2, -2]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, -1], [0, 0, -1, 0], [0, 0, -1], [0, 0, 0]]"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[[0, 0, -1], [0, 3, -1, 0], [0, 0, -1], [0, 0, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, -1, 0]]"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[[-2, -2, -2, -2, -2], [-2, -2, -2, -2, -2], [-2, -2, 1, 1, 1], [-2, -2, 1, -1, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [0, 0, -1]]"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "[[0, 1, 0], [0, 0, -1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "board",
+     "type": "int[][]",
+     "rawValue": "[[0, -1, 0], [0, 0, 0], [0, 0, -1], [0, 0, 0]]"
+    },
+    {
+     "name": "startRow",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "startCol",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[[1, -1, 0], [0, 0, 0], [0, 0, -1], [0, 0, 0]]"
+  }
+ ]
+}

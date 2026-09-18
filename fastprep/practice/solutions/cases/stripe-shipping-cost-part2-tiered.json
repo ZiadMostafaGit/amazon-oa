@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-shipping-cost-part2-tiered",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"mouse,20\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"laptop,5\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,mouse,0,*,550\", \"US,laptop,0,2,1000\", \"US,laptop,3,*,900\", \"CA,laptop,0,2,1100\", \"CA,laptop,3,*,1000\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"mouse,20\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"laptop,5\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,laptop,0,2,1000\", \"CA,laptop,0,2,1100\", \"US,mouse,0,*,550\", \"US,laptop,0,2,1000\", \"US,laptop,3,*,900\", \"CA,laptop,3,*,1000\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"laptop,5\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"mouse,20\", \"laptop,5\", \"mouse,20\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,laptop,3,*,900\", \"CA,laptop,3,*,1000\", \"US,mouse,0,*,550\", \"CA,mouse,0,*,750\", \"CA,laptop,0,2,1100\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"mouse,20\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"CA\", \"laptop,5\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,mouse,0,*,550\", \"US,laptop,0,2,1000\", \"US,laptop,3,*,900\", \"CA,laptop,0,2,1100\", \"CA,laptop,3,*,1000\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"CA\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"mouse,20\", \"laptop,5\", \"mouse,20\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"US,laptop,0,2,1000\", \"US,laptop,3,*,900\", \"CA,laptop,0,2,1100\", \"CA,laptop,3,*,1000\"]"
+    }
+   ],
+   "expectedRaw": "5200"
+  },
+  {
+   "inputs": [
+    {
+     "name": "country",
+     "type": "String",
+     "rawValue": "\"yz\""
+    },
+    {
+     "name": "items",
+     "type": "String[]",
+     "rawValue": "[\"b\"]"
+    },
+    {
+     "name": "rules",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"1\", \"cat\", \"1\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

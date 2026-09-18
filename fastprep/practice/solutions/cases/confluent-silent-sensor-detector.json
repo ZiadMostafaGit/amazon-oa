@@ -1,0 +1,98 @@
+{
+ "problemId": "confluent-silent-sensor-detector",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "pingTimestamps",
+     "type": "int[]",
+     "rawValue": "[180, 180]"
+    },
+    {
+     "name": "queryTime",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pingTimestamps",
+     "type": "int[]",
+     "rawValue": "[59, 60, 0]"
+    },
+    {
+     "name": "queryTime",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pingTimestamps",
+     "type": "int[]",
+     "rawValue": "[20, 240]"
+    },
+    {
+     "name": "queryTime",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pingTimestamps",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "queryTime",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pingTimestamps",
+     "type": "int[]",
+     "rawValue": "[-3, -1, -2]"
+    },
+    {
+     "name": "queryTime",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pingTimestamps",
+     "type": "int[]",
+     "rawValue": "[3]"
+    },
+    {
+     "name": "queryTime",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

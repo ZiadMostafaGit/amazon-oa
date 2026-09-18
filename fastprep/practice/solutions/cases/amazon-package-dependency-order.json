@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-package-dependency-order",
+ "generatedAt": "2026-09-18T23:33:31",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"B\", \"D\"], [\"B\", \"F\"], [\"C\", \"F\"], [\"F\", \"G\"], [\"H\", \"I\"], [\"J\", \"G\"]]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"I\""
+    }
+   ],
+   "expectedRaw": "[\"I\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"B\", \"F\"], [\"H\", \"J\"], [\"A\", \"B\"], [\"F\", \"G\"], [\"A\", \"C\"], [\"J\", \"G\"], [\"B\", \"F\"], [\"H\", \"I\"], [\"B\", \"D\"], [\"B\", \"E\"], [\"J\", \"G\"], [\"C\", \"F\"]]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"E\""
+    }
+   ],
+   "expectedRaw": "[\"E\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"A\", \"C\"], [\"B\", \"D\"], [\"B\", \"E\"], [\"B\", \"F\"], [\"C\", \"F\"], [\"F\", \"G\"], [\"H\", \"I\"], [\"A\", \"C\"], [\"H\", \"J\"], [\"J\", \"G\"]]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"H\""
+    }
+   ],
+   "expectedRaw": "[\"I\", \"G\", \"J\", \"H\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"C\", \"F\"], [\"A\", \"B\"], [\"B\", \"D\"], [\"B\", \"E\"], [\"B\", \"F\"], [\"C\", \"F\"], [\"F\", \"G\"], [\"I\"], [\"H\", \"J\"], [\"J\", \"G\"]]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"H\""
+    }
+   ],
+   "expectedRaw": "[\"G\", \"J\", \"H\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"A\", \"B\"], [\"C\", \"A\", \"C\"], [\"B\", \"D\"], [\"B\", \"E\"], [\"B\", \"F\"], [\"C\", \"F\"], [\"F\", \"G\"], [\"H\", \"I\"], [\"H\", \"J\"], [\"J\", \"G\"]]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"F\""
+    }
+   ],
+   "expectedRaw": "[\"G\", \"F\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dependencies",
+     "type": "String[][]",
+     "rawValue": "[[\"F\"], [\"A\", \"C\"], [\"B\", \"D\"], [\"B\", \"E\"], [\"B\", \"F\"], [\"C\", \"F\"], [\"F\", \"G\"], [\"H\", \"I\"], [\"H\", \"J\"], [\"J\", \"G\"]]"
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"H\""
+    }
+   ],
+   "expectedRaw": "[\"I\", \"G\", \"J\", \"H\"]"
+  }
+ ]
+}

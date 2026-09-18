@@ -1,0 +1,68 @@
+{
+ "problemId": "google-horizontal-square-bisector",
+ "generatedAt": "2026-09-18T23:33:42",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 10,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "squares",
+     "type": "int[][]",
+     "rawValue": "[[2, 4, 10], [2, 4, 10]]"
+    }
+   ],
+   "expectedRaw": "-1.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "squares",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 5], [1, 2, 5]]"
+    }
+   ],
+   "expectedRaw": "-0.5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "squares",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 5]]"
+    }
+   ],
+   "expectedRaw": "-0.5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "squares",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 5], [2, 4, 10], [2, 4, 10]]"
+    }
+   ],
+   "expectedRaw": "-0.8999999999999999"
+  },
+  {
+   "inputs": [
+    {
+     "name": "squares",
+     "type": "int[][]",
+     "rawValue": "[[2, 4, 10], [1, 2, 5], [2, 4, 10]]"
+    }
+   ],
+   "expectedRaw": "-0.8999999999999999"
+  },
+  {
+   "inputs": [
+    {
+     "name": "squares",
+     "type": "int[][]",
+     "rawValue": "[[1, 2, 5], [2, 0, 10]]"
+    }
+   ],
+   "expectedRaw": "-3.75"
+  }
+ ]
+}

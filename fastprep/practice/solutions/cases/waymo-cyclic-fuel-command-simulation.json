@@ -1,0 +1,188 @@
+{
+ "problemId": "waymo-cyclic-fuel-command-simulation",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 7,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"S..\"]"
+    },
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"R\""
+    },
+    {
+     "name": "initialFuel",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "refillAmount",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "maxSteps",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"SG..\"]"
+    },
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"RFR\""
+    },
+    {
+     "name": "initialFuel",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "refillAmount",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxSteps",
+     "type": "int",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"S..\"]"
+    },
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"R\""
+    },
+    {
+     "name": "initialFuel",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "refillAmount",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "maxSteps",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"RDL\", \"S#.\", \"RDL\", \"RDL\"]"
+    },
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"S#.\""
+    },
+    {
+     "name": "initialFuel",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "refillAmount",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "maxSteps",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"SG..\", \"SG..\"]"
+    },
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"RFR\""
+    },
+    {
+     "name": "initialFuel",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "refillAmount",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "maxSteps",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "String[]",
+     "rawValue": "[\"SG..\"]"
+    },
+    {
+     "name": "program",
+     "type": "String",
+     "rawValue": "\"RFR\""
+    },
+    {
+     "name": "initialFuel",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "refillAmount",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "maxSteps",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

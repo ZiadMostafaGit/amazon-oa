@@ -1,0 +1,128 @@
+{
+ "problemId": "tesla-resilient-fake-api-client",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "statuses",
+     "type": "int[]",
+     "rawValue": "[200, 200]"
+    },
+    {
+     "name": "bodies",
+     "type": "String[]",
+     "rawValue": "[\"ignored\", \"{\\\"b\\\":two\\\",\\\"a\\\":\\\"1\\\"}\", \"{\\\"b\\\":\\\"two\\\",\\\"a\\\":\\\"1\\\"}\", \"ignored\"]"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"JSON_ERROR\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "statuses",
+     "type": "int[]",
+     "rawValue": "[5, -4, 2, 0]"
+    },
+    {
+     "name": "bodies",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"bc\", \"dog\"]"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "-5"
+    }
+   ],
+   "expectedRaw": "\"EXHAUSTED\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "statuses",
+     "type": "int[]",
+     "rawValue": "[200, 503]"
+    },
+    {
+     "name": "bodies",
+     "type": "String[]",
+     "rawValue": "[\"\", \"\", \"\", \"\"]"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "\"JSON_ERROR\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "statuses",
+     "type": "int[]",
+     "rawValue": "[200, 429, -503]"
+    },
+    {
+     "name": "bodies",
+     "type": "String[]",
+     "rawValue": "[\"ignored\", \"ignored\"]"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "200"
+    }
+   ],
+   "expectedRaw": "\"JSON_ERROR\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "statuses",
+     "type": "int[]",
+     "rawValue": "[429, 503, 200]"
+    },
+    {
+     "name": "bodies",
+     "type": "String[]",
+     "rawValue": "[\"ignored\", \"{\\\"b\\\":\\\"two\\\",\\\"a\\\":\\\"1\\\"}\"]"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "\"EXHAUSTED\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "statuses",
+     "type": "int[]",
+     "rawValue": "[503, 429, 432, 200]"
+    },
+    {
+     "name": "bodies",
+     "type": "String[]",
+     "rawValue": "[\"ignored\", \"{\\\"b\\\":\\\"two\\\",\\\"a\\\":\\\"1\\\"}\", \"{\\\"b\\\":\\\"two\\\",\\\"a\\\":\\\"1\\\"}\"]"
+    },
+    {
+     "name": "maxAttempts",
+     "type": "int",
+     "rawValue": "200"
+    }
+   ],
+   "expectedRaw": "\"HTTP_432\""
+  }
+ ]
+}

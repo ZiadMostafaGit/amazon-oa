@@ -1,0 +1,98 @@
+{
+ "problemId": "walmart-k-capable-model-costs",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[5]"
+    },
+    {
+     "name": "featureAvailability",
+     "type": "String[]",
+     "rawValue": "[\"00\", \"11\", \"10\"]"
+    }
+   ],
+   "expectedRaw": "[-1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[-3]"
+    },
+    {
+     "name": "featureAvailability",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"abc\", \"10\"]"
+    }
+   ],
+   "expectedRaw": "[-1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[4, 5, 3, 4, 2, 3]"
+    },
+    {
+     "name": "featureAvailability",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"00\", \"01\", \"11\", \"00\"]"
+    }
+   ],
+   "expectedRaw": "[4, 11, -1, -1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[-5, -4, 7, 4, -5]"
+    },
+    {
+     "name": "featureAvailability",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"abc\", \"dog\", \"blue\", \"abc\", \"a\", \"ab\"]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, -1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[6, 8, 1, 2, 2, 6]"
+    },
+    {
+     "name": "featureAvailability",
+     "type": "String[]",
+     "rawValue": "[\"11\", \"10\", \"01\", \"11\"]"
+    }
+   ],
+   "expectedRaw": "[2, 8, 17, -1, -1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "cost",
+     "type": "int[]",
+     "rawValue": "[8, 2, 1, 1, 6]"
+    },
+    {
+     "name": "featureAvailability",
+     "type": "String[]",
+     "rawValue": "[\"11\", \"10\", \"11\"]"
+    }
+   ],
+   "expectedRaw": "[1, 9, -1, -1, -1]"
+  }
+ ]
+}

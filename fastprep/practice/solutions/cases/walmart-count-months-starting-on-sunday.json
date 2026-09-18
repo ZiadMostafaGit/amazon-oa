@@ -1,0 +1,98 @@
+{
+ "problemId": "walmart-count-months-starting-on-sunday",
+ "generatedAt": "2026-09-18T23:34:01",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "startYear",
+     "type": "int",
+     "rawValue": "2001"
+    },
+    {
+     "name": "endYear",
+     "type": "int",
+     "rawValue": "2024"
+    }
+   ],
+   "expectedRaw": "42"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startYear",
+     "type": "int",
+     "rawValue": "2000"
+    },
+    {
+     "name": "endYear",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startYear",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "endYear",
+     "type": "int",
+     "rawValue": "2007"
+    }
+   ],
+   "expectedRaw": "13"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startYear",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "endYear",
+     "type": "int",
+     "rawValue": "2024"
+    }
+   ],
+   "expectedRaw": "43"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startYear",
+     "type": "int",
+     "rawValue": "2000"
+    },
+    {
+     "name": "endYear",
+     "type": "int",
+     "rawValue": "2003"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startYear",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "endYear",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

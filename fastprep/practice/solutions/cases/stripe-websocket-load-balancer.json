@@ -1,0 +1,128 @@
+{
+ "problemId": "stripe-websocket-load-balancer",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numTargets",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "maxConnectionsPerTarget",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[\"CONNECT,c1,u1,o1\", \"CONNECT,c2,u2,o2\", \"CONNECT,c3,u3,o3\", \"CONNEC,c4,u4,o4\", \"CONNNECT,c5,u5,o5\"]"
+    }
+   ],
+   "expectedRaw": "[\"c1,u1,1\", \"c2,u2,2\", \"c3,u3,3\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numTargets",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxConnectionsPerTarget",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"abc\", \"cat\", \"blue\", \"abc\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numTargets",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "maxConnectionsPerTarget",
+     "type": "int",
+     "rawValue": "-5"
+    },
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[\"dog\", \"blue\", \"1\", \"ab\", \"cat\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numTargets",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "maxConnectionsPerTarget",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[\"CONNECT,c2,u2,o2\", \"CONNECT,c3,u3,o3\", \"CONNECT,c4,u4,o4\", \"CONNECT,c2,u2,o2\", \"CONNECT,c5,u5,o5\", \"CONNECT,c1,u1,o1\"]"
+    }
+   ],
+   "expectedRaw": "[\"c2,u2,1\", \"c3,u3,2\", \"c4,u4,1\", \"c2,u2,2\", \"c5,u5,1\", \"c1,u1,2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numTargets",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "maxConnectionsPerTarget",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[\"red\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numTargets",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "maxConnectionsPerTarget",
+     "type": "int",
+     "rawValue": "13"
+    },
+    {
+     "name": "requests",
+     "type": "String[]",
+     "rawValue": "[\"CONNECT,c1,u1,o1\", \"CONNECT,c2,u2,o\", \"CONNECT,c3,u3,o3\", \"CONNECT,c5,u5,o5\"]"
+    }
+   ],
+   "expectedRaw": "[\"c1,u1,1\", \"c2,u2,2\", \"c3,u3,3\", \"c5,u5,4\"]"
+  }
+ ]
+}

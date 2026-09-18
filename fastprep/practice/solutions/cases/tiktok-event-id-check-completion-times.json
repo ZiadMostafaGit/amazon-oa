@@ -1,0 +1,68 @@
+{
+ "problemId": "tiktok-event-id-check-completion-times",
+ "generatedAt": "2026-09-18T23:33:59",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[450]"
+    }
+   ],
+   "expectedRaw": "[750]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[4, 453, 400, 500]"
+    }
+   ],
+   "expectedRaw": "[304, 1000, 700, 1300]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "[300, 600]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[400, 450, 500, 4, 450]"
+    }
+   ],
+   "expectedRaw": "[700, 1000, 1600, 304, 1300]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[450, 400, 450, 400]"
+    }
+   ],
+   "expectedRaw": "[1300, 700, 1600, 1000]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "times",
+     "type": "int[]",
+     "rawValue": "[4, 400, 450]"
+    }
+   ],
+   "expectedRaw": "[304, 700, 1000]"
+  }
+ ]
+}

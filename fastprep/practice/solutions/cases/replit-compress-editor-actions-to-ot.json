@@ -1,0 +1,98 @@
+{
+ "problemId": "replit-compress-editor-actions-to-ot",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "actions",
+     "type": "String[][]",
+     "rawValue": "[[\"APPEND\", \"x\"], [\"RIGHT\"], [\"BACKSPACE\"], [\"APPEND\", \"z\"], [\"RIGHT\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"INSERT\", \"x\"], [\"DELETE\", \"1\"], [\"INSERT\", \"z\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"bc\""
+    },
+    {
+     "name": "actions",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\", \"0\", \"dog\", \"ab\"], [\"cat\", \"b\", \"yz\", \"0\"], [\"red\", \"b\", \"1\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "actions",
+     "type": "String[][]",
+     "rawValue": "[[\"RIGHT\"], [\"BACKSPACE\"], [\"BACKSPACE\"], [\"BACKSPACE\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"DELETE\", \"1\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"x\""
+    },
+    {
+     "name": "actions",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "actions",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "document",
+     "type": "String",
+     "rawValue": "\"BACKSPACE\""
+    },
+    {
+     "name": "actions",
+     "type": "String[][]",
+     "rawValue": "[[\"BACKSPACE\"], [\"BACKSPACE\"], [\"RIGHT\"], [\"BACKSPACE\"], [\"RIGHT\"], [\"BACKSPACE\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"DELETE\", \"2\"]]"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-is-regex-matching",
+ "generatedAt": "2026-09-18T23:33:30",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "regex",
+     "type": "String",
+     "rawValue": "\"abefretre\""
+    },
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[\"abefretre\"]"
+    }
+   ],
+   "expectedRaw": "[\"YES\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "regex",
+     "type": "String",
+     "rawValue": "\"bc\""
+    },
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[\"yz\", \"dog\", \"blue\", \"0\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "[\"NO\", \"NO\", \"NO\", \"NO\", \"NO\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "regex",
+     "type": "String",
+     "rawValue": "\"abeee\""
+    },
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[\"code\", \"code\", \"abeee\"]"
+    }
+   ],
+   "expectedRaw": "[\"NO\", \"NO\", \"YES\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "regex",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"blue\"]"
+    }
+   ],
+   "expectedRaw": "[\"NO\", \"NO\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "regex",
+     "type": "String",
+     "rawValue": "\"..()*e*\""
+    },
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[\"abeee\", \"cd\", \"abeee\", \"code\"]"
+    }
+   ],
+   "expectedRaw": "[\"YES\", \"YES\", \"YES\", \"NO\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "regex",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "arr",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

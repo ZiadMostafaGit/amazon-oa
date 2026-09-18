@@ -1,0 +1,68 @@
+{
+ "problemId": "meta-first-bad-version-array",
+ "generatedAt": "2026-09-18T23:33:49",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "bad",
+     "type": "boolean[]",
+     "rawValue": "[true]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bad",
+     "type": "boolean[]",
+     "rawValue": "[true, false]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bad",
+     "type": "boolean[]",
+     "rawValue": "[false, true, true, true]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bad",
+     "type": "boolean[]",
+     "rawValue": "[false, true, true]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bad",
+     "type": "boolean[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "bad",
+     "type": "boolean[]",
+     "rawValue": "[true, true, true, true, false]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

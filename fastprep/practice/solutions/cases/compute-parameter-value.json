@@ -1,0 +1,68 @@
+{
+ "problemId": "compute-parameter-value",
+ "generatedAt": "2026-09-18T23:33:37",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "sources",
+     "type": "String[][]",
+     "rawValue": "[[\"P1:b\", \"P1:b\", \"P5:x\", \"P2:q\"], [\"P1:b\", \"P2:q\", \"P5:x\"]]"
+    }
+   ],
+   "expectedRaw": "[\"b\", \"x\", \"q\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sources",
+     "type": "String[][]",
+     "rawValue": "[[\"P1:b\", \"P2:q\", \"P5:x\"], [\"P1:a\", \"P3:b\", \"P5:x\"], [\"P1:a\", \"P3:b\", \"P5:x\"]]"
+    }
+   ],
+   "expectedRaw": "[\"a\", \"q\", \"x\", \"b\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sources",
+     "type": "String[][]",
+     "rawValue": "[[\"P1:b\", \"P2:q\"]]"
+    }
+   ],
+   "expectedRaw": "[\"b\", \"q\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sources",
+     "type": "String[][]",
+     "rawValue": "[[\"P3:b\", \"P1:a\"]]"
+    }
+   ],
+   "expectedRaw": "[\"b\", \"a\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sources",
+     "type": "String[][]",
+     "rawValue": "[[\"P1:b\", \"P2:q\", \"P5:x\"], [\"P1:b\", \"P2:q\", \"P5:x\"]]"
+    }
+   ],
+   "expectedRaw": "[\"b\", \"q\", \"x\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "sources",
+     "type": "String[][]",
+     "rawValue": "[[\"10\", \"0\", \"red\", \"1\", \"0\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"\", \"\", \"\"]"
+  }
+ ]
+}

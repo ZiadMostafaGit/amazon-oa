@@ -1,0 +1,98 @@
+{
+ "problemId": "upstart-case-insensitive-anagram",
+ "generatedAt": "2026-09-18T23:34:00",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "wordA",
+     "type": "String",
+     "rawValue": "\"Drier\""
+    },
+    {
+     "name": "wordB",
+     "type": "String",
+     "rawValue": "\"Drier\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wordA",
+     "type": "String",
+     "rawValue": "\"Rider\""
+    },
+    {
+     "name": "wordB",
+     "type": "String",
+     "rawValue": "\"Rider\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wordA",
+     "type": "String",
+     "rawValue": "\"Rider\""
+    },
+    {
+     "name": "wordB",
+     "type": "String",
+     "rawValue": "\"Drier\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wordA",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "wordB",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wordA",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "wordB",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "wordA",
+     "type": "String",
+     "rawValue": "\"cat\""
+    },
+    {
+     "name": "wordB",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

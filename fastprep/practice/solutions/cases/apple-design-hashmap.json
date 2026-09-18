@@ -1,0 +1,128 @@
+{
+ "problemId": "apple-design-hashmap",
+ "generatedAt": "2026-09-18T23:33:33",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put\", \"get\", \"put\", \"remove\", \"get\"]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[2, 1, 2, 2, 6, 2, 2]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[20, 0, 0, 25, 0, 10, 0, 0, 20]"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"remove\", \"put\", \"get\", \"put\", \"put\", \"get\"]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0, 0, 0, 0]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[1, 0, 7, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[4, -5, -4]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[3, -6]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put\", \"put\", \"get\", \"put\", \"get\", \"remove\", \"get\"]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0, 0, 0, 0]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 7, 0, 0, 0, 7, 0]"
+    }
+   ],
+   "expectedRaw": "[0, 7, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"put\", \"put\", \"get\", \"put\", \"get\", \"put\", \"get\"]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[1, -5, 1, 0, 2, 2, 2, 2]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[10, 0, 0, 20, 25, 0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[10, -1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"10\", \"red\"]"
+    },
+    {
+     "name": "keys",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    },
+    {
+     "name": "values",
+     "type": "int[]",
+     "rawValue": "[5, 5, 4]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

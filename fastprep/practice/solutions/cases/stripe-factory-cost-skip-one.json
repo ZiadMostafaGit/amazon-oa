@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-factory-cost-skip-one",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "stages",
+     "type": "int[][][]",
+     "rawValue": "[[[10, 10], [1, 12], [3, 5]], [[10, 10], [1, 12], [3, 5]]]"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stages",
+     "type": "int[][][]",
+     "rawValue": "[[[5, 1], [1, 8]], [[5, 1], [1, 8]], [[2, 4]], [[5, 1], [1, 8]]]"
+    }
+   ],
+   "expectedRaw": "13"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stages",
+     "type": "int[][][]",
+     "rawValue": "[[[20, 100], [0, 50], [1, 30]]]"
+    }
+   ],
+   "expectedRaw": "30"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stages",
+     "type": "int[][][]",
+     "rawValue": "[[[10, 100], [2, 20], [56, 10]], [[20, 100], [0, 50], [1, 30]]]"
+    }
+   ],
+   "expectedRaw": "51"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stages",
+     "type": "int[][][]",
+     "rawValue": "[[[0, 10]], [[2, 4]], [[2, 4]]]"
+    }
+   ],
+   "expectedRaw": "20"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stages",
+     "type": "int[][][]",
+     "rawValue": "[[[10, 10], [1, 12], [3, 5]], [[20, 100], [0, 50], [1, 30]], [[20, 100], [0, 50], [1, 30]]]"
+    }
+   ],
+   "expectedRaw": "67"
+  }
+ ]
+}

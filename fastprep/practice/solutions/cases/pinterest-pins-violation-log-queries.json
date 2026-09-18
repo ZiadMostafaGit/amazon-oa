@@ -1,0 +1,98 @@
+{
+ "problemId": "pinterest-pins-violation-log-queries",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 9,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"p1\", \"hate\", \"12\"]]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"POSTS_BY_POLICY\", \"spam\"], [\"POSTS_IN_RANGE\", \"11\", \"15\"], [\"POLICIES_BY_POST\", \"p1\"], [\"POSTS_AT_TIME\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[\"\", \"p1\", \"hate\", \"\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"p1\", \"spam\", \"10\"], [\"p1\", \"hate\", \"12\"], [\"p2\", \"spam\", \"10\"], [\"p2\", \"spam\", \"15\"], [\"p2\", \"spam\", \"10\"]]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"POSTS_BY_POLICY\", \"spam\"], [\"POSTS_AT_TIME\", \"10\"], [\"POSTS_IN_RANGE\", \"11\", \"15\"]]"
+    }
+   ],
+   "expectedRaw": "[\"p1,p2\", \"p1,p2\", \"p1,p2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"p2\", \"spam\", \"10\"], [\"p1\", \"hate\", \"12\"]]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"POSTS_BY_POLICY\", \"spam\"], [\"POLICIES_BY_POST\", \"p1\"], [\"POSTS_AT_TIME\", \"10\"], [\"POSTS_IN_RANGE\", \"11\", \"15\"], [\"COUNTS_BY_POLICY\", \"10\", \"12\"], [\"POSTS_AT_TIME\", \"10\"]]"
+    }
+   ],
+   "expectedRaw": "[\"p2\", \"hate\", \"p2\", \"p1\", \"hate=1,spam=1\", \"p2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"p1\", \"spam\", \"10\"], [\"p2\", \"spam\", \"10\"], [\"p1\", \"hate\", \"12\"]]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"COUNTS_BY_POLICY\", \"10\", \"12\"], [\"POLICIES_BY_POST\", \"p1\"], [\"POSTS_BY_POLICY\", \"spam\"], [\"POSTS_IN_RANGE\", \"11\", \"15\"]]"
+    }
+   ],
+   "expectedRaw": "[\"hate=1,spam=2\", \"hate,spam\", \"p1,p2\", \"p1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"spam\", \"p2\", \"10\"], [\"p1\", \"spam\", \"10\"], [\"p1\", \"spam\", \"12\", \"p1\"], [\"p2\", \"spam\", \"15\"]]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"POSTS_BY_POLICY\", \"spam\"], [\"p1\", \"POLICIES_BY_POST\", \"POLICIES_BY_POST\"], [\"POSTS_AT_TIME\", \"10\"], [\"POSTS_IN_RANGE\", \"11\", \"15\"], [\"COUNTS_BY_POLICY\", \"10\", \"12\"]]"
+    }
+   ],
+   "expectedRaw": "[\"p1,p2\", \"\", \"p1,spam\", \"p1,p2\", \"p2=1,spam=2\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "records",
+     "type": "String[][]",
+     "rawValue": "[[\"p2\", \"spam\", \"10\"], [\"p2\", \"spam\", \"15\"], [\"p1\", \"spam\", \"10\"], [\"p1\", \"hate\", \"12\"]]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"POLICIES_BY_POST\", \"p1\"], [\"POSTS_AT_TIME\", \"10\"], [\"POST_N_RANGE\", \"11\"], [\"COUNTS_BY_POLICY\", \"10\", \"12\"]]"
+    }
+   ],
+   "expectedRaw": "[\"hate,spam\", \"p1,p2\", \"\", \"hate=1,spam=2\"]"
+  }
+ ]
+}

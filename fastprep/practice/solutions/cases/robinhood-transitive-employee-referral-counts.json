@@ -1,0 +1,68 @@
+{
+ "problemId": "robinhood-transitive-employee-referral-counts",
+ "generatedAt": "2026-09-18T23:33:55",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "referrals",
+     "type": "String[]",
+     "rawValue": "[\"B D\", \"B D\"]"
+    }
+   ],
+   "expectedRaw": "[\"B=2\", \"D=0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "referrals",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"yz\", \"0\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "referrals",
+     "type": "String[]",
+     "rawValue": "[\"A B\", \"A C\"]"
+    }
+   ],
+   "expectedRaw": "[\"A=2\", \"B=0\", \"C=0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "referrals",
+     "type": "String[]",
+     "rawValue": "[\"p q\", \"p q\"]"
+    }
+   ],
+   "expectedRaw": "[\"p=2\", \"q=0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "referrals",
+     "type": "String[]",
+     "rawValue": "[\"A C\"]"
+    }
+   ],
+   "expectedRaw": "[\"A=1\", \"C=0\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "referrals",
+     "type": "String[]",
+     "rawValue": "[\"A B\"]"
+    }
+   ],
+   "expectedRaw": "[\"A=1\", \"B=0\"]"
+  }
+ ]
+}

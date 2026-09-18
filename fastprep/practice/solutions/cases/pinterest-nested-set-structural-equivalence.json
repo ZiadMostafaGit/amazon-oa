@@ -1,0 +1,98 @@
+{
+ "problemId": "pinterest-nested-set-structural-equivalence",
+ "generatedAt": "2026-09-18T23:33:54",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "String",
+     "rawValue": "\"{1,{2,3},4}\""
+    },
+    {
+     "name": "right",
+     "type": "String",
+     "rawValue": "\"{1,{2,3},4}\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "String",
+     "rawValue": "\"{{3,2},4,1}\""
+    },
+    {
+     "name": "right",
+     "type": "String",
+     "rawValue": "\"{{3,2},4,1}\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "String",
+     "rawValue": "\"{{3,2},4,1}\""
+    },
+    {
+     "name": "right",
+     "type": "String",
+     "rawValue": "\"{1,{2,3},4}\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "String",
+     "rawValue": "\"{1,1,{,{{2},2}}\""
+    },
+    {
+     "name": "right",
+     "type": "String",
+     "rawValue": "\"{{{},1,{2,{2}}}\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "String",
+     "rawValue": "\"{1,{2,3}}\""
+    },
+    {
+     "name": "right",
+     "type": "String",
+     "rawValue": "\"{1,{2,3}}\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "left",
+     "type": "String",
+     "rawValue": "\"{{1,2},3}\""
+    },
+    {
+     "name": "right",
+     "type": "String",
+     "rawValue": "\"{{1,2},3}\""
+    }
+   ],
+   "expectedRaw": "true"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "tekion-dungeon-game",
+ "generatedAt": "2026-09-18T23:33:58",
+ "from": "reference solution, verified 2026-09-18T23:32:55",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "dungeon",
+     "type": "int[][]",
+     "rawValue": "[[10, 30, -5], [10, 30, -5]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dungeon",
+     "type": "int[][]",
+     "rawValue": "[[1], [4, 4, -2, 0, 1], [-2, -3, 2, 5, -3]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dungeon",
+     "type": "int[][]",
+     "rawValue": "[[], [2, 4, 6, -5, 1]]"
+    }
+   ],
+   "expectedRaw": "\"inf\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "dungeon",
+     "type": "int[][]",
+     "rawValue": "[[-2, -3, 3], [10, 30, -5], [-2, -3, 3], [-5, -10, 1]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dungeon",
+     "type": "int[][]",
+     "rawValue": "[[-5, -10, 1], [-10, -10, 1], [10, 30, -5]]"
+    }
+   ],
+   "expectedRaw": "16"
+  },
+  {
+   "inputs": [
+    {
+     "name": "dungeon",
+     "type": "int[][]",
+     "rawValue": "[[3, -2, -2], [-5, -10, 1], [10, 30, -5], [-2, -3, 3]]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}
