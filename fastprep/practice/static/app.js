@@ -15,12 +15,13 @@ const MULTI = ['company', 'difficulty', 'platform', 'format', 'stage', 'topic',
                'employment', 'role'];
 const SINGLE = ['q', 'sort', 'dir', 'seenFrom', 'seenTo', 'seenOnFrom', 'seenOnTo',
                 'minSeen', 'maxSeen', 'status'];
-const FLAGS = ['hasImages', 'bookmarked', 'hasNotes'];
+const FLAGS = ['hasImages', 'bookmarked', 'hasNotes', 'hasSolution'];
 
 const state = {
   filters: Object.fromEntries(MULTI.map(k => [k, new Set()])),
   q: '', sort: 'recent', dir: '', seenFrom: '', seenTo: '', seenOnFrom: '', seenOnTo: '',
   minSeen: '', maxSeen: '', status: '', hasImages: false, bookmarked: false, hasNotes: false,
+  hasSolution: false, solutionStats: null,
   offset: 0, limit: 50, total: 0, items: [], current: null, facets: null,
   env: null, lang: null, dirty: false,
   editor: null, vim: localStorage.getItem('fp:vim') === '1',
@@ -164,12 +165,16 @@ function renderFilters() {
     opts.append(lab);
   });
   [['bookmarked', 'bookmarked only'], ['hasNotes', 'has notes'],
-   ['hasImages', 'has source screenshots']].forEach(([key, label]) => {
+   ['hasImages', 'has source screenshots'],
+   ['hasSolution', 'has a reference solution']].forEach(([key, label]) => {
     const lab = el('label', 'opt');
     const cb = el('input'); cb.type = 'checkbox'; cb.checked = !!state[key];
     cb.onchange = () => { state[key] = cb.checked; reload(); };
     lab.append(cb, el('span', null, label));
     if (key === 'hasImages') lab.append(el('span', 'n', String(f.meta.withImages)));
+    if (key === 'hasSolution' && f.meta.withSolutions != null) {
+      lab.append(el('span', 'n', String(f.meta.withSolutions)));
+    }
     opts.append(lab);
   });
   p.append(opts);
@@ -368,19 +373,88 @@ function renderSolution() {
   host.append(box);
 }
 
-let saveTimer = null;
+/* ------------------------------------------------------------- persistence */
+/* Your code, notes and test cases are server-side state. Three rules make that
+ * trustworthy:
+ *   · what gets saved is captured WHEN YOU TYPE, not when the debounce fires -
+ *     otherwise switching problems mid-debounce writes your code onto the
+ *     problem you just left;
+ *   · anything still pending is flushed before navigating away and on page
+ *     hide, with sendBeacon, which survives unload where fetch does not;
+ *   · the header says saved / saving / not saved, so you never have to guess.
+ */
+const saver = {
+  pending: {},          // key -> {id, body}; one slot per problem+kind
+  timer: null,
+
+  queue(key, id, body, delay) {
+    this.pending[key] = { id: id, body: body };
+    this.paint('saving');
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => this.flush(), delay == null ? 600 : delay);
+  },
+
+  async flush() {
+    clearTimeout(this.timer);
+    const items = Object.entries(this.pending);
+    if (!items.length) return true;
+    this.pending = {};
+    let ok = true;
+    for (const [key, item] of items) {
+      try {
+        await api('api/progress/' + encodeURIComponent(item.id), {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(item.body),
+        });
+      } catch (e) {
+        ok = false;
+        this.pending[key] = item;            // keep it and try again
+      }
+    }
+    this.paint(ok ? 'saved' : 'failed');
+    if (!ok) setTimeout(() => this.flush(), 4000);
+    return ok;
+  },
+
+  flushSync() {
+    clearTimeout(this.timer);
+    const items = Object.values(this.pending);
+    this.pending = {};
+    if (!items.length || !navigator.sendBeacon) return;
+    items.forEach(item => {
+      try {
+        navigator.sendBeacon(url('api/progress/' + encodeURIComponent(item.id)),
+          new Blob([JSON.stringify(item.body)], { type: 'application/json' }));
+      } catch (e) {}
+    });
+  },
+
+  paint(name) {
+    const box = $('#savestate');
+    if (!box) return;
+    box.hidden = false;
+    box.className = 'savestate ' + name;
+    box.textContent = name === 'saving' ? 'saving…'
+      : name === 'failed' ? 'not saved — retrying' : 'saved';
+  },
+};
+
+window.addEventListener('beforeunload', () => saver.flushSync());
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') saver.flushSync();
+});
+
 function scheduleSave() {
-  clearTimeout(saveTimer);
-  saveTimer = setTimeout(async () => {
-    const d = state.current;
-    if (!d || !state.editor) return;
-    try {
-      await api('api/progress/' + encodeURIComponent(d.id), {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ language: state.lang, code: state.editor.getValue() }),
-      });
-    } catch (e) {}
-  }, 700);
+  const d = state.current;
+  if (!d || !state.editor) return;
+  saver.queue('code:' + d.id + ':' + state.lang, d.id,       // captured now
+              { language: state.lang, code: state.editor.getValue() });
+}
+
+function scheduleNotes(text) {
+  const d = state.current;
+  if (!d) return;
+  saver.queue('notes:' + d.id, d.id, { notes: text });
 }
 
 async function runFuzz() {
@@ -388,7 +462,6 @@ async function runFuzz() {
   const results = $('#editorHost .results');
   const verdict = $('#verdict');
   verdict.textContent = 'generating inputs…';
-  results.textContent = '';
   let out;
   try {
     out = await api('api/fuzz', {
@@ -741,16 +814,11 @@ function renderProblem() {
   notes.placeholder = 'What pattern is this? What did you miss? Kept in progress.db.';
   notes.value = pr.notes || '';
   const saved = el('span', 'saved', '');
-  let t = null;
   notes.oninput = () => {
-    clearTimeout(t); saved.textContent = 'saving…';
-    t = setTimeout(async () => {
-      await setProgress({ notes: notes.value }, true);
-      saved.textContent = 'saved';
-      setTimeout(() => { saved.textContent = ''; }, 1500);
-    }, 600);
+    if (state.current && state.current.progress) state.current.progress.notes = notes.value;
+    scheduleNotes(notes.value);
   };
-  body.append(notes, saved);
+  body.append(notes, el('span', 'saved', 'saved as you type, in progress.db'));
 
   host.append(body);
   host.scrollTop = 0;
@@ -860,6 +928,10 @@ function renderWorkbench() {
   fuzzBtn.title = canFuzz ? 'Generated inputs, your code against the verified reference'
                           : 'Needs a verified reference solution';
   fuzzBtn.onclick = () => runFuzz();
+  const solBtn = el('button', 'btn ghost', 'Solution');
+  solBtn.title = d.solution ? 'Show the reference solution'
+                            : 'No reference solution is stored for this problem';
+  solBtn.onclick = () => showSolution();
   const scratchBtn = el('button', 'btn ghost', 'Scratch');
   scratchBtn.title = 'Evaluate an expression against your code — Shift-Ctrl-Enter';
   scratchBtn.onclick = () => toggleScratch();
@@ -869,7 +941,7 @@ function renderWorkbench() {
       ? '<span class="ok">' + saved.passed + '/' + saved.total + '</span>'
       : '<span class="no">' + saved.passed + '/' + saved.total + '</span>');
   }
-  run.append(runBtn, mineBtn, fuzzBtn, scratchBtn, verdict);
+  run.append(runBtn, mineBtn, fuzzBtn, solBtn, scratchBtn, verdict);
   host.append(run);
 
   /* --- row 4: scratch + output --- */
@@ -886,10 +958,13 @@ function renderWorkbench() {
   sbar.append(sgo, el('span', 'hint', 'runs your editor code first, then this'));
   scratch.append(sin, sbar);
 
+  const hsplit = el('div'); hsplit.id = 'hsplit';
+  hsplit.title = 'Drag to resize the output — double-click to reset';
   const out = el('div', 'wb-out'); out.id = 'wbOut';
   const runOut = el('div'); runOut.id = 'runOut';
   out.append(scratch, runOut);      // scratch stays put; only #runOut is cleared
-  host.append(out);
+  host.append(hsplit, out);
+  wireOutputSplitter(hsplit, out);
 
   state.editor = window.PyEditor.create(ta, {
     vim: state.vim, relative: state.relno, fontSize: state.fontSize,
@@ -901,6 +976,97 @@ function renderWorkbench() {
   setTimeout(() => state.editor && state.editor.refresh(), 0);
 }
 
+/* The reference solution, shown where you are working rather than buried at
+   the bottom of the problem pane - and honest when there is not one. */
+function showSolution() {
+  const d = state.current;
+  const box = outputPanel('Reference solution');
+  const sol = d.solution;
+
+  if (!sol) {
+    const card = el('div', 'case info');
+    const head = el('div', 'case-head');
+    head.append(el('span', 'badge', 'NONE'),
+                el('span', 'name', 'no reference solution for this problem'));
+    card.append(head);
+    const p = el('pre');
+    const stats = (state.env && state.env.solutions) || state.solutionStats || null;
+    p.textContent =
+      'The bank ships no solutions. Every one here was written for this repo and kept only\n' +
+      'if it passes that problem\u2019s visible examples' +
+      (stats ? ', and ' + stats.verified.toLocaleString() + ' of 3,533 problems have one\n' +
+               '(the most repeated and the most recent were done first).'
+             : '.') +
+      '\n\nTick \u201chas a reference solution\u201d in the Problems drawer to list the ones that do.';
+    card.append(p);
+    const bar = el('div', 'rowbtns');
+    const find = el('button', 'btn', 'Show me problems that have one');
+    find.onclick = () => { state.hasSolution = true; renderFilters(); reload(); openDrawer(); };
+    bar.append(find);
+    card.append(bar);
+    box.append(card);
+    return;
+  }
+
+  const card = el('div', 'case ' + (sol.verified ? 'pass' : 'info'));
+  const head = el('div', 'case-head');
+  head.append(el('span', 'badge', sol.verified ? 'VERIFIED' : 'UNVERIFIED'),
+              el('span', 'name', sol.verified
+                ? 'passes every visible example (' + (sol.cases || '') + ')'
+                : 'stored, but not confirmed against the examples'));
+  card.append(head);
+  const pre = el('pre');
+  pre.textContent = sol.code;
+  card.append(pre);
+  const bar = el('div', 'rowbtns');
+  const load = el('button', 'btn', 'Load into the editor');
+  load.onclick = () => {
+    if (!state.editor) return;
+    state.editor.setValue(sol.code);
+    state.editor.focus();
+    scheduleSave();
+  };
+  const copy = el('button', 'btn ghost', 'Copy');
+  copy.onclick = () => {
+    navigator.clipboard.writeText(sol.code);
+    copy.textContent = 'Copied'; setTimeout(() => { copy.textContent = 'Copy'; }, 1200);
+  };
+  bar.append(load, copy, el('span', 'hint', sol.checkedAt ? 'checked ' + sol.checkedAt : ''));
+  card.append(bar);
+  box.append(card);
+}
+
+/* Drag the boundary between the editor and its output; double-click resets. */
+function wireOutputSplitter(handle, out) {
+  let on = false, startY = 0, startH = 0;
+  handle.onmousedown = (e) => {
+    on = true; startY = e.clientY; startH = out.getBoundingClientRect().height;
+    e.preventDefault();
+    handle.classList.add('dragging'); document.body.classList.add('dragging-v');
+  };
+  handle.ondblclick = () => {
+    out.style.height = '';
+    remember('outh', '');
+    if (state.editor) state.editor.refresh();
+  };
+  window.addEventListener('mousemove', (e) => {
+    if (!on) return;
+    const pane = document.getElementById('editorPane').getBoundingClientRect();
+    const h = Math.min(pane.height - 170, Math.max(56, startH - (e.clientY - startY)));
+    out.style.height = h + 'px';
+    remember('outh', String(Math.round(h)));
+    if (state.editor) state.editor.refresh();
+  });
+  window.addEventListener('mouseup', () => {
+    if (!on) return;
+    on = false;
+    handle.classList.remove('dragging'); document.body.classList.remove('dragging-v');
+    if (state.editor) state.editor.refresh();
+  });
+  const saved = parseInt(localStorage.getItem('fp:outh') || '0', 10);
+  if (saved > 56) out.style.height = saved + 'px';
+}
+
 function toggleScratch(forceOpen) {
   const box = $('#scratchBox');
   if (!box) return;
@@ -909,20 +1075,24 @@ function toggleScratch(forceOpen) {
 }
 
 /* the output panel is shared by every run mode */
+/* ONE output container for every mode - runs, Random, Scratch, Solution.
+   It is #runOut, a child of #wbOut, so clearing it never destroys the scratch
+   pad that sits beside it. (Two containers is how the Solution card ended up
+   rendering somewhere the results were not.) */
 function outputPanel(title) {
-  const out = $('#wbOut');
-  const scratch = $('#scratchBox');
+  const out = $('#runOut');
+  if (!out) return $('#wbOut');
   out.textContent = '';
-  if (scratch) out.append(scratch);
-  const head = el('div', 'outhead');
-  head.append(el('h3', null, title));
-  out.append(head);
-  const body = el('div');
-  out.append(body);
-  return body;
+  if (title) {
+    const head = el('div', 'outhead');
+    head.append(el('h3', null, title));
+    out.append(head);
+  }
+  return out;
 }
 
 async function openProblem(id) {
+  await saver.flush();               // never carry pending edits onto the next problem
   const d = await api('api/problems/' + encodeURIComponent(id));
   state.current = d;
   state.lang = (d.languages.find(l => l.runnable) || d.languages[0] || {}).id;
@@ -966,10 +1136,9 @@ async function step(delta) {
 
 async function runFuzz() {
   const d = state.current;
-  const results = $('#runOut') || $('#wbOut');
+  const results = outputPanel('');
   const verdict = $('#verdict');
   verdict.textContent = 'generating inputs…';
-  results.textContent = '';
   let out;
   try {
     out = await api('/api/fuzz', {
@@ -1038,10 +1207,9 @@ async function runScratch() {
   const d = state.current;
   const snippet = ($('#scratchIn') || {}).value || '';
   if (!snippet.trim()) return;
-  const results = $('#runOut') || $('#wbOut');
+  const results = outputPanel('');
   const verdict = $('#verdict');
   verdict.textContent = 'evaluating…';
-  results.textContent = '';
   let out;
   try {
     out = await api('/api/scratch', {
@@ -1072,9 +1240,8 @@ async function runCode(include) {
   const d = state.current;
   const spec = d.languages.find(l => l.id === state.lang);
   if (!spec || !spec.runnable) return;
-  const results = $('#runOut') || $('#wbOut');
+  const results = outputPanel('');
   const verdict = $('#verdict');
-  results.textContent = '';
   verdict.textContent = 'running…';
   let out;
   try {
@@ -1094,9 +1261,8 @@ async function runCode(include) {
 }
 
 function renderResults(out) {
-  const results = $('#runOut') || $('#wbOut');
+  const results = outputPanel('');
   const verdict = $('#verdict');
-  results.textContent = '';
 
   if (out.error && !(out.results || []).length) {
     verdict.innerHTML = '<span class="no">did not run</span>';
@@ -1233,12 +1399,18 @@ function wireSplitter() {
     on = true; e.preventDefault();
     sp.classList.add('dragging'); document.body.classList.add('dragging');
   };
+  sp.ondblclick = () => {
+    left.style.flex = '0 0 46%';
+    remember('split', '46');
+    if (state.editor) state.editor.refresh();
+  };
   window.addEventListener('mousemove', (e) => {
     if (!on) return;
     const r = ws.getBoundingClientRect();
     const pct = Math.min(72, Math.max(24, (e.clientX - r.left) / r.width * 100));
     left.style.flex = '0 0 ' + pct + '%';
     remember('split', String(Math.round(pct)));
+    if (state.editor) state.editor.refresh();      // keep the code laid out while dragging
   });
   window.addEventListener('mouseup', () => {
     if (!on) return;

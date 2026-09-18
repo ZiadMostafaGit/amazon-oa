@@ -72,6 +72,11 @@ def generated_cases(pid: str) -> list:
     return out
 
 
+def verified_ids() -> set:
+    """Problem ids with a solution that passed its visible examples."""
+    return {pid for pid, v in _index().items() if v.get("ok")}
+
+
 def stats() -> dict:
     idx = _index()
     have = sum(1 for n in os.listdir(DIR) if n.endswith((".py", ".sql"))) if os.path.isdir(DIR) else 0

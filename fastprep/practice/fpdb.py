@@ -294,6 +294,11 @@ class Bank:
                 out[key].append({"value": UNSET, "count": n, "unset": True})
         out["sorts"] = [{"key": k, "label": v[2], "defaultDirection": v[1]}
                         for k, v in SORT_FIELDS.items()]
+        try:
+            import solutions
+            out["meta"]["withSolutions"] = len(solutions.verified_ids())
+        except Exception:
+            out["meta"]["withSolutions"] = None
         return out
 
     # ----------------------------------------------------------------- detail

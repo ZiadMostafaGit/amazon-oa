@@ -28,7 +28,7 @@ python3 serve.py --selftest          # run the 115 tests
 **Browse.** Every metadata field is a filter and every sensible field is a
 sort, freely combined.
 
-*Filters* — company, stage (OA / phone screen / onsite), difficulty, topic,
+*Filters* — has a reference solution, company, stage (OA / phone screen / onsite), difficulty, topic,
 assessment platform, employment type, target role, practice format; a "newest
 sighting" window and a "seen on any date" window; a seen-count range; has
 source screenshots; and your own status, bookmarks and notes. Several values
@@ -57,7 +57,9 @@ inline — click to enlarge. Tabular (SQL) problems have no `examples`; they get
 their table schemas, result contract and visible cases rendered as tables
 instead.
 
-**The layout.** Two panes: the problem on the left, the editor on the right.
+**The layout.** Two panes: the problem on the left, the editor on the right,
+with **draggable dividers** — one between the panes, one between the editor and
+its output. Both remember where you left them, and double-click resets either.
 The editor pane is a flex column that never scrolls as a whole, so the toolbar
 is pinned above the code and **Run, Random, Scratch and the verdict are always
 on screen** — no scrolling past the statement to reach them. Drag the divider
@@ -80,6 +82,7 @@ Three ways to run it:
 | **▶ Run tests** (`Ctrl-Enter`) | the published examples plus your own cases |
 | **Run my cases only** | just the cases you added, for iterating on one edge case |
 | **Scratch** (`Shift-Ctrl-Enter`) | evaluate any expression against your code — `solve([1,2,3])`, `print(helper(x))` |
+| **Solution** | the reference solution for this problem, with its verification badge and a button to load it into the editor — or, when there is none, which problems do have one |
 
 Each case reports pass/fail with expected versus actual and anything the code
 printed.
@@ -108,6 +111,14 @@ explore an edge case you do not yet know the answer to. Cases live in
 **Reference solutions.** Where one exists it sits in a collapsed panel at the
 bottom of the problem, badged with the verification it passed, with a button to
 load it into the editor. The bank ships none of these: see *Solutions* below.
+
+**Nothing is lost.** Your code (per problem and per language), your notes and
+your test cases are server-side state, saved as you type and confirmed by a
+badge in the header. What gets saved is captured *when you type*, not when the
+debounce fires — otherwise switching problems mid-debounce writes your code
+onto the problem you just left — and anything still pending is flushed with
+`sendBeacon` when the page is hidden or closed. Close the tab, reopen it a week
+later, and the buffer is where you left it.
 
 **Track.** Attempted / solved / review, bookmarks, notes and your last
 submission per language, kept in `progress.db` — a separate file, because
@@ -257,7 +268,7 @@ languages.py   what this machine can actually execute, and the starter code
 progress.py    your status/notes/bookmarks/submissions (separate db)
 images.py      lazy, rate-limited screenshot cache
 static/        the page: index.html, app.js, styles.css, editor.js (CodeMirror + vim), pyenv.js
-tests/         128 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
+tests/         136 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
                custom cases, scratch, solutions, random mode, generated cases
 tools/         pick / brief / verify / audit / batch — the solution pipeline
 solutions/     one file per problem id, plus MANIFEST.json and VERIFIED.json

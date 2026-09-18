@@ -69,6 +69,7 @@ def _filters_from_query(q: dict) -> tuple[dict, str, int, int, str]:
     status = (q.get("status") or [""])[0]
     bookmarked = (q.get("bookmarked") or [""])[0] in ("1", "true", "yes")
     has_notes = (q.get("hasNotes") or [""])[0] in ("1", "true", "yes")
+    has_solution = (q.get("hasSolution") or [""])[0] in ("1", "true", "yes")
     if status or bookmarked or has_notes:
         if status == "none":
             touched = set(PROGRESS.ids_with(bookmarked=bookmarked, has_notes=has_notes))
@@ -80,6 +81,10 @@ def _filters_from_query(q: dict) -> tuple[dict, str, int, int, str]:
         else:
             f["ids"] = PROGRESS.ids_with(status=status or None, bookmarked=bookmarked,
                                          has_notes=has_notes)
+    if has_solution:
+        # another id scope, intersected with whatever the progress facets left
+        verified = solutions_mod.verified_ids()
+        f["ids"] = sorted(set(f["ids"]) & verified) if f.get("ids") is not None else sorted(verified)
     sort = (q.get("sort") or ["recent"])[0]
     direction = (q.get("dir") or [""])[0]
     limit = max(1, min(int((q.get("limit") or ["50"])[0] or 50), 500))

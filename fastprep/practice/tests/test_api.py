@@ -623,6 +623,84 @@ class TestGaps(ServerCase):
         self.assertEqual(bad, [])
 
 
+class TestPersistence(ServerCase):
+    """Everything typed must survive closing the tab: the API is the store."""
+    PID = "amazon-stock-span"
+
+    def test_code_round_trips_per_language(self):
+        code = "def solve(prices):\n    return [42]\n"
+        self.post("/api/progress/" + self.PID, {"language": "python", "code": code})
+        back = self.get("/api/problems/" + self.PID)["progress"]["submissions"]["python"]
+        self.assertEqual(back["code"], code)
+
+    def test_code_is_kept_separately_per_problem(self):
+        """The bug this guards: a debounced save firing after you switched
+        problems used to write your code onto the problem you had left."""
+        self.post("/api/progress/amazon-stock-span",
+                  {"language": "python", "code": "# span\n"})
+        self.post("/api/progress/amazon-merge-intervals",
+                  {"language": "python", "code": "# merge\n"})
+        a = self.get("/api/problems/amazon-stock-span")["progress"]["submissions"]["python"]["code"]
+        b = self.get("/api/problems/amazon-merge-intervals")["progress"]["submissions"]["python"]["code"]
+        self.assertEqual((a, b), ("# span\n", "# merge\n"))
+
+    def test_notes_round_trip(self):
+        self.post("/api/progress/" + self.PID, {"notes": "monotonic stack"})
+        self.assertEqual(self.get("/api/problems/" + self.PID)["progress"]["notes"],
+                         "monotonic stack")
+
+    def test_custom_cases_survive(self):
+        d = self.get("/api/problems/" + self.PID)
+        param = d["cases"][0]["inputs"][0]
+        self.post("/api/cases/" + self.PID, {
+            "action": "add",
+            "inputs": [{"name": param["name"], "type": param["type"], "rawValue": "[4,4]"}],
+            "expected": "[1,2]"})
+        again = self.get("/api/problems/" + self.PID)["customCases"]
+        self.assertTrue(any(c["inputs"][0]["rawValue"] == "[4,4]" for c in again))
+
+    def test_a_new_server_process_still_sees_it_all(self):
+        """Nothing lives in RAM: a second process opening the same file sees it.
+        Self-contained on purpose - unittest orders methods alphabetically, so
+        relying on another test having written first is a trap."""
+        import progress as progress_mod
+        pid = "google-minimum-root-to-leaf-cut-cost"
+        self.post("/api/progress/" + pid,
+                  {"notes": "reopened", "language": "python", "code": "# kept\n"})
+        d = self.get("/api/problems/" + pid)
+        param = d["cases"][0]["inputs"][0]
+        self.post("/api/cases/" + pid, {
+            "action": "add",
+            "inputs": [{"name": param["name"], "type": param["type"],
+                        "rawValue": param["rawValue"]}],
+            "expected": d["cases"][0]["expectedRaw"]})
+
+        fresh = progress_mod.Progress(os.path.join(self.tmp, "progress.db"))
+        saved = fresh.get(pid)
+        self.assertEqual(saved["notes"], "reopened")
+        self.assertEqual(saved["submissions"]["python"]["code"], "# kept\n")
+        self.assertTrue(fresh.cases(pid))
+
+
+class TestSolutionFilter(ServerCase):
+    def test_filter_lists_only_problems_with_a_verified_solution(self):
+        total = self.get("/api/problems?hasSolution=1&limit=200")
+        self.assertGreater(total["total"], 1000)
+        for item in total["items"][:25]:
+            d = self.get("/api/problems/" + item["id"])
+            self.assertTrue(d["solution"] and d["solution"]["verified"], item["id"])
+
+    def test_it_combines_with_other_facets(self):
+        both = self.get("/api/problems?hasSolution=1&difficulty=hard&limit=1")["total"]
+        hard = self.get("/api/problems?difficulty=hard&limit=1")["total"]
+        self.assertLess(both, hard)
+        self.assertGreater(both, 0)
+
+    def test_facets_report_the_count(self):
+        m = self.get("/api/facets")["meta"]
+        self.assertEqual(m["withSolutions"], self.get("/api/problems?hasSolution=1&limit=1")["total"])
+
+
 class TestProgress(ServerCase):
     PID = "amazon-word-ladder"
 
