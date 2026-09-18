@@ -749,5 +749,77 @@ class TestProgress(ServerCase):
         self.assertEqual(os.path.getmtime(fpdb.DEFAULT_DB), before)
 
 
+class TestStudySpace(ServerCase):
+    """The topics API: browse, open a chapter, and keep what the reader does."""
+
+    def test_listing_is_ranked_and_complete(self):
+        out = self.get("/api/topics")
+        self.assertEqual(len(out["topics"]), 150)
+        self.assertEqual(out["problems"], 3533)
+        real = [t for t in out["topics"] if t["kind"] != "craft"]
+        self.assertEqual([t["count"] for t in real],
+                         sorted([t["count"] for t in real], reverse=True))
+        self.assertTrue(any(t["rare"] for t in out["topics"]))
+
+    def test_a_topic_carries_its_practice_queue(self):
+        out = self.get("/api/topics/monotonic-stack")
+        self.assertEqual(out["slug"], "monotonic-stack")
+        self.assertEqual(out["count"], len(out["queue"]))
+        self.assertTrue(out["queue"])
+        for q in out["queue"]:
+            self.assertIn("difficulty", q)
+            self.assertIn("hasSolution", q)
+        self.assertIn("stack", [r["slug"] for r in out["related"]])
+
+    def test_a_rare_topic_says_so_instead_of_pretending(self):
+        rare = [t for t in self.get("/api/topics")["topics"] if t["rare"]][0]
+        out = self.get("/api/topics/" + rare["slug"])
+        self.assertTrue(out["rare"])
+        self.assertEqual(out["queue"], [])
+
+    def test_unknown_topic_is_a_404(self):
+        with self.assertRaises(urllib.error.HTTPError) as cm:
+            self.get("/api/topics/not-a-topic")
+        self.assertEqual(cm.exception.code, 404)
+
+    def test_a_problem_links_to_its_chapters(self):
+        d = self.get("/api/problems/amazon-stock-span")
+        slugs = [t["slug"] for t in d["studyTopics"]]
+        self.assertIn("monotonic-stack", slugs)
+        self.assertLessEqual(len(slugs), 6)
+
+    def test_study_state_survives(self):
+        slug = "binary-search"
+        self.post("/api/study/" + slug, {"status": "reading", "notes": "mine",
+                                         "checked": [1, 3], "scratch": {"0": "print(7)"}})
+        out = self.get("/api/topics/" + slug)["study"]
+        self.assertEqual(out["status"], "reading")
+        self.assertEqual(out["notes"], "mine")
+        self.assertEqual(out["checked"], [1, 3])
+        self.assertEqual(out["scratch"], {"0": "print(7)"})
+        self.post("/api/study/" + slug, {"status": ""})
+        self.assertIsNone(self.get("/api/topics/" + slug)["study"]["status"])
+
+    def test_study_state_rejects_a_bad_status(self):
+        out, code = self.post("/api/study/binary-search", {"status": "finished"})
+        self.assertEqual(code, 400)
+
+    def test_an_article_snippet_runs_in_the_sandbox(self):
+        out, code = self.post("/api/scratch", {"snippet": "print(sum(range(5)))"})
+        self.assertEqual(code, 200)
+        self.assertEqual(out["printed"].strip(), "10")
+        self.assertEqual(out["sandbox"], "bubblewrap")
+
+    def test_the_written_chapter_is_served_rendered(self):
+        out = self.get("/api/topics/binary-search")
+        a = out["article"]
+        self.assertIsNotNone(a)
+        self.assertGreater(a["words"], 2500)
+        self.assertGreaterEqual(a["checks"], 3)
+        self.assertIn("<svg", a["html"])
+        self.assertIn("callout proof", a["html"])
+        self.assertTrue([s for s in a["snippets"] if s["run"]])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

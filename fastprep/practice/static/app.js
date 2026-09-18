@@ -28,6 +28,7 @@ const state = {
   relno: localStorage.getItem('fp:relno') !== '0',
   fontSize: parseInt(localStorage.getItem('fp:fs') || '14', 10),
   showCaseForm: false,
+  topic: '', studyOpen: false, topics: null,
 };
 
 const remember = (k, v) => { try { localStorage.setItem('fp:' + k, v); } catch (e) {} };
@@ -55,7 +56,11 @@ async function api(path, opts) {
 
 /* ------------------------------------------------------------- url syncing */
 function pushUrl() {
-  const qs = queryString(state.current ? { id: state.current.id } : {});
+  const extra = state.current ? { id: state.current.id } : {};
+  /* 'topic' is already a bank-tag filter, so the study space uses its own key */
+  if (state.topic) extra.study = state.topic;
+  else if (state.studyOpen) extra.study = 'all';
+  const qs = queryString(extra);
   history.replaceState(null, '', qs ? '?' + qs : location.pathname);
 }
 function readUrl() {
@@ -63,6 +68,9 @@ function readUrl() {
   MULTI.forEach(k => p.getAll(k).forEach(v => state.filters[k].add(v)));
   SINGLE.forEach(k => { if (p.get(k)) state[k] = p.get(k); });
   FLAGS.forEach(k => { if (p.get(k)) state[k] = true; });
+  const study = p.get('study') || '';
+  state.wantTopic = study && study !== 'all' ? study : '';
+  state.wantTopicList = study === 'all';
   return p.get('id');
 }
 
@@ -388,7 +396,7 @@ const saver = {
   timer: null,
 
   queue(key, id, body, delay) {
-    this.pending[key] = { id: id, body: body };
+    this.pending[key] = { path: 'api/progress/' + encodeURIComponent(id), body: body };
     this.paint('saving');
     clearTimeout(this.timer);
     this.timer = setTimeout(() => this.flush(), delay == null ? 600 : delay);
@@ -402,7 +410,7 @@ const saver = {
     let ok = true;
     for (const [key, item] of items) {
       try {
-        await api('api/progress/' + encodeURIComponent(item.id), {
+        await api(item.path, {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(item.body),
         });
@@ -423,10 +431,18 @@ const saver = {
     if (!items.length || !navigator.sendBeacon) return;
     items.forEach(item => {
       try {
-        navigator.sendBeacon(url('api/progress/' + encodeURIComponent(item.id)),
+        navigator.sendBeacon(url(item.path),
           new Blob([JSON.stringify(item.body)], { type: 'application/json' }));
       } catch (e) {}
     });
+  },
+
+  /* the study space saves the same way, to its own endpoint */
+  queueTo(key, path, body, delay) {
+    this.pending[key] = { path: path, body: body };
+    this.paint('saving');
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => this.flush(), delay == null ? 600 : delay);
   },
 
   paint(name) {
@@ -678,6 +694,20 @@ function renderProblem() {
   if (d.practiceFormat === 'tabular') meta.append(el('span', 'tag plain', 'SQL / tabular'));
   if (d.seenCount) meta.append(el('span', 'tag count', 'seen ' + d.seenCount + '×'));
   head.append(meta);
+
+  /* what this problem is about: each one opens its chapter in the study space */
+  const study = (d.studyTopics || []);
+  if (study.length) {
+    const row = el('div', 'meta-row topics-row');
+    row.append(el('span', 'rowlabel', 'Topics'));
+    study.forEach(t => {
+      const a = el('button', 'tag topic link', t.title);
+      a.title = 'Study ' + t.title + ' — ' + t.count + ' problems here';
+      a.onclick = () => Study.open(t.slug);
+      row.append(a);
+    });
+    head.append(row);
+  }
 
   const bar = el('div', 'statusbar');
   const pr = d.progress || {};
@@ -1456,10 +1486,13 @@ async function boot() {
     openProblem(wanted).catch(() => {});
   } else {
     renderPosition();
-    openDrawer();
+    if (!state.wantTopic && !state.wantTopicList) openDrawer();
   }
 
   wireSplitter();
+  Study.wire();
+  if (state.wantTopic) Study.open(state.wantTopic);
+  else if (state.wantTopicList) Study.openIndex();
 
   let t = null;
   $('#q').oninput = (e) => {
@@ -1472,6 +1505,7 @@ async function boot() {
   $('#sort').onchange = (e) => { state.sort = e.target.value; state.dir = ''; paintDirButton(); reload(); };
   $('#dir').onclick = () => { flipDirection(); reload(); };
   $('#menuBtn').onclick = () => (drawerOpen() ? closeDrawer() : openDrawer());
+  $('#studyBtn').onclick = () => (state.studyOpen ? Study.close() : Study.openIndex());
   $('#drawerClose').onclick = closeDrawer;
   $('#scrim').onclick = closeDrawer;
   $('#prevBtn').onclick = () => step(-1);
@@ -1499,13 +1533,15 @@ async function boot() {
     }
     if (e.key === 'Escape') {
       if (!$('#lightbox').hidden) { $('#lightbox').hidden = true; return; }
-      if (drawerOpen()) closeDrawer();
+      if (drawerOpen()) { closeDrawer(); return; }
+      if (state.studyOpen) Study.close();
       return;
     }
     const typing = e.target.matches('input,textarea,select') ||
                    e.target.closest('.CodeMirror');
     if (e.key === '/' && !typing) { e.preventDefault(); openDrawer(); return; }
     if (typing) return;
+    if (e.key === 's') { state.studyOpen ? Study.close() : Study.openIndex(); return; }
     if (e.key === 'j') step(1);
     if (e.key === 'k') step(-1);
     if (e.key === 'r' && drawerOpen()) { flipDirection(); reload(); }

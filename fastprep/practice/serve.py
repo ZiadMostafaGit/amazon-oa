@@ -32,6 +32,7 @@ import languages
 import progress as progress_mod
 import runner
 import solutions as solutions_mod
+import topics as topics_mod
 sys.path.insert(0, os.path.join(HERE, "tools"))
 from gaps import gaps_for
 
@@ -106,6 +107,9 @@ def _problem_payload(detail: dict) -> dict:
     detail["generatedCases"] = solutions_mod.generated_cases(pid)
     detail["progress"] = PROGRESS.get(pid)
     detail["solution"] = solutions_mod.get(pid, detail.get("practiceFormat") or "algorithm")
+    # the canon topics this problem practises: the tags under the statement
+    # link straight into the study space
+    detail["studyTopics"] = topics_mod.topics_for(pid)
     # say what this problem does not have, rather than rendering empty sections
     detail["gaps"] = gaps_for(detail)
     return detail
@@ -147,7 +151,7 @@ class Handler(BaseHTTPRequestHandler):
     # ------------------------------------------------------------------ GET
     # Everything this app answers at its own root. Anything else in the first
     # segment can only be a mount prefix a proxy added.
-    ROUTES = {"api", "app.js", "editor.js", "pyenv.js", "styles.css", "index.html",
+    ROUTES = {"api", "app.js", "editor.js", "study.js", "pyenv.js", "styles.css", "index.html",
               "vendor", "favicon.ico"}
 
     def _strip_base(self, path: str) -> str:
@@ -247,6 +251,14 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, blob, ctype, {
                 "Cache-Control": "public, max-age=604800",
                 "X-Image-Source": "cache" if cached else "fetched"})
+        if path == "/api/topics":
+            return self._json(topics_mod.listing(PROGRESS, BANK))
+        if path.startswith("/api/topics/"):
+            slug = path[len("/api/topics/"):].strip("/")
+            out = topics_mod.detail(slug, BANK, PROGRESS)
+            if not out:
+                return self._error(404, "no topic %r" % slug)
+            return self._json(out)
         if path == "/api/progress":
             return self._json({"items": PROGRESS.all(), "stats": PROGRESS.stats()})
         if path == "/api/progress/export":
@@ -271,6 +283,13 @@ class Handler(BaseHTTPRequestHandler):
                 return self._scratch(body)
             if url.path.startswith("/api/cases/"):
                 return self._cases(url.path[len("/api/cases/"):], body)
+            if url.path.startswith("/api/study/"):
+                slug = url.path[len("/api/study/"):].strip("/")
+                if not topics_mod.index()["bySlug"].get(slug):
+                    return self._error(404, "no topic %r" % slug)
+                fields = {k: body[k] for k in ("status", "notes", "checked", "scratch")
+                          if k in body}
+                return self._json(PROGRESS.topic_update(slug, **fields))
             if url.path.startswith("/api/progress/"):
                 pid = url.path[len("/api/progress/"):]
                 if not BANK.detail(pid):
@@ -456,6 +475,13 @@ class Handler(BaseHTTPRequestHandler):
                 detail = BANK.detail(wanted)
                 if detail:
                     boot["detail"] = _problem_payload(detail)
+            # the study space paints on the first frame too, rather than
+            # flashing an empty pane while it fetches its own chapter
+            study = (q.get("study") or [""])[0]
+            if study:
+                boot["topics"] = topics_mod.listing(PROGRESS, BANK)
+                if study != "all":
+                    boot["topic"] = topics_mod.detail(study, BANK, PROGRESS)
         except Exception:
             traceback.print_exc()
             boot = None

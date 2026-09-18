@@ -57,6 +57,28 @@ inline — click to enlarge. Tabular (SQL) problems have no `examples`; they get
 their table schemas, result contract and visible cases rendered as tables
 instead.
 
+**Study.** Press `s` or the **Study** button for the other half of the app: a
+canon of **150 topics**, ranked by how many of these 3 533 problems actually use
+them. Each one opens a chapter written to a fixed outline — when you reach for
+it, the idea, a worked-by-hand trace, *why it is correct* (a real invariant /
+base case / inductive step / termination argument, not a restatement), a derived
+complexity, a clean implementation, the variants, how to recognise it in a
+statement, the traps, and what to memorise — followed by self-check questions
+whose answers stay hidden until you ask.
+
+Inside a chapter the code blocks are **live**: edit them in place and press Run,
+and they execute in the same sandbox as your solutions. Diagrams are inline SVG.
+Every chapter ends with a **practice queue** — the problems in this bank that
+drill that topic, easiest first, marked with what you have already solved — and
+your reading state, notes and edits are saved server-side like everything else.
+The topic chips under a problem statement jump straight to the matching chapter.
+
+Topics are mapped to problems by the bank's own tags **plus** keyword patterns
+over the statements, because the bank tags only 36 coarse subjects and "stack"
+cannot tell you a problem wants a monotonic stack. A topic that no problem here
+uses is **kept and marked rare** rather than dropped: it is still worth knowing,
+and saying "nothing in this collection uses it" is more useful than silence.
+
 **The layout.** Two panes: the problem on the left, the editor on the right,
 with **draggable dividers** — one between the panes, one between the editor and
 its output. Both remember where you left them, and double-click resets either.
@@ -267,11 +289,17 @@ harness_*.py   what runs inside it (python cases, SQL cases, scratch)
 languages.py   what this machine can actually execute, and the starter code
 progress.py    your status/notes/bookmarks/submissions (separate db)
 images.py      lazy, rate-limited screenshot cache
-static/        the page: index.html, app.js, styles.css, editor.js (CodeMirror + vim), pyenv.js
-tests/         136 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
-               custom cases, scratch, solutions, random mode, generated cases
+topics.py      the study space: the canon, its articles, and each topic's queue
+mdlite.py      the small strict Markdown dialect the chapters are written in
+static/        the page: index.html, app.js, study.js, styles.css, editor.js, pyenv.js
+tests/         165 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
+               custom cases, scratch, solutions, random mode, generated cases,
+               the canon, the topic mapping, the renderer and the study endpoints
 tools/         pick / brief / verify / audit / batch — the solution pipeline
+               canon / topicmap / brief_topic / verify_topic — the study space
 solutions/     one file per problem id, plus MANIFEST.json and VERIFIED.json
+topics/        CANON in tools/canon.py, INDEX.json (generated), AUTHORING.md,
+               and articles/<slug>.md — one chapter per topic
 static/vendor/ CodeMirror and JetBrains Mono, vendored so the app is fully offline
 ```
 

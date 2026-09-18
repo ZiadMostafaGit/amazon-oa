@@ -43,6 +43,14 @@ CREATE TABLE IF NOT EXISTS custom_cases (
     note        TEXT,
     created_at  TEXT
 );
+CREATE TABLE IF NOT EXISTS topic_progress (
+    slug        TEXT PRIMARY KEY,
+    status      TEXT,              -- reading | done | NULL
+    notes       TEXT,
+    checked     TEXT,              -- json: ids of revealed self-check questions
+    scratch     TEXT,              -- code typed into the article's snippets
+    updated_at  TEXT
+);
 CREATE INDEX IF NOT EXISTS idx_status ON progress(status);
 CREATE INDEX IF NOT EXISTS idx_cases  ON custom_cases(problem_id);
 """
@@ -99,12 +107,56 @@ class Progress:
             sql.append("AND TRIM(COALESCE(notes,'')) <> ''")
         return [r[0] for r in self.conn.execute(" ".join(sql), args)]
 
+    # -------------------------------------------------------- study space
+    def topic_get(self, slug: str) -> dict:
+        r = self.conn.execute("SELECT * FROM topic_progress WHERE slug=?",
+                              (slug,)).fetchone()
+        if not r:
+            return {"slug": slug, "status": None, "notes": "", "checked": [],
+                    "scratch": {}, "updatedAt": None}
+        return {"slug": slug, "status": r["status"], "notes": r["notes"] or "",
+                "checked": json.loads(r["checked"] or "[]"),
+                "scratch": json.loads(r["scratch"] or "{}"),
+                "updatedAt": r["updated_at"]}
+
+    def topics_all(self) -> dict:
+        out = {}
+        for r in self.conn.execute("SELECT * FROM topic_progress"):
+            if r["status"] or (r["notes"] or "").strip():
+                out[r["slug"]] = {"status": r["status"],
+                                  "hasNotes": bool((r["notes"] or "").strip())}
+        return out
+
+    def topic_update(self, slug: str, **fields) -> dict:
+        cur = self.topic_get(slug)
+        sets, args = [], []
+        for key, col in (("status", "status"), ("notes", "notes")):
+            if key in fields:
+                v = fields[key]
+                if key == "status" and v not in (None, "", "reading", "done"):
+                    raise ValueError("unknown study status: %r" % (v,))
+                sets.append("%s=?" % col); args.append(v or None if key == "status" else (v or ""))
+        for key, col in (("checked", "checked"), ("scratch", "scratch")):
+            if key in fields:
+                sets.append("%s=?" % col); args.append(json.dumps(fields[key]))
+        if not sets:
+            return cur
+        self.conn.execute(
+            "INSERT INTO topic_progress(slug, updated_at) VALUES (?,?) "
+            "ON CONFLICT(slug) DO NOTHING", (slug, self._now()))
+        self.conn.execute("UPDATE topic_progress SET %s, updated_at=? WHERE slug=?"
+                          % ", ".join(sets), args + [self._now(), slug])
+        self.conn.commit()
+        return self.topic_get(slug)
+
     def stats(self) -> dict:
         rows = dict(self.conn.execute(
             "SELECT COALESCE(status,'none'), COUNT(*) FROM progress GROUP BY 1").fetchall())
         rows["bookmarked"] = self.conn.execute(
             "SELECT COUNT(*) FROM progress WHERE bookmarked=1").fetchone()[0]
         rows["runs"] = self.conn.execute("SELECT COUNT(*) FROM run_log").fetchone()[0]
+        rows["topicsRead"] = self.conn.execute(
+            "SELECT COUNT(*) FROM topic_progress WHERE status='done'").fetchone()[0]
         return rows
 
     # ----------------------------------------------------------------- write
@@ -190,4 +242,5 @@ class Progress:
             "progress": [dict(r) for r in self.conn.execute("SELECT * FROM progress")],
             "submissions": [dict(r) for r in self.conn.execute("SELECT * FROM submissions")],
             "customCases": [dict(r) for r in self.conn.execute("SELECT * FROM custom_cases")],
+            "topics": [dict(r) for r in self.conn.execute("SELECT * FROM topic_progress")],
         }

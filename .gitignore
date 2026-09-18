@@ -10,3 +10,7 @@ progress-*.json
 
 .DS_Store
 *.swp
+
+# headless UI drivers, generated during development
+fastprep/practice/static/_*.html
+fastprep/practice/topics/VERIFIED.json

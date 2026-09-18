@@ -20,6 +20,11 @@
     <span>Problems</span>
   </button>
 
+  <button id="studyBtn" class="iconbtn" title="Study space — 150 topics  (press s)" aria-pressed="false">
+    <svg viewBox="0 0 24 24"><path d="M4 5h7a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4zM20 5h-7a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h7z"/></svg>
+    <span>Study</span>
+  </button>
+
   <div class="brand">FastPrep <span>practice</span></div>
 
   <div id="crumb" class="crumb"></div>
@@ -47,6 +52,8 @@
       <div class="empty-state">
         <h2>Pick a problem</h2>
         <p>Press <kbd>/</kbd> or use <b>Problems</b> to browse 3,533 reported questions.</p>
+        <p>Or press <kbd>s</kbd> for the <b>Study</b> space: 150 topics, ranked by how
+           many of these problems use them, each with a chapter and its own practice queue.</p>
       </div>
     </div>
   </section>
@@ -57,6 +64,26 @@
     <div id="workbench" class="workbench-empty">
       <p>The editor appears when you open a problem.</p>
     </div>
+  </section>
+</main>
+
+<!-- ============ study space: topics | chapter ============ -->
+<main id="study" hidden>
+  <aside id="topicNav">
+    <div class="tn-head">
+      <input id="topicQ" type="search" placeholder="Filter topics…" autocomplete="off" spellcheck="false">
+      <button id="studyCloseBtn" class="iconbtn" title="Back to the problem  (Esc)">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="topicCount" class="tn-count"></div>
+    <div id="topicList" class="tn-list"></div>
+  </aside>
+
+  <div id="studySplit" title="Drag to resize"></div>
+
+  <section id="topicPane">
+    <div id="topic" class="pane-scroll"></div>
   </section>
 </main>
 
@@ -107,6 +134,7 @@
 <script src="vendor/codemirror/addon/search/jump-to-line.min.js"></script>
 <script src="pyenv.js"></script>
 <script src="editor.js"></script>
+<script src="study.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
