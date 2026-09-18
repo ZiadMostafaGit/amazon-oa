@@ -311,6 +311,8 @@ arr = [3, 1, 4, 2]</pre>
 <pre class="sample">1</pre>
 <div class="sublabel">Explanation</div>
 <p>Choose index <em>i = 1</em> (where <em>arr[1] = 1</em>) and set positions 2 to <em>arr[1]</em>. The cost is <em>(3 - 1 - 1) * 1 = 1</em>.</p>
+
+<div class="srcnote"><strong>Also reported as:</strong> <em>"Minimum Cost of Left and Right Propagation"</em> (<code>minimumPropagationCost</code>) in the FastPrep section — the same two operations at the same costs, with different worked examples (<code>[5,2,4] &rarr; 4</code> and <code>[1,1,2,1] &rarr; 2</code>). Good second pass on this one.</div>
 <div class="ans">
 <h3>Answer</h3>
 <p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
@@ -1043,6 +1045,7 @@ merged &minus; separate = M&#8321; + M&#8322; &minus; max(M&#8321;, M&#8322;) = 
     return [rng.sample(range(1, 10 * m + 10), m)]`,
   tests:[
     {in:[[3, 2, 8, 6]], out:1},
+    {in:[[5, 1, 4, 2, 6]], out:3},
     {in:[[1, 2, 3]], out:0},
     {in:[[5, 1, 4, 2, 3]], out:2},
     {in:[[10, 9, 8, 7]], out:0},
@@ -1322,6 +1325,7 @@ all flows &le; 0  &rArr;  P[i] &minus; C' &le; 0 for all i  &rArr;  C' &ge; max 
     return [reqs, rng.randint(0, 4 * m)]`,
   tests:[
     {in:[[[1, 5, 5, 0], [2, 7, 8, 1], [3, 7, 5, 1], [4, 10, 3, 3]], 18], out:[4]},
+    {in:[[[1, 2, 10, 0], [2, 3, 10, 1], [3, 1, 5, 0]], 3], out:[3]},
     {in:[[[1, 5, 5, 0], [2, 7, 8, 1], [3, 7, 5, 1], [4, 10, 3, 3]], 0], out:[1, 2, 3, 4]},
     {in:[[[1, 2, 5, 0], [2, 2, 5, 1]], 4], out:[]},
     {in:[[[1, 3, 9, 0], [2, 3, 1, 1]], 3], out:[2]}
@@ -1350,6 +1354,8 @@ Output: [4]</pre>
 <div class="srcnote"><strong>Also catalogued as:</strong> "Unfulfilled Customers by Inventory Priority" on FastPrep — <em>Medium · Amazon · New Grad · Fulltime · OA</em>, category <em>Array</em>. That listing notes the question was reported asked again on <strong>08-19-2026</strong>, and supplies the final clause of the explanation above (the exam screenshot cut off mid-sentence).</div>
 
 <div class="frag">Still missing: the Function Description, Returns and Constraints sections — neither source shows them (the FastPrep statement is paywalled past the intro).</div>
+
+<div class="srcnote"><strong>Re-reported (Sept 2026) as "Inventory Allocation"</strong> with the same callable <code>getUnfulfilledCustomers(requests, totalInventory)</code>, the same worked example, and the constraints the exam screenshot cut off: <code>1 &le; requests.length &le; 10&#8309;</code>, four integer fields per row, distinct customer IDs, <code>0 &le; timestamp &le; 10&#8313;</code>, <code>0 &le; totalInventory &le; 10&#8313;</code>. It also publishes a second example, <code>[[1,2,10,0],[2,3,10,1],[3,1,5,0]]</code> with 3 units &rarr; <code>[3]</code> — added to the cases below — and states that the result keeps the order in which the requests appear in the input.</div>
 
 <div class="srcnote"><strong>See also:</strong> <em>"Unfulfilled Bids after Ranked Round-Robin Allocation"</em> in the FastPrep section — a fully specified variant of this exercise, with constraints, tiebreak rules and test cases. Note it is <strong>not</strong> the same question: the bid fields are in a different order and it returns every partially fulfilled customer rather than only those who got nothing.</div>
 <div class="ans">
@@ -4650,8 +4656,8 @@ wrong:    floor(333.33) + 500 + 1000 + 2500 = 333 + 4000     = <b>4333</b>  &lar
   id:'fp-cityhops', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Graph',
   label:'Problem', title:'Find Minimum City Hops',
   minutes:30, score:'',
-  images:['WhatsApp Image 2026-09-07 at 10.14.58 PM.jpeg','Screenshot_20260908_000439.png'],
-  fn:{name:'minimumHops', ret:'int', params:[['string[]','cities'],['string','startCity'],['string','endCity']]},
+  images:['src-cityhops-full.png','WhatsApp Image 2026-09-07 at 10.14.58 PM.jpeg','Screenshot_20260908_000439.png'],
+  fn:{name:'findMinimumCityHops', ret:'int', params:[['string[]','cities'],['string','startCity'],['string','endCity']]},
   gen:`def gen(rng, n):
     al = 'abc'
     cities = sorted({''.join(rng.choice(al) for _ in range(3)) for _ in range(max(2, n))})
@@ -4659,17 +4665,21 @@ wrong:    floor(333.33) + 500 + 1000 + 2500 = 333 + 4000     = <b>4333</b>  &lar
   tests:[
     {in:[["abc", "abd", "acd", "xyz"], "abc", "acd"], out:2},
     {in:[["abc", "abd"], "abc", "abc"], out:0},
-    {in:[["aaa", "aab", "abb", "bbb"], "aaa", "bbb"], out:3}
+    {in:[["aaa", "aab", "abb", "bbb"], "aaa", "bbb"], out:3},
+    {in:[["abc", "abd", "xyz"], "abc", "xyz"], out:-1},
+    {in:[["abc", "abd"], "abc", "abd"], out:1}
   ],
   body:`
 <div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">FULLTIME</span><span class="tag">OA</span></div>
 
-<div class="srcnote"><strong>Source note:</strong> Special thanks to a friend for sharing that this problem previously appeared in an Amazon Online Assessment. I've used September 3, 2026, the date this information was shared, as the initial last seen date. We'll take it from here. The shared source excerpt defines the city format, adjacency rule, minimum-hop objective, and unreachable result. The callable interface, endpoint-validity guarantee, and examples are provided for practice; the judged core task matches the visible source at about 97%.</div>
+<div class="srcnote"><strong>Source note:</strong> Special thanks to a friend for sharing that this problem previously appeared in an Amazon Online Assessment. I've used September 3, 2026, the date this information was shared, as the initial last seen date. We'll take it from here. The shared source excerpt defines the city format, adjacency rule, minimum-hop objective, and unreachable result. The full statement has since become visible (see the first screenshot): the callable is <code>findMinimumCityHops</code>, both endpoints are guaranteed to appear in <code>cities</code>, and three worked examples are published. The judged core task matches the visible source at about 97%.</div>
 
 <p>You are given an array of cities named <code>cities</code>. Each city is represented by a three-character lowercase string.</p>
 <p>Two cities are directly connected when their strings differ in exactly one character position.</p>
+<p>Starting from <code>startCity</code>, you may hop only between directly connected cities in <code>cities</code>. Return the minimum number of hops needed to reach <code>endCity</code>. If <code>endCity</code> is not reachable, return <code>-1</code>.</p>
 
-<div class="locked">🔒 The problem statement continues (paywalled on FastPrep — not captured).</div>
+<h3>Function</h3>
+<pre class="sample">findMinimumCityHops(cities: String[], startCity: String, endCity: String) &rarr; int</pre>
 
 <h3>Examples</h3>
 <div class="sublabel">Example 1</div>
@@ -4678,7 +4688,27 @@ startCity = "abc"
 endCity   = "acd"
 return    = 2</pre>
 <p>One shortest route is <code>abc</code> to <code>abd</code> to <code>acd</code>. Each hop changes exactly one character, so the route uses <code>2</code> hops.</p>
-<div class="frag">Example 2 was blurred/locked in the screenshot.</div>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">cities    = ["aaa","aab","abb","bbb"]
+startCity = "aaa"
+endCity   = "bbb"
+return    = 3</pre>
+<p>The route <code>aaa</code> to <code>aab</code> to <code>abb</code> to <code>bbb</code> changes one position per hop and reaches the destination in 3 hops.</p>
+
+<div class="sublabel">Example 3</div>
+<pre class="sample">cities    = ["abc","abd","xyz"]
+startCity = "abc"
+endCity   = "xyz"
+return    = -1</pre>
+<p>The city <code>xyz</code> is not connected to the component containing <code>abc</code>, so it cannot be reached.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>cities</code> contains at least one city.</li>
+  <li>Every value in <code>cities</code>, as well as <code>startCity</code> and <code>endCity</code>, consists of exactly three lowercase English letters.</li>
+  <li><code>startCity</code> and <code>endCity</code> each appear in <code>cities</code>.</li>
+</ul>
 <div class="ans">
 <h3>Answer</h3>
 <p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
@@ -4688,7 +4718,7 @@ return    = 2</pre>
 <p>Mark each bucket as consumed the first time you expand it, so the total work stays linear in the number of (city, pattern) pairs.</p>
 <p>Example: <code>["abc","abd","acd","xyz"]</code>, start "abc", end "acd" → abc → abd → acd = <strong>2</strong> hops. ✓</p><p><span class="cx">Time O(n · L)</span><span class="cx">Space O(n · L)</span></p><pre class="sample"><code>from collections import defaultdict, deque
 
-def minimumHops(cities, startCity, endCity):
+def findMinimumCityHops(cities, startCity, endCity):
     if startCity == endCity:
         return 0
     buckets = defaultdict(list)
@@ -4712,7 +4742,7 @@ def minimumHops(cities, startCity, endCity):
                 if nxt not in seen:
                     seen.add(nxt)
                     dq.append((nxt, d + 1))
-    return -1</code></pre><div class="unsure">The FastPrep listing is paywalled past the intro, so the exact return value for an unreachable pair is unconfirmed — <code>-1</code> is the usual convention.</div></div></details>
+    return -1</code></pre></div></details>
 <details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
 <p>Traced on the published example: <code>cities = ["abc","abd","acd","xyz"]</code>, start <code>"abc"</code>, end <code>"acd"</code>, answer <strong>2</strong>.</p>
 <div class="step"><h4>1 &middot; It is a graph, and the edges are implicit</h4>
@@ -4740,8 +4770,8 @@ acd joins buckets:  *cd , <b>a*d</b> , ac*      &larr; shares a*d with abd</div>
 <div class="step"><h4>4 &middot; Traps</h4>
 <ul>
 <li><strong><code>startCity == endCity</code> returns 0</strong>, and must be checked before the loop.</li>
-<li><strong>Is <code>startCity</code> guaranteed to be in <code>cities</code>?</strong> The statement is paywalled here. Seeding the BFS from it regardless is the safe choice.</li>
-<li><strong>Unreachable end</strong> — decide the sentinel (&minus;1 is conventional); also not visible in the source.</li>
+<li><strong>Both endpoints are guaranteed to appear in <code>cities</code></strong>, so the BFS can be seeded from <code>startCity</code> without a membership check — but seeding it anyway costs nothing and survives a judge that drops the guarantee.</li>
+<li><strong>Unreachable end returns &minus;1</strong>, as example 3 shows — not 0 and not an exception.</li>
 <li><strong>Mark buckets used, not just cities visited.</strong> Both guards are needed for the linear bound.</li>
 <li><strong>Hops are edges, not nodes.</strong> A 3-city route is 2 hops; an off-by-one here is easy.</li>
 </ul></div>
@@ -5271,7 +5301,7 @@ previous_final = need</div>
   id:'fp-unfulfilledbids', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Array',
   label:'Problem', title:'Unfulfilled Bids after Ranked Round-Robin Allocation',
   minutes:35, score:'',
-  images:[],
+  images:['src-unfulfilledbids-full.png'],
   fn:{name:'findUnfulfilledBids', ret:'int[]', params:[['int[][]','bids'],['int','totalInventory']]},
   gen:`def gen(rng, n):
     m = max(1, n)
@@ -5503,6 +5533,7 @@ expected
 1</pre></div>
 </div>
 
+<div class="srcnote"><strong>Also reported as:</strong> <em>"Make Value Groups Contiguous"</em> (<code>minOperationsToMakeValuesContiguous</code>) in this same section — identical task, different wrapper name, and its report carries a formula line that contradicts the minimum. Solve one, check the other.</div>
 <div class="srcnote"><strong>Compare with:</strong> <em>"Optimal Inventory — Minimum Replacement Cost"</em> (<code>getMinAmount</code>) in the Amazon OA · Coding section. Identical setup and identical validity condition, but a <strong>different objective</strong>: that one charges <code>num_replacements</code> — the number of <em>elements</em> changed — and asks for minimum money; this one counts <em>operations</em>, so each merge costs exactly 1 regardless of how many elements move. Different answers, different algorithms.</div>
 <div class="ans">
 <h3>Answer</h3>
@@ -5847,6 +5878,1917 @@ def getMinInconvenience(grid):
 <li><strong>Binary-search bounds:</strong> d = 0 must be testable, and the upper bound needs to be at least <code>max(n, m)</code>.</li>
 <li><strong>500 × 500 = 250 000 cells</strong> and about 9 binary-search steps — fine, but do not rebuild the BFS inside the feasibility check; compute <code>dist</code> once, before searching.</li>
 </ul></div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-binswaps', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Array',
+  label:'Problem', title:'Minimum Adjacent Swaps to Group Binary Values',
+  minutes:30, score:'',
+  images:['src-binswaps.png'],
+  fn:{name:'minimumAdjacentSwaps', ret:'long', params:[['int[]','bits']]},
+  gen:`def gen(rng, n):
+    m = max(1, n)
+    return [[rng.randint(0, 1) for _ in range(m)]]`,
+  tests:[
+    {in:[[0, 1, 0, 1]], out:1},
+    {in:[[1, 1, 0, 0]], out:0},
+    {in:[[0]], out:0},
+    {in:[[1, 0, 1, 0, 1, 0]], out:3},
+    {in:[[0, 0, 1, 1]], out:0},
+    {in:[[1, 0, 0, 1, 1, 0, 0]], out:4},
+    {in:[[1, 1, 1]], out:0}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">NEW GRAD</span><span class="tag">OA</span></div>
+
+<div class="srcnote"><strong>Source note:</strong> The core task and binary-array bound are directly specified by the interview report.</div>
+
+<p>You are given a binary array <code>bits</code>. Using adjacent swaps, rearrange it so that equal values form two contiguous groups.</p>
+<p>Either order is valid: all <code>0</code>s before all <code>1</code>s, or all <code>1</code>s before all <code>0</code>s. Return the minimum number of adjacent swaps over both orders.</p>
+
+<h3>Function</h3>
+<pre class="sample">minimumAdjacentSwaps(bits: int[]) &rarr; long</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">bits   = [0,1,0,1]
+return = 1</pre>
+<p>Swap the middle 1 and 0 to obtain <code>[0,0,1,1]</code>.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">bits   = [1,1,0,0]
+return = 0</pre>
+<p>The array already has all ones before all zeroes.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>1 &lt;= bits.length &lt;= 100000</code></li>
+  <li>Every value in <code>bits</code> is either <code>0</code> or <code>1</code>.</li>
+</ul>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>There are only two possible final arrangements, and each is a <em>sorted</em> array. Solve one of them and the other is the mirror image.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>The minimum number of adjacent swaps that sorts an array is its <strong>inversion count</strong>. For a binary array that count needs no merge sort: sweep once, and every time you meet a 0, add the number of 1s already seen.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Two targets, both sorted: <code>0…01…1</code> and <code>1…10…0</code>. For a fixed target, the minimum number of adjacent swaps equals the number of inversions with respect to that order, because one adjacent swap fixes exactly one inverted pair.</p>
+<ul>
+<li>Target <em>zeroes first</em> &rarr; inversions are the pairs <code>(i &lt; j)</code> with <code>bits[i] = 1</code>, <code>bits[j] = 0</code>.</li>
+<li>Target <em>ones first</em> &rarr; the pairs with <code>bits[i] = 0</code>, <code>bits[j] = 1</code>.</li>
+</ul>
+<p>Both are counted in one pass with two running tallies, so no sorting and no Fenwick tree is needed. Answer: the smaller of the two.</p>
+<p><span class="cx">Time O(n)</span><span class="cx">Space O(1)</span></p><pre class="sample"><code>def minimumAdjacentSwaps(bits):
+    zeros = ones = 0
+    inv10 = inv01 = 0          # 1-before-0 pairs, 0-before-1 pairs
+    for b in bits:
+        if b == 0:
+            inv10 += ones      # every earlier 1 must cross this 0
+            zeros += 1
+        else:
+            inv01 += zeros
+            ones += 1
+    return min(inv10, inv01)</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on the published examples: <code>[0,1,0,1] &rarr; 1</code> and <code>[1,1,0,0] &rarr; 0</code>.</p>
+
+<div class="step"><h4>1 &middot; "Two contiguous groups" means sorted, one way or the other</h4>
+<p>A binary array whose equal values form two blocks is either non-decreasing or non-increasing. There is nothing else to choose: the target is fully determined once you pick which value goes first, so the problem is <strong>two sorting problems</strong>, not a search.</p>
+<div class="formula">target A:  0 0 &hellip; 0 1 1 &hellip; 1     (non-decreasing)
+target B:  1 1 &hellip; 1 0 0 &hellip; 0     (non-increasing)
+answer  =  min(cost to reach A, cost to reach B)</div>
+</div>
+
+<div class="step"><h4>2 &middot; Why the cost is the inversion count</h4>
+<p>An adjacent swap changes the relative order of exactly one pair of positions. A pair that is already in the target order must never be swapped, and a pair that is out of order must be swapped an odd number of times &mdash; so at least once. Therefore</p>
+<div class="formula">swaps &ge; number of out-of-order pairs (inversions)</div>
+<p>and the bound is attained, because while any inversion exists there is an <em>adjacent</em> inversion, and swapping it removes exactly one. Equal values are interchangeable, so no pair of two 0s or two 1s ever counts.</p>
+</div>
+
+<div class="step"><h4>3 &middot; Counting both inversion sets in one pass</h4>
+<p>For target A the inverted pairs are (1 before 0). Walk left to right holding <code>ones</code>, the number of 1s seen so far; each 0 you meet closes exactly <code>ones</code> such pairs. Target B is the mirror: hold <code>zeros</code> and charge each 1.</p>
+<table class="trace">
+<tr><th>i</th><th>bits[i]</th><th>ones so far</th><th>zeros so far</th><th>inv10 (&rarr; A)</th><th>inv01 (&rarr; B)</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>0 &rarr; 1</td><td>+0 = 0</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>0 &rarr; 1</td><td>1</td><td>0</td><td>+1 = 1</td></tr>
+<tr><td>2</td><td>0</td><td>1</td><td>1 &rarr; 2</td><td class="hit">+1 = <b>1</b></td><td>1</td></tr>
+<tr><td>3</td><td>1</td><td>1 &rarr; 2</td><td>2</td><td>1</td><td>+2 = 3</td></tr>
+</table>
+<div class="formula">answer = min(inv10, inv01) = min(1, 3) = <b>1</b>   &check; matches the published 1</div>
+<p>Example 2, <code>[1,1,0,0]</code>: the 1s all precede the 0s, so <code>inv01 = 0</code> and the answer is <strong>0</strong> &mdash; even though <code>inv10</code> is 4. Forgetting the second target is the classic way to return 4 here.</p>
+</div>
+
+<div class="step"><h4>4 &middot; Traps</h4>
+<ul>
+<li><strong>Both orders count.</strong> The statement says either grouping is acceptable; a solution that only sorts ascending fails example 2.</li>
+<li><strong>The result does not fit in 32 bits.</strong> With n = 100000 the inversion count reaches 2.5 &times; 10&#8313;, hence the <code>long</code> return type.</li>
+<li><strong>Do not simulate the swaps.</strong> Bubbling really does take &Theta;(n&sup2;) moves; only the <em>count</em> is asked for.</li>
+<li><strong>No Fenwick tree needed.</strong> Binary values make the inversion count a two-counter sweep &mdash; reaching for a BIT is a correct but needlessly slow answer in an interview.</li>
+<li><strong>inv10 + inv01 is not a constant</strong> you can shortcut with: it equals (number of 0s) &times; (number of 1s), which is a nice sanity check &mdash; 2 &times; 2 = 4 = 1 + 3 above.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-syncdrop', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Intervals',
+  label:'Problem', title:'Minimum Processes to Drop for Synchronization',
+  minutes:30, score:'',
+  images:['src-syncdrop.png'],
+  fn:{name:'minimumProcessesToDrop', ret:'int', params:[['int[]','starts'],['int[]','ends']]},
+  gen:`def gen(rng, n):
+    m = max(1, n)
+    starts, ends = [], []
+    for _ in range(m):
+        s = rng.randint(1, 4 * m)
+        starts.append(s)
+        ends.append(s + rng.randint(0, m))
+    return [starts, ends]`,
+  tests:[
+    {in:[[1, 2, 3, 4], [2, 3, 5, 5]], out:1},
+    {in:[[1, 4, 6], [10, 5, 8]], out:0},
+    {in:[[1, 4, 7], [2, 5, 8]], out:2},
+    {in:[[5], [5]], out:0},
+    {in:[[1, 3, 5, 7], [2, 4, 6, 8]], out:3},
+    {in:[[1, 1, 1], [9, 9, 9]], out:0},
+    {in:[[1, 2, 3], [4, 2, 9]], out:0}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">FULLTIME</span><span class="tag">OA</span></div>
+
+<div class="srcnote"><strong>Source note:</strong> The source does not show numeric bounds or a callable signature. The judged core task matches the visible source at about 97%.</div>
+
+<p>A team runs <code>n</code> processes. Process <code>i</code> executes during the inclusive interval <code>[starts[i], ends[i]]</code>.</p>
+<p>A remaining set of processes is <em>synchronized</em> if at least one process in the set has an execution interval that overlaps the execution interval of every other process in the set. Intervals that share an endpoint overlap.</p>
+<p>Return the minimum number of processes that must be dropped so that the remaining processes form a synchronized set.</p>
+<p>A set containing only one process is synchronized.</p>
+
+<h3>Function</h3>
+<pre class="sample">minimumProcessesToDrop(starts: int[], ends: int[]) &rarr; int</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">starts = [1,2,3,4]
+ends   = [2,3,5,5]
+return = 1</pre>
+<p>Drop the process with interval <code>[4, 5]</code>. Among the remaining intervals, <code>[2, 3]</code> overlaps <code>[1, 2]</code> at time 2 and <code>[3, 5]</code> at time 3, so the remaining set is synchronized.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">starts = [1,4,6]
+ends   = [10,5,8]
+return = 0</pre>
+<p>The interval <code>[1, 10]</code> overlaps both other intervals, so all three processes already form a synchronized set.</p>
+
+<div class="sublabel">Example 3</div>
+<pre class="sample">starts = [1,4,7]
+ends   = [2,5,8]
+return = 2</pre>
+<p>The three intervals are pairwise disjoint. Keeping any one process produces a synchronized singleton, so two processes must be dropped.</p>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>You are not asked for a set of mutually overlapping intervals. Only <em>one</em> process &mdash; call it the hub &mdash; has to meet all the others. Fix the hub and the rest of the answer writes itself.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>Once the hub is fixed, every interval that touches it may stay, because the condition says nothing about the non-hub intervals meeting each other. So maximise <code>#{j : interval j overlaps interval i}</code> over <code>i</code>, and drop the rest. Count that with two sorted arrays and binary search rather than an O(n&sup2;) double loop.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>The synchronization rule is a <strong>star</strong>, not a clique: one process must overlap all the others, and the others are unconstrained among themselves. So the best kept set for a chosen hub <code>i</code> is <em>every</em> interval that overlaps <code>i</code> (including <code>i</code> itself), and the answer is</p>
+<p><code>n &minus; max over i of #{ j : starts[j] &le; ends[i] and ends[j] &ge; starts[i] }</code></p>
+<p>Two intervals overlap unless one ends before the other starts, so for a fixed <code>i</code> the count is "everything that starts by <code>ends[i]</code>" minus "everything that has already finished before <code>starts[i]</code>". Both are prefix counts over sorted copies of <code>starts</code> and <code>ends</code>, so each hub costs two binary searches.</p>
+<p><span class="cx">Time O(n log n)</span><span class="cx">Space O(n)</span></p><pre class="sample"><code>from bisect import bisect_left, bisect_right
+
+def minimumProcessesToDrop(starts, ends):
+    n = len(starts)
+    ss = sorted(starts)
+    ee = sorted(ends)
+    best = 0
+    for i in range(n):
+        # processes overlapping i: start &lt;= ends[i] minus those that end before starts[i]
+        c = bisect_right(ss, ends[i]) - bisect_left(ee, starts[i])
+        if c &gt; best:
+            best = c
+    return n - best</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on all three published examples.</p>
+
+<div class="step"><h4>1 &middot; Read the condition precisely: a star, not a clique</h4>
+<p>"At least one process in the set overlaps every other process in the set" is much weaker than "all pairs overlap". In example 1 the kept set is <code>[1,2]</code>, <code>[2,3]</code>, <code>[3,5]</code> &mdash; and <code>[1,2]</code> does <em>not</em> overlap <code>[3,5]</code>. It is still synchronized because the hub <code>[2,3]</code> meets both.</p>
+<div class="formula">clique reading &rarr; keep {[2,3],[3,5],[4,5]} = 3 &rarr; drop 1   (right answer, wrong reason)
+star   reading &rarr; keep {[1,2],[2,3],[3,5]} = 3 &rarr; drop <b>1</b></div>
+<p>Both readings happen to give 1 here, which is exactly why this example does not protect you. On <code>starts = [1,2,3], ends = [4,2,9]</code> the star answer is 0 and the clique answer is 1.</p>
+</div>
+
+<div class="step"><h4>2 &middot; Fixing the hub decides everything else</h4>
+<p>Suppose the hub is process <code>i</code>. Any process that overlaps <code>i</code> can be kept, and keeping it never breaks the condition &mdash; the condition only ever inspects the hub. Any process that does <em>not</em> overlap <code>i</code> must go. So</p>
+<div class="formula">keep(i) = #{ j : [s_j, e_j] &cap; [s_i, e_i] &ne; &empty; }        (j = i included)
+answer  = n &minus; max_i keep(i)</div>
+<p>Trying every hub is therefore exhaustive, and correctness needs no exchange argument.</p>
+</div>
+
+<div class="step"><h4>3 &middot; Counting overlaps in O(log n) per hub</h4>
+<p>Negate the overlap test: <code>j</code> misses <code>i</code> exactly when <code>s_j &gt; e_i</code> (starts too late) or <code>e_j &lt; s_i</code> (finished too early). Those two groups are disjoint, because an interval that finishes before <code>s_i</code> also starts before <code>e_i</code>. Hence</p>
+<div class="formula">keep(i) = #{ s_j &le; e_i }  &minus;  #{ e_j &lt; s_i }
+        = bisect_right(sorted_starts, e_i) &minus; bisect_left(sorted_ends, s_i)</div>
+<p>Example 1, with <code>sorted_starts = [1,2,3,4]</code> and <code>sorted_ends = [2,3,5,5]</code>:</p>
+<table class="trace">
+<tr><th>hub i</th><th>[s_i, e_i]</th><th>#{s_j &le; e_i}</th><th>#{e_j &lt; s_i}</th><th>keep(i)</th></tr>
+<tr><td>0</td><td>[1, 2]</td><td>2</td><td>0</td><td>2</td></tr>
+<tr><td class="hit">1</td><td class="hit">[2, 3]</td><td class="hit">3</td><td class="hit">0</td><td class="hit"><b>3</b></td></tr>
+<tr><td>2</td><td>[3, 5]</td><td>4</td><td>1</td><td>3</td></tr>
+<tr><td>3</td><td>[4, 5]</td><td>4</td><td>2</td><td>2</td></tr>
+</table>
+<div class="formula">answer = 4 &minus; 3 = <b>1</b>   &check;</div>
+<p>Example 2: hub <code>[1,10]</code> gives <code>#{s_j &le; 10} = 3</code> and <code>#{e_j &lt; 1} = 0</code>, so keep = 3 and the answer is <code>3 &minus; 3 = 0</code>. &check;<br>
+Example 3: every hub keeps only itself, so the answer is <code>3 &minus; 1 = 2</code>. &check;</p>
+</div>
+
+<div class="step"><h4>4 &middot; Traps</h4>
+<ul>
+<li><strong>Do not solve "maximum set of mutually overlapping intervals"</strong> (the classic max-point-overlap sweep). That is the clique reading and it under-counts.</li>
+<li><strong>Endpoints touch.</strong> <code>[1,2]</code> and <code>[2,3]</code> overlap, so the comparisons are <code>&le;</code> and <code>&ge;</code>, never strict.</li>
+<li><strong>The hub counts itself</strong> &mdash; the formula already includes <code>j = i</code>, so do not add 1.</li>
+<li><strong>n = 1 returns 0</strong>, which the singleton clause in the statement spells out.</li>
+<li><strong>starts and ends are parallel arrays</strong>, not an array of pairs; sorting them independently is correct <em>only</em> for the counting step, so keep the original arrays for the hub loop.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-propagation', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Array',
+  label:'Problem', title:'Minimum Cost of Left and Right Propagation',
+  minutes:30, score:'',
+  images:['src-propagation.png'],
+  fn:{name:'minimumPropagationCost', ret:'long', params:[['int[]','values']]},
+  gen:`def gen(rng, n):
+    m = max(1, n)
+    return [[rng.randint(1, 9) for _ in range(m)]]`,
+  tests:[
+    {in:[[5, 2, 4]], out:4},
+    {in:[[1, 1, 2, 1]], out:2},
+    {in:[[7]], out:0},
+    {in:[[3, 1, 4, 2]], out:3},
+    {in:[[2, 2, 2, 2]], out:0},
+    {in:[[1, 2, 3, 4, 5, 6]], out:5},
+    {in:[[1, 1, 2, 1, 1]], out:3}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">INTERN</span><span class="tag">OA</span></div>
+
+<div class="srcnote"><strong>Source note:</strong> The report supplies both propagation operations, their exact costs, and repeated execution, but leaves the terminal uniform-array goal and numeric bounds implicit. The judged core task matches it at about 94%.</div>
+
+<p>You are given a positive integer array <code>values</code>. You may perform either propagation operation any number of times and in any order:</p>
+<ul>
+  <li>Choose index <code>i</code> and propagate <strong>left</strong>: replace every element before <code>i</code> with <code>values[i]</code>. This costs <code>i * values[i]</code>.</li>
+  <li>Choose index <code>i</code> and propagate <strong>right</strong>: replace every element after <code>i</code> with <code>values[i]</code>. This costs <code>(n - 1 - i) * values[i]</code>.</li>
+</ul>
+<p>Return the minimum total cost needed to make every array element equal. You may perform zero operations when the array is already uniform.</p>
+
+<h3>Function</h3>
+<pre class="sample">minimumPropagationCost(values: int[]) &rarr; long</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">values = [5,2,4]
+return = 4</pre>
+<p>Keep the middle value 2, propagate it left for cost 2, and propagate it right for another cost 2.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">values = [1,1,2,1]
+return = 2</pre>
+<p>Keep the first run of two 1s and propagate right from index 1 for cost 2.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>1 &lt;= values.length &lt;= 100000</code></li>
+  <li><code>1 &lt;= values[i] &lt;= 10^9</code></li>
+  <li>The answer fits in a signed 64-bit integer.</li>
+</ul>
+
+<div class="srcnote"><strong>Compare with:</strong> <em>"Minimum Cost to Make All Stations Equal"</em> (<code>getMinCost</code>) in the Amazon OA &middot; Coding section &mdash; the same operations and the same costs under a different cover story, with a different worked example. If you have solved that one, this is a five-minute re-run; if you have not, solve this one first and then check your answer against it.</div>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>Whatever the final uniform value is, it came from some element that was never overwritten. Ask which elements can survive to the end, and what it costs to erase everything on either side of them.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>The surviving elements form one <em>maximal run</em> of equal values <code>[l..r]</code>. Erasing everything to its left costs <code>l * v</code> (propagate left from <code>l</code>) and everything to its right costs <code>(n-1-r) * v</code>. Minimise <code>v * (l + n - 1 - r)</code> over all runs.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Two operations, and each one is paid per element it overwrites. Suppose the final value is <code>v</code> and it comes from position <code>i</code>. Propagating left from <code>i</code> costs <code>i * v</code> and propagating right costs <code>(n-1-i) * v</code>, so a single anchor position costs <code>v * (n-1)</code> &mdash; independent of <code>i</code>, which is the first thing to notice and the first trap.</p>
+<p>The saving comes from anchors that are already <strong>a run</strong> of equal values: propagate left from the run's first index <code>l</code> and right from its last index <code>r</code>, and the elements inside the run are never paid for:</p>
+<p><code>cost(run) = v * l + v * (n - 1 - r) = v * (l + n - 1 - r)</code></p>
+<p>Scan the maximal runs once and take the minimum. A uniform array has one run with <code>l = 0</code>, <code>r = n-1</code>, so the cost is 0 and no operation is performed.</p>
+<p><span class="cx">Time O(n)</span><span class="cx">Space O(1)</span></p><pre class="sample"><code>def minimumPropagationCost(values):
+    n = len(values)
+    best = None
+    i = 0
+    while i &lt; n:                       # walk the maximal runs of equal values
+        j = i
+        while j + 1 &lt; n and values[j + 1] == values[i]:
+            j += 1
+        cost = values[i] * (i + (n - 1 - j))     # pay for the left tail and the right tail
+        if best is None or cost &lt; best:
+            best = cost
+        i = j + 1
+    return best</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on both published examples: <code>[5,2,4] &rarr; 4</code> and <code>[1,1,2,1] &rarr; 2</code>.</p>
+
+<div class="step"><h4>1 &middot; Only original values can win</h4>
+<p>Every operation writes a value that is already in the array at that moment, and the array starts as <code>values</code>. So the final uniform value is one of the original <code>values[i]</code> &mdash; there is no way to invent a cheaper number.</p>
+</div>
+
+<div class="step"><h4>2 &middot; A single anchor always costs v &times; (n &minus; 1)</h4>
+<p>This is the step everyone gets wrong. Anchor at index <code>i</code>, propagate both ways:</p>
+<div class="formula">left  from i : i &times; v
+right from i : (n &minus; 1 &minus; i) &times; v
+total        : i&middot;v + (n&minus;1&minus;i)&middot;v = <b>(n &minus; 1) &middot; v</b>      &larr; the i cancels</div>
+<p>So "pick the index with the smallest value and pay <code>i&middot;v + (n&minus;1&minus;i)&middot;v</code>" degenerates to "pick the smallest value", and it is wrong on example 2: it returns <code>3 &times; 1 = 3</code> where the answer is 2. Position is irrelevant &mdash; <em>width</em> is what matters.</p>
+</div>
+
+<div class="step"><h4>3 &middot; Keep a whole run, pay only for the tails</h4>
+<p>If the value <code>v</code> occupies the maximal run <code>[l, r]</code>, propagate left from <code>l</code> and right from <code>r</code>. The <code>r &minus; l + 1</code> elements inside the run are already <code>v</code> and are never overwritten, so they are never charged:</p>
+<div class="formula">cost(run) = v &middot; l  +  v &middot; (n &minus; 1 &minus; r)  =  v &middot; (l + n &minus; 1 &minus; r)
+          = v &middot; (n &minus; 1 &minus; (run length &minus; 1))</div>
+<p>Only maximal runs are worth testing: a sub-run of the same value has a larger <code>l</code> or a smaller <code>r</code>, so it can only cost more.</p>
+<table class="trace">
+<tr><th>array</th><th>run [l, r]</th><th>v</th><th>l + n&minus;1&minus;r</th><th>cost</th></tr>
+<tr><td rowspan="3">[5,2,4], n = 3</td><td>[0,0]</td><td>5</td><td>0 + 2 = 2</td><td>10</td></tr>
+<tr><td class="hit">[1,1]</td><td class="hit">2</td><td class="hit">1 + 1 = 2</td><td class="hit"><b>4</b></td></tr>
+<tr><td>[2,2]</td><td>4</td><td>2 + 0 = 2</td><td>8</td></tr>
+<tr><td rowspan="3">[1,1,2,1], n = 4</td><td class="hit">[0,1]</td><td class="hit">1</td><td class="hit">0 + 2 = 2</td><td class="hit"><b>2</b></td></tr>
+<tr><td>[2,2]</td><td>2</td><td>2 + 1 = 3</td><td>6</td></tr>
+<tr><td>[3,3]</td><td>1</td><td>3 + 0 = 3</td><td>3</td></tr>
+</table>
+<p>Both published answers reproduced: <strong>4</strong> and <strong>2</strong>. Note how the second example is decided by run <em>length</em>, not by value: the run <code>[0,1]</code> and the single <code>1</code> at index 3 share the value 1, and the run wins 2 against 3.</p>
+</div>
+
+<div class="step"><h4>4 &middot; Why no cleverer sequence helps</h4>
+<p>Consider the last operation performed. It writes some value <code>v</code> over one side of the array, so before it the array was already <code>v</code> on the other side &mdash; i.e. every intermediate operation only ever grows a block of a single original value outwards. Growing that block in several smaller steps re-pays for positions that a single wide propagation pays for once, so no multi-step schedule beats "one left, one right from the widest run of that value". Exhaustive search over all operation sequences on arrays up to length 5 agrees with the formula on every input tested.</p>
+</div>
+
+<div class="step"><h4>5 &middot; Traps</h4>
+<ul>
+<li><strong>The <code>i</code> cancels.</strong> Writing <code>i*v + (n-1-i)*v</code> and minimising over <code>i</code> is the single most common wrong answer here &mdash; it fails <code>[1,1,2,1]</code> with 3 against 2.</li>
+<li><strong>Maximal runs only</strong>, and compare by <code>v * (l + n - 1 - r)</code>, not by <code>v</code> and not by run length alone: a long run of a huge value can lose to a short run of a tiny one.</li>
+<li><strong>Already uniform &rarr; 0.</strong> The single run spans the array, and the formula yields <code>v * (0 + 0) = 0</code> with no special case needed.</li>
+<li><strong>Overflow.</strong> <code>10&#8313;</code> values times <code>10&#8309;</code> positions needs 64 bits.</li>
+<li><strong>n = 1</strong> gives cost 0 through the same formula.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-twodrones', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Binary search',
+  label:'Problem', title:'Minimum Time for Two Delivery Drones',
+  minutes:35, score:'',
+  images:['src-twodrones.png'],
+  fn:{name:'minimumDeliveryTime', ret:'long', params:[['long','delivery1'],['long','delivery2'],['long','charge1'],['long','charge2']]},
+  gen:`def gen(rng, n):
+    m = max(1, n)
+    return [rng.randint(1, 20 * m), rng.randint(1, 20 * m),
+            rng.randint(2, 30), rng.randint(2, 30)]`,
+  tests:[
+    {in:[3, 1, 2, 3], out:5},
+    {in:[1, 1, 2, 2], out:3},
+    {in:[1, 1, 3, 3], out:2},
+    {in:[5, 5, 2, 2], out:19},
+    {in:[10, 4, 2, 5], out:19},
+    {in:[1000000000, 1000000000, 2, 3], out:2399999999},
+    {in:[1, 1000000000, 30000, 2], out:1999999999}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">FULLTIME</span><span class="tag">OA</span></div>
+
+<div class="srcnote"><strong>Source note:</strong> The judged core task matches the visible source at about 99%.</div>
+
+<p>Amazon operates two delivery drones. Drone 1 must complete <code>delivery1</code> deliveries, and Drone 2 must complete <code>delivery2</code> deliveries. Each delivery takes exactly one hour.</p>
+<p>Hours are numbered starting from <code>1</code>. The drones follow these rules while they still have deliveries to complete:</p>
+<ul>
+  <li>Drone 1 must charge during every hour whose number is a multiple of <code>charge1</code>.</li>
+  <li>Drone 2 must charge during every hour whose number is a multiple of <code>charge2</code>.</li>
+  <li>A drone cannot make a delivery during one of its charging hours.</li>
+  <li>Both drones may charge during the same hour.</li>
+  <li>At most one drone may make a delivery during any hour.</li>
+</ul>
+<p>Return the minimum total number of hours required for both drones to complete all deliveries. If the final delivery is made during hour <code>T</code>, the answer is <code>T</code>.</p>
+
+<h3>Function</h3>
+<pre class="sample">minimumDeliveryTime(delivery1: long, delivery2: long,
+                    charge1: long, charge2: long) &rarr; long</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">delivery1 = 3
+delivery2 = 1
+charge1   = 2
+charge2   = 3
+return    = 5</pre>
+<p>Drone 1 makes deliveries during hours 1, 3, and 5, and it charges during hours 2 and 4. Drone 2 makes its delivery during hour 2. Its next charging hour would be 3, but it has already completed all of its deliveries. Only one drone makes a delivery in each hour, and the final delivery is made during hour 5.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">delivery1 = 1
+delivery2 = 1
+charge1   = 2
+charge2   = 2
+return    = 3</pre>
+<p>One drone can make a delivery during hour 1. Hour 2 is a charging hour for either drone that still has a delivery remaining, so the second delivery cannot happen until hour 3.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>2 &lt;= charge1, charge2 &lt;= 3 * 10^4</code></li>
+  <li><code>1 &lt;= delivery1, delivery2 &lt;= 10^9</code></li>
+</ul>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>A billion deliveries rules out simulating hour by hour. Ask instead: <em>given</em> a deadline T, can all the deliveries be placed? That question turns out to be pure counting, and it is monotone in T.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>Inside hours 1..T, drone 1 is free in <code>T - floor(T/charge1)</code> hours and drone 2 in <code>T - floor(T/charge2)</code>. Because at most one delivery happens per hour, you also need both together to fit in the hours where <em>somebody</em> is free: <code>T - floor(T/lcm)</code>. Three inequalities, then binary search T.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Binary search the answer. The predicate "T hours are enough" is monotone (all three counts below are non-decreasing in T), so the first T that satisfies it is the answer &mdash; and it is automatically an hour in which a delivery happens, since T&minus;1 failed.</p>
+<p>Charging never consumes the one-delivery-per-hour slot; it only forbids a particular drone from delivering. So in hours <code>1..T</code>:</p>
+<ul>
+<li>drone 1 may deliver in <code>T - floor(T / charge1)</code> hours,</li>
+<li>drone 2 may deliver in <code>T - floor(T / charge2)</code> hours,</li>
+<li>at least one drone may deliver in <code>T - floor(T / lcm(charge1, charge2))</code> hours.</li>
+</ul>
+<p>Those three capacities are exactly Hall's condition for this two-set system, so they are sufficient as well as necessary:</p>
+<p><code>d1 &le; T - T/c1</code>, &nbsp; <code>d2 &le; T - T/c2</code>, &nbsp; <code>d1 + d2 &le; T - T/lcm</code>.</p>
+<p>An upper bound of <code>4(d1 + d2) + 10</code> is safe because the worst case, <code>c1 = c2 = 2</code>, delivers every other hour.</p>
+<p><span class="cx">Time O(log(d1 + d2))</span><span class="cx">Space O(1)</span></p><pre class="sample"><code>from math import gcd
+
+def minimumDeliveryTime(delivery1, delivery2, charge1, charge2):
+    both = charge1 // gcd(charge1, charge2) * charge2       # lcm: nobody can deliver
+
+    def enough(T):
+        return (delivery1 &lt;= T - T // charge1 and           # hours drone 1 may use
+                delivery2 &lt;= T - T // charge2 and           # hours drone 2 may use
+                delivery1 + delivery2 &lt;= T - T // both)     # hours anybody may use
+
+    lo, hi = 1, 4 * (delivery1 + delivery2) + 10
+    while lo &lt; hi:
+        mid = (lo + hi) // 2
+        if enough(mid):
+            hi = mid
+        else:
+            lo = mid + 1
+    return lo</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on both published examples.</p>
+
+<div class="step"><h4>1 &middot; Charging blocks a drone, not the hour</h4>
+<p>Read the rules once more. "Both drones may charge during the same hour" and "at most one drone may make a delivery during any hour" are separate constraints: a charging hour is not a lost hour for the <em>other</em> drone. So hour 2 in example 1, which is a charging hour for drone 1, is still a perfectly good delivery hour for drone 2.</p>
+<div class="formula">hour type inside 1..T                       who can deliver
+multiple of c1 only                         drone 2
+multiple of c2 only                         drone 1
+multiple of both (i.e. of lcm)              nobody
+neither                                     either (but only one of them)</div>
+</div>
+
+<div class="step"><h4>2 &middot; Feasibility of a deadline T is three counting inequalities</h4>
+<p>Let <code>m1 = floor(T/c1)</code>, <code>m2 = floor(T/c2)</code>, <code>m12 = floor(T/lcm)</code>. Counting the four hour types above:</p>
+<div class="formula">hours drone 1 can use   = T &minus; m1
+hours drone 2 can use   = T &minus; m2
+hours anybody can use   = T &minus; m12</div>
+<p>Necessity is immediate. Sufficiency is Hall's condition on the two "sets" of usable hours: for a family of two sets you only have to check each set alone and their union, which is exactly the three lines. So no schedule needs to be constructed &mdash; the counts decide it.</p>
+<p>Each of the three right-hand sides is non-decreasing in T (adding an hour adds at most one multiple), so the predicate flips from false to true once and binary search is valid.</p>
+</div>
+
+<div class="step"><h4>3 &middot; Example 1 &mdash; d1 = 3, d2 = 1, c1 = 2, c2 = 3</h4>
+<p><code>lcm(2,3) = 6</code>.</p>
+<table class="trace">
+<tr><th>T</th><th>T &minus; T/2 (drone 1)</th><th>T &minus; T/3 (drone 2)</th><th>T &minus; T/6 (either)</th><th>3 &le; ?</th><th>1 &le; ?</th><th>4 &le; ?</th><th>verdict</th></tr>
+<tr><td>3</td><td>3 &minus; 1 = 2</td><td>3 &minus; 1 = 2</td><td>3 &minus; 0 = 3</td><td>no</td><td>yes</td><td>no</td><td>too short</td></tr>
+<tr><td>4</td><td>4 &minus; 2 = 2</td><td>4 &minus; 1 = 3</td><td>4 &minus; 0 = 4</td><td>no</td><td>yes</td><td>yes</td><td>too short</td></tr>
+<tr><td class="hit">5</td><td class="hit">5 &minus; 2 = <b>3</b></td><td class="hit">5 &minus; 1 = 4</td><td class="hit">5 &minus; 0 = 5</td><td class="hit">yes</td><td class="hit">yes</td><td class="hit">yes</td><td class="hit"><b>answer 5</b></td></tr>
+</table>
+<p>The binding constraint is drone 1's own capacity: it loses hours 2 and 4 to charging, so its three deliveries need hours 1, 3, 5 &mdash; matching the schedule in the statement. &check;</p>
+</div>
+
+<div class="step"><h4>4 &middot; Example 2 &mdash; d1 = 1, d2 = 1, c1 = c2 = 2</h4>
+<p>Here <code>lcm = 2</code>, so hour 2 is dead for both drones.</p>
+<div class="formula">T = 2 :  drone 1 : 2 &minus; 1 = 1 &ge; 1  &check;
+         drone 2 : 2 &minus; 1 = 1 &ge; 1  &check;
+         together: 2 &minus; 1 = 1 &lt; 2  &cross;   &larr; only hour 1 is usable at all
+T = 3 :  together: 3 &minus; 1 = 2 &ge; 2  &check;   &rarr; <b>answer 3</b></div>
+<p>This is the example that proves the third inequality is needed: the two per-drone checks both pass at T = 2, and only the joint capacity rules it out. Drop that line and you return 2.</p>
+</div>
+
+<div class="step"><h4>5 &middot; Traps</h4>
+<ul>
+<li><strong>Do not simulate.</strong> <code>d &le; 10&#8313;</code> makes an hour-by-hour loop hopeless; the answer itself can exceed 2 &times; 10&#8313;, so it must be a <code>long</code>.</li>
+<li><strong>The joint (lcm) inequality is not optional</strong> &mdash; example 2 exists precisely to catch its absence.</li>
+<li><strong>A charging hour is not a blocked hour for the other drone.</strong> Subtracting all charging hours from T is wrong.</li>
+<li><strong>"While they still have deliveries"</strong> only relaxes the rules after a drone is finished, which never makes a deadline harder; it explains the prose in example 1 and changes no arithmetic.</li>
+<li><strong>Binary-search bound:</strong> <code>4(d1+d2)+10</code> is comfortable; a bound of <code>d1+d2</code> is not, since more than half the hours can be lost to charging.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-fulfillment', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Sorting',
+  label:'Problem', title:'Minimum Robot and Human Fulfillment Time',
+  minutes:30, score:'',
+  images:['src-fulfillment.png'],
+  fn:{name:'minimumFulfillmentTime', ret:'long', params:[['long[]','humanTime'],['long[]','robotTime']]},
+  gen:`def gen(rng, n):
+    m = max(1, n)
+    human = [rng.randint(1, 50) for _ in range(m)]
+    robot = [rng.randint(1, 50) for _ in range(m)]
+    return [human, robot]`,
+  tests:[
+    {in:[[9, 6, 8, 6, 4, 4], [4, 3, 7, 7, 9, 8]], out:8},
+    {in:[[2, 3], [10, 10]], out:5},
+    {in:[[5], [5]], out:5},
+    {in:[[1, 1, 1, 1], [9, 9, 9, 9]], out:4},
+    {in:[[10, 10, 10], [1, 2, 3]], out:3},
+    {in:[[7, 2, 5, 9, 3], [8, 4, 6, 2, 7]], out:7}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">FULLTIME</span><span class="tag">OA</span></div>
+
+<div class="srcnote"><strong>Source note:</strong> The source omits numeric bounds and the empty-assignment convention. The judged core task matches the visible source at about 97%.</div>
+
+<p>An Amazon fulfillment center must process <code>n</code> orders. Order <code>i</code> must be assigned entirely to exactly one of two processing sides:</p>
+<ul>
+  <li>The automated <strong>robotics system</strong> processes all orders assigned to it in parallel. If it receives at least one order, its elapsed time is the maximum <code>robotTime[i]</code> among those orders.</li>
+  <li>The <strong>human workforce</strong> processes all orders assigned to it one by one. Its elapsed time is the sum of <code>humanTime[i]</code> across those orders.</li>
+</ul>
+<p>The two sides work concurrently, so the elapsed time for an assignment is the maximum of the robotics-system time and the human-workforce time. For this exercise, an unused side contributes 0 hours.</p>
+<p>Return the minimum possible elapsed time needed to process and dispatch every order.</p>
+
+<h3>Function</h3>
+<pre class="sample">minimumFulfillmentTime(humanTime: long[], robotTime: long[]) &rarr; long</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">humanTime = [9, 6, 8, 6, 4, 4]
+robotTime = [4, 3, 7, 7, 9, 8]
+return    = 8</pre>
+<p>Assign the order with robotics time 9 and human time 4 to the human workforce, and assign every other order to the robotics system. The human side takes 4 hours, while the robot side takes 8 hours, so all orders finish in 8 hours. No assignment can finish in 7 hours because both orders with robotics times above 7 would have to be handled by humans, requiring 4 + 4 = 8 hours.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">humanTime = [2, 3]
+robotTime = [10, 10]
+return    = 5</pre>
+<p>Assign both orders to the human workforce. The human side takes 2 + 3 = 5 hours, and the unused robot side contributes 0 hours.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>1 &lt;= humanTime.length = robotTime.length &lt;= 2 * 10^5</code></li>
+  <li><code>1 &lt;= humanTime[i], robotTime[i] &lt;= 10^9</code></li>
+  <li>All sums and the returned result fit in a signed 64-bit integer.</li>
+</ul>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>The robot side is charged a <em>maximum</em> and the human side a <em>sum</em>. Guess the robot side's final value first &mdash; it can only be 0 or one of the <code>robotTime</code> values &mdash; and see what that forces.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>If the robot side is allowed to take R, then every order with <code>robotTime[i] &gt; R</code> must go to the humans, and every other order may as well go to the robots (it cannot raise the maximum above R). Sort by <code>robotTime</code> and sweep the split point, keeping a suffix sum of <code>humanTime</code>.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Sort the orders by <code>robotTime</code> ascending. Consider the <code>n + 1</code> splits "the last <em>k</em> orders in that order go to the humans, the first <code>n &minus; k</code> go to the robots":</p>
+<ul>
+<li>robot time = <code>robotTime</code> of the last order still on the robot side (0 when <code>k = n</code>),</li>
+<li>human time = the suffix sum of <code>humanTime</code> over the <em>k</em> orders handed to the humans.</li>
+</ul>
+<p>Answer = the minimum over those splits of <code>max(robot, human)</code>. Sweeping <em>k</em> from <em>n</em> down to 0 keeps the suffix sum in one accumulator.</p>
+<p>Why the enumeration is exhaustive: in an optimal assignment let R be the robot side's elapsed time. Every order with <code>robotTime &gt; R</code> is on the human side by definition, and moving any order with <code>robotTime &le; R</code> from the humans to the robots leaves the robot side at R while shrinking the human sum &mdash; never worse. That normalised assignment is one of the splits above.</p>
+<p><span class="cx">Time O(n log n)</span><span class="cx">Space O(n)</span></p><pre class="sample"><code>def minimumFulfillmentTime(humanTime, robotTime):
+    n = len(robotTime)
+    order = sorted(range(n), key=lambda i: robotTime[i])   # ascending robot time
+    best = None
+    human_sum = 0
+    for k in range(n, -1, -1):
+        # order[:k] -&gt; robots, order[k:] -&gt; humans
+        robot = robotTime[order[k - 1]] if k else 0
+        cand = max(robot, human_sum)
+        if best is None or cand &lt; best:
+            best = cand
+        if k:
+            human_sum += humanTime[order[k - 1]]
+    return best</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on the published example <code>humanTime = [9,6,8,6,4,4]</code>, <code>robotTime = [4,3,7,7,9,8]</code> &rarr; <strong>8</strong>.</p>
+
+<div class="step"><h4>1 &middot; Why a greedy per order cannot work</h4>
+<p>"Send each order to whichever side is cheaper for it" is meaningless here: the two sides are charged in different units. One extra order on the robot side is free unless it is the new maximum; one extra order on the human side always adds its full time. The decision is global, so parameterise it.</p>
+</div>
+
+<div class="step"><h4>2 &middot; Parameterise by the robot side's elapsed time</h4>
+<p>Let R be the robot side's time in some optimal assignment. R is either 0 (robots unused) or equal to some <code>robotTime[i]</code>. Given R:</p>
+<div class="formula">robotTime[i] &gt; R  &rArr;  order i <b>must</b> be human-processed
+robotTime[i] &le; R  &rArr;  putting order i on the robots costs nothing extra</div>
+<p>So the human side's load is completely determined by R: it is the sum of <code>humanTime</code> over the orders whose robot time exceeds R. Sorting by <code>robotTime</code> turns "orders above the threshold" into a suffix, and the whole search collapses to <code>n + 1</code> candidate splits.</p>
+</div>
+
+<div class="step"><h4>3 &middot; The sweep, in full</h4>
+<p>Sorted by robot time: <code>(3,6) (4,9) (7,8) (7,6) (8,4) (9,4)</code> written as (robot, human).</p>
+<table class="trace">
+<tr><th>k = orders given to humans</th><th>robot side max</th><th>human side sum</th><th>max(&middot;,&middot;)</th></tr>
+<tr><td>0</td><td>9</td><td>0</td><td>9</td></tr>
+<tr><td class="hit">1 &nbsp; {(9,4)}</td><td class="hit">8</td><td class="hit">4</td><td class="hit"><b>8</b></td></tr>
+<tr><td>2 &nbsp; {(9,4),(8,4)}</td><td>7</td><td>8</td><td>8</td></tr>
+<tr><td>3</td><td>7</td><td>14</td><td>14</td></tr>
+<tr><td>4</td><td>4</td><td>22</td><td>22</td></tr>
+<tr><td>5</td><td>3</td><td>31</td><td>31</td></tr>
+<tr><td>6 &nbsp; (robots idle)</td><td>0</td><td>37</td><td>37</td></tr>
+</table>
+<p>Minimum <strong>8</strong>, achieved by handing only the robot-time-9 order to the humans &mdash; exactly the assignment the statement describes. Row <code>k = 2</code> also reaches 8 and explains the statement's remark that 7 is impossible: to pull the robot side down to 7 you must give both the 9 and the 8 to the humans, and 4 + 4 = 8 &gt; 7.</p>
+<p>Example 2 is the <code>k = n</code> row: robot side 0, human side 2 + 3 = <strong>5</strong>. &check;</p>
+</div>
+
+<div class="step"><h4>4 &middot; Traps</h4>
+<ul>
+<li><strong>Include both ends of the sweep.</strong> <code>k = n</code> (robots unused, the answer to example 2) and <code>k = 0</code> (humans unused) are legal assignments; a loop over <code>1..n-1</code> misses them.</li>
+<li><strong>An unused side contributes 0</strong>, not the maximum over an empty set. In a language whose <code>max</code> throws on empty input this is a real crash.</li>
+<li><strong>Ties in robotTime.</strong> Splitting between two equal robot times is fine &mdash; the sorted sweep covers every split, so no special handling is needed.</li>
+<li><strong>Sort by robot time, carry human time along.</strong> Sorting the two arrays independently destroys the pairing; sort indices.</li>
+<li><strong>Overflow.</strong> 2 &times; 10&#8309; orders of 10&#8313; hours sum to 2 &times; 10&#185;&#8308;; use 64-bit accumulators.</li>
+<li><strong>Binary searching the answer</strong> also works, but it needs the same threshold insight &mdash; the sorted sweep is simpler and strictly faster.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-redirect', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Geometry',
+  label:'Problem', title:'HTTP Request Redirection',
+  minutes:30, score:'',
+  images:[],
+  fn:{name:'findFinalServer', ret:'int[]', params:[['int[][]','locations'],['int[]','redirectRecords']]},
+  gen:`def gen(rng, n):
+    m = max(1, n)
+    pts = set()
+    while len(pts) < m:
+        pts.add((rng.randint(-m, m), rng.randint(-m, m)))
+    locations = [list(p) for p in pts]
+    records = [rng.randint(1, 4) for _ in range(rng.randint(1, 6))]
+    return [locations, records]`,
+  tests:[
+    {in:[[[3, 4], [1, 2], [7, 8], [5, 6]], [1, 4]], out:[1, 2]},
+    {in:[[[0, 0], [2, 2], [4, 4]], [1, 1]], out:[4, 4]},
+    {in:[[[0, 0], [1, 2]], [1]], out:[0, 0]},
+    {in:[[[5, 5], [3, 7], [1, 9], [7, 3]], [3, 2]], out:[7, 3]},
+    {in:[[[0, 0], [2, 2], [1, -1]], [1, 4, 2]], out:[2, 2]}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">FULLTIME</span><span class="tag">OA</span></div>
+
+<p>Amazon engineers are investigating an HTTP request that is redirected among servers.</p>
+<p>There are <code>n</code> servers on an infinite two-dimensional plane. The coordinates of server <code>i</code> are given by <code>locations[i] = [x, y]</code>. The request starts at <code>locations[0]</code>, and that server is marked as visited.</p>
+<p>Each value in <code>redirectRecords</code> specifies one redirect direction from the current server <code>(a, b)</code>. In every formula below, <code>Z</code> is an arbitrary positive integer:</p>
+<ul>
+  <li>Direction 1: <code>(a, b) -&gt; (a + Z, b + Z)</code>.</li>
+  <li>Direction 2: <code>(a, b) -&gt; (a + Z, b - Z)</code>.</li>
+  <li>Direction 3: <code>(a, b) -&gt; (a - Z, b + Z)</code>.</li>
+  <li>Direction 4: <code>(a, b) -&gt; (a - Z, b - Z)</code>.</li>
+</ul>
+<p>Process the redirect records in order. For each record, redirect the request to the nearest server in the specified direction that has not previously been visited. If no eligible server exists in that direction, skip that redirect. Whenever the request reaches a server, mark it as visited.</p>
+<p>Return the coordinates <code>[x, y]</code> of the server holding the request after all redirect records have been processed.</p>
+
+<h3>Function</h3>
+<pre class="sample">findFinalServer(locations: int[][], redirectRecords: int[]) &rarr; int[]</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">locations       = [[3,4],[1,2],[7,8],[5,6]]
+redirectRecords = [1,4]
+return          = [1,2]</pre>
+<p>The request starts at <code>[3, 4]</code>. Direction 1 points toward both <code>[5, 6]</code> and <code>[7, 8]</code>, so the nearest unvisited server is <code>[5, 6]</code>. Direction 4 points back toward <code>[3, 4]</code> and then <code>[1, 2]</code>. Because <code>[3, 4]</code> has already been visited, the request moves to <code>[1, 2]</code>.</p>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>All four directions are exact diagonals, so a server is "in direction d" only when <code>|dx| = |dy|</code> with the right pair of signs. Nothing is approximate here &mdash; a server one unit off the diagonal is simply not a candidate.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>Because the movement is diagonal, the distance ordering is the same whether you measure <code>Z</code>, Manhattan or Euclidean distance: they are <code>Z</code>, <code>2Z</code> and <code>Z&radic;2</code>. Just minimise <code>|dx|</code> among the candidates, skipping visited servers.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Direct simulation. Keep the current position and a set of visited server indices. For each record, scan every server once, keep those that sit on the requested diagonal ray, and take the one with the smallest <code>|dx|</code>:</p>
+<ul>
+<li>direction 1 &rarr; <code>dx &gt; 0</code> and <code>dy = dx</code></li>
+<li>direction 2 &rarr; <code>dx &gt; 0</code> and <code>dy = -dx</code></li>
+<li>direction 3 &rarr; <code>dx &lt; 0</code> and <code>dy = -dx</code></li>
+<li>direction 4 &rarr; <code>dx &lt; 0</code> and <code>dy = dx</code></li>
+</ul>
+<p><code>Z &gt; 0</code> means the current server itself is never a candidate, which the strict <code>dx &gt; 0</code> / <code>dx &lt; 0</code> tests already enforce. If nothing qualifies, the record is skipped and the request stays put.</p>
+<p><span class="cx">Time O(n &middot; r)</span><span class="cx">Space O(n)</span></p><pre class="sample"><code>def findFinalServer(locations, redirectRecords):
+    cur = list(locations[0])
+    visited = {0}
+    for d in redirectRecords:
+        pick = None
+        best = None
+        for i, (x, y) in enumerate(locations):
+            if i in visited:
+                continue
+            dx, dy = x - cur[0], y - cur[1]
+            if d == 1:
+                ok = dx &gt; 0 and dy == dx          # (a+Z, b+Z)
+            elif d == 2:
+                ok = dx &gt; 0 and dy == -dx         # (a+Z, b-Z)
+            elif d == 3:
+                ok = dx &lt; 0 and dy == -dx         # (a-Z, b+Z)
+            else:
+                ok = dx &lt; 0 and dy == dx          # (a-Z, b-Z)
+            if ok and (best is None or abs(dx) &lt; best):
+                best, pick = abs(dx), i
+        if pick is not None:                      # no eligible server -&gt; skip
+            visited.add(pick)
+            cur = list(locations[pick])
+    return cur</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on the published example: <code>locations = [[3,4],[1,2],[7,8],[5,6]]</code>, <code>redirectRecords = [1,4]</code> &rarr; <strong>[1, 2]</strong>.</p>
+
+<div class="step"><h4>1 &middot; Turning the four formulas into two comparisons</h4>
+<p>Each direction is the set of points reachable by adding <code>(&plusmn;Z, &plusmn;Z)</code> with <code>Z &gt; 0</code>. Write <code>dx = x &minus; a</code> and <code>dy = y &minus; b</code>:</p>
+<div class="formula">direction 1 : dx = +Z, dy = +Z  &rarr;  dx &gt; 0 and dy == dx
+direction 2 : dx = +Z, dy = &minus;Z  &rarr;  dx &gt; 0 and dy == &minus;dx
+direction 3 : dx = &minus;Z, dy = +Z  &rarr;  dx &lt; 0 and dy == &minus;dx
+direction 4 : dx = &minus;Z, dy = &minus;Z  &rarr;  dx &lt; 0 and dy == dx</div>
+<p>The sign test is what separates 1 from 4 and 2 from 3; both pairs share an equation, so dropping it merges two opposite rays into one line and sends the request backwards.</p>
+</div>
+
+<div class="step"><h4>2 &middot; "Nearest" is unambiguous on a diagonal</h4>
+<p>On the ray, a server sits at distance <code>Z</code> in steps, <code>2Z</code> in Manhattan distance and <code>Z&radic;2</code> in Euclidean distance. All three orderings agree, so comparing <code>|dx|</code> needs no square roots and no tie-breaking rule.</p>
+</div>
+
+<div class="step"><h4>3 &middot; The two redirects, step by step</h4>
+<table class="trace">
+<tr><th>step</th><th>at</th><th>dir</th><th>candidates (dx, dy)</th><th>eligible</th><th>move to</th></tr>
+<tr><td>start</td><td>[3,4]</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>visited = {[3,4]}</td></tr>
+<tr><td>1</td><td>[3,4]</td><td>1</td><td>[1,2]:(&minus;2,&minus;2) &cross; &nbsp; [7,8]:(4,4) &check; Z=4 &nbsp; [5,6]:(2,2) &check; Z=2</td><td>Z = 2 and 4</td><td class="hit">[5,6] &nbsp;(smallest Z)</td></tr>
+<tr><td>2</td><td>[5,6]</td><td>4</td><td>[3,4]:(&minus;2,&minus;2) &check; Z=2 <em>but visited</em> &nbsp; [1,2]:(&minus;4,&minus;4) &check; Z=4 &nbsp; [7,8]:(2,2) &cross;</td><td>only Z = 4</td><td class="hit">[1,2]</td></tr>
+</table>
+<div class="formula">final position = <b>[1, 2]</b>   &check; matches the published answer</div>
+<p>Step 2 is the whole point of the example: the nearest server on the ray is <code>[3,4]</code>, and it is skipped <em>because it was visited</em> &mdash; the visited set filters candidates, it does not stop the search at the first one.</p>
+</div>
+
+<div class="step"><h4>4 &middot; Traps</h4>
+<ul>
+<li><strong>The start server begins visited.</strong> Without that, a direction pointing back at it returns the request to where it started.</li>
+<li><strong>Visited servers are skipped, not blocking.</strong> The search continues past them along the same ray.</li>
+<li><strong>A record with no candidate is skipped silently</strong> &mdash; the request neither moves nor fails, and the remaining records still run.</li>
+<li><strong><code>Z</code> is strictly positive</strong>, so the current position is never its own target even before it is marked visited.</li>
+<li><strong>Do not use Euclidean distance with floats.</strong> Integer <code>|dx|</code> is exact; <code>sqrt</code> only invites ties that do not exist.</li>
+<li><strong>Return coordinates, not an index.</strong> The signature returns <code>int[]</code>, i.e. <code>[x, y]</code>.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-busroute', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Prefix sums',
+  label:'Problem', title:'Shortest Distance on a Circular Bus Route',
+  minutes:15, score:'',
+  images:[],
+  fn:{name:'shortestBusRouteDistance', ret:'int', params:[['int[]','distance'],['int','start'],['int','destination']]},
+  gen:`def gen(rng, n):
+    m = max(2, n)
+    distance = [rng.randint(1, 10000) for _ in range(m)]
+    a = rng.randrange(m)
+    b = rng.randrange(m)
+    while b == a:
+        b = rng.randrange(m)
+    return [distance, a, b]`,
+  tests:[
+    {in:[[1, 2, 3, 4], 0, 2], out:3},
+    {in:[[7, 10, 1, 12], 1, 3], out:11},
+    {in:[[5, 5], 0, 1], out:5},
+    {in:[[1, 2, 3, 4], 3, 0], out:4},
+    {in:[[2, 2, 2, 2, 2, 2], 1, 4], out:6},
+    {in:[[9, 1, 1, 1], 0, 3], out:1}
+  ],
+  body:`
+<div class="tags"><span class="tag easy">Easy</span><span class="tag">Amazon</span><span class="tag">FULLTIME</span><span class="tag">OA</span></div>
+
+<div class="srcnote"><strong>Source note:</strong> The interview report identifies this circular bus-route problem family but omits the exact variant contract. The deterministic practice rules below complete those missing details.</div>
+
+<p>For this exercise, assume a bus route has <code>n</code> stops arranged in a circle. The array <code>distance</code> contains the distance from stop <code>i</code> to stop <code>(i + 1) mod n</code>.</p>
+<p>Given two distinct stops, <code>start</code> and <code>destination</code>, return the shorter travel distance between them. A bus may travel clockwise or counterclockwise around the circle.</p>
+
+<h3>Function</h3>
+<pre class="sample">shortestBusRouteDistance(distance: int[], start: int, destination: int) &rarr; int</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">distance    = [1,2,3,4]
+start       = 0
+destination = 2
+return      = 3</pre>
+<p>Clockwise travel from stop 0 to stop 2 costs 1 + 2 = 3. The other direction costs 4 + 3 = 7, so the answer is 3.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">distance    = [7,10,1,12]
+start       = 1
+destination = 3
+return      = 11</pre>
+<p>Travel through stops 1 -&gt; 2 -&gt; 3 costs 10 + 1 = 11. The opposite direction costs 12 + 7 = 19.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>2 &lt;= distance.length &lt;= 100000</code></li>
+  <li><code>1 &lt;= distance[i] &lt;= 10000</code></li>
+  <li><code>0 &lt;= start, destination &lt; distance.length</code></li>
+  <li><code>start != destination</code></li>
+</ul>
+
+<div class="srcnote"><strong>Next:</strong> <em>"Circular Route Query Distance"</em> asks the same question for many pairs at once &mdash; the natural follow-up once this one is a two-liner.</div>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>The two routes between the stops partition the whole circle. Compute one of them and the other is free.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>Order the two indices so you only ever walk the <em>increasing</em> way: the arc from <code>min</code> to <code>max</code> is the contiguous slice <code>distance[min:max]</code>. The other arc is <code>total &minus; that</code>.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Going round the circle once costs <code>total = sum(distance)</code>. The clockwise arc from the smaller index to the larger one is exactly the slice <code>distance[lo:hi]</code>, and the counterclockwise arc is whatever is left, <code>total &minus; forward</code>. Return the smaller.</p>
+<p>Sorting the endpoints first is what removes the wrap-around case: <code>distance[lo:hi]</code> is always a plain contiguous range, so no modular loop is needed.</p>
+<p><span class="cx">Time O(n)</span><span class="cx">Space O(1)</span></p><pre class="sample"><code>def shortestBusRouteDistance(distance, start, destination):
+    total = sum(distance)
+    lo, hi = min(start, destination), max(start, destination)
+    forward = sum(distance[lo:hi])        # lo -&gt; lo+1 -&gt; ... -&gt; hi
+    return min(forward, total - forward)</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on both published examples.</p>
+
+<div class="step"><h4>1 &middot; The two arcs are complementary</h4>
+<p><code>distance[i]</code> is the edge from stop <code>i</code> to stop <code>i+1</code>, so every edge belongs to exactly one of the two arcs between two distinct stops:</p>
+<div class="formula">clockwise(lo &rarr; hi)        = distance[lo] + distance[lo+1] + &hellip; + distance[hi&minus;1]
+counterclockwise(lo &rarr; hi) = total &minus; clockwise
+answer                     = min(clockwise, total &minus; clockwise)</div>
+<p>Because the arcs partition the circle, one subtraction replaces a second traversal &mdash; and it is the only way to stay O(n) when the answer is the long way round.</p>
+</div>
+
+<div class="step"><h4>2 &middot; Example 1 &mdash; distance = [1,2,3,4], 0 &rarr; 2</h4>
+<table class="trace">
+<tr><th>quantity</th><th>edges</th><th>value</th></tr>
+<tr><td>total</td><td>1 + 2 + 3 + 4</td><td>10</td></tr>
+<tr><td class="hit">forward (slice [0:2])</td><td class="hit">distance[0] + distance[1] = 1 + 2</td><td class="hit"><b>3</b></td></tr>
+<tr><td>backward</td><td>10 &minus; 3 = distance[2] + distance[3] = 3 + 4</td><td>7</td></tr>
+</table>
+<div class="formula">min(3, 7) = <b>3</b>   &check;</div>
+</div>
+
+<div class="step"><h4>3 &middot; Example 2 &mdash; distance = [7,10,1,12], 1 &rarr; 3</h4>
+<div class="formula">total    = 7 + 10 + 1 + 12 = 30
+forward  = distance[1] + distance[2] = 10 + 1 = <b>11</b>
+backward = 30 &minus; 11 = 19  ( = distance[3] + distance[0] = 12 + 7 )
+answer   = min(11, 19) = <b>11</b>   &check;</div>
+<p>Note that the backward arc <em>wraps</em> past index 0. Sorting the endpoints meant we never had to write that loop.</p>
+</div>
+
+<div class="step"><h4>4 &middot; Traps</h4>
+<ul>
+<li><strong>Do not walk with <code>%</code> from start to destination</strong> without first ordering the endpoints &mdash; it works, but it is where off-by-one and infinite-loop bugs live.</li>
+<li><strong><code>distance[i]</code> is an edge, not a stop coordinate.</strong> The arc from <code>lo</code> to <code>hi</code> uses <code>hi &minus; lo</code> edges, so the slice ends at <code>hi</code>, exclusive.</li>
+<li><strong>The last edge closes the circle</strong>: <code>distance[n-1]</code> runs from stop <code>n&minus;1</code> back to stop 0, and it belongs to the backward arc here.</li>
+<li><strong>Equal arcs</strong> (a symmetric circle) are fine &mdash; <code>min</code> of two equal values is the answer either way.</li>
+<li><strong>Many queries?</strong> Then this O(n)-per-query version is the wrong shape; precompute prefix sums, as in the companion problem.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-circularqueries', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Prefix sums',
+  label:'Problem', title:'Circular Route Query Distance',
+  minutes:20, score:'',
+  images:[],
+  fn:{name:'minCircularQueryDistance', ret:'int', params:[['int[]','distances'],['int[][]','queries']]},
+  gen:`def gen(rng, n):
+    m = max(2, n)
+    distances = [rng.randint(1, 1000) for _ in range(m)]
+    queries = [[rng.randrange(m), rng.randrange(m)] for _ in range(max(1, m // 2))]
+    return [distances, queries]`,
+  tests:[
+    {in:[[1, 2, 3, 4], [[0, 1], [1, 3], [3, 0]]], out:10},
+    {in:[[7, 10, 1, 12], [[0, 2], [2, 1]]], out:23},
+    {in:[[5, 5], [[0, 1]]], out:5},
+    {in:[[1, 2, 3, 4], [[2, 2]]], out:0},
+    {in:[[3, 1, 4, 1, 5], [[0, 3], [4, 1], [2, 0]]], out:16}
+  ],
+  body:`
+<div class="tags"><span class="tag easy">Easy</span><span class="tag">Amazon</span><span class="tag">FULLTIME</span><span class="tag">OA</span></div>
+
+<p>A circular route has <code>n</code> stops numbered from <code>0</code> to <code>n - 1</code>. The array <code>distances</code> has length <code>n</code>, where <code>distances[i]</code> is the distance from stop <code>i</code> to stop <code>(i + 1) % n</code>.</p>
+<p>You are given several route queries. Each query <code>[start, end]</code> asks for the shorter of the two possible distances between those stops on the circle. Return the sum of the shortest distances over all queries.</p>
+
+<h3>Function</h3>
+<pre class="sample">minCircularQueryDistance(distances: int[], queries: int[][]) &rarr; int</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">distances = [1,2,3,4]
+queries   = [[0,1],[1,3],[3,0]]
+return    = 10</pre>
+<p>The shortest distances are 1, 5, and 4, so the total is 10.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">distances = [7,10,1,12]
+queries   = [[0,2],[2,1]]
+return    = 23</pre>
+<p>For 0 to 2, the counter-clockwise route is shorter with distance 13. For 2 to 1, the opposite direction has distance 10.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li>Stops are zero-indexed. Each query contains two valid stop indices.</li>
+  <li>No numeric limits were provided in the source; an efficient solution should precompute prefix sums around the circle.</li>
+</ul>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>Every query asks the same question as the single-pair version. The only new requirement is not to re-walk the circle once per query.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>Build <code>prefix[i] = distances[0] + &hellip; + distances[i-1]</code> once. Then the clockwise arc between two stops is a difference of two prefix entries, and the other arc is <code>total</code> minus it &mdash; O(1) per query.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>One prefix-sum pass, then each query is arithmetic:</p>
+<p><code>forward = prefix[hi] &minus; prefix[lo]</code> &nbsp;(after ordering the endpoints), &nbsp; <code>answer += min(forward, total &minus; forward)</code>.</p>
+<p>Ordering the endpoints is what keeps the arc contiguous, so the wrap-around direction never needs its own code path &mdash; it is always the complement.</p>
+<p><span class="cx">Time O(n + q)</span><span class="cx">Space O(n)</span></p><pre class="sample"><code>def minCircularQueryDistance(distances, queries):
+    prefix = [0]
+    for d in distances:
+        prefix.append(prefix[-1] + d)
+    total = prefix[-1]
+
+    answer = 0
+    for start, end in queries:
+        lo, hi = (start, end) if start &lt;= end else (end, start)
+        forward = prefix[hi] - prefix[lo]
+        answer += min(forward, total - forward)
+    return answer</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on both published examples.</p>
+
+<div class="step"><h4>1 &middot; One prefix table serves every query</h4>
+<div class="formula">distances = [1, 2, 3, 4]
+prefix    = [0, 1, 3, 6, 10]        prefix[i] = distance from stop 0 to stop i, clockwise
+total     = prefix[n] = 10</div>
+<p>Then for stops <code>lo &le; hi</code>, the clockwise arc is <code>prefix[hi] &minus; prefix[lo]</code> and the counterclockwise arc is <code>total &minus; that</code>. Both in O(1).</p>
+</div>
+
+<div class="step"><h4>2 &middot; Example 1, query by query</h4>
+<table class="trace">
+<tr><th>query</th><th>lo, hi</th><th>forward = prefix[hi] &minus; prefix[lo]</th><th>backward</th><th>min</th></tr>
+<tr><td>[0, 1]</td><td>0, 1</td><td>1 &minus; 0 = 1</td><td>9</td><td class="hit">1</td></tr>
+<tr><td>[1, 3]</td><td>1, 3</td><td>6 &minus; 1 = 5</td><td>5</td><td class="hit">5</td></tr>
+<tr><td>[3, 0]</td><td>0, 3</td><td>6 &minus; 0 = 6</td><td>4</td><td class="hit">4</td></tr>
+</table>
+<div class="formula">total answer = 1 + 5 + 4 = <b>10</b>   &check;</div>
+<p>The third query is the one that punishes a "walk forward from <code>start</code>" implementation: from stop 3 to stop 0 the clockwise walk is a single edge of length 4, while <code>prefix</code> arithmetic on the ordered pair gives 6 &mdash; and the <code>min</code> puts it right either way.</p>
+</div>
+
+<div class="step"><h4>3 &middot; Example 2 &mdash; distances = [7,10,1,12]</h4>
+<div class="formula">prefix = [0, 7, 17, 18, 30],  total = 30
+[0,2] &rarr; forward = 17 &minus; 0  = 17,  backward = 13  &rarr; <b>13</b>
+[2,1] &rarr; lo,hi = 1,2 &rarr; forward = 17 &minus; 7 = 10,  backward = 20  &rarr; <b>10</b>
+sum   = 13 + 10 = <b>23</b>   &check;</div>
+<p>Both directions are exercised: the first query's winner wraps through stop 3, the second's does not.</p>
+</div>
+
+<div class="step"><h4>4 &middot; Traps</h4>
+<ul>
+<li><strong>Do not re-sum per query.</strong> With q queries that is O(nq); the prefix table makes it O(n + q).</li>
+<li><strong>Order the endpoints per query</strong>, not once. Queries arrive in both orders, as <code>[3,0]</code> shows.</li>
+<li><strong><code>prefix</code> has n + 1 entries.</strong> <code>prefix[n] = total</code>, and the arc uses <code>prefix[hi]</code> with <code>hi</code> up to <code>n &minus; 1</code> only, so the extra slot is the total, nothing else.</li>
+<li><strong>A degenerate query <code>[k, k]</code></strong> yields <code>forward = 0</code> and contributes 0 &mdash; not the full lap.</li>
+<li><strong>Sum in 64 bits</strong> if the source ever pins the bounds; many queries over long routes overflow 32 bits quickly.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-rotateflip', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Arrays',
+  label:'Problem', title:'Sort an Array with Rotate and Flip',
+  minutes:35, score:'',
+  images:[],
+  fn:{name:'minSortOperations', ret:'int', params:[['int[]','values']]},
+  gen:`def gen(rng, n):
+    m = max(1, n)
+    vals = rng.sample(range(-10 * m, 10 * m), m)
+    if rng.random() < 0.7:                 # mostly solvable inputs
+        vals.sort()
+        k = rng.randrange(m)
+        vals = vals[k:] + vals[:k]
+        if rng.random() < 0.5:
+            vals = vals[::-1]
+    return [vals]`,
+  tests:[
+    {in:[[3, 4, 1, 2]], out:2},
+    {in:[[3, 2, 1, 4]], out:2},
+    {in:[[1, 3, 2, 4]], out:-1},
+    {in:[[1]], out:0},
+    {in:[[1, 2, 3, 4]], out:0},
+    {in:[[2, 3, 4, 5, 6, 7, 8, 9, 10, 1]], out:3},
+    {in:[[4, 3, 2, 1]], out:1},
+    {in:[[2, 1]], out:1}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">FULLTIME</span><span class="tag">OA</span></div>
+
+<div class="srcnote"><strong>Source note:</strong> The source identifies the rotate-or-flip sorting objective but omits the exact operation definitions, target order, and bounds. The judged core task matches the visible source at about 84%.</div>
+
+<p>You are given an array <code>values</code> containing distinct integers. You may apply either of these operations:</p>
+<ul>
+  <li><strong>Rotate:</strong> Move the first element to the end of the array.</li>
+  <li><strong>Flip:</strong> Reverse the entire array.</li>
+</ul>
+<p>Return the minimum number of operations needed to place <code>values</code> in strictly increasing order. You may use the operations in any sequence. If increasing order cannot be reached, return <code>-1</code>.</p>
+
+<h3>Function</h3>
+<pre class="sample">minSortOperations(values: int[]) &rarr; int</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">values = [3,4,1,2]
+return = 2</pre>
+<p>Rotate twice: <code>[3,4,1,2]</code> becomes <code>[1,2,3,4]</code>. No single operation produces increasing order.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">values = [3,2,1,4]
+return = 2</pre>
+<p>Flip to obtain <code>[4,1,2,3]</code>, then rotate once to obtain <code>[1,2,3,4]</code>.</p>
+
+<div class="sublabel">Example 3</div>
+<pre class="sample">values = [1,3,2,4]
+return = -1</pre>
+<p>Rotations preserve the circular order, and a flip only reverses that order. Neither orientation can match <code>[1,2,3,4]</code>, so sorting is impossible.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>1 &lt;= values.length &lt;= 200000</code></li>
+  <li>Every element is a 32-bit signed integer.</li>
+  <li>All elements are distinct.</li>
+</ul>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>Both operations preserve the array as a <em>cycle</em>: rotation changes where you cut it, a flip changes which way round you read it. So the array is sortable only if reading the cycle in one of the two directions, from the right starting point, is already increasing.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>Count circular descents. Exactly one descent means some rotation is sorted; exactly one ascent means some rotation is <em>reverse</em> sorted, which a flip fixes. Then count operations carefully &mdash; <code>flip, rotate, flip</code> is a cheap way to rotate <em>backwards</em>, and for a nearly-sorted long array it beats n&minus;1 forward rotations.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Two questions: <em>is</em> it sortable, and if so how few operations. Sortability is a one-pass count on the circular array of distinct values:</p>
+<ul>
+<li>exactly one position with <code>values[i] &gt; values[i+1 mod n]</code> &rarr; rotating by <code>k = i + 1</code> gives the sorted array;</li>
+<li>exactly one position with <code>values[i] &lt; values[i+1 mod n]</code> &rarr; rotating by <code>k = i + 1</code> gives the <em>reversed</em> sorted array, one flip from the goal;</li>
+<li>neither &rarr; <code>-1</code>.</li>
+</ul>
+<p>For the cost, model the reachable arrays as states <code>(orientation, shift)</code>. Rotating advances the shift while the orientation is forward and <em>rewinds</em> it while reversed, and a flip toggles the orientation at cost 1. That gives closed forms:</p>
+<div class="formula">reach rot^k        : min( k , 2 + (n &minus; k) mod n )
+reach flip(rot^k)  : min( k + 1 , 1 + (n &minus; k) mod n )</div>
+<p>Take the minimum over whichever of the two targets exists.</p>
+<p><span class="cx">Time O(n)</span><span class="cx">Space O(n)</span></p><pre class="sample"><code>def minSortOperations(values):
+    n = len(values)
+    if n == 1:
+        return 0
+
+    # a circular array of distinct values is one rotation away from sorted iff
+    # it has exactly one descent; one ascent means some rotation is decreasing
+    descents = [i for i in range(n) if values[i] &gt; values[(i + 1) % n]]
+    ascents  = [i for i in range(n) if values[i] &lt; values[(i + 1) % n]]
+
+    best = None
+    if len(descents) == 1:                    # target is rot^k of the input
+        k = (descents[0] + 1) % n
+        cand = min(k,                          # k rotations
+                   2 + (n - k) % n)            # flip, rotate back, flip
+        best = cand if best is None else min(best, cand)
+    if len(ascents) == 1:                     # some rotation is strictly decreasing
+        k = (ascents[0] + 1) % n
+        cand = min(k + 1,                      # rotate k times, then flip
+                   1 + (n - k) % n)            # flip first, then rotate
+        best = cand if best is None else min(best, cand)
+    return -1 if best is None else best</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on all three published examples, plus the case the published examples do not cover.</p>
+
+<div class="step"><h4>1 &middot; Both operations act on a cycle</h4>
+<p>Write the array around a circle. A rotation moves the cut point; a flip reverses the reading direction. Neither ever changes <em>which element follows which</em> up to direction, so:</p>
+<div class="formula">sortable  &hArr;  the circle, read in one direction from some cut, is increasing</div>
+<p>With distinct values, "read forward and increasing" means exactly one place where the circle steps down &mdash; the cut. Similarly "read backward and increasing" means exactly one place where it steps up.</p>
+<table class="trace">
+<tr><th>input</th><th>circular descents</th><th>circular ascents</th><th>verdict</th></tr>
+<tr><td>[3,4,1,2]</td><td>1 &nbsp;(4 &gt; 1 at i = 1)</td><td>3</td><td>rotation target, k = 2</td></tr>
+<tr><td>[3,2,1,4]</td><td>3</td><td>1 &nbsp;(1 &lt; 4 at i = 2)</td><td>flipped target, k = 3</td></tr>
+<tr><td class="hit">[1,3,2,4]</td><td class="hit">2 &nbsp;(3&gt;2, 4&gt;1)</td><td class="hit">2</td><td class="hit">neither &rarr; <b>&minus;1</b></td></tr>
+</table>
+<p>The wrap-around comparison <code>values[n-1]</code> vs <code>values[0]</code> is part of the count &mdash; forget it and <code>[1,2,3,4]</code> looks like it has zero descents instead of one.</p>
+</div>
+
+<div class="step"><h4>2 &middot; The state graph, and why cost is not just k</h4>
+<p>Let state <code>(0, k)</code> be the array rotated <em>k</em> times and <code>(1, k)</code> that array reversed. Then:</p>
+<div class="formula">rotate on (0, k) &rarr; (0, k+1 mod n)
+rotate on (1, k) &rarr; (1, k&minus;1 mod n)        &larr; reversed, so a rotation rewinds
+flip   on (o, k) &rarr; (1&minus;o, k)              cost 1</div>
+<p>The middle line is the surprise: after one flip, rotations run <em>backwards</em>, so <code>flip &middot; rotate &middot; flip</code> costs 3 and undoes a rotation. Shortest paths from <code>(0, 0)</code> are therefore</p>
+<div class="formula">d(0, k) = min( k , 2 + (n &minus; k) mod n )
+d(1, k) = min( k + 1 , 1 + (n &minus; k) mod n )</div>
+</div>
+
+<div class="step"><h4>3 &middot; The published examples, and the case they hide</h4>
+<div class="formula">[3,4,1,2] : descent at i = 1 &rarr; k = 2, n = 4
+            d(0,2) = min(2, 2 + 2) = <b>2</b>            &check; "rotate twice"
+
+[3,2,1,4] : ascent at i = 2 &rarr; k = 3, n = 4
+            d(1,3) = min(3 + 1, 1 + 1) = <b>2</b>        &check; "flip, then rotate once"
+
+[2,3,4,5,6,7,8,9,10,1] : descent at i = 8 &rarr; k = 9, n = 10
+            d(0,9) = min(9, 2 + 1) = <b>3</b>            &larr; flip, rotate, flip</div>
+<p>That last line is the one no published example covers: nine forward rotations, or three operations that rotate backwards once. A solution that returns <code>k</code> answers 9 and is wrong. Breadth-first search over the real arrays confirms 3.</p>
+</div>
+
+<div class="step"><h4>4 &middot; Traps</h4>
+<ul>
+<li><strong>Cost is not <code>k</code>.</strong> <code>flip &middot; rotate &middot; flip</code> = 3 beats <code>n &minus; 1</code> rotations whenever <code>k &gt; n/2 + 1</code>.</li>
+<li><strong>Count descents circularly</strong>, including the <code>n&minus;1 &rarr; 0</code> step.</li>
+<li><strong>An already sorted array scores 0</strong>: it has exactly one descent, at <code>i = n&minus;1</code>, giving <code>k = 0</code> and <code>d(0,0) = 0</code>.</li>
+<li><strong>Both targets can exist at once</strong> &mdash; for <code>n = 2</code> every array is both a rotation and a flip of the sorted one; taking the minimum handles it.</li>
+<li><strong><code>n = 1</code> is sorted</strong>, and its descent/ascent counts are both 0, so it needs its own early return.</li>
+<li><strong>Distinctness matters.</strong> With duplicates, "exactly one descent" stops characterising sortability, and the problem changes shape.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-maxrating', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Bit manipulation',
+  label:'Problem', title:'Maximum Product New Rating',
+  minutes:45, score:'',
+  images:[],
+  fn:{name:'getMaxRating', ret:'int', params:[['int[]','customer_rating'],['int','m'],['int','k']]},
+  gen:`def gen(rng, n):
+    m = max(1, min(n, 60))
+    rating = [rng.randint(1, 64) for _ in range(m)]
+    return [rating, rng.randint(1, m), rng.randint(0, 40)]`,
+  tests:[
+    {in:[[1, 2, 4, 8], 2, 8], out:10},
+    {in:[[1, 2, 4, 8], 2, 0], out:0},
+    {in:[[7, 7, 7], 3, 0], out:7},
+    {in:[[1], 1, 5], out:6},
+    {in:[[5, 6, 7, 8], 2, 3], out:9},
+    {in:[[1, 1, 1, 1], 4, 12], out:4}
+  ],
+  body:`
+<div class="tags"><span class="tag hard">Hard</span><span class="tag">Amazon</span><span class="tag">NEW GRAD</span><span class="tag">OA</span></div>
+
+<div class="srcnote"><strong>Source note:</strong> On July 31, 2026, the function name was corrected to <code>getMaxRating</code> and the source example's final result sentence restored.</div>
+
+<p>The engineers at Amazon are working on a new rating system for their products. For each product, an array <code>customer_rating</code> is maintained for the last <code>n</code> orders of that product, where the rating given by the i-th customer is represented by <code>customer_rating[i]</code>.</p>
+<p>The following algorithm is used to calculate the <code>new_rating</code> of the product:</p>
+<ul>
+  <li>The engineers can perform the following operation on <code>customer_rating</code> at most <code>k</code> times:
+    <ul><li>Choose a customer rating and add 1 to it.</li></ul>
+  </li>
+  <li>The <code>new_rating</code> is the maximum bitwise AND of any <code>m</code>-sized subset of <code>customer_rating</code>.</li>
+</ul>
+<p>Given <code>n</code> customer ratings, two integers <code>m</code> and <code>k</code>, and an array <code>customer_rating</code>, find the maximum possible <code>new_rating</code> by performing the operations optimally.</p>
+
+<h3>Function</h3>
+<pre class="sample">getMaxRating(customer_rating: int[], m: int, k: int) &rarr; int</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">customer_rating = [1, 2, 4, 8]
+m = 2
+k = 8
+return = 10</pre>
+<p>One optimal sequence applies 6 operations to the rating 4, giving 10, and 2 operations to the rating 8, giving 10. The optimal subset of size 2 is <code>[10, 10]</code> with a bitwise AND of 10. For comparison, spending all 8 operations on the last element gives <code>[1, 2, 4, 16]</code>, whose best size-2 subset ANDs to 0. No valid modification yields a bitwise AND greater than 10.</p>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>Do not try to decide how to spend the budget. Decide instead what the <em>answer</em> looks like, bit by bit, from the most significant bit down &mdash; and ask each time whether that answer is affordable.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>For a candidate value <code>T</code>, an element can contribute only if it is raised to some <code>x &ge; v</code> with <code>x &amp; T == T</code>. Compute that minimum cost per element, take the <code>m</code> cheapest, and compare the total with <code>k</code>. Greedily keep every bit that passes.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Classic "build the answer bit by bit". Let <code>feasible(T)</code> mean: at most <code>k</code> increments can make <em>m</em> elements each contain all the bits of <code>T</code>. The AND of those <em>m</em> elements is then a superset of <code>T</code>, so it is at least <code>T</code>; and the true answer is itself such a <code>T</code>. Hence the answer is the largest feasible <code>T</code>, and scanning bits from high to low, keeping each bit whose candidate is feasible, finds it.</p>
+<p><code>feasible(T)</code> needs the cheapest way to raise a single <code>v</code> to a number containing <code>T</code>'s bits. Only increments are allowed, so the target must be <code>&ge; v</code>. Build it by choosing the position <code>i</code> where the result first exceeds <code>v</code>: keep <code>v</code>'s bits above <code>i</code> (they must already contain <code>T</code>'s bits above <code>i</code>), set bit <code>i</code> where <code>v</code> has a 0, and below <code>i</code> keep exactly <code>T</code>'s bits &mdash; the smallest legal tail. The best over all <code>i</code>, minus <code>v</code>, is the cost.</p>
+<p>Sort the per-element costs, add the <code>m</code> smallest, and compare with <code>k</code>.</p>
+<p><span class="cx">Time O(B &middot; (n log n + n B))</span><span class="cx">Space O(n)</span></p><pre class="sample"><code>def _cost(v, target):
+    """cheapest number of +1 steps that turns v into some x &gt;= v with x &amp; target == target"""
+    if (v &amp; target) == target:
+        return 0
+    best = None
+    for i in range(62):
+        if (v &gt;&gt; i) &amp; 1:                       # need a position where v has 0 and x has 1
+            continue
+        high = (v &gt;&gt; (i + 1)) &lt;&lt; (i + 1)       # bits above i stay exactly as in v
+        if (high &amp; target) != ((target &gt;&gt; (i + 1)) &lt;&lt; (i + 1)):
+            continue                           # ... so they must already carry target's high bits
+        x = high | (1 &lt;&lt; i) | (target &amp; ((1 &lt;&lt; i) - 1))
+        if best is None or x &lt; best:
+            best = x
+    return best - v
+
+
+def getMaxRating(customer_rating, m, k):
+    answer = 0
+    for bit in range(45, -1, -1):              # greedily fix bits from the top down
+        candidate = answer | (1 &lt;&lt; bit)
+        costs = sorted(_cost(v, candidate) for v in customer_rating)
+        if sum(costs[:m]) &lt;= k:
+            answer = candidate
+    return answer</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on the published example: <code>customer_rating = [1,2,4,8]</code>, <code>m = 2</code>, <code>k = 8</code> &rarr; <strong>10</strong>.</p>
+
+<div class="step"><h4>1 &middot; Why greedy-on-the-budget fails</h4>
+<p>"Spend every operation on the largest rating" gives <code>[1,2,4,16]</code>, whose best pair ANDs to <strong>0</strong> &mdash; the statement says so itself. An AND only keeps bits that <em>all</em> chosen elements share, so raising one element alone is worthless. The budget must be spent to make several elements agree.</p>
+</div>
+
+<div class="step"><h4>2 &middot; Search the answer, not the spend</h4>
+<p>Define <code>feasible(T)</code> = "some <em>m</em> elements can each be raised to contain every bit of <code>T</code>, for at most <code>k</code> increments in total". Two facts make the greedy correct:</p>
+<ul>
+<li>if the true optimum is <code>A</code>, then <code>feasible(A)</code> holds (the optimal assignment witnesses it);</li>
+<li>if <code>feasible(T)</code> holds, the resulting AND contains <code>T</code>'s bits, so it is <code>&ge; T</code>.</li>
+</ul>
+<p>So the answer is <code>max{ T : feasible(T) }</code>, and because a higher bit outweighs every lower bit combined, testing bits from the top and keeping the ones that pass finds that maximum.</p>
+</div>
+
+<div class="step"><h4>3 &middot; The per-element cost</h4>
+<p>We need the smallest <code>x &ge; v</code> with <code>x &amp; T == T</code>. Note <code>v | T</code> is legal but often not minimal: for <code>v = 5 (101)</code> and <code>T = 2 (010)</code>, <code>v | T = 7</code> costs 2, while <code>6 (110)</code> costs 1.</p>
+<div class="formula">choose the position i where x first exceeds v:
+   bits above i : copy from v      (must already contain T's bits above i)
+   bit i        : v has 0, x has 1
+   bits below i : exactly T's bits (the cheapest legal tail)
+cost = min over valid i of  x &minus; v      (and 0 if v already contains T)</div>
+</div>
+
+<div class="step"><h4>4 &middot; The greedy, bit by bit</h4>
+<table class="trace">
+<tr><th>candidate T</th><th>cost per rating &nbsp;(1, 2, 4, 8)</th><th>two cheapest</th><th>&le; k = 8?</th><th>answer so far</th></tr>
+<tr><td>16 (10000)</td><td>15, 14, 12, 8</td><td>8 + 12 = 20</td><td>no</td><td>0</td></tr>
+<tr><td class="hit">8 (1000)</td><td class="hit">7, 6, 4, 0</td><td class="hit">0 + 4 = 4</td><td class="hit">yes</td><td class="hit"><b>8</b></td></tr>
+<tr><td>12 (1100)</td><td>11, 10, 8, 4</td><td>4 + 8 = 12</td><td>no</td><td>8</td></tr>
+<tr><td class="hit">10 (1010)</td><td class="hit">9, 8, 6, 2</td><td class="hit">2 + 6 = 8</td><td class="hit">yes</td><td class="hit"><b>10</b></td></tr>
+<tr><td>11 (1011)</td><td>10, 9, 7, 3</td><td>3 + 7 = 10</td><td>no</td><td>10</td></tr>
+</table>
+<div class="formula">answer = <b>10</b>   &check; and the witness is 4 &rarr; 10 (cost 6) with 8 &rarr; 10 (cost 2), total 8 = k</div>
+<p>Exactly the assignment the statement describes. Note how bit 3 is taken first and never given back: 8 is affordable, so no lower combination can beat it.</p>
+</div>
+
+<div class="step"><h4>5 &middot; Traps</h4>
+<ul>
+<li><strong>Only additions are allowed</strong>, so every target must be <code>&ge;</code> the original value. A "nearest number containing T" that may go down is a different, easier problem.</li>
+<li><strong><code>v | T</code> is not the cheapest lift</strong> &mdash; see the <code>5, 2 &rarr; 6</code> case above. This is the single most common bug here.</li>
+<li><strong>Take the m cheapest elements</strong> for each candidate, not a fixed subset chosen once.</li>
+<li><strong>Search enough bits.</strong> The answer can exceed <code>max(rating)</code> &mdash; here it is 10 while the largest input is 8 &mdash; so scan up to the bit above <code>max(rating) + k</code>.</li>
+<li><strong>The AND may exceed the candidate.</strong> That is fine: feasibility is a lower bound, and the greedy still reports the true maximum.</li>
+<li><strong>k = 0 is legal</strong>, and then the answer is the best AND of any m originals.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-protectcity', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · DP',
+  label:'Problem', title:'Maximize Protected City Population',
+  minutes:30, score:'',
+  images:[],
+  fn:{name:'maximizeProtectedPopulation', ret:'long', params:[['int[]','population'],['string','unit']]},
+  gen:`def gen(rng, n):
+    m = max(1, n)
+    population = [rng.randint(1, 1000) for _ in range(m)]
+    unit = ''.join(rng.choice('01') for _ in range(m))
+    return [population, unit]`,
+  tests:[
+    {in:[[10, 5, 8, 9, 6], "01101"], out:27},
+    {in:[[7, 4], "01"], out:7},
+    {in:[[3], "0"], out:0},
+    {in:[[3], "1"], out:3},
+    {in:[[1, 100, 1, 100], "0101"], out:200},
+    {in:[[5, 5, 5, 5], "1111"], out:20}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">FULLTIME</span><span class="tag">OA</span></div>
+
+<p>You are given <code>n</code> cities arranged in a line. City <code>i</code> has population <code>population[i]</code> and may contain a security unit described by <code>unit[i]</code>, where <code>unit[i] = '1'</code> means a unit is initially stationed in city <code>i</code>.</p>
+<p>Each security unit may stay where it is, or if it is not in the first city, it may move exactly one city to the left. Every unit can move at most once.</p>
+<p>After all moves are chosen, a city is <em>protected</em> if at least one security unit is stationed there. Return the maximum total population of all protected cities.</p>
+
+<h3>Function</h3>
+<pre class="sample">maximizeProtectedPopulation(population: int[], unit: String) &rarr; long</pre>
+<p>Complete the function <em>maximizeProtectedPopulation</em>, which has the following parameters:</p>
+<ul>
+  <li><em>int[] population:</em> the city populations</li>
+  <li><em>String unit:</em> the initial security-unit layout</li>
+</ul>
+<h3>Returns</h3>
+<ul><li><em>long:</em> the maximum total population of protected cities.</li></ul>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">population = [10, 5, 8, 9, 6]
+unit       = "01101"
+return     = 27</pre>
+<p>Move the unit from city 2 to city 1, keep the unit in city 3, and move the unit from city 5 to city 4. Cities 1, 3, and 4 are then protected, for a total population of 10 + 8 + 9 = 27.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">population = [7, 4]
+unit       = "01"
+return     = 7</pre>
+<p>Move the only unit left from city 2 to city 1. Protecting city 1 yields the larger total population.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>population.length = unit.length()</code></li>
+  <li><code>unit</code> contains only <code>'0'</code> and <code>'1'</code></li>
+  <li>Each security unit may move left by at most one city, and may move at most once.</li>
+</ul>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>Each unit has two options and they interact only with the immediate neighbour: the unit on city <code>i+1</code> is the only one that can cover city <code>i</code> besides the unit already standing there. That locality is a DP.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>Sweep left to right with one bit of state: <em>has the unit standing on the current city already been promised to the city on its left?</em> Two states, two choices each, O(n).</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>City <code>i</code> can only be covered by the unit at <code>i</code> (staying) or the unit at <code>i+1</code> (stepping left). So walking left to right, the only thing the future needs to know about the past is whether the unit currently under consideration has already been used.</p>
+<p>State after processing cities <code>0..i&minus;1</code>:</p>
+<ul>
+<li><code>stay</code> &mdash; the unit on city <code>i</code>, if there is one, is still available;</li>
+<li><code>moved</code> &mdash; that unit has already been spent covering city <code>i&minus;1</code>.</li>
+</ul>
+<p>At city <code>i</code> you decide what the unit on city <code>i+1</code> does, which produces the next pair. Covering a city twice earns its population once, so the value added is <code>population[i]</code> when anybody covers it and 0 otherwise. The answer is the better of the two final states.</p>
+<p>Greedy fails: "always move a unit left if the left city is bigger" mishandles chains such as <code>"11"</code>, where moving the second unit left only duplicates the first.</p>
+<p><span class="cx">Time O(n)</span><span class="cx">Space O(1)</span></p><pre class="sample"><code>def maximizeProtectedPopulation(population, unit):
+    n = len(population)
+    NEG = float('-inf')
+    # stay  = best total when the unit standing on city i (if any) is still free
+    # moved = best total when that unit has already been committed to city i-1
+    stay, moved = 0, NEG
+    for i in range(n):
+        nstay = nmoved = NEG
+        for used, val in ((False, stay), (True, moved)):
+            if val == NEG:
+                continue
+            here = unit[i] == '1' and not used          # a unit is standing on i
+            # the unit on city i+1 stays where it is
+            v = val + (population[i] if here else 0)
+            if v &gt; nstay:
+                nstay = v
+            # the unit on city i+1 steps left onto city i
+            if i + 1 &lt; n and unit[i + 1] == '1':
+                v = val + population[i]                 # city i is covered either way
+                if v &gt; nmoved:
+                    nmoved = v
+        stay, moved = nstay, nmoved
+    return max(stay, moved)</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on the published example: <code>population = [10,5,8,9,6]</code>, <code>unit = "01101"</code> &rarr; <strong>27</strong>. Indices below are 0-based, so the units sit on cities 1, 2 and 4.</p>
+
+<div class="step"><h4>1 &middot; Who can cover city i</h4>
+<div class="formula">city i is protected  &hArr;  (unit[i] = 1 and that unit stayed)
+                        or  (unit[i+1] = 1 and that unit stepped left)</div>
+<p>No other unit can reach it, so the decisions form a chain along the line &mdash; a textbook one-dimensional DP with a single bit of carry.</p>
+</div>
+
+<div class="step"><h4>2 &middot; The two states</h4>
+<p>Process cities left to right. Before handling city <code>i</code>, exactly one fact about the past still matters:</p>
+<div class="formula">stay[i]  : the unit on city i (if any) has <b>not</b> been used yet
+moved[i] : it was already used to cover city i&minus;1</div>
+<p>At city <code>i</code> we choose whether the unit on <code>i+1</code> steps left. Each choice adds <code>population[i]</code> if city <code>i</code> ends up covered, and moves us to <code>stay[i+1]</code> or <code>moved[i+1]</code> accordingly.</p>
+</div>
+
+<div class="step"><h4>3 &middot; The sweep, in full</h4>
+<table class="trace">
+<tr><th>i</th><th>pop</th><th>unit</th><th>stay</th><th>moved</th><th>note</th></tr>
+<tr><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>0</td><td>&minus;&infin;</td><td>before city 0</td></tr>
+<tr><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td><td>the unit on city 1 may step left &rarr; +10</td></tr>
+<tr><td>1</td><td>5</td><td>1</td><td>10</td><td>15</td><td>from <em>moved</em>: city 1 is empty (its unit left) unless city 2's unit steps in</td></tr>
+<tr><td>2</td><td>8</td><td>1</td><td class="hit">18</td><td>&minus;&infin;</td><td>10 + 8: city 2's unit stays; city 3 holds no unit, so nothing can step left onto city 2</td></tr>
+<tr><td>3</td><td>9</td><td>0</td><td>18</td><td class="hit">27</td><td>city 4's unit steps left &rarr; 18 + 9</td></tr>
+<tr><td>4</td><td>6</td><td>1</td><td class="hit">27</td><td>&minus;&infin;</td><td>its unit already moved, so city 4 earns nothing</td></tr>
+</table>
+<div class="formula">answer = max(27, &minus;&infin;) = <b>27</b>   &check; cities 0, 2, 3 protected: 10 + 8 + 9</div>
+<p>The tempting greedy &mdash; "move a unit left whenever the left city is more populous" &mdash; is wrong, and the smallest counterexample is two cities: <code>population = [10, 1]</code> with <code>unit = "11"</code>. The greedy sees 10 &gt; 1 and moves the second unit, protecting city 0 alone for <strong>10</strong>; leaving it where it is protects both cities for <strong>11</strong>. Moving a unit is never free &mdash; it abandons the city it was standing on.</p>
+</div>
+
+<div class="step"><h4>4 &middot; Traps</h4>
+<ul>
+<li><strong>Double coverage pays once.</strong> With <code>unit = "11"</code>, moving the right unit left leaves only city 0 protected; keeping both protects both.</li>
+<li><strong>The unit in city 0 cannot move</strong>, which the DP gets for free because <code>moved</code> starts at &minus;&infin;.</li>
+<li><strong>A unit that moved leaves its own city unprotected</strong> unless the next unit steps into it &mdash; that is exactly what the <code>moved</code> state remembers.</li>
+<li><strong>Return type is long:</strong> populations sum well past 2&sup3;&sup1; on large inputs.</li>
+<li><strong>Cities with no unit anywhere near</strong> contribute nothing; there is no "protect by adjacency" rule here, only occupancy.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-exectime', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Greedy',
+  label:'Problem', title:'Minimum Execution Time',
+  minutes:35, score:'',
+  images:['src-exectime.png'],
+  fn:{name:'minimumExecutionTime', ret:'int', params:[['int[]','jobSize'],['int[]','throughput']]},
+  gen:`def gen(rng, n):
+    m = max(1, n)
+    jobSize = [rng.randint(1, 50) for _ in range(m)]
+    throughput = [rng.randint(1, 50) for _ in range(max(1, m // 2))]
+    return [jobSize, throughput]`,
+  tests:[
+    {in:[[2, 5, 3], [6, 2, 4]], out:1},
+    {in:[[2, 5, 8], [6, 7, 4]], out:-1},
+    {in:[[5, 5], [6]], out:3},
+    {in:[[1, 1, 1, 1, 1], [9, 9]], out:5},
+    {in:[[4], [4]], out:1},
+    {in:[[3, 3, 3], [3, 1, 1]], out:5}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">NEW GRAD</span><span class="tag">OA</span></div>
+
+<div class="srcnote"><strong>Source note:</strong> 2026-06-28 &mdash; The original source image omitted Example 2's output; it was derived from the statement and the input, and should be updated if the official output becomes available.</div>
+
+<p>Amazon's "UltraCompute" service receives an array of <code>n</code> job fragments. Each fragment's size is recorded in <code>jobSize[i]</code> for <code>0 &le; i &lt; n</code>. At the same time, the fleet has <code>m</code> worker instances whose maximum throughputs are <code>throughput[j]</code> for <code>0 &le; j &lt; m</code>.</p>
+<p>A worker finishes a fragment in exactly 1 second if <code>jobSize &le; throughput</code>; otherwise it cannot run that fragment.</p>
+<p>Each worker can process at most one fragment per second. If a worker is assigned multiple fragments, there is a mandatory 1-second cooldown pause between completing one fragment and starting the next. Different workers may process different fragments in parallel.</p>
+<p>Your task is to compute the minimum number of seconds needed to finish all fragments, or return <code>-1</code> if at least one fragment is too large for every worker.</p>
+
+<h3>Function</h3>
+<pre class="sample">minimumExecutionTime(jobSize: int[], throughput: int[]) &rarr; int</pre>
+<p>Complete the function <em>minimumExecutionTime</em> in the editor below.</p>
+<ul>
+  <li><em>int jobSize[n]:</em> size of each fragment</li>
+  <li><em>int throughput[m]:</em> capacity of each worker</li>
+</ul>
+<h3>Returns</h3>
+<ul><li><em>int:</em> minimum seconds to finish all fragments, or &minus;1</li></ul>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">jobSize    = [2, 5, 3]
+throughput = [6, 2, 4]
+return     = 1</pre>
+<p>Assign fragment 5 to the 6-unit worker, fragment 2 to the 2-unit worker, and fragment 3 to the 4-unit worker. All three finish in the same second, so the minimum total time is 1.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">jobSize    = [2, 5, 8]
+throughput = [6, 7, 4]
+return     = -1</pre>
+<p>The largest fragment has size 8, but the highest worker throughput is 7. That fragment is too large for every worker, so the answer is &minus;1.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>1 &le; n, m &le; 2 * 10^5</code></li>
+  <li><code>1 &le; jobSize[i], throughput[j] &le; 10^9</code></li>
+</ul>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>Because of the cooldown, a worker that runs <em>r</em> fragments occupies seconds 1, 3, 5, &hellip; and finishes at second <code>2r &minus; 1</code>. So the whole schedule is decided by one number: the largest number of fragments any single worker has to take.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>Sort fragments descending. The <em>i</em> largest fragments can only run on the workers whose throughput is at least the <em>i</em>-th largest fragment &mdash; call that count <code>c_i</code>. They need <code>ceil(i / c_i)</code> rounds, and the answer's round count is the maximum of that over all <em>i</em>.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Two independent parts: feasibility, and the schedule length.</p>
+<p><strong>Feasibility.</strong> A fragment is runnable iff some throughput is at least its size, so a single check against <code>max(throughput)</code> decides the &minus;1 case.</p>
+<p><strong>Length.</strong> The cooldown means a worker assigned <em>r</em> fragments finishes at second <code>2r &minus; 1</code>, so the answer is <code>2R &minus; 1</code> where <em>R</em> is the largest per-worker load in the best assignment. Sort the fragments descending; the capability sets are <em>nested</em> (a worker that can run a big fragment can run every smaller one), so Hall's condition collapses to one scan:</p>
+<div class="formula">R = max over i of  ceil( i / c_i )        c_i = #{ workers with throughput &ge; i-th largest fragment }</div>
+<p>Each prefix of the sorted fragments is confined to <code>c_i</code> workers, which cannot hold more than <code>c_i</code> per round; and that bound is achievable by dealing the sorted fragments round-robin to the capable workers.</p>
+<p><span class="cx">Time O((n + m) log(n + m))</span><span class="cx">Space O(n + m)</span></p><pre class="sample"><code>from bisect import bisect_left
+
+def minimumExecutionTime(jobSize, throughput):
+    jobs = sorted(jobSize, reverse=True)      # hardest fragment first
+    caps = sorted(throughput)                 # ascending, for bisect
+    m = len(caps)
+
+    rounds = 1
+    for i, job in enumerate(jobs, 1):
+        capable = m - bisect_left(caps, job)  # workers that can run this fragment
+        if capable == 0:
+            return -1
+        need = -(-i // capable)               # ceil(i / capable)
+        if need &gt; rounds:
+            rounds = need
+    return 2 * rounds - 1                     # run, cooldown, run, cooldown, ...</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on both published examples, plus the case that makes the cooldown visible.</p>
+
+<div class="step"><h4>1 &middot; What the cooldown actually costs</h4>
+<p>One fragment per second, and a pause of one second between two fragments on the same worker:</p>
+<div class="formula">r = 1 &rarr; busy at second 1                  finishes at 1
+r = 2 &rarr; seconds 1 and 3                    finishes at 3
+r = 3 &rarr; seconds 1, 3, 5                    finishes at 5
+r fragments                                  finishes at <b>2r &minus; 1</b></div>
+<p>Workers run in parallel, so the makespan is <code>2R &minus; 1</code> for the busiest worker's load <em>R</em>. The whole problem is therefore "minimise the maximum load", and the answer is always odd.</p>
+</div>
+
+<div class="step"><h4>2 &middot; The capability sets are nested</h4>
+<p>Worker <em>j</em> can run fragment <em>i</em> iff <code>throughput[j] &ge; jobSize[i]</code>. Sort fragments descending: the set of workers able to run the first fragment is contained in the set for the second, and so on. That nesting is what makes a single scan sufficient &mdash; no matching algorithm is needed.</p>
+<div class="formula">need(i) = ceil( i / c_i )     for the i largest fragments
+R       = max_i need(i)
+answer  = 2R &minus; 1                (or &minus;1 when some c_i = 0)</div>
+<p><em>Lower bound:</em> those <em>i</em> fragments live inside <code>c_i</code> workers, and each worker absorbs one per round. <em>Achievable:</em> deal the sorted fragments to their capable workers round-robin; every fragment lands on a worker that can run it, and no worker exceeds <code>R</code>.</p>
+</div>
+
+<div class="step"><h4>3 &middot; The examples</h4>
+<table class="trace">
+<tr><th>input</th><th>i</th><th>i-th largest fragment</th><th>c_i</th><th>ceil(i / c_i)</th></tr>
+<tr><td rowspan="3">jobs [5,3,2], caps [6,4,2]</td><td>1</td><td>5</td><td>1 &nbsp;(only 6)</td><td>1</td></tr>
+<tr><td>2</td><td>3</td><td>2 &nbsp;(6, 4)</td><td>1</td></tr>
+<tr><td class="hit">3</td><td class="hit">2</td><td class="hit">3 &nbsp;(6, 4, 2)</td><td class="hit">1 &rarr; R = 1</td></tr>
+<tr><td>jobs [8,5,2], caps [7,6,4]</td><td>1</td><td>8</td><td class="hit">0</td><td class="hit">&rarr; <b>&minus;1</b></td></tr>
+</table>
+<div class="formula">example 1 : answer = 2&middot;1 &minus; 1 = <b>1</b>    &check;
+example 2 : the largest fragment fits nowhere &rarr; <b>&minus;1</b>   &check;</div>
+<p>And the case neither example covers &mdash; <code>jobSize = [5,5]</code>, <code>throughput = [6]</code>: <code>c_1 = c_2 = 1</code>, so <code>R = 2</code> and the answer is <code>2&middot;2 &minus; 1 = 3</code>. Second 1 runs one fragment, second 2 is the mandatory cooldown, second 3 runs the other.</p>
+</div>
+
+<div class="step"><h4>4 &middot; Traps</h4>
+<ul>
+<li><strong>The answer is not <code>ceil(n / m)</code>.</strong> Capability matters: with <code>jobs = [3,3,3]</code> and <code>caps = [3,1,1]</code> only one worker is usable, so the answer is 5, not 1.</li>
+<li><strong>The cooldown is <em>between</em> fragments, not after the last one</strong> &mdash; hence <code>2r &minus; 1</code> and not <code>2r</code>.</li>
+<li><strong>&minus;1 takes priority</strong> and is decided by <code>max(throughput)</code> alone.</li>
+<li><strong>Sort descending and take the running maximum.</strong> Checking only the last (smallest) fragment misses the binding constraint, which is usually near the top.</li>
+<li><strong>Sizes reach 10&#8313;</strong>, so compare capacities, never subtract them.</li>
+<li><strong>Binary searching the number of rounds</strong> works too &mdash; the same counting predicate &mdash; but the single scan is O(n log n) and simpler.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-dominocolor', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · DP',
+  label:'Problem', title:'Count Distinct Domino Colorings',
+  minutes:35, score:'',
+  images:[],
+  fn:{name:'countDistinctColorings', ret:'int', params:[['string[]','domino']]},
+  gen:`def gen(rng, n):
+    letters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    rng.shuffle(letters)
+    width = max(1, min(n, 52))
+    top, bot, i = [], [], 0
+    while i < width and len(letters) >= 2:
+        if i + 1 < width and rng.random() < 0.5:
+            a, b = letters.pop(), letters.pop()
+            top += [a, a]
+            bot += [b, b]
+            i += 2
+        else:
+            a = letters.pop()
+            top.append(a)
+            bot.append(a)
+            i += 1
+    return [[''.join(top), ''.join(bot)]]`,
+  tests:[
+    {in:[["abb", "acc"]], out:6},
+    {in:[["ab", "ab"]], out:6},
+    {in:[["aa", "bb"]], out:6},
+    {in:[["a", "a"]], out:3},
+    {in:[["aabb", "ccdd"]], out:18},
+    {in:[["aabc", "ddbc"]], out:12}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">INTERN</span><span class="tag">OA</span></div>
+
+<div class="srcnote"><strong>Source note:</strong> The visible source lists <code>n &le; 10^5</code>. Because each domino uses a unique case-sensitive single English letter and each character appears exactly twice, the largest internally consistent width is <code>n = 52</code>; the published constraint uses 52.</div>
+
+<p>In Amazon's warehouse automation systems, robotic movement paths are modeled using domino-like tiles placed on a grid.</p>
+<p>A domino is a unique 1 x 2 or 2 x 1 piece represented by one lowercase or uppercase English letter. The array <code>domino</code> contains exactly two strings of equal length <code>n</code>.</p>
+<p>Treat <code>domino[0]</code> as the top row and <code>domino[1]</code> as the bottom row of a 2 x n grid. Each character appears exactly twice across the grid and identifies exactly one domino. The strings are guaranteed to describe a complete, non-overlapping tiling:</p>
+<ul>
+  <li>A vertical domino occupies column <code>i</code> when <code>domino[0][i] == domino[1][i]</code>.</li>
+  <li>Two horizontal dominoes occupy columns <code>i</code> and <code>i + 1</code> when <code>domino[0][i] == domino[0][i + 1]</code> and <code>domino[1][i] == domino[1][i + 1]</code>.</li>
+</ul>
+<p>Two dominoes are adjacent when they share a side in the grid: up, down, left, or right. Diagonal contact does not count.</p>
+<p>Color every domino Red, Green, or Blue. Both halves of a domino must have the same color, and adjacent dominoes must have different colors.</p>
+<p>Return the number of distinct valid colorings modulo <code>10^9 + 7</code>.</p>
+
+<h3>Function</h3>
+<pre class="sample">countDistinctColorings(domino: String[]) &rarr; int</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">domino = ["abb", "acc"]
+return = 6</pre>
+<p>The grid is <code>a b b</code> on top and <code>a c c</code> underneath: domino <em>a</em> is vertical, while <em>b</em> and <em>c</em> are horizontal. The valid colorings are <code>[RGG, RBB]</code>, <code>[RBB, RGG]</code>, <code>[GRR, GBB]</code>, <code>[GBB, GRR]</code>, <code>[BGG, BRR]</code> and <code>[BRR, BGG]</code> &mdash; 6 in total.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>domino.length == 2</code></li>
+  <li><code>1 &lt;= domino[0].length == domino[1].length &lt;= 52</code></li>
+  <li>Every character is a lowercase or uppercase English letter.</li>
+  <li>Each character appears exactly twice and the two strings describe a valid domino tiling.</li>
+</ul>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>You never have to look at the letters as identities &mdash; only at the <em>shape</em> of each block. Scanning left to right, the grid is a sequence of two kinds of block: one vertical domino (1 column) or a stacked pair of horizontal dominoes (2 columns).</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>Only neighbouring blocks touch, so the count is a product over consecutive block pairs. Work out four numbers by hand &mdash; V&rarr;V, V&rarr;HH, HH&rarr;V, HH&rarr;HH &mdash; and multiply.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Parse the tiling into blocks: column <code>i</code> is a vertical domino when the two rows agree there, otherwise columns <code>i</code> and <code>i+1</code> hold a stacked pair of horizontal dominoes. Inside a pair, the two dominoes touch each other, so they must differ.</p>
+<p>Because only consecutive blocks are adjacent, the number of colorings is the first block's count times one factor per adjacent pair:</p>
+<div class="formula">first block : V = 3,  HH = 3 &times; 2 = 6
+V  &rarr; V  : 2      the new colour just avoids one
+V  &rarr; HH : 2      top avoids 1 colour (2 ways), bottom avoids top and the V (1 way)
+HH &rarr; V  : 1      must avoid two different colours
+HH &rarr; HH : 3      counted by hand below</div>
+<p>One left-to-right pass multiplies them modulo 10&#8313;+7. No adjacency list, no graph colouring, no recursion.</p>
+<p><span class="cx">Time O(n)</span><span class="cx">Space O(1)</span></p><pre class="sample"><code>def countDistinctColorings(domino):
+    MOD = 10 ** 9 + 7
+    top, bottom = domino[0], domino[1]
+    n = len(top)
+
+    ways = 1
+    prev = None                       # True = previous block was one vertical domino
+    i = 0
+    while i &lt; n:
+        vertical = top[i] == bottom[i]
+        if prev is None:
+            ways = 3 if vertical else 6          # first block: 3, or 3 * 2 for a pair
+        elif prev and vertical:
+            ways = ways * 2                      # V -&gt; V  : differ from one colour
+        elif prev and not vertical:
+            ways = ways * 2                      # V -&gt; HH : top 2 ways, bottom forced
+        elif vertical:
+            ways = ways * 1                      # HH -&gt; V : the one remaining colour
+        else:
+            ways = ways * 3                      # HH -&gt; HH
+        ways %= MOD
+        prev = vertical
+        i += 1 if vertical else 2
+    return ways % MOD</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on the published example: <code>["abb", "acc"] &rarr; 6</code>.</p>
+
+<div class="step"><h4>1 &middot; The tiling is a chain of blocks</h4>
+<p>In a 2 &times; n grid, a horizontal domino forces a second one directly below it &mdash; otherwise the column beneath cannot be filled. So reading left to right, the tiling is a sequence of:</p>
+<div class="formula">V  : one vertical domino, 1 column wide
+HH : two stacked horizontal dominoes, 2 columns wide</div>
+<p>and dominoes only ever touch inside their own block or across the boundary with the next block. That chain structure is why a product works instead of a full graph colouring.</p>
+<table class="trace">
+<tr><th>column</th><th>0</th><th>1</th><th>2</th></tr>
+<tr><td>top</td><td>a</td><td>b</td><td>b</td></tr>
+<tr><td>bottom</td><td>a</td><td>c</td><td>c</td></tr>
+<tr><td>block</td><td class="hit">V (a)</td><td colspan="2" class="hit">HH (b over c)</td></tr>
+</table>
+</div>
+
+<div class="step"><h4>2 &middot; The four transition counts, derived</h4>
+<p><strong>V &rarr; V.</strong> The new vertical domino touches only the previous one: <strong>2</strong> colours left.</p>
+<p><strong>V &rarr; HH.</strong> The new top and bottom both touch the vertical domino, and they touch each other. Top: 2 choices (anything but the V's colour). Bottom: must differ from the V <em>and</em> from the top &mdash; 1 choice. Total <strong>2</strong>.</p>
+<p><strong>HH &rarr; V.</strong> The vertical domino touches both previous dominoes, which already have two <em>different</em> colours, leaving exactly <strong>1</strong>.</p>
+<p><strong>HH &rarr; HH.</strong> Previous pair coloured <code>(a, b)</code> with <code>a &ne; b</code>. New pair <code>(c, d)</code> needs <code>c &ne; a</code>, <code>d &ne; b</code>, <code>c &ne; d</code>:</p>
+<div class="formula">c = b            &rarr; d must avoid b only          &rarr; 2 choices
+c = the third colour &rarr; d must avoid b and c      &rarr; 1 choice
+total                                                <b>3</b></div>
+<p>And the first block: a lone vertical is <strong>3</strong>; a first pair is 3 &times; 2 = <strong>6</strong>.</p>
+</div>
+
+<div class="step"><h4>3 &middot; The example, multiplied out</h4>
+<div class="formula">blocks: V(a) , HH(b, c)
+start V        &rarr; 3
+V &rarr; HH      &rarr; &times; 2
+total          = 3 &times; 2 = <b>6</b>   &check; the six colourings listed in the statement</div>
+<p>They line up exactly: three choices for <em>a</em>, and for each one, two ways to arrange the remaining pair over <em>b</em> and <em>c</em> &mdash; which is the <code>[RGG, RBB] / [RBB, RGG]</code> pattern repeated per colour of <em>a</em>.</p>
+<p>Two more checks: <code>["aa","bb"]</code> is a single HH block &rarr; <strong>6</strong>; <code>["aabb","ccdd"]</code> is HH followed by HH &rarr; <code>6 &times; 3 = <strong>18</strong></code>. Brute-force enumeration of all 3^(number of dominoes) colourings agrees on every tiling tested.</p>
+</div>
+
+<div class="step"><h4>4 &middot; Traps</h4>
+<ul>
+<li><strong>The two halves of one HH block are adjacent</strong> to each other. Treating a pair as independent gives 3 &times; 3 and inflates every count.</li>
+<li><strong>HH &rarr; HH is 3, not 4.</strong> The "c must differ from a, d must differ from b" reading forgets <code>c &ne; d</code>.</li>
+<li><strong>Diagonals do not touch</strong>, which is exactly why V &rarr; HH is 2 and not 1.</li>
+<li><strong>Advance the index by 2 over a horizontal pair</strong>, or the second column is parsed as another block.</li>
+<li><strong>Reduce modulo 10&#8313;+7 as you multiply.</strong></li>
+<li><strong>Letters are identifiers, not colours</strong> &mdash; the same letter never appears in two different dominoes, so no equality constraint is ever implied by the input.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-feasible', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Greedy',
+  label:'Problem', title:'Feasible Indices After Reduction',
+  minutes:30, score:'',
+  images:[],
+  fn:{name:'feasibleIndicesAfterReduction', ret:'string', params:[['int[]','arr']]},
+  gen:`def gen(rng, n):
+    m = max(1, n)
+    return [rng.sample(range(1, 10 * m + 1), m)]`,
+  tests:[
+    {in:[[1, 3, 2, 5, 4]], out:"10011"},
+    {in:[[4, 1, 3, 2]], out:"1111"},
+    {in:[[1, 2, 3, 4]], out:"1001"},
+    {in:[[4, 3, 2, 1]], out:"1111"},
+    {in:[[7]], out:"1"},
+    {in:[[2, 9, 1, 8, 3]], out:"11111"}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">INTERN</span><span class="tag">OA</span></div>
+
+<p>You are given an integer array <code>arr</code> of size <code>n</code>. All elements of <code>arr</code> are distinct.</p>
+<p>You may perform either of the following operations any number of times:</p>
+<ul>
+  <li>Choose a non-empty <strong>prefix</strong> of the current array and delete every element in that prefix except the <strong>minimum</strong> element of the prefix.</li>
+  <li>Choose a non-empty <strong>suffix</strong> of the current array and delete every element in that suffix except the <strong>maximum</strong> element of the suffix.</li>
+</ul>
+<p>After each operation, the remaining elements are concatenated to form the new array.</p>
+<p>An index <code>i</code> is called <em>feasible</em> if it is possible to reduce the array to the single element <code>[arr[i]]</code>. Return a binary string of length <code>n</code> where the i-th character is <code>'1'</code> if index <code>i</code> is feasible, and <code>'0'</code> otherwise.</p>
+
+<h3>Function</h3>
+<pre class="sample">feasibleIndicesAfterReduction(arr: int[]) &rarr; String</pre>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">arr    = [1, 3, 2, 5, 4]
+return = "10011"</pre>
+<p>The feasible values are 1, 5, and 4. They are the prefix minimum at index 0 and the suffix maximums at indices 3 and 4.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">arr    = [4, 1, 3, 2]
+return = "1111"</pre>
+<p>All four indices are feasible. Values 4 and 1 are prefix minima, while values 3 and 2 are suffix maxima. For example, after reducing prefix <code>[4,1]</code> to 1, value 3 can survive a reduction of suffix <code>[3,2]</code> and then of the whole array.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>1 &lt;= n &lt;= 2 * 10^5</code></li>
+  <li><code>1 &lt;= arr[i] &lt;= 10^9</code></li>
+  <li>All values in <code>arr</code> are distinct.</li>
+</ul>
+
+<div class="srcnote"><strong>Duplicate sighting:</strong> the same problem is also reported under the title <em>"Feasible Indices After Prefix/Suffix Reduction"</em> with the signature <code>getFeasibleIndices(arr: int[]) &rarr; String</code> and bound <code>n &le; 2 &times; 10&#8309;</code>. Same statement, same answer; only the wrapper name differs. Rename the function if the judge you meet asks for the other one.</div>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>Two operations, two directions. Ask separately: which elements can survive a prefix operation that swallows everything to their left, and which can survive a suffix operation that swallows everything to their right?</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>To clear the left of index <em>i</em> in one prefix operation, <code>arr[i]</code> must be the minimum of <code>arr[0..i]</code>. To clear the right, it must be the maximum of <code>arr[i..n-1]</code>. Either one is enough &mdash; and nothing else is feasible.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Answer: index <em>i</em> is feasible exactly when <code>arr[i]</code> is a <strong>prefix minimum</strong> or a <strong>suffix maximum</strong>. Two linear scans, one running <code>min</code> and one running <code>max</code>.</p>
+<p><em>Sufficient.</em> If <code>arr[i] = min(arr[0..i])</code>, apply the prefix operation to <code>arr[0..i]</code> &mdash; everything to the left vanishes and <code>arr[i]</code> becomes the first element. Now apply the suffix operation to the whole remaining array: whatever the maximum is, one more prefix operation on the whole array keeps the minimum, and alternating the two collapses to <code>arr[i]</code>. The mirrored argument covers a suffix maximum.</p>
+<p><em>Necessary.</em> Look at the operation that finally removes the last element on <code>arr[i]</code>'s left. It is a prefix operation whose surviving element is <code>arr[i]</code>, so <code>arr[i]</code> is the minimum of a set that still contains every original element of <code>arr[0..i]</code> that has not yet been deleted &mdash; and deletions only ever keep the minimum of a prefix, so the running minimum of <code>arr[0..i]</code> is always present. Hence <code>arr[i]</code> must equal it. Symmetrically on the right.</p>
+<p>Exhaustive breadth-first search over every reachable array (all n &le; 7 inputs) agrees with the rule on every case tested.</p>
+<p><span class="cx">Time O(n)</span><span class="cx">Space O(n)</span></p><pre class="sample"><code>def feasibleIndicesAfterReduction(arr):
+    n = len(arr)
+    out = ['0'] * n
+
+    running = None                  # prefix minimum
+    for i, v in enumerate(arr):
+        running = v if running is None else min(running, v)
+        if v == running:
+            out[i] = '1'
+
+    running = None                  # suffix maximum
+    for i in range(n - 1, -1, -1):
+        running = arr[i] if running is None else max(running, arr[i])
+        if arr[i] == running:
+            out[i] = '1'
+
+    return ''.join(out)</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on both published examples.</p>
+
+<div class="step"><h4>1 &middot; What one operation really does</h4>
+<p>A prefix operation keeps <em>one</em> element &mdash; the minimum of the chosen prefix &mdash; and discards the rest of it. A suffix operation keeps the maximum of the chosen suffix. So an element can only survive on the left side of the array if it is small, and on the right side if it is large.</p>
+</div>
+
+<div class="step"><h4>2 &middot; The two one-pass tests</h4>
+<div class="formula">prefix-min(i) : arr[i] == min(arr[0..i])     &rarr; one operation clears everything to its left
+suffix-max(i) : arr[i] == max(arr[i..n&minus;1])   &rarr; one operation clears everything to its right
+feasible(i)   = prefix-min(i) <b>or</b> suffix-max(i)</div>
+<p>Once one side is cleared, the other side is cleaned up by alternating the two operations on the whole remaining array, which always keeps a single element and can be steered to <code>arr[i]</code> (it is now either the array's first or its last element).</p>
+</div>
+
+<div class="step"><h4>3 &middot; Example 1 &mdash; arr = [1, 3, 2, 5, 4]</h4>
+<table class="trace">
+<tr><th>i</th><th>arr[i]</th><th>min(arr[0..i])</th><th>prefix min?</th><th>max(arr[i..])</th><th>suffix max?</th><th>result</th></tr>
+<tr><td class="hit">0</td><td class="hit">1</td><td class="hit">1</td><td class="hit">yes</td><td class="hit">5</td><td class="hit">no</td><td class="hit"><b>1</b></td></tr>
+<tr><td>1</td><td>3</td><td>1</td><td>no</td><td>5</td><td>no</td><td>0</td></tr>
+<tr><td>2</td><td>2</td><td>1</td><td>no</td><td>5</td><td>no</td><td>0</td></tr>
+<tr><td class="hit">3</td><td class="hit">5</td><td class="hit">1</td><td class="hit">no</td><td class="hit">5</td><td class="hit">yes</td><td class="hit"><b>1</b></td></tr>
+<tr><td class="hit">4</td><td class="hit">4</td><td class="hit">1</td><td class="hit">no</td><td class="hit">4</td><td class="hit">yes</td><td class="hit"><b>1</b></td></tr>
+</table>
+<div class="formula">result = "<b>10011</b>"   &check;</div>
+</div>
+
+<div class="step"><h4>4 &middot; Example 2 &mdash; arr = [4, 1, 3, 2] &rarr; "1111"</h4>
+<div class="formula">prefix minima : 4 (i = 0, trivially) , 1 (i = 1)
+suffix maxima : 2 (i = 3, trivially) , 3 (i = 2) , 4 (i = 0)
+union         : every index                      &rarr; "1111"</div>
+<p>Index 2 is the instructive one: 3 is not a prefix minimum, but it <em>is</em> the maximum of the suffix <code>[3, 2]</code>, so the suffix operation clears its right, then prefix operations eat the <code>[4, 1]</code> on its left.</p>
+<p>The first and last indices are always feasible &mdash; <code>arr[0]</code> is the minimum of the one-element prefix and <code>arr[n-1]</code> the maximum of the one-element suffix &mdash; a quick sanity check on any implementation.</p>
+</div>
+
+<div class="step"><h4>5 &middot; Traps</h4>
+<ul>
+<li><strong>It is <code>or</code>, not <code>and</code>.</strong> Requiring both conditions leaves almost every index at 0.</li>
+<li><strong>Prefix takes the <em>minimum</em>, suffix the <em>maximum</em></strong> &mdash; swapping them is the single most common misread, and example 1 would then print "01100".</li>
+<li><strong>Both prefixes and suffixes are inclusive of i.</strong> The running min must include <code>arr[i]</code> itself.</li>
+<li><strong>Return a string of '0'/'1' characters</strong>, not a list of booleans or indices.</li>
+<li><strong>Distinctness is used.</strong> With duplicates, "equals the running minimum" no longer pins a unique survivor and the rule needs care.</li>
+</ul>
+</div>
+</div></details>
+</div>
+`},
+
+{
+  id:'fp-valuegroups', section:'FastPrep · Reported Amazon OA', platform:'FastPrep · Intervals',
+  label:'Problem', title:'Make Value Groups Contiguous',
+  minutes:30, score:'',
+  images:[],
+  fn:{name:'minOperationsToMakeValuesContiguous', ret:'int', params:[['int[]','arr']]},
+  gen:`def gen(rng, n):
+    m = max(1, n)
+    pool = max(2, m // 3)
+    return [[rng.randint(1, pool) for _ in range(m)]]`,
+  tests:[
+    {in:[[1, 2, 1]], out:1},
+    {in:[[1, 2, 3]], out:0},
+    {in:[[1, 2, 1, 2]], out:1},
+    {in:[[1, 1, 2, 2]], out:0},
+    {in:[[5]], out:0},
+    {in:[[1, 2, 3, 1, 2, 3]], out:2},
+    {in:[[1, 2, 2, 1, 3]], out:1}
+  ],
+  body:`
+<div class="tags"><span class="tag med">Medium</span><span class="tag">Amazon</span><span class="tag">NEW GRAD</span><span class="tag">OA</span></div>
+
+<p>You are given an integer array <code>arr</code>. In one operation, choose two values <code>x</code> and <code>y</code> (where <code>y</code> may be any value, including an existing value in the array), and replace every occurrence of <code>x</code> in the array with <code>y</code>.</p>
+<p>An array is called <em>contiguous by value</em> if, for every distinct value present, all occurrences of that value appear in one uninterrupted block with no other values in between.</p>
+<p>Return the minimum number of operations needed to make the array contiguous by value.</p>
+
+<h3>Function</h3>
+<pre class="sample">minOperationsToMakeValuesContiguous(arr: int[]) &rarr; int</pre>
+<p>Complete the function <em>minOperationsToMakeValuesContiguous</em>, which has the following parameter:</p>
+<ul><li><em>int[] arr:</em> the input array</li></ul>
+<h3>Returns</h3>
+<ul><li><em>int:</em> the minimum number of replacement operations</li></ul>
+
+<h3>Examples</h3>
+<div class="sublabel">Example 1</div>
+<pre class="sample">arr    = [1, 2, 1]
+return = 1</pre>
+<p>Replace every 2 with 1 to get <code>[1, 1, 1]</code>. Now the only distinct value, 1, appears in one contiguous block. This requires 1 operation.</p>
+
+<div class="sublabel">Example 2</div>
+<pre class="sample">arr    = [1, 2, 3]
+return = 0</pre>
+<p>Every value already occupies a single contiguous block, so no operations are needed.</p>
+
+<h3>Constraints</h3>
+<ul>
+  <li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
+  <li><code>1 &lt;= arr[i] &lt;= 10^5</code></li>
+  <li>Each operation replaces all occurrences of one chosen value <code>x</code> globally with a chosen value <code>y</code>.</li>
+</ul>
+
+<div class="warn"><strong>Source contradiction, recorded not fixed.</strong> The report adds a closing line claiming the answer equals <em>"the number of distinct values minus the maximum number of values that already occupy a single contiguous block"</em>. That formula disagrees with the minimum on <code>[1,2,1,2]</code>: it counts 2 &minus; 0 = 2, while one operation (replace every 2 with 1) already produces <code>[1,1,1,1]</code>. Both published examples satisfy either reading, so they do not settle it. The solution below returns the genuine minimum, <strong>1</strong>.</div>
+
+<div class="srcnote"><strong>Compare with:</strong> <em>"Minimum Contiguous Replacements"</em> (<code>minOperations</code>), the same task reported under a different name &mdash; and with <em>"Optimal Inventory &mdash; Minimum Replacement Cost"</em> (<code>getMinAmount</code>), which shares the validity rule but charges <em>elements changed</em> instead of operations, so its answers differ.</div>
+<div class="ans">
+<h3>Answer</h3>
+<p class="lede">Hidden by default — open a hint first, and only then the full solution.</p>
+<details class="hint"><summary><span class="k">Hint 1</span>Where to start</summary><div class="inner"><p>An operation rewrites every occurrence of a value at once, so you never edit a position &mdash; you fuse whole values. Ask which pairs of values can never be separated.</p></div></details>
+<details class="hint"><summary><span class="k">Hint 2</span>The approach</summary><div class="inner"><p>Give each value the span <code>[firstIndex, lastIndex]</code>. If two spans overlap, those values interleave and must end up as one value. Merge the overlapping spans; a merged group holding <em>k</em> distinct values costs <em>k</em> &minus; 1.</p></div></details>
+<details class="sol"><summary><span class="k">Solution</span>Full walk-through and code</summary><div class="inner"><p>Give each distinct value its span <code>[first, last]</code>. Two values whose spans overlap are interleaved: one of them has an occurrence strictly between two occurrences of the other, so no relabelling can separate them and they must become a single value. Overlap chains transitively, so merge the spans like ordinary intervals.</p>
+<p>Collapsing a group of <em>k</em> distinct values into one takes exactly <code>k &minus; 1</code> operations, and the merged group's span is then one solid block. Values whose spans are disjoint from everything else are already contiguous and cost 0.</p>
+<p>The finest grouping is optimal: merging two separate groups costs <code>k&#8321; + k&#8322; &minus; 1</code> against <code>(k&#8321;&minus;1) + (k&#8322;&minus;1)</code> for leaving them apart &mdash; strictly one operation worse.</p>
+<p><span class="cx">Time O(n log n)</span><span class="cx">Space O(n)</span></p><pre class="sample"><code>def minOperationsToMakeValuesContiguous(arr):
+    first, last = {}, {}
+    for i, v in enumerate(arr):
+        if v not in first:
+            first[v] = i
+        last[v] = i
+
+    spans = sorted((first[v], last[v]) for v in first)
+
+    ops = 0
+    i = 0
+    while i &lt; len(spans):                 # ordinary interval merging
+        hi = spans[i][1]
+        k = 1
+        j = i + 1
+        while j &lt; len(spans) and spans[j][0] &lt; hi:
+            hi = max(hi, spans[j][1])
+            k += 1
+            j += 1
+        ops += k - 1                      # a group of k interleaved values costs k-1
+        i = j
+    return ops</code></pre></div></details>
+<details class="deep"><summary><span class="k">Step by step</span>Every number, calculated</summary><div class="inner">
+<p>Traced on the published examples and on the case that separates the two readings of the statement.</p>
+
+<div class="step"><h4>1 &middot; Spans, and what "interleaved" means</h4>
+<div class="formula">[1, 2, 1]   value 1 &rarr; span [0, 2]     value 2 &rarr; span [1, 1]
+            [1,1] lies inside [0,2] &rarr; the two values interleave</div>
+<p>No sequence of operations can leave both values present and contiguous: as long as 1 keeps positions 0 and 2, anything in between splits it. So they must be fused, costing one operation.</p>
+</div>
+
+<div class="step"><h4>2 &middot; The cost of a group</h4>
+<p>Since one operation rewrites <em>all</em> occurrences of a value, a group of <em>k</em> mutually (transitively) interleaved values is collapsed by rewriting <code>k &minus; 1</code> of them into the remaining one. Frequencies are irrelevant: rewriting a value appearing once and one appearing a thousand times both cost exactly 1.</p>
+<table class="trace">
+<tr><th>array</th><th>spans</th><th>merged groups</th><th>cost</th></tr>
+<tr><td class="hit">[1,2,1]</td><td class="hit">1:[0,2], 2:[1,1]</td><td class="hit">{1,2}</td><td class="hit">2 &minus; 1 = <b>1</b></td></tr>
+<tr><td class="hit">[1,2,3]</td><td class="hit">1:[0,0], 2:[1,1], 3:[2,2]</td><td class="hit">{1} {2} {3}</td><td class="hit">0 + 0 + 0 = <b>0</b></td></tr>
+<tr><td>[1,2,3,1,2,3]</td><td>1:[0,3], 2:[1,4], 3:[2,5]</td><td>{1,2,3}</td><td>3 &minus; 1 = <b>2</b></td></tr>
+<tr><td>[1,2,2,1,3]</td><td>1:[0,3], 2:[1,2], 3:[4,4]</td><td>{1,2} {3}</td><td>1 + 0 = <b>1</b></td></tr>
+</table>
+<p>Both published answers reproduced.</p>
+</div>
+
+<div class="step"><h4>3 &middot; The case the source gets wrong</h4>
+<div class="formula">[1, 2, 1, 2]
+spans        : 1:[0,2] , 2:[1,3]      &rarr; they overlap &rarr; one group of 2
+this solution: 2 &minus; 1 = <b>1</b>   (replace every 2 with 1 &rarr; [1,1,1,1], valid)
+source line  : distinct(2) &minus; already-contiguous(0) = 2</div>
+<p>One operation is demonstrably enough, so the reported formula is not the minimum. It is recorded above rather than silently corrected &mdash; if a judge insists on the other number, it is asking a different question.</p>
+</div>
+
+<div class="step"><h4>4 &middot; Traps</h4>
+<ul>
+<li><strong>Merge with <code>max</code>.</strong> A nested span must not shrink the group's right edge.</li>
+<li><strong>Count operations, not elements changed.</strong> The sibling problem <em>Optimal Inventory</em> charges elements and has different answers.</li>
+<li><strong>Touching spans do not overlap.</strong> One index holds one value, so the strict <code>spans[j][0] &lt; hi</code> test is right.</li>
+<li><strong>A singleton value costs 0</strong>, and an already-valid array returns 0 through the same code path.</li>
+<li><strong>Allowing <em>y</em> to be a brand-new value changes nothing</strong> &mdash; renaming a value into a fresh label never reduces interleaving.</li>
+</ul>
+</div>
 </div></details>
 </div>
 `},

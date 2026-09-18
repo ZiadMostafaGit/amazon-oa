@@ -4,7 +4,7 @@ Open `site/index.html` in a browser (double-click it, or `firefox site/index.htm
 Everything is local — the images load from `../images/`.
 
 ## What's in it
-41 items — transcribed from the screenshots in `images/`, 3 supplied as text, and 1 rebuilt
+56 items — transcribed from the screenshots in `images/`, several supplied as text, and 1 rebuilt
 from a screen recording of an actual attempt:
 
 | Section | Count |
@@ -13,7 +13,7 @@ from a screen recording of an actual attempt:
 | Amazon OA · Work Simulation | 2 |
 | Amazon OA · Debugging Projects | 6 |
 | Siemens · HackerEarth Java Test | 5 |
-| FastPrep · Reported Amazon OA | 12 |
+| FastPrep · Reported Amazon OA | 27 |
 | Notes (the text you wrote in the doc) | 1 |
 
 ## The attempt post-mortem
@@ -42,7 +42,7 @@ To add stills from another recording: extract the frame, drop it in `images/` as
 opens the lightbox (wired in `app.js`).
 
 ## Answers (hidden by default)
-37 of the 41 entries end in an **Answer** section built from three collapsed `<details>` panels —
+52 of the 56 entries end in an **Answer** section built from three collapsed `<details>` panels —
 *Hint 1* (where to start), *Hint 2* (the approach), then *Solution* (walk-through, complexity chips
 and Python code). Nothing is visible until you click, so a problem still reads cold. The four
 without answers are the two behavioural questions, the notes page, and the post-mortem (which is
@@ -193,7 +193,7 @@ Nothing is uploaded and there is no server of any kind. Works from `file://` (me
 
 | Button | What it does |
 |---|---|
-| **▶ Run N tests** | the published cases for this problem — 24 problems, 126 cases (`Ctrl-Enter`) |
+| **▶ Run N tests** | the published cases for this problem — 39 problems, 225 cases (`Ctrl-Enter`) |
 | **Random** | fuzzes your code against the reference solution on generated inputs, stopping at the first disagreement |
 | **Big-O** | times your solution on growing inputs and estimates the growth |
 | **Scratch** | run an ad-hoc call, or any Python, against your code (`Shift-Ctrl-Enter`) |
@@ -230,7 +230,7 @@ Shared behaviour across all four:
 repo, never hand-typed; each of those was checked against the published samples and, where feasible,
 against brute force.
 
-**The 13 problems deliberately left without tests or generators**, because the correct answer is not
+**The 17 problems deliberately left without tests or generators**, because the correct answer is not
 established: Calculate Beauty Values (definition paywalled; no reading reproduces the published 12),
 Minimum Grid Inconvenience (statement says Chebyshev, Example 1 only works under Manhattan), Maximum
 System Memory (objective inferred from one example), Drone Delivery Network (no expected output in
@@ -420,6 +420,70 @@ desktop re-shots of **Binary Tree Cameras**, **Find Minimum City Hops** and **Mi
 Replacements** — they were appended to those existing entries rather than added as new problems.
 The file `images/0` is a 9-byte text file containing "Not found" (a failed download); nothing
 references it.
+
+## Added 18 Sept 2026 — fifteen FastPrep problems
+
+Fifteen further reported problems, each one solved, **verified against an independent brute force on
+thousands of random inputs before its explanation was written**, and shipped with cases whose
+expected values were computed rather than typed:
+
+| Problem | Function | Shape of the answer |
+|---|---|---|
+| Minimum Adjacent Swaps to Group Binary Values | `minimumAdjacentSwaps` | inversion count both ways, take the min |
+| Minimum Processes to Drop for Synchronization | `minimumProcessesToDrop` | star, not clique: best hub by two binary searches |
+| Minimum Cost of Left and Right Propagation | `minimumPropagationCost` | cheapest maximal run: `v·(l + n−1−r)` |
+| Minimum Time for Two Delivery Drones | `minimumDeliveryTime` | binary search + three Hall inequalities |
+| Minimum Robot and Human Fulfillment Time | `minimumFulfillmentTime` | sort by robot time, sweep the split |
+| HTTP Request Redirection | `findFinalServer` | four diagonal rays, nearest unvisited |
+| Shortest Distance on a Circular Bus Route | `shortestBusRouteDistance` | one arc, and its complement |
+| Circular Route Query Distance | `minCircularQueryDistance` | the same, with prefix sums per query |
+| Sort an Array with Rotate and Flip | `minSortOperations` | circular descents, then a 2n-state shortest path |
+| Maximum Product New Rating | `getMaxRating` | greedy per bit + cheapest lift into a bit mask |
+| Maximize Protected City Population | `maximizeProtectedPopulation` | two-state DP along the line |
+| Minimum Execution Time | `minimumExecutionTime` | `max ceil(i / c_i)` rounds, answer `2R − 1` |
+| Count Distinct Domino Colorings | `countDistinctColorings` | block chain, four transition constants |
+| Feasible Indices After Reduction | `feasibleIndicesAfterReduction` | prefix minima ∪ suffix maxima |
+| Make Value Groups Contiguous | `minOperationsToMakeValuesContiguous` | merge value spans, pay k−1 per group |
+
+Alongside them, four existing entries absorbed new source material: **Find Minimum City Hops** is no
+longer paywalled (full statement, three examples, constraints, and the real callable name
+`findMinimumCityHops` — it was `minimumHops`), **Count Promotional Periods** and **Flash Sale
+Allocation** gained the newly published example as a verified case, and **Unfulfilled Bids** gained
+its source screenshot.
+
+**One source contradiction recorded** (not silently fixed), in *Make Value Groups Contiguous*: the
+report's closing formula — distinct values minus already-contiguous values — disagrees with the
+minimum on `[1,2,1,2]`, where it claims 2 and one operation suffices. Both published examples are
+consistent with either reading, so the entry states the conflict and returns the true minimum.
+
+## Runtime and server fixes (18 Sept 2026)
+
+The container could not start Python at all. Five separate faults, each fixed and each verified:
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| "Fetching the Python runtime…" forever; console silent | `server.py` called `send_header()` *before* `super().send_head()` wrote the status line, so **every** `/vendor/` response — the entire Pyodide runtime — went out with the `Cache-Control` line where the status line belongs. Browsers read that as HTTP/0.9: no status, no `Content-Type`, no wasm. | the header now hangs off `end_headers()`, which runs after the status line |
+| Slow, serialised first load | single-threaded `HTTPServer` and HTTP/1.0, so the 10 MB runtime blocked every other asset | `ThreadingHTTPServer` + HTTP/1.1 keep-alive (and a `Content-Length` on the `/` redirect) |
+| A broken runtime looked identical to a slow one | Pyodide swallows a failed instantiation as a console warning and never resolves | `pyrun.js` preflights the wasm (status, `Content-Type`, magic bytes) and names the fault; a `pyodide.js` that defines no `loadPyodide` is reported as such |
+| "Run" stayed broken until the page was reloaded | the rejected boot promise was memoised, so every later attempt replayed the same failure | the memo is cleared on failure, so pressing Run really retries |
+| A build could ship a truncated runtime | `vendor.sh` used `curl --retry`, which does not resume a mid-stream TLS error | `--retry-all-errors -C -`, plus a magic-byte and size check that fails the build |
+
+`py.globals.get()` handed back a PyProxy that JavaScript must free; every run leaked one. It is now
+destroyed after the call.
+
+**`site/_e2e.html` is the self-test**: open it (or point a headless browser at it) and it boots the
+runtime, runs *every* published solution against *every* published case, exercises Random and Run,
+and prints a verdict. Served by `server.py` it also mirrors the verdict into the state file, so a CI
+run can read it:
+
+```sh
+python3 server.py &                    # SITE_ROOT=. PORT=8080 DATA_DIR=./data
+firefox --headless --profile /tmp/p http://127.0.0.1:8080/site/_e2e.html &
+sleep 30 && python3 -c "import json;print(json.load(open('data/state.json'))['e2e'])"
+```
+
+Measured after the fix: runtime booted in 2.6 s, 39 entries / 225 cases all passing, in Firefox
+against the offline container build.
 
 ## Near-duplicate problems
 Three pairs look alike but are **different questions**; each carries a "See also" / "Compare

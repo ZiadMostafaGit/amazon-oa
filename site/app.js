@@ -21,7 +21,8 @@
   /* ---------- starter code stubs (Python only) ---------- */
   const PY_TYPE = {
     int:'int', long:'int', string:'str', boolean:'bool',
-    'int[]':'List[int]', 'int[][]':'List[List[int]]',
+    'int[]':'List[int]', 'long[]':'List[int]', 'int[][]':'List[List[int]]',
+    'long[][]':'List[List[int]]',
     'string[]':'List[str]', 'boolean[]':'List[bool]', 'char[]':'List[str]'
   };
 
@@ -821,7 +822,8 @@
      declared signature so the shape never has to be guessed. */
   const SAMPLE_ARG = {
     int:'1', long:'1', string:'"abc"', boolean:'true',
-    'int[]':'[3, 1, 2]', 'int[][]':'[[1, 2], [3, 4]]',
+    'int[]':'[3, 1, 2]', 'long[]':'[3, 1, 2]', 'int[][]':'[[1, 2], [3, 4]]',
+    'long[][]':'[[1, 2], [3, 4]]',
     'string[]':'["a", "b"]', 'boolean[]':'[true, false]', 'char[]':'["a", "b"]'
   };
 

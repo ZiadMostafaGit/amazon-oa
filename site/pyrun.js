@@ -164,7 +164,7 @@ def _run_editor(user_code, limit):
                            'error': traceback.format_exc(limit=6)})
 `;
 
-  const BOOT_TIMEOUT = 60000;
+  const BOOT_TIMEOUT = 180000;   // a cold 10 MB runtime on a slow line is normal
 
   function ready(onProgress) {
     if (py) return Promise.resolve(py);
@@ -179,27 +179,115 @@ def _run_editor(user_code, limit):
     const finish = () => { console.warn = origWarn; console.error = origError; };
 
     onProgress && onProgress('Fetching the Python runtime (~10 MB, first run only)…');
-    const boot = new Promise((res, rej) => {
+
+    /* Check the wasm before handing over to Pyodide. Its loader treats a
+       broken response — a 404 page, a mangled status line, text/html instead
+       of application/wasm — as a warning and then never resolves, which looks
+       exactly like a hang. Failing here says what is actually wrong. */
+    /* Preflight the wasm before handing over to Pyodide. Its loader turns a
+       broken response - a 404 page, a mangled status line, a missing or wrong
+       Content-Type - into a console warning and then never resolves, which on
+       screen is indistinguishable from a slow download. Checking here turns
+       that silent hang into one sentence saying what is actually wrong.
+
+       Content-Type matters more than it looks: WebAssembly.instantiateStreaming
+       refuses anything that is not application/wasm, so a server that omits it
+       is the single most common cause of "Python never starts". */
+    const WASM = URL_BASE + 'pyodide.asm.wasm';
+
+    function checkType(r, method) {
+      if (!r.ok && r.status !== 206) throw new Error(r.status + ' ' + r.statusText);
+      const ct = (r.headers.get('content-type') || '').split(';')[0].trim();
+      if (!ct) return false;                    /* undecided - caller looks closer */
+      if (ct !== 'application/wasm' && ct !== 'application/octet-stream') {
+        throw new Error('it is served as "' + ct + '" instead of application/wasm' +
+                        ' (' + method + ')');
+      }
+      return true;
+    }
+
+    async function verifyRuntime() {
+      let decided = false;
+      try {
+        decided = checkType(await fetch(WASM, {method: 'HEAD'}), 'HEAD');
+      } catch (e) {
+        if (/application\/wasm/.test(e.message)) throw e;   /* a real verdict */
+        decided = false;                                    /* HEAD refused; look closer */
+      }
+      if (decided) return;
+
+      const r = await fetch(WASM, {headers: {Range: 'bytes=0-7'}});
+      if (!checkType(r, 'GET')) {
+        if (r.body && r.body.cancel) r.body.cancel();
+        throw new Error('it is served without a Content-Type of application/wasm, ' +
+                        'so the browser refuses to compile it');
+      }
+      /* Read the body only when the range was honoured - otherwise this is the
+         whole 10 MB and reading it would download the runtime twice. */
+      if (r.status !== 206) { if (r.body && r.body.cancel) r.body.cancel(); return; }
+      const b = new Uint8Array(await r.arrayBuffer());
+      if (b.length >= 4 && !(b[0] === 0x00 && b[1] === 0x61 && b[2] === 0x73 && b[3] === 0x6d)) {
+        throw new Error('the first bytes are not a WebAssembly module ' +
+                        '(a proxy, or a cached error page, is rewriting it)');
+      }
+    }
+
+    const preflight = location.protocol === 'file:'
+      ? Promise.resolve()                       /* fetch() cannot see file:// */
+      : verifyRuntime().catch((e) => {
+          throw new Error('The Python runtime at ' + WASM + ' could not be loaded: ' +
+                          ((e && e.message) || e) + '.\nIf you are offline, use the ' +
+                          'Docker image, which ships the runtime.');
+        });
+
+    const boot = preflight.then(() => new Promise((res, rej) => {
+      if (window.loadPyodide) return res();          /* script already on the page */
       const sc = document.createElement('script');
       sc.src = URL_BASE + 'pyodide.js';
       sc.onload = res;
       sc.onerror = () => rej(new Error('Could not fetch pyodide.js — are you online?'));
       document.head.appendChild(sc);
-    }).then(() => window.loadPyodide({indexURL: URL_BASE}))
-      .then((p) => { p.runPython(PY); py = p; return p; });
+    })).then(() => {
+      if (typeof window.loadPyodide !== 'function') {
+        /* The script tag "loaded" but defined nothing: what came back from
+           pyodide.js is not the loader. A server that mangles its responses
+           (wrong MIME, a rewritten status line, an error page with a 200) ends
+           up here, and the raw symptom - loadPyodide is not a function - says
+           nothing useful about the cause. */
+        throw new Error(URL_BASE + 'pyodide.js did not define loadPyodide, so what the ' +
+                        'server returned for it is not the Pyodide loader. Check that ' +
+                        URL_BASE + ' serves the real files with correct headers.');
+      }
+      return window.loadPyodide({indexURL: URL_BASE});
+    }).then((p) => { p.runPython(PY); py = p; return p; });
 
-    const timeout = new Promise((res, rej) =>
-      setTimeout(() => rej(new Error(
+    let timer = null;
+    const timeout = new Promise((res, rej) => {
+      timer = setTimeout(() => rej(new Error(
         bootLog.length
           ? 'Python failed to start. Console says:\n' + bootLog.join('\n')
           : 'Python still was not ready after ' + (BOOT_TIMEOUT / 1000) +
-            ' s. Is ' + URL_BASE + ' reachable?')), BOOT_TIMEOUT));
+            ' s. Is ' + URL_BASE + ' reachable?')), BOOT_TIMEOUT);
+    });
 
-    loading = Promise.race([boot, timeout]).then(finish, (e) => { finish(); throw e; });
+    /* A failed boot must not poison every later attempt: drop the memoised
+       promise so pressing Run again really retries. */
+    loading = Promise.race([boot, timeout]).then(
+      (p) => { clearTimeout(timer); finish(); return p; },
+      (e) => { clearTimeout(timer); finish(); loading = null; throw e; });
     return loading;
   }
 
-  const call = (name, args) => JSON.parse(py.globals.get(name)(...args));
+  /* py.globals.get() hands back a PyProxy that JS must free itself; without
+     the destroy() every Run leaked one. */
+  function call(name, args) {
+    const fn = py.globals.get(name);
+    try {
+      return JSON.parse(fn(...args));
+    } finally {
+      if (fn && fn.destroy) fn.destroy();
+    }
+  }
 
   return {
     ready: ready,

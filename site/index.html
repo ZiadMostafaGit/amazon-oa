@@ -202,7 +202,10 @@ table.oa th{font-weight:700;color:#fff;background:#1f1f1f}
 .ans .inner .step > h4{margin:0 0 5px;font-size:.87em;color:#e8e8e8;letter-spacing:.01em}
 .ans .inner .formula{font-family:"JetBrains Mono",Consolas,monospace;font-size:.8em;
   background:#111;border:1px solid #262626;border-radius:4px;padding:9px 12px;margin:9px 0;
-  color:#d8d8d8;overflow-x:auto}
+  color:#d8d8d8;overflow-x:auto;
+  /* these are hand-aligned multi-line derivations: keep the newlines and the
+     columns, and let the box scroll rather than reflowing them into prose */
+  white-space:pre}
 .ans .inner .formula b{color:var(--accent);font-weight:600}
 .ans .inner{padding:2px 15px 14px;border-top:1px solid #262626}
 .ans .inner > *:first-child{margin-top:12px}

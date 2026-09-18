@@ -12,7 +12,11 @@ PY_VER=0.26.4
 CM_CDN="https://cdnjs.cloudflare.com/ajax/libs/codemirror/$CM_VER"
 PY_CDN="https://cdn.jsdelivr.net/pyodide/v$PY_VER/full"
 UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
-fetch() { curl -fsSL --retry 3 -A "$UA" "$1" -o "$2"; }
+# --retry-all-errors + -C - matter here: the 10 MB Pyodide runtime regularly
+# dies mid-stream on a flaky link, and plain --retry does not resume a TLS
+# error. A half-written pyodide.asm.wasm is exactly how a container ends up
+# serving a runtime that never instantiates.
+fetch() { curl -fsSL --retry 5 --retry-delay 2 --retry-all-errors -C - -A "$UA" "$1" -o "$2"; }
 
 rm -rf "$OUT"
 mkdir -p "$OUT/site/vendor/codemirror" "$OUT/site/vendor/pyodide" "$OUT/site/vendor/fonts"
@@ -34,6 +38,16 @@ for f in pyodide.js pyodide.asm.js pyodide.asm.wasm python_stdlib.zip pyodide-lo
   fetch "$PY_CDN/$f" "$OUT/site/vendor/pyodide/$f"
   echo "   $f"
 done
+
+# a truncated runtime must fail the build, not ship
+WASM="$OUT/site/vendor/pyodide/pyodide.asm.wasm"
+size=$(wc -c < "$WASM")
+magic=$(head -c 4 "$WASM" | od -An -tx1 | tr -d ' \n')
+if [ "$magic" != "0061736d" ] || [ "$size" -lt 5000000 ]; then
+  echo "!! $WASM is not a complete WebAssembly module (magic=$magic, $size bytes)" >&2
+  exit 1
+fi
+echo "   verified: $size bytes, WebAssembly magic ok"
 
 echo "→ JetBrains Mono (latin subset)"
 CSS="$OUT/site/vendor/fonts/jetbrains-mono.css"

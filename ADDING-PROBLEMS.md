@@ -1,6 +1,6 @@
 # Adding problems from screenshots
 
-How the 41 entries in `site/problems.js` were made, written so you can repeat it when you sit
+How the 56 entries in `site/problems.js` were made, written so you can repeat it when you sit
 another assessment and come away with new screenshots. Nothing here needs a server or a build step.
 
 The order matters. Transcribe first, *verify* second, and only write an explanation once the
@@ -170,5 +170,30 @@ node -e "global.window={};require('./site/problems.js');
          const P=window.PROBLEMS;
          console.log(P.length+' entries, '+P.filter(p=>p.tests).length+' with tests');"
 ```
+
+Then run **every** entry's published solution against **every** published case — one wrong escape
+inside a `<pre><code>` block is enough to break a solution that was fine when you tested it:
+
+```sh
+python3 - <<'PY'
+import copy, html, json, re, subprocess
+meta = json.loads(subprocess.run(['node','-e',
+  "global.window={};require('./site/problems.js');console.log(JSON.stringify(window.PROBLEMS"
+  ".filter(p=>p.tests&&p.fn).map(p=>({id:p.id,fn:p.fn.name,tests:p.tests,body:p.body}))))"],
+  capture_output=True, text=True, check=True).stdout)
+for p in meta:
+    code = html.unescape(re.search(r'<details class="sol">[\s\S]*?<pre class="sample">'
+                                   r'<code>([\s\S]*?)</code></pre>', p["body"]).group(1))
+    ns = {}; exec(code, ns)
+    bad = [c for c in p['tests'] if ns[p['fn']](*copy.deepcopy(c['in'])) != c['out']]
+    print(('!! ' if bad else '   ') + p['id'],
+          '%d/%d' % (len(p['tests']) - len(bad), len(p['tests'])))
+PY
+```
+
+Finally open **`site/_e2e.html`** in the browser. It does the same sweep inside the real Pyodide
+runtime — the one the page actually uses — and also exercises Random and Run, so it catches what
+CPython on your machine cannot see: a solution needing a module Pyodide does not ship, a generator
+too slow under the trace guard, or a broken runtime deployment.
 
 Then open `site/index.html` and read your new entry cold.

@@ -1,6 +1,6 @@
 # Amazon OA practice
 
-41 Amazon / Siemens online-assessment problems transcribed from screenshots, each with a worked
+56 Amazon / Siemens online-assessment problems transcribed from screenshots, each with a worked
 solution and a step-by-step derivation, plus a Python editor and a test runner that executes real
 CPython **in the browser**. No build step, no account; open `site/index.html` for a zero-backend
 version, or run the Docker image for server-side persistence of your code and progress.
@@ -67,15 +67,40 @@ docker run -d -p 8080:80 -v amazon-oa-data:/data YOURNAME/amazon-oa-practice
 
 ## What's in the app
 
-- **41 problems** — 15 Amazon coding, 2 work simulation, 6 debugging projects, 5 Siemens,
-  12 FastPrep, plus a frame-by-frame post-mortem of a real 60-minute attempt.
-- **37 answer sets** — Hint 1 → Hint 2 → Solution → *Step by step*, the last deriving every formula
+- **56 problems** — 15 Amazon coding, 2 work simulation, 6 debugging projects, 5 Siemens,
+  27 FastPrep, plus a frame-by-frame post-mortem of a real 60-minute attempt.
+- **52 answer sets** — Hint 1 → Hint 2 → Solution → *Step by step*, the last deriving every formula
   and tracing the published sample numerically to its stated answer.
 - **A Python editor** — Vim mode, stdlib-wide completion, real tab stops, find/replace.
-- **A test runner** — 24 problems ship 126 verified cases; **Random** fuzzes your code against the
+- **A test runner** — 39 problems ship 225 verified cases; **Random** fuzzes your code against the
   reference solution and prints the first disagreeing input; **Big-O** estimates your complexity.
 - **Eleven wrong solutions were found and corrected** while building this, two of which failed their
   own published samples. `site/README.md` lists every one.
+- **Every solution is executed before it is published** — against its own samples, and against an
+  independent brute force on thousands of random inputs. The 15 problems added in September 2026
+  were checked that way before a single explanation was written.
+
+## Fixed in this pass (18 Sept 2026)
+
+The Docker deployment could not start Python at all, and the cause was in the server, not in
+Pyodide: `server.py` added its `Cache-Control` header *before* the status line was written, so every
+`/vendor/` response — the whole ~10 MB runtime — went out malformed, with no status line and no
+`Content-Type`. The loader treats that as a warning and then waits forever, which on screen is just
+a spinner that never ends.
+
+Fixed here, all five of them:
+
+- **the header ordering** (the actual bug), now emitted from `end_headers()`;
+- **`ThreadingHTTPServer` + HTTP/1.1**, so the runtime download no longer blocks every other asset;
+- **a runtime preflight in `pyrun.js`** that checks status, MIME type and the WebAssembly magic
+  bytes and says what is wrong instead of hanging;
+- **retryable boot** — a failed start no longer poisons every later attempt, so *Run* really retries;
+- **`vendor.sh` resumes interrupted downloads** (`--retry-all-errors -C -`) and refuses to ship a
+  truncated runtime.
+
+Verified in a real browser against the offline container build: runtime up in 2.6 s, 39 problems and
+225 cases passing. `site/_e2e.html` is that self-test — open it any time; the container build strips
+it.
 
 ## Docs
 

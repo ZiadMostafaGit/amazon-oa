@@ -8,7 +8,7 @@ so it survives browser restarts and works across devices.
 import json
 import mimetypes
 import os
-from http.server import HTTPServer, SimpleHTTPRequestHandler
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse
 
 mimetypes.add_type("application/wasm", ".wasm")  # Pyodide falls back to a slower path without it
@@ -37,6 +37,11 @@ def _write_state(data):
 
 
 class Handler(SimpleHTTPRequestHandler):
+    # Keep-alive matters here: Pyodide pulls pyodide.asm.wasm (~9 MB),
+    # python_stdlib.zip and the lock file, and the browser wants them on
+    # parallel connections. HTTP/1.0 forced a new socket per asset.
+    protocol_version = "HTTP/1.1"
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=SITE_ROOT, **kwargs)
 
@@ -56,15 +61,27 @@ class Handler(SimpleHTTPRequestHandler):
         return p == "/api/state" or p.endswith("/site/api/state")
 
     def send_head(self):
+        # Both do_GET and do_HEAD route through here, so this is the one place
+        # that sees every static response.
+        self._immutable = "/vendor/" in urlparse(self.path).path
+        return super().send_head()
+
+    def end_headers(self):
         # Vendored deps (CodeMirror, Pyodide's ~10 MB runtime) never change
         # within a build, so browsers may keep them for a year without ever
-        # re-downloading. The service worker layers on top, but correct headers
-        # also help setups running without one. Everything else keeps the usual
-        # Last-Modified conditional caching.
+        # re-downloading. Everything else keeps the usual Last-Modified
+        # conditional caching.
+        #
+        # This MUST hang off end_headers, not send_head: send_header() appends
+        # to the same buffer that send_response() writes the status line into,
+        # so adding a header *before* delegating to super().send_head() emitted
+        # the header first and the status line second. Browsers read that as
+        # HTTP/0.9 — no status, no Content-Type — which is why Pyodide's wasm
+        # silently failed to instantiate under the container.
         if getattr(self, "_immutable", False):
             self._immutable = False
             self.send_header("Cache-Control", "public, max-age=31536000, immutable")
-        return super().send_head()
+        super().end_headers()
 
     def do_GET(self):
         path = urlparse(self.path).path
@@ -78,10 +95,10 @@ class Handler(SimpleHTTPRequestHandler):
         if path == "/":
             self.send_response(302)
             self.send_header("Location", "/site/")
+            self.send_header("Content-Length", "0")   # keep-alive needs a length
             self.end_headers()
             return
 
-        self._immutable = "/vendor/" in path
         return super().do_GET()
 
     def do_POST(self):
@@ -109,7 +126,9 @@ def main():
     port = int(os.environ.get("PORT", "80"))
     os.makedirs(DATA_DIR, exist_ok=True)
     print(f"Serving {SITE_ROOT} on :{port}  (state → {STATE_FILE})")
-    server = HTTPServer(("0.0.0.0", port), Handler)
+    # Threaded: a single-threaded server serialises the runtime download
+    # behind every other asset, which stalls the page for the whole ~10 MB.
+    server = ThreadingHTTPServer(("0.0.0.0", port), Handler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
