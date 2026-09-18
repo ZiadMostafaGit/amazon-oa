@@ -111,9 +111,35 @@ class TestMountedUnderAPrefix(unittest.TestCase):
         health = json.load(urllib.request.urlopen(self.base + "/api/health", timeout=30))
         self.assertEqual(health["problems"], 3533)
 
-    def test_an_unrelated_path_is_still_404(self):
+    def test_any_mount_prefix_works_without_configuration(self):
+        """A deployment must not break because FP_BASE_PATH was forgotten: an
+        unknown first segment in front of a known route is a mount prefix."""
+        for prefix in ("/site", "/practice", "/a/b"):
+            health = json.load(urllib.request.urlopen(
+                self.base + prefix + "/api/health", timeout=30))
+            self.assertEqual(health["problems"], 3533, prefix)
+
+    def test_x_forwarded_prefix_is_honoured(self):
+        req = urllib.request.Request(self.base + "/whatever/api/health",
+                                     headers={"X-Forwarded-Prefix": "/whatever"})
+        self.assertEqual(json.load(urllib.request.urlopen(req, timeout=30))["problems"], 3533)
+
+    def test_the_mount_root_redirects_to_its_trailing_slash(self):
+        """Without the slash the page's relative URLs resolve one level up."""
+        class NoRedirect(urllib.request.HTTPRedirectHandler):
+            def redirect_request(self, *a, **k):
+                return None
+        opener = urllib.request.build_opener(NoRedirect)
+        try:
+            opener.open(self.base + "/site", timeout=30)
+            self.fail("expected a redirect")
+        except urllib.error.HTTPError as e:
+            self.assertEqual(e.code, 301)
+            self.assertEqual(e.headers["Location"], "/site/")
+
+    def test_a_genuinely_unknown_path_is_still_404(self):
         with self.assertRaises(urllib.error.HTTPError) as cm:
-            urllib.request.urlopen(self.base + "/elsewhere/api/health", timeout=30)
+            urllib.request.urlopen(self.base + "/site/not-a-thing", timeout=30)
         self.assertEqual(cm.exception.code, 404)
 
 

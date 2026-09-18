@@ -204,8 +204,16 @@ location /site/ { proxy_pass http://127.0.0.1:8900/; }      # no flag needed
 location /site/ { proxy_pass http://127.0.0.1:8900; }       # --base-path /site
 ```
 
-With `--base-path /site` the app answers on both `/site/...` and `/...`, so a
-misconfigured proxy fails loudly rather than half-working. There is **no
+**You usually need neither flag.** The app works out where it is mounted on its
+own: it honours `X-Forwarded-Prefix` if the proxy sets it, and otherwise treats
+any leading path segments that are not its own routes (`api`, `app.js`,
+`vendor`, …) as a mount prefix. `--base-path` only exists to pin that down
+explicitly. A typo under the mount point still 404s rather than silently
+serving the app, and `/site` redirects to `/site/` so the page's relative URLs
+resolve inside the mount point.
+
+A ready-made location block for an nginx that already proxies other apps on the
+same domain is in [`deploy/nginx-site.conf`](../../deploy/nginx-site.conf). There is **no
 authentication** and the app executes code by design: keep it on `127.0.0.1`
 behind your proxy's auth, or reach it over an SSH tunnel.
 

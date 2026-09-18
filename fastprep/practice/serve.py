@@ -140,19 +140,52 @@ class Handler(BaseHTTPRequestHandler):
         return json.loads(self.rfile.read(n) or b"{}")
 
     # ------------------------------------------------------------------ GET
+    # Everything this app answers at its own root. Anything else in the first
+    # segment can only be a mount prefix a proxy added.
+    ROUTES = {"api", "app.js", "editor.js", "pyenv.js", "styles.css", "index.html",
+              "vendor", "favicon.ico"}
+
     def _strip_base(self, path: str) -> str:
         """Remove a mount prefix that a reverse proxy forwards verbatim.
 
         nginx `proxy_pass http://app;` (no trailing slash) passes /site/api/x
-        through unchanged, so the app has to know it lives at /site. With a
-        trailing slash nginx strips the prefix and BASE_PATH stays empty.
+        through unchanged; with a trailing slash it strips the prefix. Both
+        have to work, and a deployment should not break because an env var was
+        forgotten - so an explicit --base-path wins, and otherwise any first
+        segment that is not one of this app's own routes is treated as a mount
+        prefix when what follows IS one.
         """
         if BASE_PATH and (path == BASE_PATH or path.startswith(BASE_PATH + "/")):
             return path[len(BASE_PATH):] or "/"
+        # a proxy that announces its mount point is believed before guessing
+        announced = (self.headers.get("X-Forwarded-Prefix") or "").rstrip("/")
+        if announced and (path == announced or path.startswith(announced + "/")):
+            return path[len(announced):] or "/"
+        segments = path.lstrip("/").split("/")
+        for i, seg in enumerate(segments):
+            if seg in self.ROUTES:
+                return "/" + "/".join(segments[i:]) if i else path
+        # nothing recognisable, but a directory-style path can only be the
+        # mount root: /site/ , /a/b/ , ...
+        if path.endswith("/"):
+            return "/"
         return path
 
     def do_GET(self):
         url = urlparse(self.path)
+        # /site -> /site/ , so the page's relative URLs resolve inside the
+        # mount point instead of one level above it. Only for a SINGLE unknown
+        # segment: /site/nope is a typo and must stay a 404, not silently
+        # redirect into the app.
+        single = url.path.strip("/").count("/") == 0 and url.path.strip("/") != ""
+        if single and not url.path.endswith("/") \
+                and url.path.strip("/") not in self.ROUTES:
+            target = url.path + "/" + (("?" + url.query) if url.query else "")
+            self.send_response(301)
+            self.send_header("Location", target)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
         path, q = self._strip_base(url.path), parse_qs(url.query)
         try:
             if path.startswith("/api/"):
