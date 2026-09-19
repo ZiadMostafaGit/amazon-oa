@@ -450,23 +450,23 @@ This is the move that rescues most "but it depends on what I did earlier" proble
   </g>
 </svg>
 
-**Super source and super sink.** Many possible starts become one virtual node with
-zero-cost edges to all of them, and the search runs once instead of once per start.
-*Closest DashMart*, *Distance to the Nearest Supply Point* and *Minimum-Cost
-Meeting City* are this; see [[multi-source-bfs]].
+**Super source.** Many possible starts become one virtual node with zero-cost edges
+to all of them, and the search runs once instead of once per start. *Closest
+DashMart*, *Distance to the Nearest Supply Point* and *Minimum-Cost Meeting City*
+are this; see [[multi-source-bfs]].
 
 **Reverse the edges.** "Which nodes can reach me" is "which nodes can I reach" on
-the transpose. Cheap, and it turns a per-target search into one search. It is also
-how a parent array becomes a tree — *Validate a Tree From Its Parent Array*.
+the transpose — cheap, and it turns a per-target search into one search. It is also
+how a parent array becomes a tree: *Validate a Tree From Its Parent Array*.
 
 **A tree is a graph once you add parent pointers.** *Binary Tree Nodes at Distance
-K* is unsolvable while you think of a tree as pointing downwards, and trivial the
-moment you walk it once to record parents and then run BFS on the undirected
-version. The model change is the whole solution.
+K* is hard while you think of a tree as pointing downwards and trivial the moment
+you walk it once to record parents and run BFS on the undirected version. The model
+change is the whole solution.
 
 **A linked list is a graph with out-degree one.** *Find the Intersection Node of
-Two Linked Lists* is "where do two paths in a functional graph merge"; *Linked List
-Cycle Entry Node* and *Detect and Break a Linked-List Cycle* are the cycle question
+Two Linked Lists* asks where two paths in a functional graph merge; *Linked List
+Cycle Entry Node* and *Detect and Break a Linked-List Cycle* ask the cycle question
 on the same graph ([[cycle-detection]]).
 
 **Constraints become edges.** "`u` before `v`" is a directed edge and the question
@@ -541,36 +541,34 @@ assert glob[0] == 1
 print("db carries 2 because two distinct paths deliver a unit into it")
 ```
 
-Restricting to the reachable set is not tidiness. Within it, `entry` is the unique
-source — any other reachable node has an in-edge from a reachable node, and `entry`
-itself cannot have one without a cycle — so the ready queue starts as exactly
+Restricting to the reachable set is not tidiness. Within it `entry` is the unique
+source — every other reachable node has an in-edge from a reachable node, and
+`entry` cannot have one without a cycle — so the ready queue starts as exactly
 `{entry}`, which is what makes `load[entry] = 1` the right initial condition.
-Globally, `api` has an incoming edge from the unreachable `batch`, its indegree
-never falls to zero on its own, and the sweep begins in the wrong place with the
-wrong numbers.
+Globally, `api` has an in-edge from the unreachable `batch`, its indegree never
+falls to zero on its own, and the sweep begins in the wrong place.
 
 ## Recognising it in a statement
 
 Ordered by how much to trust them.
 
 1. **An operational move rule.** "You may replace the value with half of itself",
-   "the horse travels two cells along one axis and one along the other", "after
-   each roll, if the landing square is a teleporter source, move once to its
-   destination". A statement that describes what you may *do* rather than what you
-   *have* is handing you the `neighbours` function verbatim.
+   "the horse travels two cells along one axis and one along the other", "if the
+   landing square is a teleporter source, move once to its destination". A
+   statement describing what you may *do* rather than what you *have* is handing
+   you the `neighbours` function verbatim.
 2. **"Reachable", "can you get to", "is there a way".** The word *reachable* is in
    six titles in this bank. It means: node, edge, BFS or DFS, done.
 3. **"Depends on", "prerequisite", "must finish before", "blocked by".** A DAG and
-   [[topological-sort]]. If the statement also says a cycle is possible and asks
-   you to report it, cycle detection is half the answer — *Resolve Variable
-   Equations with Dependency Errors* returns `["Cyclic Dependency"]`.
+   [[topological-sort]]. If a cycle is possible and must be reported, cycle
+   detection is half the answer — *Resolve Variable Equations with Dependency
+   Errors* returns `["Cyclic Dependency"]`.
 4. **A list of pairs.** `[[u, v], …]` is an edge list. The only question left is
-   whether it is directed, which the wording of one sentence decides.
-5. **"Minimum number of steps / moves / clicks / hops"** with every step costing
-   the same. BFS. If the steps have different costs, the same model with
-   [[dijkstra]].
+   whether it is directed, which one sentence of prose decides.
+5. **"Minimum number of steps / moves / clicks / hops"** with every step costing the
+   same. BFS; with differing costs, the same model under [[dijkstra]].
 6. **A small bound on an odd extra quantity.** "at most one wall", "up to 5 keys",
-   "at most `k` refuels". Small bounds on something that is not position are an
+   "at most `k` refuels". A small bound on something that is not position is an
    invitation to put it in the node; the bound is there so the product stays small.
 7. **"Transitive", "indirectly", "eventually".** Closure of a relation — traversal,
    or [[union-find]] if the relation is symmetric.
@@ -733,34 +731,33 @@ In the halving-and-decrementing trace, why is "reachable in at most `steps`
 operations" exactly the same as "appears in BFS layers 0 through `steps`"? Which
 property of the model is doing the work, and what would break it?
 --
-Because every operation is one edge and every edge costs one step, so the BFS
-layer in which a value first appears is the *minimum* number of operations that
-produces it. A value in layer `L` is reachable in `L ≤ steps` operations; a value
-first appearing in layer `L > steps` cannot be produced in fewer, so it is out.
+Every operation is one edge, so the layer a value first appears in is the *minimum*
+number of operations that produces it. A value in layer `L` is reachable in
+`L ≤ steps` operations; one first appearing in layer `L > steps` cannot be produced
+in fewer, so it is out.
 
-The property doing the work is **uniform edge cost**, which is what makes BFS
-layers equal distances. If halving cost one step and decrementing cost two, the
-first arrival would no longer be the cheapest and the frontier would be in the
-wrong order; you would need [[dijkstra]], or a 0-1 deque, on exactly the same
-graph. Notice that nothing about the *problem statement* changes — only the edge
-weights — which is why the cost model is worth checking separately from the model.
+The property doing the work is **uniform edge cost**. If halving cost one step and
+decrementing two, the first arrival would no longer be the cheapest and the
+frontier would be in the wrong order; you would need [[dijkstra]] on exactly the
+same graph. Nothing about the statement changes — only the edge weights — which is
+why the cost model is worth checking separately from the node and edge choice.
 :::
 
 :::check
 Someone says: "the horse may make any number of moves, so the set of possible move
 sequences is infinite and a search can never finish." Where are they wrong?
 --
-They are confusing sequences with states. The set of move sequences is indeed
-infinite; the set of *nodes* is 90, one per square of a 10 × 9 board. Since the
-legal moves out of a square depend only on that square and the fixed obstacles —
-condition (A) of the proof — a sequence that returns to a square it has already
-visited can be truncated without changing what is reachable afterwards.
+They are confusing sequences with states. The sequences are indeed infinite; the
+*nodes* number 90, one per square of a 10 × 9 board. Because the legal moves out of
+a square depend only on that square and the fixed obstacles — condition (A) of the
+proof — a sequence that revisits a square can be truncated there without changing
+what is reachable afterwards, and the visited set does exactly that truncation.
+Each node is expanded at most once, so the search does at most `90 · 8` work
+however long the paths are.
 
-The visited set is what converts that observation into a terminating algorithm:
-each node is expanded at most once, so the search does at most `90 · 8` work no
-matter how long the paths are. The correct version of their worry is the finiteness
-assumption in the proof — if the node had included, say, "number of moves made so
-far", the node set really would be infinite and the search would not terminate.
+The correct version of their worry is the finiteness assumption in the proof: had
+the node included "number of moves made so far", the node set really would be
+infinite and the search would not terminate.
 :::
 
 :::check
