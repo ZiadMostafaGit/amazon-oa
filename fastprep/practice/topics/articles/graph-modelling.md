@@ -58,8 +58,8 @@ list does not exist and never will.
 **A graph is a function from a state to its successors. Everything else is
 bookkeeping.**
 
-That is the whole insight, and it has a practical form. Before writing any code,
-answer three questions in one sentence each:
+That is the insight, and it has a practical form. Before writing any code, answer
+three questions in one sentence each:
 
 1. **What is a node?** The complete description of "where you are" — complete
    meaning: everything a future move might depend on.
@@ -69,13 +69,12 @@ answer three questions in one sentence each:
 Answer those and the algorithm is somebody else's problem; you call BFS and go
 home. Get question 1 wrong and no algorithm will save you.
 
-The reason question 1 is the hard one is that a node is a *deliberate loss of
-information*. When you say "the node is the square the horse stands on", you are
-declaring that two games which arrived at that square by different routes are the
-same thing and may be treated interchangeably. That declaration is what makes the
-search finite: the horse has infinitely many move sequences and only ninety
-squares. It is also, when it is false, the source of every wrong answer in this
-chapter.
+Question 1 is the hard one because a node is a *deliberate loss of information*.
+Saying "the node is the square the horse stands on" declares that two games which
+arrived there by different routes are the same thing and may be used
+interchangeably. That declaration is what makes the search finite — infinitely many
+move sequences, ninety squares — and, when it is false, it is the source of every
+wrong answer in this chapter.
 
 <svg viewBox="0 0 640 215" role="img" aria-label="two different histories arriving at the same node, which then fans out to the same successors">
   <g>
@@ -108,23 +107,20 @@ chapter.
 Once the node is chosen, notice what you do *not* have to do: build the graph.
 Nothing in BFS needs an adjacency list; it needs a queue, a visited set, and the
 ability to ask a node for its neighbours. If that ability is a two-line function,
-the graph is implicit and costs no memory at all. *Count Reachable Values by
-Halving and Decrementing* has up to 10⁹ as its start value; nobody is allocating
-an array of a billion vertices, and nobody needs to.
+the graph is implicit and costs no memory. *Count Reachable Values by Halving and
+Decrementing* starts from a value up to 10⁹; nobody allocates a billion vertices,
+and nobody needs to.
 
 ## Worked by hand
 
 Take *Count Reachable Values by Halving and Decrementing* with `num = 6` and
 `steps = 3`. From any value you may halve it if it is even, or subtract one if it
-is positive. How many distinct nonnegative values can appear, using at most three
-operations?
+is positive. How many distinct values can appear in at most three operations?
 
 The model: **a node is a value**; there is an edge `v → v/2` when `v` is even and
-positive, and an edge `v → v - 1` when `v` is positive; the question is "which
-nodes are within distance 3 of node 6", which is BFS stopped after three layers.
-
-Run it. `frontier` is the set discovered at exactly that distance; `seen` is
-everything discovered so far.
+positive and an edge `v → v - 1` when `v` is positive; the question is "which nodes
+lie within distance 3 of node 6", which is BFS stopped after three layers. Below,
+`frontier` is what is discovered at exactly that distance.
 
 | layer | frontier | expansions | new | `seen` after |
 | --- | --- | --- | --- | --- |
@@ -188,9 +184,9 @@ At `num = 10⁹` the vertices are integers up to a billion; we touched 1191.
 ## Why it is correct
 
 An algorithm is correct against a specification. A *model* is correct against the
-problem, and that is a different kind of claim: it says the graph you invented and
-the world the statement describes have the same answers. Here is the theorem that
-makes it precise, and it is the only theorem in this chapter.
+problem, which is a different kind of claim: it says the graph you invented and the
+world the statement describes have the same answers. Here is the theorem that makes
+it precise.
 
 :::proof A model is correct when it is a congruence
 **Setup.** The statement defines a set of configurations `C` (full, honest
@@ -257,16 +253,16 @@ bugs live.
   you left out of the node, (A) is false. This is the commonest failure of all, and
   it is invisible in small tests.
 
-Those two failure directions have names worth keeping. A model that loses paths
-is **too pessimistic** — it answers "impossible" or reports a distance that is too
-large. A model that invents paths is **too optimistic** — it returns a route the
-rules forbid. Both are shown running side by side in Traps.
+The two failure directions are worth naming. A model that loses paths is **too
+pessimistic**: it answers "impossible", or reports too large a distance. A model
+that invents paths is **too optimistic**: it returns a route the rules forbid. Traps
+runs both side by side.
 
 ## What it costs
 
 BFS and DFS cost `Θ(|V| + |E|)`. That is not the interesting part, because in a
-modelled graph `|V|` and `|E|` are not given to you — you chose them, when you
-chose the node.
+modelled graph nobody gave you `|V|` and `|E|` — you chose them when you chose the
+node.
 
 Let the node be a tuple of `k` coordinates with sizes `n₁, n₂, …, n_k`, and let
 every node have at most `b` successors. Then
@@ -393,8 +389,8 @@ that checked only destinations would report it roaming free.
 
 ## Variants you will meet
 
-The catalogue below is the real content of this topic: a small number of modelling
-moves that recur endlessly.
+A small number of modelling moves recur endlessly; this catalogue is the real
+content of the topic.
 
 **The graph is given.** Pairs of ids, an adjacency list, a matrix. Build it and
 traverse it — [[graphs]] for representation, [[dfs]] and [[bfs]] for the walk.
@@ -402,12 +398,11 @@ traverse it — [[graphs]] for representation, [[dfs]] and [[bfs]] for the walk.
 **The graph is a rule.** No edge list exists; `neighbours` is a function. *Xiangqi
 Horse Reachability*, *Repeated-Roll Teleporter Reachability* (from square `s` you
 may go to `s + d` for each die face `d`, then follow one teleporter without
-chaining), *Knight Dialer Sequences*, *Count Reachable Values by Halving and
-Decrementing*.
+chaining), *Knight Dialer Sequences*.
 
 **The grid is the graph.** Cell = node, four or eight neighbours = edges, blocked
 cells simply have no edges. *Binary Matrix Top-to-Bottom Reachability*, *Nearest
-Reachable Grid Corner*, *Grid Pathfinding with Obstacles (DFS)*. See [[grid-bfs]].
+Reachable Grid Corner*. See [[grid-bfs]].
 
 **State augmentation — the product graph.** Node = position × everything else that
 changes: fuel, keys held, walls broken, moves used mod `k`, whose turn it is. The
@@ -451,9 +446,9 @@ This is the move that rescues most "but it depends on what I did earlier" proble
 </svg>
 
 **Super source.** Many possible starts become one virtual node with zero-cost edges
-to all of them, and the search runs once instead of once per start. *Closest
-DashMart*, *Distance to the Nearest Supply Point* and *Minimum-Cost Meeting City*
-are this; see [[multi-source-bfs]].
+to all of them, so the search runs once instead of once per start. *Closest
+DashMart*, *Distance to the Nearest Supply Point*, *Minimum-Cost Meeting City*; see
+[[multi-source-bfs]].
 
 **Reverse the edges.** "Which nodes can reach me" is "which nodes can I reach" on
 the transpose — cheap, and it turns a per-target search into one search. It is also
@@ -461,13 +456,11 @@ how a parent array becomes a tree: *Validate a Tree From Its Parent Array*.
 
 **A tree is a graph once you add parent pointers.** *Binary Tree Nodes at Distance
 K* is hard while you think of a tree as pointing downwards and trivial the moment
-you walk it once to record parents and run BFS on the undirected version. The model
-change is the whole solution.
+you walk it once to record parents and run BFS on the undirected version.
 
-**A linked list is a graph with out-degree one.** *Find the Intersection Node of
-Two Linked Lists* asks where two paths in a functional graph merge; *Linked List
-Cycle Entry Node* and *Detect and Break a Linked-List Cycle* ask the cycle question
-on the same graph ([[cycle-detection]]).
+**A linked list is a graph with out-degree one.** *Find the Intersection Node of Two
+Linked Lists* asks where two paths in a functional graph merge; *Linked List Cycle
+Entry Node* asks the cycle question on the same graph ([[cycle-detection]]).
 
 **Constraints become edges.** "`u` before `v`" is a directed edge and the question
 is [[topological-sort]]. "`a` equals `b`" is an undirected edge and the question is
@@ -479,12 +472,11 @@ so "the best conversion rate" becomes a shortest path and "a profitable cycle"
 becomes a negative cycle — *Maximum Currency Conversion with Arbitrage* is
 [[bellman-ford]] wearing a hat.
 
-**Dependency DAG plus an aggregation.** Once the edges are in place, the
-topological order lets you compute anything that flows along edges in one sweep:
-earliest finish time (*Minimum Completion Time for DAG Dependencies*), a formula's
-value (*Spreadsheet Formula Evaluator*), or a count of paths. The last one is
-*Service Dependency Load Factors*, below, and it shows the one subtlety: the sweep
-must run on the **reachable** subgraph, not the whole graph.
+**Dependency DAG plus an aggregation.** Once the edges exist, one topological sweep
+computes anything that flows along them: earliest finish time (*Minimum Completion
+Time for DAG Dependencies*), a formula's value (*Spreadsheet Formula Evaluator*), or
+a count of paths. The last is *Service Dependency Load Factors*, below, which shows
+the one subtlety: the sweep must run on the **reachable** subgraph.
 
 ```python run
 from collections import deque
@@ -577,11 +569,10 @@ The anti-signals:
 
 - **The answer is a chosen subset, not a route.** *Positive Subset Sum* and
   *Tree-Dependent Knapsack* have graph-shaped inputs and DP-shaped questions.
-- **Weights on the edges and a plain BFS queue.** The model may be right while the
-  algorithm is wrong; see [[shortest-path]] for the map of which one to use.
-- **"All of" rather than "any of".** Explained next, because it is a trap more
-  than a signal.
-- **The graph is already built.** No modelling to do; go straight to the traversal.
+- **Weights on the edges and a plain BFS queue.** The model can be right while the
+  algorithm is wrong; [[shortest-path]] is the map of which one to use.
+- **"All of" rather than "any of".** A trap more than a signal; see next section.
+- **The graph is already built.** Nothing to model; go straight to the traversal.
 
 ## Traps
 
@@ -594,41 +585,36 @@ wrong, just expensive — every extra coordinate multiplies `|V|`. Symptom: a co
 solution that times out, which is a much nicer bug to have than the previous one.
 
 **AND semantics treated as OR.** Reachability is an OR: one incoming edge is
-enough. Dependency readiness is an AND: *every* predecessor must be done. Run BFS
-from the set of tasks with no prerequisites and you will happily mark a task ready
-the moment one of its three prerequisites finishes. The fix is indegree counting —
-[[topological-sort]] — where a node is enqueued only when its counter hits zero.
-*Agent Task Dependency Tracker* is the clearest illustration because it needs both
-closures on the same graph: a BLOCKED task becomes READY only when *all* its
-dependencies have SUCCEEDED (AND), but a FAILED task fails everything that depends
-on it *directly or indirectly* (OR, a plain forward traversal).
+enough. Dependency readiness is an AND: *every* predecessor must be done. BFS from
+the tasks with no prerequisites cheerfully marks a task ready the moment one of its
+three prerequisites finishes. The fix is indegree counting ([[topological-sort]]),
+where a node is enqueued only when its counter hits zero. *Agent Task Dependency
+Tracker* needs both closures on one graph, and the last self-check works through it.
 
-**Edge direction, chosen by coin flip.** The conventions genuinely differ between
-problems: *Package Dependency Order* gives pairs `[package, dependency]`, while
-*Lexicographically Smallest Dependency Order* gives `[before, after]`. These are
-opposite. Symptom: a perfectly valid topological order of the reversed graph, which
-is the exact reverse of the answer — and which passes any test whose dependency
-chain happens to be symmetric. Read the sentence, not the variable names, and write
-one comment saying which way your arrows point.
+**Edge direction, chosen by coin flip.** The conventions genuinely differ: *Package
+Dependency Order* gives `[package, dependency]`, *Lexicographically Smallest
+Dependency Order* gives `[before, after]`, and those point opposite ways. Symptom:
+a valid topological order of the reversed graph — the right list, backwards. Read
+the sentence, not the variable names.
 
 **Marking visited on pop.** Symptom: correct answers, memory blowup, and a
 mysterious timeout on dense graphs. Mark on push.
 
-**Recursive DFS on a deep model.** Python's default limit is about 1000 frames.
-*Reachable Nodes in a Directed Graph* allows 100,000 vertices and warns in its own
-follow-up about "thousands of vertices in a long chain". Symptom: `RecursionError`
-on exactly one hidden test. Write the explicit stack ([[recursion]]).
+**Recursive DFS on a deep model.** Python's limit is about 1000 frames. *Reachable
+Nodes in a Directed Graph* allows 100,000 vertices and warns in its own follow-up
+about "thousands of vertices in a long chain". Symptom: `RecursionError` on exactly
+one hidden test. Write the explicit stack ([[recursion]]).
 
 **Forgetting the nodes with no edges.** Build the node set from `n`, not from the
 edge list. Symptom: components miscounted on sparse inputs.
 
 **Working on the whole graph when the question is about part of it.** *Service
-Dependency Load Factors* says to omit unreachable services and that their
-dependencies contribute nothing; *Package Dependency Order* asks only for the
-target and its transitive dependencies. Restrict first, then sweep.
+Dependency Load Factors* omits unreachable services and their contributions;
+*Package Dependency Order* wants only the target and its transitive dependencies.
+Restrict first, then sweep.
 
-The first trap, demonstrated. Four models of the same problem — a grid where you
-may break at most one wall — run through one BFS. Only the last is right.
+The first trap, demonstrated: four models of one problem — a grid where you may
+break at most one wall — run through the same BFS. Only the last is right.
 
 ```python run
 from collections import deque
@@ -679,17 +665,23 @@ print("two steps sooner having already spent it, marks the cell, and discards")
 print("the only arrival that could have finished.")
 ```
 
-The third line is the one to stare at. The budget *was* enforced — no run ever
-breaks two walls — and the answer is still wrong, because enforcing a constraint
-and recording it in the node are different things. Configuration "(0,2) with a
-break left" and configuration "(0,2) with none left" offer different moves, so
-condition (A) of the proof is violated, claim 2 fails, and a real path disappears.
-The visited set is not a cache you may key however you like; it is the statement
+The third row is the one to stare at. The budget *was* enforced — no run ever breaks
+two walls — and the answer is still wrong, because enforcing a constraint and
+recording it in the node are different things. "(0,2) with a break left" and "(0,2)
+with none left" offer different moves, so condition (A) is violated, and a broken
+congruence can surface in either direction. Define the edges honestly — `u → v`
+whenever *some* configuration at `u` can move to `v` — and you get a graph with an
+edge across (0,4), because *some* arrival at (0,3) still has a break; its shortest
+walk spends two and claim 2 fails with a phantom path, which is what row two prints.
+Carry the budget through the search but key the visited set on `(r, c)`, as row
+three does, and you are not searching that graph at all: the dedup discards legal
+runs and claim 1 fails with a lost path. One broken congruence, two wrong answers.
+The visited set is not a cache you may key however you like; it asserts
 `f(c) = f(d)`, and BFS believes you.
 
 ## What to memorise
 
-Not code. Three questions, one habit, one number.
+Not code. Three questions, one habit, a few numbers.
 
 **The three questions**, asked in this order before anything is typed:
 
@@ -721,8 +713,8 @@ debugging the traversal will find it.
 
 Numbers worth carrying: the cost is `b · |V|`, and `|V|` is the product of your
 coordinates; a `k`-bit mask in the node multiplies the work by `2^k`; a 500 × 500
-grid is 250k nodes and 1M edges, which is comfortable; deduplication turns `b^d`
-sequences into `b · |V|` expansions, which is the whole reason any of this works.
+grid is 250k nodes and 1M edges, comfortably; and deduplication turns `b^d`
+sequences into `b · |V|` expansions, which is why any of this works at all.
 
 ## Check yourself
 
@@ -762,24 +754,25 @@ infinite and the search would not terminate.
 
 :::check
 In the wall-breaking demo, the model `node = (r, c)` with a budget of one enforces
-the budget correctly on every path it explores, and yet it reports "unreachable"
-for a grid where a 7-step route exists. Explain the failure in terms of the two
-claims in the proof, and say which claim fails.
+the budget correctly on every route it explores, and yet it reports "unreachable"
+for a grid where a 7-step route exists. Which claim of the proof fails, and why
+does enforcing the budget not save it?
 --
-Claim 2 (no phantom paths) is fine — every walk the search takes is a legal route,
-because the budget check `nb > cap` is real. **Claim 1, no lost paths, fails**, and
-it fails because condition (A) is violated.
+**Claim 1, no lost paths.** Every route the search walks is legal, so nothing
+phantom appears; what happens is that a legal route vanishes.
 
-The abstraction maps the configuration "at (0,2) with one break left" and the
-configuration "at (0,2) with none left" to the same node. But those two
-configurations do not offer the same moves: only the first can cross the wall at
-(0,4). So `f` is not a congruence. BFS reaches the cell first along the shorter
-route, which has already spent the break, marks the node, and when the longer,
-break-preserving route arrives two steps later it is discarded as "already seen".
-The winning run exists in the world and has no corresponding walk in the graph.
+`f` sends "at (0,2) with a break left" and "at (0,2) with none left" to the same
+node, and those configurations do not offer the same moves — only the first can
+cross the wall at (0,4) — so condition (A) is violated. BFS reaches the cell first
+along the shorter route, which has already spent the break, marks it, and discards
+the longer break-preserving arrival as "already seen". The run exists in the world
+and has no surviving counterpart in the search.
 
-The fix is to stop lying: make the node `(r, c, b)`, so the two configurations are
-two nodes, and the collapse becomes true.
+Enforcing the budget does not save it because the budget check and the visited key
+are separate decisions: the check prunes illegal moves, while the key decides which
+legal states are interchangeable. Getting the second one wrong is invisible in the
+code and fatal in the answer. The fix is to stop lying — make the node `(r, c, b)`,
+so the two configurations are two nodes and the collapse becomes true.
 :::
 
 :::check
@@ -796,11 +789,11 @@ that a node's indegree counts the things it is still waiting for.
 - `[package, dependency]` (*Package Dependency Order*): the dependency comes
   first, so the edge is `dependency → package` — the pair reversed.
 
-The symptom of getting it backwards is not a crash and not an empty result: you
-get a perfectly valid topological order *of the reversed graph*, which is a
-plausible-looking list in exactly the wrong order. It also survives any test whose
-dependency chain is symmetric, which is why the mistake reaches production. Assert
-on one asymmetric example — "b needs a" must put `a` first — before trusting it.
+The symptom of getting it backwards is not a crash and not an empty result: you get
+a perfectly valid topological order *of the reversed graph* — a plausible list in
+exactly the wrong order, which survives any test whose dependency chain happens to
+be symmetric. Assert on one asymmetric example ("b needs a" must put `a` first)
+before trusting it.
 :::
 
 :::check
@@ -811,16 +804,16 @@ have no prerequisites, and what is the smallest change that makes it correct?
 Because BFS computes an **OR**-closure: it marks a node the first time *any* edge
 reaches it. Readiness is an **AND** over all incoming edges. With prerequisites
 `{a, b, c}` for task `t`, a plain BFS marks `t` as soon as `a` is processed, and
-everything downstream of `t` inherits the mistake.
+everything downstream inherits the mistake.
 
-The smallest change is to give each node a counter initialised to its indegree, and
-to enqueue a node only when processing an incoming edge drives its counter to zero.
-That is Kahn's algorithm, and it is BFS with one extra array.
+The smallest change is a counter per node, initialised to its indegree, with a node
+enqueued only when an incoming edge drives its counter to zero. That is Kahn's
+algorithm: BFS with one extra array.
 
-Both closures are useful and can coexist on one graph: *Agent Task Dependency
+Both closures are useful and can coexist on one graph. *Agent Task Dependency
 Tracker* promotes BLOCKED to READY only when every dependency has SUCCEEDED (AND),
-but propagates FAILED to everything that depends on the failed task directly or
-indirectly (OR). Using the wrong one of the two is not a small error — it produces
-answers that are confidently, plausibly wrong.
+but propagates FAILED to everything depending on the failed task directly or
+indirectly (OR). Choosing the wrong one produces answers that are confidently,
+plausibly wrong.
 :::
 
