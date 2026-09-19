@@ -45,9 +45,9 @@ features — how many segments in the antenna, is the wing case fused — where 
 answer discards most of the remaining possibilities. Nobody memorises the
 beetles. They memorise the questions.
 
-That is the whole mental image. You are not searching your memory for a problem
-that looks like this one. You are asking a fixed, short list of questions about
-the statement, and each answer cuts the catalogue down.
+That is the whole mental image. You are not searching memory for a problem that
+looks like this one. You are asking a fixed, short list of questions, and each
+answer cuts the catalogue down.
 
 The questions are these, in this order:
 
@@ -88,13 +88,12 @@ The questions are these, in this order:
   </g>
 </svg>
 
-The reason this works is that the questions are about *invariants of the
-problem*, not about its vocabulary. A statement about delivery trucks and a
-statement about server load can be the same problem; the trucks and the servers
-are costume. What is not costume is that both ask for the smallest capacity that
-makes something feasible, that feasibility is cheap to check, and that the
-answer lives in a range of size `10^9`. Change the story, and those three facts
-do not move.
+This works because the questions are about *invariants of the problem*, not its
+vocabulary. A statement about delivery trucks and one about server load can be
+the same problem; the trucks and the servers are costume. Not costume: both ask
+for the smallest capacity that makes something feasible, feasibility is cheap to
+check, and the answer lives in a range of size `10^9`. Change the story and those
+three facts do not move.
 
 ## Worked by hand
 
@@ -152,12 +151,11 @@ wrong. In interviews it is almost never a red herring.
 
 ## Why it is correct
 
-"Correct" needs care here. There is no theorem that says a human will identify
-the right pattern — recognition can simply fail. What *can* be proved is that
-the procedure above spends its time in the right order: given a shortlist of
-candidates, testing them in decreasing ratio of *how likely* to *how expensive
-to test* minimises the expected time until you are holding the right one. That is
-the claim, and it is an exchange argument.
+"Correct" needs care here. No theorem says a human will identify the right
+pattern; recognition can simply fail. What *can* be proved is that the procedure
+spends its time in the right order: given a shortlist, testing candidates in
+decreasing ratio of *how likely* to *how expensive to test* minimises the
+expected time until you hold the right one. That claim is an exchange argument.
 
 :::proof The ratio rule for testing candidate patterns
 **Setup.** You hold a shortlist of candidate patterns `P₁ … Pₙ`. Exactly one of
@@ -289,8 +287,8 @@ constant factor closes that.
 
 The "implementation" of a recognition procedure is a key: a table of patterns,
 each with the features it *requires*, and a rule for ordering the survivors. The
-code below does no language understanding whatsoever. You answer the four
-questions by hand; the code keeps the books.
+code below does no language understanding at all. You answer the four questions
+by hand; the code keeps the books.
 
 ```python run
 
@@ -374,12 +372,11 @@ difference between a key and a keyword search: "subarray" alone means nothing;
 "contiguous, longest, and shrinkable" means sliding window. Recognition failures
 are almost always a missing conjunct.
 
-`ops(f["n"]) > BUDGET` is question 3, and in the output you can watch it earn its
-place twice. For the first statement, partition DP fits every feature and is cut
-purely on `n²`. For the fourth, plain subset enumeration fits every feature and
-is cut purely on `2⁴⁰`; [[meet-in-the-middle]] survives because `2²⁰` does not.
-In both cases the features alone left two candidates and only the arithmetic
-separated them.
+`ops(f["n"]) > BUDGET` is question 3, and the output shows it earning its place
+twice. For the first statement, partition DP fits every feature and is cut purely
+on `n²`. For the fourth, plain subset enumeration fits every feature and is cut
+purely on `2⁴⁰`, while [[meet-in-the-middle]] survives on `2²⁰`. Both times the
+features left two candidates and only the arithmetic separated them.
 
 `fits.sort(reverse=True)` on `(prior / cost, name)` is the ratio rule from the
 proof. It is not ranking by likelihood — a very likely pattern that takes ten

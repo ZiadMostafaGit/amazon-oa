@@ -10,14 +10,12 @@ You reach for Union-Find when a problem hands you a pile of items and a stream
 of statements of the form *these two belong together*, and then asks you
 something about the resulting grouping.
 
-The grouping is an **equivalence relation**: reflexive (everything is with
-itself), symmetric (if `a` is with `b` then `b` is with `a`), transitive (if `a`
-is with `b` and `b` is with `c` then `a` is with `c`). That third property is the
-one that hurts. A statement that says "membership is transitive: members
-connected through any chain of direct relationships belong to the same group" —
-which is exactly how *Connected Groups* phrases it — is telling you that you
-cannot process the pairs independently. Merging 2 with 3 can retroactively put 1
-and 4 in the same group, and you are not allowed to rescan everything to notice.
+The grouping is an **equivalence relation**: reflexive, symmetric, and —
+the property that hurts — transitive. A statement reading "membership is
+transitive: members connected through any chain of direct relationships belong to
+the same group", which is exactly how *Connected Groups* phrases it, is telling
+you that you cannot process the pairs independently: merging 2 with 3 can
+retroactively put 1 and 4 together, and you may not rescan to notice.
 
 Sixty-one problems in this bank use it, which puts it at #49 of 150. They fall
 into a small number of shapes:
@@ -45,12 +43,11 @@ irreversible by construction, the structure has no answer at all — unless you 
 run time backwards, which is the last variant here and how *Counting Segments
 After House Removals* is solved.
 
-One honest anti-signal: if the graph is given once, in full, and you are asked a
-single question about it at the end, a plain DFS or BFS is simpler and exactly as
-fast. *Count Islands in a Binary Grid* is a legitimate Union-Find problem and
-also a five-line [[flood-fill]]. Reach for Union-Find when the merges arrive
-*over time* and the questions are interleaved with them — that is where the
-alternative degrades to re-running a traversal after every edge.
+One honest anti-signal: if the graph is given once, in full, with a single
+question at the end, a plain DFS is simpler and exactly as fast. *Count Islands in
+a Binary Grid* is a legitimate Union-Find problem and also a five-line
+[[flood-fill]]. Reach for Union-Find when the merges arrive *over time* — that is
+where the alternative degrades to re-running a traversal after every edge.
 
 ## The idea
 
@@ -61,11 +58,11 @@ That is the whole trick. If each group has a designated representative, then
 representative?", which is a comparison of two values. The only work left is
 finding your representative, and merging two groups into one.
 
-So store a single array, `parent`, where `parent[x]` is some other member of
-`x`'s group — a member that is, in a vague sense, "closer to the name". A
-representative is a node that points at itself. Following `parent` from any node
-therefore walks upward through a rooted tree and stops at the root, and the root
-is the group's name. The array holds a **forest**: one tree per group.
+So store one array, `parent`, where `parent[x]` is another member of `x`'s group
+— one that is, vaguely, "closer to the name" — and a representative is a node
+pointing at itself. Following `parent` therefore walks up a rooted tree and stops
+at the root, which is the group's name. The array holds a **forest**: one tree
+per group.
 
 Merging two groups is then a single write. Find both roots; make one point at
 the other. Every member of the absorbed tree now reaches the new root by walking
@@ -122,21 +119,21 @@ graph are not stored anywhere; the tree shape is an artefact of the order the
 merges happened in. Since nothing depends on the shape, we are free to rewrite it
 however we like, as long as every node keeps reaching the same root.
 
-That freedom buys two optimisations, and both are free to implement:
+That freedom buys two optimisations, both two lines each:
 
-- **Union by size.** When merging, hang the *smaller* tree under the larger
-  root. Nobody in the larger tree gets deeper.
-- **Path compression.** Having walked from `x` up to root `r`, re-point the
-  nodes you passed directly at `r`. The next walk from any of them is one step.
+- **Union by size.** Hang the *smaller* tree under the larger root, so nobody in
+  the larger tree gets deeper.
+- **Path compression.** Having walked from `x` up to root `r`, re-point the nodes
+  you passed directly at `r`; their next walk is one step.
 
-Neither is needed for correctness. Both together turn a potentially linear walk
+Neither is needed for correctness. Together they turn a potentially linear walk
 into something indistinguishable from constant time.
 
 ## Worked by hand
 
-Seven members, `0` through `6`, and six pairings. Union by size, with ties broken
-by keeping the first root; path compression by *halving* (each node on the walk
-is re-pointed at its grandparent). `comps` counts the groups.
+Seven members, `0` through `6`, and six pairings. Union by size, ties broken by
+keeping the first root; compression by *halving* (each node on the walk is
+re-pointed at its grandparent). `comps` counts the groups.
 
 Start: `parent = [0, 1, 2, 3, 4, 5, 6]`, every `size` is 1, `comps = 7`.
 
@@ -153,10 +150,10 @@ Final state: two groups, `{1, 2, 3, 4}` and `{0, 5, 6}`.
 
 Four things in that table are worth a second look.
 
-**Step 5 reversed the arguments.** We called `union(0, 5)`, and 5's root ended up
-on top. Union by size does not care which argument you wrote first; it cares
-which tree is bigger. If you want to know "the group containing 0", you must ask
-`find(0)` — you may not assume 0 is still its own name.
+**Step 5 reversed the arguments.** We called `union(0, 5)` and 5 ended up on top:
+union by size cares which tree is bigger, not which argument you wrote first. To
+ask about "the group containing 0" you must call `find(0)`; you may not assume 0
+is still its own name.
 
 **Step 6 changed `parent` without changing anything.** The roots were equal, so
 no merge happened and `comps` stayed at 2 — yet `parent[4]` moved from 3 to 1,
@@ -164,10 +161,10 @@ because `find(4)` walked `4 → 3 → 1` and compression halved the path. The
 structure reorganises itself during a read. A `find` is not a const operation.
 
 **Step 6 is also the answer to a whole class of problems.** "The union did
-nothing" means the edge `(1, 4)` connects two nodes that were already connected —
-that is, it closes a cycle. *Redundant Connection II* and *Minimum Connection
-Changes* are built on exactly this signal, and so is Kruskal's algorithm, which
-skips an edge precisely when `union` reports no merge.
+nothing" means `(1, 4)` joins two already-connected nodes — it closes a cycle.
+*Redundant Connection II* and *Minimum Connection Changes* run on exactly this
+signal, and so does Kruskal, which skips an edge precisely when `union` reports
+no merge.
 
 **The forest is not the input.** Try to recover the six pairs from the final
 array. You cannot: the edge `(2, 3)` left no 2–3 link anywhere, since
@@ -301,14 +298,13 @@ pathological input you will never see; it is what a sorted edge list produces.
 
 **Union by size alone.** Claim: every tree has height at most `log₂ n`.
 
-The argument is a doubling count, and it is about a single node. Fix a node `v`
-and let `S(v)` be the size of the tree containing it. `depth(v)` increases by
-exactly 1 when the root above `v` is hung under another root — and union by size
-does that only when the other tree is at least as large. So each time `depth(v)`
-goes up by one, `S(v)` at least doubles. Initially `depth(v) = 0` and `S(v) = 1`;
-at all times `S(v) <= n`. After `d` increments, `S(v) >= 2^d`, so `2^d <= n` and
-`d <= log₂ n`. Every `find` is therefore `O(log n)`, worst case, deterministically
-— no amortisation needed.
+The argument is a doubling count about a single node. Fix `v` and let `S(v)` be
+the size of its tree. `depth(v)` rises by exactly 1 when the root above `v` is
+hung under another root, and union by size does that only when the other tree is
+at least as large — so every increment of `depth(v)` at least doubles `S(v)`.
+Starting from `depth(v) = 0`, `S(v) = 1`, and always `S(v) <= n`, after `d`
+increments `2^d <= S(v) <= n`, so `d <= log₂ n`. Every `find` is `O(log n)` in the
+worst case, deterministically — no amortisation needed.
 
 **Union by size and path compression.** The bound drops to nearly constant, and
 the derivation is worth seeing once because "it is `O(α(n))`, trust me" teaches
@@ -344,11 +340,10 @@ Charge each step of each `find` walk to one of two accounts:
   Total for the block: `n/2^a · 2^a = n`. Over `log* n` blocks: `O(n log* n)`.
 
 So `m` operations cost `O((m + n) log* n)`. Tarjan's sharper analysis replaces
-`log*` with the inverse Ackermann function `α(n)`, and he also proved a matching
-lower bound for a restricted class of pointer-based algorithms — so this is not a
-bound waiting to be improved. For every `n` you will ever run on, `α(n) <= 4`.
-Treat a Union-Find operation as constant time and you will never be wrong by more
-than a small factor.
+`log*` with the inverse Ackermann function `α(n)`, and he proved a matching lower
+bound for a restricted class of pointer-based algorithms — this is not a bound
+waiting to be improved. For any `n` you will ever run on, `α(n) <= 4`: treat a
+Union-Find operation as constant time.
 
 **Space** is two integer arrays: `2n` words, plus the `comps` counter. No
 recursion if you write `find` as a loop.
@@ -444,15 +439,14 @@ Three lines carry the weight.
 `self.parent[x] = self.parent[self.parent[x]]` is **path halving**: while walking
 up, point each node at its grandparent. It compresses in a single pass, needs no
 second loop and no recursion, and achieves the same `O(α(n))` amortised bound as
-full two-pass compression. Prefer it. The recursive `find` that everybody writes
-first — `return x if parent[x] == x else find(parent[x])` — is elegant and will
-raise `RecursionError` on a chain of a hundred thousand nodes before compression
-has had a chance to flatten it.
+full two-pass compression. Prefer it. The recursive `find` everybody writes first —
+`return x if parent[x] == x else find(parent[x])` — is elegant and raises
+`RecursionError` on a chain of a hundred thousand nodes, before compression has
+had a chance to flatten anything.
 
 `if self.size[ra] < self.size[rb]: ra, rb = rb, ra` is the entire union-by-size
-heuristic, written as a swap so that the code after it does not need to branch.
-Note that it is a swap of *roots*, not of the original arguments — the caller's
-`a` and `b` have already served their purpose.
+heuristic, written as a swap so the code after it needs no branch. It swaps
+*roots*, not the caller's `a` and `b`, which have already served their purpose.
 
 `return False` when the roots coincide is the most useful line in the class. It
 keeps `components` honest and it is a free answer to "is this edge redundant?",
@@ -466,11 +460,11 @@ size: `group_size` comes free, and *Get Sizes of Friends Groups* and *Largest Tr
 Size in a Forest* ask for it directly. Compression with no union heuristic at all
 is correct and amortised `O(log n)` — acceptable, but the heuristic is two lines.
 
-**Extra data hung on the root.** Anything that is a commutative, associative
-aggregate over a set can live at the root and be combined during `union`: the
-size, the minimum or maximum element, a count of edges (used by *Count the Number
-of Complete Components*, where a component with `k` nodes is complete iff it has
-`k(k-1)/2` edges), a sum, a parity. Merge it in the same place you merge `size`.
+**Extra data hung on the root.** Any commutative, associative aggregate over a
+set can live at the root and be combined during `union`: size, min, max, sum,
+parity, or an edge count — that last one solves *Count the Number of Complete
+Components*, where a `k`-node component is complete iff it holds `k(k-1)/2` edges.
+Merge it wherever you merge `size`.
 
 **Small-to-large merging of collections.** When the aggregate is a set and cannot
 be combined in O(1), merge the smaller collection into the larger. Each element
@@ -494,11 +488,11 @@ path and compression rewrites it relative to the root. A parity bit decides
 2-colourability incrementally ([[bipartite]]); an integer offset answers "how much
 more than `b` is `a`?" under merging constraints.
 
-**"Next free slot" on a line.** Set `parent[i]` to the next index at or after `i`
-that is still available; taking slot `i` sets `parent[i] = i + 1`. Each `find`
-then jumps straight past a run of taken slots, and the total cost of `n`
-assignments is near-linear. *Bus Station Seat Allotment* and *Doctor Appointment
-Slot Assignment* are this pattern, not the connectivity pattern.
+**"Next free slot" on a line.** Let `parent[i]` be the next free index at or after
+`i`; taking slot `i` sets `parent[i] = i + 1`. Each `find` then jumps past a whole
+run of taken slots, and `n` assignments cost near-linear time. *Bus Station Seat
+Allotment* and *Doctor Appointment Slot Assignment* are this pattern, not the
+connectivity one.
 
 **Rollback DSU.** Drop path compression, keep union by size (height stays
 `O(log n)`), and push each `(rb, ra, old_size)` onto a stack so a union can be
@@ -598,14 +592,13 @@ The anti-signals:
 
 - **Directed edges.** Union-Find cannot represent one-way relations. If the
   statement says "a follows b" and does not say the relation is symmetric, stop.
-- **Deletions arriving online.** If an edge can be removed and you do not know the
-  removals in advance, this structure is the wrong shape. Look for a rollback or
-  time-reversal formulation, or a different structure entirely.
+- **Deletions arriving online.** If edges are removed and you do not know the
+  removals in advance, this structure is the wrong shape; look for a rollback or
+  time-reversal formulation.
 - **Anything about distances or paths.** "Shortest", "fewest steps", "the route" —
-  that is [[bfs]] or [[dijkstra]]. The classic near-miss is *Minimum Score of a
+  that is [[bfs]] or [[dijkstra]]. The near-miss to know is *Minimum Score of a
   Path Between Cities*, which sounds like a path problem and is really "the
-  minimum edge weight in the component containing city 1" — the Union-Find part is
-  finding the component, and the "path" is a red herring.
+  smallest edge weight in city 1's component"; the "path" is a red herring.
 - **One static graph, one question.** Use [[dfs]]; it is shorter.
 
 ## Traps
@@ -619,21 +612,20 @@ are not. Demonstrated below.
 sometimes zero or negative, and only on inputs that contain a redundant edge — so
 the sample cases pass. Demonstrated below.
 
-**Recursive `find` on deep input.** Symptom: `RecursionError` at around 1000
-frames in Python, a stack overflow elsewhere, and only on adversarial inputs like
-a chain of unions in index order.
+**Recursive `find` on deep input.** Symptom: `RecursionError` at about 1000
+frames in Python, a stack overflow elsewhere, and only on adversarial inputs such
+as a chain of unions in index order.
 
-**Reading `size[x]` instead of `size[find(x)]`.** Symptom: sizes that are too
-small and never change after a node stops being a root.
+**Reading `size[x]` instead of `size[find(x)]`.** Symptom: sizes too small, and
+frozen from the moment a node stopped being a root.
 
 **Caching a root.** `r = dsu.find(x)`, used later, is wrong: the next union can
 make `r` a non-root. Symptom: wrong answers that depend on merge order. Roots are
 not stable names; only `find` is.
 
 **Off-by-one on the universe.** *Get Sizes of Friends Groups* numbers students
-`1` to `n`. Allocate `n + 1` slots and ignore index 0, or subtract one everywhere
-— but pick one and be consistent. Symptom: exactly one extra component, every
-time.
+`1` to `n`. Allocate `n + 1` slots and ignore index 0, or subtract one everywhere;
+pick one and be consistent. Symptom: exactly one extra component, every time.
 
 **Forgetting the isolated elements.** "Every member belongs to exactly one group,
 including an isolated member" — a node with no edges is a component. Build the DSU
@@ -776,13 +768,12 @@ component count by at most one. Starting at `c` and needing to reach 1 requires 
 least `c - 1` additions. (This is invariant (I3) read as a potential function:
 `comps` drops by 0 or 1 per edge, never more.)
 
-**Achievability.** Pick any representative from each component and chain them:
-`r₁–r₂`, `r₂–r₃`, …, `r_{c-1}–r_c`. Each of those `c - 1` edges joins two
-components that were distinct at that moment, so each one does reduce the count by
-exactly one, ending at 1.
+**Achievability.** Chain one representative per component: `r₁–r₂`, `r₂–r₃`, …,
+`r_{c-1}–r_c`. Each of those `c - 1` edges joins two components distinct at that
+moment, so each reduces the count by exactly one, ending at 1.
 
-So the whole problem reduces to counting components, which is one pass of
-`union` over the given edges and then reading `comps`.
+The problem therefore reduces to counting components: one pass of `union` over the
+given edges, then read `comps`.
 :::
 
 :::check

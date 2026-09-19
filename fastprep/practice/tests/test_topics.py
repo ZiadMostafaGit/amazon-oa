@@ -133,7 +133,9 @@ class TestArticles(unittest.TestCase):
             self.assertIn(slug, known, "%s is not a canon topic" % slug)
             a = topics_mod.article(slug)
             self.assertTrue(a["html"])
-            for m in re.finditer(r"\[\[([a-z0-9-]+)", a["source"]):
+            # the closing ]] matters: a matrix literal like [[1, 2], [3, 4]]
+            # is prose, not a broken link
+            for m in re.finditer(r"\[\[([a-z0-9-]+)(?:\|[^\]]+)?\]\]", a["source"]):
                 self.assertIn(m.group(1), known, "%s links to %s" % (slug, m.group(1)))
 
     def test_listing_counts_articles(self):
