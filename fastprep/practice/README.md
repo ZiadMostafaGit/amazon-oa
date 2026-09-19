@@ -97,11 +97,28 @@ every builtin, all 297 stdlib modules and the methods of the built-in types.
 Font size, reset-to-starter and copy sit in the same bar, and your buffer is
 saved per problem and per language as you type.
 
-Three ways to run it:
+**Completion that stays out of the way.** It opens after a dot, and from the
+*second* letter of a word — one letter matches a few thousand names, which is a
+list, not a suggestion. `Tab` takes the highlighted entry; **`Enter` does not**
+— it closes the list and makes the newline you asked for, which in Python is
+also the indent. Prefixes ignore case, so `coun` reaches `Counter`. What it
+offers is typed from the buffer: `d = {}` completes dict methods (`{}` is an
+empty dict — the empty set is `set()`), `q = deque()` completes `popleft`, a
+`nums: List[int]` annotation completes list methods before you have written a
+line, `self.` completes the attributes you assigned, and `collections.` lists
+that module's own members rather than a generic pile of method names.
+
+**Room for the code.** The editor keeps the pane: the per-language note (the
+same sentence on every Python problem) hides behind an **ⓘ** in the toolbar,
+and the output panel appears when there is output and gives its third of the
+pane back when you dismiss it with **✕**.
+
+Four ways to run it:
 
 | Button | What it does |
 |---|---|
 | **▶ Run tests** (`Ctrl-Enter`) | the published examples plus your own cases |
+| **▶ Run code** (`Alt-Enter`) | just runs it, like `python file.py`, and shows everything it printed — no cases, no expression to invent. `__name__` is `"__main__"` here, so a main block runs; under the test harness it deliberately does not |
 | **Run my cases only** | just the cases you added, for iterating on one edge case |
 | **Scratch** (`Shift-Ctrl-Enter`) | evaluate any expression against your code — `solve([1,2,3])`, `print(helper(x))` |
 | **Solution** | the reference solution for this problem, with its verification badge and a button to load it into the editor — or, when there is none, which problems do have one |
@@ -308,7 +325,7 @@ solutions.py   the reference-solution store and its verification state
 fpdb.py        read-only access to fastprep.db, filters, sorts, FTS search
 parsing.py     inputValue/outputText <-> Python values, and the comparator
 runner.py      the sandbox: bubblewrap + rlimits + timeout
-harness_*.py   what runs inside it (python cases, SQL cases, scratch)
+harness_*.py   what runs inside it (python cases, SQL cases, scratch, plain run)
 languages.py   what this machine can actually execute, and the starter code
 progress.py    your status/notes/bookmarks/submissions (separate db)
 images.py      lazy, rate-limited screenshot cache
@@ -316,10 +333,10 @@ topics.py      the study space: the canon, its articles, and each topic's queue
 mdlite.py      the small strict Markdown dialect the chapters are written in
 static/        the page: index.html, app.js, study.js, timer.js, styles.css,
                editor.js, pyenv.js
-tests/         174 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
-               custom cases, scratch, solutions, random mode, generated cases,
-               the canon, the topic mapping, the renderer, the study endpoints,
-               and the page wiring the timer depends on
+tests/         184 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
+               custom cases, scratch, running as a script, solutions, random
+               mode, generated cases, the canon, the topic mapping, the
+               renderer, the study endpoints, and the page's own wiring
 tools/         pick / brief / verify / audit / batch — the solution pipeline
                canon / topicmap / brief_topic / verify_topic — the study space
 solutions/     one file per problem id, plus MANIFEST.json and VERIFIED.json

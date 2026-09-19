@@ -435,6 +435,59 @@ class TestScratch(ServerCase):
         self.assertTrue(out.get("error"), out)
 
 
+class TestRunAsAScript(ServerCase):
+    """/api/script is the print-debugging button: run it, show what it said."""
+
+    def test_reports_everything_printed(self):
+        out, code = self.post("/api/script", {
+            "problemId": "amazon-stock-span",
+            "code": "for i in range(3):\n    print('row', i)\n"})
+        self.assertEqual(code, 200)
+        self.assertEqual(out["printed"].split(), ["row", "0", "row", "1", "row", "2"])
+        self.assertNotIn("error", out)
+
+    def test_a_main_block_runs(self):
+        """Under the test harness it must not; run as a program it must."""
+        out, _ = self.post("/api/script", {
+            "code": "def solve(n):\n    return n\n\n"
+                    "if __name__ == '__main__':\n    print(solve(9))\n"})
+        self.assertEqual(out["printed"].strip(), "9")
+
+    def test_a_traceback_points_at_the_readers_own_line(self):
+        out, _ = self.post("/api/script", {"code": "print('before')\nx = 1 / 0\n"})
+        self.assertEqual(out["printed"].strip(), "before")     # kept, not swallowed
+        self.assertIn("ZeroDivisionError", out["error"])
+        self.assertIn('File "<your code>", line 2', out["error"])
+        self.assertNotIn("harness", out["error"])
+        self.assertNotIn("_main", out["error"])
+
+    def test_a_syntax_error_is_reported_as_one(self):
+        out, _ = self.post("/api/script", {"code": "def f(:\n    pass\n"})
+        self.assertIn("SyntaxError", out["error"])
+
+    def test_code_that_only_defines_things_says_what_it_defined(self):
+        out, _ = self.post("/api/script", {"code": "def solve(a):\n    return a\n"})
+        self.assertEqual(out["printed"], "")
+        self.assertIn("solve", out["defined"])
+
+    def test_sys_exit_is_not_a_crash(self):
+        out, _ = self.post("/api/script", {"code": "import sys\nprint('bye')\nsys.exit(2)\n"})
+        self.assertEqual(out["printed"].strip(), "bye")
+        self.assertEqual(out["exit"], 2)
+        self.assertNotIn("error", out)
+
+    def test_an_unknown_problem_is_refused(self):
+        out, code = self.post("/api/script", {"problemId": "not-a-problem", "code": "print(1)"})
+        self.assertEqual(code, 404)
+
+    def test_it_runs_in_the_same_sandbox(self):
+        import runner
+        if runner.sandbox_kind() != "bubblewrap":
+            self.skipTest("no bwrap")
+        out, _ = self.post("/api/script", {"code": "print(open('/etc/hostname').read())"})
+        self.assertTrue(out.get("error"), out)
+
+
 class TestStoredSolutions(ServerCase):
     def test_detail_carries_a_verified_solution(self):
         d = self.get("/api/problems/stripe-deployment-window-scheduler")

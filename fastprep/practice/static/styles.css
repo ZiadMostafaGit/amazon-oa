@@ -387,6 +387,11 @@ h2.section::after{content:"";flex:1;height:1px;background:var(--line-soft)}
   border-radius:var(--radius-sm);box-shadow:var(--shadow);z-index:80}
 .CodeMirror-hint{color:var(--ink);padding:3px 9px}
 li.CodeMirror-hint-active{background:var(--accent-soft);color:#d6e6ff}
+/* Each suggestion carries what KIND it is - dict, builtin, module, local. It is
+   a separate span so it can sit on the right; without this rule it runs into
+   the name and every entry reads like `getdict`. */
+.CodeMirror-hint .hk{float:right;margin-left:18px;font-size:10.5px;color:var(--ink-faint)}
+li.CodeMirror-hint-active .hk{color:#9dc4ee}
 .CodeMirror-dialog{background:var(--raised-2);border-bottom:1px solid var(--line);
   color:var(--ink);font-family:var(--mono);font-size:12.5px;padding:6px 10px}
 .CodeMirror-dialog input{background:transparent;border:none;color:var(--ink-strong);font-family:var(--mono)}
@@ -424,11 +429,12 @@ li.CodeMirror-hint-active{background:var(--accent-soft);color:#d6e6ff}
 #hsplit[hidden]{display:none}
 body.dragging-v{cursor:row-resize;user-select:none}
 
+/* It is hidden from JS when there is nothing to read; `:empty` cannot do that
+   job, because the scratch pad lives in here and is a child even when closed. */
 .wb-out{
   flex:0 0 auto;height:34%;min-height:60px;overflow-y:auto;border-top:1px solid var(--line);
   background:var(--bg);padding:12px 14px 16px;
 }
-.wb-out:empty{display:none}
 .outhead{display:flex;align-items:center;gap:8px;margin:0 0 10px}
 .outhead h3{margin:0;font:11.5px/1 var(--sans);font-weight:700;letter-spacing:.11em;
   text-transform:uppercase;color:var(--ink-faint)}

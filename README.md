@@ -33,7 +33,9 @@ their table schemas, result contract and visible cases instead.
 numbers**, real tab stops, Python-aware Enter/Backspace, and completion over the whole standard
 library. Run against the published examples, add **your own test cases** (with or without an
 expected value — one without just shows you what your code returned), and a **scratch pad** for
-ad-hoc calls against your code.
+ad-hoc calls against your code. Or just **▶ Run code** (`Alt-Enter`): it executes the buffer the
+way `python file.py` would and shows everything it printed — the button you want when you have
+put a `print` in a loop to see what it is doing.
 
 **Never in the app's process.** Your code runs under bubblewrap in a new user/pid/net/ipc
 namespace with no network interface, a read-only `/usr`, a private tmpfs, hard CPU/memory/file

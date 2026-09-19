@@ -202,8 +202,13 @@ window.PyEditor = (function () {
       const v = m[1], rhs = m[2].trim();
       let ty = null;
       if (/^\[/ .test(rhs)) ty = 'list';
-      else if (/^\{[^:}]*\}/.test(rhs)) ty = 'set';
-      else if (/^\{/.test(rhs)) ty = 'dict';
+      /* `{}` is an empty DICT - the empty set is `set()`. Reading it as a set
+         was wrong on the most common line in this whole bank, and `d.` then
+         offered `add` and `union` instead of `get` and `items`. */
+      else if (/^\{\s*\}/.test(rhs)) ty = 'dict';
+      else if (/^\{\s*\*\*/.test(rhs)) ty = 'dict';    // {**a, **b}
+      else if (/^\{[^:}]+\}/.test(rhs)) ty = 'set';      // {1, 2}, {x for x in y}
+      else if (/^\{/.test(rhs)) ty = 'dict';             // {k: v ...}
       else if (/^[fFbB]?['"]/.test(rhs)) ty = /^b/i.test(rhs) ? 'bytes' : 'str';
       else if (/^-?\d+$/.test(rhs)) ty = 'int';
       else if (/^-?\d*\.\d+/.test(rhs) || /^\.\d+/.test(rhs)) ty = 'float';
@@ -393,10 +398,17 @@ window.PyEditor = (function () {
         .forEach(k => pool.unshift([SNIPPETS[k], 'snip', -2 + (k.length - word.length)]));
     }
 
+    /* Prefixes match whatever case you typed them in - `coun` has to reach
+       `Counter`, or half the library is unreachable from the keyboard - but an
+       exact-case match still ranks above a lenient one. */
+    const lower = word.toLowerCase();
     const seen = new Set(), list = [];
     const hfrom = CodeMirror.Pos(cur.line, start), hto = CodeMirror.Pos(cur.line, cur.ch);
-    for (const [w, kind, rank] of pool) {
-      if (w === word || seen.has(w) || !w.startsWith(word)) continue;
+    for (const [w, kind, rank0] of pool) {
+      if (w === word || seen.has(w)) continue;
+      const exact = w.startsWith(word);
+      if (!exact && !w.toLowerCase().startsWith(lower)) continue;
+      const rank = exact ? rank0 : rank0 + 0.5;
       seen.add(w);
       const item = { text: w, kind: kind, rank: rank, from: hfrom, to: hto,
         render(el) {
@@ -443,30 +455,46 @@ window.PyEditor = (function () {
         'Ctrl-/': 'toggleComment', 'Cmd-/': 'toggleComment',
         'Ctrl-Enter': () => opts.onRun && opts.onRun(),
         'Shift-Ctrl-Enter': () => opts.onScratch && opts.onScratch(),
+        'Alt-Enter': () => opts.onRunPlain && opts.onRunPlain(),
         'Ctrl-F': 'findPersistent', 'Ctrl-G': 'findNext', 'Shift-Ctrl-G': 'findPrev',
         'Shift-Ctrl-F': 'replace',
-        'Ctrl-Space': (c) => c.showHint({hint: pythonHint, completeSingle: false,
-                     closeOnUnfocus: true, extraKeys: {Tab: (cm2, h) => h.pick()}}),
+        'Ctrl-Space': (c) => complete(c),
         'Shift-Ctrl-K': (c) => c.execCommand('deleteLine'),
         'Alt-Up': (c) => c.execCommand('swapLineUp'),
         'Alt-Down': (c) => c.execCommand('swapLineDown'),
       },
     });
 
-    /* Type-ahead completion: fires on word characters and after a dot, never on
-       the first keystroke of a word (too noisy) and never while one is open. */
+    /* Completion keys. Tab takes the highlighted suggestion; Enter does NOT.
+       Show-hint binds Enter to pick by default, which means a list you did not
+       ask for silently eats the newline you did - in Python, where Enter is
+       also the indent, that is the difference between an editor and a fight.
+       So Enter closes the list and falls through to the real Enter. */
+    function complete(c) {
+      c.showHint({
+        hint: pythonHint, completeSingle: false, closeOnUnfocus: true,
+        extraKeys: {
+          Tab: (cm2, h) => h.pick(),
+          Enter: (cm2, h) => { h.close(); return CodeMirror.Pass; },
+          Home: (cm2, h) => { h.close(); return CodeMirror.Pass; },
+          End: (cm2, h) => { h.close(); return CodeMirror.Pass; },
+        },
+      });
+    }
+
+    /* Type-ahead completion: after a dot, and from the SECOND letter of a word
+       - the first letter matches a few thousand names, so a list on it is one
+       long guess that hides the code behind it on every single word typed. */
     cm.on('inputRead', (c, ch) => {
       if (c.state.completionActive) return;
       const t = ch.text && ch.text[0];
       if (!t) return;
-      const show = () => c.showHint({hint: pythonHint, completeSingle: false,
-                     closeOnUnfocus: true, extraKeys: {Tab: (cm2, h) => h.pick()}});
-      if (t === '.') { show(); return; }
+      if (t === '.') { complete(c); return; }
       if (!/[A-Za-z_]/.test(t)) return;
       const cur = c.getCursor(), line = c.getLine(cur.line);
       let st = cur.ch;
       while (st && /[\w$]/.test(line.charAt(st - 1))) st--;
-      if (cur.ch - st >= 1) show();
+      if (cur.ch - st >= 2) complete(c);
     });
 
     /* --- relative line numbers ---------------------------------------- */

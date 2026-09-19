@@ -281,6 +281,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self._fuzz(body)
             if url.path == "/api/scratch":
                 return self._scratch(body)
+            if url.path == "/api/script":
+                return self._script(body)
             if url.path.startswith("/api/cases/"):
                 return self._cases(url.path[len("/api/cases/"):], body)
             if url.path.startswith("/api/study/"):
@@ -359,6 +361,15 @@ class Handler(BaseHTTPRequestHandler):
         result["caveat"] = ("Inputs are generated from the declared types only, so some break "
                             "the problem's own rules; any input the reference rejects is "
                             "skipped rather than counted.")
+        return self._json(result)
+
+    def _script(self, body: dict):
+        """Run the editor's code as a program, for its prints. No cases."""
+        pid = body.get("problemId")
+        if pid and not BANK.detail(pid):
+            return self._error(404, "no problem with id %r" % pid)
+        result = runner.run_script(body.get("code") or "")
+        result["sandbox"] = runner.sandbox_kind()
         return self._json(result)
 
     def _scratch(self, body: dict):

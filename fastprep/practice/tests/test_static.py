@@ -40,6 +40,41 @@ class TestHiddenActuallyHides(unittest.TestCase):
                                  "#%s sets display and would ignore [hidden]" % el)
 
 
+class TestNoDanglingSelectors(unittest.TestCase):
+    """Every $('#id') must be an id something actually creates.
+
+    This exists because of a real bug: the interface rebuild left a second copy
+    of runFuzz() behind that still reached for `#editorHost .results`, an id
+    the new page does not have. Nothing complained until it ran.
+    """
+
+    SCRIPTS = ("app.js", "study.js", "timer.js")
+
+    def known_ids(self):
+        ids = set(re.findall(r'id="([\w-]+)"', read("index.html")))
+        for name in self.SCRIPTS:                      # ids the scripts create
+            js = read(name)
+            ids |= set(re.findall(r"\.id = '([\w-]+)'", js))
+        return ids
+
+    def test_every_id_selector_resolves(self):
+        ids = self.known_ids()
+        for name in self.SCRIPTS:
+            js = read(name)
+            used = set(re.findall(r"\$\('#([\w-]+)'", js))
+            used |= set(re.findall(r"getElementById\('([\w-]+)'\)", js))
+            for el in sorted(used - ids):
+                self.fail("%s reaches for #%s, which nothing creates" % (name, el))
+
+    def test_no_function_is_defined_twice(self):
+        """Two definitions means the first one is dead code that still reads."""
+        for name in self.SCRIPTS:
+            names = re.findall(r"^(?:async )?function ([A-Za-z_]\w*)",
+                               read(name), re.M)
+            dupes = sorted({n for n in names if names.count(n) > 1})
+            self.assertFalse(dupes, "%s defines %s more than once" % (name, dupes))
+
+
 class TestTimerWiring(unittest.TestCase):
     """The timer is one script talking to ids in the page; a typo in either is
     invisible until you click, so hold them to each other here."""

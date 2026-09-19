@@ -238,6 +238,20 @@ def run_generate(reference: str, function: str, inputs: list, out_type: str,
     return _run_child(parsing_src + "\n\n" + gen_src + "\n\n" + _harness("gen"), payload)
 
 
+def run_script(code: str) -> dict:
+    """Run the editor's code as a program and report what it printed.
+
+    The plain `python file.py` of this app: no cases, no function call, no
+    expression to type - it exists so a `print` put in to check a loop can
+    actually be read.
+    """
+    if len(code) > MAX_CODE:
+        return {"error": "the editor holds more than %d characters" % MAX_CODE}
+    parsing_src = open(os.path.join(HERE, "parsing.py"), "r", encoding="utf-8").read()
+    payload = {"code": code, "maxOutput": MAX_OUTPUT}
+    return _run_child(parsing_src + "\n\n" + _harness("script"), payload)
+
+
 def run_snippet(code: str, snippet: str) -> dict:
     """Load the editor's code, then evaluate one expression or statement against
     it - the scratch pad. Same sandbox, same limits."""

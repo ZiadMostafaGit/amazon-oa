@@ -473,76 +473,6 @@ function scheduleNotes(text) {
   saver.queue('notes:' + d.id, d.id, { notes: text });
 }
 
-async function runFuzz() {
-  const d = state.current;
-  const results = $('#editorHost .results');
-  const verdict = $('#verdict');
-  verdict.textContent = 'generating inputs…';
-  let out;
-  try {
-    out = await api('api/fuzz', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ problemId: d.id, code: state.editor.getValue() }),
-    });
-  } catch (e) {
-    verdict.innerHTML = '<span class="no">could not run</span>';
-    results.append(Object.assign(el('div', 'case fail'), { textContent: e.message }));
-    return;
-  }
-
-  if (out.error) {
-    verdict.innerHTML = '<span class="no">did not run</span>';
-    const box = el('div', 'case fail');
-    const pre = el('pre'); pre.textContent = out.error; box.append(pre);
-    results.append(box);
-    return;
-  }
-
-  if (!out.failed) {
-    verdict.innerHTML = '<span class="ok">agreed on ' + out.checked + ' random inputs</span>';
-    const box = el('div', 'case pass');
-    box.append(el('div', 'case-head', '✓ no disagreement found'));
-    box.append(el('div', 'hint',
-      'Your code matched the reference on ' + out.checked + ' generated inputs' +
-      (out.skipped ? ' (' + out.skipped + ' more were rejected by the reference and skipped)' : '') +
-      '. Evidence, not proof — the generator is random, not adversarial.'));
-    box.append(el('div', 'hint', out.caveat));
-    results.append(box);
-    return;
-  }
-
-  verdict.innerHTML = '<span class="no">counterexample found</span>';
-  const box = el('div', 'case fail');
-  box.append(el('div', 'case-head', out.crash ? '✗ your code raised' : '✗ disagreement'));
-  const pre = el('pre');
-  pre.innerHTML = '<span class="lbl">input    </span>' + esc(out.input) +
-    (out.crash ? '\n<span class="lbl">error    </span><span class="got">' + esc(out.got) + '</span>'
-               : '\n<span class="lbl">expected </span><span class="exp">' + esc(out.expected) +
-                 '</span>\n<span class="lbl">you      </span><span class="got">' + esc(out.got) + '</span>');
-  box.append(pre);
-  const bar = el('div', 'rowbtns');
-  const keep = el('button', 'btn ghost', '＋ Keep this as a test case');
-  keep.onclick = async () => {
-    const inputs = (out.inputValues || []).map((v, i) => ({
-      name: (out.inputNames || [])[i], type: (out.inputTypes || [])[i], rawValue: v }));
-    await api('api/cases/' + encodeURIComponent(d.id), {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'add', inputs: inputs,
-                             expected: out.crash ? '' : out.expected,
-                             note: 'found by Random' }),
-    });
-    const fresh = await api('api/problems/' + encodeURIComponent(d.id));
-    state.current.customCases = fresh.customCases;
-    keep.textContent = 'kept'; keep.disabled = true;
-    renderCases();
-  };
-  bar.append(keep, el('span', 'spacer'), el('span', 'hint', 'checked ' + out.checked +
-    (out.skipped ? ', skipped ' + out.skipped : '')));
-  box.append(bar);
-  results.append(box);
-}
-
-
 /* ------------------------------------------------------- results (drawer) */
 function resultRow(p, index) {
   const b = el('button', 'result' + (state.current && state.current.id === p.id ? ' active' : ''));
@@ -922,15 +852,35 @@ function renderWorkbench() {
     copyBtn.textContent = 'Copied'; setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1200);
   };
   const more = el('div', 'toolgroup');
+
+  /* The note is the same sentence on every Python problem, so it does not get
+     to keep a strip of the editor for itself: it hides behind an ⓘ, and stays
+     hidden until you ask for it. A note that explains why Run is disabled is a
+     different animal - that one is a warning and stays on screen. */
+  let noteRow = null;
+  if (spec.note) {
+    noteRow = el('div', 'wb-note' + (spec.runnable ? '' : ' warn'));
+    noteRow.textContent = spec.note;
+    if (spec.runnable) {
+      noteRow.hidden = localStorage.getItem('fp:wbnote') !== '1';
+      const info = el('button', 'tool icon', 'ⓘ');
+      info.title = spec.note;
+      const paintInfo = () => info.setAttribute('aria-pressed', noteRow.hidden ? 'false' : 'true');
+      info.onclick = () => {
+        noteRow.hidden = !noteRow.hidden;
+        remember('wbnote', noteRow.hidden ? '0' : '1');
+        paintInfo();
+        if (state.editor) state.editor.refresh();
+      };
+      paintInfo();
+      more.append(info);
+    }
+  }
+
   more.append(resetBtn, copyBtn);
   top.append(more);
   host.append(top);
-
-  if (spec.note) {
-    const n = el('div', 'wb-note' + (spec.runnable ? '' : ' warn'));
-    n.textContent = spec.note;
-    host.append(n);
-  }
+  if (noteRow) host.append(noteRow);
 
   /* --- row 2: the editor itself, filling the space --- */
   const edWrap = el('div', 'wb-editor');
@@ -946,6 +896,16 @@ function renderWorkbench() {
   runBtn.title = 'Ctrl-Enter';
   runBtn.disabled = !spec.runnable;
   runBtn.onclick = () => runCode('all');
+  /* The one that just runs it. Without this, seeing a print means inventing an
+     expression for Scratch, which is a strange thing to have to do to read a
+     loop you are debugging. */
+  const scriptBtn = el('button', 'btn', '▶  Run code');
+  const canScript = spec.runnable && spec.mode === 'python';
+  scriptBtn.disabled = !canScript;
+  scriptBtn.title = canScript
+    ? 'Run your code as a program and show everything it prints — Alt-Enter'
+    : 'Only Python runs as a program here';
+  scriptBtn.onclick = () => runPlain();
   const mineBtn = el('button', 'btn', 'My cases');
   mineBtn.disabled = !spec.runnable || !(d.customCases || []).length;
   mineBtn.title = (d.customCases || []).length ? 'Run only the cases you added'
@@ -971,7 +931,7 @@ function renderWorkbench() {
       ? '<span class="ok">' + saved.passed + '/' + saved.total + '</span>'
       : '<span class="no">' + saved.passed + '/' + saved.total + '</span>');
   }
-  run.append(runBtn, mineBtn, fuzzBtn, solBtn, scratchBtn, verdict);
+  run.append(runBtn, scriptBtn, mineBtn, fuzzBtn, solBtn, scratchBtn, verdict);
   host.append(run);
 
   /* --- row 4: scratch + output --- */
@@ -995,10 +955,12 @@ function renderWorkbench() {
   out.append(scratch, runOut);      // scratch stays put; only #runOut is cleared
   host.append(hsplit, out);
   wireOutputSplitter(hsplit, out);
+  showOutput(false);                // nothing to read yet, so no room taken
 
   state.editor = window.PyEditor.create(ta, {
     vim: state.vim, relative: state.relno, fontSize: state.fontSize,
     onRun: () => runCode('all'), onScratch: () => { toggleScratch(true); runScratch(); },
+    onRunPlain: () => runPlain(),
     onChange: () => scheduleSave(),
     onModeChange: (m) => { if (state.vim) mode.textContent = '-- ' + m + ' --'; },
   });
@@ -1101,10 +1063,22 @@ function toggleScratch(forceOpen) {
   const box = $('#scratchBox');
   if (!box) return;
   box.hidden = forceOpen ? false : !box.hidden;
-  if (!box.hidden) $('#scratchIn').focus();
+  if (!box.hidden) { showOutput(true); $('#scratchIn').focus(); }
+  else if (!$('#runOut').children.length) showOutput(false);
 }
 
-/* the output panel is shared by every run mode */
+/* The output takes a third of the pane, so it does not get to take it while it
+   is empty - and it was: #wbOut always holds the scratch pad, so the `:empty`
+   rule that was meant to collapse it never once matched, and a third of the
+   editor was reserved for nothing from the moment a problem opened. */
+function showOutput(on) {
+  const out = $('#wbOut'), split = $('#hsplit');
+  if (!out) return;
+  out.hidden = !on;
+  if (split) split.hidden = !on;
+  if (state.editor) state.editor.refresh();
+}
+
 /* ONE output container for every mode - runs, Random, Scratch, Solution.
    It is #runOut, a child of #wbOut, so clearing it never destroys the scratch
    pad that sits beside it. (Two containers is how the Solution card ended up
@@ -1113,11 +1087,18 @@ function outputPanel(title) {
   const out = $('#runOut');
   if (!out) return $('#wbOut');
   out.textContent = '';
-  if (title) {
-    const head = el('div', 'outhead');
-    head.append(el('h3', null, title));
-    out.append(head);
-  }
+  showOutput(true);
+  const head = el('div', 'outhead');
+  if (title) head.append(el('h3', null, title));
+  head.append(el('span', 'spacer'));
+  const hide = el('button', 'tool icon', '✕');
+  hide.title = 'Hide the output and give the room back to the editor';
+  hide.onclick = () => {
+    out.textContent = '';
+    if ($('#scratchBox').hidden) showOutput(false);
+  };
+  head.append(hide);
+  out.append(head);
   return out;
 }
 
@@ -1231,6 +1212,52 @@ async function runFuzz() {
   bar.append(keep, el('span', 'spacer'), el('span', 'hint', 'checked ' + out.checked +
     (out.skipped ? ', skipped ' + out.skipped : '')));
   box.append(bar);
+  results.append(box);
+}
+
+/* Just run it: no cases, no expression to invent - the print-debugging button.
+   Everything the program printed comes back in order, and a traceback points
+   at the reader's own line numbers because the harness drops its own frame. */
+async function runPlain() {
+  const d = state.current;
+  const spec = d.languages.find(l => l.id === state.lang);
+  if (!spec || !spec.runnable || spec.mode !== 'python') return;
+  const results = outputPanel('');
+  const verdict = $('#verdict');
+  verdict.textContent = 'running…';
+  let out;
+  try {
+    out = await api('api/script', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ problemId: d.id, code: state.editor.getValue() }),
+    });
+  } catch (e) {
+    verdict.innerHTML = '<span class="no">could not run</span>';
+    results.append(Object.assign(el('div', 'case fail'), { textContent: e.message }));
+    return;
+  }
+
+  const bad = !!(out.error || out.timeout);
+  const box = el('div', 'case ' + (bad ? 'fail' : 'info'));
+  box.append(el('div', 'case-head', out.timeout ? '✗ still running when the clock ran out'
+                                  : out.error ? '✗ your code raised'
+                                  : '▶ your code ran'));
+  const pre = (label, text) => {
+    const n = el('pre');
+    n.innerHTML = '<span class="lbl">' + label + '</span>\n' + esc(text);
+    box.append(n);
+  };
+  if (out.printed) pre('stdout', out.printed);
+  if (out.stderr) pre('stderr', out.stderr);
+  if (out.error) { const n = el('pre'); n.textContent = out.error; box.append(n); }
+  if (out.exit) box.append(el('div', 'hint', 'It called sys.exit(' + out.exit + ').'));
+  if (!out.printed && !out.stderr && !out.error) {
+    box.append(el('div', 'hint', (out.defined || []).length
+      ? 'Nothing was printed. You defined ' + out.defined.join(', ') +
+        ' — nothing called it. Add a print, or use Scratch to call it with an argument.'
+      : 'Nothing was printed.'));
+  }
+  verdict.innerHTML = bad ? '<span class="no">raised</span>' : '<span class="muted">ran</span>';
   results.append(box);
 }
 
