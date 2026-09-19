@@ -75,6 +75,40 @@ class TestNoDanglingSelectors(unittest.TestCase):
             self.assertFalse(dupes, "%s defines %s more than once" % (name, dupes))
 
 
+class TestTheEditorIsNotRebuiltBehindYou(unittest.TestCase):
+    """Nothing incidental may rebuild the editor.
+
+    Real bug: adding a test case called renderWorkbench(), which throws the
+    CodeMirror instance away and builds a new one from the last copy the SERVER
+    had. Saving is debounced, so code pasted a moment earlier had not been sent
+    yet - and adding a case silently replaced it with the older version. It did
+    all that to grey out one button.
+    """
+
+    def test_the_case_handlers_do_not_rebuild_the_workbench(self):
+        js = read("app.js")
+        body = js[js.index("function renderCases("):js.index("function renderSolution(")]
+        self.assertNotIn("renderWorkbench()", body,
+                         "a case change must repaint the button, not the editor")
+
+    def test_a_rebuild_keeps_whatever_is_in_the_buffer(self):
+        js = read("app.js")
+        self.assertIn("state.buffers[state.editorKey]", js,
+                      "the buffer is kept per problem+language, so the Java tab "
+                      "gets Java and switching back still finds your Python")
+        self.assertLess(js.index("state.buffers[state.editorKey] = state.editor.getValue()"),
+                        js.index("state.editor = null"),
+                        "the buffer must be read BEFORE the old editor is discarded")
+
+    def test_opening_another_problem_starts_from_the_server(self):
+        """Buffers are per problem; carrying them across would show you the
+        wrong code, and by then the server has been flushed anyway."""
+        js = read("app.js")
+        body = js[js.index("async function openProblem("):js.index("function paintProblem(")]
+        self.assertIn("state.buffers = {}", body)
+        self.assertLess(body.index("saver.flush()"), body.index("state.buffers = {}"))
+
+
 class TestTimerWiring(unittest.TestCase):
     """The timer is one script talking to ids in the page; a typo in either is
     invisible until you click, so hold them to each other here."""

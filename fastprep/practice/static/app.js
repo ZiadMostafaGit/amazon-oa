@@ -24,7 +24,8 @@ const state = {
   hasSolution: false, solutionStats: null,
   offset: 0, limit: 50, total: 0, items: [], current: null, facets: null,
   env: null, lang: null, dirty: false,
-  editor: null, vim: localStorage.getItem('fp:vim') === '1',
+  editor: null, editorKey: '', buffers: {},
+  vim: localStorage.getItem('fp:vim') === '1',
   relno: localStorage.getItem('fp:relno') !== '0',
   fontSize: parseInt(localStorage.getItem('fp:fs') || '14', 10),
   showCaseForm: false,
@@ -285,7 +286,7 @@ function renderCases() {
       });
       const fresh = await api('api/problems/' + encodeURIComponent(d.id));
       state.current.customCases = fresh.customCases;
-      renderCases(); renderWorkbench();
+      renderCases(); paintMyCases();
     };
     row.append(grow, del);
     host.append(row);
@@ -338,13 +339,26 @@ function renderCases() {
     const fresh = await api('api/problems/' + encodeURIComponent(d.id));
     state.current.customCases = fresh.customCases;
     state.showCaseForm = false;
-    renderCases(); renderWorkbench();
+    renderCases(); paintMyCases();
   };
   const cancel = el('button', 'btn', 'Cancel');
   cancel.onclick = () => { state.showCaseForm = false; renderCases(); };
   bar.append(save, cancel);
   form.append(bar);
   host.append(form);
+}
+
+/* Adding or deleting a case changes exactly one thing in the workbench: whether
+   `My cases` has anything to run. Re-rendering the whole workbench for that
+   threw the editor away and built a new one from the last copy the SERVER had
+   - so a paste that had not been saved yet came back as the older version, out
+   of nowhere, because you added a test case. Repaint the button instead. */
+function paintMyCases() {
+  const btn = $('#myCasesBtn');
+  if (!btn) return;
+  const n = ((state.current || {}).customCases || []).length;
+  btn.disabled = !btn.dataset.runnable || !n;
+  btn.title = n ? 'Run only the cases you added' : 'Add a case on the left first';
 }
 
 /* -------------------------------------------------------- stored solution */
@@ -509,8 +523,10 @@ function sandboxFailure(out, results) {
 function scheduleSave() {
   const d = state.current;
   if (!d || !state.editor) return;
+  const code = state.editor.getValue();
+  state.buffers[d.id + ':' + state.lang] = code;
   saver.queue('code:' + d.id + ':' + state.lang, d.id,       // captured now
-              { language: state.lang, code: state.editor.getValue() });
+              { language: state.lang, code: code });
 }
 
 function scheduleNotes(text) {
@@ -836,6 +852,9 @@ function renderProblem() {
 function renderWorkbench() {
   const d = state.current;
   const host = $('#workbench');
+  /* Whatever is in the editor has to be read BEFORE the old one is thrown
+     away with the rest of the workbench - see row 2 for why it matters. */
+  if (state.editor && state.editorKey) state.buffers[state.editorKey] = state.editor.getValue();
   host.className = 'workbench';
   host.textContent = '';
   state.editor = null;
@@ -932,7 +951,20 @@ function renderWorkbench() {
   const edWrap = el('div', 'wb-editor');
   const ta = el('textarea');
   const saved = (d.progress && d.progress.submissions && d.progress.submissions[spec.id]) || null;
-  ta.value = (saved && saved.code) || spec.starter || '';
+
+  /* What was last in the editor for THIS problem and THIS language outranks
+     what the server last stored. Saving is debounced, so the server copy is
+     routinely a few hundred milliseconds behind what you typed, and anything
+     that rebuilds the workbench in that window would otherwise hand you back
+     the older text. Keyed by problem+language, so the Java tab still gets the
+     Java code - and switching to it and back still gets your Python edits,
+     which the stored copy alone would not have. Cleared when you open another
+     problem, by which point the server has flushed and is authoritative. */
+  const key = d.id + ':' + spec.id;
+  const live = state.buffers[key];
+  state.editorKey = key;
+
+  ta.value = live != null ? live : ((saved && saved.code) || spec.starter || '');
   edWrap.append(ta);
   host.append(edWrap);
 
@@ -953,9 +985,8 @@ function renderWorkbench() {
     : 'Only Python runs as a program here';
   scriptBtn.onclick = () => runPlain();
   const mineBtn = el('button', 'btn', 'My cases');
-  mineBtn.disabled = !spec.runnable || !(d.customCases || []).length;
-  mineBtn.title = (d.customCases || []).length ? 'Run only the cases you added'
-                                               : 'Add a case on the left first';
+  mineBtn.id = 'myCasesBtn';
+  if (spec.runnable) mineBtn.dataset.runnable = '1';
   mineBtn.onclick = () => runCode('custom');
   const fuzzBtn = el('button', 'btn', 'Random');
   const canFuzz = spec.runnable && spec.mode === 'python' &&
@@ -979,6 +1010,7 @@ function renderWorkbench() {
   }
   run.append(runBtn, scriptBtn, mineBtn, fuzzBtn, solBtn, scratchBtn, verdict);
   host.append(run);
+  paintMyCases();
 
   /* --- row 4: scratch + output --- */
   const scratch = el('div'); scratch.id = 'scratchBox'; scratch.hidden = true;
@@ -1150,6 +1182,7 @@ function outputPanel(title) {
 
 async function openProblem(id) {
   await saver.flush();               // never carry pending edits onto the next problem
+  state.buffers = {};                // ...and never carry the buffers either
   const d = await api('api/problems/' + encodeURIComponent(id));
   state.current = d;
   state.lang = (d.languages.find(l => l.runnable) || d.languages[0] || {}).id;

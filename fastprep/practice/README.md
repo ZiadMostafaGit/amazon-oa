@@ -153,8 +153,11 @@ load it into the editor. The bank ships none of these: see *Solutions* below.
 
 **Nothing is lost.** Your code (per problem and per language), your notes and
 your test cases are server-side state, saved as you type and confirmed by a
-badge in the header. What gets saved is captured *when you type*, not when the
-debounce fires — otherwise switching problems mid-debounce writes your code
+badge in the header. The editor is never rebuilt from the server copy while it
+holds something newer: what was last in the buffer for this problem *and* this
+language wins, so adding a test case, deleting one, or flipping to the Java tab
+and back cannot hand you the version from when you opened the problem. What
+gets saved is captured *when you type*, not when the debounce fires — otherwise switching problems mid-debounce writes your code
 onto the problem you just left — and anything still pending is flushed with
 `sendBeacon` when the page is hidden or closed. Close the tab, reopen it a week
 later, and the buffer is where you left it.
@@ -360,7 +363,7 @@ topics.py      the study space: the canon, its articles, and each topic's queue
 mdlite.py      the small strict Markdown dialect the chapters are written in
 static/        the page: index.html, app.js, study.js, timer.js, styles.css,
                editor.js, pyenv.js
-tests/         189 tests: parsing, corpus sweep, sandbox and its fallbacks,
+tests/         192 tests: parsing, corpus sweep, sandbox and its fallbacks,
                API, filters/sorts,
                custom cases, scratch, running as a script, solutions, random
                mode, generated cases, the canon, the topic mapping, the
