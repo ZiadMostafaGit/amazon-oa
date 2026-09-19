@@ -1130,6 +1130,7 @@ async function openProblem(id) {
     c.classList.toggle('active', c.dataset.id === id));
   paintProblem();
   pushUrl();
+  Timer.onProblemOpened();
 }
 
 function paintProblem() {
@@ -1491,6 +1492,7 @@ async function boot() {
 
   wireSplitter();
   Study.wire();
+  Timer.wire();
   if (state.wantTopic) Study.open(state.wantTopic);
   else if (state.wantTopicList) Study.openIndex();
 
@@ -1532,6 +1534,7 @@ async function boot() {
       return;
     }
     if (e.key === 'Escape') {
+      if (Timer.onEscape()) return;
       if (!$('#lightbox').hidden) { $('#lightbox').hidden = true; return; }
       if (drawerOpen()) { closeDrawer(); return; }
       if (state.studyOpen) Study.close();
@@ -1542,6 +1545,7 @@ async function boot() {
     if (e.key === '/' && !typing) { e.preventDefault(); openDrawer(); return; }
     if (typing) return;
     if (e.key === 's') { state.studyOpen ? Study.close() : Study.openIndex(); return; }
+    if (e.key === 't') { Timer.toggle(); return; }
     if (e.key === 'j') step(1);
     if (e.key === 'k') step(-1);
     if (e.key === 'r' && drawerOpen()) { flipDirection(); reload(); }

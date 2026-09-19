@@ -51,6 +51,12 @@ problem's own examples and answers them with the reference: **8,411 generated ca
 problems**. On `amazon-stock-span`, a solution with `<` instead of `<=` passes the single
 published example and fails 2 of its 6 generated cases.
 
+**Race the clock.** Press `t` and pick a length — a preset, or `45` / `12:30` /
+`1:30:00` / `90s`. The header button becomes the countdown and a hairline drains
+under it; when it runs out the page beeps, flashes the tab title and says so.
+The deadline is what is stored, not a counter, so sleeping, a background tab or
+a reload cannot quietly hand you more time.
+
 **Track.** Attempted / solved / review, bookmarks, notes, your last submission per language and
 your custom cases, all in `progress.db` — a separate file, so `python3 fastprep.py sync` can
 refresh the bank without touching your work.

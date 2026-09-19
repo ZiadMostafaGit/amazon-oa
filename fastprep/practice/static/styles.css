@@ -108,6 +108,86 @@ kbd{
 }
 .env.warn{color:var(--warn);border-color:#4a3c1c;background:var(--warn-soft)}
 
+/* --------------------------------------------------------- challenge timer */
+/* The face is the whole clock most of the time, so it is monospaced (no digit
+   jitter) and it changes colour rather than moving: blue while there is room,
+   amber under five minutes, red under one. */
+.timerwrap{position:relative;flex:0 0 auto}
+.timerbtn{min-width:104px;justify-content:center}
+.timerbtn #timerFace{font:12.5px/1 var(--mono);letter-spacing:.02em}
+.timerbtn.run{color:#cfe0ff;border-color:#2e4a78;background:var(--accent-soft)}
+.timerbtn.hold{color:var(--ink-dim);border-color:var(--line);background:var(--raised-2)}
+.timerbtn.warn{color:#ffdf9e;border-color:#4a3c1c;background:var(--warn-soft)}
+.timerbtn.crit{color:#ffc9c9;border-color:#5b2a2d;background:var(--bad-soft);
+  animation:timerpulse 1s ease-in-out infinite}
+.timerbtn.up{color:#ffc9c9;border-color:#7a3236;background:#48211f;font-weight:650}
+@keyframes timerpulse{50%{border-color:var(--bad);color:#fff}}
+
+/* how much of the run is left, as a hairline across the whole window */
+#timerBar{position:absolute;left:0;right:0;bottom:-1px;height:2px;display:block;
+  background:var(--line-soft);z-index:31;pointer-events:none}
+#timerBar>i{display:block;height:100%;width:100%;background:var(--accent);
+  transition:width .25s linear}
+#timerBar.warn>i{background:var(--warn)}
+#timerBar.crit>i{background:var(--bad)}
+#timerBar.hold>i{background:#3c4658}
+#timerBar.up>i{background:var(--bad)}
+
+.timerpanel{
+  position:absolute;top:calc(100% + 9px);right:0;width:330px;display:block;
+  background:var(--raised);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:13px;z-index:45;
+}
+.tp-head{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.tp-head b{font-size:13.5px;color:var(--ink-strong)}
+.tp-presets{padding:0 !important;margin-bottom:10px}
+.tp-presets .chip{cursor:pointer;font-family:var(--mono)}
+.tp-presets .chip:hover{border-color:var(--accent);color:#fff}
+.tp-custom{display:flex;gap:7px}
+.tp-custom input{
+  flex:1 1 auto;min-width:0;background:var(--bg);border:1px solid var(--line);
+  border-radius:6px;padding:6px 9px;outline:none;font:12.5px/1.4 var(--mono);
+}
+.tp-custom input:focus{border-color:var(--accent)}
+.tp-err{margin-top:7px;font-size:12px;color:var(--warn);line-height:1.5}
+.tp-readout{display:flex;align-items:baseline;gap:9px;margin:12px 0 10px;
+  padding-top:11px;border-top:1px solid var(--line-soft)}
+.tp-big{font:24px/1 var(--mono);color:var(--ink-faint);letter-spacing:-.01em}
+.tp-big.run{color:var(--accent)}
+.tp-big.hold{color:var(--ink-dim)}
+.tp-big.warn{color:var(--warn)}
+.tp-big.crit,.tp-big.up{color:var(--bad)}
+.tp-controls{display:flex;gap:7px}
+.tp-controls .btn{flex:1 1 auto;padding:0 8px;font-size:12.5px}
+.tp-opts{margin-top:11px;padding-top:10px;border-top:1px solid var(--line-soft)}
+.tp-opts .opt{align-items:flex-start;line-height:1.45;font-size:12.5px}
+.tp-opts .opt input{margin-top:3px}
+
+/* the alarm itself: unmissable, and it says plainly that nothing was lost */
+#timeup{
+  position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;
+  background:rgba(6,8,12,.8);backdrop-filter:blur(3px);padding:24px;
+}
+#timeup .tu-card{
+  width:min(440px,100%);text-align:center;background:var(--pane);
+  border:1px solid #5b2a2d;border-top:3px solid var(--bad);
+  border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 24px 20px;
+}
+#timeup .tu-clock{font:34px/1 var(--mono);color:var(--bad);letter-spacing:-.01em}
+#timeup h2{margin:12px 0 8px;font-size:19px;color:var(--ink-strong)}
+#timeup .hint{margin:0 auto;max-width:34em}
+#timeup .tu-acts{display:flex;gap:8px;justify-content:center;margin:18px 0 14px;flex-wrap:wrap}
+#timeup .tu-esc{font-size:11.5px;color:var(--ink-faint)}
+
+@media(max-width:700px){
+  .timerpanel{position:fixed;top:calc(var(--top) + 8px);right:8px;left:8px;width:auto}
+  .timerbtn{min-width:0}
+  .timerbtn #timerFace{display:none}
+  .timerbtn.run #timerFace,.timerbtn.hold #timerFace,
+  .timerbtn.warn #timerFace,.timerbtn.crit #timerFace,
+  .timerbtn.up #timerFace{display:inline}
+}
+
 /* -------------------------------------------------------------- workspace */
 #workspace{display:flex;height:calc(100vh - var(--top));overflow:hidden}
 #problemPane{flex:0 0 46%;min-width:340px;display:flex;flex-direction:column;background:var(--bg)}

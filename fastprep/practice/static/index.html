@@ -41,8 +41,53 @@
     </button>
   </nav>
 
+  <!-- challenge timer: the face counts down, the panel sets it -->
+  <div id="timerWrap" class="timerwrap">
+    <button id="timerBtn" class="iconbtn timerbtn" aria-expanded="false"
+            title="Challenge timer — pick a length and race it  (press t)">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 2M9 2.5h6"/></svg>
+      <span id="timerFace">Timer</span>
+    </button>
+
+    <div id="timerPanel" class="timerpanel" hidden role="dialog" aria-label="Challenge timer">
+      <div class="tp-head">
+        <b>Challenge timer</b>
+        <span class="hint">Real assessments are timed. Pick a length, race it, and get
+          told — out loud — the moment it is over.</span>
+      </div>
+
+      <div id="timerPresets" class="tp-presets chips"></div>
+
+      <div class="tp-custom">
+        <input id="timerCustom" type="text" placeholder="45   ·   12:30   ·   1:30:00"
+               autocomplete="off" spellcheck="false" aria-label="Timer length">
+        <button id="timerSet" class="btn">Start</button>
+      </div>
+      <div id="timerErr" class="tp-err" hidden></div>
+
+      <div class="tp-readout">
+        <span id="timerBig" class="tp-big">--:--</span>
+        <span id="timerOf" class="hint"></span>
+      </div>
+
+      <div class="tp-controls">
+        <button id="timerToggle" class="btn primary">Start</button>
+        <button id="timerPlus" class="btn">+5 min</button>
+        <button id="timerReset" class="btn ghost">Reset</button>
+      </div>
+
+      <div class="tp-opts">
+        <label class="opt"><input id="timerSound" type="checkbox"><span>Sound an alarm when time is up</span></label>
+        <label class="opt"><input id="timerNotify" type="checkbox"><span>Desktop notification as well</span></label>
+        <label class="opt"><input id="timerAuto" type="checkbox"><span>Start a fresh clock whenever I open a problem</span></label>
+      </div>
+    </div>
+  </div>
+
   <span id="savestate" class="savestate saved" hidden title="Your code, notes and cases are stored server-side">saved</span>
   <span id="env" class="env" title="Execution environment"></span>
+
+  <div id="timerBar" hidden><i></i></div>
 </header>
 
 <!-- ============ workspace: problem | editor ============ -->
@@ -118,6 +163,22 @@
   </div>
 </aside>
 
+<!-- ============ the alarm ============ -->
+<div id="timeup" hidden role="alertdialog" aria-label="Time is up">
+  <div class="tu-card">
+    <div class="tu-clock" id="timeupClock">00:00</div>
+    <h2>Time is up</h2>
+    <p id="timeupNote" class="hint"></p>
+    <div class="tu-acts">
+      <button id="timeupMore" class="btn">+5 minutes</button>
+      <button id="timeupAgain" class="btn">Run it again</button>
+      <button id="timeupOk" class="btn primary">Done</button>
+    </div>
+    <p class="hint tu-esc">Nothing was submitted and nothing was lost — the clock just stopped.
+      <kbd>Esc</kbd> closes this.</p>
+  </div>
+</div>
+
 <div id="lightbox" hidden><img alt="source screenshot"></div>
 
 <script src="vendor/codemirror/codemirror.min.js"></script>
@@ -135,6 +196,7 @@
 <script src="pyenv.js"></script>
 <script src="editor.js"></script>
 <script src="study.js"></script>
+<script src="timer.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

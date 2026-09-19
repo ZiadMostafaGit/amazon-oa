@@ -151,8 +151,8 @@ class Handler(BaseHTTPRequestHandler):
     # ------------------------------------------------------------------ GET
     # Everything this app answers at its own root. Anything else in the first
     # segment can only be a mount prefix a proxy added.
-    ROUTES = {"api", "app.js", "editor.js", "study.js", "pyenv.js", "styles.css", "index.html",
-              "vendor", "favicon.ico"}
+    ROUTES = {"api", "app.js", "editor.js", "study.js", "timer.js", "pyenv.js",
+              "styles.css", "index.html", "vendor", "favicon.ico"}
 
     def _strip_base(self, path: str) -> str:
         """Remove a mount prefix that a reverse proxy forwards verbatim.

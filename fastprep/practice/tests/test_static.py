@@ -26,7 +26,7 @@ class TestHiddenActuallyHides(unittest.TestCase):
 
     def test_every_toggled_element_has_a_display_rule_it_can_lose_to(self):
         """Whatever JS toggles must be an id the stylesheet does not re-show."""
-        js = read("app.js") + read("study.js")
+        js = read("app.js") + read("study.js") + read("timer.js")
         css = read("styles.css")
         toggled = set(re.findall(r"\$\('#([a-zA-Z]+)'\)\.hidden\s*=", js))
         toggled |= set(re.findall(r"#([a-zA-Z]+)'\)\.hidden\s*=", js))
@@ -38,6 +38,37 @@ class TestHiddenActuallyHides(unittest.TestCase):
                 # thing that can hide it
                 self.assertRegex(css, r"\[hidden\]\s*\{\s*display\s*:\s*none\s*!important",
                                  "#%s sets display and would ignore [hidden]" % el)
+
+
+class TestTimerWiring(unittest.TestCase):
+    """The timer is one script talking to ids in the page; a typo in either is
+    invisible until you click, so hold them to each other here."""
+
+    def test_the_script_is_loaded_before_the_app(self):
+        html = read("index.html")
+        self.assertLess(html.index('src="timer.js"'), html.index('src="app.js"'),
+                        "app.js calls Timer.wire() during boot")
+
+    def test_every_id_the_timer_reaches_for_exists_in_the_page(self):
+        html = read("index.html")
+        wanted = set(re.findall(r"\$\('#([A-Za-z][\w-]*)'\)", read("timer.js")))
+        self.assertIn("timerBtn", wanted, "did the timer stop using $('#...')?")
+        for el in sorted(wanted):
+            self.assertIn('id="%s"' % el, html, "timer.js reaches for #%s, "
+                          "which the page does not have" % el)
+
+    def test_the_app_wires_and_hooks_the_timer(self):
+        js = read("app.js")
+        self.assertIn("Timer.wire()", js)
+        self.assertIn("Timer.onEscape()", js)
+        self.assertIn("Timer.onProblemOpened()", js)
+
+    def test_the_server_serves_the_script_under_a_mount_prefix(self):
+        """ROUTES is how /site/timer.js is recognised behind a proxy."""
+        with open(os.path.join(HERE, "serve.py"), encoding="utf-8") as fh:
+            serve = fh.read()
+        routes = re.search(r"ROUTES = \{(.*?)\}", serve, re.S).group(1)
+        self.assertIn('"timer.js"', routes)
 
 
 class TestPageWiring(unittest.TestCase):

@@ -142,6 +142,29 @@ onto the problem you just left — and anything still pending is flushed with
 `sendBeacon` when the page is hidden or closed. Close the tab, reopen it a week
 later, and the buffer is where you left it.
 
+**Race the clock.** Press `t` or the **Timer** button in the header. Pick 15, 20,
+30, 45, 60 or 90 minutes, or type a length — `45` is minutes, `12:30` is a
+clock, `1:30:00` has hours in it, `90s` and `2h` say which unit they mean. The
+button becomes the countdown, a hairline under the header drains with it, and
+the colour turns amber under five minutes and red under one. Pause, resume,
+`+5 min` and reset are all in the panel; *Start a fresh clock whenever I open a
+problem* turns every problem you open into a timed attempt at your last length.
+
+When it runs out the page says so and *sounds* it: three rising beeps from a
+few oscillators — no audio file to ship — repeated for half a minute, the tab
+title flashing **⏰ Time is up** until you acknowledge it, a desktop
+notification if you asked for one, and a card offering `+5 minutes`, *Run it
+again* or *Done*. Nothing is submitted and nothing is discarded; the clock just
+stops.
+
+The clock is a **deadline, not a counter**: every tick reads the wall clock and
+subtracts, and the deadline itself is what gets stored. So a background tab
+that stops getting timers, a laptop that slept, and a reload mid-attempt all
+leave you with exactly the time you had — and if a run expires while the tab is
+closed, reopening it says so without the beeping. This is the one piece of your
+state that lives in `localStorage` rather than `progress.db`: it is a clock on
+*this* screen, not a fact about a problem.
+
 **Track.** Attempted / solved / review, bookmarks, notes and your last
 submission per language, kept in `progress.db` — a separate file, because
 `python3 fastprep.py sync` rewrites `fastprep.db` and would take your data with
@@ -291,10 +314,12 @@ progress.py    your status/notes/bookmarks/submissions (separate db)
 images.py      lazy, rate-limited screenshot cache
 topics.py      the study space: the canon, its articles, and each topic's queue
 mdlite.py      the small strict Markdown dialect the chapters are written in
-static/        the page: index.html, app.js, study.js, styles.css, editor.js, pyenv.js
-tests/         165 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
+static/        the page: index.html, app.js, study.js, timer.js, styles.css,
+               editor.js, pyenv.js
+tests/         174 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
                custom cases, scratch, solutions, random mode, generated cases,
-               the canon, the topic mapping, the renderer and the study endpoints
+               the canon, the topic mapping, the renderer, the study endpoints,
+               and the page wiring the timer depends on
 tools/         pick / brief / verify / audit / batch — the solution pipeline
                canon / topicmap / brief_topic / verify_topic — the study space
 solutions/     one file per problem id, plus MANIFEST.json and VERIFIED.json
