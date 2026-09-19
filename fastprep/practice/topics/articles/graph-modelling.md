@@ -16,24 +16,21 @@ Graph algorithms answer a small, fixed set of questions, and if the problem asks
 one of them, modelling is the move:
 
 - *Can this happen at all?* — reachability. *Binary Matrix Top-to-Bottom
-  Reachability*, *Xiangqi Horse Reachability*, *Repeated-Roll Teleporter
-  Reachability*.
+  Reachability*, *Xiangqi Horse Reachability*.
 - *What is the fewest number of steps?* — [[bfs]] on unit-cost edges. *Minimum
-  Clicks Between Wiki Pages*, *Find Minimum City Hops*, *Nearest Reachable Grid
-  Corner*.
-- *What is the cheapest route?* — [[dijkstra]], or [[bellman-ford]] if costs can
-  be negative. *Minimum-Cost Path Through a Weighted Grid*, *Minimize Commute*.
+  Clicks Between Wiki Pages*, *Find Minimum City Hops*.
+- *What is the cheapest route?* — [[dijkstra]], or [[bellman-ford]] with negative
+  costs. *Minimum-Cost Path Through a Weighted Grid*, *Minimize Commute*.
 - *In what order may these be done?* — [[topological-sort]] on a DAG. *Package
-  Dependency Order*, *Compilation Order with Topological Sort*, *Microservice
-  Deployment Order*.
+  Dependency Order*, *Microservice Deployment Order*.
 - *Which of these belong together?* — components, [[union-find]] or
   [[flood-fill]]. *Record Linkage Part 3 - Full Connected Component*, *Minimum
   Edges to Connect All Components*.
-- *Is there a contradiction?* — a cycle. *Evaluate Formulas with Cycle
-  Detection*, *Resolve Variable Equations with Dependency Errors*.
+- *Is there a contradiction?* — a cycle. *Evaluate Formulas with Cycle Detection*,
+  *Resolve Variable Equations with Dependency Errors*.
 
-If you are asking one of those six questions about things that relate in pairs,
-you have a graph, whether or not anybody drew one.
+Ask one of those six questions about things that relate in pairs and you have a
+graph, whether or not anybody drew one.
 
 The tool is wrong in three situations, each with a near-miss look.
 
@@ -62,12 +59,12 @@ That is the insight, and it has a practical form. Before writing any code, answe
 three questions in one sentence each:
 
 1. **What is a node?** The complete description of "where you are" — complete
-   meaning: everything a future move might depend on.
+   meaning everything a future move might depend on.
 2. **When is there an edge?** The rule that turns one node into its successors.
 3. **What graph question is being asked?** One of the six above.
 
-Answer those and the algorithm is somebody else's problem; you call BFS and go
-home. Get question 1 wrong and no algorithm will save you.
+Answer those and the algorithm is somebody else's problem. Get question 1 wrong and
+no algorithm will save you.
 
 Question 1 is the hard one because a node is a *deliberate loss of information*.
 Saying "the node is the square the horse stands on" declares that two games which
@@ -189,11 +186,10 @@ world the statement describes have the same answers. Here is the theorem that ma
 it precise.
 
 :::proof A model is correct when it is a congruence
-**Setup.** The statement defines a set of configurations `C` (full, honest
-descriptions of the world: the horse's square *and* every obstacle *and* whatever
-else exists), a start configuration `c₀`, a transition relation `→` on `C`
-(one legal move), and a goal set `G ⊆ C`. The question is whether some `g ∈ G` is
-reachable from `c₀`, and in how few transitions.
+**Setup.** The statement defines a set of configurations `C` — full, honest
+descriptions of the world — a start configuration `c₀`, a transition relation `→`
+on `C` (one legal move), and a goal set `G ⊆ C`. The question is whether some
+`g ∈ G` is reachable from `c₀`, and in how few transitions.
 
 Your model is a function `f : C → V` mapping each configuration to a node. Build
 the graph `Γ = (V, E)` with `(u, v) ∈ E` exactly when there exist configurations
@@ -286,26 +282,22 @@ problem that is `2⁶⁰ ≈ 10¹⁸` sequences against 1191 states. The visited
 an optimisation; it is the algorithm.
 
 **Which side to precompute.** *Directed Graph Reachability Queries* gives `n ≤ 500`
-vertices, up to 10⁵ edges and up to 10⁵ queries. One BFS per query costs
+vertices, 10⁵ edges and 10⁵ queries. One BFS per query costs
 `10⁵ · (500 + 10⁵) ≈ 10¹⁰` — hopeless. One BFS per *source vertex* costs
-`500 · (500 + 10⁵) ≈ 5 · 10⁷`, fills a 500 × 500 reachability table and answers
-each query in `O(1)`. The model did not change; only the decision about what to
-enumerate. When queries outnumber vertices, enumerate vertices.
+`500 · (500 + 10⁵) ≈ 5 · 10⁷`, fills a 500 × 500 table and answers each query in
+`O(1)`. When queries outnumber vertices, enumerate vertices.
 
-Two costs people forget. **Interning**: adjacency arrays and visited bitsets want
-integer nodes, and statements hand you strings — *Service Dependency Load Factors*
-names services, *Spreadsheet Formula Dependencies* names cells — so every lookup is
-a hash ([[hash-tables]]), and on string-heavy inputs that dominates the traversal.
-**Hashing the node itself**: a visited `set` of `(r, c, b)` tuples hashes a tuple
-per edge, where encoding the node as `(r * C + c) * 2 + b` and indexing a list of
-booleans costs one line and is routinely several times faster.
+The cost people forget is hashing. Adjacency arrays and visited bitsets want integer
+nodes, and statements hand you strings — *Service Dependency Load Factors* names
+services, *Spreadsheet Formula Dependencies* names cells — so interning costs a hash
+per lookup ([[hash-tables]]), and a visited `set` of `(r, c, b)` tuples costs another
+per edge. Encoding the node as `(r * C + c) * 2 + b` and indexing a list of booleans
+costs one line and is routinely several times faster.
 
 ## The implementation
 
-There is no "graph modelling algorithm". There is one traversal, written once,
-and a different `neighbours` function per problem. Here it is driving two of the
-models named above — and note that the second one, the Xiangqi horse, has a move
-rule nobody would describe as a graph.
+There is no "graph modelling algorithm". There is one traversal, written once, and a
+different `neighbours` function per problem. Here it drives two of the models above.
 
 ```python run
 from collections import deque
@@ -370,15 +362,13 @@ print("one traversal, two graphs, neither of them built")
 Three lines carry the weight.
 
 `for v in neighbours(u)` is the entire abstraction. `explore` does not know whether
-it is walking a dependency DAG, a chessboard or the integers; it knows how to ask.
-The consequence is that the only thing you can get wrong on a new problem is the
-model, which is exactly where you want the risk concentrated.
+it walks a dependency DAG, a chessboard or the integers; it knows how to ask. So the
+only thing a new problem can break is the model, which is where you want the risk.
 
 `if v not in dist` marks a node **when it is pushed**, not when it is popped.
 Marking on pop lets the same node enter the queue once per incoming edge, and on a
 dense graph the queue grows to `O(E)`. Setting `dist[v] = dist[u] + 1` on the same
-line makes the first arrival the shortest, which is valid only because every edge
-costs 1.
+line makes the first arrival the shortest — valid only because every edge costs 1.
 
 `leg = (r + dr // 2, c) if abs(dr) == 2 else (r, c + dc // 2)` is the model. The
 Xiangqi horse is blocked by a piece on the square it *passes through*, not the one
@@ -407,8 +397,8 @@ Reachable Grid Corner*. See [[grid-bfs]].
 **State augmentation — the product graph.** Node = position × everything else that
 changes: fuel, keys held, walls broken, moves used mod `k`, whose turn it is. The
 node set is the Cartesian product, which is why "everything else" must be small.
-This is the move that rescues most "but it depends on what I did earlier" problems;
-[[state-design]] is the chapter on doing it well.
+This rescues most "but it depends on what I did earlier" problems; [[state-design]]
+is the chapter on doing it well.
 
 <svg viewBox="0 0 640 240" role="img" aria-label="a product graph drawn as two copies of the same line of cells, one per number of walls broken, with a one-way edge between the layers">
   <g>
@@ -462,15 +452,15 @@ you walk it once to record parents and run BFS on the undirected version.
 Linked Lists* asks where two paths in a functional graph merge; *Linked List Cycle
 Entry Node* asks the cycle question on the same graph ([[cycle-detection]]).
 
-**Constraints become edges.** "`u` before `v`" is a directed edge and the question
-is [[topological-sort]]. "`a` equals `b`" is an undirected edge and the question is
-components ([[union-find]]). "`a` differs from `b`" is an edge and the question is
-2-colouring ([[bipartite]]). Read the constraint, write the arrow.
+**Constraints become edges.** "`u` before `v`" is a directed edge, asking for
+[[topological-sort]]. "`a` equals `b`" is an undirected edge, asking for components
+([[union-find]]). "`a` differs from `b`" asks for 2-colouring ([[bipartite]]). Read
+the constraint, write the arrow.
 
-**Transform the weight.** Multiplicative costs become additive under a logarithm,
-so "the best conversion rate" becomes a shortest path and "a profitable cycle"
-becomes a negative cycle — *Maximum Currency Conversion with Arbitrage* is
-[[bellman-ford]] wearing a hat.
+**Transform the weight.** Multiplicative costs become additive under a logarithm, so
+"the best conversion rate" becomes a shortest path and "a profitable cycle" becomes
+a negative cycle — *Maximum Currency Conversion with Arbitrage* is [[bellman-ford]]
+wearing a hat.
 
 **Dependency DAG plus an aggregation.** Once the edges exist, one topological sweep
 computes anything that flows along them: earliest finish time (*Minimum Completion
@@ -576,13 +566,12 @@ The anti-signals:
 
 ## Traps
 
-**The node is too small.** The defining bug of this topic. Symptom: the answer is
-too pessimistic on some inputs and correct on most, so it passes the samples. Demo
-below.
+**The node is too small.** The defining bug of this topic. Symptom: correct on most
+inputs, quietly wrong on a few, so it passes the samples. Demo below.
 
-**The node is too big.** Adding a coordinate the transitions never read is not
-wrong, just expensive — every extra coordinate multiplies `|V|`. Symptom: a correct
-solution that times out, which is a much nicer bug to have than the previous one.
+**The node is too big.** A coordinate the transitions never read is not wrong, just
+expensive, since every coordinate multiplies `|V|`. Symptom: a correct solution that
+times out — a far nicer bug than the previous one.
 
 **AND semantics treated as OR.** Reachability is an OR: one incoming edge is
 enough. Dependency readiness is an AND: *every* predecessor must be done. BFS from
