@@ -39,7 +39,10 @@ put a `print` in a loop to see what it is doing.
 
 **Never in the app's process.** Your code runs under bubblewrap in a new user/pid/net/ipc
 namespace with no network interface, a read-only `/usr`, a private tmpfs, hard CPU/memory/file
-limits, and a wall-clock kill. Without `bwrap` the app still runs and says so, loudly.
+limits, and a wall-clock kill. What a machine *allows* is not what a machine *has*: the runner
+starts bwrap once to find out, and where a full sandbox cannot be built it drops to the best one
+that can — sharing the host's network, or rlimits alone — and says which in the header, rather
+than failing every run. `bwrap` dying is reported as the sandbox failing, never as your code.
 
 **Reference solutions.** The bank ships none, so **1,484** were written here — for the most
 repeated and most recent problems — and each is kept only if it passes every visible example of

@@ -460,6 +460,52 @@ document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'hidden') saver.flushSync();
 });
 
+/* The sandbox badge. Three tiers, because there are three: the full one, the
+   one on a machine that will not let the sandbox have its own network
+   namespace, and no sandbox at all. Every run reports which one ran it, so a
+   demotion that happens while the app is up still reaches this badge. */
+const SANDBOX_LABEL = {
+  'bubblewrap': 'sandboxed',
+  'bubblewrap-shared-net': 'sandboxed · shared network',
+  'subprocess': 'limited sandbox',
+};
+
+function paintEnv(kind, note) {
+  const env = state.env || {};
+  const box = $('#env');
+  if (!box || !kind) return;
+  box.textContent = SANDBOX_LABEL[kind] || kind;
+  box.classList.toggle('warn', kind !== 'bubblewrap');
+  box.title = (note ? note + '. ' : '') +
+    env.wallTimeout + 's wall, ' + env.cpuSeconds + 's CPU, ' + env.memoryMB + ' MB' +
+    (env.java ? '' : '. No JDK, so Java is read-only') +
+    (env.pandas ? '' : '. No pandas, so pandas is read-only') + '.';
+  if (state.env) { state.env.sandbox = kind; if (note) state.env.sandboxNote = note; }
+}
+
+/* A run that came back from a different sandbox than the badge claims means the
+   server re-worked out what this machine allows. Say so where it is visible. */
+function noteSandbox(out) {
+  if (out && out.sandbox && state.env && out.sandbox !== state.env.sandbox)
+    paintEnv(out.sandbox, out.sandboxNote);
+}
+
+/* bwrap failing is not your code failing, and must not be dressed up as it. */
+function sandboxFailure(out, results) {
+  if (!out || !out.sandboxError) return false;
+  const box = el('div', 'case fail');
+  box.append(el('div', 'case-head', '✗ the sandbox could not start'));
+  box.append(el('div', 'hint',
+    'Your code never ran, and nothing is wrong with it. This machine would not ' +
+    'let the runner build the namespaces it isolates your code with. The server ' +
+    'has re-checked what is allowed here — run it again and it will use the best ' +
+    'sandbox this machine does allow, and the badge in the header will say which.'));
+  const pre = el('pre'); pre.textContent = out.error; box.append(pre);
+  results.append(box);
+  $('#verdict').innerHTML = '<span class="no">sandbox failed</span>';
+  return true;
+}
+
 function scheduleSave() {
   const d = state.current;
   if (!d || !state.editor) return;
@@ -1163,6 +1209,9 @@ async function runFuzz() {
     return;
   }
 
+  noteSandbox(out);
+  if (sandboxFailure(out, results)) return;
+
   if (out.error) {
     verdict.innerHTML = '<span class="no">did not run</span>';
     const box = el('div', 'case fail');
@@ -1237,6 +1286,9 @@ async function runPlain() {
     return;
   }
 
+  noteSandbox(out);
+  if (sandboxFailure(out, results)) return;
+
   const bad = !!(out.error || out.timeout);
   const box = el('div', 'case ' + (bad ? 'fail' : 'info'));
   box.append(el('div', 'case-head', out.timeout ? '✗ still running when the clock ran out'
@@ -1279,6 +1331,8 @@ async function runScratch() {
     results.append(Object.assign(el('div', 'case fail'), { textContent: e.message }));
     return;
   }
+  noteSandbox(out);
+  if (sandboxFailure(out, results)) return;
   verdict.innerHTML = out.error ? '<span class="no">scratch</span>' : '<span class="ok">scratch</span>';
   const box = el('div', 'case ' + (out.error ? 'fail' : 'info'));
   if (out.printed) {
@@ -1321,6 +1375,9 @@ async function runCode(include) {
 function renderResults(out) {
   const results = outputPanel('');
   const verdict = $('#verdict');
+
+  noteSandbox(out);
+  if (sandboxFailure(out, results)) return;
 
   if (out.error && !(out.results || []).length) {
     verdict.innerHTML = '<span class="no">did not run</span>';
@@ -1488,13 +1545,7 @@ async function boot() {
   const boot = window.__BOOT__ || null;
   const env = boot ? boot.environment : (await api('api/health')).environment;
   state.env = env;
-  const envEl = $('#env');
-  envEl.textContent = env.sandbox === 'bubblewrap' ? 'sandboxed' : 'limited sandbox';
-  if (env.sandbox !== 'bubblewrap') envEl.classList.add('warn');
-  envEl.title = 'Your code runs under ' + env.sandbox + ' — ' + env.wallTimeout + 's wall, ' +
-    env.cpuSeconds + 's CPU, ' + env.memoryMB + ' MB' +
-    (env.java ? '' : '. No JDK, so Java is read-only') +
-    (env.pandas ? '' : '. No pandas, so pandas is read-only') + '.';
+  paintEnv(env.sandbox, env.sandboxNote);
 
   state.facets = boot ? boot.facets : await api('api/facets');
   renderSortControl();

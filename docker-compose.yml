@@ -18,8 +18,9 @@ services:
 
     # The runner sandboxes your code with bubblewrap, which has to create user
     # and network namespaces. Docker's default seccomp profile blocks that, so
-    # without these two lines the app starts with NO namespace isolation and
-    # says so in its startup banner and in the header.
+    # without these two lines the app falls back to a weaker sandbox - sharing
+    # the container's network, or resource limits alone - and says which in its
+    # startup banner and in the header. It keeps running your code either way.
     #
     # The trade-off is real and it is yours to make: you are loosening the
     # container in order to get a sandbox inside it. If you would rather not,

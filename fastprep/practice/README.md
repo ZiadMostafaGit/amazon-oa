@@ -199,10 +199,37 @@ User code is hostile by assumption. It never runs in the server process.
 | **payload** | code and cases cross as a base64 blob inside the program, and the verdict comes back behind a per-run nonce, so a stray `print` is never read as a result. |
 | **output** | capped at 64 000 bytes per run. |
 
-If `bwrap` is missing the app still runs, but it says so in the header and in
-the startup banner, and the isolation is then rlimits plus your OS user only.
-`tests/test_runner.py` asserts the guarantees: no network, no reading the bank,
-no writing outside, infinite loops stopped, memory capped.
+### When the machine will not allow all of that
+
+`bwrap` being installed says nothing about whether this kernel, container or
+systemd unit will let it build namespaces. On some machines it makes every
+namespace except the network one and dies before your code starts:
+
+```
+bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted
+```
+
+There, a full sandbox is not a stricter option — it is a broken one, and every
+single run fails. So the runner **works out what this machine allows by running
+bwrap once**, and settles for the best tier that actually works:
+
+| Tier | Badge | What you give up |
+|---|---|---|
+| `bubblewrap` | `sandboxed` | nothing |
+| `bubblewrap-shared-net` | `sandboxed · shared network` | the network namespace only: your code can reach whatever this host can reach. Filesystem, pids and ipc are still isolated. |
+| `subprocess` | `limited sandbox` | every namespace: rlimits and your OS user are all that is left. |
+
+The tier is named in the startup banner, in the header badge (amber for the
+lower two, with the reason in its tooltip), in `/api/health`, and on every run
+— so if a sandbox stops working while the app is up, the runner re-checks,
+keeps running your code at the tier that works, and the badge changes to match.
+A failure that does happen is reported as *the sandbox could not start*, never
+as your code raising: bwrap dying is not your bug.
+
+`tests/test_runner.py` asserts the guarantees — no network, no reading the
+bank, no writing outside, infinite loops stopped, memory capped — and, with a
+fake `bwrap` that fails the way the real one does, that each tier is found and
+that a dead sandbox is never blamed on the code in the editor.
 
 **Passing is not proof.** This bank ships only VISIBLE examples — no hidden
 tests, no reference solutions. The app says so next to every Run button, and a
@@ -333,7 +360,8 @@ topics.py      the study space: the canon, its articles, and each topic's queue
 mdlite.py      the small strict Markdown dialect the chapters are written in
 static/        the page: index.html, app.js, study.js, timer.js, styles.css,
                editor.js, pyenv.js
-tests/         184 tests: parsing, corpus sweep, sandbox, API, filters/sorts,
+tests/         189 tests: parsing, corpus sweep, sandbox and its fallbacks,
+               API, filters/sorts,
                custom cases, scratch, running as a script, solutions, random
                mode, generated cases, the canon, the topic mapping, the
                renderer, the study endpoints, and the page's own wiring

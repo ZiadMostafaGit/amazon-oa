@@ -134,6 +134,7 @@ _HAS_PANDAS = _probe_pandas()
 
 def environment() -> dict:
     import runner
-    return {"sandbox": runner.sandbox_kind(), "java": _HAS_JAVA, "pandas": _HAS_PANDAS,
+    return {"sandbox": runner.sandbox_kind(), "sandboxNote": runner.sandbox_note(),
+            "java": _HAS_JAVA, "pandas": _HAS_PANDAS,
             "wallTimeout": runner.WALL_TIMEOUT, "cpuSeconds": runner.CPU_SECONDS,
             "memoryMB": runner.MEMORY_BYTES >> 20}

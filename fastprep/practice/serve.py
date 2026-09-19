@@ -358,6 +358,7 @@ class Handler(BaseHTTPRequestHandler):
         result["inputNames"] = [i.get("name") for i in cases[0]["inputs"]]
         result["inputTypes"] = [i.get("type") for i in cases[0]["inputs"]]
         result["sandbox"] = runner.sandbox_kind()
+        result["sandboxNote"] = runner.sandbox_note()
         result["caveat"] = ("Inputs are generated from the declared types only, so some break "
                             "the problem's own rules; any input the reference rejects is "
                             "skipped rather than counted.")
@@ -370,6 +371,7 @@ class Handler(BaseHTTPRequestHandler):
             return self._error(404, "no problem with id %r" % pid)
         result = runner.run_script(body.get("code") or "")
         result["sandbox"] = runner.sandbox_kind()
+        result["sandboxNote"] = runner.sandbox_note()
         return self._json(result)
 
     def _scratch(self, body: dict):
@@ -381,6 +383,7 @@ class Handler(BaseHTTPRequestHandler):
             return self._error(404, "no problem with id %r" % pid)
         result = runner.run_snippet(body.get("code") or "", snippet)
         result["sandbox"] = runner.sandbox_kind()
+        result["sandboxNote"] = runner.sandbox_note()
         return self._json(result)
 
     def _run(self, body: dict):
@@ -443,6 +446,7 @@ class Handler(BaseHTTPRequestHandler):
         result.update({
             "passed": passed, "total": len(judged),
             "sandbox": runner.sandbox_kind(),
+            "sandboxNote": runner.sandbox_note(),
             "disclaimer": "These are the problem's VISIBLE examples only. This bank "
                           "ships no hidden tests and no reference solution, so passing "
                           "them does not mean your solution is correct.",
@@ -595,9 +599,14 @@ def main() -> int:
           % (env["sandbox"], "yes" if env["java"] else "no",
              "yes" if env["pandas"] else "no",
              env["wallTimeout"], env["cpuSeconds"], env["memoryMB"]))
-    if env["sandbox"] != "bubblewrap":
-        print("  WARNING   bwrap not found: user code runs in a plain subprocess with")
-        print("            resource limits only - no namespace isolation.")
+    if env["sandbox"] == "bubblewrap-shared-net":
+        print("  WARNING   this machine will not let the sandbox create its own network")
+        print("            namespace (bwrap: loopback: Failed RTM_NEWADDR), so user code")
+        print("            SHARES this host's network. Everything else is still isolated.")
+        print("            In Docker this is what security_opt: seccomp/apparmor is for.")
+    elif env["sandbox"] != "bubblewrap":
+        print("  WARNING   no working bwrap here: user code runs in a plain subprocess")
+        print("            with resource limits only - no namespace isolation.")
     print("  images    %d cached in %s, fetching %s"
           % (images.cached_count(), images.CACHE_DIR,
              "enabled" if ALLOW_FETCH else "disabled"))

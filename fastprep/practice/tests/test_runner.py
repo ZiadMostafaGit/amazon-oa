@@ -4,7 +4,7 @@ These tests are the reason to trust the Run button: they assert both that a
 correct solution passes and that hostile code cannot reach the network, the
 filesystem, or an unbounded amount of CPU and memory.
 """
-import json, os, sqlite3, sys, time, unittest
+import json, os, shutil, sqlite3, sys, tempfile, time, unittest
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, HERE)
@@ -164,6 +164,89 @@ class TestSqlRunner(unittest.TestCase):
     def test_multiple_statements_refused(self):
         r = runner.run_sql("SELECT 1; DROP TABLE devices", self.tab)
         self.assertIn("one statement", r["error"])
+
+
+class TestSandboxTiers(unittest.TestCase):
+    """What happens on a machine where bwrap cannot do everything it wants.
+
+    Real report: `bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted`
+    on every single run - the sandbox died before the user's code started, and
+    the app blamed the code. bwrap existing says nothing about whether this
+    kernel, container or systemd unit will let it build namespaces, so the
+    runner has to find out by running it, and settle for what works.
+    """
+
+    FAIL = ("#!/bin/sh\n"
+            "echo 'bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted' >&2\n"
+            "exit 1\n")
+    # the machine in the report: every namespace except the network one
+    NET_ONLY = ("#!/bin/sh\n"
+                'for a in "$@"; do [ "$a" = --share-net ] && ok=1; done\n'
+                'if [ -z "$ok" ]; then\n'
+                "  echo 'bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted' >&2\n"
+                "  exit 1\n"
+                "fi\n"
+                "while [ $# -gt 0 ]; do\n"
+                '  case "$1" in\n'
+                "    --unshare-all|--share-net|--die-with-parent|--new-session|--clearenv) shift;;\n"
+                "    --setenv|--ro-bind|--bind) shift 3;;\n"
+                "    --proc|--dev|--tmpfs|--chdir) shift 2;;\n"
+                "    *) break;;\n"
+                "  esac\n"
+                "done\n"
+                'exec "$@"\n')
+
+    def setUp(self):
+        self._bwrap, self._cached = runner.BWRAP, runner._SANDBOX
+        self.dir = tempfile.mkdtemp()
+
+    def tearDown(self):
+        runner.BWRAP, runner._SANDBOX = self._bwrap, self._cached
+        shutil.rmtree(self.dir, ignore_errors=True)
+
+    def _fake(self, body):
+        path = os.path.join(self.dir, "bwrap")
+        with open(path, "w") as fh:
+            fh.write(body)
+        os.chmod(path, 0o755)
+        runner.BWRAP = path
+        runner.demote_sandbox()
+        return path
+
+    def test_a_machine_that_refuses_the_net_namespace_still_runs_code(self):
+        self._fake(self.NET_ONLY)
+        self.assertEqual(runner.sandbox_kind(), "bubblewrap-shared-net")
+        self.assertIn("SHARES", runner.sandbox_note())
+        r = runner.run_script("print('it ran')")
+        self.assertEqual(r["printed"].strip(), "it ran")
+        self.assertNotIn("error", r)
+
+    def test_a_machine_where_bwrap_cannot_start_falls_back_to_the_subprocess(self):
+        self._fake(self.FAIL)
+        self.assertEqual(runner.sandbox_kind(), "subprocess")
+        r = runner.run_script("print('still ran')")
+        self.assertEqual(r["printed"].strip(), "still ran")
+
+    def test_a_sandbox_that_breaks_while_running_is_worked_out_again(self):
+        """The tier is cached, and the machine can change under it."""
+        self._fake(self.NET_ONLY)
+        runner._SANDBOX = ("bubblewrap", [])       # what we still believe
+        r = runner.run_script("print('survived')")
+        self.assertEqual(r["printed"].strip(), "survived")
+        self.assertEqual(runner.sandbox_kind(), "bubblewrap-shared-net")
+
+    def test_a_dead_sandbox_is_never_reported_as_your_code_raising(self):
+        self._fake(self.FAIL)
+        runner._SANDBOX = ("bubblewrap", [])       # force the failing path
+        out = runner._run_child("print(1)", {"maxOutput": 100}, _retry=False)
+        self.assertTrue(out.get("sandboxError"))
+        self.assertIn("never ran", out["error"])
+        self.assertIn("RTM_NEWADDR", out["error"])
+
+    def test_the_tier_is_worked_out_once_and_kept(self):
+        kind = runner.sandbox_kind()
+        self.assertEqual(kind, runner.sandbox_kind())
+        self.assertIsNotNone(runner._SANDBOX)
 
 
 if __name__ == "__main__":

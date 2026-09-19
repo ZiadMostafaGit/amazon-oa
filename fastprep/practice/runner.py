@@ -8,9 +8,21 @@ Isolation, strongest available first:
      interface at all, the filesystem reduced to a read-only /usr (+ /lib,
      /etc/ssl for nothing in particular) and a private tmpfs. The payload is
      fed on stdin, so the child sees no path into the host.
-  2. plain subprocess: same resource limits and timeout, but only the OS user
+  2. bubblewrap sharing the host's network: everything above except the
+     network namespace. Some machines - a container without CAP_NET_ADMIN, a
+     hardened kernel, a locked-down systemd unit - let bwrap make every other
+     namespace but refuse to let the sandbox bring up its own loopback:
+         bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted
+     There, a full sandbox is not a stricter option, it is a broken one: every
+     run dies before your code starts. So we keep the rest and say plainly
+     that the network is not sealed off.
+  3. plain subprocess: same resource limits and timeout, but only the OS user
      separates it from your files. The app says so in the UI and the README;
      it is a fallback for machines without bwrap, not an equivalent.
+
+Which of the three is in force is decided by RUNNING bwrap once and looking,
+not by `which bwrap`: whether the binary exists says nothing about whether
+this kernel, container or unit will let it do its job.
 
 In both cases the child gets RLIMIT_CPU, RLIMIT_AS, RLIMIT_NOFILE,
 RLIMIT_NPROC and RLIMIT_FSIZE, a wall-clock timeout enforced by the parent,
@@ -42,9 +54,65 @@ MAX_CODE = 200_000         # characters of user code accepted
 
 BWRAP = shutil.which("bwrap")
 
+# Namespace flags, strongest first. `--share-net` is bwrap's own escape hatch
+# for "--unshare-all, but not the network", which is exactly the machine that
+# cannot set up a loopback inside a fresh net namespace.
+_TIERS = [("bubblewrap", []), ("bubblewrap-shared-net", ["--share-net"])]
+_SANDBOX = None          # ("bubblewrap" | "bubblewrap-shared-net" | "subprocess", [flags])
+
+
+def _works(flags: list) -> bool:
+    """Can bwrap actually start a sandbox here, with these flags?"""
+    python = sys.executable or "python3"
+    argv = _bwrap_argv(python, flags)[:-1] + ["-c", "pass"]
+    try:
+        p = subprocess.run(argv, stdin=subprocess.DEVNULL, capture_output=True, timeout=20)
+    except (OSError, subprocess.SubprocessError):
+        return False
+    return p.returncode == 0
+
+
+def _sandbox() -> tuple:
+    """The best tier that works on this machine, worked out once and kept."""
+    global _SANDBOX
+    if _SANDBOX is None:
+        _SANDBOX = ("subprocess", [])
+        if BWRAP:
+            for kind, flags in _TIERS:
+                if _works(flags):
+                    _SANDBOX = (kind, flags)
+                    break
+    return _SANDBOX
+
+
+def demote_sandbox() -> str:
+    """Forget what we decided and work it out again.
+
+    A sandbox can stop working while the app is up - a container is reconfigured,
+    a namespace limit is reached - and the first run to hit it should not be the
+    only one that ever tells you.
+    """
+    global _SANDBOX
+    _SANDBOX = None
+    return sandbox_kind()
+
 
 def sandbox_kind() -> str:
-    return "bubblewrap" if BWRAP else "subprocess"
+    return _sandbox()[0]
+
+
+def sandbox_note() -> str:
+    """One sentence for the banner, the badge and the README."""
+    kind = sandbox_kind()
+    if kind == "bubblewrap":
+        return ("bubblewrap: new user/pid/net/ipc namespaces, no network interface, "
+                "read-only /usr, private tmpfs")
+    if kind == "bubblewrap-shared-net":
+        return ("bubblewrap, but this machine will not let the sandbox create its own "
+                "network namespace, so your code SHARES this host's network. Everything "
+                "else - filesystem, pids, ipc - is still isolated")
+    return ("no bubblewrap here, so only resource limits and a timeout separate your "
+            "code from your files")
 
 
 # The limits are applied by the child itself, not by preexec_fn on the parent
@@ -80,9 +148,10 @@ def _preexec(limit_here: bool):
     return fn
 
 
-def _bwrap_argv(python: str) -> list[str]:
+def _bwrap_argv(python: str, flags: list | None = None) -> list[str]:
     argv = [BWRAP,
             "--unshare-all",          # no network, pid, ipc, uts, cgroup, user
+            ] + list(flags or []) + [
             "--die-with-parent",
             "--new-session",          # no terminal to inject into
             "--clearenv",
@@ -126,11 +195,19 @@ def _assemble(source: str, payload: dict, nonce: str) -> str:
     ])
 
 
-def _run_child(source: str, payload: dict) -> dict:
+# bwrap prints its own failures on stderr and exits before the program it was
+# asked to run ever starts. Those have nothing to do with the code in the
+# editor, and must never be reported as if they did.
+_BWRAP_FAILED = re.compile(r"^bwrap:", re.M)
+
+
+def _run_child(source: str, payload: dict, _retry: bool = True) -> dict:
     """Execute `source` over `payload` inside the sandbox. Returns its JSON."""
+    kind, flags = _sandbox()
     nonce = secrets.token_hex(8)
     python = sys.executable or "python3"
-    argv = _bwrap_argv(python) if BWRAP else [python, "-I", "-S", "-"]
+    argv = _bwrap_argv(python, flags) if kind.startswith("bubblewrap") \
+        else [python, "-I", "-S", "-"]
     program = _assemble(source, payload, nonce)
 
     try:
@@ -164,8 +241,22 @@ def _run_child(source: str, payload: dict) -> dict:
 
     # No verdict: the child died. Say why, in the user's terms.
     rc = proc.returncode or 0
+    stderr_text = err.decode("utf-8", "replace")
+
+    # The sandbox itself never started. Work out what this machine will allow
+    # and run it again - once - so one bad tier does not break every run until
+    # someone restarts the server.
+    if _BWRAP_FAILED.search(stderr_text):
+        if _retry:
+            demote_sandbox()
+            if sandbox_kind() != kind:
+                return _run_child(source, payload, _retry=False)
+        return {"sandboxError": True,
+                "error": "Your code never ran: this machine would not let the "
+                         "sandbox start.\n\n" + stderr_text.strip()[-2000:]}
+
     sig = -rc if rc < 0 else (rc - 128 if rc > 128 else 0)
-    detail = (err.decode("utf-8", "replace") or "")[-2000:].strip()
+    detail = stderr_text[-2000:].strip()
     if sig == signal.SIGXCPU:
         return {"timeout": True,
                 "error": "your code used more than %d s of CPU and was stopped" % CPU_SECONDS}
