@@ -484,7 +484,11 @@ class Handler(BaseHTTPRequestHandler):
             facets = BANK.facets()
             facets["progress"] = self._progress_counts(facets["meta"]["total"])
             boot = {"facets": facets, "list": listing,
-                    "environment": languages.environment()}
+                    "environment": languages.environment(),
+                    # named in the page so a badge that says "saved" can say
+                    # WHERE - the one thing that tells you at a glance whether
+                    # the tab is talking to the server you are watching
+                    "progressDb": PROGRESS.path}
             wanted = (q.get("id") or [""])[0]
             if wanted:
                 detail = BANK.detail(wanted)

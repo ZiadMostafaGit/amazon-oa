@@ -405,9 +405,76 @@ function renderSolution() {
  *     hide, with sendBeacon, which survives unload where fetch does not;
  *   · the header says saved / saving / not saved, so you never have to guess.
  */
+/* ------------------------------------------------------------------ drafts */
+/* A copy of every edit, in this browser, written the moment you type it.
+ *
+ * The server is the real store, but it is 600 ms away at best and can be down,
+ * restarted or listening somewhere else entirely - and none of that is a good
+ * enough reason to lose what someone typed. So each edit is also mirrored to
+ * localStorage, and on load the newer of the two wins. A draft that turns out
+ * to be newer than the server's copy is restored and SAID SO, because silently
+ * showing something different from what the server has is how you stop
+ * trusting an editor. */
+const DRAFT = 'fp:draft:';
+const DRAFT_MAX = 60;
+
+function draftKey(id, lang) { return DRAFT + id + ':' + lang; }
+
+function draftSave(id, lang, code) {
+  try {
+    localStorage.setItem(draftKey(id, lang),
+                         JSON.stringify({ code: code, at: Date.now() }));
+    draftPrune();
+  } catch (e) { /* private mode, or full: the server is still the real store */ }
+}
+
+function draftRead(id, lang) {
+  try {
+    const raw = localStorage.getItem(draftKey(id, lang));
+    if (!raw) return null;
+    const d = JSON.parse(raw);
+    return (d && typeof d.code === 'string') ? d : null;
+  } catch (e) { return null; }
+}
+
+function draftDrop(id, lang) {
+  try { localStorage.removeItem(draftKey(id, lang)); } catch (e) {}
+}
+
+/* keep the newest DRAFT_MAX and no more, so a long session cannot fill the
+   origin's storage quota and start throwing on the next save */
+function draftPrune() {
+  try {
+    const keys = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.startsWith(DRAFT)) {
+        let at = 0;
+        try { at = (JSON.parse(localStorage.getItem(k)) || {}).at || 0; } catch (e) {}
+        keys.push([at, k]);
+      }
+    }
+    if (keys.length <= DRAFT_MAX) return;
+    keys.sort((a, b) => a[0] - b[0]);
+    keys.slice(0, keys.length - DRAFT_MAX).forEach(([, k]) => localStorage.removeItem(k));
+  } catch (e) {}
+}
+
+/* The server stamps `ranAt` in local time with second resolution, so a draft
+   has to be a clear second newer before it is believed. */
+function draftIsNewer(draft, saved) {
+  if (!draft) return false;
+  if (!saved || !saved.code) return !!draft.code;
+  if (draft.code === saved.code) return false;
+  const t = Date.parse(saved.ranAt || '');
+  return isNaN(t) ? true : draft.at > t + 1000;
+}
+
 const saver = {
   pending: {},          // key -> {id, body}; one slot per problem+kind
   timer: null,
+  lastOk: null,         // when the server last confirmed a write
+  lastError: '',
 
   queue(key, id, body, delay) {
     this.pending[key] = { path: 'api/progress/' + encodeURIComponent(id), body: body };
@@ -433,16 +500,21 @@ const saver = {
         this.pending[key] = item;            // keep it and try again
       }
     }
+    if (ok) this.lastOk = Date.now();
     this.paint(ok ? 'saved' : 'failed');
     if (!ok) setTimeout(() => this.flush(), 4000);
     return ok;
   },
 
+  /* The page is going away. sendBeacon survives the teardown; fetch does not.
+     If there is no sendBeacon, the queue is left ALONE - dropping it was a way
+     to lose the last thing typed on a browser that happens to lack it. */
   flushSync() {
     clearTimeout(this.timer);
     const items = Object.values(this.pending);
+    if (!items.length) return;
+    if (!navigator.sendBeacon) return;       // keep pending; the draft has it too
     this.pending = {};
-    if (!items.length || !navigator.sendBeacon) return;
     items.forEach(item => {
       try {
         navigator.sendBeacon(url(item.path),
@@ -466,10 +538,23 @@ const saver = {
     box.className = 'savestate ' + name;
     box.textContent = name === 'saving' ? 'saving…'
       : name === 'failed' ? 'not saved — retrying' : 'saved';
+    /* Say WHERE it went and WHEN. If the badge says saved and the file you are
+       looking at never changes, this is the line that tells you the page is
+       talking to a different server than the one you are watching. */
+    const where = (state.env && state.env.progressDb) || 'the server';
+    box.title = name === 'failed'
+      ? 'The last write did not reach ' + where + (this.lastError ? ' — ' + this.lastError : '') +
+        '. It is kept in this browser and retried every 4s; nothing you typed is lost.'
+      : (this.lastOk ? 'Last confirmed write ' + new Date(this.lastOk).toLocaleTimeString() +
+                       ' → ' + where : 'Your code, notes and cases are stored in ' + where) +
+        '. Every edit is also mirrored in this browser.';
   },
 };
 
+/* Every road out of the page flushes: beforeunload is not fired reliably by
+   every browser, pagehide is. */
 window.addEventListener('beforeunload', () => saver.flushSync());
+window.addEventListener('pagehide', () => saver.flushSync());
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'hidden') saver.flushSync();
 });
@@ -525,6 +610,7 @@ function scheduleSave() {
   if (!d || !state.editor) return;
   const code = state.editor.getValue();
   state.buffers[d.id + ':' + state.lang] = code;
+  draftSave(d.id, state.lang, code);         // in this browser, right now
   saver.queue('code:' + d.id + ':' + state.lang, d.id,       // captured now
               { language: state.lang, code: code });
 }
@@ -964,9 +1050,17 @@ function renderWorkbench() {
   const live = state.buffers[key];
   state.editorKey = key;
 
-  ta.value = live != null ? live : ((saved && saved.code) || spec.starter || '');
+  /* Three sources, in order of how recent they can be: the buffer this tab is
+     holding, a draft this browser wrote, the copy the server has. */
+  const draft = draftRead(d.id, spec.id);
+  const restored = live == null && draftIsNewer(draft, saved);
+  ta.value = live != null ? live
+           : restored ? draft.code
+           : ((saved && saved.code) || spec.starter || '');
   edWrap.append(ta);
   host.append(edWrap);
+
+  if (restored) host.append(draftNotice(d, spec, draft, saved));
 
   /* --- row 3: actions, pinned above the output --- */
   const run = el('div', 'wb-run');
@@ -1044,6 +1138,30 @@ function renderWorkbench() {
   });
   if (!spec.runnable) state.editor.setReadOnly(true);
   setTimeout(() => state.editor && state.editor.refresh(), 0);
+}
+
+/* A draft beat the server's copy. Say so plainly, and offer the other one -
+   never quietly show something different from what was stored. */
+function draftNotice(d, spec, draft, saved) {
+  const row = el('div', 'wb-note warn');
+  const when = new Date(draft.at).toLocaleString();
+  row.append(el('span', null,
+    'Restored what you had in this browser at ' + when + '. ' +
+    (saved && saved.code
+      ? 'The server\u2019s copy is older (' + (saved.ranAt || 'unknown time') + ').'
+      : 'The server had nothing stored for this problem.')));
+  const keep = el('button', 'tool', 'Use the stored copy');
+  keep.title = 'Discard the local draft and load what the server has';
+  keep.onclick = () => {
+    draftDrop(d.id, spec.id);
+    delete state.buffers[d.id + ':' + spec.id];
+    if (state.editor) state.editor.setValue((saved && saved.code) || spec.starter || '');
+    scheduleSave();
+    row.remove();
+    if (state.editor) state.editor.refresh();
+  };
+  row.append(keep);
+  return row;
 }
 
 /* The reference solution, shown where you are working rather than buried at
@@ -1576,8 +1694,10 @@ async function boot() {
   $('#q').value = state.q;
 
   const boot = window.__BOOT__ || null;
-  const env = boot ? boot.environment : (await api('api/health')).environment;
+  const health = boot ? null : await api('api/health');
+  const env = boot ? boot.environment : health.environment;
   state.env = env;
+  env.progressDb = boot ? boot.progressDb : health.progressDb;
   paintEnv(env.sandbox, env.sandboxNote);
 
   state.facets = boot ? boot.facets : await api('api/facets');
@@ -1631,6 +1751,17 @@ async function boot() {
     renderFilters(); reload();
   };
   $('#lightbox').onclick = () => { $('#lightbox').hidden = true; };
+
+  /* Ctrl-S is what hands reach for when they want to be sure. Flush now and
+     say so, rather than letting the browser offer to save the page. */
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+      e.preventDefault();
+      if (state.editor && state.current) scheduleSave();
+      saver.flush();
+      return;
+    }
+  });
 
   document.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.altKey && (e.key === 'v' || e.key === 'V')) {

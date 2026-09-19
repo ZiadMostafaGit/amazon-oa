@@ -153,7 +153,15 @@ load it into the editor. The bank ships none of these: see *Solutions* below.
 
 **Nothing is lost.** Your code (per problem and per language), your notes and
 your test cases are server-side state, saved as you type and confirmed by a
-badge in the header. The editor is never rebuilt from the server copy while it
+badge in the header — and *also* mirrored into this browser's `localStorage`
+the instant you type it. The server is the store, but it is a debounce away
+and can be down, restarted, or listening somewhere else entirely, and none of
+that is a good reason to lose what you wrote. On load the newer of the two
+wins; a draft that beats the stored copy is restored **and says so**, with a
+button to take the stored one instead. `Ctrl-S` flushes now and the badge's
+tooltip names the file it wrote to and the time it last got a confirmation —
+if that path is not the `progress.db` you are watching, the tab is talking to
+a different server. The editor is never rebuilt from the server copy while it
 holds something newer: what was last in the buffer for this problem *and* this
 language wins, so adding a test case, deleting one, or flipping to the Java tab
 and back cannot hand you the version from when you opened the problem. What
@@ -363,7 +371,7 @@ topics.py      the study space: the canon, its articles, and each topic's queue
 mdlite.py      the small strict Markdown dialect the chapters are written in
 static/        the page: index.html, app.js, study.js, timer.js, styles.css,
                editor.js, pyenv.js
-tests/         192 tests: parsing, corpus sweep, sandbox and its fallbacks,
+tests/         197 tests: parsing, corpus sweep, sandbox and its fallbacks,
                API, filters/sorts,
                custom cases, scratch, running as a script, solutions, random
                mode, generated cases, the canon, the topic mapping, the

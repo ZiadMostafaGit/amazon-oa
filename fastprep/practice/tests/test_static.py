@@ -109,6 +109,47 @@ class TestTheEditorIsNotRebuiltBehindYou(unittest.TestCase):
         self.assertLess(body.index("saver.flush()"), body.index("state.buffers = {}"))
 
 
+class TestNothingTypedIsLost(unittest.TestCase):
+    """Every edit is mirrored in the browser as well as sent to the server.
+
+    The server is the store, but it is a debounce away and can be down,
+    restarted, or listening somewhere else entirely - none of which is a good
+    reason to lose what someone typed.
+    """
+
+    def test_every_edit_is_mirrored_locally_before_it_is_sent(self):
+        js = read("app.js")
+        body = js[js.index("function scheduleSave("):js.index("function scheduleNotes(")]
+        self.assertIn("draftSave(", body)
+        self.assertLess(body.index("draftSave("), body.index("saver.queue("),
+                        "write the local copy first: it is the one that cannot fail")
+
+    def test_the_editor_prefers_whichever_copy_is_newer(self):
+        js = read("app.js")
+        self.assertIn("draftIsNewer(draft, saved)", js)
+        self.assertIn("draftNotice(", js, "a restored draft has to say so")
+
+    def test_the_queue_is_not_dropped_when_there_is_no_sendbeacon(self):
+        """flushSync used to clear `pending` before checking sendBeacon, which
+        threw the last edit away on any browser that lacks it."""
+        js = read("app.js")
+        body = js[js.index("  flushSync()"):js.index("  /* the study space saves")]
+        self.assertLess(body.index("if (!navigator.sendBeacon) return"),
+                        body.index("this.pending = {}"))
+
+    def test_the_page_flushes_on_every_way_out(self):
+        js = read("app.js")
+        for ev in ("beforeunload", "pagehide", "visibilitychange"):
+            self.assertIn(ev, js)
+
+    def test_the_badge_says_where_it_saved(self):
+        """A badge that says "saved" while the file never changes has to be
+        able to tell you it is talking to a different server."""
+        self.assertIn("progressDb", read("app.js"))
+        with open(os.path.join(HERE, "serve.py"), encoding="utf-8") as fh:
+            self.assertIn('"progressDb": PROGRESS.path', fh.read())
+
+
 class TestTimerWiring(unittest.TestCase):
     """The timer is one script talking to ids in the page; a typo in either is
     invisible until you click, so hold them to each other here."""

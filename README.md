@@ -63,7 +63,9 @@ The deadline is what is stored, not a counter, so sleeping, a background tab or
 a reload cannot quietly hand you more time.
 
 **Track.** Attempted / solved / review, bookmarks, notes, your last submission per language and
-your custom cases, all in `progress.db` — a separate file, so `python3 fastprep.py sync` can
+your custom cases, all in `progress.db` — and every edit is mirrored into the browser as you
+type, so a server that is down, restarted or listening elsewhere cannot cost you what you wrote;
+the newer copy wins on load and says when it was restored — a separate file, so `python3 fastprep.py sync` can
 refresh the bank without touching your work.
 
 > **Passing is not proof.** This bank has only VISIBLE examples: no hidden tests, no official
