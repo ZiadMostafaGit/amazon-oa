@@ -1,7 +1,10 @@
 """Read-only access to the FastPrep problem bank, plus the query builder.
 
-The bank is opened `mode=ro` everywhere: `python3 fastprep.py sync` owns that
-file and a write from here would be lost (or worse, would corrupt a sync).
+The bank is opened `mode=ro` here: the only writer is the scraper's sync
+(`python3 fastprep.py sync`, or banksync.py running it in the background on
+its own connection). Each synced problem is committed whole, index row and
+detail together, so this reader sees a problem complete or not at all; call
+Bank.invalidate() after a sync so the search index picks up what changed.
 Progress lives in its own database - see progress.py.
 
 Two traps this module exists to avoid:
@@ -19,6 +22,7 @@ import os
 import re
 import sqlite3
 import sys
+import threading
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_DB = os.path.abspath(os.path.join(HERE, "..", "fastprep.db"))
@@ -68,6 +72,8 @@ SORT_FIELDS = {
                    "p.difficulty IS NULL"),
     "title":      ("p.title COLLATE NOCASE", "asc", "title", None),
     "company":    ("p.company COLLATE NOCASE", "asc", "company", None),
+    "added":      ("p.first_indexed_at", "desc", "date added here",
+                   "p.first_indexed_at IS NULL"),
     "default":    ("p.order_idx", "asc", "bank order", None),
 }
 # older links keep working
@@ -100,7 +106,8 @@ def order_by(sort: str, direction: str | None = None) -> str:
     return "%s%s %s, %s" % (head, expr, d.upper(), TIEBREAK)
 LIST_COLUMNS = """p.id, p.title, p.company, p.difficulty, p.problem_types, p.topics,
                   p.employment_types, p.target_roles, p.assessment_platform,
-                  p.practice_format, p.last_seen, p.last_seen_max, p.seen_count"""
+                  p.practice_format, p.last_seen, p.last_seen_max, p.seen_count,
+                  p.first_indexed_at, %s AS delisted_at"""
 
 
 class Bank:
@@ -113,6 +120,16 @@ class Bank:
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA query_only=ON")
         self._search = None
+        self._search_lock = threading.Lock()
+        # a bank built before delisting was tracked has no such column
+        cols = {r["name"] for r in self.conn.execute("PRAGMA table_info(problems)")}
+        self._delisted = "p.delisted_at" if "delisted_at" in cols else "NULL"
+        self.columns = LIST_COLUMNS % self._delisted
+
+    def invalidate(self) -> None:
+        """Forget derived state after the bank changed underneath us."""
+        with self._search_lock:
+            self._search = None
 
     # ---------------------------------------------------------------- search
     def _ensure_search_index(self):
@@ -121,8 +138,11 @@ class Bank:
         It cannot live in the bank itself (read-only, and a sync would drop it),
         and rebuilding takes about a second for 3533 problems.
         """
-        if self._search is not None:
-            return
+        with self._search_lock:
+            if self._search is None:
+                self._search = self._build_search_index()
+
+    def _build_search_index(self):
         idx = sqlite3.connect(":memory:", check_same_thread=False)
         idx.execute("CREATE VIRTUAL TABLE docs USING fts5(id UNINDEXED, title, body)")
         rows = []
@@ -137,22 +157,23 @@ class Bank:
             rows.append((r["id"], r["title"] or "", body))
         idx.executemany("INSERT INTO docs(id, title, body) VALUES (?,?,?)", rows)
         idx.commit()
-        self._search = idx
+        return idx
 
     def _search_ids(self, query: str) -> list[str]:
         """Ranked ids for a free-text query; title matches weigh more."""
         self._ensure_search_index()
+        search = self._search
         terms = [t for t in re.split(r"[^\w]+", query or "") if t]
         if not terms:
             return []
         match = " AND ".join('"%s"*' % t.replace('"', '') for t in terms)
         try:
-            cur = self._search.execute(
+            cur = search.execute(
                 "SELECT id FROM docs WHERE docs MATCH ? ORDER BY bm25(docs, 10.0, 1.0)", (match,))
             return [r[0] for r in cur]
         except sqlite3.OperationalError:
             like = "%" + query.strip() + "%"
-            cur = self._search.execute(
+            cur = search.execute(
                 "SELECT id FROM docs WHERE title LIKE ? OR body LIKE ?", (like, like))
             return [r[0] for r in cur]
 
@@ -236,13 +257,13 @@ class Bank:
             else:
                 rows = {r["id"]: r for r in self.conn.execute(
                     "SELECT %s FROM problems p WHERE p.id IN (%s)"
-                    % (LIST_COLUMNS, ",".join("?" * len(order_ids))), order_ids)}
+                    % (self.columns, ",".join("?" * len(order_ids))), order_ids)}
                 items = [self._row(rows[i]) for i in order_ids if i in rows]
         else:
             order = order_by(sort, direction)
             cur = self.conn.execute(
                 "SELECT %s FROM problems p WHERE %s ORDER BY %s LIMIT ? OFFSET ?"
-                % (LIST_COLUMNS, where, order), args + [int(limit), int(offset)])
+                % (self.columns, where, order), args + [int(limit), int(offset)])
             items = [self._row(r) for r in cur]
         key, d = resolve_sort(sort, direction)
         return {"total": total, "items": items, "limit": limit, "offset": offset,
@@ -258,6 +279,7 @@ class Bank:
             "targetRoles": j(r["target_roles"]), "platform": r["assessment_platform"],
             "format": r["practice_format"], "lastSeen": j(r["last_seen"]),
             "lastSeenMax": r["last_seen_max"], "seenCount": r["seen_count"],
+            "addedAt": r["first_indexed_at"], "delistedAt": r["delisted_at"],
         }
 
     # ----------------------------------------------------------------- facets
@@ -279,6 +301,15 @@ class Bank:
                        "withImages": self.conn.execute(
                            "SELECT COUNT(*) FROM problems WHERE "
                            "json_array_length(json_extract(detail_json,'$.sourceImages')) > 0"
+                       ).fetchone()[0],
+                       "delisted": self.conn.execute(
+                           "SELECT COUNT(*) FROM problems p WHERE %s IS NOT NULL"
+                           % self._delisted).fetchone()[0],
+                       "lastSync": self.last_sync(),
+                       # the day the bank was first built: anything added after
+                       # it arrived through a sync, and the list marks it new
+                       "firstAdded": self.conn.execute(
+                           "SELECT MIN(substr(first_indexed_at, 1, 10)) FROM problems"
                        ).fetchone()[0]}
         # an "(unset)" bucket wherever one exists, so nothing is unreachable
         for key, col in SCALAR_FACETS.items():
@@ -301,14 +332,26 @@ class Bank:
             out["meta"]["withSolutions"] = None
         return out
 
+    def last_sync(self) -> str | None:
+        try:
+            return self.conn.execute("SELECT MAX(finished_at) FROM sync_runs").fetchone()[0]
+        except sqlite3.OperationalError:
+            return None
+
     # ----------------------------------------------------------------- detail
     def detail(self, pid: str) -> dict | None:
         r = self.conn.execute(
-            "SELECT id, detail_json, last_seen, seen_count, order_idx FROM problems WHERE id=?",
-            (pid,)).fetchone()
+            "SELECT id, index_json, detail_json, last_seen, seen_count, order_idx, "
+            "first_indexed_at, %s AS delisted_at FROM problems p WHERE id=?"
+            % self._delisted, (pid,)).fetchone()
         if not r:
             return None
-        d = json.loads(r["detail_json"] or "{}")
+        # `sync --index-only` leaves a row with metadata and no detail yet:
+        # show what there is rather than failing
+        d = json.loads(r["detail_json"] or r["index_json"] or "{}")
+        d.setdefault("id", r["id"])
+        d["addedAt"] = r["first_indexed_at"]
+        d["delistedAt"] = r["delisted_at"]
         # detail_json is the truth, but seen_count/last_seen live in the columns
         d["seenCount"] = r["seen_count"]
         if not d.get("lastSeen"):

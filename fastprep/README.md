@@ -10,7 +10,7 @@ behind it comes from two **public, unauthenticated** JSON endpoints:
 
 | Endpoint | What it gives | Cost |
 |---|---|---|
-| `GET /api/problems` | the entire index — all 3533 problems with company, difficulty, stage, topics, `lastSeen` dates | **1 request, ~1.7 MB, ~3 s** |
+| `GET /api/problems` | the entire index — all problems (3533 at first sync, 4593 on 2026-09-29) with company, difficulty, stage, topics, `lastSeen` dates | **1 request, ~1.7 MB, ~3 s** |
 | `GET /api/problems/<id>` | full detail — statement, examples, constraints, starter code, SQL/table schemas | 1 request each |
 
 So there is no GitHub OAuth to replay, no session to keep alive, and no
@@ -53,7 +53,12 @@ Needs Python 3 and `requests` (already present on this machine). No other deps.
 # one request, metadata for all 3533 problems - enough for recency/stage queries
 python3 fastprep.py sync --index-only
 
-# full sync incl. problem statements (~20 min at the default 3 req/s)
+# how far behind is the db? (1 request; new / changed / removed ids)
+python3 fastprep.py check
+
+# bring it up to date: index + details for only what is new or changed.
+# Each problem is committed whole, so a reader never sees a half-synced row,
+# and problems that left FastPrep are kept with delisted_at set.
 python3 fastprep.py sync
 
 # be gentler / faster

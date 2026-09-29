@@ -4,7 +4,7 @@ from typing import List, Optional, Any
 from collections import Counter
 
 
-def solve(quality: List[int]) -> int:
+def getMinAmount(quality: List[int]) -> int:
     n = len(quality)
     if n == 0:
         return 0

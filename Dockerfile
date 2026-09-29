@@ -1,13 +1,16 @@
-# FastPrep practice — 3,533 reported interview problems, an editor, and a
+# FastPrep practice — 4,596 reported interview problems, an editor, and a
 # sandboxed runner, served from one small Python process.
 #
-# The problem bank is baked in (fastprep/fastprep.db, ~17 MB), so the container
-# needs no network at all unless you ask it to fetch source screenshots.
+# The problem bank is baked in (fastprep/fastprep.db), so the container works
+# with no network at all. With network it fetches source screenshots on demand
+# and, every FP_SYNC_INTERVAL seconds, pulls newly published problems into that
+# baked-in bank - kept across restarts, reset by a rebuild. `--offline` (or
+# `--no-sync`) in the CMD turns both off.
 
 FROM python:3.12-alpine
 
 LABEL org.opencontainers.image.title="FastPrep practice" \
-      org.opencontainers.image.description="Browse, filter and solve 3,533 reported \
+      org.opencontainers.image.description="Browse, filter and solve 4,596 reported \
 interview problems offline: rendered statements, source screenshots, a Python/SQL editor \
 with Vim keys, and a test runner that executes your code in a bubblewrap sandbox."
 

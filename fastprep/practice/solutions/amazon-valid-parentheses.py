@@ -1,5 +1,5 @@
 # Stack: push openers, pop and match on each closer.
-def isValidParentheses(s: str) -> bool:
+def solve(s: str) -> bool:
     pairs = {')': '(', ']': '[', '}': '{'}
     stack = []
     for ch in s:

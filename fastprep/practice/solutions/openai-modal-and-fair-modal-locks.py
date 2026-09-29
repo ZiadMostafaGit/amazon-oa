@@ -2,7 +2,7 @@
 from typing import List, Optional, Any
 
 
-def simulateModalLocks(compatibility: List[List[int]], operations: List[List[int]]) -> List[List[int]]:
+def solve(compatibility: List[List[int]], operations: List[List[int]]) -> List[List[int]]:
     # per lock type: list of held modes (with thread ids), and a FIFO queue
     holders = [[], []]   # each entry: [threadId, mode]
     queues = [[], []]    # each entry: [threadId, mode]

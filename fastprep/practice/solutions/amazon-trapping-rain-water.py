@@ -2,7 +2,7 @@
 from typing import List, Optional, Any
 
 
-def solve(height: List[int]) -> int:
+def trap(height: List[int]) -> int:
     if not height:
         return 0
     left, right = 0, len(height) - 1

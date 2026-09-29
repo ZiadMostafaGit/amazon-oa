@@ -4,7 +4,7 @@ import heapq
 from typing import List, Optional, Any
 
 
-def solve(numCourses: int, prerequisites: List[List[int]]) -> List[List[int]]:
+def analyzeCourses(numCourses: int, prerequisites: List[List[int]]) -> List[List[int]]:
     adj = [[] for _ in range(numCourses)]
     indeg = [0] * numCourses
     for pair in prerequisites:

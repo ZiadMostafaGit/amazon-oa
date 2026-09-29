@@ -15,7 +15,9 @@ network traffic except the one thing that needs it (source screenshots, below).
 ```sh
 python3 serve.py --open              # …and open a browser
 python3 serve.py --port 9000         # somewhere else
-python3 serve.py --offline           # never fetch images; serve what is cached
+python3 serve.py --offline           # no network at all: no images fetched, no bank sync
+python3 serve.py --no-sync           # fetch images, but never pull new problems
+python3 serve.py --sync-interval 3600  # look for new problems hourly (default 6 h)
 python3 serve.py --host 0.0.0.0      # reachable from elsewhere (no auth: see below)
 python3 serve.py --base-path /site   # behind a proxy that forwards its mount prefix
 python3 serve.py --prefetch-images   # cache all 2 025 screenshots, then exit
@@ -345,6 +347,50 @@ A ready-made location block for an nginx that already proxies other apps on the
 same domain is in [`deploy/nginx-site.conf`](../../deploy/nginx-site.conf). There is **no
 authentication** and the app executes code by design: keep it on `127.0.0.1`
 behind your proxy's auth, or reach it over an SSH tunnel.
+
+## Keeping the bank current
+
+FastPrep adds problems every day. `banksync.py` runs in a background thread and,
+ten seconds after startup and then every `--sync-interval` seconds (default 6 h,
+env `FP_SYNC_INTERVAL`), runs the scraper's own incremental sync on its own
+write connection:
+
+1. **one** request for FastPrep's index, compared with the bank by id and by a
+   hash of each index row: new, changed, gone, and anything missing its detail;
+2. the detail of only those problems, at 2 req/s over 3 workers;
+3. each problem is written in one commit, index row and detail together. A new
+   problem is not there at all until its statement is; a changed one keeps its
+   old statement until the new one replaces it. A fetch that fails writes
+   nothing, and the next sync retries it because its hash still differs;
+4. problems that left the index are **kept** and get `delisted_at` (the page
+   says so): progress, notes and reference solutions are keyed by id;
+5. whatever depends on the bank is brought up to date: the in-memory search
+   index is dropped, `topics/INDEX.json` is rebuilt in a subprocess (a minute of
+   CPU, kept off the server's GIL), cached screenshots of a problem whose image
+   list was *replaced* (not merely appended to) are forgotten, and
+   `all_problems.json` beside the bank is rewritten atomically.
+
+`GET /api/sync` reports the phase, progress and last result (including
+`progressOrphans`, progress rows whose problem is not in the bank - 0 by
+design); `POST /api/sync` starts a check now, or returns 409 under `--offline`
+/ `--no-sync`. The browse drawer shows the same, with a *Check now* button, and
+refreshes filters and the list when a sync brings something in. Problems added
+after the bank was first built carry a **new** tag, and *date added* is a sort.
+
+From a terminal: `python3 ../fastprep.py check` shows the gap (one request),
+`python3 ../fastprep.py sync` closes it the same way.
+
+A problem that changed upstream can outgrow its reference solution. The
+first resync did exactly that: 17 of 174 changed problems renamed their
+function (renamed here and re-verified) and 4 were rewritten. `tools/verify.py
+--all` is the gate - a solution that fails it is shown as unverified, and its
+generated cases are withheld because their expectations came from the old
+problem.
+
+**Answers that are not unique.** A problem can carry `algorithmOutputValidator`
+(`spacex-starlink-beam-planner`: any beam plan that keeps the rules is right).
+Its cases are judged by `parsing.validate_output` against the problem's own
+rules rather than by equality with the one answer the example shows.
 
 ## Source screenshots
 

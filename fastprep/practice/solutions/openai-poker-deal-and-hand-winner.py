@@ -44,7 +44,7 @@ def _score(cards: List[str]) -> tuple:
     return (0,) + tuple(ranks)
 
 
-def simulatePoker(userIds: List[str], dealtCards: List[str]) -> List[str]:
+def solve(userIds: List[str], dealtCards: List[str]) -> List[str]:
     n = len(userIds)
     hands = {u: [] for u in userIds}
     log = []

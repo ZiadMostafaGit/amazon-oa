@@ -3,7 +3,7 @@ from bisect import bisect_right
 from typing import List, Optional, Any
 
 
-def minSubsequences(nums: List[int]) -> int:
+def solve(nums: List[int]) -> int:
     tails = []
     for value in nums:
         pos = bisect_right(tails, value)

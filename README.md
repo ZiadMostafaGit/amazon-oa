@@ -1,8 +1,9 @@
 # FastPrep practice
 
-Browse, filter and solve **3,533 reported interview problems** offline — every one of them
+Browse, filter and solve **4,596 reported interview problems** offline — every one of them
 scraped from FastPrep into `fastprep/fastprep.db`, rendered with its original assessment
-screenshots, and runnable against its published examples in a sandbox.
+screenshots, and runnable against its published examples in a sandbox. The bank keeps itself
+current: the app checks FastPrep in the background and pulls in whatever is new.
 
 ```sh
 cd fastprep/practice && python3 serve.py       # http://127.0.0.1:8900
@@ -17,7 +18,7 @@ docker compose up --build -d                   # http://localhost:8900
 ## What it does
 
 **Browse.** Every metadata field filters and every sortable field reads in either direction:
-company (355 of them), stage (OA 1,976 / phone screen 846 / onsite 823), difficulty, topic,
+company (415 of them), stage (OA 2,205 / phone screen 1,383 / onsite 1,302), difficulty, topic,
 assessment platform, employment type, target role, practice format, date windows, a seen-count
 range, has-screenshots, plus your own status, bookmarks and notes. Full-text search over titles,
 statements, constraints and source notes. Fields that are empty for some problems get an
@@ -68,6 +69,16 @@ type, so a server that is down, restarted or listening elsewhere cannot cost you
 the newer copy wins on load and says when it was restored — a separate file, so `python3 fastprep.py sync` can
 refresh the bank without touching your work.
 
+**Stays current.** FastPrep publishes new problems daily. Every 6 hours (and at startup) the
+app asks for FastPrep's index — one request — compares it with the bank, and fetches the detail
+of only what is new or changed. Each problem is written whole, statement and metadata together,
+so the app keeps serving throughout and never shows a half-synced problem; new ones are
+searchable, filed under their study topics, marked **new** in the list and reachable with the
+*date added* sort as soon as they land. Problems FastPrep removes are kept and flagged, because
+your progress points at them. The browse drawer says when it last checked and has a *Check now*
+button; `GET/POST /api/sync` does the same. `python3 fastprep.py check` shows the gap from a
+terminal, `python3 fastprep.py sync` closes it, and `--offline` / `--no-sync` turn it off.
+
 > **Passing is not proof.** This bank has only VISIBLE examples: no hidden tests, no official
 > solutions. The app says so next to every Run button, and a clean sweep marks a problem
 > *attempted*, never *solved*.
@@ -77,7 +88,9 @@ refresh the bank without touching your work.
 ```
 fastprep/
   fastprep.py        the scraper that produced the bank (re-run: python3 fastprep.py sync)
-  fastprep.db        3,533 problems, synced 2026-09-18 — opened read-only by the app
+  fastprep.db        4,596 problems (4,593 listed upstream, 3 since removed), synced
+                     2026-09-29 — read-only to the app; the background sync is its writer
+  all_problems.json  the same bank as one JSON file, rewritten after every sync that changes it
   practice/          the app: serve.py, fpdb.py, parsing.py, runner.py, static/, tools/, tests/
   practice/solutions/ reference solutions, one file per problem id
 docs/                write-ups that are not in the bank and not reproducible:

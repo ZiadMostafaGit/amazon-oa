@@ -2,7 +2,7 @@
 from typing import List, Optional, Any
 
 
-def solve(scores: List[int]) -> List[int]:
+def countScoreCategories(scores: List[int]) -> List[int]:
     fail = regular = honors = 0
     for s in scores:
         if s < 50:

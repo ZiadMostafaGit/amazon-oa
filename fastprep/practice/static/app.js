@@ -640,6 +640,8 @@ function resultRow(p, index) {
   (p.stages || []).slice(0, 2).forEach(s => sub.append(el('span', 'tag stage', s)));
   if (p.format === 'tabular') sub.append(el('span', 'tag plain', 'SQL'));
   if (p.seenCount > 1) sub.append(el('span', 'tag count', 'seen ' + p.seenCount + '×'));
+  if (Sync.isFresh(p)) sub.append(Object.assign(el('span', 'tag fresh', 'new'),
+    { title: 'Added to this bank ' + p.addedAt.slice(0, 10) + ' by the background sync' }));
   sub.append(el('span', 'when', p.lastSeenMax || ''));
   b.append(sub);
 
@@ -813,6 +815,12 @@ function renderProblem() {
         ? ' — the ' + d.generatedCases.length + ' generated cases below make up for the last one.' : '.');
     body.append(n);
   }
+  if (d.delistedAt) {
+    const n = el('div', 'callout warn');
+    n.innerHTML = '<b>No longer listed on FastPrep</b> since ' + esc(d.delistedAt.slice(0, 10)) +
+      '. Kept here so your progress, notes and any reference solution stay reachable.';
+    body.append(n);
+  }
   if (d.sourceNote) {
     const n = el('div', 'callout info');
     n.innerHTML = '<b>Source note.</b> ' + esc(d.sourceNote);
@@ -900,7 +908,10 @@ function renderProblem() {
       shots.append(fig);
     });
     body.append(shots);
+    if (d.sourceImageNote) body.append(el('div', 'hint shotnote', d.sourceImageNote));
   }
+
+  if (d.acknowledgementNote) body.append(el('div', 'hint thanks', d.acknowledgementNote));
 
   body.append(el('h2', 'section', 'Test cases'));
   const casesHost = el('div'); casesHost.id = 'casesHost';
@@ -1688,6 +1699,95 @@ function wireSplitter() {
   if (saved >= 24 && saved <= 72) left.style.flex = '0 0 ' + saved + '%';
 }
 
+/* --------------------------------------------------------------- bank sync
+   The server pulls newly published problems into the bank in the background.
+   This line says when it last looked and what arrived, lets you look now, and
+   refreshes the list and filters when a sync brings something in. */
+const Sync = {
+  status: null, timer: null, lastSeen: undefined, baseline: null,
+
+  /* "new" = added after the bank was first built, so the original 3,533 never
+     carry the badge and a problem that arrived this week does */
+  isFresh(p) {
+    return !!(p.addedAt && Sync.baseline && p.addedAt.slice(0, 10) > Sync.baseline);
+  },
+
+  async poll() {
+    clearTimeout(this.timer);
+    let s;
+    try { s = await api('api/sync'); } catch (e) { this.timer = setTimeout(() => this.poll(), 60000); return; }
+    const finishedNow = this.lastSeen !== undefined && s.lastCheck && s.lastCheck !== this.lastSeen;
+    this.lastSeen = s.lastCheck || null;
+    this.status = s;
+    this.paint();
+    const r = s.lastResult || {};
+    if (finishedNow && (r.added || r.updated || r.delisted || r.relisted)) await refreshBank();
+    if (s.enabled) {
+      this.timer = setTimeout(() => this.poll(),
+        (s.running || s.phase === 'queued') ? 2000 : 60000);
+    }
+  },
+
+  async now() {
+    try { await api('api/sync', { method: 'POST' }); }
+    catch (e) { this.status = Object.assign({}, this.status, { lastError: e.message }); this.paint(); return; }
+    this.poll();
+  },
+
+  paint() {
+    const host = $('#syncbar'), s = this.status;
+    if (!host || !s) return;
+    host.hidden = false;
+    host.textContent = '';
+    if (!s.enabled) {
+      host.append(el('span', 'hint', 'Bank sync off (' + (s.reason || 'disabled') + ')'));
+      return;
+    }
+    const r = s.lastResult;
+    if (s.running || s.phase === 'queued') {
+      host.append(el('span', 'spin'));
+      host.append(el('span', null, s.phase === 'fetching'
+        ? 'Fetching new problems from FastPrep… ' + s.done + ' / ' + s.total
+        : s.phase === 'filing' ? 'Filing new problems under their study topics…'
+        : s.phase === 'exporting' ? 'Writing the JSON export…' : 'Checking FastPrep for new problems…'));
+      return;
+    }
+    const bits = [];
+    if (s.lastError) bits.push('last check failed: ' + s.lastError);
+    else if (s.lastCheck) bits.push('checked ' + ago(s.lastCheck));
+    else bits.push('first check ' + (s.nextCheck ? 'in a moment' : 'pending'));
+    if (r && !s.lastError) bits.push(r.inSync ? 'in sync with FastPrep (' + r.remote.toLocaleString() + ')'
+                                               : (r.failed + ' could not be fetched, retried next time'));
+    host.append(el('span', s.lastError ? 'syncerr' : null, bits.join(' · ')));
+    if (r && r.added) {
+      const b = el('button', 'linkbtn', '+' + r.added + ' new — show');
+      b.title = 'Sort by date added';
+      b.onclick = () => { state.sort = 'added'; state.dir = ''; $('#sort').value = 'added';
+                          paintDirButton(); reload(); };
+      host.append(b);
+    }
+    const now = el('button', 'linkbtn', 'Check now');
+    now.onclick = () => this.now();
+    host.append(now);
+  },
+};
+
+function ago(iso) {
+  const secs = Math.max(0, (Date.now() - Date.parse(iso)) / 1000);
+  if (secs < 90) return 'just now';
+  if (secs < 5400) return Math.round(secs / 60) + ' min ago';
+  if (secs < 129600) return Math.round(secs / 3600) + ' h ago';
+  return Math.round(secs / 86400) + ' days ago';
+}
+
+async function refreshBank() {
+  state.facets = await api('api/facets');
+  Sync.baseline = state.facets.meta.firstAdded || null;
+  renderSortControl();
+  renderFilters();
+  await reload();
+}
+
 /* -------------------------------------------------------------------- boot */
 async function boot() {
   const wanted = readUrl();
@@ -1701,6 +1801,7 @@ async function boot() {
   paintEnv(env.sandbox, env.sandboxNote);
 
   state.facets = boot ? boot.facets : await api('api/facets');
+  Sync.baseline = state.facets.meta.firstAdded || null;
   renderSortControl();
   renderFilters();
   if (boot && boot.list) {
@@ -1721,6 +1822,7 @@ async function boot() {
     if (!state.wantTopic && !state.wantTopicList) openDrawer();
   }
 
+  Sync.poll();
   wireSplitter();
   Study.wire();
   Timer.wire();

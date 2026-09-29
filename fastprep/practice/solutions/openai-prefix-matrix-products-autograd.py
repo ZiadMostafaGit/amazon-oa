@@ -27,7 +27,7 @@ def _identity(d: int) -> List[List[int]]:
     return [[1 if i == j else 0 for j in range(d)] for i in range(d)]
 
 
-def prefixProductAutograd(matrices: List[List[List[int]]], upstream: List[List[List[int]]]) -> List[List[int]]:
+def solve(matrices: List[List[List[int]]], upstream: List[List[List[int]]]) -> List[List[int]]:
     n = len(matrices)
     d = len(matrices[0])
 

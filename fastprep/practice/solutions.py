@@ -58,6 +58,10 @@ def generated_cases(pid: str) -> list:
     They are returned in the runner's case shape, tagged so the app can label
     them: their expected values are the reference's behaviour, not a judge's.
     """
+    # expectations from a reference that no longer passes the problem's own
+    # examples (the problem changed upstream) would mark right answers wrong
+    if not _index().get(pid, {}).get("ok"):
+        return []
     path = os.path.join(CASES, pid + ".json")
     try:
         with open(path, "r", encoding="utf-8") as f:

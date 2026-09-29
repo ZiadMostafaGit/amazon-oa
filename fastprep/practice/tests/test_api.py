@@ -12,6 +12,44 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(HERE, "tools"))
 
 
+class Bank:
+    """What the bank holds, counted here in Python from the raw rows - not
+    through the app's SQL - so the assertions below check the app rather than
+    repeat it, and still hold after a sync brings in new problems."""
+    _rows = None
+
+    @classmethod
+    def rows(cls):
+        if cls._rows is None:
+            import sqlite3
+            import fpdb
+            c = sqlite3.connect("file:%s?mode=ro" % fpdb.DEFAULT_DB, uri=True)
+            c.row_factory = sqlite3.Row
+            cls._rows = [dict(r) for r in c.execute(
+                "SELECT id, index_json, detail_json, seen_count, last_seen_max FROM problems")]
+            c.close()
+            for r in cls._rows:
+                r["index"] = json.loads(r["index_json"] or "{}")
+                r["detail"] = json.loads(r["detail_json"] or "{}")
+        return cls._rows
+
+    @classmethod
+    def total(cls):
+        return len(cls.rows())
+
+    @classmethod
+    def count(cls, pred):
+        return sum(1 for r in cls.rows() if pred(r["index"], r["detail"]))
+
+    @classmethod
+    def oa(cls):
+        return cls.count(lambda i, d: "OA" in (i.get("problemTypes") or []))
+
+    @classmethod
+    def unset(cls, key):
+        return cls.count(lambda i, d: not i.get(key))
+
+
 def free_port() -> int:
     s = socket.socket()
     s.bind(("127.0.0.1", 0))
@@ -93,7 +131,7 @@ class TestMountedUnderAPrefix(unittest.TestCase):
         html = urllib.request.urlopen(self.base + "/site/", timeout=30).read().decode()
         self.assertIn("window.__BOOT__", html)
         health = json.load(urllib.request.urlopen(self.base + "/site/api/health", timeout=30))
-        self.assertEqual(health["problems"], 3533)
+        self.assertEqual(health["problems"], Bank.total())
 
     def test_static_assets_under_the_prefix(self):
         for path in ("/site/app.js", "/site/editor.js", "/site/styles.css",
@@ -109,7 +147,7 @@ class TestMountedUnderAPrefix(unittest.TestCase):
 
     def test_root_still_serves_when_the_proxy_strips_the_prefix(self):
         health = json.load(urllib.request.urlopen(self.base + "/api/health", timeout=30))
-        self.assertEqual(health["problems"], 3533)
+        self.assertEqual(health["problems"], Bank.total())
 
     def test_any_mount_prefix_works_without_configuration(self):
         """A deployment must not break because FP_BASE_PATH was forgotten: an
@@ -117,12 +155,13 @@ class TestMountedUnderAPrefix(unittest.TestCase):
         for prefix in ("/site", "/practice", "/a/b"):
             health = json.load(urllib.request.urlopen(
                 self.base + prefix + "/api/health", timeout=30))
-            self.assertEqual(health["problems"], 3533, prefix)
+            self.assertEqual(health["problems"], Bank.total(), prefix)
 
     def test_x_forwarded_prefix_is_honoured(self):
         req = urllib.request.Request(self.base + "/whatever/api/health",
                                      headers={"X-Forwarded-Prefix": "/whatever"})
-        self.assertEqual(json.load(urllib.request.urlopen(req, timeout=30))["problems"], 3533)
+        self.assertEqual(json.load(urllib.request.urlopen(req, timeout=30))["problems"],
+                         Bank.total())
 
     def test_the_mount_root_redirects_to_its_trailing_slash(self):
         """Without the slash the page's relative URLs resolve one level up."""
@@ -146,29 +185,34 @@ class TestMountedUnderAPrefix(unittest.TestCase):
 class TestBrowsing(ServerCase):
     def test_health(self):
         h = self.get("/api/health")
-        self.assertEqual(h["problems"], 3533)
+        self.assertEqual(h["problems"], Bank.total())
         self.assertTrue(h["bank"].endswith("fastprep.db"))
 
     def test_oa_filter_uses_the_array_column(self):
-        """1976, not 1959: the singular problemType is null for multi-stage rows."""
-        self.assertEqual(self.get("/api/problems?stage=OA&limit=1")["total"], 1976)
+        """Every OA row, not just those whose singular problemType says OA: that
+        field is null for multi-stage rows (1976 vs 1959 in the first bank)."""
+        oa = Bank.oa()
+        self.assertEqual(self.get("/api/problems?stage=OA&limit=1")["total"], oa)
+        self.assertGreater(oa, Bank.count(lambda i, d: i.get("problemType") == "OA"))
 
     def test_recent_sort_puts_the_newest_sighting_first(self):
         first = self.get("/api/problems?sort=recent&limit=1")["items"][0]
-        self.assertEqual(first["lastSeenMax"], "2026-09-18")
+        self.assertEqual(first["lastSeenMax"],
+                         max(r["last_seen_max"] for r in Bank.rows() if r["last_seen_max"]))
 
     def test_frequent_sort_is_monotonic(self):
         items = self.get("/api/problems?sort=frequent&limit=25")["items"]
         counts = [i["seenCount"] or 0 for i in items]
         self.assertEqual(counts, sorted(counts, reverse=True))
-        self.assertEqual(counts[0], 13)
+        self.assertEqual(counts[0], max(r["seen_count"] or 0 for r in Bank.rows()))
 
     def test_facets_have_counts(self):
         f = self.get("/api/facets")
         stages = {x["value"]: x["count"] for x in f["stage"]}
-        self.assertEqual(stages["OA"], 1976)
-        self.assertEqual(f["meta"]["total"], 3533)
-        self.assertEqual(f["meta"]["withImages"], 1619)
+        self.assertEqual(stages["OA"], Bank.oa())
+        self.assertEqual(f["meta"]["total"], Bank.total())
+        self.assertEqual(f["meta"]["withImages"],
+                         Bank.count(lambda i, d: bool(d.get("sourceImages"))))
         self.assertEqual({x["value"] for x in f["format"]}, {"algorithm", "tabular"})
 
     def test_filters_combine(self):
@@ -207,7 +251,8 @@ class TestBrowsing(ServerCase):
     def test_every_field_sorts_both_ways(self):
         fields = [f["key"] for f in self.get("/api/facets")["sorts"]]
         self.assertEqual(set(fields),
-                         {"recent", "frequent", "difficulty", "title", "company", "default"})
+                         {"recent", "frequent", "difficulty", "title", "company", "default",
+                          "added"})
         for key in fields:
             asc = self.get("/api/problems?sort=%s&dir=asc&limit=3" % key)
             desc = self.get("/api/problems?sort=%s&dir=desc&limit=3" % key)
@@ -226,7 +271,8 @@ class TestBrowsing(ServerCase):
             top = self.get("/api/problems?sort=difficulty&dir=%s&limit=5" % direction)["items"]
             self.assertTrue(all(i["difficulty"] for i in top), direction)
         oldest = self.get("/api/problems?sort=recent&dir=asc&limit=1")["items"][0]
-        self.assertEqual(oldest["lastSeenMax"], "2014-08-16")
+        self.assertEqual(oldest["lastSeenMax"],
+                         min(r["last_seen_max"] for r in Bank.rows() if r["last_seen_max"]))
 
     def test_legacy_sort_names_still_work(self):
         self.assertEqual(self.get("/api/problems?sort=hardest&limit=1")["direction"], "desc")
@@ -234,21 +280,24 @@ class TestBrowsing(ServerCase):
         self.assertEqual(self.get("/api/problems?sort=rare&limit=1")["direction"], "asc")
 
     def test_unset_values_are_filterable(self):
-        """76 problems have no difficulty, 1557 no platform - they must be findable."""
-        self.assertEqual(self.get("/api/problems?difficulty=__unset__&limit=1")["total"], 76)
-        self.assertEqual(self.get("/api/problems?platform=__unset__&limit=1")["total"], 1557)
-        self.assertEqual(self.get("/api/problems?employment=__unset__&limit=1")["total"], 523)
-        self.assertEqual(self.get("/api/problems?topic=__unset__&limit=1")["total"], 76)
+        """Problems with no difficulty or no platform (76 and 1557 in the first
+        bank) must be findable, not just excludable."""
+        for facet, key in (("difficulty", "difficulty"), ("platform", "assessmentPlatform"),
+                           ("employment", "employmentTypes"), ("topic", "topics")):
+            want = Bank.unset(key)
+            self.assertGreater(want, 0, facet)
+            self.assertEqual(self.get("/api/problems?%s=__unset__&limit=1" % facet)["total"],
+                             want, facet)
 
     def test_unset_combines_with_named_values(self):
         hard = self.get("/api/problems?difficulty=hard&limit=1")["total"]
         both = self.get("/api/problems?difficulty=hard&difficulty=__unset__&limit=1")["total"]
-        self.assertEqual(both, hard + 76)
+        self.assertEqual(both, hard + Bank.unset("difficulty"))
 
     def test_facets_offer_the_unset_bucket(self):
         f = self.get("/api/facets")
         unset = [x for x in f["difficulty"] if x.get("unset")]
-        self.assertEqual([x["count"] for x in unset], [76])
+        self.assertEqual([x["count"] for x in unset], [Bank.unset("difficulty")])
 
     def test_seen_count_range(self):
         lo = self.get("/api/problems?minSeen=5&limit=1")["total"]
@@ -268,17 +317,22 @@ class TestBrowsing(ServerCase):
     def test_index_html_is_bootstrapped(self):
         html = urllib.request.urlopen(self.base + "/?stage=OA", timeout=30).read().decode()
         self.assertIn("window.__BOOT__", html)
-        self.assertIn('"total": 1976', html.replace('"total":1976', '"total": 1976'))
+        n = Bank.oa()
+        self.assertIn('"total": %d' % n, html.replace('"total":%d' % n, '"total": %d' % n))
 
 
 class TestDetail(ServerCase):
     def test_algorithm_problem(self):
-        d = self.get("/api/problems/stripe-deployment-window-scheduler")
+        pid = "stripe-deployment-window-scheduler"
+        d = self.get("/api/problems/" + pid)
         self.assertEqual(d["practiceFormat"], "algorithm")
-        self.assertEqual(len(d["cases"]), 2)
+        stored = next(r["detail"] for r in Bank.rows() if r["id"] == pid)
+        self.assertEqual(len(d["cases"]), len(stored["examples"]))    # 2 before a resync, 5 after
+        self.assertGreater(len(d["cases"]), 0)
         self.assertEqual(d["functionName"], "scheduleDeploymentWindows")
         self.assertIn("<p>", d["problemStatement"])           # HTML, rendered by the page
-        self.assertEqual(len(d["images"]), 2)
+        self.assertEqual(len(d["images"]), len(stored["sourceImages"]))
+        self.assertGreaterEqual(len(d["images"]), 2)
         self.assertEqual([l["id"] for l in d["languages"]], ["python", "java"])
 
     def test_tabular_problem(self):
@@ -808,7 +862,7 @@ class TestStudySpace(ServerCase):
     def test_listing_is_ranked_and_complete(self):
         out = self.get("/api/topics")
         self.assertEqual(len(out["topics"]), 150)
-        self.assertEqual(out["problems"], 3533)
+        self.assertEqual(out["problems"], Bank.total())
         real = [t for t in out["topics"] if t["kind"] != "craft"]
         self.assertEqual([t["count"] for t in real],
                          sorted([t["count"] for t in real], reverse=True))
@@ -876,3 +930,53 @@ class TestStudySpace(ServerCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class TestOutputValidator(ServerCase):
+    """A problem whose answers are not unique carries algorithmOutputValidator;
+    a different plan that keeps the rules must pass, and one that breaks them
+    must fail and say which rule."""
+    PID = "spacex-starlink-beam-planner"
+
+    def run_code(self, code):
+        out, _ = self.post("/api/run", {"problemId": self.PID, "language": "python",
+                                        "code": code, "include": "visible"})
+        return out
+
+    def test_a_different_valid_plan_passes(self):
+        # greedy from the top color down: a valid plan, never the reference one
+        code = (
+            "import math\n"
+            "def ang(a, b):\n"
+            "    na = math.sqrt(sum(x*x for x in a)); nb = math.sqrt(sum(x*x for x in b))\n"
+            "    return math.degrees(math.acos(max(-1, min(1, sum(x*y for x, y in zip(a, b)) / (na*nb)))))\n"
+            "def planBeams(users, satellites, minimumServed):\n"
+            "    out, load = [], {}\n"
+            "    for u, U in enumerate(users):\n"
+            "        for s, S in enumerate(satellites):\n"
+            "            if ang(U, [S[i]-U[i] for i in range(3)]) > 45 or load.get(s, 0) >= 32: continue\n"
+            "            for c in (4, 3, 2, 1):\n"
+            "                clash = any(ss == s and cc == c and ang([U[i]-S[i] for i in range(3)],\n"
+            "                            [users[uu][i]-S[i] for i in range(3)]) < 10 for uu, ss, cc in out)\n"
+            "                if not clash:\n"
+            "                    out.append([u, s, c]); load[s] = load.get(s, 0) + 1; break\n"
+            "            else: continue\n"
+            "            break\n"
+            "    return out\n")
+        out = self.run_code(code)
+        self.assertGreater(out["total"], 0, out)
+        self.assertEqual(out["passed"], out["total"], out)
+        self.assertTrue(all(r.get("validated") for r in out["results"]))
+
+    def test_a_plan_that_breaks_a_rule_fails_and_says_why(self):
+        code = ("def planBeams(users, satellites, minimumServed):\n"
+                "    return [[u, 0, 1] for u in range(len(users))]\n")
+        out = self.run_code(code)
+        self.assertLess(out["passed"], out["total"])
+        self.assertTrue(any("degrees" in (r.get("error") or "") or "served" in (r.get("error") or "")
+                            for r in out["results"] if not r["ok"]), out)
+
+    def test_the_stored_reference_still_passes(self):
+        sol = self.get("/api/problems/" + self.PID)["solution"]
+        out = self.run_code(sol["code"])
+        self.assertEqual(out["passed"], out["total"], out)

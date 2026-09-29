@@ -14,7 +14,7 @@ def _greater_prefix(s: str):
     return g
 
 
-def getMinimumConflicts(primary: str, secondary: str) -> int:
+def solve(primary: str, secondary: str) -> int:
     n, m = len(primary), len(secondary)
     gp = _greater_prefix(primary)
     gs = _greater_prefix(secondary)

@@ -1,3 +1,8 @@
+# sqlite's write-ahead log beside the bank while a sync or the app has it open
+fastprep/fastprep.db-wal
+fastprep/fastprep.db-shm
+*.tmp
+
 # per-user runtime state, not content
 fastprep/practice/progress.db
 fastprep/practice/progress.db-*

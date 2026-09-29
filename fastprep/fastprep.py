@@ -20,6 +20,7 @@ Design notes:
 Usage:
     python3 fastprep.py sync                     # full sync (index + details)
     python3 fastprep.py sync --index-only        # just the index, 1 request
+    python3 fastprep.py check                    # compare the live index with the db
     python3 fastprep.py list --stage oa --limit 25
     python3 fastprep.py show <problem-id>
     python3 fastprep.py export --stage oa --format md --out oa.md
@@ -41,8 +42,18 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 
-import requests
-from requests.adapters import HTTPAdapter
+try:
+    import requests
+    from requests.adapters import HTTPAdapter
+    _NET_ERRORS: tuple = (requests.RequestException,)
+except ImportError:          # the practice app's image ships the stdlib only
+    requests = None
+    _NET_ERRORS = ()
+
+import http.client
+import urllib.error
+import urllib.request
+_NET_ERRORS += (urllib.error.URLError, http.client.HTTPException, OSError)
 
 BASE = "https://www.fastprep.io"
 INDEX_URL = f"{BASE}/api/problems"
@@ -132,17 +143,49 @@ class Throttle:
 # --------------------------------------------------------------------------
 # http
 # --------------------------------------------------------------------------
+class _Response:
+    def __init__(self, status: int, headers, body: bytes):
+        self.status_code = status
+        self.headers = headers
+        self.content = body
+
+    @property
+    def text(self) -> str:
+        return self.content.decode("utf-8", "replace")
+
+    def json(self):
+        return json.loads(self.content)
+
+
+class _StdlibSession:
+    """The slice of requests.Session this module uses, on urllib alone."""
+
+    def __init__(self):
+        self.headers: dict = {}
+
+    def get(self, url: str, timeout: float) -> _Response:
+        req = urllib.request.Request(url, headers=dict(self.headers))
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return _Response(r.status, r.headers, r.read())
+        except urllib.error.HTTPError as e:     # a status, not a failure
+            return _Response(e.code, e.headers, e.read() or b"")
+
+
 class Client:
     def __init__(self, throttle: Throttle, workers: int, ua: str,
                  cookie: str | None, timeout: float, max_retries: int):
         self.throttle = throttle
         self.timeout = timeout
         self.max_retries = max_retries
-        self.session = requests.Session()
-        # keep-alive pool sized to the worker count: fewer TCP/TLS handshakes
-        adapter = HTTPAdapter(pool_connections=workers, pool_maxsize=workers,
-                              max_retries=0)
-        self.session.mount("https://", adapter)
+        if requests is not None:
+            self.session = requests.Session()
+            # keep-alive pool sized to the worker count: fewer TCP/TLS handshakes
+            adapter = HTTPAdapter(pool_connections=workers, pool_maxsize=workers,
+                                  max_retries=0)
+            self.session.mount("https://", adapter)
+        else:
+            self.session = _StdlibSession()
         self.session.headers.update({
             "User-Agent": ua,
             "Accept": "application/json, text/plain, */*",
@@ -160,7 +203,7 @@ class Client:
             self.throttle.acquire()
             try:
                 r = self.session.get(url, timeout=self.timeout)
-            except requests.RequestException as e:
+            except _NET_ERRORS as e:
                 last_err = e
                 self._backoff(attempt)
                 continue
@@ -236,7 +279,9 @@ CREATE TABLE IF NOT EXISTS problems (
     detail_json         TEXT,
     detail_fetched_at   TEXT,
     first_indexed_at    TEXT,
-    updated_at          TEXT
+    updated_at          TEXT,
+    detail_stale        INTEGER NOT NULL DEFAULT 0,  -- index changed, detail not yet refetched
+    delisted_at         TEXT    -- set when the id drops out of the live index
 );
 CREATE INDEX IF NOT EXISTS idx_last_seen  ON problems(last_seen_max DESC);
 CREATE INDEX IF NOT EXISTS idx_company    ON problems(company);
@@ -248,12 +293,26 @@ CREATE TABLE IF NOT EXISTS sync_runs (
 """
 
 
+# Columns added after the first bank was built: CREATE TABLE IF NOT EXISTS
+# leaves an existing table alone, so they are added here instead.
+MIGRATIONS = {
+    "detail_stale": "ALTER TABLE problems ADD COLUMN detail_stale INTEGER NOT NULL DEFAULT 0",
+    "delisted_at": "ALTER TABLE problems ADD COLUMN delisted_at TEXT",
+}
+
+
 def connect(path: str) -> sqlite3.Connection:
     conn = sqlite3.connect(path, timeout=30, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA synchronous=NORMAL")
     conn.executescript(SCHEMA)
+    have = {r["name"] for r in conn.execute("PRAGMA table_info(problems)")}
+    for col, ddl in MIGRATIONS.items():
+        if col not in have:
+            conn.execute(ddl)
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_first_indexed ON problems(first_indexed_at)")
+    conn.commit()
     return conn
 
 
@@ -265,6 +324,51 @@ def _j(v):
     return json.dumps(v, ensure_ascii=False, sort_keys=True)
 
 
+def _index_row(p: dict, ts: str) -> tuple:
+    blob = _j(p)
+    seen = [d for d in (p.get("lastSeen") or []) if d]
+    return (
+        p["id"], p.get("title"), p.get("company"), p.get("companyId"),
+        p.get("status"), p.get("difficulty"),
+        _j(p.get("problemTypes") or []), _j(p.get("employmentTypes") or []),
+        _j(p.get("topics") or []), _j(p.get("targetRoles") or []),
+        p.get("assessmentPlatform"), p.get("practiceFormat"),
+        _j(seen), max(seen) if seen else None, min(seen) if seen else None,
+        len(seen), p.get("order"), index_hash(p), blob, ts, ts,
+    )
+
+
+def index_hash(p: dict) -> str:
+    return hashlib.sha256(_j(p).encode()).hexdigest()
+
+
+UPSERT_SQL = """
+    INSERT INTO problems (
+        id,title,company,company_id,status,difficulty,problem_types,
+        employment_types,topics,target_roles,assessment_platform,
+        practice_format,last_seen,last_seen_max,last_seen_min,seen_count,
+        order_idx,index_hash,index_json,first_indexed_at,updated_at)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+    ON CONFLICT(id) DO UPDATE SET
+        title=excluded.title, company=excluded.company,
+        company_id=excluded.company_id, status=excluded.status,
+        difficulty=excluded.difficulty, problem_types=excluded.problem_types,
+        employment_types=excluded.employment_types, topics=excluded.topics,
+        target_roles=excluded.target_roles,
+        assessment_platform=excluded.assessment_platform,
+        practice_format=excluded.practice_format,
+        last_seen=excluded.last_seen, last_seen_max=excluded.last_seen_max,
+        last_seen_min=excluded.last_seen_min, seen_count=excluded.seen_count,
+        order_idx=excluded.order_idx, index_hash=excluded.index_hash,
+        index_json=excluded.index_json, updated_at=excluded.updated_at,
+        delisted_at=NULL,
+        -- the index row changed, so the cached detail is stale - but it is
+        -- kept until a fresh one replaces it: a reader never sees a problem
+        -- with no statement just because a sync is half way through
+        detail_stale=1
+"""
+
+
 def upsert_index(conn: sqlite3.Connection, records: list[dict]) -> tuple[int, int]:
     """Insert/update index rows. Returns (new, changed)."""
     existing = {r["id"]: r["index_hash"] for r in conn.execute(
@@ -273,65 +377,221 @@ def upsert_index(conn: sqlite3.Connection, records: list[dict]) -> tuple[int, in
     new = changed = 0
     rows = []
     for p in records:
-        pid = p.get("id")
-        if not pid:
+        if not p.get("id"):
             continue
-        blob = _j(p)
-        h = hashlib.sha256(blob.encode()).hexdigest()
-        prev = existing.get(pid)
-        if prev == h:
+        prev = existing.get(p["id"])
+        if prev == index_hash(p):
             continue
         if prev is None:
             new += 1
         else:
             changed += 1
-        seen = [d for d in (p.get("lastSeen") or []) if d]
-        rows.append((
-            pid, p.get("title"), p.get("company"), p.get("companyId"),
-            p.get("status"), p.get("difficulty"),
-            _j(p.get("problemTypes") or []), _j(p.get("employmentTypes") or []),
-            _j(p.get("topics") or []), _j(p.get("targetRoles") or []),
-            p.get("assessmentPlatform"), p.get("practiceFormat"),
-            _j(seen), max(seen) if seen else None, min(seen) if seen else None,
-            len(seen), p.get("order"), h, blob, ts, ts,
-        ))
-    conn.executemany("""
-        INSERT INTO problems (
-            id,title,company,company_id,status,difficulty,problem_types,
-            employment_types,topics,target_roles,assessment_platform,
-            practice_format,last_seen,last_seen_max,last_seen_min,seen_count,
-            order_idx,index_hash,index_json,first_indexed_at,updated_at)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-        ON CONFLICT(id) DO UPDATE SET
-            title=excluded.title, company=excluded.company,
-            company_id=excluded.company_id, status=excluded.status,
-            difficulty=excluded.difficulty, problem_types=excluded.problem_types,
-            employment_types=excluded.employment_types, topics=excluded.topics,
-            target_roles=excluded.target_roles,
-            assessment_platform=excluded.assessment_platform,
-            practice_format=excluded.practice_format,
-            last_seen=excluded.last_seen, last_seen_max=excluded.last_seen_max,
-            last_seen_min=excluded.last_seen_min, seen_count=excluded.seen_count,
-            order_idx=excluded.order_idx, index_hash=excluded.index_hash,
-            index_json=excluded.index_json, updated_at=excluded.updated_at,
-            -- index row changed, so the cached detail is stale
-            detail_json=NULL, detail_fetched_at=NULL
-    """, rows)
+        rows.append(_index_row(p, ts))
+    conn.executemany(UPSERT_SQL, rows)
     conn.commit()
     return new, changed
+
+
+def mark_delisted(conn: sqlite3.Connection, live_ids: set[str]) -> tuple[list[str], list[str]]:
+    """Flag rows whose id left the live index; unflag any that came back.
+
+    Delisted problems are kept, not deleted: your progress, notes and any
+    reference solution point at them by id. Returns (delisted, relisted).
+    """
+    rows = list(conn.execute("SELECT id, delisted_at FROM problems"))
+    gone = [r["id"] for r in rows if r["id"] not in live_ids and not r["delisted_at"]]
+    back = [r["id"] for r in rows if r["id"] in live_ids and r["delisted_at"]]
+    ts = now_iso()
+    conn.executemany("UPDATE problems SET delisted_at=? WHERE id=?", [(ts, i) for i in gone])
+    conn.executemany("UPDATE problems SET delisted_at=NULL WHERE id=?", [(i,) for i in back])
+    conn.commit()
+    return gone, back
+
+
+def compare(conn: sqlite3.Connection, index: list[dict]) -> dict:
+    """What the live index has that this db does not - without writing."""
+    local = {r["id"]: r for r in conn.execute(
+        "SELECT id, index_hash, detail_json IS NULL AS missing, detail_stale, delisted_at "
+        "FROM problems")}
+    live = {p["id"]: p for p in index if p.get("id")}
+    new = [i for i in live if i not in local]
+    changed = [i for i in live if i in local and local[i]["index_hash"] != index_hash(live[i])]
+    removed = [i for i in local if i not in live]
+    incomplete = [i for i in live if i in local and i not in changed
+                  and (local[i]["missing"] or local[i]["detail_stale"])]
+    listed_locally = sum(1 for r in local.values() if not r["delisted_at"])
+    return {
+        "remote": len(live), "local": len(local), "localListed": listed_locally,
+        "new": new, "changed": changed, "removed": removed, "incomplete": incomplete,
+        "inSync": not (new or changed or incomplete)
+                  and not [i for i in removed if not local[i]["delisted_at"]],
+    }
+
+
+def fetch_details(client: "Client", ids: list[str], workers: int, on_result,
+                  stop: threading.Event | None = None, base: str = BASE) -> None:
+    """Fetch /api/problems/<id> for every id; on_result(pid, detail, err) is
+    called from THIS thread, so the caller can write to sqlite without a lock."""
+    stop = stop or threading.Event()
+
+    def work(pid: str):
+        if stop.is_set():
+            return pid, None, "stopped"
+        try:
+            return pid, client.get_json(f"{base}/api/problems/{pid}"), None
+        except Exception as e:  # noqa: BLE001 - reported per-item, run continues
+            return pid, None, str(e)
+
+    with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
+        futures = [pool.submit(work, p) for p in ids]
+        try:
+            for fut in as_completed(futures):
+                pid, detail, err = fut.result()
+                if err == "stopped":
+                    continue
+                if err is None and detail is None:
+                    err = "404 (delisted?)"
+                on_result(pid, detail, err)
+        except BaseException:
+            stop.set()
+            raise
+
+
+def sync_bank(conn: sqlite3.Connection, client: "Client", workers: int = 5,
+              on_event=None, stop: threading.Event | None = None,
+              base: str = BASE) -> dict:
+    """Incremental sync: one index request, then details for only what is new,
+    changed or still missing.
+
+    Each problem is written in ONE statement together with its detail, so a
+    reader of the bank (the practice app, live) never sees a new problem that
+    has no statement yet, nor a changed one whose statement was dropped. A
+    problem whose detail fails is simply not written, and the next sync picks
+    it up again because its index hash still differs.
+    """
+    emit = on_event or (lambda kind, **kw: None)
+    started = now_iso()
+    emit("index", url=f"{base}/api/problems")
+    index = client.get_json(f"{base}/api/problems")
+    if not isinstance(index, list):
+        raise RuntimeError("unexpected index payload: %r" % type(index).__name__)
+    live = {p["id"]: p for p in index if p.get("id")}
+    diff = compare(conn, index)
+    todo = diff["new"] + diff["changed"] + diff["incomplete"]
+    emit("compared", **{k: (len(v) if isinstance(v, list) else v) for k, v in diff.items()})
+
+    done = errors = 0
+    added, updated, failed, images_replaced = [], [], [], []
+    new_ids = set(diff["new"])
+
+    def on_result(pid, detail, err):
+        nonlocal done, errors
+        if err:
+            errors += 1
+            failed.append(pid)
+            emit("error", id=pid, error=err)
+        else:
+            prev = conn.execute("SELECT detail_json FROM problems WHERE id=?", (pid,)).fetchone()
+            if prev and prev["detail_json"]:
+                # screenshots are addressed by position: appending keeps every
+                # cached one valid, anything else may put a different image at n
+                was = json.loads(prev["detail_json"]).get("sourceImages") or []
+                now = (detail or {}).get("sourceImages") or []
+                if was and now[:len(was)] != was:
+                    images_replaced.append(pid)
+            ts = now_iso()
+            conn.execute(UPSERT_SQL, _index_row(live[pid], ts))
+            conn.execute("UPDATE problems SET detail_json=?, detail_fetched_at=?, "
+                         "detail_stale=0, updated_at=? WHERE id=?",
+                         (_j(detail), ts, ts, pid))
+            conn.commit()      # per problem: the app sees it complete, or not at all
+            (added if pid in new_ids else updated).append(pid)
+            done += 1
+        emit("progress", done=done, errors=errors, total=len(todo))
+
+    if todo:
+        fetch_details(client, todo, workers, on_result, stop, base)
+    delisted, relisted = mark_delisted(conn, set(live))
+    conn.execute("INSERT INTO sync_runs VALUES (?,?,?,?,?,?)",
+                 (started, now_iso(), len(index), done, errors, "incremental"))
+    conn.commit()
+    after = compare(conn, index)
+    summary = {
+        "startedAt": started, "finishedAt": now_iso(),
+        "remote": diff["remote"], "localBefore": diff["local"],
+        "localAfter": conn.execute("SELECT COUNT(*) FROM problems").fetchone()[0],
+        "added": added, "updated": updated, "failed": failed,
+        "imagesReplaced": images_replaced,
+        "delisted": delisted, "relisted": relisted,
+        "inSync": after["inSync"],
+    }
+    emit("done", **{k: (len(v) if isinstance(v, list) else v) for k, v in summary.items()})
+    return summary
 
 
 # --------------------------------------------------------------------------
 # sync
 # --------------------------------------------------------------------------
+def make_client(args) -> "Client":
+    throttle = Throttle(rps=args.rps, burst=args.burst)
+    return Client(throttle, args.workers, args.user_agent,
+                  args.cookie or os.environ.get("FASTPREP_COOKIE"),
+                  args.timeout, args.max_retries)
+
+
+def _log_event(kind: str, **kw) -> None:
+    if kind == "compared":
+        log(f"live index {kw['remote']} problems, local {kw['local']}: "
+            f"{kw['new']} new, {kw['changed']} changed, {kw['removed']} gone upstream, "
+            f"{kw['incomplete']} without a current detail")
+    elif kind == "progress" and (kw["done"] + kw["errors"]) % 50 == 0:
+        log(f"  {kw['done']}/{kw['total']} ({kw['errors']} errors)")
+    elif kind == "error":
+        log(f"  ! {kw['id']}: {kw['error']}")
+    elif kind == "done":
+        log(f"done: {kw['added']} added, {kw['updated']} updated, {kw['failed']} failed, "
+            f"{kw['delisted']} delisted -> {kw['localAfter']} problems, "
+            f"{'in sync' if kw['inSync'] else 'NOT in sync - re-run to retry'}")
+
+
+def cmd_check(args) -> int:
+    """One request: how far is this db behind the live bank?"""
+    conn = connect(args.db)
+    client = make_client(args)
+    index = client.get_json(f"{args.base}/api/problems")
+    if not isinstance(index, list):
+        log("unexpected index payload")
+        return 1
+    diff = compare(conn, index)
+    if args.json:
+        print(json.dumps(diff, indent=2))
+        return 0
+    print(f"live  {diff['remote']} problems\nlocal {diff['local']} "
+          f"({diff['localListed']} still listed upstream)")
+    for key in ("new", "changed", "removed", "incomplete"):
+        ids = diff[key]
+        print(f"{key:<11} {len(ids)}" + (f"   e.g. {', '.join(ids[:3])}" if ids else ""))
+    print("in sync" if diff["inSync"] else "behind - run: python3 fastprep.py sync")
+    return 0
+
+
 def cmd_sync(args) -> int:
     conn = connect(args.db)
-    throttle = Throttle(rps=args.rps, burst=args.burst)
-    client = Client(throttle, args.workers, args.user_agent,
-                    args.cookie or os.environ.get("FASTPREP_COOKIE"),
-                    args.timeout, args.max_retries)
-    started = now_iso()
+    client = make_client(args)
+    throttle = client.throttle
+    partial = args.index_only or args.refresh or args.stage or args.company or args.limit
 
+    if not partial:
+        # the everyday path: only what is new, changed or missing
+        try:
+            summary = sync_bank(conn, client, args.workers, on_event=_log_event,
+                                base=args.base)
+        except KeyboardInterrupt:
+            log("interrupted - everything written so far is complete (re-run to resume)")
+            return 1
+        return 0 if summary["inSync"] else 1
+
+    started = now_iso()
     log(f"fetching index: {INDEX_URL}")
     index = client.get_json(INDEX_URL)
     if not isinstance(index, list):
@@ -339,8 +599,9 @@ def cmd_sync(args) -> int:
         return 1
     log(f"index: {len(index)} problems")
     new, changed = upsert_index(conn, index)
+    delisted, _ = mark_delisted(conn, {p["id"] for p in index if p.get("id")})
     log(f"index stored: {new} new, {changed} changed, "
-        f"{len(index) - new - changed} unchanged")
+        f"{len(index) - new - changed} unchanged, {len(delisted)} delisted")
 
     if args.index_only:
         conn.execute("INSERT INTO sync_runs VALUES (?,?,?,?,?,?)",
@@ -350,7 +611,7 @@ def cmd_sync(args) -> int:
         return 0
 
     # which details still need fetching
-    where = "detail_json IS NULL"
+    where = "(detail_json IS NULL OR detail_stale = 1)"
     params: list = []
     if args.refresh:
         where = "1=1"
@@ -374,46 +635,26 @@ def cmd_sync(args) -> int:
     log(f"fetching {len(todo)} details with {args.workers} workers at "
         f"~{args.rps} req/s (eta ~{eta/60:.1f} min)")
 
-    write_lock = threading.Lock()
     done = errors = 0
-    stop = threading.Event()
 
-    def work(pid: str):
-        if stop.is_set():
-            return pid, None, "stopped"
-        try:
-            d = client.get_json(DETAIL_URL.format(id=pid))
-            return pid, d, None
-        except Exception as e:  # noqa: BLE001 - reported per-item, run continues
-            return pid, None, str(e)
+    def on_result(pid, detail, err):
+        nonlocal done, errors
+        if err:
+            errors += 1
+            log(f"  ! {pid}: {err}")
+            return
+        conn.execute(
+            "UPDATE problems SET detail_json=?, detail_fetched_at=?,"
+            " detail_stale=0, updated_at=? WHERE id=?",
+            (_j(detail), now_iso(), now_iso(), pid))
+        done += 1
+        if done % 50 == 0:
+            conn.commit()
+            log(f"  {done}/{len(todo)} ({throttle.rps:.2f} req/s, {errors} errors)")
 
     try:
-        with ThreadPoolExecutor(max_workers=args.workers) as pool:
-            futures = {pool.submit(work, p): p for p in todo}
-            for fut in as_completed(futures):
-                pid, detail, err = fut.result()
-                if err == "stopped":
-                    continue
-                if err:
-                    errors += 1
-                    log(f"  ! {pid}: {err}")
-                    continue
-                if detail is None:
-                    errors += 1
-                    log(f"  ! {pid}: 404 (delisted?)")
-                    continue
-                with write_lock:
-                    conn.execute(
-                        "UPDATE problems SET detail_json=?, detail_fetched_at=?,"
-                        " updated_at=? WHERE id=?",
-                        (_j(detail), now_iso(), now_iso(), pid))
-                    done += 1
-                    if done % 50 == 0:
-                        conn.commit()
-                        log(f"  {done}/{len(todo)} ({throttle.rps:.2f} req/s, "
-                            f"{errors} errors)")
+        fetch_details(client, todo, args.workers, on_result)
     except KeyboardInterrupt:
-        stop.set()
         log("interrupted - committing what we have (re-run to resume)")
     finally:
         conn.commit()
@@ -562,6 +803,45 @@ def render_markdown(d: dict) -> str:
     return "\n".join(out)
 
 
+def write_export(rows, fmt: str, out) -> None:
+    """rows need index_json + detail_json (json/jsonl/md) or the list columns (csv)."""
+    if fmt == "json":
+        payload = []
+        for r in rows:
+            rec = json.loads(r["index_json"])
+            if r["detail_json"]:
+                rec = {**rec, **json.loads(r["detail_json"])}
+            payload.append(rec)
+        json.dump(payload, out, indent=2, ensure_ascii=False)
+    elif fmt == "jsonl":
+        for r in rows:
+            rec = json.loads(r["index_json"])
+            if r["detail_json"]:
+                rec = {**rec, **json.loads(r["detail_json"])}
+            out.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    elif fmt == "csv":
+        import csv
+        w = csv.writer(out)
+        w.writerow(["id", "title", "company", "difficulty", "stages",
+                    "topics", "platform", "last_seen_max", "seen_count",
+                    "employment_types"])
+        for r in rows:
+            w.writerow([
+                r["id"], r["title"], r["company"], r["difficulty"],
+                "|".join(json.loads(r["problem_types"] or "[]")),
+                "|".join(json.loads(r["topics"] or "[]")),
+                r["assessment_platform"], r["last_seen_max"],
+                r["seen_count"],
+                "|".join(json.loads(r["employment_types"] or "[]")),
+            ])
+    else:  # md
+        for r in rows:
+            if not r["detail_json"]:
+                continue
+            out.write(render_markdown(json.loads(r["detail_json"])))
+            out.write("\n\n---\n\n")
+
+
 def cmd_export(args) -> int:
     conn = connect(args.db)
     where, params = build_filter(args)
@@ -570,41 +850,7 @@ def cmd_export(args) -> int:
     rows = list(conn.execute(sql, params))
     out = open(args.out, "w", encoding="utf-8") if args.out else sys.stdout
     try:
-        if args.format == "json":
-            payload = []
-            for r in rows:
-                rec = json.loads(r["index_json"])
-                if r["detail_json"]:
-                    rec = {**rec, **json.loads(r["detail_json"])}
-                payload.append(rec)
-            json.dump(payload, out, indent=2, ensure_ascii=False)
-        elif args.format == "jsonl":
-            for r in rows:
-                rec = json.loads(r["index_json"])
-                if r["detail_json"]:
-                    rec = {**rec, **json.loads(r["detail_json"])}
-                out.write(json.dumps(rec, ensure_ascii=False) + "\n")
-        elif args.format == "csv":
-            import csv
-            w = csv.writer(out)
-            w.writerow(["id", "title", "company", "difficulty", "stages",
-                        "topics", "platform", "last_seen_max", "seen_count",
-                        "employment_types"])
-            for r in rows:
-                w.writerow([
-                    r["id"], r["title"], r["company"], r["difficulty"],
-                    "|".join(json.loads(r["problem_types"] or "[]")),
-                    "|".join(json.loads(r["topics"] or "[]")),
-                    r["assessment_platform"], r["last_seen_max"],
-                    r["seen_count"],
-                    "|".join(json.loads(r["employment_types"] or "[]")),
-                ])
-        else:  # md
-            for r in rows:
-                if not r["detail_json"]:
-                    continue
-                out.write(render_markdown(json.loads(r["detail_json"])))
-                out.write("\n\n---\n\n")
+        write_export(rows, args.format, out)
     finally:
         if args.out:
             out.close()
@@ -737,14 +983,21 @@ def main() -> int:
     ap.add_argument("--db", default=DEFAULT_DB)
     sub = ap.add_subparsers(dest="cmd", required=True)
 
-    s = sub.add_parser("sync", help="fetch index + problem details")
-    s.add_argument("--workers", type=int, default=5,
-                   help="parallel detail fetchers (default 5)")
-    s.add_argument("--rps", type=float, default=3.0,
-                   help="sustained requests/sec ceiling (default 3.0)")
-    s.add_argument("--burst", type=float, default=3.0)
-    s.add_argument("--timeout", type=float, default=45.0)
-    s.add_argument("--max-retries", type=int, default=5)
+    def add_http(p):
+        p.add_argument("--workers", type=int, default=5,
+                       help="parallel detail fetchers (default 5)")
+        p.add_argument("--rps", type=float, default=3.0,
+                       help="sustained requests/sec ceiling (default 3.0)")
+        p.add_argument("--burst", type=float, default=3.0)
+        p.add_argument("--timeout", type=float, default=45.0)
+        p.add_argument("--max-retries", type=int, default=5)
+        p.add_argument("--user-agent", default=DEFAULT_UA)
+        p.add_argument("--cookie", help="optional; or set FASTPREP_COOKIE")
+        p.add_argument("--base", default=os.environ.get("FASTPREP_BASE", BASE),
+                       help=argparse.SUPPRESS)      # a stand-in upstream, for tests
+
+    s = sub.add_parser("sync", help="fetch what is new or changed (index + details)")
+    add_http(s)
     s.add_argument("--index-only", action="store_true",
                    help="one request, metadata only")
     s.add_argument("--refresh", action="store_true",
@@ -753,9 +1006,11 @@ def main() -> int:
                    help="fetch newest-sighted problems first")
     s.add_argument("--stage"); s.add_argument("--company")
     s.add_argument("--limit", type=int)
-    s.add_argument("--user-agent", default=DEFAULT_UA)
-    s.add_argument("--cookie", help="optional; or set FASTPREP_COOKIE")
     s.set_defaults(func=cmd_sync)
+
+    ck = sub.add_parser("check", help="compare the live index with the db (1 request)")
+    add_http(ck)
+    ck.add_argument("--json", action="store_true"); ck.set_defaults(func=cmd_check)
 
     def add_filters(p):
         p.add_argument("--stage", help="oa | phone | onsite")

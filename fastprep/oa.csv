@@ -1,14 +1,138 @@
 id,title,company,difficulty,stages,topics,platform,last_seen_max,seen_count,employment_types
-ibm-customer-resource-usage-analysis,Customer Resource Usage Analysis,IBM,easy,OA,database,unknown,2026-09-18,2,FULLTIME
-google-count-score-categories,Count Score Categories,Google,easy,OA,array|simulation,codility,2026-09-17,3,INTERN
-google-book-reading-evenings,Book Reading Evenings,Google,easy,OA,array|greedy|simulation,codility,2026-09-17,2,INTERN
+amazon-minimum-merge-conflicts,Minimum Merge Conflicts,Amazon,hard,OA,dynamic_programming|string,unknown,2026-09-28,8,INTERN|FULLTIME|NEW GRAD
+microsoft-get-maximum-reward-points,Maximum Reward Points,Microsoft,medium,OA,array|greedy|sorting,hackerrank,2026-09-28,4,NEW GRAD|INTERN
+capital-one-count-subarrays-with-k-disjoint-equal-pairs,Count Subarrays with K Disjoint Equal Pairs,Capital One,medium,OA,array|sliding_window|hash_table,codesignal,2026-09-28,2,FULLTIME
+jpmorgan-maximum-game-board-score,Maximum Game Board Score,JP Morgan Chase,medium,OA,array|dynamic_programming,hackerrank,2026-09-28,2,NEW GRAD|INTERN
+microsoft-shopkeeper-final-price-summary,Shopkeeper Final Price Summary,Microsoft,medium,OA,array|stack,hackerrank,2026-09-28,2,NEW GRAD|INTERN
+wex-stack-command-output,Stack Command Output,Wex,easy,OA|PHONE SCREEN,stack|parsing,unknown,2026-09-28,2,FULLTIME|NEW GRAD
+wex-custom-ordered-string-permutations,String Permutations in Custom Character Order,Wex,medium,OA|PHONE SCREEN,backtracking|string|sorting,unknown,2026-09-28,2,FULLTIME|NEW GRAD
+abridge-decode-string,Decode String,Abridge,medium,OA,string|stack|recursion,,2026-09-28,1,FULLTIME
+abridge-flip-invert-and-smooth-image,"Flip, Invert, and Smooth a Binary Image",Abridge,medium,OA,array|matrix|simulation,,2026-09-28,1,FULLTIME
+abridge-string-compression,String Compression,Abridge,medium,OA,string|two_pointers,,2026-09-28,1,FULLTIME
+abridge-sum-multiples-of-three-five-seven,"Sum Multiples of 3, 5, or 7",Abridge,easy,OA,math,,2026-09-28,1,FULLTIME
+amazon-reversi-move-simulation,Apply a Reversi Move,Amazon,medium,OA,array|matrix|simulation,unknown,2026-09-28,1,FULLTIME
+capital-one-check-array-arithmetic-expressions,Check Array Arithmetic Expressions,Capital One,easy,OA,array|simulation,codesignal,2026-09-28,1,FULLTIME
+capital-one-match-songs-with-repeatable-animations,Match Songs with Repeatable Animations,Capital One,easy,OA,array|string|math|simulation,codesignal,2026-09-28,1,FULLTIME
+capital-one-maximum-rhombic-area-sum,Maximum Rhombic Area Sum,Capital One,medium,OA,matrix|geometry|prefix_sum,codesignal,2026-09-28,1,FULLTIME
+chubb-flat-json-value-differences,Flat JSON Value Differences,Chubb,easy,OA,hash_table|string|sorting,unknown,2026-09-28,1,NEW GRAD
+chubb-maximum-student-teacher-distance,Maximum Student-Teacher Distance,Chubb,easy,OA,array|math,unknown,2026-09-28,1,NEW GRAD
+chubb-minimum-power-of-two-weight-cost,Minimum Cost to Reach a Target Weight,Chubb,hard,OA,greedy|bit_manipulation|array,unknown,2026-09-28,1,NEW GRAD
+chubb-minimum-last-element-relocations,Minimum Last-Element Relocations,Chubb,medium,OA,array|greedy|two_pointers,unknown,2026-09-28,1,NEW GRAD
+chubb-most-visited-sprint-marker,Most Visited Sprint Marker,Chubb,medium,OA,prefix_sum|array|intervals,unknown,2026-09-28,1,NEW GRAD
+openai-largest-microorganism,Largest Microorganism After Consumption,OpenAI,medium,OA,array|simulation|linked_list,unknown,2026-09-28,1,FULLTIME
+openai-wind-shifted-leaf-sum,Leaves Remaining After Wind Gusts,OpenAI,medium,OA,matrix|simulation|prefix_sum,unknown,2026-09-28,1,FULLTIME
+openai-network-endpoint-or-cycle,Network Endpoint or Cycle Boundary,OpenAI,easy,OA,graph|hash_table|simulation,unknown,2026-09-28,1,FULLTIME
+openai-repair-one-movement-instruction,Repair One Movement Instruction,OpenAI,medium,OA,matrix|string|simulation,unknown,2026-09-28,1,FULLTIME
+stripe-deployment-window-scheduler,Deployment Window Scheduler,Stripe,hard,OA,intervals|sorting|simulation,hackerrank,2026-09-27,7,INTERN|NEW GRAD|FULLTIME
+optiver-straight-line-word-count,Count Straight-Line Word Occurrences in a Grid,Optiver,medium,OA,matrix|string|simulation,unknown,2026-09-27,2,FULLTIME
+optiver-fastest-rolling-kilometer-speed,Fastest Average Speed over a Rolling Kilometer,Optiver,hard,OA,two_pointers|sliding_window|math|array,unknown,2026-09-27,2,FULLTIME
+arista-networks-api-bandwidth-allocation,API Bandwidth Allocation,Arista Networks,medium,OA,array|dynamic_programming,unknown,2026-09-27,1,NEW GRAD
+arista-networks-lfu-cache,LFU Cache,Arista Networks,hard,OA,design|hash_table|linked_list|simulation,unknown,2026-09-27,1,NEW GRAD
+microsoft-maximum-valid-substring-frequency,Maximum Valid Substring Frequency,Microsoft,medium,OA,string|hash_table|sliding_window,unknown,2026-09-27,1,FULLTIME
+microsoft-minimum-nonadjacent-capability,Minimum Non-Adjacent Selection Capability,Microsoft,medium,OA,array|binary_search|greedy,unknown,2026-09-27,1,FULLTIME
+rippling-consistent-logs,Consistent Logs,Rippling,medium,OA,array|hash_table|sliding_window,hackerrank,2026-09-26,3,NEW GRAD|INTERN
+rippling-costliest-chocolate,Costliest Chocolate,Rippling,easy,OA,array|math|simulation,hackerrank,2026-09-26,3,NEW GRAD|INTERN
+rippling-server-management,Server Management,Rippling,easy,OA,array|greedy|sorting,unknown,2026-09-26,3,NEW GRAD|INTERN
+accenture-nearest-composite-number,Nearest Composite Number,Accenture,medium,OA,math,unknown,2026-09-26,1,NEW GRAD
+goldman-sachs-longest-palindromic-subsequence,Longest Palindromic Subsequence,Goldman Sachs,medium,OA,string|dynamic_programming,unknown,2026-09-26,1,NEW GRAD
+goldman-sachs-merge-overlapping-intervals,Merge Overlapping Intervals,Goldman Sachs,medium,OA,array|sorting|intervals,unknown,2026-09-26,1,NEW GRAD
+ibm-maximum-points-by-deleting-elements,Maximum Points by Deleting Elements,IBM,medium,OA,array|hash_table|dynamic_programming,hackerrank,2026-09-26,1,INTERN
+hrt-sort-matrix-borders,Sort Matrix Borders,Hudson River Trading,medium,OA,array|matrix|sorting|simulation,codesignal,2026-09-25,5,INTERN|FULLTIME|NEW GRAD
+visa-minimum-values-even-powers-of-two,Minimum Values with Even Powers of Two,Visa,medium,OA,array|math|greedy,hackerrank,2026-09-25,4,FULLTIME|NEW GRAD
+hrt-rearrange-string-by-alternating-ends,Rearrange String by Alternating Ends,Hudson River Trading,easy,OA,string|two_pointers|simulation,codesignal,2026-09-25,3,FULLTIME|NEW GRAD|INTERN
+visa-distinct-chapters-missed-during-cyclic-absence,Distinct Chapters Missed During a Cyclic Absence,Visa,easy,OA,math|simulation,hackerrank,2026-09-25,3,NEW GRAD|INTERN
+visa-maximum-nondecreasing-array-length,Maximum Non-Decreasing Array Length,Visa,hard,OA,array|dynamic_programming|binary_search|prefix_sum,hackerrank,2026-09-25,3,FULLTIME|NEW GRAD
+hrt-rectangle-fit-queries,Rectangle Fit Queries,Hudson River Trading,medium,OA,array|geometry|simulation,codesignal,2026-09-25,2,NEW GRAD|INTERN
+hrt-round-robin-wdl-order,Round-Robin WDL Order,Hudson River Trading,easy,OA,string|simulation,codesignal,2026-09-25,2,NEW GRAD|INTERN
+tiktok-count-one-swap-number-pairs,Count One-Swap Number Pairs,TikTok,medium,OA,array|string|hash_table|combinatorics,codesignal,2026-09-25,2,INTERN|NEW GRAD
+tiktok-lowest-number-in-open-range,Lowest Number in an Open Range,TikTok,easy,OA,array,codesignal,2026-09-25,2,INTERN|NEW GRAD
+tiktok-partition-matrix-by-nonnegative-averages,Partition Matrix by Nonnegative Averages,TikTok,medium,OA,matrix|prefix_sum,unknown,2026-09-25,2,NEW GRAD
+jpmorgan-maximize-minimum-deployment-difficulty,Maximize Minimum Deployment Difficulty,JP Morgan Chase,medium,OA,array|sorting|greedy,unknown,2026-09-25,1,FULLTIME
+tiktok-count-subarrays-matching-comparison-pattern,Count Subarrays Matching a Comparison Pattern,TikTok,medium,OA,array|string,unknown,2026-09-25,1,NEW GRAD
+tiktok-count-subarrays-with-k-fruit-pairs,Count Subarrays with at Least K Equal-Fruit Pairs,TikTok,medium,OA,array|sliding_window|hash_table,unknown,2026-09-25,1,NEW GRAD
+amazon-maximum-capacity,Maximum System Memory Capacity,Amazon,easy,OA,sorting|greedy,hackerrank,2026-09-24,7,INTERN|NEW GRAD
+doordash-dasher-pay,Dasher Pay with Store Waits and Peak Hours,DoorDash,medium,OA|PHONE SCREEN|ONSITE INTERVIEW,hash_table|simulation|string,unknown,2026-09-24,7,FULLTIME
+airbnb-progressive-banking-system,Progressive Banking System,Airbnb,hard,OA,design|hash_table|heap|sorting|simulation,unknown,2026-09-24,4,FULLTIME
+airbnb-task-management-system,Task Management System,Airbnb,hard,OA,design|hash_table|sorting|simulation,unknown,2026-09-24,2,FULLTIME
+capital-one-alternating-string-ends,Alternate String Ends,Capital One,easy,OA,string|two_pointers|simulation,unknown,2026-09-24,2,FULLTIME
+capital-one-brightest-position-on-street,Brightest Position on a Street,Capital One,medium,OA,intervals|prefix_sum|sorting,unknown,2026-09-24,2,NEW GRAD|FULLTIME
+capital-one-count-matching-subarrays,Count Subarrays Matching a Comparison Pattern,Capital One,medium,OA,array|sliding_window,unknown,2026-09-24,2,NEW GRAD|FULLTIME
+capital-one-sort-adjacent-pairs,Sort Adjacent Pairs,Capital One,easy,OA,array|sorting,unknown,2026-09-24,2,NEW GRAD|FULLTIME
+capital-one-maximum-border-frame-values,Distinct Values on Maximum-Sum Frames,Capital One,medium,OA,matrix,unknown,2026-09-24,1,FULLTIME
+capital-one-next-bus-wait,Wait Until the Next Bus,Capital One,easy,OA,array|simulation,unknown,2026-09-24,1,FULLTIME
+falconx-longest-low-slippage-window,Longest Low-Slippage Execution Window,FalconX,medium,OA,sorting|sliding_window,unknown,2026-09-24,1,FULLTIME
+intuit-shortest-path-from-encoded-graph,Shortest Path from an Encoded Graph,Intuit,medium,OA,graph|breadth_first_search|shortest_path,coderbyte,2026-09-24,1,NEW GRAD|INTERN
+jpmorgan-minimum-digit-anagram-changes,Minimum Digit Changes Between String Halves,JP Morgan Chase,easy,OA,string|hash_table,unknown,2026-09-24,1,INTERN|NEW GRAD
+jpmorgan-same-substring-within-budget,Same Substring Within Budget,JP Morgan Chase,medium,OA,string|sliding_window,unknown,2026-09-24,1,INTERN|NEW GRAD
+microsoft-count-digit-replacements-with-no-equal-adjacent-digits,Count Digit Replacements with No Equal Adjacent Digits,Microsoft,medium,OA,string|dynamic_programming|combinatorics,hackerrank,2026-09-24,1,NEW GRAD|INTERN
+microsoft-maximize-pipeline-throughput-under-budget,Maximize Pipeline Throughput Under a Scaling Budget,Microsoft,medium,OA,binary_search|greedy,hackerrank,2026-09-24,1,NEW GRAD|INTERN
+morgan-stanley-three-resource-knapsack,Three-Resource 0/1 Knapsack,Morgan Stanley,medium,OA,array|dynamic_programming,unknown,2026-09-24,1,INTERN
+visa-minimum-power-of-two-removal-operations,Minimum Power-of-Two Removal Operations,Visa,medium,OA,array|math|bit_manipulation,hackerrank,2026-09-24,1,INTERN
+visa-optimal-transfer,Optimal Transfer,Visa,hard,OA,graph|greedy|prefix_sum,hackerrank,2026-09-24,1,INTERN
+visa-mutual-friend-recommendations,Top Mutual-Friend Recommendations,Visa,medium,OA,graph|hash_table|sorting,hackerrank,2026-09-24,1,INTERN
+walmart-house-robber,House Robber,Walmart,medium,OA,array|dynamic_programming,unknown,2026-09-24,1,FULLTIME
+optiver-power-cell-bank,Power Cell Bank,Optiver,hard,OA,hash_table|sorting|design|simulation,unknown,2026-09-23,9,INTERN|NEW GRAD
+microsoft-maximum-escape-game-score,Maximum Escape Game Score,Microsoft,medium,OA,array|hash_table|dynamic_programming|sorting,hackerrank,2026-09-23,4,NEW GRAD|INTERN
+microsoft-k-most-recent-unique-request-ids,K Most Recent Unique Request IDs,Microsoft,easy,OA,array|hash_table,hackerrank,2026-09-23,2,INTERN|NEW GRAD
+visa-total-server-downtime,Total Server Downtime,Visa,easy,OA,array|sorting|intervals,hackerrank,2026-09-23,2,FULLTIME|NEW GRAD|INTERN
+sedemac-count-palindromic-base-representations,Count Palindromic Base Representations,SEDEMAC,easy,OA,math|simulation,unknown,2026-09-23,1,NEW GRAD
+sedemac-filter-isolated-interior-bits,Filter Isolated Interior Signal Bits,SEDEMAC,easy,OA,string|simulation,unknown,2026-09-23,1,NEW GRAD
+salesforce-minimum-unique-segments-after-deletion,Minimum Unique-Character Segments After Deletion,Salesforce,medium,OA,string|greedy|bit_manipulation,unknown,2026-09-23,1,FULLTIME
+superhuman-longest-distinct-string,Longest Distinct String,Superhuman,medium,OA,string|sliding_window|hash_table,unknown,2026-09-23,1,NEW GRAD|INTERN
+superhuman-minimum-two-processor-time,Minimum Time on Two Processors,Superhuman,medium,OA,dynamic_programming|array,unknown,2026-09-23,1,NEW GRAD|INTERN
+superhuman-mutual-friend-recommendations,Top Mutual-Friend Recommendations,Superhuman,medium,OA,graph|hash_table|sorting,unknown,2026-09-23,1,NEW GRAD|INTERN
+visa-longest-string-chain,Longest String Chain,Visa,medium,OA,dynamic_programming|hash_table|sorting|string,hackerrank,2026-09-23,1,NEW GRAD|INTERN
+visa-maximum-three-server-difficulty-score,Maximum Three-Server Difficulty Score,Visa,easy,OA,array|greedy|sorting|math,hackerrank,2026-09-23,1,NEW GRAD|INTERN
+visa-minimize-malware-spread,Minimize Malware Spread by Removing a Node,Visa,medium,OA,graph|breadth_first_search|simulation,hackerrank,2026-09-23,1,NEW GRAD|INTERN
+google-split-array-into-consecutive-subsequences,Decreasing Subsequences,Google,medium,OA,greedy|heap,codesignal,2026-09-22,4,INTERN|NEW GRAD
+hrt-rightmost-longest-character-run,Rightmost Longest Character Run,Hudson River Trading,easy,OA,string|two_pointers,codesignal,2026-09-22,4,INTERN|NEW GRAD
+google-minimize-absolute-difference-of-server-loads,Minimize Absolute Difference of Server Loads,Google,medium,OA,dynamic_programming|array,codesignal,2026-09-22,3,INTERN|NEW GRAD
+hrt-dynamic-sum-pair-queries,Dynamic Sum Pair Queries,Hudson River Trading,medium,OA,array|hash_table|simulation,codesignal,2026-09-22,2,INTERN|NEW GRAD
+hrt-product-minus-sum-of-digits,Product Minus Sum of Digits,Hudson River Trading,easy,OA,math|simulation,codesignal,2026-09-22,2,INTERN|NEW GRAD
+capital-one-count-one-swap-number-pairs,Count One-Swap Number Pairs,Capital One,medium,OA,array|string|hash_table|combinatorics,unknown,2026-09-22,1,FULLTIME
+intuit-oldest-and-youngest-employees,Oldest and Youngest Employees,Intuit,easy,OA,database,unknown,2026-09-22,1,INTERN
+intuit-pressure-isolation-shutdown-order,Pressure-Isolation Shutdown Order,Intuit,hard,OA,array|dynamic_programming|combinatorics,unknown,2026-09-22,1,NEW GRAD|INTERN
+intuit-submask-sum-queries,Submask Sum Queries,Intuit,hard,OA,dynamic_programming|bit_manipulation,unknown,2026-09-22,1,INTERN
+netflix-records-to-filled-table,Convert Sparse Records to a Filled Table,Netflix,medium,OA,hash_table|sorting|array,unknown,2026-09-22,1,NEW GRAD
+netflix-sparse-matrix-multiplication,Sparse Matrix Multiplication,Netflix,medium,OA,array|matrix,unknown,2026-09-22,1,NEW GRAD
+visa-shortest-digit-prefix-for-targets,Shortest Digit Prefix for Target Multisets,Visa,medium,OA,string|prefix_sum|hash_table,unknown,2026-09-22,1,NEW GRAD
+visa-sum-of-index-pair-differences,Sum of Index-Ordered Pair Differences,Visa,medium,OA,array|math,hackerrank,2026-09-21,3,NEW GRAD|INTERN
+visa-maximum-equalized-substrings-after-one-adjacent-swap,Maximum Equalized Substrings After One Adjacent Swap,Visa,medium,OA,string|prefix_sum|greedy,unknown,2026-09-21,1,INTERN
+visa-minimum-unreachable-warehouses,Minimum Unreachable Warehouses,Visa,medium,OA,graph|depth_first_search|union_find,unknown,2026-09-21,1,INTERN
+amazon-minimum-grid-inconvenience,Minimum Grid Inconvenience,Amazon,hard,OA,matrix|breadth_first_search|binary_search,unknown,2026-09-20,11,FULLTIME|NEW GRAD
+google-meeting-rooms-ii,Minimum Number of Chairs,Google,easy,OA|PHONE SCREEN|ONSITE INTERVIEW,intervals|sorting|heap,codesignal,2026-09-20,5,FULLTIME|NEW GRAD
+google-count-score-categories,Count Score Categories,Google,easy,OA,array|simulation,codility,2026-09-20,4,INTERN|NEW GRAD
+google-book-reading-evenings,Book Reading Evenings,Google,easy,OA,array|greedy|simulation,codility,2026-09-20,3,INTERN|NEW GRAD
+capital-one-obstacle-placement-queries,Obstacle Placement Queries,Capital One,medium,OA,intervals|simulation,unknown,2026-09-20,2,INTERN|FULLTIME
+blackrock-lowest-common-ancestor-parent-tree,Lowest Common Ancestor in a Parent Tree,BlackRock,easy,OA,tree|hash_table,unknown,2026-09-20,1,NEW GRAD
+blackrock-valid-parentheses,Valid Parentheses,BlackRock,easy,OA,string|stack,unknown,2026-09-20,1,NEW GRAD
+capital-one-circular-high-low-pattern,Circular High-Low Pattern,Capital One,easy,OA,array,unknown,2026-09-20,1,FULLTIME
+capital-one-symbolic-matrix-pattern,Find a Symbolic Matrix Pattern,Capital One,medium,OA,matrix|hash_table,unknown,2026-09-20,1,FULLTIME
+stripe-incident-monitor,Incident Monitor,Stripe,hard,OA,array|string|hash_table|sliding_window|queue|simulation|parsing,unknown,2026-09-19,9,FULLTIME|NEW GRAD
+amazon-get-min-amount,Get Minimum Amount,Amazon,,OA,,unknown,2026-09-19,7,NEW GRAD
+capital-one-rank-flights-by-airline-and-destination,Rank Flights by Airline and Destination Frequency,Capital One,easy,OA,database|sorting,codesignal,2026-09-19,4,INTERN|NEW GRAD
+hrt-minimize-expression-value-with-parentheses,Minimize Expression Value with Parentheses,Hudson River Trading,medium,OA,string|math,codesignal,2026-09-19,1,FULLTIME|NEW GRAD|INTERN
+hrt-obstacle-placement-queries,Obstacle Placement Queries,Hudson River Trading,medium,OA,intervals|simulation,codesignal,2026-09-19,1,FULLTIME|NEW GRAD|INTERN
+hrt-cyclic-shift-absolute-difference-sums,Sorted Absolute-Difference Sums Across Cyclic Shifts,Hudson River Trading,medium,OA,array|sorting|simulation,codesignal,2026-09-19,1,FULLTIME|NEW GRAD|INTERN
+capital-one-reconstruct-landmark-journey,Reconstruct Landmark Journey,Capital One,medium,OA,graph|hash_table,codility,2026-09-18,4,INTERN|NEW GRAD
+twosigma-sewer-drainage-partition,Sewer Drainage Partition,Two Sigma,medium,OA,tree|depth_first_search,hackerrank,2026-09-18,4,FULLTIME
+capital-one-compare-counts-around-pivot,Compare Counts Around Pivot,Capital One,easy,OA,array|simulation,codility,2026-09-18,3,INTERN
+capital-one-format-newspaper-page,Format a Newspaper Page,Capital One,medium,OA,string|greedy|simulation,codesignal,2026-09-18,3,INTERN
+amazon-inventory-allocation,Inventory Allocation,Amazon,medium,OA,simulation|sorting|heap,unknown,2026-09-18,2,NEW GRAD
+capital-one-linear-warehouse-drone-delivery,Linear Warehouse Drone Delivery,Capital One,easy,OA,array|sorting|two_pointers|greedy|simulation,codesignal,2026-09-18,2,INTERN
+ibm-customer-resource-usage-analysis,Customer Resource Usage Analysis,IBM,easy,OA,database,unknown,2026-09-18,2,FULLTIME|NEW GRAD|INTERN
+microsoft-minimum-jump-cost,Minimum Jump Cost,Microsoft,medium,OA,array|dynamic_programming|queue,hackerrank,2026-09-18,2,FULLTIME
+two-sigma-ipo-share-allocation,IPO Share Allocation,Two Sigma,hard,OA,sorting|greedy|simulation,unknown,2026-09-18,2,FULLTIME
+ibm-tool-changer,Tool Changer,IBM,easy,OA,array|simulation,unknown,2026-09-18,1,NEW GRAD|INTERN
+tata-consultancy-services-ev-charging-cost-optimization,EV Charging Cost Optimization,Tata Consultancy Services,medium,OA,greedy|sorting|array,unknown,2026-09-18,1,FULLTIME
+tata-consultancy-services-maximum-gap,Maximum Gap After Sorting,Tata Consultancy Services,easy,OA,array|sorting,unknown,2026-09-18,1,FULLTIME
+stripe-rule-driven-transaction-fraud-detection,Rule-Driven Transaction Fraud Detection,Stripe,medium,OA|PHONE SCREEN|ONSITE INTERVIEW,design|hash_table|simulation,unknown,2026-09-17,2,FULLTIME
 microsoft-asteroid-collision,Asteroid Collision,Microsoft,medium,OA,array|stack|simulation,unknown,2026-09-17,1,INTERN
 microsoft-minimum-adjacent-square-cost-after-insertion,Minimize Adjacent Squared-Difference Cost with One Insertion,Microsoft,medium,OA,array|math|greedy,unknown,2026-09-17,1,INTERN
 susquehanna-leftmost-memory-block-allocator,Leftmost Memory Block Allocator,Susquehanna International Group (SIG),medium,OA,array|hash_table|simulation,codesignal,2026-09-17,1,FULLTIME
 susquehanna-sort-matrix-borders,Sort Matrix Borders,Susquehanna International Group (SIG),medium,OA,array|matrix|sorting|simulation,codesignal,2026-09-17,1,FULLTIME
-amazon-minimum-grid-inconvenience,Minimum Grid Inconvenience,Amazon,hard,OA,matrix|breadth_first_search|binary_search,unknown,2026-09-16,10,FULLTIME|NEW GRAD
-stripe-deployment-window-scheduler,Deployment Window Scheduler,Stripe,hard,OA,intervals|sorting|simulation,hackerrank,2026-09-16,6,INTERN|NEW GRAD|FULLTIME
-doordash-dasher-pay,Dasher Pay with Store Waits and Peak Hours,DoorDash,medium,OA|PHONE SCREEN|ONSITE INTERVIEW,hash_table|simulation|string,unknown,2026-09-16,5,FULLTIME
+amazon-find-minimum-cost,Minimum Circular Redistribution Cost,Amazon,hard,OA,array|prefix_sum|greedy,hackerrank,2026-09-16,9,NEW GRAD|FULLTIME
+stripe-websocket-load-balancer,WebSocket Load Balancer — Parts 1–5,Stripe,hard,OA|ONSITE INTERVIEW,hash_table|simulation,hackerrank,2026-09-16,9,INTERN|NEW GRAD
 salesforce-run-length-string-compression,Run-Length String Compression,Salesforce,easy,OA,string|two_pointers,hackerrank,2026-09-16,3,FULLTIME
 upstart-scale-ingredient-quantities,Scale Ingredient Quantities,Upstart,easy,OA,string|parsing|simulation,unknown,2026-09-16,2,FULLTIME
 airbnb-city-price-medians,Median Home Price by City,Airbnb,medium,OA,sorting|hash_table|heap,unknown,2026-09-16,1,FULLTIME
@@ -21,8 +145,8 @@ stripe-split-tender-basic,Split Tender Transactions Part 1 - Basic Split Tenderi
 upstart-buffet-day-gains,Buffet Day Gains,Upstart,medium,OA,array|queue|linked_list|simulation,unknown,2026-09-16,1,FULLTIME
 upstart-case-insensitive-anagram,Case-Insensitive Anagram Check,Upstart,easy,OA,string|hash_table,unknown,2026-09-16,1,FULLTIME
 upstart-filter-duplicates-preserving-order,Filter Duplicates While Preserving Order,Upstart,easy,OA,array|hash_table,unknown,2026-09-16,1,FULLTIME
+walmart-maximum-points-by-deleting-elements,Maximum Points by Deleting Elements,Walmart,medium,OA,array|hash_table|dynamic_programming,unknown,2026-09-16,1,FULLTIME
 worldquant-count-unordered-coin-combinations,Count Unordered Coin Combinations,WorldQuant,medium,OA,dynamic_programming|array,unknown,2026-09-16,1,NEW GRAD
-stripe-incident-monitor,Incident Monitor,Stripe,hard,OA,array|string|hash_table|sliding_window|queue|simulation|parsing,unknown,2026-09-15,8,FULLTIME|NEW GRAD
 apple-factorize-string-extremities,Merge Two Strings by Maximum Boundary Overlap,Apple,medium,OA,string,unknown,2026-09-15,2,FULLTIME
 capital-one-rank-football-teams,Rank Football Teams,Capital One,easy,OA,array|sorting,unknown,2026-09-15,1,FULLTIME
 concentric-ai-linked-list-intersection-node,Find the Intersection Node of Two Linked Lists,Concentric AI,easy,OA,linked_list|two_pointers,unknown,2026-09-15,1,FULLTIME
@@ -57,9 +181,7 @@ juspay-dynamic-weighted-tree-distance-sum,Sum Dynamic Weighted Tree Distances,Ju
 lenskart-first-duplicate-transaction-within-ten-minutes,First Duplicate Transaction Within Ten Minutes,Lenskart,easy,OA,database,unknown,2026-09-13,1,FULLTIME
 lenskart-most-recent-active-user-per-department,Most Recent Active User Per Department,Lenskart,easy,OA,database,unknown,2026-09-13,1,FULLTIME
 lenskart-test-execution-success-rate,Test Execution Success Rate,Lenskart,easy,OA,database,unknown,2026-09-13,1,FULLTIME
-optiver-power-cell-bank,Power Cell Bank,Optiver,hard,OA,hash_table|sorting|design|simulation,unknown,2026-09-12,8,INTERN|NEW GRAD
 akuna-get-max-cost,Binary Circuit,Akuna Capital,hard,OA,string|greedy|math,hackerrank,2026-09-12,6,FULLTIME|INTERN
-amazon-get-min-amount,Get Minimum Amount,Amazon,,OA,,unknown,2026-09-12,6,NEW GRAD
 akuna-items-sort,Items Sort,Akuna Capital,easy,OA,array|hash_table|sorting,hackerrank,2026-09-12,5,INTERN|NEW GRAD
 akuna-minimize-malware-spread,Minimize Malware Spread by Removing a Node,Akuna Capital,medium,OA,graph|breadth_first_search|simulation,unknown,2026-09-12,3,INTERN
 hrt-catch-fish-with-reusable-baits,Catch Fish with Reusable Baits,Hudson River Trading,easy,OA,array|sorting|two_pointers|greedy|simulation,codesignal,2026-09-12,1,INTERN
@@ -72,6 +194,7 @@ squadstack-minimum-seats-car-pooling,Minimum Seats for One-Way Car Pooling,Squad
 squadstack-weighted-decode-ways,Minimum-Cost Digit String Decoding,SquadStack.ai,medium,OA,dynamic_programming|string,unknown,2026-09-12,1,NEW GRAD
 google-min-absolute-sum,Minimum Absolute Sum,Google,easy,OA,array|greedy,codesignal,2026-09-11,6,NEW GRAD|INTERN
 citadel-minimum-changes-palindromic-blocks,Minimum Changes for Palindromic Blocks,Citadel,easy,OA|PHONE SCREEN|ONSITE INTERVIEW,string|two_pointers,unknown,2026-09-11,4,INTERN|FULLTIME|NEW GRAD
+replit-compress-editor-actions-to-ot,Compress Editor Actions into Operational Transform Operations,Replit,medium,OA|PHONE SCREEN|ONSITE INTERVIEW,array|string|stack|simulation,unknown,2026-09-11,2,FULLTIME|NEW GRAD
 arista-networks-first-missing-number-in-consecutive-array,First Missing Number in a Consecutive Array,Arista Networks,easy,OA,array|binary_search,hackerrank,2026-09-11,1,NEW GRAD
 coinbase-task-management-system,Task Management System,Coinbase,hard,OA,design|hash_table|sorting|simulation,unknown,2026-09-11,1,NEW GRAD
 goldman-sachs-minimum-distinct-prefix-cost,Minimum Distinct Prefix Cost,Goldman Sachs,medium,OA,array|hash_table|sorting|greedy,hackerrank,2026-09-11,1,FULLTIME|INTERN
@@ -92,15 +215,9 @@ ibm-count-increasing-contiguous-windows,Count Strictly Increasing Contiguous Win
 infosys-count-reachable-halving-decrement-states,Count Reachable Values by Halving and Decrementing,Infosys,medium,OA,breadth_first_search|hash_table|math,unknown,2026-09-10,1,NEW GRAD
 infosys-minimum-cost-group-ones-and-twos,Minimum Paid Swaps to Group Ones and Twos,Infosys,medium,OA,array|greedy,unknown,2026-09-10,1,NEW GRAD
 tiktok-catch-fish-with-reusable-baits,Catch Fish with Reusable Baits,TikTok,easy,OA,array|sorting|two_pointers|greedy|simulation,codesignal,2026-09-10,1,INTERN
-tiktok-count-one-swap-number-pairs,Count One-Swap Number Pairs,TikTok,medium,OA,array|string|hash_table|combinatorics,codesignal,2026-09-10,1,INTERN
-tiktok-lowest-number-in-open-range,Lowest Number in an Open Range,TikTok,easy,OA,array,codesignal,2026-09-10,1,INTERN
 tiktok-maximum-rhombic-area-sum,Maximum Rhombic Area Sum,TikTok,medium,OA,matrix|geometry|prefix_sum,codesignal,2026-09-10,1,INTERN
-amazon-find-minimum-cost,Minimum Circular Redistribution Cost,Amazon,hard,OA,array|prefix_sum|greedy,hackerrank,2026-09-09,8,NEW GRAD|FULLTIME
 google-maximum-elements-with-a-common-digit,Maximum Elements With a Common Digit,Google,easy,OA,hash_table|array,unknown,2026-09-09,7,INTERN|NEW GRAD
 google-maximum-coins-with-moving-tokens,Maximum Coins With Moving Tokens,Google,medium,OA,dynamic_programming|greedy,unknown,2026-09-09,4,INTERN|NEW GRAD
-google-split-array-into-consecutive-subsequences,Decreasing Subsequences,Google,medium,OA,greedy|heap,codesignal,2026-09-09,3,INTERN
-hrt-rightmost-longest-character-run,Rightmost Longest Character Run,Hudson River Trading,easy,OA,string|two_pointers,codesignal,2026-09-09,3,INTERN|NEW GRAD
-google-minimize-absolute-difference-of-server-loads,Minimize Absolute Difference of Server Loads,Google,medium,OA,dynamic_programming|array,codesignal,2026-09-09,2,INTERN
 millennium-calculate-half-spread,Calculate the Half Spread,Millennium,easy,OA,math|simulation,unknown,2026-09-09,2,NEW GRAD|INTERN
 millennium-clean-the-tape,Clean the Tape,Millennium,medium,OA,database|sorting|simulation,unknown,2026-09-09,2,NEW GRAD|INTERN
 millennium-debug-fair-value-lookup,Debug Fair-Value Lookup,Millennium,hard,OA,database|sorting,unknown,2026-09-09,2,NEW GRAD|INTERN
@@ -113,10 +230,6 @@ millennium-risk-limits-and-skew,Risk Limits and Inventory Skew,Millennium,medium
 millennium-track-the-book,Track the Book and Mark Final PnL,Millennium,medium,OA,database|simulation,unknown,2026-09-09,2,NEW GRAD|INTERN
 roblox-laser-robot-safe-path,Robot Navigation Around Lasers,Roblox,medium,OA,array|matrix|simulation,unknown,2026-09-09,2,INTERN|NEW GRAD
 capital-one-sorted-extended-matrix-diagonals,Sorted Extended Matrix Diagonals,Capital One,medium,OA,matrix|string|sorting|simulation,codesignal,2026-09-09,1,FULLTIME
-hrt-dynamic-sum-pair-queries,Dynamic Sum Pair Queries,Hudson River Trading,medium,OA,array|hash_table|simulation,codesignal,2026-09-09,1,INTERN
-hrt-product-minus-sum-of-digits,Product Minus Sum of Digits,Hudson River Trading,easy,OA,math|simulation,codesignal,2026-09-09,1,INTERN
-hrt-sort-matrix-borders,Sort Matrix Borders,Hudson River Trading,medium,OA,array|matrix|sorting|simulation,codesignal,2026-09-09,1,INTERN
-jpmorgan-maximum-game-board-score,Maximum Game Board Score,JP Morgan Chase,medium,OA,array|dynamic_programming,unknown,2026-09-09,1,NEW GRAD|INTERN
 jpmorgan-minimum-meeting-rooms,Minimum Meeting Rooms,JP Morgan Chase,medium,OA,array|sorting|heap|intervals,unknown,2026-09-09,1,NEW GRAD|INTERN
 millennium-client-markout-analysis,Client Markout Analysis,Millennium,medium,OA,database|simulation,unknown,2026-09-09,1,NEW GRAD
 millennium-debug-tape-cleaner,Debug the Tape Cleaner,Millennium,medium,OA,database|sorting|simulation,unknown,2026-09-09,1,NEW GRAD
@@ -124,8 +237,6 @@ millennium-regression-hedge,Regression Hedge,Millennium,hard,OA,math|matrix,unkn
 roblox-track-received-byte-ranges,Track Received Byte Ranges,Roblox,medium,OA,array|sorting|intervals|simulation,codesignal,2026-09-09,1,NEW GRAD
 walmart-distinct-bitwise-or-scores,Distinct Bitwise-OR Scores of Increasing Subsequences,Walmart,hard,OA,dynamic_programming|bit_manipulation,hackerrank,2026-09-09,1,NEW GRAD
 amazon-get-distinct-pairs,Get Distinct Pairs (Also apply to AS intern),Amazon,easy,OA,hash_table|two_pointers,hackerrank,2026-09-08,10,INTERN|NEW GRAD
-amazon-maximum-capacity,Maximum System Memory Capacity,Amazon,easy,OA,sorting|greedy,hackerrank,2026-09-08,6,INTERN|NEW GRAD
-amazon-minimum-merge-conflicts,Minimum Merge Conflicts,Amazon,hard,OA,dynamic_programming|string,unknown,2026-09-08,6,INTERN|FULLTIME|NEW GRAD
 capital-one-rectangle-fit-queries,Rectangle Fit Queries,Capital One,medium,OA,array|geometry|simulation,codesignal,2026-09-08,4,NEW GRAD|INTERN
 optiver-overheat-prevention-controller,Overheat Prevention Controller,Optiver,hard,OA,simulation|design|hash_table,unknown,2026-09-08,4,INTERN|NEW GRAD
 tiktok-leftmost-memory-block-allocator,Leftmost Memory Block Allocator (for mle also :),TikTok,medium,OA,array|simulation,codesignal,2026-09-08,4,INTERN|NEW GRAD
@@ -134,12 +245,14 @@ capital-one-round-robin-wdl-order,Round-Robin WDL Order,Capital One,easy,OA,stri
 drw-count-balanced-tree-nodes,Count Balanced Nodes in a Rooted Tree,DRW,medium,OA,tree|depth_first_search,codility,2026-09-08,3,NEW GRAD|INTERN
 drw-largest-number-even-digit-frequencies,Largest Number With Even Digit Frequencies,DRW,easy,OA,string|greedy,codility,2026-09-08,3,NEW GRAD|INTERN
 ibm-plus-mult-array,Plus Mult Array,IBM,easy,OA,array|simulation|math,hackerrank,2026-09-08,3,INTERN|NEW GRAD
-microsoft-maximum-escape-game-score,Maximum Escape Game Score,Microsoft,medium,OA,array|hash_table|dynamic_programming|sorting,unknown,2026-09-08,3,
+visa-planning-production,Planning Production,Visa,medium,OA,greedy|sorting,unknown,2026-09-08,3,NEW GRAD
+visa-subarray-sum,Subarray Sum,Visa,easy,OA,array|math|combinatorics,unknown,2026-09-08,3,NEW GRAD
 airbnb-in-memory-file-system,In-Memory File System,Airbnb,hard,OA,hash_table|sorting|design|simulation,unknown,2026-09-08,2,FULLTIME
 capital-one-count-good-tuples,Count Good Tuples,Capital One,easy,OA,array|sliding_window,codesignal,2026-09-08,2,INTERN
 capital-one-diagonal-robot-path-sum,Diagonal Robot Path Sum,Capital One,medium,OA,array|matrix|simulation|hash_table,codesignal,2026-09-08,2,INTERN
 salesforce-maximum-requests-in-window,Maximum Requests in Window,Salesforce,medium,OA,array|sorting|sliding_window,unknown,2026-09-08,2,FULLTIME
 tiktok-count-alternating-tile-groups,Count Alternating Tile Groups,TikTok,easy,OA,array|sliding_window|simulation,codesignal,2026-09-08,2,INTERN
+visa-minimum-anagram-period,Minimum Anagram Period,Visa,medium,OA,string|hash_table|math,unknown,2026-09-08,2,NEW GRAD
 hsbc-distinct-products-after-removing-one-element,Distinct Products After Removing One Element,HSBC,easy,OA,array|hash_table|math,codility,2026-09-08,1,NEW GRAD
 hsbc-minimum-cleaning-robot-runs,Minimum Cleaning Robot Runs,HSBC,medium,OA,matrix|graph|depth_first_search|breadth_first_search,codility,2026-09-08,1,NEW GRAD
 ibm-flight-delay-propagation,Flight Delay Propagation,IBM,medium,OA,graph|breadth_first_search,unknown,2026-09-08,1,NEW GRAD
@@ -156,6 +269,8 @@ tiktok-gradient-descent-linear-regression,Gradient Descent Linear Regression fro
 num-ways,String Formation (Also for AI/ML Software Engineer Intern :),Snowflake,hard,OA,dynamic_programming|string|hash_table,hackerrank,2026-09-07,6,INTERN|NEW GRAD
 snowflake-generating-login-codes,Generating Login Codes,Snowflake,medium,OA,array|two_pointers|greedy,unknown,2026-09-07,3,NEW GRAD
 meta-in-memory-database-historical-fields,In-Memory Database with Historical Field Lookup,Meta,hard,OA,design|hash_table|binary_search,unknown,2026-09-07,1,FULLTIME
+wellsfargo-event-statistics-aggregator,Event Statistics Aggregator,Wells Fargo,medium,OA,hash_table|design|simulation,hackerrank,2026-09-07,1,INTERN
+wellsfargo-ordered-deployment-configuration-validator,Ordered Deployment Configuration Validator,Wells Fargo,easy,OA,parsing|simulation,hackerrank,2026-09-07,1,INTERN
 stripe-evolving-merchant-clusters,Evolving Merchant Clusters and Persistent Pins,Stripe,hard,OA,graph|hash_table|depth_first_search|simulation|sorting|parsing,unknown,2026-09-06,1,NEW GRAD|INTERN
 stripe-subscription-and-usage-billing-calculator,Subscription and Usage-Based Billing Calculator,Stripe,medium,OA,hash_table|sorting|prefix_sum|binary_search|simulation,hackerrank,2026-09-06,1,NEW GRAD|INTERN
 capital-one-inventory-discount-tracker,Inventory Discount Tracker,Capital One,medium,OA,hash_table|simulation|parsing,codesignal,2026-09-05,3,INTERN|NEW GRAD
@@ -180,18 +295,15 @@ ethos-life-recoverable-range-sum-elements,Recoverable Elements from Range-Sum Me
 tiktok-distribution-center-package-allocation,Distribution Center Package Allocation,TikTok,medium,OA,array|simulation|parsing,codesignal,2026-09-02,3,INTERN
 drw-shortest-path-rectangular-obstacles,Shortest Path Around Rectangular Obstacles,DRW,medium,OA,array|matrix|prefix_sum|breadth_first_search|shortest_path,codility,2026-09-02,2,NEW GRAD
 tiktok-minimum-height-difference-between-distant-peaks,Minimum Height Difference Between Distant Peaks,TikTok,medium,OA,array|sorting|binary_search,codesignal,2026-09-02,2,INTERN
-visa-planning-production,Planning Production,Visa,medium,OA,greedy|sorting,unknown,2026-09-02,2,
-visa-subarray-sum,Subarray Sum,Visa,easy,OA,array|math|combinatorics,unknown,2026-09-02,2,
 amazon-minimum-adjacent-swaps-binary-groups,Minimum Adjacent Swaps to Group Binary Values,Amazon,medium,OA,array|greedy,unknown,2026-09-02,1,NEW GRAD
 walmart-best-meeting-point,Best Meeting Point,Walmart,hard,OA,array|geometry|matrix|sorting,unknown,2026-09-02,1,FULLTIME
 walmart-minimum-cost-to-make-array-equal,Minimum Cost to Make Array Equal,Walmart,hard,OA,array|binary_search|prefix_sum|sorting,unknown,2026-09-02,1,FULLTIME
 akuna-minimum-swaps,Minimum Swaps,Akuna Capital,medium,OA,array|sorting,unknown,2026-09-01,4,INTERN
 akuna-minimum-absolute-difference-pairs,Minimum Absolute Difference Pairs,Akuna Capital,easy,OA,array|sorting,unknown,2026-09-01,3,INTERN
+airbnb-progressive-banking-system-with-cashback,Progressive Banking System with Cashback,Airbnb,hard,OA,design|hash_table|heap|sorting|simulation,codesignal,2026-09-01,1,FULLTIME
 lyft-rotten-oranges-grid-bfs,Rotten Oranges / Grid Infection BFS,Lyft,medium,OA,matrix|breadth_first_search,unknown,2026-08-31,3,FULLTIME
 databricks-minimize-commute,Minimize Commute,Databricks,medium,OA|PHONE SCREEN,matrix|breadth_first_search|graph,codesignal,2026-08-31,2,FULLTIME
-rippling-consistent-logs,Consistent Logs,Rippling,medium,OA,array|hash_table|sliding_window,hackerrank,2026-08-31,2,NEW GRAD|INTERN
-rippling-costliest-chocolate,Costliest Chocolate,Rippling,easy,OA,array|math|simulation,hackerrank,2026-08-31,2,NEW GRAD|INTERN
-rippling-server-management,Server Management,Rippling,easy,OA,array|greedy|sorting,unknown,2026-08-31,2,NEW GRAD|INTERN
+airbnb-banking-accepted-transfers-level-4,"Banking System with Accepted Transfers, Part 4: Account Merging and Balance History",Airbnb,hard,OA,hash_table|sorting|binary_search|design|simulation,codesignal,2026-08-31,1,FULLTIME
 visa-collect-branches-for-nest,Collect Branches for a Bird Nest,Visa,easy,OA,array|simulation|two_pointers,codesignal,2026-08-31,1,NEW GRAD
 visa-count-reverse-digit-pairs,Count Reverse-Digit Pairs,Visa,medium,OA,array|hash_table|math|combinatorics,codesignal,2026-08-31,1,NEW GRAD
 visa-grid-walk-with-teleports,Grid Walk with Obstacles and Teleports,Visa,medium,OA,matrix|simulation|hash_table,codesignal,2026-08-31,1,NEW GRAD
@@ -209,7 +321,6 @@ uber-count-palindromic-ancestor-paths,Count Palindromic Ancestor Paths,Uber,hard
 wolverine-trading-market-share-and-imbalance,Market Share Ticker with Imbalance,Wolverine Trading,medium,OA,database,unknown,2026-08-30,1,NEW GRAD|INTERN
 count-palindromes,Palindrome Counter,Goldman Sachs,medium,OA,string|dynamic_programming,hackerrank,2026-08-29,4,INTERN|FULLTIME|NEW GRAD
 microsoft-authentication-system,Authentication System,Microsoft,medium,OA,hash_table|design,unknown,2026-08-29,4,INTERN|NEW GRAD
-capital-one-rank-flights-by-airline-and-destination,Rank Flights by Airline and Destination Frequency,Capital One,easy,OA,database|sorting,codesignal,2026-08-29,3,INTERN|NEW GRAD
 microsoft-maximum-string-operations,Maximum String Operations,Microsoft,medium,OA,string|greedy,unknown,2026-08-29,2,INTERN|NEW GRAD
 roblox-count-house-segments-after-destruction,Count House Segments After Destruction,Roblox,medium,OA,array|hash_table|simulation,unknown,2026-08-29,2,INTERN|NEW GRAD
 roblox-event-id-check-completion-times,Event ID Check Completion Times,Roblox,medium,OA,array|queue|simulation,unknown,2026-08-29,2,INTERN|NEW GRAD
@@ -217,13 +328,12 @@ capital-one-leftmost-memory-block-allocator,Leftmost Memory Block Allocator,Capi
 capital-one-minimize-expression-value-with-parentheses,Minimize Expression Value with Parentheses,Capital One,medium,OA,string|math,codesignal,2026-08-29,1,INTERN
 capital-one-optimal-lamp-coordinate,Optimal Lamp Coordinate,Capital One,medium,OA,array|two_pointers|sliding_window,codesignal,2026-08-29,1,INTERN
 capital-one-product-minus-sum-of-digits,Product of Digits Minus Sum,Capital One,easy,OA,math|simulation,codesignal,2026-08-29,1,INTERN
-microsoft-k-most-recent-unique-request-ids,K Most Recent Unique Request IDs,Microsoft,easy,OA,array|hash_table,unknown,2026-08-29,1,INTERN
 weride-drawing-edge,Drawing Edge,WeRide,easy,OA,graph|math|combinatorics,hackerrank,2026-08-29,1,FULLTIME
 weride-paint-the-ceiling,Paint the Ceiling,WeRide,medium,OA,array|two_pointers|math,hackerrank,2026-08-29,1,FULLTIME
 weride-unequal-block-structure,Unequal Block Structure,WeRide,medium,OA,array|dynamic_programming,hackerrank,2026-08-29,1,FULLTIME
 airbnb-cloud-storage-backup-and-restore,Cloud Storage with User Backup and Restore,Airbnb,hard,OA,hash_table|sorting|design|simulation,unknown,2026-08-28,3,FULLTIME
+airbnb-in-memory-database,In-Memory Database,Airbnb,hard,OA,design|hash_table|simulation,codesignal,2026-08-28,3,FULLTIME|NEW GRAD
 imc-grid-paths-with-override-passes,Grid Paths with Override Passes,IMC Trading,medium,OA,dynamic_programming|matrix,hackerrank,2026-08-28,3,INTERN|NEW GRAD
-airbnb-in-memory-database,In-Memory Database,Airbnb,hard,OA,design|hash_table|simulation,codesignal,2026-08-28,2,FULLTIME
 ibm-minimum-replacements-no-adjacent-equal,Minimum Replacements for Unequal Adjacent Characters,IBM,easy,OA,string|greedy,hackerrank,2026-08-27,3,FULLTIME
 walmart-minimum-stress-path,Minimum Stress Path,Walmart,medium,OA,graph|shortest_path|heap,unknown,2026-08-27,3,INTERN
 microsoft-minimum-length-good-subarray,Minimum Length Good Subarray,Microsoft,medium,OA,array|hash_table|sliding_window,hackerrank,2026-08-27,1,INTERN
@@ -252,7 +362,6 @@ visa-sliding-window-pattern-start-indices,Find Sliding-Window Pattern Start Indi
 visa-minimum-cost-weighted-grid-path,Minimum-Cost Path Through a Weighted Grid,Visa,medium,OA,matrix|graph|shortest_path|heap,unknown,2026-08-24,1,NEW GRAD
 visa-rotate-square-matrix-clockwise,Rotate a Square Matrix Clockwise,Visa,medium,OA,matrix|array|simulation,unknown,2026-08-24,1,NEW GRAD
 microsoft-minimum-fuel-cost,Minimum Fuel Cost Between Cities,Microsoft,hard,OA,graph|shortest_path,unknown,2026-08-23,3,FULLTIME
-airbnb-progressive-banking-system,Progressive Banking System,Airbnb,hard,OA,design|hash_table|heap|sorting|simulation,unknown,2026-08-23,2,FULLTIME
 google-assign-locker,Assign Locker,Google,easy,OA|PHONE SCREEN,hash_table|heap,codesignal,2026-08-23,2,INTERN
 coinbase-cloud-compute-credits-system,Cloud Compute Credits System,Coinbase,hard,OA,design|hash_table|heap|sorting|simulation,unknown,2026-08-23,1,FULLTIME
 anthropic-cloud-storage-system,Cloud Storage System,Anthropic,medium,OA,design|hash_table|sorting|simulation,codesignal,2026-08-22,9,FULLTIME
@@ -276,15 +385,13 @@ general-motors-per-client-sliding-window-rate-limiter,Per-Client Sliding-Window 
 hrt-count-key-changes,Count Key Changes,Hudson River Trading,easy,OA,array|string|simulation,codesignal,2026-08-21,1,FULLTIME|NEW GRAD|INTERN
 hrt-count-sawtooth-subarrays,Count Sawtooth Subarrays,Hudson River Trading,easy,OA,array|dynamic_programming,codesignal,2026-08-21,1,FULLTIME|NEW GRAD|INTERN
 hrt-format-newspaper-page,Format a Newspaper Page,Hudson River Trading,medium,OA,string|greedy|simulation,codesignal,2026-08-21,1,FULLTIME|NEW GRAD|INTERN
-twosigma-sewer-drainage-partition,Sewer Drainage Partition,Two Sigma,medium,OA,tree|depth_first_search,hackerrank,2026-08-20,3,FULLTIME
 ibm-drawing-edge,Drawing Edge,IBM,easy,OA,graph|combinatorics|math,unknown,2026-08-20,1,FULLTIME|INTERN
 ibm-increasing-value-triplets-under-threshold,Increasing-Value Triplets Under a Threshold,IBM,medium,OA,array|sorting|two_pointers|combinatorics,unknown,2026-08-20,1,INTERN
 infosys-maximize-purchases-cooler-bag,Maximum Purchases with a Cooler-Bag Fee,Infosys,medium,OA,array|greedy|sorting,unknown,2026-08-20,1,NEW GRAD
 roblox-longest-contiguous-house-segment,Longest Contiguous House Segment,Roblox,medium,OA,array|hash_table|union_find,codesignal,2026-08-20,1,FULLTIME
 roblox-sorted-extended-matrix-diagonals,Sorted Extended Matrix Diagonals,Roblox,medium,OA,matrix|string|sorting|simulation,codesignal,2026-08-20,1,FULLTIME
-two-sigma-ipo-share-allocation,IPO Share Allocation,Two Sigma,hard,OA,sorting|greedy|simulation,unknown,2026-08-20,1,FULLTIME
-airbnb-worker-management-level-1,"Worker Management, Part 1: Office Registration",Airbnb,easy,OA,hash_table|design|simulation,unknown,2026-08-19,3,NEW GRAD
-airbnb-worker-management-level-2,"Worker Management, Part 2: Top Workers",Airbnb,medium,OA,hash_table|sorting|design|simulation,unknown,2026-08-19,3,NEW GRAD
+airbnb-worker-management-level-1,"Worker Management, Part 1: Office Registration",Airbnb,easy,OA,hash_table|design|simulation,codesignal,2026-08-19,3,NEW GRAD|FULLTIME
+airbnb-worker-management-level-2,"Worker Management, Part 2: Top Workers",Airbnb,medium,OA,hash_table|sorting|design|simulation,codesignal,2026-08-19,3,NEW GRAD|FULLTIME
 airbnb-worker-management-level-3-overtime,"Worker Management, Part 3: Overtime Rules",Airbnb,hard,OA,hash_table|sorting|design|simulation,codesignal,2026-08-19,3,FULLTIME
 airbnb-worker-management-level-4-worker-merge,"Worker Management, Part 4: Worker Merge",Airbnb,hard,OA,hash_table|sorting|design|simulation,codesignal,2026-08-19,3,FULLTIME
 jpmorgan-maximum-of-subarray-minimums,Maximum of Subarray Minimums,JP Morgan Chase,medium,OA,array|sliding_window|queue,unknown,2026-08-19,2,INTERN
@@ -303,8 +410,8 @@ hrt-diagonal-robot-path-sum,Diagonal Robot Path Sum,Hudson River Trading,medium,
 ibm-count-invalid-log-groups,Count Invalid Log Groups,IBM,easy,OA,array|string|simulation,hackerrank,2026-08-18,1,NEW GRAD
 klaviyo-progressive-parcel-tracking-operations,Progressive Parcel Tracking Operations,Klaviyo,hard,OA,design|hash_table|simulation|sorting,unknown,2026-08-18,1,FULLTIME
 optiver-multi-level-inventory-storage-system,Multi-Level Inventory Storage System,Optiver,hard,OA|PHONE SCREEN,design|heap|simulation|hash_table,unknown,2026-08-17,5,INTERN
-airbnb-worker-management-full-shift-grants,Worker Management with Full-Shift Double Pay,Airbnb,hard,OA,hash_table|intervals|sorting|design|simulation,unknown,2026-08-17,2,NEW GRAD
-airbnb-worker-management-level-3,"Worker Management, Part 3: Promotions and Salary",Airbnb,hard,OA,hash_table|intervals|design|simulation,unknown,2026-08-17,2,NEW GRAD
+airbnb-worker-management-level-3,"Worker Management (Promotion Track), Part 3: Promotions and Salary",Airbnb,hard,OA,hash_table|intervals|design|simulation,unknown,2026-08-17,2,NEW GRAD
+airbnb-worker-management-full-shift-grants,"Worker Management (Promotion Track), Part 4: Full-Shift Double Pay",Airbnb,hard,OA,hash_table|intervals|sorting|design|simulation,unknown,2026-08-17,2,NEW GRAD
 blackrock-calculate-distance,Road Trip (Analyst Program :P,BlackRock,easy,OA,string|sorting,hackerrank,2026-08-17,2,FULLTIME
 concentric-ai-count-students-outside-sorted-positions,Count Students Outside Their Sorted Positions,Concentric AI,easy,OA,array|sorting,unknown,2026-08-17,2,FULLTIME
 concentric-ai-maximum-profit-under-or-limit,Maximum Profit Under a Bitwise OR Limit,Concentric AI,medium,OA,dynamic_programming|bit_manipulation,unknown,2026-08-17,2,FULLTIME
@@ -319,6 +426,8 @@ blackrock-set-intersection,Set Intersection,BlackRock,easy,OA,array|two_pointers
 ibm-minimum-steps-on-circular-letter-dial,Minimum Steps on a Circular Letter Dial,IBM,easy,OA,string|greedy|simulation,hackerrank,2026-08-15,1,INTERN
 roblox-dynamic-pair-sum-queries,Dynamic Pair Sum Queries,Roblox,medium,OA,array|hash_table|simulation,unknown,2026-08-15,1,INTERN|NEW GRAD
 salesforce-is-weekend-date,Is This Date a Weekend?,Salesforce,easy,OA,string|math|parsing,unknown,2026-08-15,1,FULLTIME
+adobe-count-parent-nodes-with-target-sum,Count Parent Nodes With a Target Sum,Adobe,easy,OA,tree|depth_first_search|recursion|parsing,unknown,2026-08-14,1,FULLTIME
+adobe-largest-binary-number-by-concatenation,Largest Binary Number by Concatenation,Adobe,medium,OA,string|sorting|greedy,unknown,2026-08-14,1,FULLTIME
 amazon-drone-delivery-route,Drone Delivery Route,Amazon,medium,OA,array|prefix_sum|math,unknown,2026-08-13,11,FULLTIME|NEW GRAD
 imc-rock-jumping,Rock Jumping,IMC Trading,medium,OA,array|binary_search|greedy|math,hackerrank,2026-08-13,2,NEW GRAD
 imc-stack-batch-removal,Stack Batch Removal,IMC Trading,medium,OA,stack|simulation,hackerrank,2026-08-13,2,NEW GRAD
@@ -331,6 +440,7 @@ roblox-shift-ops,Cyclic Shift Pairs,Roblox,medium,OA,string|hash_table,codesigna
 american-express-crop-words,Crop Text at a Whole-Word Boundary,American Express,easy,OA,string|greedy,unknown,2026-08-12,1,FULLTIME
 american-express-minimum-parking-roof-length,Minimum Parking Roof Length,American Express,easy,OA,array|sorting|sliding_window,unknown,2026-08-12,1,FULLTIME
 american-express-minimum-pile-reduction-steps,Minimum Pile Reduction Steps,American Express,easy,OA,array|sorting|greedy,unknown,2026-08-12,1,FULLTIME
+visa-maximum-server-processing-time,Maximum Server Processing Time,Visa,hard,OA,array|dynamic_programming|heap,hackerrank,2026-08-11,2,NEW GRAD|INTERN
 akuna-stock-marking-position-monitor,Stock Marking Position Monitor,Akuna Capital,medium,OA,hash_table|simulation|design,unknown,2026-08-11,1,INTERN
 capital-one-highest-spend-advertisement,Highest-Spend Advertisement,Capital One,medium,OA,database,codesignal,2026-08-11,1,INTERN|NEW GRAD
 microsoft-zero-one-knapsack,0/1 Knapsack,Microsoft,medium,OA,dynamic_programming|array,unknown,2026-08-11,1,FULLTIME
@@ -338,12 +448,17 @@ upstart-abo-parent-genotype-combinations,ABO Parent Genotype Combinations,Upstar
 upstart-chunked-byte-stream-checksums,Chunked Byte Stream Checksums,Upstart,easy,OA,array|parsing|simulation,unknown,2026-08-11,1,FULLTIME
 upstart-cluster-size-on-disk,Cluster Size on Disk,Upstart,easy,OA,math,unknown,2026-08-11,1,FULLTIME
 upstart-double-substitution-decryption,Double Substitution Decryption,Upstart,medium,OA,string|hash_table,unknown,2026-08-11,1,FULLTIME
+visa-binary-sorting-rounds-after-flips,Binary Sorting Rounds After Flips,Visa,hard,OA,string|array|segment_tree,hackerrank,2026-08-11,1,INTERN
 inmobi-divisor-threshold-components,Connected Components with Divisor Threshold,InMobi,medium,OA,graph|math|union_find,unknown,2026-08-10,2,FULLTIME
 jpmorgan-get-search-results,Get Search Results,JP Morgan Chase,easy,OA,string|hash_table|sorting,hackerrank,2026-08-10,2,INTERN
 ibm-count-digit-holes,Count Digit Holes,IBM,easy,OA,math|simulation,hackerrank,2026-08-09,2,FULLTIME|NEW GRAD
 ibm-maximize-consecutive-xor,Maximize Consecutive XOR,IBM,medium,OA,bit_manipulation|math,hackerrank,2026-08-09,2,FULLTIME|NEW GRAD
 jpmorgan-get-min-length,Substring Removal,JP Morgan Chase,medium,OA,string|stack|greedy,hackerrank,2026-08-09,2,INTERN
 adobe-hall-of-shifting-tiles,Hall of Shifting Tiles,Adobe,medium,OA,array|prefix_sum|simulation,unknown,2026-08-09,1,FULLTIME
+adobe-kth-ancestor-subtree-preorder,K-th Ancestor Subtree Preorder Query,Adobe,hard,OA,tree|depth_first_search|binary_search,unknown,2026-08-09,1,FULLTIME
+adobe-minimum-numeric-code-transformation,Minimum Numeric Code Transformation,Adobe,hard,OA,breadth_first_search|graph|math|string,unknown,2026-08-09,1,FULLTIME
+adobe-number-character-bijective-mapping,Number-Character Bijective Mapping,Adobe,easy,OA,array|string|hash_table,unknown,2026-08-09,1,FULLTIME
+adobe-trapped-characters-in-grid,Trapped Characters in a Grid,Adobe,easy,OA,matrix|simulation|array,unknown,2026-08-09,1,FULLTIME
 tcs-count-array-inversions,Count Array Inversions,Tata Consultancy Services,medium,OA,array|sorting,unknown,2026-08-09,1,FULLTIME
 tcs-count-smaller-prior-elements,Count Smaller Prior Elements,Tata Consultancy Services,medium,OA,array|segment_tree,unknown,2026-08-09,1,FULLTIME
 akuna-update-release-scheduler,Update Release Scheduler (QR Intern),Akuna Capital,medium,OA,greedy|sorting,hackerrank,2026-08-08,2,INTERN
@@ -352,12 +467,11 @@ optiver-count-bounded-share-transactions,Count Bounded Share Transactions,Optive
 optiver-count-ordered-size-sequences,Count Ordered Size Sequences,Optiver,medium,OA,dynamic_programming|combinatorics,unknown,2026-08-08,1,INTERN
 optiver-profitable-currency-exchange-cycle,Profitable Currency Exchange Cycle,Optiver,hard,OA,dynamic_programming|graph|math,unknown,2026-08-08,1,FULLTIME
 optiver-proportional-momentum-investment,Proportional Momentum Investment Statistics,Optiver,medium,OA,array|math|simulation,unknown,2026-08-08,1,INTERN
-airbnb-task-management-system,Task Management System,Airbnb,hard,OA,design|hash_table|sorting|simulation,unknown,2026-08-07,1,FULLTIME
+bloomberg-merge-intervals,Merge Intervals,Bloomberg LP,medium,OA|PHONE SCREEN|ONSITE INTERVIEW,array|sorting|intervals,unknown,2026-08-07,28,FULLTIME|NEW GRAD
 phonepe-constrained-jump-sequences,Constrained Jump Sequences,PhonePe,hard,OA,dynamic_programming|prefix_sum,unknown,2026-08-06,1,FULLTIME
 phonepe-maximum-payout-with-context-switches,Maximum Payout with Context Switches,PhonePe,hard,OA,array|dynamic_programming,unknown,2026-08-06,1,FULLTIME
 phonepe-substrings-without-target-subsequence,Substrings Without a Target Subsequence,PhonePe,medium,OA,string|dynamic_programming,unknown,2026-08-06,1,FULLTIME
 amazon-find-sum-of-beauties,Find Sum of Beauties,Amazon,medium,OA,array|sorting|binary_search,hackerrank,2026-08-05,3,NEW GRAD
-microsoft-get-maximum-reward-points,Maximum Reward Points,Microsoft,medium,OA,array|greedy|sorting,hackerrank,2026-08-05,3,NEW GRAD|INTERN
 tiktok-minimum-operations-for-stepwise-structures,Minimum Operations for Stepwise Structures,TikTok,easy,OA,array|greedy|math,unknown,2026-08-05,2,INTERN
 amazon-minimum-processes-to-drop-for-synchronization,Minimum Processes to Drop for Synchronization,Amazon,medium,OA,intervals|sorting|binary_search,unknown,2026-08-05,1,FULLTIME
 capital-one-event-id-check-completion-times,Event ID Check Completion Times,Capital One,medium,OA,array|queue|simulation,unknown,2026-08-05,1,INTERN
@@ -381,14 +495,13 @@ imc-choose-containers,Choose Containers,IMC Trading,medium,OA,array|sorting|bina
 tiktok-count-access-code-pairs,Count Access Code Pairs,TikTok,medium,OA,array|string|hash_table,codesignal,2026-08-04,2,NEW GRAD|INTERN
 tiktok-obstacle-placement-queries,Obstacle Placement Queries,TikTok,medium,OA,intervals|simulation,unknown,2026-08-04,2,INTERN
 adyen-count-perfect-pairs,Count Perfect Pairs,Adyen,medium,OA,array|sorting|two_pointers,hackerrank,2026-08-04,1,FULLTIME
-capital-one-obstacle-placement-queries,Obstacle Placement Queries,Capital One,medium,OA,intervals|simulation,unknown,2026-08-04,1,INTERN
 point72-maximize-array-beauty-after-deletions,Maximize Array Beauty After Deletions,Point72,hard,OA,array|dynamic_programming|binary_search,unknown,2026-08-04,1,FULLTIME
 point72-deterministic-finite-automaton,Simulate a Deterministic Finite Automaton,Point72,easy,OA,string|matrix|simulation,unknown,2026-08-04,1,FULLTIME
 tiktok-count-case-insensitive-triplets,Count Case-Insensitive Triplets,TikTok,easy,OA,string|simulation,unknown,2026-08-04,1,INTERN
 tiktok-linear-warehouse-drone-delivery,Linear Warehouse Drone Delivery,TikTok,easy,OA,array|sorting|two_pointers|greedy|simulation,unknown,2026-08-04,1,INTERN
 amazon-package-delivery-system,Package Delivery System,Amazon,medium,OA,greedy|sorting|heap,hackerrank,2026-08-03,3,INTERN
 hsbc-remove-vowels,Remove Vowels from a String,HSBC,easy,OA,string,unknown,2026-08-03,3,INTERN
-stripe-merchant-fraud-risk-scoring,Merchant Fraud Risk Scoring,Stripe,medium,OA,hash_table|simulation,unknown,2026-08-03,2,NEW GRAD|INTERN
+stripe-merchant-fraud-risk-scoring,Merchant Fraud Risk Scoring,Stripe,medium,OA,hash_table|simulation,unknown,2026-08-03,3,NEW GRAD|INTERN
 target-lucky-numbers-floor-square-root,Count Lucky Numbers in a Range,Target,medium,OA,math|binary_search,unknown,2026-08-03,2,FULLTIME
 target-first-available-seat-booking,First-Available Seat Booking,Target,easy,OA,array|simulation|concurrency,unknown,2026-08-03,2,FULLTIME
 target-minimum-edit-distance-string,Minimum Edit-Distance String for Each Query,Target,medium,OA,string|dynamic_programming|sorting,unknown,2026-08-03,2,FULLTIME
@@ -406,12 +519,12 @@ microsoft-maximum-score-with-prime-jumps,Maximum Score with Prime Jumps,Microsof
 tiktok-optimize-tiktok-watch-time,Optimize TikTok Reels Viewing,TikTok,medium,OA,greedy|heap,codesignal,2026-08-01,2,INTERN
 expedia-balanced-numbers,Balanced Numbers,Expedia,medium,OA,array,unknown,2026-08-01,1,INTERN
 expedia-get-discounted-price,REST API: Discounted Price,Expedia,easy,OA,math,hackerrank,2026-08-01,1,INTERN
-microsoft-minimum-jump-cost,Minimum Jump Cost,Microsoft,medium,OA,array|dynamic_programming|queue,hackerrank,2026-08-01,1,FULLTIME
 texas-instruments-nonalphabetic-index-concatenation,Concatenate Non-Alphabetic Character Positions,Texas Instruments,easy,OA,string,unknown,2026-08-01,1,NEW GRAD
 texas-instruments-maximum-weighted-left-rotation,Maximum Weighted Sum After Left Rotations,Texas Instruments,medium,OA,array|math,unknown,2026-08-01,1,NEW GRAD
 wolverine-trading-longest-kitchen-delivery-time,Longest Cumulative Kitchen Delivery Time,Wolverine Trading,medium,OA,database,coderbyte,2026-08-01,1,INTERN|NEW GRAD
 wolverine-trading-symbol-trade-hedge-summary,Trade and Hedge Totals by Symbol,Wolverine Trading,easy,OA,database,coderbyte,2026-08-01,1,INTERN|NEW GRAD
 microsoft-xor-multiplication,XOR Multiplication,Microsoft,medium,OA,bit_manipulation|math|greedy,unknown,2026-07-31,3,
+adobe-snapshot-budget,Minimum Snapshots for a Version Tree,Adobe,hard,OA,tree|greedy|segment_tree,hackerrank,2026-07-31,1,NEW GRAD
 amazon-minimum-robot-human-fulfillment-time,Minimum Robot and Human Fulfillment Time,Amazon,medium,OA,array|binary_search|greedy,unknown,2026-07-31,1,FULLTIME
 ibm-minimum-deletions-no-adjacent-equal,Minimum Deletions for Unequal Adjacent Characters,IBM,easy,OA,string|greedy,unknown,2026-07-31,1,FULLTIME
 microsoft-enumerate-valid-clock-times,Enumerate Valid Clock Times,Microsoft,easy,OA,array|backtracking|sorting,unknown,2026-07-31,1,FULLTIME
@@ -433,12 +546,13 @@ amazon-http-request-redirection,HTTP Request Redirection,Amazon,medium,OA,array|
 cresta-particle-moves-to-target,Particle Moves to Target,Cresta,easy,OA,math|greedy,unknown,2026-07-28,1,FULLTIME
 cresta-rightward-bacteria-consumption,Rightward Bacteria Consumption,Cresta,easy,OA,array|simulation,unknown,2026-07-28,1,FULLTIME
 cresta-top-three-companies-by-profit,Top Three Companies by Profit,Cresta,easy,OA,array|sorting,unknown,2026-07-28,1,FULLTIME
+wellsfargo-longest-subsequence-substring,Longest Subsequence That Is a Substring,Wells Fargo,medium,OA,string|dynamic_programming,unknown,2026-07-28,1,FULLTIME
+wellsfargo-overloaded-game-account-inventories,Overloaded Game Account Inventories,Wells Fargo,medium,OA,database,unknown,2026-07-28,1,FULLTIME
 airbnb-parcel-event-tracking,Parcel Event Tracking,Airbnb,medium,OA,design|hash_table|string|simulation,codesignal,2026-07-27,1,FULLTIME
 coinbase-in-memory-database,In-Memory Database,Coinbase,hard,OA,design|hash_table|simulation,unknown,2026-07-27,1,FULLTIME
 fleetworks-top-articles-by-comment-count,Top Articles by Comment Count,FleetWorks,medium,OA,array|sorting,hackerrank,2026-07-27,1,FULLTIME
 zomato-eternal-maximum-production-within-power,Maximum Production Within Power,Zomato / Eternal,easy,OA,array|sorting|greedy,unknown,2026-07-27,1,FULLTIME
 zomato-eternal-rearrange-songs-by-author,Rearrange Songs by Author,Zomato / Eternal,medium,OA,array|hash_table|heap|greedy|sorting,unknown,2026-07-27,1,FULLTIME
-stripe-websocket-load-balancer,WebSocket Load Balancer — Basic Load Balancing (Part 1),Stripe,hard,OA,hash_table|simulation,hackerrank,2026-07-26,2,INTERN|NEW GRAD
 amazon-shortest-distance-circular-bus-route,Shortest Distance on a Circular Bus Route,Amazon,easy,OA,array|prefix_sum,unknown,2026-07-26,1,FULLTIME
 hrt-count-black-blocks,Count 2x2 Submatrices by Black Cells,Hudson River Trading,medium,OA,array|hash_table|matrix|combinatorics,codesignal,2026-07-26,1,INTERN|NEW GRAD
 hrt-cumulative-unique-bytes,Cumulative Unique Bytes,Hudson River Trading,medium,OA,array|intervals,codesignal,2026-07-26,1,INTERN|NEW GRAD
@@ -447,7 +561,6 @@ upstart-lexicographic-word-frequencies,Lexicographic Word Frequencies,Upstart,ea
 upstart-minimum-absolute-pair-difference,Minimum Absolute Pair Difference,Upstart,easy,OA,array|sorting,unknown,2026-07-26,1,FULLTIME
 upstart-sum-multiples-of-three-five-seven,"Sum Multiples of 3, 5, or 7 Below N",Upstart,easy,OA,math,unknown,2026-07-26,1,FULLTIME
 google-count-sortable-splits,Count Sortable Splits,Google,easy,OA,array|prefix_sum,unknown,2026-07-25,1,INTERN
-stripe-rule-driven-transaction-fraud-detection,Rule-Driven Transaction Fraud Detection,Stripe,medium,OA|PHONE SCREEN,design|hash_table|simulation,unknown,2026-07-25,1,FULLTIME
 tiktok-bubble-explosion,Bubble Explosion,TikTok,hard,OA,array|matrix|simulation,unknown,2026-07-25,1,INTERN
 tiktok-reconstruct-landmark-journey,Reconstruct Landmark Journey,TikTok,medium,OA,array|hash_table|graph,unknown,2026-07-25,1,INTERN
 tiktok-reverse-interior-of-vowel-words,Reverse the Interior of Vowel-Bounded Words,TikTok,easy,OA,array|string|two_pointers,unknown,2026-07-25,1,INTERN
@@ -474,9 +587,7 @@ virtu-maximum-apples-in-box,Maximum Apples That Fit in a Box,Virtu Financial,eas
 virtu-minimum-steps-to-fibonacci,Minimum Steps to a Fibonacci Number,Virtu Financial,easy,OA,math,unknown,2026-07-24,1,INTERN
 salesforce-minimum-operations-to-zero,Minimum Operations to Zero,Salesforce,,OA,,unknown,2026-07-23,2,FULLTIME
 akuna-profitable-project-pairs,Profitable Project Pairs,Akuna Capital,medium,OA,array|sorting|two_pointers,unknown,2026-07-23,1,INTERN
-visa-maximum-server-processing-time,Maximum Server Processing Time,Visa,hard,OA,array|dynamic_programming|heap,unknown,2026-07-23,1,NEW GRAD
 visa-signal-pings,Signal Pings,Visa,medium,OA,array|sorting|simulation,unknown,2026-07-23,1,NEW GRAD
-visa-sum-of-index-pair-differences,Sum of Index-Ordered Pair Differences,Visa,medium,OA,array|math,unknown,2026-07-23,1,NEW GRAD
 microsoft-binary-string-swap-time,Binary String Swap Time,Microsoft,medium,OA,string|simulation|dynamic_programming,unknown,2026-07-22,1,NEW GRAD
 microsoft-minimum-effort-task-schedule,Minimum Effort Task Schedule,Microsoft,hard,OA,array|dynamic_programming,unknown,2026-07-22,1,NEW GRAD
 tekion-longest-balanced-substring-after-one-swap,Longest Balanced Substring After One Swap,Tekion,medium,OA,string|prefix_sum|hash_table,unknown,2026-07-22,1,INTERN
@@ -487,10 +598,7 @@ drw-last-round-for-each-player,Last Round for Each Player,DRW,medium,OA,array|si
 drw-shortest-compressed-length-after-removal,Shortest Compressed Length After Removal,DRW,medium,OA,string|prefix_sum,codility,2026-07-21,1,INTERN
 tiktok-count-key-changes,Count Key Changes,TikTok,easy,OA,array|string|simulation,codesignal,2026-07-21,1,NEW GRAD|INTERN
 tiktok-travel-distance-on-scooters,Travel Distance on Scooters,TikTok,easy,OA,array|sorting|greedy|simulation,codesignal,2026-07-21,1,NEW GRAD|INTERN
-capital-one-reconstruct-landmark-journey,Reconstruct Landmark Journey,Capital One,medium,OA,graph|hash_table,codility,2026-07-20,3,INTERN|NEW GRAD
 akuna-array-challenge,Array Challenge (QR Intern),Akuna Capital,easy,OA,array|simulation|prefix_sum|math,hackerrank,2026-07-20,2,INTERN
-capital-one-compare-counts-around-pivot,Compare Counts Around Pivot,Capital One,easy,OA,array|simulation,codility,2026-07-20,2,INTERN
-capital-one-format-newspaper-page,Format a Newspaper Page,Capital One,medium,OA,string|greedy|simulation,codesignal,2026-07-20,2,INTERN
 airbnb-most-frequent-reduced-digit,Most Frequent Reduced Digit,Airbnb,easy,OA,array|hash_table|math|simulation,codesignal,2026-07-20,1,NEW GRAD
 airbnb-rectangle-fit-queries,Rectangle Fit Queries,Airbnb,medium,OA,array|geometry|simulation,codesignal,2026-07-20,1,NEW GRAD
 airbnb-robot-final-direction,Robot Final Direction,Airbnb,easy,OA,string|simulation,codesignal,2026-07-20,1,NEW GRAD
@@ -500,7 +608,6 @@ microsoft-maximum-pipeline-throughput,Maximum Pipeline Throughput,Microsoft,medi
 microsoft-maximum-strong-team-subarray,Maximum Strong Team Subarray,Microsoft,medium,OA,array|dynamic_programming,unknown,2026-07-20,1,
 phonepe-colorful-socks,Luna and the Colorful Socks,PhonePe,hard,OA,array|sorting|greedy,unknown,2026-07-20,1,
 visa-minimum-course-pass-cost,Minimum Cost to Attend Required Courses,Visa,medium,OA,array|binary_search|dynamic_programming,unknown,2026-07-20,1,FULLTIME
-capital-one-alternating-string-ends,Alternate String Ends,Capital One,easy,OA,string|two_pointers|simulation,unknown,2026-07-19,1,FULLTIME
 capital-one-sort-matrix-border-layers,Sort Every Matrix Border Layer,Capital One,medium,OA,matrix|sorting|simulation,unknown,2026-07-19,1,FULLTIME
 waymo-average-or-zero,Average or Zero,Waymo,easy,OA,array|math,unknown,2026-07-19,1,FULLTIME
 microsoft-minimum-cost-k-capable-models,Minimum Cost K-Capable Models,Microsoft,medium,OA,array|greedy|sorting|prefix_sum,unknown,2026-07-18,2,
@@ -567,8 +674,6 @@ snowflake-minimum-height,Minimum Height,Snowflake,medium,OA,tree|binary_search|b
 ibm-query-type-frequency-window,Query Type Frequency Window,IBM,medium,OA,array|hash_table|sliding_window|sorting,unknown,2026-07-01,1,
 amazon-minimum-redistribution-cost,Minimum Redistribution Cost,Amazon,medium,OA,array|prefix_sum|greedy,unknown,2026-06-30,6,
 snowflake-vowel-substring,Vowel Substring,Snowflake,medium,OA,string|sliding_window|hash_table,hackerrank,2026-06-29,3,INTERN
-amazon-inventory-allocation,Inventory Allocation,Amazon,medium,OA,simulation|sorting|heap,unknown,2026-06-28,1,NEW GRAD
-capital-one-linear-warehouse-drone-delivery,Linear Warehouse Drone Delivery,Capital One,easy,OA,array|sorting|two_pointers|greedy|simulation,codesignal,2026-06-26,1,INTERN
 stripe-directly-linked-users,Directly Linked Users,Stripe,easy,OA,hash_table|graph,unknown,2026-06-24,1,
 stripe-fraud-ring-size,Fraud Ring Size,Stripe,medium,OA,graph|breadth_first_search|hash_table,unknown,2026-06-24,1,
 stripe-risky-fraud-ring,Risky Fraud Ring,Stripe,medium,OA,graph|breadth_first_search|hash_table,unknown,2026-06-24,1,
@@ -608,6 +713,7 @@ nutanix-min-cost-to-connect-all-points,Min Cost to Connect All Points,Nutanix,me
 tesla-count-zero-sum-fragments,Count Zero-Sum Fragments,Tesla,medium,OA,array|prefix_sum|hash_table,codility,2026-06-04,1,
 tesla-maximum-insertions-without-three-consecutive-a,Maximum Insertions Without Three Consecutive A,Tesla,medium,OA,string|greedy,codility,2026-06-04,1,
 tesla-smallest-greater-integer-with-same-digit-sum,Smallest Greater Integer With Same Digit Sum,Tesla,easy,OA,math|simulation,codility,2026-06-03,1,
+alpaca-hungarian-lottery-winners,Hungarian Lottery Winner Counts,Alpaca,medium,OA,array|hash_table|simulation,unknown,2026-06-02,1,FULLTIME
 google-consolidate-on-call-rotations,Consolidate On-Call Rotations,Google,,OA,,unknown,2026-06-02,1,FULLTIME
 mckinsey-count-repeated-request-ids,Count Repeated Request IDs,McKinsey & Company,easy,OA,hash_table|sorting|sliding_window|string,unknown,2026-06-02,1,
 google-consolidated-on-call-rotations,Consolidated On-Call Rotations,Google,medium,OA,intervals|heap|sorting,unknown,2026-06-01,1,
@@ -620,6 +726,10 @@ akuna-maximum-difference,Maximum Difference,Akuna Capital,easy,OA,graph|union_fi
 akuna-maximum-component-label-difference,Maximum Label Difference in a Connected Component,Akuna Capital,medium,OA,graph|breadth_first_search,unknown,2026-05-25,1,
 guidewire-minimum-boys-next-to-girls,Minimum Boys Next to Girls,Guidewire,medium,OA,greedy|string,unknown,2026-05-20,1,FULLTIME
 salesforce-time-to-rearrange-binary-string,Time Needed to Rearrange a Binary String,Salesforce,medium,OA,string|dynamic_programming|simulation,hackerrank,2026-05-19,1,FULLTIME
+ramp-cloud-storage-level-1,"Cloud Storage System, Part 1: File Operations",Ramp,easy,OA,hash_table|design|simulation,codesignal,2026-05-18,2,NEW GRAD
+ramp-cloud-storage-level-2,"Cloud Storage System, Part 2: Largest Files",Ramp,medium,OA,hash_table|sorting|design|simulation,codesignal,2026-05-18,2,NEW GRAD
+ramp-cloud-storage-level-3,"Cloud Storage System, Part 3: Users and Capacity",Ramp,medium,OA,hash_table|sorting|design|simulation,codesignal,2026-05-18,2,NEW GRAD
+ramp-cloud-storage-system,"Cloud Storage System, Part 4: Backup and Restore",Ramp,medium,OA,design|hash_table|sorting|simulation,codesignal,2026-05-18,2,NEW GRAD|INTERN
 anthropic-normalize-dns-name,Normalize a DNS Domain Name,Anthropic,easy,OA,string,codesignal,2026-05-17,1,INTERN
 amazon-circular-route-query-distance,Circular Route Query Distance,Amazon,easy,OA,array|prefix_sum,unknown,2026-05-15,1,FULLTIME
 myntra-max-capped-histogram-after-removal,Maximum Capped Histogram Area After One Removal,Myntra,medium,OA,array|stack,unknown,2026-05-15,1,INTERN
@@ -661,6 +771,7 @@ uber-balanced-prefix-sets-in-permutation,Balanced Prefix Sets in a Permutation,U
 uber-minimum-edge-reversals-root,Minimum Edge Reversals to Root a Tree,Uber,hard,OA,graph|depth_first_search,codesignal,2026-04-25,1,FULLTIME
 amazon-stable-robot-configurations,Stable Robot Configurations,Amazon,medium,OA,array|sorting|combinatorics,unknown,2026-04-20,2,INTERN|NEW GRAD
 amazon-get-min-errors,Get Minimum Errors,Amazon,hard,OA,dynamic_programming|string|greedy,hackerrank,2026-04-16,6,FULLTIME
+mistral-ai-gpu-cluster-switching,GPU Capacity With Limited Cluster Switching,Mistral AI,hard,OA,dynamic_programming|array,codesignal,2026-04-16,1,FULLTIME
 amazon-make-value-groups-contiguous,Make Value Groups Contiguous,Amazon,medium,OA,array|hash_table|greedy,hackerrank,2026-04-13,1,NEW GRAD
 superhuman-lost-messages,Lost Messages,Superhuman,easy,OA,two_pointers|string,hackerrank,2026-04-10,1,FULLTIME|NEW GRAD
 superhuman-math-homework,Math Homework,Superhuman,medium,OA,dynamic_programming|array,hackerrank,2026-04-10,1,FULLTIME|NEW GRAD
@@ -703,11 +814,16 @@ salesforce-key-teams-in-tree,Key Teams in Tree,Salesforce,,OA,,unknown,2026-03-1
 salesforce-system-energy-reduction,System Energy Reduction,Salesforce,,OA,,unknown,2026-03-15,1,FULLTIME
 salesforce-update-logs-by-symmetric-xor,Update Logs by Symmetric XOR,Salesforce,,OA,,unknown,2026-03-15,1,FULLTIME
 flextrade-reverse-string,Reverse a String,FlexTrade,easy,OA,string|two_pointers,unknown,2026-03-14,1,NEW GRAD
+adobe-closest-number-pairs,Closest Number Pairs,Adobe,easy,OA,array|sorting,hackerrank,2026-03-12,2,INTERN
+adobe-count-distinct-fixed-length-substrings,Count Distinct Fixed-Length Substrings,Adobe,medium,OA,string|hash_table|sliding_window,hackerrank,2026-03-12,2,INTERN
+adobe-maximum-reachable-value,Maximum Reachable Value Within a Step Budget,Adobe,easy,OA,math,hackerrank,2026-03-12,2,INTERN
 tiktok-compute-walking-distance,Compute Walking Distance,TikTok,easy,OA,array|sorting|greedy,codesignal,2026-03-10,1,FULLTIME
 tiktok-count-sawtooth-subarrays,Count Sawtooth Subarrays,TikTok,easy,OA,array|dynamic_programming,codesignal,2026-03-10,1,FULLTIME
 tiktok-memory-allocator,Memory Allocator,TikTok,medium,OA,array|simulation|design,codesignal,2026-03-10,1,FULLTIME
 goldman-sachs-design-hashmap,Design Hash Map,Goldman Sachs,easy,OA,hash_table|design,unknown,2026-03-08,1,FULLTIME
 jane-street-cheating-codemaker,Cheating Codemaker,Jane Street,medium,OA,array|string|hash_table|simulation|combinatorics,unknown,2026-03-05,1,INTERN
+ramp-in-memory-database-historical-lookup,In-Memory Database with TTL and Historical Lookup,Ramp,hard,OA,hash_table|database|design|simulation,codesignal,2026-03-04,5,NEW GRAD|INTERN
+ramp-recipe-management-system,Recipe Management System,Ramp,hard,OA,design|hash_table|sorting|simulation,unknown,2026-03-03,1,FULLTIME
 citadel-process-scheduling,Process Scheduling,Citadel,easy,OA,combinatorics|math,unknown,2026-03-02,1,
 salesforce-count-palindromic-concatenation-pairs,Count Palindromic Concatenation Pairs,Salesforce,,OA,,unknown,2026-03-02,1,
 microsoft-balanced-permutation-subarrays,Balanced Permutation Subarrays,Microsoft,medium,OA,array,unknown,2026-02-25,1,INTERN|NEW GRAD
@@ -720,42 +836,57 @@ datadog-latency-bucket-counter,Latency Bucket Counter,Datadog,easy,OA,array|math
 infosys-maximum-subarray-sum-after-swaps,Maximum Subarray Sum After Swaps,Infosys,,OA,,unknown,2026-02-19,1,
 uber-balanced-prefix-permutation,Balanced Prefix Permutation,Uber,,OA,,unknown,2026-02-19,1,FULLTIME
 uber-minimum-euclidean-plate-collection-time,Minimum Euclidean Plate Collection Time,Uber,,OA,,unknown,2026-02-19,1,FULLTIME
+bloomberg-design-ordered-stream,Design an Ordered Stream,Bloomberg LP,easy,OA|PHONE SCREEN|ONSITE INTERVIEW,array|hash_table|design,unknown,2026-02-17,15,NEW GRAD
 anthropic-cloud-storage-compression,Cloud Storage Compression and Decompression,Anthropic,hard,OA,hash_table|sorting|design|simulation,codesignal,2026-02-13,3,
 ibm-minimum-operations-to-make-alternating-binary-string,Minimum Operations to Make Alternating Binary String,IBM,easy,OA,string|greedy,hackerrank,2026-02-10,1,INTERN
 intuit-set-total-palindrome-transformation-cost,Set Total Palindrome Transformation Cost,Intuit,hard,OA,string|bit_manipulation|prefix_sum,karat,2026-02-10,1,NEW GRAD
 pinterest-bubble-explosion,Bubble Explosion,Pinterest,hard,OA,matrix|graph|depth_first_search|simulation,codesignal,2026-02-09,1,FULLTIME|NEW GRAD
 pinterest-travel-distance-on-scooters,Travel Distance on Scooters,Pinterest,easy,OA,array|sorting|greedy|simulation,codesignal,2026-02-09,1,FULLTIME|NEW GRAD
-wellsfargo-count-server-replacements,Count Server Replacements,Wells Fargo,easy,OA,hash_table|simulation,unknown,2026-02-08,1,
-wellsfargo-minimum-remaining-length,Minimum Remaining Length,Wells Fargo,medium,OA,string|stack,unknown,2026-02-08,1,
+wellsfargo-count-server-replacements,Count Server Replacements,Wells Fargo,easy,OA|PHONE SCREEN,hash_table|simulation,hackerrank,2026-02-08,3,NEW GRAD
+wellsfargo-minimum-remaining-length,Minimum Remaining Length,Wells Fargo,medium,OA|PHONE SCREEN,string|stack,hackerrank,2026-02-08,3,NEW GRAD
 salesforce-collect-opportunity-data-in-a-tree,Collect Opportunity Data in a Tree,Salesforce,hard,OA,tree|depth_first_search|greedy,hackerrank,2026-02-06,1,
 salesforce-replace-question-mark-to-avoid-adjacent-duplicates,Replace '?' to Avoid Adjacent Duplicates,Salesforce,medium,OA,string|dynamic_programming|combinatorics,hackerrank,2026-02-06,1,
 salesforce-strings-with-no-k-consecutive-identical-characters,Strings With No k Consecutive Identical Characters,Salesforce,medium,OA,dynamic_programming|combinatorics,hackerrank,2026-02-06,1,
 amazon-lexicographically-smallest-after-one-substring-rotation,Lexicographically Smallest After One Substring Rotation,Amazon,,OA,,unknown,2026-02-05,1,FULLTIME
 uber-binary-tree-subtree-sum-maximum-path-and-path-nodes,"Binary Tree: Subtree Sum, Maximum Path Sum, and Path Nodes",Uber,medium,OA,tree|depth_first_search,codesignal,2026-02-04,1,INTERN|NEW GRAD
+bloomberg-word-search,Word Search,Bloomberg LP,medium,OA|PHONE SCREEN|ONSITE INTERVIEW,matrix|depth_first_search|backtracking,unknown,2026-02-03,17,NEW GRAD
 ibm-longest-balanced-binary-subarray,Longest Balanced Binary Subarray,IBM,,OA,,hackerrank,2026-02-03,2,INTERN|FULLTIME
 ibm-count-unstable-processes,Count Unstable Processes,IBM,,OA,,hackerrank,2026-02-03,1,INTERN
-google-meeting-rooms-ii,Minimum Number of Chairs,Google,easy,OA|PHONE SCREEN,intervals|sorting|heap,codesignal,2026-02-02,2,FULLTIME
 microsoft-unique-difference-pattern,Unique Difference Pattern,Microsoft,easy,OA,array|string|hash_table,unknown,2026-01-31,1,
 amazon-minimum-operations-to-sort-permutation,Minimum Operations to Sort a Permutation,Amazon,,OA,,unknown,2026-01-30,1,FULLTIME
 amazon-find-minimum-groups,Find Minimum Groups,Amazon,medium,OA,array|hash_table|greedy,unknown,2026-01-26,1,
 amazon-lexicographically-maximum-final-sequence,Lexicographically Maximum Final Sequence,Amazon,,OA,,unknown,2026-01-24,1,FULLTIME
 amazon-vm-rental-revenue,VM Rental Revenue,Amazon,medium,OA,heap|greedy,hackerrank,2026-01-24,1,INTERN
+ramp-worker-management-level-1,"Worker Management, Part 1: Office Registration",Ramp,easy,OA,hash_table|design|simulation,codesignal,2026-01-21,5,NEW GRAD|INTERN
+ramp-worker-management-level-2,"Worker Management, Part 2: Top Workers",Ramp,medium,OA,hash_table|sorting|design|simulation,codesignal,2026-01-21,5,NEW GRAD|INTERN
+ramp-worker-management-level-3,"Worker Management, Part 3: Promotions and Salary",Ramp,hard,OA,hash_table|intervals|design|simulation,codesignal,2026-01-21,5,NEW GRAD|INTERN
+ramp-worker-management-level-4,"Worker Management, Part 4: Double-Paid Intervals",Ramp,hard,OA,hash_table|intervals|sorting|design|simulation,codesignal,2026-01-21,5,NEW GRAD|INTERN
 jpmorgan-generate-table-of-contents,Generate Table of Contents,JP Morgan Chase,easy,OA,string|parsing|simulation,hackerrank,2026-01-19,2,FULLTIME
 jpmorgan-count-dropped-requests,Count Dropped Requests,JP Morgan Chase,easy,OA,array|simulation,hackerrank,2026-01-19,1,FULLTIME
+ramp-progressive-banking-system,Progressive Banking System,Ramp,hard,OA,design|hash_table|heap|sorting|simulation,codesignal,2026-01-17,6,NEW GRAD|INTERN|FULLTIME
+ramp-task-management-system,Task Manager with Timed Assignments,Ramp,hard,OA,design|hash_table|sorting|simulation,unknown,2026-01-17,1,FULLTIME
 amazon-longest-arithmetic-subarray-after-one-change,Longest Arithmetic Subarray After One Change,Amazon,,OA,,unknown,2026-01-06,1,FULLTIME
 amazon-replace-values-and-return-sums,Replace Values and Return Sums,Amazon,,OA,,unknown,2026-01-06,1,FULLTIME
 google-count-divisible-coin-selections,Count Divisible Coin Selections,Google,,OA,,unknown,2025-12-24,1,FULLTIME
 google-minimum-town-sum-difference,Minimum Town Sum Difference,Google,,OA,,unknown,2025-12-24,1,FULLTIME
 oracle-first-balanced-removal-index,First Balanced Removal Index,Oracle,,OA,,unknown,2025-12-22,1,FULLTIME
+ramp-bank-requests-with-delayed-cashback,Bank Requests with Delayed Cashback,Ramp,medium,OA,array|queue|simulation|parsing,unknown,2025-12-21,6,NEW GRAD|INTERN|FULLTIME
 google-reach-the-end-in-time,Reach the End in Time,Google,easy,OA,matrix|breadth_first_search,codesignal,2025-12-20,2,
 hackerrank-longest-equal-binary-subarray,Longest Equal Binary Subarray,HackerRank,,OA,,hackerrank,2025-12-17,2,FULLTIME
 hackerrank-longest-equal-binary-subarray-after-one-flip,Longest Equal Binary Subarray After One Flip,HackerRank,,OA,,hackerrank,2025-12-17,2,FULLTIME
+visa-format-newspaper-page,Format a Centered Newspaper Page,Visa,medium,OA,string|greedy|simulation,codesignal,2025-12-16,3,FULLTIME|INTERN
+visa-first-prefix-reaching-target-score,First Prefix Reaching a Target Score,Visa,easy,OA,array|prefix_sum,codesignal,2025-12-16,1,FULLTIME
 visa-previous-bus-departure,Previous Bus Departure,Visa,,OA,,codesignal,2025-12-16,1,FULLTIME
+visa-reconstruct-island-visit-order,Reconstruct Island Visit Order,Visa,medium,OA,array|hash_table|graph,codesignal,2025-12-16,1,FULLTIME
 zopsmart-base36-square-root,Base36 Square Root,ZopSmart,,OA,,unknown,2025-12-16,1,
 zopsmart-minimum-hidden-roman-value,Minimum Hidden Roman Value,ZopSmart,,OA,,unknown,2025-12-16,1,
 zopsmart-reverse-base36-number,Reverse Base36 Number,ZopSmart,,OA,,unknown,2025-12-16,1,
 amazon-minimum-s3-storage-cost,Minimum S3 Storage Cost,Amazon,,OA,,unknown,2025-12-11,1,FULLTIME
 flipkart-minimized-total-idle-time,Minimized Total Idle Time,Flipkart,,OA,,unknown,2025-12-11,1,FULLTIME
+visa-distribution-center-package-allocation,Distribution Center Package Allocation,Visa,medium,OA,array|simulation|parsing,codesignal,2025-12-10,2,FULLTIME
+visa-count-alternating-parity-subarrays,Count Alternating-Parity Subarrays,Visa,easy,OA,array|dynamic_programming,codesignal,2025-12-10,1,FULLTIME
+visa-count-length-three-windows-with-matching-ends,Count Length-Three Windows with Matching Ends,Visa,easy,OA,string|sliding_window,codesignal,2025-12-10,1,FULLTIME
+visa-maximum-digital-root,Maximum Digital Root,Visa,easy,OA,array|math,codesignal,2025-12-10,1,FULLTIME
 salesforce-longest-subsequence-which-is-a-substring,Longest Subsequence which is a Substring,Salesforce,hard,OA,string|two_pointers|dynamic_programming,hackerrank,2025-12-01,2,FULLTIME
 accenture-array-leader-elements,Array Leader Elements,Accenture,easy,OA,array,unknown,2025-11-28,1,NEW GRAD
 bitgo-first-fibonacci-at-least-array-sum,First Fibonacci Number at Least the Array Sum,BitGo,easy,OA,array|math|simulation,unknown,2025-11-23,1,FULLTIME
@@ -765,19 +896,36 @@ mathworks-balancing-teams,Balancing Teams,MathWorks,medium,OA,array|math,hackerr
 mathworks-largest-sub-grid,Largest Sub-Grid,MathWorks,medium,OA,matrix|prefix_sum|binary_search,hackerrank,2025-11-16,1,FULLTIME
 anthropic-in-memory-database-historical-lookup,In-Memory Database Historical Lookup,Anthropic,hard,OA,hash_table|database|design|simulation,unknown,2025-11-15,6,
 twosigma-calculate-y-over-x,Calculate y/x using Patch,Two Sigma,easy,OA,math,hackerrank,2025-11-09,1,INTERN
+visa-apply-binary-state-operations,Apply Binary State Operations,Visa,easy,OA,array|simulation,codesignal,2025-11-08,1,FULLTIME
+visa-travel-distance-on-scooters,Travel Distance on Scooters,Visa,easy,OA,array|sorting|greedy|simulation,codesignal,2025-11-08,1,FULLTIME
 ibm-process-execution-time,Process Execution Time,IBM,easy,OA,intervals|sorting,hackerrank,2025-11-03,1,FULLTIME|NEW GRAD
 ibm-service-timeout-detection,Service Timeout Detection,IBM,easy,OA,hash_table|sorting,hackerrank,2025-11-03,1,FULLTIME|NEW GRAD
+wellsfargo-high-resource-usage-customers,High Resource Usage Customers,Wells Fargo,medium,OA,database,unknown,2025-11-01,1,NEW GRAD
+wellsfargo-maximum-taxi-earnings,Maximum Taxi Earnings,Wells Fargo,medium,OA,array|binary_search|dynamic_programming|sorting,unknown,2025-11-01,1,NEW GRAD
+wellsfargo-minimum-anagram-period,Minimum Anagram Period,Wells Fargo,medium,OA,string|hash_table|math,unknown,2025-11-01,1,NEW GRAD
+duolingo-collect-sticks-for-birds-nest,Collect Sticks for a Bird's Nest,Duolingo,medium,OA,array|two_pointers|simulation,codesignal,2025-10-29,1,NEW GRAD
+duolingo-dynamic-pair-sum-queries,Dynamic Pair Sum Queries,Duolingo,medium,OA,array|hash_table,codesignal,2025-10-29,1,NEW GRAD
+duolingo-longest-border-ending-diagonal-pattern,Longest Border-Ending Diagonal Pattern,Duolingo,medium,OA,matrix|dynamic_programming|simulation,codesignal,2025-10-29,1,NEW GRAD
+visa-reverse-interior-of-vowel-bounded-words,Reverse the Interior of Vowel-Bounded Words,Visa,easy,OA,array|string|two_pointers,codesignal,2025-10-28,1,INTERN
+visa-build-hollow-square,Build a Hollow Square,Visa,easy,OA,string|simulation,codesignal,2025-10-24,1,INTERN
+visa-count-uniform-or-alternating-parity-subarrays,Count Uniform-or-Alternating Parity Subarrays,Visa,medium,OA,array|dynamic_programming,codesignal,2025-10-24,1,INTERN
 microsoft-distinct-number-line-moves,Distinct Number Line Moves,Microsoft,,OA,,hackerrank,2025-10-16,1,FULLTIME
 amazon-maximize-machine-strength-sum,Maximize Machine Strength Sum,Amazon,hard,OA,greedy|sorting,unknown,2025-10-12,2,FULLTIME
 uber-minimum-operations-to-reduce-to-zero,Minimum Operations To Reduce To Zero,Uber,medium,OA,math|bit_manipulation|greedy|dynamic_programming,unknown,2025-10-12,1,
 uber-shopkeeper-final-price,Shopkeeper Final Price,Uber,medium,OA,array|stack,unknown,2025-10-12,1,
+nvidia-sparse-valid-conv2d-from-scratch,Sparse Valid Conv2D From Scratch,NVIDIA,medium,OA,array|matrix|simulation,unknown,2025-10-06,1,FULLTIME
+ramp-accept-or-decline-queries,Accept or Decline Queries,Ramp,medium,OA,sliding_window|hash_table|queue,codesignal,2025-09-29,5,NEW GRAD|FULLTIME
 goto-maximum-gold-path,Maximum Gold Path,GoTo,easy,OA,matrix|dynamic_programming,unknown,2025-09-10,1,NEW GRAD
 microsoft-cut-sticks,Cut the Sticks,Microsoft,easy,OA,array|sorting|simulation,unknown,2025-09-08,1,INTERN
 microsoft-adjacent-swap-weighted-sum,Maximum Weighted Sum with Disjoint Adjacent Swaps,Microsoft,medium,OA,array|dynamic_programming,unknown,2025-09-08,1,INTERN
 goldman-decrypt-code-lock,Lock Code,Goldman Sachs,hard,OA,math|greedy|array,hackerrank,2025-09-06,1,
+visa-count-subarrays-with-at-least-k-distinct,Count Subarrays with at Least K Distinct Values,Visa,medium,OA,array|hash_table|sliding_window,codesignal,2025-08-28,1,INTERN
+visa-space-station-shuttle-missions,Space Station Shuttle Missions,Visa,easy,OA,array|two_pointers|simulation|binary_search,codesignal,2025-08-28,1,INTERN
+visa-sum-strict-local-maxima,Sum Strict Local Maxima,Visa,easy,OA,array,codesignal,2025-08-28,1,INTERN
 jpmorgan-minimize-cost,Reduce the Array (Also for DA),JP Morgan Chase,medium,OA,heap|greedy,hackerrank,2025-08-22,2,INTERN
 amazon-count-picked-items-less-than-queries,Count Picked Items Less Than Queries,Amazon,,OA,,unknown,2025-08-10,1,FULLTIME
 amazon-fair-prize-distribution,Fair Prize Distribution,Amazon,,OA,,unknown,2025-08-10,1,FULLTIME
+ramp-cloud-storage-compression,Cloud Storage Compression and Decompression,Ramp,hard,OA,hash_table|sorting|design|simulation,codesignal,2025-08-09,3,NEW GRAD|FULLTIME
 salesforce-spam-text-classification,Spam Text Classification,Salesforce,,OA,,unknown,2025-08-06,1,FULLTIME
 salesforce-viewable-profiles-by-user,Viewable Profiles by User,Salesforce,,OA,,unknown,2025-08-06,1,FULLTIME
 idfc-find-consecutive-integer-sequences,Find Consecutive Integer Sequences,IDFC Bank,easy,OA,math|two_pointers,unknown,2025-08-04,1,FULLTIME
@@ -789,6 +937,7 @@ amazon-largest-number-with-digit-sum,Largest Number With Digit Sum,Amazon,,OA,,u
 amazon-minimize-binary-subsequence-cost,Minimize Binary Subsequence Cost,Amazon,,OA,,unknown,2025-08-03,1,FULLTIME
 roblox-minimum-height-difference-between-distant-peaks,Minimum Height Difference Between Distant Peaks,Roblox,medium,OA,array|sorting|two_pointers,unknown,2025-08-01,1,FULLTIME
 roblox-phone-battery-discharge-scheduling,Phone Battery Discharge Scheduling,Roblox,medium,OA,simulation|array,unknown,2025-08-01,1,FULLTIME
+airbnb-connect-four-winner,Connect Four Winner,Airbnb,medium,OA,matrix|simulation,unknown,2025-07-28,1,FULLTIME
 agoda-count-one-groups-by-size,Count One Groups by Size,Agoda,medium,OA,matrix|graph|breadth_first_search,unknown,2025-07-26,1,CONTRACT
 agoda-lexicographically-smallest-task-queue,Lexicographically Smallest Task Queue,Agoda,medium,OA,string|greedy,unknown,2025-07-26,1,CONTRACT
 agoda-minimum-price-with-discount-coupons,Minimum Price With Discount Coupons,Agoda,medium,OA,greedy|heap,unknown,2025-07-26,1,CONTRACT
@@ -819,6 +968,9 @@ google-count-valid-parity-run-subsequences,Count Subsequences Without Three Equa
 google-minimum-swaps-to-sort-ternary-array-after-updates,Minimum Swaps to Sort a Ternary Array After Updates,Google,hard,OA,array|sorting|greedy|segment_tree,unknown,2025-07-05,1,INTERN
 amazon-get-min-cost-book,Get Min Cost,Amazon,medium,OA,dynamic_programming|two_pointers,hackerrank,2025-07-01,2,NEW GRAD
 fortinet-compute-checksum-aggregation,Checksum Aggregator,Fortinet,hard,OA,math,unknown,2025-06-30,1,
+visa-concatenate-digit-wise-sums,Concatenate Digit-wise Sums,Visa,easy,OA,string|two_pointers|simulation,codesignal,2025-06-29,1,FULLTIME
+visa-count-subarrays-with-k-disjoint-equal-pairs,Count Subarrays with K Disjoint Equal Pairs,Visa,medium,OA,array|sliding_window|hash_table,codesignal,2025-06-29,1,FULLTIME
+visa-time-travel-hours,Time Travel Hours,Visa,easy,OA,array|simulation,codesignal,2025-06-29,1,FULLTIME
 cisco-collect-coins,Collect Coins,Cisco,hard,OA,tree|depth_first_search|greedy,hackerrank,2025-06-24,1,
 salesforce-classify-texts,Spam Classification,Salesforce,easy,OA,string|hash_table,hackerrank,2025-06-24,1,FULLTIME
 amazon-all-about-rewards,Count Possible Winners (All About Rewards :),Amazon,medium,OA,array|sorting,hackerrank,2025-06-22,8,FULLTIME
@@ -870,6 +1022,9 @@ hackerrank-longest-prefix-valid-binary-subarray,Longest Prefix-Valid Binary Suba
 google-find-minimum-possible-diameter,Find Minimum Possible Diameter,Google,hard,OA,tree|binary_search|greedy,codesignal,2025-05-27,1,
 hashicorp-versioned-in-memory-file-system,Versioned In-Memory File System,HashiCorp,medium,OA,hash_table|design|simulation,codesignal,2025-05-27,1,FULLTIME
 amazon-get-maximum-count,Get Maximum Count,Amazon,hard,OA,array|hash_table|sliding_window,hackerrank,2025-05-26,1,FULLTIME
+wellsfargo-canonical-euler-trail,Canonical Euler Trail,Wells Fargo,hard,OA,graph,unknown,2025-05-26,1,INTERN
+wellsfargo-floor-square-roots,Floor Square Roots for an Array,Wells Fargo,easy,OA,array|binary_search|math,unknown,2025-05-26,1,INTERN
+wellsfargo-longest-common-prefix,Longest Common Prefix,Wells Fargo,medium,OA,array|string,unknown,2025-05-26,1,INTERN
 amazon-find-min-replacements,Find Minimum Replacements,Amazon,hard,OA,array|greedy,hackerrank,2025-05-24,3,FULLTIME
 microsoft-maximum-number-possible,Maximum Number Possible,Microsoft,easy,OA,string|greedy,hackerrank,2025-05-23,2,FULLTIME
 microsoft-minimum-swaps-required-to-group-all-red-balls-together,Minimum Swaps Required to Group All Red Balls Together,Microsoft,medium,OA,array|sliding_window|greedy,hackerrank,2025-05-23,2,FULLTIME
@@ -895,7 +1050,12 @@ meesho-distinct-moves,Distinct Moves,Meesho,hard,OA,dynamic_programming|string,u
 agoda-team-formation,Team Formation,Agoda,medium,OA,greedy|sorting,unknown,2025-04-25,1,INTERN
 agoda-two-core-process-assignment,Two-Core Process Assignment,Agoda,medium,OA,dynamic_programming|array,unknown,2025-04-25,1,INTERN
 agoda-unique-digits-in-range,Unique Digits in Range,Agoda,easy,OA,math|combinatorics,unknown,2025-04-25,1,INTERN
+ramp-convert-snake-case-variables-to-camel-case,Convert Snake Case Variables to Camel Case,Ramp,easy,OA,string|parsing,unknown,2025-04-20,9,FULLTIME|NEW GRAD
 amazon-get-minimum-dock-bays,Get Minimum Dock Bays,Amazon,medium,OA,array|binary_search|heap,hackerrank,2025-04-20,1,NEW GRAD
+stripe-for-all-intents-and-purposes,For All Intents And Purposes Part 1 - Initializing the System 🏗️,Stripe,easy,OA,design|hash_table|simulation,hackerrank,2025-04-17,3,INTERN|NEW GRAD
+stripe-for-all-intents-and-purposes-part2,For All Intents And Purposes Part 2 - Change Is Good! 👍,Stripe,easy,OA,design|hash_table|simulation,hackerrank,2025-04-17,3,INTERN|NEW GRAD
+stripe-for-all-intents-and-purposes-part3,For All Intents And Purposes Part 3 - Accepting Failure 😌,Stripe,easy,OA,design|hash_table|simulation,hackerrank,2025-04-17,3,INTERN|NEW GRAD
+stripe-for-all-intents-and-purposes-part4,For All Intents And Purposes Part 4 - Timing Matters ⏰,Stripe,medium,OA,design|hash_table|simulation,hackerrank,2025-04-17,3,INTERN|NEW GRAD
 airtable-get-mostp-hydrated-team,Get Most Hydrated Team,Airtable,medium,OA,tree|depth_first_search|hash_table,hackerrank,2025-04-15,1,
 amazon-cinema-shows,Cinema Shows,Amazon,medium,OA,dynamic_programming|binary_search|intervals,hackerrank,2025-04-13,3,FULLTIME
 amazon-get-max-increments,Get Max Increments,Amazon,easy,OA,array|sorting|greedy,hackerrank,2025-04-13,3,FULLTIME
@@ -941,7 +1101,6 @@ fortinet-maximize-beautiful-substrings,Maximize Beautiful Substrings,Fortinet,me
 tiktok-calculate-tiktok-shopping-cost,TikTok Shopping Spree,TikTok,easy,OA,heap|greedy,codesignal,2025-03-23,1,
 salesforce-find-longest-subsequence-common-to-x-as-substring-in-y,Find Longest Subsequence Common to X as Substring in Y (MLE :),Salesforce,hard,OA,dynamic_programming|string,hackerrank,2025-03-22,1,NEW GRAD
 salesforce-find-words-in-string-not-in-subsequence,Find Words in String Not in Subsequence (MLE :),Salesforce,easy,OA,string|two_pointers,hackerrank,2025-03-22,1,NEW GRAD
-ramp-accept-or-decline-queries,Accept or Decline Queries,Ramp,medium,OA,sliding_window|hash_table|queue,codesignal,2025-03-21,1,
 amazon-trader-joe-trades,Trader Joe Trades,Amazon,hard,OA,dynamic_programming|greedy,hackerrank,2025-03-20,1,NEW GRAD
 instacart-balloon-color-pairs,Balloon Color Pairs,Instacart,easy,OA,array|hash_table|simulation,codesignal,2025-03-20,1,FULLTIME
 instacart-pop-bubbles,Bubble Popping Game,Instacart,medium,OA,matrix|simulation,codesignal,2025-03-20,1,FULLTIME
@@ -1006,11 +1165,14 @@ hubspot-peak-concurrent-calls-by-day,Peak Concurrent Calls by UTC Day,HubSpot,ha
 amazon-get-maximum,Get Maximum,Amazon,medium,OA,dynamic_programming|array,hackerrank,2025-02-03,1,
 amazon-sum-of-max-subarrays,Sum of Max of Subarrays,Amazon,hard,OA,array|stack,hackerrank,2025-02-03,1,
 tiktok-min-additional-latency,Equalize Server Latency,TikTok,medium,OA,tree|greedy|depth_first_search,codesignal,2025-02-03,1,
+ramp-correct-apartment-bedroom-counts,Correct Apartment Bedroom Counts,Ramp,medium,OA,string|array|parsing|simulation,unknown,2025-02-02,8,INTERN|NEW GRAD|FULLTIME
 amazon-get-maximum-events,Get Maximum Events,Amazon,hard,OA,dynamic_programming|sorting|greedy,hackerrank,2025-02-02,2,FULLTIME
 atlassian-get-maximum-distance,K-Means Clustering,Atlassian,medium,OA,array|binary_search|greedy,hackerrank,2025-02-02,1,
 atlanssian-plan-production,Planning Production,Atlassian,medium,OA,greedy|sorting,hackerrank,2025-02-02,1,
 amazon-find-minimum-time,Find Minimum Time,Amazon,medium,OA,array|sorting|greedy,hackerrank,2025-02-01,3,NEW GRAD
 tiktok-get-max-positive-feedback,Maximum Positive Feedback,TikTok,medium,OA,string|prefix_sum|dynamic_programming,codesignal,2025-02-01,1,
+visa-spiral-matrix-traversal,Spiral Matrix Traversal,Visa,medium,OA,array|matrix|simulation,unknown,2025-02-01,1,FULLTIME
+visa-next-bus-wait-time,Wait Until the Next Bus,Visa,easy,OA,array|simulation,codesignal,2025-02-01,1,FULLTIME
 amazon-match-strings,Match Strings (Amazon CN) 🍌,Amazon,easy,OA,string|two_pointers,hackerrank,2025-01-31,2,INTERN
 google-count-code-with-sum,Count Four-Digit Codes with Sum S,Google,easy,OA,dynamic_programming|combinatorics,codesignal,2025-01-31,2,INTERN|NEW GRAD
 google-score-points,Score Points,Google,easy,OA,array|simulation,codesignal,2025-01-31,2,NEW GRAD
@@ -1055,6 +1217,7 @@ amazon-get-min-operations2,Get Min Operations,Amazon,medium,OA,sorting|greedy,ha
 get-success-value,Get Success Value 🍅 (Fungible :),Amazon,easy,OA,sorting|prefix_sum,hackerrank,2025-01-02,3,INTERN
 cisco-find-last-cell,Find Last Cell,Cisco,medium,OA,matrix|simulation,hackerrank,2025-01-02,3,INTERN|NEW GRAD
 amazon-get-final-locations,Get Final Locations,Amazon,easy,OA,hash_table|sorting,hackerrank,2025-01-02,2,INTERN
+replit-aggregate-paginated-project-runs,Aggregate Paginated Project Run Records,Replit,medium,OA,array|hash_table|sorting|simulation|string,unknown,2025-01-01,1,FULLTIME
 snowflake-find-the-maximum-length-of-a-good-subsequence-i,Find the Maximum Length of a Good Subsequence I (LC 3176 :),Snowflake,medium,OA,dynamic_programming|hash_table,hackerrank,2024-12-28,1,INTERN
 snowflake-remove-stones-to-minimize-the-total,Remove Stones to Minimize the Total (LC 1962 :),Snowflake,easy,OA,heap|greedy,hackerrank,2024-12-28,1,INTERN
 ibm-max-profit,Max Profit,IBM,hard,OA,dynamic_programming|bit_manipulation,hackerrank,2024-12-23,1,NEW GRAD
@@ -1088,10 +1251,12 @@ stripe-process-list-of-commands,Process List of Commands,Stripe,medium,OA,simula
 amazon-find-lexicographically-smallest-string,Find Lexicographically Smallest String,Amazon,hard,OA,string|greedy,hackerrank,2024-12-08,1,FULLTIME
 amazon-perform-queries,Perform Queries,Amazon,easy,OA,queue|simulation,hackerrank,2024-12-08,1,FULLTIME
 find-minimum-inefficiency,Find Minimum Inefficienty,Amazon,medium,OA,dynamic_programming|string,hackerrank,2024-12-06,2,INTERN|NEW GRAD
+duolingo-bouncing-square-screen-corner,Bouncing Square Reaches a Screen Corner,Duolingo,medium,OA,simulation|math|hash_table,karat,2024-12-05,1,FULLTIME
 quora-count-powers-of-k,Count Powers of K (MLE),Quora,easy,OA,array|math,codesignal,2024-12-05,1,INTERN
 quora-determine-the-elimination-order,Determine the Elimination Order (MLE),Quora,medium,OA,simulation|hash_table|sorting,codesignal,2024-12-05,1,INTERN
 tiktok-get-total-impact,TikTok Reel Impact (TikTok AMS),TikTok,medium,OA,heap,codesignal,2024-12-03,1,NEW GRAD|INTERN
 wellsfargo-get-min-length,Compressing Array,Wells Fargo,medium,OA,array|greedy,hackerrank,2024-12-03,1,FULLTIME
+wellsfargo-product-record-search,Product Record Search,Wells Fargo,medium,OA,array|sorting|binary_search|string,unknown,2024-12-03,1,FULLTIME
 tiktok-interesting-watch-sequence,Interesting Watch Sequence,TikTok,medium,OA,dynamic_programming|binary_search,codesignal,2024-12-02,1,
 amazon-get-min-operations,Equalize The Arrays,Amazon,medium,OA,array|greedy|prefix_sum,hackerrank,2024-12-01,2,FULLTIME
 amazon-sum-of-all-days-numbers-on-which-the-data-of-the-xth-will-be-dependent,Sum of All Days Numbers on Which the Data of the Xth Will Be Dependent,Amazon,medium,OA,math,hackerrank,2024-12-01,2,INTERN
@@ -1109,19 +1274,15 @@ tiktok-maximize-processing-power,TikTok Video Processing,TikTok,easy,OA,dynamic_
 amazon-determine-minimum-characters-to-append,Determine Minimum Characters to Append,Amazon,easy,OA,string|two_pointers,hackerrank,2024-11-23,1,
 amazon-minimum-insertions,Minimum Insertions to Make List a Subsequence (Amazon Germany :),Amazon,medium,OA,dynamic_programming|array,hackerrank,2024-11-23,1,NEW GRAD
 salesforce-toolchanger,Tool Changer,Salesforce,easy,OA,array|simulation,hackerrank,2024-11-22,1,
+stripe-card-range-obfuscation-part2,Card Range Obfuscation Part 2 (ML Eng :),Stripe,medium,OA,intervals|sorting,hackerrank,2024-11-21,2,FULLTIME|NEW GRAD
+stripe-card-range-obfuscation-part3,Card Range Obfuscation Part 3 (ML Eng :),Stripe,medium,OA,intervals|sorting,hackerrank,2024-11-21,2,FULLTIME|NEW GRAD
+stripe-card-range-obfuscation-part4,Card Range Obfuscation Part 4 (ML Eng :),Stripe,hard,OA,intervals|sorting,hackerrank,2024-11-21,2,FULLTIME|NEW GRAD
+stripe-card-range-obfuscation-part1,Card Range Obfuscation Part1 (ML Eng :),Stripe,easy,OA,intervals|sorting,hackerrank,2024-11-21,2,FULLTIME|NEW GRAD
 jpmorgan-get-max-deletions,Get Max Deletions,JP Morgan Chase,easy,OA,string|math|simulation,hackerrank,2024-11-21,1,INTERN
-stripe-card-range-obfuscation-part2,Card Range Obfuscation Part 2 (ML Eng :),Stripe,medium,OA,intervals|sorting,hackerrank,2024-11-21,1,FULLTIME
-stripe-card-range-obfuscation-part3,Card Range Obfuscation Part 3 (ML Eng :),Stripe,medium,OA,intervals|sorting,hackerrank,2024-11-21,1,FULLTIME
-stripe-card-range-obfuscation-part4,Card Range Obfuscation Part 4 (ML Eng :),Stripe,hard,OA,intervals|sorting,hackerrank,2024-11-21,1,FULLTIME
-stripe-card-range-obfuscation-part1,Card Range Obfuscation Part1 (ML Eng :),Stripe,easy,OA,intervals|sorting,hackerrank,2024-11-21,1,FULLTIME
 amazon-find-minimum-time-required,Find Minimum Time Required (Amazon Bangalore :),Amazon,medium,OA,string|greedy|hash_table,hackerrank,2024-11-19,2,FULLTIME
 amazon-maximum-quality-sum,Maximum Quality Sum,Amazon,hard,OA,greedy|sorting|heap,hackerrank,2024-11-19,2,FULLTIME
 amazon-reduce-memory-usage,Reduce Memory Usage,Amazon,easy,OA,array|prefix_sum|sliding_window,hackerrank,2024-11-19,1,NEW GRAD
 samsung-reach-the-point,Reach The Point,Samsung,medium,OA,math|greedy,unknown,2024-11-19,1,
-stripe-for-all-intents-and-purposes,For All Intents And Purposes Part 1 - Initializing the System 🏗️,Stripe,easy,OA,design|hash_table|simulation,hackerrank,2024-11-18,1,INTERN|NEW GRAD
-stripe-for-all-intents-and-purposes-part2,For All Intents And Purposes Part 2 - Change Is Good! 👍,Stripe,easy,OA,design|hash_table|simulation,hackerrank,2024-11-18,1,INTERN|NEW GRAD
-stripe-for-all-intents-and-purposes-part3,For All Intents And Purposes Part 3 - Accepting Failure 😌,Stripe,easy,OA,design|hash_table|simulation,hackerrank,2024-11-18,1,INTERN|NEW GRAD
-stripe-for-all-intents-and-purposes-part4,For All Intents And Purposes Part 4 - Timing Matters ⏰,Stripe,medium,OA,design|hash_table|simulation,hackerrank,2024-11-18,1,INTERN|NEW GRAD
 rubrik-get-min-operations,Get Minimum Operations,Rubrik,medium,OA,array|greedy|simulation,hackerrank,2024-11-17,1,INTERN
 rubrik-find-pod-count,Horizontal Pod Autoscaler,Rubrik,medium,OA,array|segment_tree,hackerrank,2024-11-17,1,INTERN
 rubrik-get-triplet-count,Stock Prices,Rubrik,easy,OA,array|math|hash_table,hackerrank,2024-11-17,1,INTERN
@@ -1164,6 +1325,8 @@ tiktok-count-balanced-clips,TikTok Balanced Clips,TikTok,medium,OA,dynamic_progr
 amazon-maximize-sum-of-array,Maximize Sum of Array,Amazon,medium,OA,array|greedy|prefix_sum,hackerrank,2024-10-25,1,
 ibm-max-xor,Max XOR,IBM,medium,OA,bit_manipulation|greedy,hackerrank,2024-10-24,1,
 ibm-meandering-array,Meandering Array,IBM,easy,OA,array|sorting|two_pointers,hackerrank,2024-10-24,1,
+persona-escape-haunted-castle,Escape the Haunted Castle,Persona,easy,OA,matrix|breadth_first_search|shortest_path,unknown,2024-10-24,1,FULLTIME
+persona-escape-haunted-castle-treasures,Escape the Haunted Castle with Treasures,Persona,hard,OA,matrix|breadth_first_search|bit_manipulation|shortest_path,unknown,2024-10-24,1,FULLTIME
 amazon-custom-sort-string,Custom Sort String,Amazon,easy,OA,sorting|hash_table,hackerrank,2024-10-23,1,NEW GRAD
 purestorage-find-doubles,Find Doubles,Pure Storage,easy,OA,array|hash_table,hackerrank,2024-10-21,2,INTERN
 ibm-maximize-minimum-distance,Maximize Minimum Distance,IBM,medium,OA,binary_search|greedy,hackerrank,2024-10-21,1,FULLTIME
@@ -1232,6 +1395,7 @@ coinbase-find-the-length-of-the-longest-common-prefix,Find the Length of the Lon
 xai-falling-boxes-and-explosions,Falling Boxes and Exploding Obstacles,xAI,medium,OA,matrix|simulation,codesignal,2024-10-08,1,FULLTIME
 linkedin-efficient-trek,Efficient Trek,LinkedIn,hard,OA,dynamic_programming|array,hackerrank,2024-10-07,1,INTERN
 linkedin-get-process-time,Get Process Time,LinkedIn,hard,OA,dynamic_programming|greedy,hackerrank,2024-10-07,1,INTERN
+stripe-card-transaction-record-processor,Process Card Transaction Records,Stripe,medium,OA,string|sorting|simulation,hackerrank,2024-10-07,1,NEW GRAD
 amazon-compute-encoded-product-name,Compute Encoded Product Name,Amazon,easy,OA,string|sorting,hackerrank,2024-10-06,2,NEW GRAD
 amazon-longest-perfect-anagrams,Longest Perfect Anagrams,Amazon,hard,OA,string|hash_table|sliding_window,hackerrank,2024-10-05,2,
 compare-strings,Backspace String Compare,Goldman Sachs,easy,OA,string|stack,hackerrank,2024-10-05,1,NEW GRAD
@@ -1288,6 +1452,7 @@ salesforce-find-minimum-idleness,Find Minimum Idleness,Salesforce,medium,OA,stri
 agoda-maximize-sum-of-processed-times,Maximize Sum of Processed Times,Agoda,hard,OA,dynamic_programming|greedy,unknown,2024-09-25,1,
 palantir-minimize-path-value,Minimize Path Value,Palantir,medium,OA,graph|shortest_path|heap,hackerrank,2024-09-25,1,INTERN
 palantir-minimal-operations,No Pairs Allowed,Palantir,easy,OA,string|greedy,hackerrank,2024-09-25,1,INTERN
+stripe-chargeback-dispute-parser,Parse and Filter Chargeback Disputes,Stripe,medium,OA,string|hash_table|sorting|simulation,hackerrank,2024-09-25,1,NEW GRAD
 bnp-piles-of-boxes,Piles Of Boxes,BNP Paribas,easy,OA,sorting|greedy,unknown,2024-09-24,1,
 bnp-romanizer,Romanizer,BNP Paribas,easy,OA,string|greedy,unknown,2024-09-24,1,
 roblox-valid-pairs,Find Number of Valid Pairs,Roblox,easy,OA,array|math,codesignal,2024-09-24,1,INTERN
@@ -1473,6 +1638,7 @@ google-happy-neighbor,Happy Neighborhood,Google,medium,OA,array|sliding_window,c
 google-move-bits-to-right,Move Bits to Right,Google,medium,OA,string|greedy,codesignal,2024-08-08,1,
 snowflake-get-max-beautiful-substrings,Maximum Substrings,Snowflake,hard,OA,dynamic_programming|string,hackerrank,2024-08-08,1,INTERN
 snowflake-count-minimum-characters,Sequential String,Snowflake,medium,OA,string|hash_table|sliding_window,hackerrank,2024-08-08,1,INTERN
+visa-count-straight-line-word-occurrences,Count Straight-Line Word Occurrences in a Grid,Visa,medium,OA,matrix|string|simulation,unknown,2024-08-07,1,FULLTIME
 akuna-maximize-segregation-cost,Maximize Segregation Cost,Akuna Capital,hard,OA,string|greedy|math,hackerrank,2024-08-06,1,
 akuna-minimal-operations,No Pairs Allowed,Akuna Capital,easy,OA,string|greedy,hackerrank,2024-08-06,1,INTERN
 bnymellon-count-subsequences,Count Subsequences,Bank of New York Mellon,hard,OA,dynamic_programming|combinatorics,unknown,2024-08-06,1,INTERN
@@ -1507,6 +1673,7 @@ google-minimum-operations-to-make-binary-palindromic,Minimum Operations to Make 
 uber-calculate-visited-countries,Calculate Visited Countries,Uber,hard,OA,tree|depth_first_search|greedy,codesignal,2024-07-22,1,INTERN
 anthropic-banking-pending-transfer-acceptance,Banking Pending Transfer Acceptance,Anthropic,medium,OA,hash_table|design|simulation,unknown,2024-07-20,2,
 ibm-minimum-insertions-to-balance-a-parentheses-string,Minimum Insertions to Balance a Parentheses String,IBM,medium,OA,string|stack|greedy,hackerrank,2024-07-20,1,FULLTIME
+coalition-time-based-key-value-store,Time Based Key-Value Store,Coalition,medium,OA,hash_table|binary_search|design,unknown,2024-07-18,1,FULLTIME
 hyperverge-reach-a-given-number,Reach a Given Number,HyperVerge,medium,OA,math|recursion,unknown,2024-07-18,1,
 onix-get-string-to-remove,Get String to Remove,Onix,easy,OA,string|two_pointers,unknown,2024-07-18,1,
 salesforce-count-numbers-with-unique-digits,Count Numbers with Unique Digits,Salesforce,easy,OA,array|hash_table,hackerrank,2024-07-18,1,
@@ -1620,6 +1787,7 @@ mathwork-maximize-beauty,Maximize Beauty 🐱,MathWorks,medium,OA,dynamic_progra
 amazon-count-pairs,Counting Pairs,Amazon,easy,OA,array|hash_table,hackerrank,2024-04-02,1,
 amazon-maximize-the-array-sum-after-negating-at-most-k-elements,Maximize the Array Sum After Negating at Most K Elements 🥝,Amazon,medium,OA,array|greedy|prefix_sum,hackerrank,2024-04-02,1,
 infosys-number-of-unique-elements-after-modifications,Number of Unique Elements After Modifications 🍁,Infosys,medium,OA,array|prefix_sum|hash_table,karat,2024-03-31,1,
+airbnb-configurable-retry-strategies,Configurable Retry Strategies,Airbnb,medium,OA,simulation|math,unknown,2024-03-29,1,FULLTIME
 paypay-sum-consecutive-identical-digits,Sum Consecutive Identical Digits,PayPay,easy,OA,string|simulation,unknown,2024-03-29,1,FULLTIME
 spacex-monster-registry,Monster Registry,SpaceX,hard,OA,parsing|hash_table|graph|depth_first_search,unknown,2024-03-28,2,FULLTIME
 atlassian-count-analogous-arrays,Count Analogous Arrays,Atlassian,medium,OA,array|prefix_sum|math,unknown,2024-03-28,1,FULLTIME
@@ -1665,6 +1833,7 @@ service-now-maximum-sum-of-balanced-subsequence,Maximum Sum of Balanced Subseque
 snowflake-efficient-deployments,Efficient Deployments 🌨️,Snowflake,hard,OA,dynamic_programming|array,hackerrank,2024-03-15,1,INTERN
 snowflake-get-earliest-meet-time,Meeting Assistant,Snowflake,medium,OA,intervals|sorting|string,hackerrank,2024-03-15,1,INTERN
 doordash-find-difference-value,Calculate Difference Value 🍧,DoorDash,medium,OA,string|two_pointers|sliding_window,hackerrank,2024-03-14,1,FULLTIME
+old-mission-merging-palindromes,Merging Palindromes,Old Mission,medium,OA,string|hash_table|greedy,hackerrank,2024-03-14,1,FULLTIME
 doordash-get-sizes-of-friends-groups,Get Sizes of Friends Groups 🥗,DoorDash,easy,OA,union_find,hackerrank,2024-03-13,1,FULLTIME
 ibm-subset-a,Array Subsets 🐿️ (Frontend),IBM,medium,OA,sorting|greedy,hackerrank,2024-03-13,1,INTERN
 ibm-table-of-contents,Table of Contents 🍀,IBM,easy,OA,string|parsing,hackerrank,2024-03-13,1,FULLTIME
@@ -1675,10 +1844,11 @@ imc-asteroid-game,Asteroid Collision (IMC Sydney 🐚),IMC Trading,medium,OA,sta
 amazon-register-login-logout,Sign In Pages 🍊,Amazon,easy,OA,hash_table|simulation|string,hackerrank,2024-03-09,1,INTERN
 atlanssian-better-compression,Better Compression 🦀,Atlassian,easy,OA,string|hash_table|sorting,hackerrank,2024-03-09,1,INTERN
 atlanssian-romanizer,Romanizer 🐡,Atlassian,easy,OA,math|string,hackerrank,2024-03-09,1,INTERN
+sentry-five-minute-hit-counter,Five-Minute Hit Counter,Sentry,medium,OA|ONSITE INTERVIEW,queue|design,unknown,2024-03-08,3,FULLTIME|NEW GRAD
 amazon-lexicographically-smallest-palindrome-possible,Lexicographically Smallest Palindrome Possible 🍊,Amazon,medium,OA,string|two_pointers|greedy,hackerrank,2024-03-08,1,
 ibm-get-potential-of-winner,Get Potential of Winner 🏆,IBM,medium,OA,queue|simulation,hackerrank,2024-03-08,1,FULLTIME
 zscaler-count-sentences,How Many Sentences? 🌿,Zscaler,medium,OA,string|hash_table,hackerrank,2024-03-08,1,INTERN
-airbnb-minimum-eating-speed,Minimum Eating Speed,Airbnb,medium,OA,binary_search|array,hackerrank,2024-03-06,1,
+airbnb-minimum-eating-speed,Minimum Eating Speed,Airbnb,medium,OA,binary_search|array,hackerrank,2024-03-06,3,FULLTIME
 amazon-find-maximum-number-of-batches,Find Maximum Number of Batches,Amazon,medium,OA,array|greedy|sorting,hackerrank,2024-03-06,1,
 chicagotrading-find-score,Find P-Matching Score,Amazon,medium,OA,string|hash_table|sliding_window,hackerrank,2024-03-06,1,NEW GRAD
 get-minimum-round-trip-cost,Get Minimum Round Trip Cost,Amazon,easy,OA,array|prefix_sum|two_pointers,hackerrank,2024-03-06,1,
@@ -1838,6 +2008,7 @@ microsoft-count-similar-substrings,Count Similar Substrings (Microsoft India) �
 microsoft-find-array-uniqueness-median,Find Array Uniqueness Median 🐈,Microsoft,hard,OA,array|binary_search|sliding_window,hackerrank,2024-01-01,1,FULLTIME
 get-average-standing,Get Average Standing 🍑,Amazon,medium,OA,array|sorting|math,hackerrank,2023-12-27,1,INTERN
 location-of-data-after-transfers,Location Of Data After Transfers,Amazon,easy,OA,hash_table|sorting,hackerrank,2023-12-23,1,INTERN
+ramp-in-memory-database-backup-and-restore,In-Memory Database with Backup and Restore,Ramp,hard,OA,design|hash_table|simulation,codesignal,2023-12-22,1,INTERN
 erase-pairs,Erase Pairs 🍇,Amazon,medium,OA,stack|string,hackerrank,2023-12-10,1,FULLTIME
 atlassian-dice-roll-simulation,Dice Roll Simulation,Atlassian,hard,OA,dynamic_programming|array,unknown,2023-11-27,2,FULLTIME
 atlassian-binary-search-tree-iterator,Binary Search Tree Iterator,Atlassian,medium,OA,tree|stack|design,unknown,2023-11-27,1,FULLTIME
@@ -1862,15 +2033,22 @@ atlassian-rank-teams-by-votes,Rank Teams by Votes,Atlassian,medium,OA,array|sort
 atlassian-single-element-in-a-sorted-array,Single Element in a Sorted Array,Atlassian,medium,OA,array|binary_search,unknown,2023-11-27,1,FULLTIME
 atlassian-time-based-key-value-store,Time Based Key-Value Store,Atlassian,medium,OA,hash_table|binary_search|design,unknown,2023-11-27,1,FULLTIME
 atlassian-validate-binary-search-tree,Validate Binary Search Tree,Atlassian,medium,OA,tree|depth_first_search,unknown,2023-11-27,1,FULLTIME
+ramp-banking-accepted-transfers-level-1,"Banking System with Accepted Transfers, Part 1: Accounts and Payments",Ramp,easy,OA,hash_table|sorting|design|simulation,codesignal,2023-11-20,2,NEW GRAD
+ramp-banking-accepted-transfers-level-2,"Banking System with Accepted Transfers, Part 2: Activity Ranking",Ramp,medium,OA,hash_table|sorting|design|simulation,codesignal,2023-11-20,2,NEW GRAD
+ramp-banking-accepted-transfers-level-3,"Banking System with Accepted Transfers, Part 3: Pending Transfer Acceptance",Ramp,medium,OA,hash_table|sorting|design|simulation,codesignal,2023-11-20,2,NEW GRAD
+ramp-banking-accepted-transfers-level-4,"Banking System with Accepted Transfers, Part 4: Account Merging and Balance History",Ramp,hard,OA,hash_table|sorting|design|simulation,codesignal,2023-11-20,2,NEW GRAD
 purestorage-find-repetitions,Find Repetitions,Pure Storage,easy,OA,string|sliding_window,hackerrank,2023-11-20,1,INTERN
 purestorage-compare-boxes-to-template,Bakery Quality Control,Pure Storage,easy,OA,string|hash_table,hackerrank,2023-11-15,1,INTERN
 get-minimum-cost,Get Minimum Cost 🍒,Amazon,medium,OA,heap|greedy,hackerrank,2023-11-08,1,FULLTIME
 paypay-palindromic-array-transformation,Palindromic Array Transformation,PayPay,hard,OA,two_pointers|string,unknown,2023-11-01,2,NEW GRAD
 paypay-board-coloring-and-query-processing,Board Coloring and Query Processing,PayPay,medium,OA,matrix|simulation,unknown,2023-11-01,1,
-deloitte-install-carbon-filters,Install Carbon Filters,Deloitte,medium,OA,string|greedy,hackerrank,2023-10-21,1,NEW GRAD
-deloitte-lonest-substring-with-even-occurrences,Longest Substring with Even Occurrences,Deloitte,medium,OA,string|bit_manipulation|hash_table|prefix_sum,hackerrank,2023-10-21,1,NEW GRAD
+deloitte-install-carbon-filters,Install Carbon Filters,Deloitte,medium,OA,string|greedy,codility,2023-10-21,1,NEW GRAD
+deloitte-lonest-substring-with-even-occurrences,Longest Substring with Even Occurrences,Deloitte,medium,OA,string|bit_manipulation|hash_table|prefix_sum,codility,2023-10-21,1,NEW GRAD
 wellsfargo-fair-distribution,Allocate Wells for Fair Distribution,Wells Fargo,hard,OA,array|binary_search|dynamic_programming,hackerrank,2023-10-10,1,
 money-forward-compute-number-of-locations,Compute Number of Locations,Money Forward,hard,OA,graph|shortest_path,unknown,2023-10-06,1,
+gecko-robotics-parameter-combinations,Generate Parameter Combinations,Gecko Robotics,medium,OA|PHONE SCREEN,array|backtracking,unknown,2023-09-25,2,NEW GRAD
+gecko-robotics-maximum-damage-patch,Maximum Damage Patch,Gecko Robotics,medium,OA|PHONE SCREEN,array|matrix|graph|depth_first_search|breadth_first_search,unknown,2023-09-25,2,NEW GRAD
+persona-download-coverage-percent,File Download Coverage Percentage,Persona,medium,OA,array|intervals|prefix_sum,unknown,2023-09-20,1,INTERN
 odoo-html-elements-single-tag-correction,HTML Elements Single-Tag Correction,Odoo,medium,OA,stack|string,unknown,2023-09-18,1,FULLTIME
 count-max-num-teams,Count Max Num Teams 🥝,Amazon,easy,OA,array|sorting|sliding_window,hackerrank,2023-09-12,1,FULLTIME
 count-spikes,Count Spikes 🍓,Amazon,medium,OA,array|sorting,hackerrank,2023-08-31,1,
@@ -1878,6 +2056,9 @@ decoding-string,Decoding String,Goldman Sachs,easy,OA,string|parsing,hackerrank,
 is-possible,Is Possible,Goldman Sachs,medium,OA,math|recursion,hackerrank,2023-08-31,1,FULLTIME
 arcesium-add-digits,Add Digits,Arcesium,easy,OA,math|simulation,unknown,2023-08-30,1,INTERN
 arcesium-binary-tree-maximum-path-sum,Binary Tree Maximum Path Sum,Arcesium,hard,OA,tree|depth_first_search|dynamic_programming,unknown,2023-08-30,1,INTERN
+wellsfargo-remove-duplicates-preserving-order,Remove Duplicates While Preserving Order,Wells Fargo,easy,OA,array|hash_table,unknown,2023-08-21,1,FULLTIME
+sentry-wildcard-bad-word-filter,Wildcard Bad-Word Filter,Sentry,medium,OA,string,unknown,2023-08-17,3,INTERN|NEW GRAD|FULLTIME
+sentry-word-wrap-justification,Word Wrap with Even Justification,Sentry,hard,OA,string|simulation|greedy,hackerrank,2023-08-17,1,INTERN
 wellsfargo-count-operations,Count Operations,Wells Fargo,medium,OA,math|graph|combinatorics,hackerrank,2023-08-07,1,
 wellsfargo-find-maximum-distance,Find Maximum Distance,Wells Fargo,hard,OA,matrix|breadth_first_search|binary_search,hackerrank,2023-08-07,1,
 wellsfargo-get-substring,Get Substring,Wells Fargo,medium,OA,string|sliding_window,hackerrank,2023-08-07,1,
@@ -1892,26 +2073,39 @@ arcesium-robo-data-sharing-direction,Robo Data Sharing Direction,Arcesium,easy,O
 atlassian-sum-on-switch-indices,Sum of On Switch Indices,Atlassian,medium,OA,array|intervals|math,unknown,2023-07-16,1,FULLTIME
 atlassian-neighboring-house-groups,Neighboring House Groups,Atlassian,medium,OA,array|hash_table|union_find,unknown,2023-07-08,1,FULLTIME
 amazon-execute-processes,Amazon Execute Processes (a.k.a. AWS Processor),Amazon,medium,OA,array|hash_table|simulation,hackerrank,2023-07-06,1,FULLTIME
+airbnb-validate-bst-node-descriptions,Validate BST Node Descriptions,Airbnb,hard,OA,array|hash_table|tree|depth_first_search,unknown,2023-05-17,3,FULLTIME
 zoom-stable-parity-partition,Stable Parity Partition,Zoom,easy,OA,array|sorting,unknown,2023-05-13,1,FULLTIME
+airbnb-minimum-cost-to-remove-stones,Minimum Cost to Remove Stones,Airbnb,hard,OA,array|dynamic_programming,unknown,2023-04-09,1,FULLTIME
 rippling-matrix-block-sum,Matrix Region Sum,Rippling,medium,OA,matrix|prefix_sum,unknown,2023-04-02,2,
 imc-busy-intersection,Busy Intersection,IMC Trading,medium,OA,array|queue|simulation,hackerrank,2023-03-27,2,FULLTIME
 alarm-days-since-last-login,Days Since Last Login 🐠,Alarm.com,easy,OA,string|simulation,unknown,2023-03-16,1,INTERN
 alarm-get-average-thermostat-temperature,Get Average Thermostat Temperature 🐡,Alarm.com,easy,OA,database,unknown,2023-03-16,1,INTERN
 amazon-find-number-of-possible-unique-strings,Find Number of Possible Unique Strings 🍏,Amazon,hard,OA,string|math,hackerrank,2023-03-11,1,
 atlassian-colorful-increasing-subsequences,Colorful Increasing Subsequences,Atlassian,hard,OA,dynamic_programming|bit_manipulation,hackerrank,2023-02-25,1,INTERN|FULLTIME
+bloomberg-count-teams-outscoring-target,Count Teams Outscoring a Target Team,Bloomberg LP,easy,OA,array|hash_table|sorting,unknown,2023-02-22,1,NEW GRAD
 odoo-maximum-profit-increasing-triplet,Maximum Profit from an Increasing Price Triplet,Odoo,medium,OA,array|binary_search|segment_tree|dynamic_programming,unknown,2023-01-24,1,FULLTIME
 get-priorities-after-execution,Get Priorities after Execution 🥭,Amazon,hard,OA,heap|hash_table|simulation,hackerrank,2023-01-04,1,FULLTIME
 airbnb-get-minimum-moves,Minimum Moves,Airbnb,medium,OA,matrix|breadth_first_search,hackerrank,2022-12-27,1,INTERN
+nvidia-minimum-power-of-two-adjustments,Minimum Power-of-Two Adjustments,NVIDIA,medium,OA,math|bit_manipulation|greedy,hackerrank,2022-12-22,1,FULLTIME
 airbnb-donut-challenge,Donut Challenge,Airbnb,medium,OA,binary_search|array,hackerrank,2022-12-09,1,INTERN
+chainalysis-lexicographically-smallest-course-order,Course Schedule II,Chainalysis,medium,OA,graph|topological_sort|breadth_first_search|heap,unknown,2022-11-21,1,NEW GRAD
+chainalysis-longest-common-suffix,Longest Common Suffix,Chainalysis,easy,OA,string|array,unknown,2022-11-21,1,NEW GRAD
 intel-linear-expression-modulo,Smallest Value for a Linear Expression Modulo,Intel,hard,OA,string|stack|parsing|math,unknown,2022-10-24,1,FULLTIME
 atlassian-maximum-mex,Maximum MEX,Atlassian,medium,OA,array|hash_table|greedy|math,unknown,2022-10-14,2,FULLTIME
 atlassian-minimum-team-size,Minimum Team Size From Every Start,Atlassian,medium,OA,array|sliding_window,unknown,2022-10-12,1,FULLTIME
+wellsfargo-maximum-crayon-removal-score,Maximum Crayon Removal Score,Wells Fargo,hard,OA,string|dynamic_programming|recursion,unknown,2022-10-12,1,FULLTIME
 rippling-maximum-xor-elimination-score,Maximum XOR Elimination Score,Rippling,hard,OA,array|graph|greedy|bit_manipulation,unknown,2022-10-10,1,
+duolingo-most-read-story-page,Most-Read Page Across Every Valid Storyline,Duolingo,hard,OA|PHONE SCREEN,graph|backtracking|depth_first_search,karat,2022-10-03,2,NEW GRAD|INTERN
+duolingo-shortest-traced-maze-route,Shortest Route Through a Traced Maze,Duolingo,medium,OA,graph|breadth_first_search|shortest_path|hash_table,hackerrank,2022-09-24,5,NEW GRAD|INTERN
+airbnb-count-palindromic-substrings,Count Palindromic Substrings,Airbnb,medium,OA,string|dynamic_programming,unknown,2022-09-23,1,INTERN
+duolingo-counting-mistakes,Rank Common Translation Mistakes,Duolingo,medium,OA,hash_table|sorting|string,hackerrank,2022-09-19,4,NEW GRAD
 imc-perfect-square-forbidden-reaching-points,Reaching Points with Perfect-Square Obstacles,IMC Trading,medium,OA,graph|breadth_first_search|math|simulation,hackerrank,2022-09-07,1,FULLTIME
+wellsfargo-lexicographically-smallest-school-assembly,Lexicographically Smallest School Assembly,Wells Fargo,hard,OA,string|greedy|heap,unknown,2022-08-26,2,FULLTIME
 atlassian-chairs-requirement,Chairs Requirement,Atlassian,easy,OA,array|simulation,hackerrank,2022-08-18,1,INTERN|FULLTIME
 atlassian-count-bitonic-subsequences,Count Bitonic Subsequences,Atlassian,hard,OA,dynamic_programming|segment_tree,hackerrank,2022-08-18,1,INTERN|FULLTIME
 atlassian-count-anagram-sentences,How Many Sentences?,Atlassian,medium,OA,string|hash_table|combinatorics,hackerrank,2022-08-18,1,INTERN|FULLTIME
 atlassian-minimum-grid-moves,Minimum Grid Moves,Atlassian,medium,OA,graph|breadth_first_search|matrix,hackerrank,2022-08-18,1,INTERN|FULLTIME
+visa-first-non-repeating-character,Index of the First Non-Repeating Character,Visa,easy,OA,string|hash_table,unknown,2022-08-04,1,FULLTIME
 rippling-prime-tree-labelings,Prime Tree City Labelings,Rippling,hard,OA,tree|dynamic_programming|math,unknown,2022-08-03,1,
 atlassian-best-telescope-site,Best Telescope Site,Atlassian,hard,OA,graph|shortest_path,unknown,2022-07-23,1,FULLTIME
 atlassian-merging-palindromes,Merging Palindromes,Atlassian,medium,OA,string|greedy|combinatorics,unknown,2022-07-23,1,FULLTIME
@@ -1921,30 +2115,54 @@ atlassian-minimum-prefix-equalization-cost,Minimum Total Cost to Equalize an Arr
 atlassian-string-formation,String Formation,Atlassian,hard,OA,dynamic_programming|string,hackerrank,2022-07-17,1,INTERN|FULLTIME
 atlassian-perfect-breaks,Count Perfect Breaks,Atlassian,hard,OA,array|combinatorics|dynamic_programming,unknown,2022-06-23,1,FULLTIME
 epifi-get-min-latency,Request Redirection,Epifi,hard,OA,binary_search|greedy,unknown,2022-06-17,1,
+persona-treasure-hunter,Treasure Hunter,Persona,hard,OA,matrix|breadth_first_search|bit_manipulation|shortest_path,unknown,2022-05-21,1,INTERN
+alchemy-equal-sum-digit-partitions,Equal-Sum Digit Partitions,Alchemy,medium,OA,string|backtracking,hackerrank,2022-05-18,1,FULLTIME
 wellsfargo-shot-on-mi-a3-ai-triple-camera,Find Last Affected System,Wells Fargo,medium,OA,math|recursion,hackerrank,2022-05-07,1,
 atlassian-drop-off-centers,Drop-Off Centers,Atlassian,hard,OA,graph|shortest_path|bit_manipulation,hackerrank,2022-04-23,1,FULLTIME
+airbnb-cheapest-flight-with-path,Cheapest Flight with Its Path,Airbnb,hard,OA|ONSITE INTERVIEW,graph|dynamic_programming|shortest_path,unknown,2022-04-18,3,FULLTIME
 deloitte-maximum-sum-rectangle,Maximum Sum Rectangle,Deloitte,hard,OA,array|matrix|dynamic_programming|prefix_sum,unknown,2022-04-05,1,NEW GRAD
+airbnb-fraction-to-recurring-decimal,Fraction to Recurring Decimal,Airbnb,medium,OA,hash_table|math|simulation,unknown,2022-02-18,3,FULLTIME
+airbnb-most-booked-origin-destination,Most Booked Origin-Destination Route,Airbnb,medium,OA,database,hackerrank,2022-02-12,1,FULLTIME
 paypay-calculate-change,Calculate Change,PayPay,easy,OA,greedy|math,unknown,2022-02-08,2,
+airbnb-median-of-two-sorted-arrays,Median of Two Sorted Arrays,Airbnb,hard,OA,array|binary_search,unknown,2022-02-07,1,FULLTIME
+deloitte-annual-bank-balance,Annual Bank Balance with Monthly Card Fees,Deloitte,easy,OA,array|simulation|math,unknown,2022-01-28,1,FULLTIME
+deloitte-count-battleship-types,Count Battleships by Size,Deloitte,easy,OA,matrix|depth_first_search|simulation,unknown,2022-01-28,1,FULLTIME
+deloitte-equal-length-blocks,Equal-Length Character Blocks,Deloitte,easy,OA,string|greedy,codility,2022-01-28,1,FULLTIME
+deloitte-reduce-binary-number-to-one,Number of Steps to Reduce a Binary Number to One,Deloitte,medium,OA,string|bit_manipulation|simulation,unknown,2022-01-28,1,FULLTIME
 unity-directed-path-existence,Directed Path Existence,Unity,easy,OA,array|graph|breadth_first_search|depth_first_search,unknown,2022-01-07,1,FULLTIME
 inmobi-cheapest-flights-within-k-stops,Cheapest Flights Within K Stops,InMobi,medium,OA,graph|dynamic_programming|shortest_path,unknown,2021-12-28,1,NEW GRAD
 inmobi-connect-n-ropes-minimum-cost,Connect N Ropes With Minimum Cost,InMobi,medium,OA,heap|greedy,unknown,2021-12-28,1,NEW GRAD
 inmobi-employee-subordinates,Employee Subordinates,InMobi,easy,OA,tree|depth_first_search,unknown,2021-12-28,1,NEW GRAD
 openai-largest-square-subgrid-under-sum-limit,Largest Square Subgrid Under a Sum Limit,OpenAI,medium,OA,matrix|prefix_sum,unknown,2021-12-11,1,
+airbnb-module-rebuild-costs,Module Rebuild Costs,Airbnb,medium,OA,graph|depth_first_search|topological_sort|sorting,unknown,2021-12-01,4,FULLTIME
 flextrade-merge-two-sorted-arrays,Merge Two Sorted Arrays,FlexTrade,easy,OA,array|two_pointers|sorting,unknown,2021-11-16,1,FULLTIME|NEW GRAD
 flextrade-minimum-number-of-taps-to-water-a-garden,Minimum Number of Taps to Water a Garden,FlexTrade,hard,OA,array|greedy|intervals,unknown,2021-11-16,1,FULLTIME|NEW GRAD
 money-forward-count-tiles,Count Tiles in 1D Othello,Money Forward,medium,OA,simulation|array,unknown,2021-10-29,1,
+wellsfargo-maximum-reservoir-power,Maximum Reservoir Power,Wells Fargo,medium,OA,graph|tree|dynamic_programming|depth_first_search,unknown,2021-10-18,1,FULLTIME
 tesla-maximum-even-sum-adjacent-pairs,Maximum Even-Sum Adjacent Pairs in a Circular Array,Tesla,medium,OA,array|greedy|dynamic_programming,unknown,2021-10-17,1,FULLTIME
 imc-adding-stack-2-0,Adding Stack 2.0,IMC Trading,medium,OA,array|stack|design|simulation,hackerrank,2021-09-24,2,INTERN|NEW GRAD
 imc-knight-minimum-moves-fixed-bishop,Knight Minimum Moves with a Fixed Bishop,IMC Trading,medium,OA,graph|breadth_first_search|shortest_path|matrix,hackerrank,2021-09-24,2,INTERN|NEW GRAD
+duolingo-count-distinct-word-meanings,Count Distinct Word Meanings,Duolingo,medium,OA,string|hash_table|graph|union_find,hackerrank,2021-09-02,1,INTERN
+duolingo-count-legal-outfit-combinations,Count Legal Outfit Combinations,Duolingo,medium,OA,array|backtracking|bit_manipulation|combinatorics,hackerrank,2021-09-02,1,INTERN
 inmobi-check-bipartite-graph,Check Bipartite Graph,InMobi,medium,OA,graph|matrix|breadth_first_search,unknown,2021-08-15,1,NEW GRAD
 inmobi-count-subarrays-with-given-xor,Count Subarrays With Given XOR,InMobi,medium,OA,array|hash_table|bit_manipulation|prefix_sum,unknown,2021-08-15,1,NEW GRAD
 inmobi-course-schedule,Course Schedule,InMobi,medium,OA,graph|breadth_first_search|topological_sort,unknown,2021-08-15,1,NEW GRAD
 deloitte-all-pairs-with-target-sum,All Pairs with Target Sum,Deloitte,easy,OA,array|hash_table|sorting,unknown,2021-07-29,1,NEW GRAD
+airbnb-simplified-xml-validator,Simplified XML Validator,Airbnb,medium,OA,string|stack|parsing,hackerrank,2021-06-21,3,FULLTIME
 aristanetworks-generate-matrix-b,Generate Matrix B,Arista Networks,easy,OA,matrix|prefix_sum,hackerrank,2021-06-21,1,
+nvidia-fixed-round-kmeans-assignments,Fixed-Round K-Means Assignments,NVIDIA,hard,OA|ONSITE INTERVIEW,array|math|simulation,unknown,2021-06-07,2,FULLTIME|NEW GRAD
+airbnb-bipartition-groups,Construct a Possible Bipartition,Airbnb,medium,OA,graph|breadth_first_search|depth_first_search,unknown,2021-03-09,1,FULLTIME
 arcesium-capital-gains-tax-from-trades,Capital Gains Tax from Trades,Arcesium,medium,OA,array|hash_table|queue|simulation,unknown,2021-02-23,2,INTERN|FULLTIME
 imc-hidden-artifacts,Hidden Artifacts,IMC Trading,medium,OA,string|hash_table|matrix|parsing|simulation,unknown,2020-10-20,1,FULLTIME
+wellsfargo-count-valid-teams,Count Valid Teams,Wells Fargo,medium,OA,array|math|combinatorics,unknown,2020-10-11,1,FULLTIME
+wellsfargo-minimum-bonus-projects,Minimum Bonus Projects,Wells Fargo,medium,OA,array|binary_search|greedy|math,unknown,2020-10-11,1,FULLTIME
+wellsfargo-tv-tower-expansion,TV Tower Expansion,Wells Fargo,medium,OA,matrix|graph|breadth_first_search,unknown,2020-10-11,1,FULLTIME
+wellsfargo-matrix-path-existence,Matrix Path Existence,Wells Fargo,medium,OA,matrix|graph|breadth_first_search,unknown,2020-09-26,1,INTERN
 postman-configuration-system,Configuration System,Postman,hard,OA,array|two_pointers|simulation,hackerrank,2020-09-23,1,FULLTIME
 postman-large-responses,Large Responses,Postman,easy,OA,string|parsing|array,hackerrank,2020-09-23,1,FULLTIME
+wellsfargo-pipe-removal-turns,Pipe Removal Turns,Wells Fargo,hard,OA,array|stack,unknown,2020-09-20,1,FULLTIME
+wellsfargo-longest-balanced-bitonic-subsequence,Longest Balanced Bitonic Subsequence,Wells Fargo,medium,OA,array|dynamic_programming,unknown,2020-09-15,1,FULLTIME
+wellsfargo-minimum-rotations-longest-prefix,Minimum Rotations for the Longest Common Prefix,Wells Fargo,medium,OA,string|two_pointers|parsing,unknown,2020-09-13,1,FULLTIME
 imc-account-balance-over-threshold,Account Balance Over Threshold,IMC Trading,easy,OA,database,unknown,2020-09-12,1,FULLTIME
 imc-transaction-balance-over-threshold,Transaction Balance Over Threshold,IMC Trading,medium,OA,database,unknown,2020-09-12,1,FULLTIME
 postman-minimum-swaps-to-sort,Minimum Swaps to Sort an Array,Postman,medium,OA,array|sorting|graph,unknown,2020-08-27,1,FULLTIME
@@ -1952,6 +2170,7 @@ postman-validate-ip-address,Validate IP Address,Postman,medium,OA,string|parsing
 atlassian-alternating-parity-permutations,Alternating Parity Permutations,Atlassian,medium,OA,math|combinatorics,hackerrank,2020-08-21,1,INTERN|FULLTIME
 atlassian-longest-sorted-adjacent-subsequence,Longest Sorted Adjacent-Difference Subsequence,Atlassian,medium,OA,array|sorting|hash_table,hackerrank,2020-08-21,1,INTERN|FULLTIME
 arcesium-kth-character-in-infinite-string,K-th Character in an Infinite String,Arcesium,medium,OA,string|binary_search|math,unknown,2020-08-08,1,FULLTIME
+nvidia-decision-tree-regression,Decision Tree Regression from Scratch,NVIDIA,hard,OA,tree|recursion|sorting|prefix_sum|math,unknown,2020-07-29,1,NEW GRAD
 inmobi-count-subarrays-sum-divisible-by-k,Count Subarrays With Sum Divisible by K,InMobi,medium,OA,array|hash_table|prefix_sum,unknown,2020-07-22,1,NEW GRAD
 inmobi-generate-balanced-parentheses,Generate Balanced Parentheses,InMobi,medium,OA,string|backtracking|recursion,unknown,2020-07-22,1,NEW GRAD
 inmobi-minimum-connection-changes,Minimum Connection Changes,InMobi,medium,OA,graph|union_find|depth_first_search,unknown,2020-07-22,1,NEW GRAD
@@ -1959,19 +2178,29 @@ atlassian-ashley-love-numbers,Ashley Love Numbers,Atlassian,easy,OA,math|simulat
 atlassian-minimum-monotonic-array-cost,Minimum Cost to Make an Array Monotonic,Atlassian,hard,OA,array|dynamic_programming,hackerrank,2020-04-08,1,FULLTIME
 bloomberg-count-numbers,Ashley Loves Numbers (Financial Engineer),Bloomberg LP,medium,OA,math|combinatorics,unknown,2019-11-30,1,INTERN
 bloomberg-consecutive,Consecutive Sum (Financial Engineer Intern),Bloomberg LP,medium,OA,math,unknown,2019-11-30,1,INTERN
+visa-count-subarrays-sum-divisible-by-k,Count Subarrays with Sum Divisible by K,Visa,medium,OA,array|hash_table|prefix_sum,unknown,2019-11-16,1,FULLTIME
+visa-longest-common-prefix-length,Longest Common Prefix Length,Visa,easy,OA,string,unknown,2019-11-16,1,FULLTIME
+visa-most-frequent-valid-substring,Most Frequent Valid Substring,Visa,medium,OA,string|hash_table|sliding_window,unknown,2019-11-16,1,FULLTIME
+visa-validate-ip-address,Validate IP Address,Visa,medium,OA,string|parsing,unknown,2019-11-16,1,FULLTIME
+airbnb-csv-profile-sentence,Build a Profile Sentence from CSV,Airbnb,medium,OA,string|parsing|simulation,unknown,2019-11-09,2,FULLTIME
+carta-investment-ownership-aggregation,Aggregate Investment Ownership from CSV,Carta,medium,OA|PHONE SCREEN,hash_table|string|sorting,unknown,2019-10-25,1,FULLTIME
 atlassian-beautiful-subarrays,Beautiful Subarrays,Atlassian,medium,OA,array|hash_table|prefix_sum,unknown,2019-10-21,1,NEW GRAD
-airbnb-resolve-battles,Resolve Battles,Airbnb,hard,OA,simulation|hash_table|graph,hackerrank,2019-10-16,1,INTERN
+airbnb-resolve-battles,Resolve Battles,Airbnb,hard,OA,simulation|hash_table|graph,hackerrank,2019-10-16,2,INTERN|FULLTIME
 atlassian-connected-sum,Connected Sum,Atlassian,medium,OA,graph|union_find|math,unknown,2019-10-05,1,FULLTIME
 atlassian-keys-and-rooms,Keys and Rooms,Atlassian,medium,OA,graph|depth_first_search,unknown,2019-10-05,1,FULLTIME
 atlassian-maximum-forward-difference,Maximum Forward Difference,Atlassian,easy,OA,array|greedy,unknown,2019-10-05,1,FULLTIME
 postman-without-whitespaces,Without Whitespaces,Postman,hard,OA,string|dynamic_programming|math,unknown,2019-09-26,1,INTERN
 postman-maximum-laptop-rating,Maximum Laptop Rating in a Price Range,Postman,hard,OA,array|binary_search|segment_tree,hackerearth,2019-08-30,1,INTERN
+airbnb-paginate-search-results,Paginate Search Results by Unique Host,Airbnb,medium,OA,array|queue|simulation,unknown,2019-05-12,1,FULLTIME
+airbnb-round-prices-to-match-target,Round Prices to Match Target,Airbnb,medium,OA,greedy|sorting|math,hackerrank,2019-04-01,3,INTERN|FULLTIME
+airbnb-minimum-wizard-referral-cost,Minimum Wizard Referral Cost,Airbnb,medium,OA,graph|shortest_path|heap,hackerrank,2019-03-11,2,FULLTIME
+airbnb-count-decreasing-triplets,Count Decreasing Triplets,Airbnb,medium,OA,array|segment_tree|sorting,hackerrank,2019-03-05,1,FULLTIME
+airbnb-missing-words,Missing Words,Airbnb,easy,OA,string|two_pointers,hackerrank,2019-03-05,1,FULLTIME
 alarm-arrange-coins,Arrange Coins,Alarm.com,easy,OA,math|binary_search,unknown,2019-03-02,1,INTERN
 openai-backpropagation-through-sort-and-median,Backpropagation Through Sort and Median,OpenAI,hard,OA,array|sorting|math,hackerrank,2019-02-13,1,
 deloitte-parameterized-divisibility-labels,Parameterized Divisibility Labels,Deloitte,easy,OA,array|math|simulation,unknown,2019-02-12,1,NEW GRAD
 deloitte-sorted-character-frequencies,Sorted Character Frequencies,Deloitte,easy,OA,string|hash_table|sorting,unknown,2019-02-12,1,NEW GRAD
 deloitte-top-n-longest-sentences,Top N Longest Sentences,Deloitte,easy,OA,array|string|sorting,unknown,2019-02-12,1,NEW GRAD
-airbnb-round-prices-to-match-target,Round Prices to Match Target,Airbnb,medium,OA,greedy|sorting|math,hackerrank,2018-12-04,1,INTERN
 bloomberg-find-longest-chain,Find Longest Chain,Bloomberg LP,medium,OA,dynamic_programming|sorting,unknown,2017-09-22,1,FULLTIME
 inmobi-minimum-range-selection,Choose One from Each Set to Minimize the Range,InMobi,hard,OA,array|sorting|heap|sliding_window,unknown,2015-04-26,1,FULLTIME
 inmobi-classify-number-series,Classify a Number Series and Return the Next Term,InMobi,easy,OA,array|math|simulation,hackerrank,2014-08-16,1,FULLTIME

@@ -113,6 +113,19 @@ def get(problem_id: str, index: int, allow_fetch: bool = True) -> tuple[bytes, s
         return blob, mime.split(";")[0].strip(), False
 
 
+def forget(problem_id: str) -> int:
+    """Drop every cached screenshot of one problem; they refetch on next view."""
+    if not _SAFE.match(problem_id or "") or not os.path.isdir(CACHE_DIR):
+        return 0
+    mine = re.compile(r"^%s-\d+(\.part)?$" % re.escape(problem_id))
+    gone = 0
+    for name in os.listdir(CACHE_DIR):
+        if mine.match(name):
+            os.remove(os.path.join(CACHE_DIR, name))
+            gone += 1
+    return gone
+
+
 def cached_count() -> int:
     if not os.path.isdir(CACHE_DIR):
         return 0

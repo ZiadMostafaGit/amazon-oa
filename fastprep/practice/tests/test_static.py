@@ -197,5 +197,27 @@ class TestPageWiring(unittest.TestCase):
         self.assertNotIn("extra.topic = state.topic", js)
 
 
+
+class TestSyncBar(unittest.TestCase):
+    """The page shows the background sync and refreshes when it lands."""
+
+    def test_the_bar_exists_and_the_app_polls_the_sync_endpoint(self):
+        self.assertIn('id="syncbar"', read("index.html"))
+        js = read("app.js")
+        self.assertIn("api('api/sync')", js)
+        self.assertIn("api('api/sync', { method: 'POST' })", js)
+        self.assertIn("Sync.poll();", js)
+
+    def test_a_finished_sync_refreshes_facets_and_the_list(self):
+        js = read("app.js")
+        body = js[js.index("async function refreshBank()"):]
+        body = body[:body.index("\n}\n")]
+        for call in ("api('api/facets')", "renderFilters()", "reload()"):
+            self.assertIn(call, body)
+
+    def test_the_sync_request_is_relative_to_the_mount_point(self):
+        self.assertNotIn("'/api/sync'", read("app.js"))
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,6 +1,5889 @@
+# Minimum Merge Conflicts  (Amazon)
+
+> id: `amazon-minimum-merge-conflicts` | difficulty: hard | stage: OA | platform: unknown | topics: dynamic_programming, string | last seen: 2026-09-28, 2026-09-24, 2026-09-08, 2026-08-27, 2026-07-11, 2026-06-22, 2026-05-17, 2026-04-28 | employment: INTERN, FULLTIME, NEW GRAD
+
+## Problem
+
+Developers want to merge two source-control branches into one unified branch while preserving the relative order of commits from each branch.
+Each branch is represented by a lowercase string. Each character represents a commit priority, where a lower alphabetical character has higher priority.
+A conflict occurs when, in the merged branch, a lower-priority commit appears before a higher-priority commit. In other words, for positions i < j in the merged string, there is a conflict when merged[i] > merged[j].
+
+### Example 1
+- **primary** (`String`) = `"zc"`
+- **secondary** (`String`) = `"d"`
+- **output** (`int`) = `2`
+
+Valid merges include:
+  - zcd with 2 merge conflicts (z being lower priority is placed before higher priority commits c and d).
+  - Similarly, zdc with 3 merge conflicts.
+  - Similarly, dzc with 2 merge conflicts.
+
+The minimum number of merge conflicts possible is 2.
+
+
+---
+
+# Maximum Reward Points  (Microsoft)
+
+> id: `microsoft-get-maximum-reward-points` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, greedy, sorting | last seen: 2026-09-28, 2026-08-05, 2026-08-04, 2026-07-16 | employment: NEW GRAD, INTERN
+
+## Problem
+
+Two interns are assigned to complete a total of n tasks. Each task must be completed by exactly one of them. For task i, the first intern earns reward_1[i] points and the second intern earns reward_2[i] points.
+The first intern must complete exactly k tasks, which may be any k of the n tasks. The second intern completes the remaining tasks. Return the maximum possible combined reward points.
+
+## Constraints
+
+- 1 ≤ n ≤ 10^5
+  - 0 ≤ k ≤ n
+  - 1 ≤ reward_1[i] ≤ 10^4
+  - 1 ≤ reward_2[i] ≤ 10^4
+
+### Example 1
+- **k** (`int`) = `3`
+- **reward_1** (`int[]`) = `[5, 4, 3, 2, 1]`
+- **reward_2** (`int[]`) = `[1, 2, 3, 4, 5]`
+- **output** (`int`) = `21`
+
+The first intern completes the first three tasks and earns 5 + 4 + 3 points. The second intern completes the remaining two tasks and earns 4 + 5 points. Their combined reward is 5 + 4 + 3 + 4 + 5 = 21, which is the maximum possible.
+
+## Starter code
+
+```
+public int getMaximumRewardPoints(int k, int[] reward_1, int[] reward_2) {
+  // write your code here
+}
+```
+
+
+---
+
+# Count Subarrays with K Disjoint Equal Pairs  (Capital One)
+
+> id: `capital-one-count-subarrays-with-k-disjoint-equal-pairs` | difficulty: medium | stage: OA | platform: codesignal | topics: array, sliding_window, hash_table | last seen: 2026-09-28, 2026-09-24 | employment: FULLTIME
+
+## Problem
+
+Given an integer array nums and a positive integer k, count contiguous subarrays that contain at least k pairwise disjoint pairs of equal values.
+Each array occurrence may belong to at most one pair. Therefore, a subarray with frequencies freq[x] contains sum floor(freq[x] / 2) disjoint equal pairs.
+
+## Constraints
+
+- 1 <= nums.length <= 2 * 10^5.
+  - 1 <= k <= nums.length / 2.
+  - The answer fits in a 64-bit signed integer.
+
+### Example 1
+- **nums** (`int[]`) = `[1,1,2]`
+- **k** (`int`) = `1`
+- **output** (`long`) = `2`
+
+The qualifying subarrays are [1,1] and [1,1,2].
+
+### Example 2
+- **nums** (`int[]`) = `[1,1,1,1]`
+- **k** (`int`) = `2`
+- **output** (`long`) = `1`
+
+Only the full array contains two disjoint equal pairs.
+
+## Starter code
+
+```
+public long countSubarraysWithEqualPairs(int[] nums, int k) {
+  // write your code here
+}
+```
+
+## Source note
+
+The interview report establishes the task identity and central capability. This practice contract supplies only the portable interface, deterministic boundary rules, and output serialization needed for consistent execution.
+
+
+---
+
+# Maximum Game Board Score  (JP Morgan Chase)
+
+> id: `jpmorgan-maximum-game-board-score` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, dynamic_programming | last seen: 2026-09-28, 2026-09-09 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You are given a game board with spaces arranged in a straight line, each space worth a different number of points, either positive or negative. The goal of the game is to accumulate as many points as possible.
+Your game piece can start at any point on the board, and it can jump exactly k number of spaces at a time, only moving to the right, accumulating the number of points written on each space your piece lands on. Once your piece jumps past the final space, the game ends.
+Given a game board, and a jump length, choose the ideal starting space to maximize the number of points gained. Return the total points.
+
+## Constraints
+
+- 1 ≤ size of game_val ≤ 10^6
+  - -10^3 ≤ game_val[i] ≤ 10^3
+  - 1 ≤ k < size of game_val
+
+### Example 1
+- **gameVal** (`int[]`) = `[2,-3,4,6,1]`
+- **k** (`int`) = `2`
+- **output** (`int`) = `7`
+
+Suppose game_val = [2, -3, 4, 6, 1] and k = 2.
+Output: 7
+Choose index = 1 as starting point.
+2 + 4 + 1 = 7
+
+## Starter code
+
+```
+public int maxGameScore(int[] gameVal, int k) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The judged core task matches the visible source at about 99%.
+
+
+---
+
+# Shopkeeper Final Price Summary  (Microsoft)
+
+> id: `microsoft-shopkeeper-final-price-summary` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, stack | last seen: 2026-09-28, 2026-09-24 | employment: NEW GRAD, INTERN
+
+## Problem
+
+A shopkeeper arranges items in a list for a sale. For each item, find the first item to its right whose price is less than or equal to the current price.
+If such an item exists, subtract its price from the current item's price. Otherwise, the current item is sold at full price.
+Return a two-element String[] representing the required output lines:
+  - The first string is the sum of the final costs of all items.
+  - The second string contains the 0-based indices of every item sold at full price, separated by single spaces and listed in ascending order.
+
+## Constraints
+
+- 1 <= prices.length <= 10^5
+  - 1 <= prices[i] <= 10^6
+
+### Example 1
+- **prices** (`int[]`) = `[2,3,1,2,4,2]`
+- **output** (`String[]`) = `["8","2 5"]`
+
+The final costs are [1,2,1,0,2,2], whose sum is 8. Items at indices 2 and 5 have no equal-or-lower-priced item to their right, so they are sold at full price.
+
+### Example 2
+- **prices** (`int[]`) = `[1,2,3,4]`
+- **output** (`String[]`) = `["10","0 1 2 3"]`
+
+No item has an equal-or-lower-priced item to its right. Every item is sold at full price, the total is 10, and all indices appear on the second output line.
+
+## Starter code
+
+```
+
+public String[] finalPrice(int[] prices) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The photographed assessment fully shows the task, sample output, signature, and bounds. One explanatory sentence is redacted and omitted; the judged core task matches the visible source at about 99%.
+
+
+---
+
+# Stack Command Output  (Wex)
+
+> id: `wex-stack-command-output` | difficulty: easy | stage: OA, PHONE SCREEN | platform: unknown | topics: stack, parsing | last seen: 2026-09-28, 2026-09-10 | employment: FULLTIME, NEW GRAD
+
+## Problem
+
+Process a command string commands using an initially empty stack. Return the values removed by pop commands, in the order they are removed.
+  - U value pushes the signed integer value onto the stack.
+  - O removes the top value and appends it to the output.
+  - X ends the command string. Values still on the stack are not output.
+
+For this exercise, assume the input is valid: tokens are separated by one or more spaces, tabs, or newlines, optional whitespace may surround the string, exactly one X is the final token, and every O has a value available to pop. Integers use ordinary decimal notation with an optional leading minus sign.
+
+## Constraints
+
+- 1 <= commands.length <= 10^5.
+  - There are at most 10^4 commands, including X.
+  - Every pushed value is between -10^9 and 10^9, inclusive.
+  - The command sequence satisfies the validity rules in the statement.
+
+### Example 1
+- **commands** (`String`) = `"U 3 U -3 O O X"`
+- **output** (`int[]`) = `[-3,3]`
+
+Push 3, then -3. The first pop removes -3; the second removes 3.
+
+### Example 2
+- **commands** (`String`) = `"U 8 O U 4 U 9 O X"`
+- **output** (`int[]`) = `[8,9]`
+
+The pops remove 8 and then 9. The remaining 4 is not output when X ends processing.
+
+## Starter code
+
+```
+public int[] stackOutput(String commands) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source supplies the commands and a worked example, but leaves input validity and bounds unspecified. The judged core task matches the report at about 95%.
+
+
+---
+
+# String Permutations in Custom Character Order  (Wex)
+
+> id: `wex-custom-ordered-string-permutations` | difficulty: medium | stage: OA, PHONE SCREEN | platform: unknown | topics: backtracking, string, sorting | last seen: 2026-09-28, 2026-09-10 | employment: FULLTIME, NEW GRAD
+
+## Problem
+
+Given a string s containing digits, lowercase English letters, and uppercase English letters, return every distinct permutation of its characters in the custom lexicographic order defined below.
+  - Digits come first, in order 0 through 9.
+  - Lowercase letters come next, in order a through z.
+  - Uppercase letters come last, in order A through Z.
+
+Compare two permutations at their first different character using this order. Each permutation must use every character of s exactly as many times as it appears in s.
+For this exercise, assume identical permutations caused by repeated characters appear only once. The empty string has exactly one permutation: the empty string.
+
+## Constraints
+
+- 0 <= s.length <= 7.
+  - Each character is an English letter or a digit.
+
+### Example 1
+- **s** (`String`) = `"0aA"`
+- **output** (`String[]`) = `["0aA","0Aa","a0A","aA0","A0a","Aa0"]`
+
+Permutations beginning with 0 come first, followed by those beginning with a, then A. Within each group, the same custom order applies to the remaining characters.
+
+### Example 2
+- **s** (`String`) = `"b1b"`
+- **output** (`String[]`) = `["1bb","b1b","bb1"]`
+
+The two identical b characters produce only three distinct permutations. The digit 1 comes before b.
+
+### Example 3
+- **s** (`String`) = `""`
+- **output** (`String[]`) = `[""]`
+
+Using every character of an empty string produces the empty string once.
+
+## Starter code
+
+```
+public String[] sortedPermutations(String s) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The report specifies permutations ordered as digits, lowercase letters, then uppercase letters. Duplicate handling, within-group order and bounds are specified for practice; the judged core task matches at about 90%.
+
+
+---
+
+# Decode String  (Abridge)
+
+> id: `abridge-decode-string` | difficulty: medium | stage: OA | platform: coderpad | topics: string, stack, recursion | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+Given a valid encoded string s, return its decoded form.
+An encoded group has the form k[encodedString], meaning that encodedString is repeated exactly k times. Groups may be nested, and a repeat count may contain multiple digits.
+The unencoded text contains lowercase English letters. Digits appear only as repeat counts immediately before bracketed groups.
+
+## Constraints
+
+- 1 <= s.length <= 30.
+  - s contains lowercase English letters, digits, and square brackets.
+  - s is a valid encoding with well-formed brackets.
+  - Every repeat count is between 1 and 300.
+  - The decoded output length does not exceed 10^5.
+
+### Example 1
+- **s** (`String`) = `"3[a]2[bc]"`
+- **output** (`String`) = `"aaabcbc"`
+
+Repeat a three times and bc twice, then concatenate the two decoded parts.
+
+### Example 2
+- **s** (`String`) = `"3[a2[c]]"`
+- **output** (`String`) = `"accaccacc"`
+
+The inner group becomes cc, so the outer group repeats acc three times.
+
+### Example 3
+- **s** (`String`) = `"2[abc]3[cd]ef"`
+- **output** (`String`) = `"abcabccdcdcdef"`
+
+Decode the two adjacent repeated groups, then retain the trailing literal ef.
+
+## Starter code
+
+```
+public String decodeString(String s) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The interview report directly names the canonical encoded-string exercise. The judged core task matches the visible source at about 95%.
+
+
+---
+
+# Flip, Invert, and Smooth a Binary Image  (Abridge)
+
+> id: `abridge-flip-invert-and-smooth-image` | difficulty: medium | stage: OA | platform: coderpad | topics: array, matrix, simulation | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+Given a rectangular binary matrix image, perform two transformations without modifying the input.
+  - Flip every row horizontally, then invert each bit.
+  - For each cell of that transformed matrix, compute the floor of the average of the cell and all valid neighbors in its surrounding 3 x 3 region.
+
+Return the smoothed matrix. Every smoothing average must read from the complete flipped-and-inverted matrix, not from partially written output.
+
+## Constraints
+
+- 1 <= image.length, image[i].length <= 200.
+  - Every row has the same length.
+  - Every cell is 0 or 1.
+
+### Example 1
+- **image** (`int[][]`) = `[[0,0,0],[0,0,0],[1,0,0]]`
+- **output** (`int[][]`) = `[[1,1,1],[1,0,0],[1,0,0]]`
+
+Flipping and inverting produces [[1,1,1],[1,1,1],[1,1,0]]. Each result cell is the floored neighborhood average of that complete intermediate matrix.
+
+### Example 2
+- **image** (`int[][]`) = `[[0,0],[0,0]]`
+- **output** (`int[][]`) = `[[1,1],[1,1]]`
+
+The first transformation produces all ones, and every valid neighborhood therefore averages to one.
+
+### Example 3
+- **image** (`int[][]`) = `[[1]]`
+- **output** (`int[][]`) = `[[0]]`
+
+The single bit becomes zero; its one-cell neighborhood also averages to zero.
+
+## Starter code
+
+```
+public int[][] flipInvertAndSmooth(int[][] image) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The interview report combines horizontal flip-and-invert with image smoothing. The judged contract fixes their order and uses a fresh output matrix; the core task matches the visible source at about 85%.
+
+
+---
+
+# String Compression  (Abridge)
+
+> id: `abridge-string-compression` | difficulty: medium | stage: OA | platform: coderpad | topics: string, two_pointers | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+Given a string chars, compress each maximal run of equal consecutive characters.
+  - Write the character once.
+  - If the run length is greater than one, immediately follow it with the decimal digits of that length.
+
+Return the complete compressed string. Run counts may contain multiple digits.
+
+## Constraints
+
+- 1 <= chars.length <= 100000.
+  - chars contains printable ASCII characters other than line breaks.
+
+### Example 1
+- **chars** (`String`) = `"aabbccc"`
+- **output** (`String`) = `"a2b2c3"`
+
+The consecutive runs have lengths 2, 2, and 3.
+
+### Example 2
+- **chars** (`String`) = `"a"`
+- **output** (`String`) = `"a"`
+
+A run of length one has no numeric suffix.
+
+### Example 3
+- **chars** (`String`) = `"abbbbbbbbbbbb"`
+- **output** (`String`) = `"ab12"`
+
+The first run has length one, and the twelve consecutive b characters use the two digits 12.
+
+## Starter code
+
+```
+public String compress(String chars) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The interview report directly names consecutive-run string compression. The string-return adapter preserves the task, with about a 90% match to the visible source.
+
+
+---
+
+# Sum Multiples of 3, 5, or 7  (Abridge)
+
+> id: `abridge-sum-multiples-of-three-five-seven` | difficulty: easy | stage: OA | platform: coderpad | topics: math | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+Given a positive integer n, return the sum of all positive integers from 1 through n, inclusive, that are divisible by 3, 5, or 7.
+Count a number only once even when more than one of those divisors divides it.
+
+## Constraints
+
+- 1 <= n <= 10^9.
+  - The result fits in a signed 64-bit integer.
+
+### Example 1
+- **n** (`int`) = `7`
+- **output** (`long`) = `21`
+
+The included values are 3, 5, 6, 7, whose sum is 21.
+
+### Example 2
+- **n** (`int`) = `10`
+- **output** (`long`) = `40`
+
+The included values are 3, 5, 6, 7, 9, 10. Each value is counted once.
+
+### Example 3
+- **n** (`int`) = `1`
+- **output** (`long`) = `0`
+
+No value in the inclusive range is divisible by 3, 5, or 7.
+
+## Starter code
+
+```
+public long sumMultiples(int n) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The interview report directly names the canonical multiples exercise. The inclusive-range judged core matches the visible source at about 95%.
+
+
+---
+
+# Apply a Reversi Move  (Amazon)
+
+> id: `amazon-reversi-move-simulation` | difficulty: medium | stage: OA | platform: unknown | topics: array, matrix, simulation | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+Given a Reversi board board, a zero-based target cell row, col, and a player player equal to B or W, apply exactly one move.
+A direction captures pieces when one or more consecutive opponent pieces start next to the target and are followed, in that same direction, by one of the current player's pieces. A legal move places the player's piece and flips every captured line in all eight directions.
+
+### Example 1
+- **board** (`String[]`) = `["....",".WB.","...."]`
+- **row** (`int`) = `1`
+- **col** (`int`) = `3`
+- **player** (`char`) = `"W"`
+- **output** (`String[]`) = `["....",".WWW","...."]`
+
+The new white piece at column 3 brackets the black piece with the existing white piece at column 1.
+
+## Source note
+
+The interview report describes one Reversi move with eight-direction capture and an unchanged-board result for an invalid move. The judged core matches the visible source at about 90%.
+
+
+---
+
+# Check Array Arithmetic Expressions  (Capital One)
+
+> id: `capital-one-check-array-arithmetic-expressions` | difficulty: easy | stage: OA | platform: codesignal | topics: array, simulation | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+You are given three equal-length integer arrays a, b, and c, together with an equal-length character array signs.
+Each element of signs is either '+' or '-'. Return a boolean array result of the same length, where result[i] is true exactly when applying signs[i] to a[i] and b[i] produces c[i].
+  - If signs[i] == '+', check whether a[i] + b[i] == c[i].
+  - If signs[i] == '-', check whether a[i] - b[i] == c[i].
+
+## Constraints
+
+- 1 <= a.length == b.length == c.length == signs.length <= 10^5
+  - -10^9 <= a[i], b[i], c[i] <= 10^9
+  - Every value in signs is either '+' or '-'.
+  - Every evaluated addition or subtraction fits a signed 32-bit integer.
+
+### Example 1
+- **a** (`int[]`) = `[3,2,-1,4]`
+- **signs** (`char[]`) = `["+","-","-","+"]`
+- **b** (`int[]`) = `[2,7,-5,2]`
+- **c** (`int[]`) = `[5,5,4,2]`
+- **output** (`boolean[]`) = `[true,false,true,false]`
+
+The four checks are 3 + 2 = 5, 2 - 7 != 5, -1 - (-5) = 4, and 4 + 2 != 2.
+
+## Starter code
+
+```
+public boolean[] checkArithmeticExpressions(int[] a, char[] signs, int[] b, int[] c) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The source supplies the full indexed arithmetic rule and example but omits numeric bounds. The judged core task matches the visible source at about 98%.
+
+
+---
+
+# Match Songs with Repeatable Animations  (Capital One)
+
+> id: `capital-one-match-songs-with-repeatable-animations` | difficulty: easy | stage: OA | platform: codesignal | topics: array, string, math, simulation | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+You are given arrays songs and animations. Every string has the form name:length, where length is a positive integer duration.
+An animation is compatible with a song when its duration does not exceed the song duration and divides the song duration exactly. In that case, repeating the animation songDuration / animationDuration times fills the song.
+For each song, scan animations from left to right and choose the first compatible animation. Return one string per song in the form animationName:repeatCount.
+
+## Constraints
+
+- 1 <= songs.length <= 100
+  - 1 <= animations.length <= 100
+  - Every entry contains exactly one colon, a nonempty name without a colon, and a duration from 1 through 10^5.
+  - Every song has at least one compatible animation.
+
+### Example 1
+- **songs** (`String[]`) = `["notion:180","voyage:185","sample:180"]`
+- **animations** (`String[]`) = `["circles:360","squares:180","lines:37"]`
+- **output** (`String[]`) = `["squares:1","lines:5","squares:1"]`
+
+circles:360 is longer than every song. squares:180 is the first compatible animation for both 180-second songs and repeats once. For voyage:185, lines:37 is the first compatible animation and repeats 5 times.
+
+### Example 2
+- **songs** (`String[]`) = `["loop:120"]`
+- **animations** (`String[]`) = `["pulse:30","wave:40"]`
+- **output** (`String[]`) = `["pulse:4"]`
+
+Both animations divide 120, so input order chooses pulse:30. It repeats 4 times.
+
+## Starter code
+
+```
+public String[] matchSongsWithAnimations(String[] songs, String[] animations) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The source supplies the duration-divisibility rule and worked matches but omits the tie rule, exact return format, and bounds. The judged core task matches the visible source at about 90%.
+
+
+---
+
+# Maximum Rhombic Area Sum  (Capital One)
+
+> id: `capital-one-maximum-rhombic-area-sum` | difficulty: medium | stage: OA | platform: codesignal | topics: matrix, geometry, prefix_sum | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+You are given a rectangular integer matrix matrix and a positive integer r.
+A rhombic area of size r centered at (centerRow, centerCol) contains every cell (row, col) whose Manhattan distance from the center is less than r:
+|row - centerRow| + |col - centerCol| < rEquivalently, the center has radius number 1, its orthogonally adjacent cells have radius number 2, and all cells with radius numbers from 1 through r belong to the area.
+A center is valid only when its entire rhombic area lies inside the matrix. Return the maximum sum of the matrix values in any valid rhombic area of size r.
+
+## Constraints
+
+- 1 <= matrix.length <= 100
+  - 1 <= matrix[i].length <= 100
+  - Every row has the same length.
+  - -10^4 <= matrix[i][j] <= 10^4
+  - 1 <= r <= min((matrix.length + 1) / 2, (matrix[0].length + 1) / 2)
+
+### Example 1
+- **matrix** (`int[][]`) = `[[1,2,3],[4,5,6],[7,8,9]]`
+- **r** (`int`) = `2`
+- **output** (`int`) = `25`
+
+The only valid center is the middle cell. Its rhombic area contains 5, 2, 4, 6, and 8, whose sum is 25.
+
+### Example 2
+- **matrix** (`int[][]`) = `[[-5,2],[3,1]]`
+- **r** (`int`) = `1`
+- **output** (`int`) = `3`
+
+With r = 1, each rhombic area contains only its center. The largest cell value is 3.
+
+### Example 3
+- **matrix** (`int[][]`) = `[[1,1,1,1],[1,5,1,1],[1,1,4,1],[1,1,1,1]]`
+- **r** (`int`) = `2`
+- **output** (`int`) = `12`
+
+A rhombus centered at (1, 2) contains values 1, 1, 5, 1, and 4, for a sum of 12. The center (2, 1) also gives 12, and no valid center gives a larger sum.
+
+## Starter code
+
+```
+public int maximumRhombicSum(int[][] matrix, int r) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The source supplies the rhombus geometry but omits the explicit objective, visible examples, and complete bounds. The judged core task matches the visible source at about 91%.
+
+
+---
+
+# Flat JSON Value Differences  (Chubb)
+
+> id: `chubb-flat-json-value-differences` | difficulty: easy | stage: OA | platform: unknown | topics: hash_table, string, sorting | last seen: 2026-09-28 | employment: NEW GRAD
+
+## Problem
+
+Each input is a valid JSON object with unique alphanumeric keys and string values. Return all keys present in both objects whose values differ.
+Return the keys in ascending lexicographic order. Keys appearing in only one object are ignored.
+
+## Constraints
+
+- Each JSON string has length at most 100000.
+  - Objects are flat and contain only unique ASCII alphanumeric keys and ASCII alphanumeric string values.
+  - Whitespace may appear outside quoted strings.
+
+### Example 1
+- **firstJson** (`String`) = `"{\"name\":\"John\",\"age\":\"30\",\"status\":\"active\"}"`
+- **secondJson** (`String`) = `"{\"name\":\"John\",\"age\":\"31\",\"status\":\"inactive\",\"role\":\"admin\"}"`
+- **output** (`String[]`) = `["age","status"]`
+
+Only common keys with unequal string values survive, then lexicographic sorting determines the result.
+
+### Example 2
+- **firstJson** (`String`) = `"{}"`
+- **secondJson** (`String`) = `"{}"`
+- **output** (`String[]`) = `[]`
+
+Only common keys with unequal string values survive, then lexicographic sorting determines the result.
+
+### Example 3
+- **firstJson** (`String`) = `"{\"a\":\"1\"}"`
+- **secondJson** (`String`) = `"{\"a\":\"1\"}"`
+- **output** (`String[]`) = `[]`
+
+Only common keys with unequal string values survive, then lexicographic sorting determines the result.
+
+## Starter code
+
+```
+public String[] differentCommonKeys(String firstJson, String secondJson) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The reported task identifies this algorithmic exercise. The callable interface, bounds, deterministic rules, and examples are the documented practice contract.
+
+
+---
+
+# Maximum Student-Teacher Distance  (Chubb)
+
+> id: `chubb-maximum-student-teacher-distance` | difficulty: easy | stage: OA | platform: unknown | topics: array, math | last seen: 2026-09-28 | employment: NEW GRAD
+
+## Problem
+
+Students occupy positions 0 through n - 1. For every position, return the maximum absolute distance to any teacher in teacherPositions.
+
+## Constraints
+
+- 1 <= n <= 200000.
+  - 1 <= teacherPositions.length <= n.
+  - 0 <= teacherPositions[i] < n.
+
+### Example 1
+- **n** (`int`) = `5`
+- **teacherPositions** (`int[]`) = `[3,0,1,4]`
+- **output** (`int[]`) = `[4,3,2,3,4]`
+
+Only the leftmost and rightmost teacher can maximize a student's absolute distance.
+
+### Example 2
+- **n** (`int`) = `1`
+- **teacherPositions** (`int[]`) = `[0]`
+- **output** (`int[]`) = `[0]`
+
+Only the leftmost and rightmost teacher can maximize a student's absolute distance.
+
+### Example 3
+- **n** (`int`) = `5`
+- **teacherPositions** (`int[]`) = `[2]`
+- **output** (`int[]`) = `[2,1,0,1,2]`
+
+Only the leftmost and rightmost teacher can maximize a student's absolute distance.
+
+## Starter code
+
+```
+public int[] maximumTeacherDistances(int n, int[] teacherPositions) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The reported task identifies this algorithmic exercise. The callable interface, bounds, deterministic rules, and examples are the documented practice contract.
+
+
+---
+
+# Minimum Cost to Reach a Target Weight  (Chubb)
+
+> id: `chubb-minimum-power-of-two-weight-cost` | difficulty: hard | stage: OA | platform: unknown | topics: greedy, bit_manipulation, array | last seen: 2026-09-28 | employment: NEW GRAD
+
+## Problem
+
+Item type i has weight 2^i and costs cost[i]. You may buy any nonnegative number of every type.
+Return the minimum total cost whose purchased weight is at least minWeight.
+
+## Constraints
+
+- 1 <= cost.length <= 31.
+  - 1 <= cost[i] <= 10^9.
+  - 0 <= minWeight <= 10^9.
+  - The answer fits a signed 64-bit integer.
+
+### Example 1
+- **cost** (`int[]`) = `[2,5,7,11,25]`
+- **minWeight** (`int`) = `26`
+- **output** (`long`) = `37`
+
+Normalization and the high-to-low scan compare exact coverage with the cheapest permissible overshoot.
+
+### Example 2
+- **cost** (`int[]`) = `[1]`
+- **minWeight** (`int`) = `0`
+- **output** (`long`) = `0`
+
+Normalization and the high-to-low scan compare exact coverage with the cheapest permissible overshoot.
+
+### Example 3
+- **cost** (`int[]`) = `[3]`
+- **minWeight** (`int`) = `5`
+- **output** (`long`) = `15`
+
+Normalization and the high-to-low scan compare exact coverage with the cheapest permissible overshoot.
+
+## Starter code
+
+```
+public long minimumWeightCost(int[] cost, int minWeight) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The reported task identifies this algorithmic exercise. The callable interface, bounds, deterministic rules, and examples are the documented practice contract.
+
+
+---
+
+# Minimum Last-Element Relocations  (Chubb)
+
+> id: `chubb-minimum-last-element-relocations` | difficulty: medium | stage: OA | platform: unknown | topics: array, greedy, two_pointers | last seen: 2026-09-28 | employment: NEW GRAD
+
+## Problem
+
+The arrays current and desired contain the same multiset of values. In one operation, remove the last element of the current array and insert it at any position.
+Return the minimum number of operations needed to transform current into desired.
+
+## Constraints
+
+- 1 <= current.length == desired.length <= 200000.
+  - The arrays contain the same multiset.
+
+### Example 1
+- **current** (`int[]`) = `[2,1,3,5,4]`
+- **desired** (`int[]`) = `[2,4,1,5,3]`
+- **output** (`int`) = `2`
+
+The unmatched suffix is exactly the set of elements that must be extracted and reinserted.
+
+### Example 2
+- **current** (`int[]`) = `[1,2,3]`
+- **desired** (`int[]`) = `[1,2,3]`
+- **output** (`int`) = `0`
+
+The unmatched suffix is exactly the set of elements that must be extracted and reinserted.
+
+### Example 3
+- **current** (`int[]`) = `[1,2,3]`
+- **desired** (`int[]`) = `[3,2,1]`
+- **output** (`int`) = `2`
+
+The unmatched suffix is exactly the set of elements that must be extracted and reinserted.
+
+## Starter code
+
+```
+public int minimumRelocations(int[] current, int[] desired) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The reported task identifies this algorithmic exercise. The callable interface, bounds, deterministic rules, and examples are the documented practice contract.
+
+
+---
+
+# Most Visited Sprint Marker  (Chubb)
+
+> id: `chubb-most-visited-sprint-marker` | difficulty: medium | stage: OA | platform: unknown | topics: prefix_sum, array, intervals | last seen: 2026-09-28 | employment: NEW GRAD
+
+## Problem
+
+A track has markers 1 through n. For every adjacent pair in sprints, a runner visits every marker in the inclusive interval between those two endpoints, whether moving forward or backward.
+Return the smallest marker with the greatest total visit count across all sprints.
+
+## Constraints
+
+- 1 <= n <= 200000.
+  - 2 <= sprints.length <= 200000.
+  - 1 <= sprints[i] <= n.
+
+### Example 1
+- **n** (`int`) = `5`
+- **sprints** (`int[]`) = `[2,4,1,3]`
+- **output** (`int`) = `2`
+
+Difference-array range updates reproduce all inclusive sprint visits and preserve the smallest tied marker.
+
+### Example 2
+- **n** (`int`) = `3`
+- **sprints** (`int[]`) = `[1,3]`
+- **output** (`int`) = `1`
+
+Difference-array range updates reproduce all inclusive sprint visits and preserve the smallest tied marker.
+
+### Example 3
+- **n** (`int`) = `4`
+- **sprints** (`int[]`) = `[4,1,4]`
+- **output** (`int`) = `1`
+
+Difference-array range updates reproduce all inclusive sprint visits and preserve the smallest tied marker.
+
+## Starter code
+
+```
+public int mostVisitedMarker(int n, int[] sprints) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The reported task identifies this algorithmic exercise. The callable interface, bounds, deterministic rules, and examples are the documented practice contract.
+
+
+---
+
+# Largest Microorganism After Consumption  (OpenAI)
+
+> id: `openai-largest-microorganism` | difficulty: medium | stage: OA | platform: unknown | topics: array, simulation, linked_list | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+Microorganisms are arranged from left to right. Microorganism i has family families[i] and positive size sizes[i].
+The simulation proceeds in rounds. At the start of each round, every surviving microorganism is eligible to participate once. Scan the current line from left to right:
+  - If the current microorganism and its immediate left neighbor have not participated this round, and the left neighbor is strictly smaller, the current microorganism eats the left neighbor.
+  - Otherwise, if the current microorganism and its immediate right neighbor have not participated this round, and the right neighbor is strictly smaller, the current microorganism eats the right neighbor.
+  - Otherwise, it does nothing.
+
+When one microorganism eats another, the eater gains the target's size, the target disappears, and the eater cannot participate again in that round. Earlier removals immediately change which microorganisms are adjacent.
+
+### Example 1
+- **families** (`String[]`) = `["A","B","C"]`
+- **sizes** (`int[]`) = `[3,1,2]`
+- **output** (`String`) = `"A 6"`
+
+In the first round, A eats B and grows to 4. In the next round, A eats C and grows to 6.
+
+## Source note
+
+The source provides growth by consumption, strict size comparison, one-event-per-round participation, left-to-right resolution, left-neighbor priority, output format, and the 20-organism bound. The judged array interface makes those rules executable; the core behavior is an approximately 97% match.
+
+
+---
+
+# Leaves Remaining After Wind Gusts  (OpenAI)
+
+> id: `openai-wind-shifted-leaf-sum` | difficulty: medium | stage: OA | platform: unknown | topics: matrix, simulation, prefix_sum | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+A rectangular garden is represented by garden. The value garden[r][c] is the number of leaves initially in cell (r, c).
+Process every character of gusts from left to right. A gust shifts all leaves that are still present by one cell:
+
+### Example 1
+- **garden** (`int[][]`) = `[[1,2,3],[4,5,6]]`
+- **gusts** (`String`) = `"R"`
+- **output** (`long`) = `12`
+
+The rightmost column leaves the garden. The surviving original values are 1, 2, 4, and 5.
+
+## Source note
+
+The source provides the garden, directional gust sequence, boundary loss, and remaining-sum objective. The judged bounds, empty-sequence case, and callable interface complete the task; the core behavior is an approximately 95% match.
+
+
+---
+
+# Network Endpoint or Cycle Boundary  (OpenAI)
+
+> id: `openai-network-endpoint-or-cycle` | difficulty: easy | stage: OA | platform: unknown | topics: graph, hash_table, simulation | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+You are given a directed network with n nodes numbered from 0 to n - 1. Each pair [from, to] in edges creates one directed edge from from to to. Every node has at most one outgoing edge.
+
+### Example 1
+- **n** (`int`) = `10`
+- **edges** (`int[][]`) = `[[1,3],[7,3],[3,4],[4,6],[2,6],[6,9],[9,5]]`
+- **start** (`int`) = `1`
+- **output** (`int`) = `5`
+
+The walk is 1 → 3 → 4 → 6 → 9 → 5. Node 5 has no outgoing edge.
+
+## Source note
+
+The source establishes functional directed traversal, endpoint detection, and the last node before a repeated cycle step. The judged interface and numeric bounds complete the task; the core behavior is an approximately 95% match.
+
+
+---
+
+# Repair One Movement Instruction  (OpenAI)
+
+> id: `openai-repair-one-movement-instruction` | difficulty: medium | stage: OA | platform: unknown | topics: matrix, string, simulation | last seen: 2026-09-28 | employment: FULLTIME
+
+## Problem
+
+You are given a rectangular character grid and a movement program.
+  - S is the unique start cell.
+  - T is the unique target cell.
+  - # is an obstacle.
+  - . is an open cell.
+
+The robot starts on S facing up. Each character of instructions is one command:
+  - F: move one cell forward.
+  - B: move one cell backward without changing direction.
+  - L: turn left in place.
+  - R: turn right in place.
+
+You must replace exactly one instruction with a different command from F, B, L, and R. A candidate replacement is invalid if any move leaves the grid or enters an obstacle.
+
+### Example 1
+- **grid** (`String[]`) = `[".T.","...",".S."]`
+- **instructions** (`String`) = `"FR"`
+- **output** (`boolean`) = `true`
+
+Replace R with F. The robot moves up twice and finishes on T.
+
+## Source note
+
+The source establishes replacing one instruction, replaying the route, avoiding obstacles, and reaching the target. The judged grid symbols, compact command alphabet, initial upward orientation, and invalid-step rule complete the task; the core behavior is an approximately 90% match.
+
+
+---
+
+# Deployment Window Scheduler  (Stripe)
+
+> id: `stripe-deployment-window-scheduler` | difficulty: hard | stage: OA | platform: hackerrank | topics: intervals, sorting, simulation | last seen: 2026-09-27, 2026-09-16, 2026-09-09, 2026-09-01, 2026-08-24, 2026-07-24, 2026-07-10 | employment: INTERN, NEW GRAD, FULLTIME
+
+## Problem
+
+At Stripe, teams ship changes to services all the time. To keep production stable, the Service Deployments team runs a scheduler that decides when deployments are allowed.
+Time Format and Window Representation
+Time is represented as an integer minute_of_week in the range [0, 10079], meaning minutes since Monday 00:00. For example, 0 is Monday 00:00, 60 is Monday 01:00, 1440 is Tuesday 00:00, and 10079 is Sunday 23:59.
+Every window is represented as start_minute,end_minute and is half-open: it includes start_minute and excludes end_minute. For example, 10,12 covers minutes 10 and 11.
+Implement scheduleDeploymentWindows. The value of part selects one of the following two stages, and inputCsv contains the corresponding CSV rows. Return the resulting deployment windows as [[start, end], ...], sorted by start time.
+Part 1: Allowed Windows (Tests 1–4)
+A team defines the times of the week when deployments are allowed. During an incident, the Service Deployments team can also define freeze windows that prevent deployments.
+A minute is deployable only when it is inside at least one allowed window and inside no freeze window. Compute the week's sorted, continuously deployable windows.
+For Part 1, part is "part1", and every row in inputCsv has this format:
+start,end,typeThe type is either allowed or freeze. Allowed windows may overlap, freeze windows may overlap, and adjacent deployable intervals are returned as one continuous window.
+Part 1 Source Example
+part1
+540,600,allowed
+570,585,freezeThe deployable output is [[540,570],[585,600]].
+Part 2: Time Zones and Minimum Duration (Tests 5–11)
+The scheduler now aggregates windows from teams around the world. Each window may use a different local time zone, but all rows contribute to one global calendar and the result must be returned in UTC.
+For Part 2, part is "part2". The first row of inputCsv contains:
+utc_now,lead_time_minutes,min_continuous_minutes,kEach remaining row has this format:
+start,end,type,timezone_offset_minutesThe window endpoints are local minute_of_week values for that row's time zone, where local = UTC + timezone_offset_minutes. Convert every window to UTC, normalizing over the 10080-minute week. If a converted interval crosses the weekly boundary, split it at the boundary.
+After conversion, a minute is deployable when it is inside at least one allowed window and inside no freeze window. A returned UTC window must:
+  - start no earlier than utc_now + lead_time_minutes;
+  - remain continuously deployable for at least min_continuous_minutes;
+  - end no later than minute 10080.
+
+Clip deployable intervals to the earliest permitted start, discard any remaining interval that is too short, sort the surviving UTC intervals by start time, and return at most the first k. Return fewer than k windows when fewer valid windows exist.
+
+## Constraints
+
+- Weekly minute values are normalized over a 10080-minute week.
+  - All intervals are half-open.
+  - Window rows use type allowed or freeze.
+
+### Example 1
+- **part** (`String`) = `"part1"`
+- **inputCsv** (`String[]`) = `["540,600,allowed","570,585,freeze"]`
+- **output** (`int[][]`) = `[[540,570],[585,600]]`
+
+Part 1. The freeze interval removes [570,585) from the allowed interval [540,600).
+
+### Example 2
+- **part** (`String`) = `"part2"`
+- **inputCsv** (`String[]`) = `["1020,0,10,5","540,600,allowed,-480","550,565,freeze,-480"]`
+- **output** (`int[][]`) = `[[1020,1030],[1045,1080]]`
+
+Part 2. The offset converts the allowed interval to [1020,1080) and the freeze interval to [1030,1045). Both remaining windows are at least 10 minutes long.
+
+## Starter code
+
+```
+public int[][] scheduleDeploymentWindows(String part, String[] inputCsv) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+🐿️ This practice version is about a 90% match to the available source. The minute-of-week model, half-open windows, allowed-minus-freeze logic, UTC offset conversion, lead time, minimum continuous duration, and next-k window objective come directly from the source. The original callable signature, complete Part 2 CSV example, exact numeric bounds, and week-boundary behavior were not shown, so FastPrep filled those details in consistently without changing what the original question asks you to build.
+
+
+---
+
+# Count Straight-Line Word Occurrences in a Grid  (Optiver)
+
+> id: `optiver-straight-line-word-count` | difficulty: medium | stage: OA | platform: unknown | topics: matrix, string, simulation | last seen: 2026-09-27, 2026-09-21 | employment: FULLTIME
+
+## Problem
+
+Given a rectangular grid of characters and a nonempty word, count every occurrence that lies entirely in one row or one column.
+Search left to right, right to left, top to bottom, and bottom to top. Matches may overlap and characters are compared exactly. When the word has length one, count each matching cell once rather than once per direction.
+
+## Constraints
+
+- 1 <= grid.length, grid[i].length <= 500.
+  - All rows have equal length.
+  - 1 <= word.length <= 500.
+  - The grid and word contain visible ASCII characters.
+
+### Example 1
+- **grid** (`String[]`) = `["ABCA","BCAB","CABC"]`
+- **word** (`String`) = `"ABC"`
+- **output** (`int`) = `4`
+
+There are two left-to-right row matches and two top-to-bottom column matches.
+
+### Example 2
+- **grid** (`String[]`) = `["AAAA"]`
+- **word** (`String`) = `"AAA"`
+- **output** (`int`) = `4`
+
+Two overlapping matches appear in each horizontal direction.
+
+### Example 3
+- **grid** (`String[]`) = `["AX","YA"]`
+- **word** (`String`) = `"A"`
+- **output** (`int`) = `2`
+
+Each matching cell is counted once for a one-character word.
+
+## Starter code
+
+```
+public int countStraightWords(String[] grid, String word) {
+    // Write your solution here.
+}
+```
+
+## Source note
+
+The interview report supplies a character matrix, target word, occurrence count, and the restriction that a match remain horizontal or vertical without turning. It omits direction, overlap, character, bound, and interface rules; the practice contract makes those choices explicit. The judged task matches the report at about 86%.
+
+
+---
+
+# Fastest Average Speed over a Rolling Kilometer  (Optiver)
+
+> id: `optiver-fastest-rolling-kilometer-speed` | difficulty: hard | stage: OA | platform: unknown | topics: two_pointers, sliding_window, math, array | last seen: 2026-09-27, 2026-09-21 | employment: FULLTIME
+
+## Problem
+
+meters[i] is the distance traveled during the i-th consecutive five-second interval. Assume speed is constant within each interval.
+Among every continuous segment of the run covering exactly 1000 meters, return the maximum average speed in meters per second. A segment boundary may split an interval proportionally. Return -1.0 when the total distance is less than 1000 meters.
+
+## Constraints
+
+- 1 <= meters.length <= 100000.
+  - 1 <= meters[i] <= 10000.
+  - The answer is accepted within 10^-6 absolute or relative error.
+
+### Example 1
+- **meters** (`int[]`) = `[400,400,400]`
+- **output** (`double`) = `80.0`
+
+At 80 meters per second throughout, exactly 1000 meters takes 12.5 seconds.
+
+### Example 2
+- **meters** (`int[]`) = `[100,600,600,100]`
+- **output** (`double`) = `120.0`
+
+The fastest kilometer starts and ends inside the two central intervals and takes 1000 / 120 seconds.
+
+### Example 3
+- **meters** (`int[]`) = `[200,300,400]`
+- **output** (`double`) = `-1.0`
+
+The complete run covers only 900 meters.
+
+## Starter code
+
+```
+public double fastestKilometerSpeed(int[] meters) {
+    // Write your solution here.
+}
+```
+
+## Source note
+
+The interview report supplies consecutive five-second distance samples, an exactly one-kilometer fastest-average objective, and a two-pointer approach. It omits boundary interpolation, units, precision, bounds, and the no-kilometer result; the piecewise-constant-pace contract supplies those details. The judged task matches the report at about 82%.
+
+
+---
+
+# API Bandwidth Allocation  (Arista Networks)
+
+> id: `arista-networks-api-bandwidth-allocation` | difficulty: medium | stage: OA | platform: unknown | topics: array, dynamic_programming | last seen: 2026-09-27 | employment: NEW GRAD
+
+## Problem
+
+Each API endpoint consumes bandwidth[i] units when enabled and resolves requests[i] requests. An endpoint is either enabled once or not enabled.
+Given the total available maxBandwidth, return the maximum number of requests that can be resolved without exceeding the bandwidth limit.
+
+## Constraints
+
+- 0 <= maxBandwidth <= 10000.
+  - 1 <= bandwidth.length == requests.length <= 200.
+  - 1 <= bandwidth[i] <= 10000.
+  - 0 <= requests[i] <= 10^6.
+  - The optimal answer fits a signed 32-bit integer.
+
+### Example 1
+- **maxBandwidth** (`int`) = `5`
+- **bandwidth** (`int[]`) = `[2,3,4]`
+- **requests** (`int[]`) = `[4,5,7]`
+- **output** (`int`) = `9`
+
+Case 1 exercises the documented deterministic contract.
+
+### Example 2
+- **maxBandwidth** (`int`) = `7`
+- **bandwidth** (`int[]`) = `[2,3,4]`
+- **requests** (`int[]`) = `[4,5,7]`
+- **output** (`int`) = `12`
+
+Case 2 exercises the documented deterministic contract.
+
+### Example 3
+- **maxBandwidth** (`int`) = `0`
+- **bandwidth** (`int[]`) = `[1,2]`
+- **requests** (`int[]`) = `[10,20]`
+- **output** (`int`) = `0`
+
+Case 3 exercises the documented deterministic contract.
+
+## Starter code
+
+```
+public int maximizeResolvedRequests(int maxBandwidth, int[] bandwidth, int[] requests) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The reported task identifies this algorithmic exercise. The executable interface, bounds, deterministic tie rules, and examples are the documented practice contract.
+
+
+---
+
+# LFU Cache  (Arista Networks)
+
+> id: `arista-networks-lfu-cache` | difficulty: hard | stage: OA | platform: unknown | topics: design, hash_table, linked_list, simulation | last seen: 2026-09-27 | employment: NEW GRAD
+
+## Problem
+
+Process commands on an initially empty least-frequently-used cache with positive integer capacity.
+  - put key value inserts a new key or updates an existing key.
+  - get key returns the stored value, or -1 when the key is absent.
+
+For this exercise, assume a successful get and a put that updates an existing key each increase that key's frequency by one and make it most recently used within its new frequency. A new key starts with frequency one.
+When a new insertion would exceed capacity, evict the key with the smallest frequency. Break a frequency tie by evicting the least recently used key. Return the results of all get commands in order. Each operation should run in average O(1) time.
+
+## Constraints
+
+- 1 <= capacity <= 3000.
+  - 1 <= operations.length <= 2 * 10^4.
+  - Each command is exactly get key or put key value.
+  - Keys and values fit in signed 32-bit integers.
+  - At least one command is get.
+
+### Example 1
+- **capacity** (`int`) = `2`
+- **operations** (`String[]`) = `["put 1 1","put 2 2","get 1","put 3 3","get 2","get 3","put 4 4","get 1","get 3","get 4"]`
+- **output** (`int[]`) = `[1,-1,3,-1,3,4]`
+
+Reading key 1 raises its frequency, so key 2 is evicted first. Later keys 1 and 3 tie on frequency, and key 1 is least recent.
+
+### Example 2
+- **capacity** (`int`) = `1`
+- **operations** (`String[]`) = `["put 7 5","put 7 8","get 7","put 9 4","get 7","get 9"]`
+- **output** (`int[]`) = `[8,-1,4]`
+
+Updating key 7 changes its value and frequency. Inserting key 9 into a one-entry cache then evicts key 7.
+
+## Starter code
+
+```
+public int[] processLfuCache(int capacity, String[] operations) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The reported task identifies this standard algorithmic exercise. The executable interface, bounds, deterministic tie rules, and examples are the documented practice contract.
+
+
+---
+
+# Maximum Valid Substring Frequency  (Microsoft)
+
+> id: `microsoft-maximum-valid-substring-frequency` | difficulty: medium | stage: OA | platform: unknown | topics: string, hash_table, sliding_window | last seen: 2026-09-27 | employment: FULLTIME
+
+## Problem
+
+Given a lowercase string text and three integers maxDistinct, minLength, and maxLength, return the maximum number of occurrences of any substring that satisfies both rules:
+  - Its length is between minLength and maxLength, inclusive.
+  - It contains at most maxDistinct distinct letters.
+
+Occurrences may overlap. Return 0 when no substring satisfies the rules.
+
+## Constraints
+
+- 1 <= text.length() <= 10^5.
+  - text contains only lowercase English letters.
+  - 1 <= maxDistinct <= 26.
+  - 1 <= minLength <= maxLength <= min(26, text.length()).
+
+### Example 1
+- **text** (`String`) = `"aababcaab"`
+- **maxDistinct** (`int`) = `2`
+- **minLength** (`int`) = `3`
+- **maxLength** (`int`) = `4`
+- **output** (`int`) = `2`
+
+The substring aab appears twice, and it contains only the letters a and b.
+
+### Example 2
+- **text** (`String`) = `"aaaa"`
+- **maxDistinct** (`int`) = `1`
+- **minLength** (`int`) = `3`
+- **maxLength** (`int`) = `3`
+- **output** (`int`) = `2`
+
+The two length-three windows are both aaa, so overlapping occurrences produce frequency 2.
+
+### Example 3
+- **text** (`String`) = `"abcde"`
+- **maxDistinct** (`int`) = `2`
+- **minLength** (`int`) = `3`
+- **maxLength** (`int`) = `3`
+- **output** (`int`) = `0`
+
+Every length-three substring contains three distinct letters, so none is valid.
+
+## Starter code
+
+```
+public int maxSubstringFrequency(String text, int maxDistinct, int minLength, int maxLength) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The interview report identifies this exercise by an exact reference. The judged core task matches the referenced exercise at about 99%.
+
+
+---
+
+# Minimum Non-Adjacent Selection Capability  (Microsoft)
+
+> id: `microsoft-minimum-nonadjacent-capability` | difficulty: medium | stage: OA | platform: unknown | topics: array, binary_search, greedy | last seen: 2026-09-27 | employment: FULLTIME
+
+## Problem
+
+You are given an array of positive integers values. Choose at least count positions so that no two chosen positions are adjacent.
+The capability of a selection is the maximum value among its chosen positions. Return the minimum capability achievable by any valid selection.
+
+## Constraints
+
+- 1 <= values.length <= 10^5.
+  - 1 <= values[i] <= 10^9.
+  - 1 <= count <= (values.length + 1) / 2.
+
+### Example 1
+- **values** (`int[]`) = `[2,3,5,9]`
+- **count** (`int`) = `2`
+- **output** (`int`) = `5`
+
+Choosing values 2 and 5 from positions 0 and 2 gives capability 5. No valid pair has a smaller maximum.
+
+### Example 2
+- **values** (`int[]`) = `[2,7,9,3,1]`
+- **count** (`int`) = `2`
+- **output** (`int`) = `2`
+
+Positions 0 and 4 are non-adjacent and hold values 2 and 1, so the minimum capability is 2.
+
+### Example 3
+- **values** (`int[]`) = `[10,1,8,2,7,3]`
+- **count** (`int`) = `3`
+- **output** (`int`) = `3`
+
+Choosing positions 1, 3, and 5 gives values 1, 2, and 3.
+
+## Starter code
+
+```
+public int minimumSelectionCapability(int[] values, int count) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The interview report identifies this exercise by an exact reference. The judged core task matches the referenced exercise at about 99%.
+
+
+---
+
+# Consistent Logs  (Rippling)
+
+> id: `rippling-consistent-logs` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, hash_table, sliding_window | last seen: 2026-09-26, 2026-08-31, 2026-08-06 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You are given an integer array userEvent, where userEvent[i] is the ID of the user who triggered event i.
+Let minimumGlobalFrequency be the smallest total frequency of any user ID in the entire array. A contiguous subarray is consistent when the frequency of its most frequent user is exactly minimumGlobalFrequency.
+Return the maximum length of a consistent subarray.
+
+## Constraints
+
+- 1 <= userEvent.length <= 3 * 10^5
+  - 1 <= userEvent[i] <= 10^9
+
+### Example 1
+- **userEvent** (`int[]`) = `[1,2,1,3,4,2,4,3,3,4]`
+- **output** (`int`) = `8`
+
+In the entire array, users 1 and 2 each appear 2 times, while users 3 and 4 each appear 3 times. Therefore, minimumGlobalFrequency = 2.
+The subarray [1,2,1,3,4,2,4,3] has length 8, and every user in it appears exactly 2 times. Its maximum frequency is therefore 2, so it is consistent. Every subarray of length at least 9 contains a user with frequency 3, so 8 is the maximum length.
+
+### Example 2
+- **userEvent** (`int[]`) = `[7,7,8,8]`
+- **output** (`int`) = `4`
+
+Both users appear 2 times in the entire array, so minimumGlobalFrequency = 2. The full array is consistent and has length 4.
+
+## Starter code
+
+```
+public int findConsistentLogs(int[] userEvent) {
+  // Write your code here.
+}
+
+```
+
+
+---
+
+# Costliest Chocolate  (Rippling)
+
+> id: `rippling-costliest-chocolate` | difficulty: easy | stage: OA | platform: hackerrank | topics: array, math, simulation | last seen: 2026-09-26, 2026-08-31, 2026-08-06 | employment: NEW GRAD, INTERN
+
+## Problem
+
+A chocolate catalog is represented offline by aligned arrays:
+  - recordBrands[i] is the brand of chocolate i.
+  - productNumbers[i] is its unique product identifier.
+  - prices[i][j] and weights[i][j] are the price and weight in grams of variation j of that chocolate.
+
+Among chocolates whose brand exactly equals brand, evaluate the price-per-gram ratio prices[i][j] / weights[i][j] for every variation. Return the productNumber of the chocolate containing the largest ratio.
+Compare ratios as exact fractions. If multiple chocolates share the largest ratio, return the smaller productNumber.
+
+## Constraints
+
+- 1 <= recordBrands.length == productNumbers.length == prices.length == weights.length <= 10^5
+  - 1 <= sum(prices[i].length) <= 2 * 10^5
+  - prices[i].length == weights[i].length
+  - 1 <= prices[i].length
+  - 1 <= prices[i][j], weights[i][j] <= 10^9
+  - 1 <= productNumbers[i] <= 10^18
+  - All product numbers are unique.
+  - At least one entry has recordBrands[i] == brand.
+  - Brand comparison is case-sensitive.
+
+### Example 1
+- **brand** (`String`) = `"ABC"`
+- **recordBrands** (`String[]`) = `["ABC","ABC","Other"]`
+- **productNumbers** (`long[]`) = `[20,10,5]`
+- **prices** (`int[][]`) = `[[400,900],[500],[1000]]`
+- **weights** (`int[][]`) = `[[100,200],[100],[10]]`
+- **output** (`long`) = `10`
+
+For product 20, the best ratio is 900 / 200 = 4.5. Product 10 has ratio 500 / 100 = 5, which is larger. Product 5 belongs to another brand and is ignored.
+
+### Example 2
+- **brand** (`String`) = `"Cocoa"`
+- **recordBrands** (`String[]`) = `["Cocoa","Cocoa","Other"]`
+- **productNumbers** (`long[]`) = `[42,7,1]`
+- **prices** (`int[][]`) = `[[6],[9],[1000]]`
+- **weights** (`int[][]`) = `[[2],[3],[1]]`
+- **output** (`long`) = `7`
+
+Products 42 and 7 both have price-per-gram ratio 3. The tie is resolved by the smaller product number, so the answer is 7. The higher ratio from Other is irrelevant.
+
+## Starter code
+
+```
+public long costliestChocolate(String brand, String[] recordBrands, long[] productNumbers, int[][] prices, int[][] weights) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The source uses a paginated REST API and omits numeric bounds and failure behavior. The judged core task matches the visible source at about 90%.
+
+
+---
+
+# Server Management  (Rippling)
+
+> id: `rippling-server-management` | difficulty: easy | stage: OA | platform: unknown | topics: array, greedy, sorting | last seen: 2026-09-26, 2026-08-31, 2026-08-06 | employment: NEW GRAD, INTERN
+
+## Problem
+
+A company has n servers. For server i, serverCapacity[i] is its capacity and incomingRequests[i] is the number of requests arriving at that server.
+Without an upgrade, server i can handle at most min(serverCapacity[i], incomingRequests[i]) requests.
+Choose exactly k servers and double their capacities. Return the maximum total number of requests that can be handled across all servers after these upgrades.
+
+## Constraints
+
+- 1 <= k <= serverCapacity.length <= 2 * 10^5
+  - serverCapacity.length == incomingRequests.length
+  - 1 <= serverCapacity[i], incomingRequests[i] <= 10^9
+
+### Example 1
+- **serverCapacity** (`int[]`) = `[10,4,3,7]`
+- **incomingRequests** (`int[]`) = `[3,10,4,5]`
+- **k** (`int`) = `2`
+- **output** (`long`) = `20`
+
+Double the capacities of servers 1 and 2, using zero-based indices. The four servers can then handle 3, 8, 4, and 5 requests, for a total of 20.
+
+## Starter code
+
+```
+public long maximumHandledRequests(int[] serverCapacity, int[] incomingRequests, int k) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The visible source does not show a callable signature. The judged core task matches the visible source at about 99%.
+
+
+---
+
+# Nearest Composite Number  (Accenture)
+
+> id: `accenture-nearest-composite-number` | difficulty: medium | stage: OA | platform: unknown | topics: math | last seen: 2026-09-26 | employment: NEW GRAD
+
+## Problem
+
+Return the composite integer with the smallest absolute difference from n. A composite integer is greater than 1 and has a divisor other than 1 and itself.
+If two composite numbers are equally near, return the smaller one.
+
+## Constraints
+
+- 0 <= n <= 10^9.
+
+### Example 1
+- **n** (`int`) = `4`
+- **output** (`int`) = `4`
+
+Case 1 exercises the documented deterministic contract.
+
+### Example 2
+- **n** (`int`) = `5`
+- **output** (`int`) = `4`
+
+Case 2 exercises the documented deterministic contract.
+
+### Example 3
+- **n** (`int`) = `7`
+- **output** (`int`) = `6`
+
+Case 3 exercises the documented deterministic contract.
+
+## Starter code
+
+```
+public int nearestComposite(int n) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The reported task identifies this algorithmic exercise. The executable interface, bounds, deterministic tie rules, and examples are the documented practice contract.
+
+
+---
+
+# Longest Palindromic Subsequence  (Goldman Sachs)
+
+> id: `goldman-sachs-longest-palindromic-subsequence` | difficulty: medium | stage: OA | platform: unknown | topics: string, dynamic_programming | last seen: 2026-09-26 | employment: NEW GRAD
+
+## Problem
+
+Given a string s, return the length of its longest subsequence that reads the same from left to right and right to left.
+A subsequence keeps the relative order of selected characters but does not need to use contiguous positions.
+
+### Example 1
+- **s** (`String`) = `"bbbab"`
+- **output** (`int`) = `4`
+
+One longest palindromic subsequence is bbbb.
+
+### Example 2
+- **s** (`String`) = `"cbbd"`
+- **output** (`int`) = `2`
+
+## Starter code
+
+```
+public int longestPalindromeSubseq(String s) {
+  // write your code here
+}
+```
+
+## Source note
+
+The reported task identifies this algorithmic exercise. The executable interface, bounds, deterministic tie rules, and examples are the documented practice contract.
+
+
+---
+
+# Merge Overlapping Intervals  (Goldman Sachs)
+
+> id: `goldman-sachs-merge-overlapping-intervals` | difficulty: medium | stage: OA | platform: unknown | topics: array, sorting, intervals | last seen: 2026-09-26 | employment: NEW GRAD
+
+## Problem
+
+Given a list of closed integer intervals, merge every pair that overlaps and return the disjoint merged intervals ordered by start coordinate.
+Closed intervals that share an endpoint overlap, so [1,4] and [4,5] merge into [1,5].
+
+## Constraints
+
+- 0 <= intervals.length <= 100000.
+  - Every interval has exactly two values and -10^9 <= start <= end <= 10^9.
+
+### Example 1
+- **intervals** (`int[][]`) = `[[1,3],[2,6],[8,10],[15,18]]`
+- **output** (`int[][]`) = `[[1,6],[8,10],[15,18]]`
+
+The first two intervals overlap and merge.
+
+### Example 2
+- **intervals** (`int[][]`) = `[[1,4],[4,5]]`
+- **output** (`int[][]`) = `[[1,5]]`
+
+Closed intervals sharing endpoint 4 overlap.
+
+## Starter code
+
+```
+public int[][] mergeIntervals(int[][] intervals) {
+    // Merge all overlapping closed intervals.
+}
+```
+
+## Source note
+
+The reported task identifies this standard algorithmic exercise. The executable interface, bounds, deterministic tie rules, and examples are the documented practice contract.
+
+
+---
+
+# Maximum Points by Deleting Elements  (IBM)
+
+> id: `ibm-maximum-points-by-deleting-elements` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, hash_table, dynamic_programming | last seen: 2026-09-26 | employment: INTERN
+
+## Problem
+
+You are given an integer array elements. Repeat these operations until the array is empty:
+  - Select a remaining value v.
+  - Remove every occurrence of v and add their sum to your score.
+  - Remove every occurrence of v - 1 and v + 1 without scoring those values.
+
+Return the maximum score that can be earned.
+
+## Constraints
+
+- 1 <= elements.length <= 10^5
+  - 1 <= elements[i] <= 10^5
+
+### Example 1
+- **elements** (`int[]`) = `[5,6,6,4,11]`
+- **output** (`long`) = `27`
+
+Take 11 for 11 points, both copies of 6 for 12 points, and 4 for 4 points, totaling 27.
+
+### Example 2
+- **elements** (`int[]`) = `[3,4,2]`
+- **output** (`long`) = `6`
+
+Choose 2 and 4. They do not conflict and contribute 2 + 4 = 6.
+
+## Starter code
+
+```
+public long maxPoints(int[] elements) {
+  // write your code here
+}
+```
+
+## Source note
+
+The judged task, example, signature, return type, and numeric bounds match the visible source at about 99%.
+
+
+---
+
+# Sort Matrix Borders  (Hudson River Trading)
+
+> id: `hrt-sort-matrix-borders` | difficulty: medium | stage: OA | platform: codesignal | topics: array, matrix, sorting, simulation | last seen: 2026-09-25, 2026-09-23, 2026-09-22, 2026-09-19, 2026-09-09 | employment: INTERN, FULLTIME, NEW GRAD
+
+## Problem
+
+Given matrix, an n x m rectangular matrix of integers, let's define its 0-border as the union of its leftmost and rightmost columns, as well as its top and bottom rows. A vector's 0-border is the vector itself.
+If we were to remove the matrix's 0-border, then the 0-border of the resulting matrix can be defined as the 1-border of the original matrix. We can continue this way to define the 2-border, 3-border, etc, until we reach the center of the matrix.
+For each valid k, your task is to sort the elements in each k-border and place them clockwise in ascending order, starting from the top-left corner.
+Note: You are not expected to provide the most optimal solution, but a solution with time complexity not worse than O(n * m * (n + m)) will fit within the execution time limit.
+
+## Constraints
+
+- FastPrep execution-adapter constraints (not shown in the source image):
+  - matrix is non-empty.
+  - Every row has the same positive length.
+  - Every entry is an integer.
+
+### Example 1
+- **matrix** (`int[][]`) = `[[9,7,-4,5],[1,6,2,-6],[12,20,2,0]]`
+- **output** (`int[][]`) = `[[-6,-4,0,1],[20,2,6,2],[12,9,7,5]]`
+
+For
+matrix = [[9, 7, -4, 5],
+          [1, 6, 2, -6],
+          [12, 20, 2, 0]]FastPrep-authored deterministic derivation: The source image shows this example input but is cropped before its output. Applying the visible border-sorting rule gives the executable output shown here.
+
+## Starter code
+
+```
+public int[][] solution(int[][] matrix) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The source omits complete numeric bounds. The judged core task and visible matrix example match the source at about 98%.
+
+
+---
+
+# Minimum Values with Even Powers of Two  (Visa)
+
+> id: `visa-minimum-values-even-powers-of-two` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, math, greedy | last seen: 2026-09-25, 2026-09-24, 2026-09-22, 2026-09-20 | employment: FULLTIME, NEW GRAD
+
+## Problem
+
+For each value x in the integer array arr, find the minimum positive integer k such that x can be written as a sum of exactly k positive integers under these rules:
+  - Exactly k - 1 summands are powers of two with positive even exponents: 4, 16, 64, .... A value may be used more than once.
+  - Exactly one summand is less than 4, so it must be 1, 2, or 3.
+
+If no valid representation exists, return -1 for that value. Return the answers in the same order as arr.
+
+## Constraints
+
+- 1 <= arr.length <= 2 * 10^5.
+  - 1 <= arr[i] <= 10^9.
+
+### Example 1
+- **arr** (`int[]`) = `[5,1,4,6,10]`
+- **output** (`int[]`) = `[2,1,-1,2,3]`
+
+The valid minimum representations include 5 = 1 + 4, 1 = 1, 6 = 2 + 4, and 10 = 2 + 4 + 4. The value 4 cannot include exactly one summand smaller than 4, so its answer is -1.
+
+### Example 2
+- **arr** (`int[]`) = `[2,3,7,21,64]`
+- **output** (`int[]`) = `[1,1,2,3,-1]`
+
+The values 2 and 3 each use one small summand. Also, 7 = 3 + 4 and 21 = 1 + 4 + 16. A multiple of 4, such as 64, cannot satisfy the required small summand.
+
+## Starter code
+
+```
+public int[] getMinimumValues(int[] arr) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source omits numeric bounds. The judged core task matches the visible source at about 98%.
+
+
+---
+
+# Rearrange String by Alternating Ends  (Hudson River Trading)
+
+> id: `hrt-rearrange-string-by-alternating-ends` | difficulty: easy | stage: OA | platform: codesignal | topics: string, two_pointers, simulation | last seen: 2026-09-25, 2026-09-23, 2026-09-19 | employment: FULLTIME, NEW GRAD, INTERN
+
+## Problem
+
+Given a string s, return a new string formed by reading characters from alternating ends.
+Use the characters in this order:
+  - Take the first character.
+  - Take the last character.
+  - Take the second character.
+  - Take the second-to-last character.
+  - Continue moving inward until every character has been used exactly once.
+
+Equivalently, for a string of length n, visit indices 0, n - 1, 1, n - 2, and so on.
+
+## Constraints
+
+- 1 <= s.length <= 100
+  - s contains only lowercase English letters.
+
+### Example 1
+- **s** (`String`) = `"abcde"`
+- **output** (`String`) = `"aebdc"`
+
+The characters are taken from indices 0, 4, 1, 3, and 2, producing aebdc.
+
+### Example 2
+- **s** (`String`) = `"abcdef"`
+- **output** (`String`) = `"afbecd"`
+
+The characters are taken from indices 0, 5, 1, 4, 2, and 3, producing afbecd.
+
+### Example 3
+- **s** (`String`) = `"x"`
+- **output** (`String`) = `"x"`
+
+A one-character string has the same character at the only position, so the result is x.
+
+## Starter code
+
+```
+public String solution(String s) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The source omits a language-specific signature. The judged core task and both visible examples match the source at about 99%.
+
+
+---
+
+# Distinct Chapters Missed During a Cyclic Absence  (Visa)
+
+> id: `visa-distinct-chapters-missed-during-cyclic-absence` | difficulty: easy | stage: OA | platform: hackerrank | topics: math, simulation | last seen: 2026-09-25, 2026-09-24, 2026-09-23 | employment: NEW GRAD, INTERN
+
+## Problem
+
+A chemistry teacher teaches exactly one chapter per day, moving through a book in order. The book contains numChapters chapters numbered from 0 through numChapters - 1. On day i, where days are zero-indexed, the teacher covers chapter i % numChapters.
+A student is absent on every day from firstDay through lastDay, inclusive. Return the number of distinct chapters taught during that absence.
+
+## Constraints
+
+- 1 ≤ numChapters ≤ 10^9
+  - 1 ≤ firstDay ≤ lastDay ≤ 10^9
+
+### Example 1
+- **numChapters** (`int`) = `4`
+- **firstDay** (`int`) = `3`
+- **lastDay** (`int`) = `5`
+- **output** (`int`) = `3`
+
+Days 3, 4, and 5 cover chapters 3, 0, and 1. The student misses three distinct chapters.
+
+### Example 2
+- **numChapters** (`int`) = `3`
+- **firstDay** (`int`) = `2`
+- **lastDay** (`int`) = `8`
+- **output** (`int`) = `3`
+
+The seven-day absence contains at least one complete three-chapter cycle, so every chapter is missed.
+
+## Starter code
+
+```
+public int countDistinctChaptersMissed(int numChapters, int firstDay, int lastDay) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The visible source omits a callable signature. The judged core task matches it at about 99%.
+
+
+---
+
+# Maximum Non-Decreasing Array Length  (Visa)
+
+> id: `visa-maximum-nondecreasing-array-length` | difficulty: hard | stage: OA | platform: hackerrank | topics: array, dynamic_programming, binary_search, prefix_sum | last seen: 2026-09-25, 2026-09-24, 2026-09-20 | employment: FULLTIME, NEW GRAD
+
+## Problem
+
+You are given an array arr of positive integers. In one operation, choose two adjacent elements and replace them with their sum.
+Perform zero or more operations so that the resulting array is non-decreasing: every element is greater than or equal to the element before it. Return the maximum possible length of the resulting array.
+
+## Constraints
+
+- 1 <= arr.length <= 2 * 10^3.
+  - 1 <= arr[i] <= 10^9.
+
+### Example 1
+- **arr** (`int[]`) = `[2,4,1,6,12]`
+- **output** (`int`) = `4`
+
+Merge 1 and 6 to obtain [2, 4, 7, 12]. This array is non-decreasing and has the maximum possible length of 4.
+
+### Example 2
+- **arr** (`int[]`) = `[5,4,3,2]`
+- **output** (`int`) = `2`
+
+Keep 5 as the first segment and merge the remaining values into 9, producing [5, 9].
+
+## Starter code
+
+```
+public int optimalSumOperations(int[] arr) {
+  // write your code here
+}
+```
+
+## Source note
+
+The judged task matches the visible source at about 99%.
+
+
+---
+
+# Rectangle Fit Queries  (Hudson River Trading)
+
+> id: `hrt-rectangle-fit-queries` | difficulty: medium | stage: OA | platform: codesignal | topics: array, geometry, simulation | last seen: 2026-09-25, 2026-09-23 | employment: NEW GRAD, INTERN
+
+## Problem
+
+Process the rows of operations from left to right. Each row has one of two forms:
+  - [0, a, b]: create and save a rectangle of size a × b.
+  - [1, a, b]: determine whether every rectangle saved by earlier operations can fit inside a box of size a × b.
+
+Test each saved rectangle separately; the rectangles do not need to fit in the box at the same time. You may rotate a rectangle by 90 degrees.
+Return one boolean for each query operation, in query order.
+
+## Constraints
+
+- operations contains at least one row.
+  - operations[i].length = 3.
+  - operations[i][0] is either 0 or 1.
+  - operations[i][1] and operations[i][2] are positive integers.
+
+### Example 1
+- **operations** (`int[][]`) = `[[1,1,1]]`
+- **output** (`boolean[]`) = `[true]`
+
+No rectangles have been saved, so every saved rectangle vacuously fits and the answer is true.
+
+### Example 2
+- **operations** (`int[][]`) = `[[0,1,3],[0,4,2],[1,3,4],[1,3,2]]`
+- **output** (`boolean[]`) = `[true,false]`
+
+Both saved rectangles fit the 3 × 4 box after choosing the appropriate orientation. The 4 × 2 rectangle cannot fit the later 3 × 2 box, so the answers are [true,false].
+
+## Starter code
+
+```
+public boolean[] solution(int[][] operations) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The visible source omits complete input-size bounds. The judged core task matches it at about 99%.
+
+
+---
+
+# Round-Robin WDL Order  (Hudson River Trading)
+
+> id: `hrt-round-robin-wdl-order` | difficulty: easy | stage: OA | platform: codesignal | topics: string, simulation | last seen: 2026-09-25, 2026-09-23 | employment: NEW GRAD, INTERN
+
+## Problem
+
+Given a string inputStr containing only W, D, and L, build a reordered string by consuming the available characters cyclically in this order:
+  - Append W if any W characters remain.
+  - Append D if any D characters remain.
+  - Append L if any L characters remain.
+
+Repeat this cycle until every input character has been consumed. When a character is exhausted, skip it in later cycles while continuing to consume the other characters in the same cyclic order.
+Return the reordered string.
+
+## Constraints
+
+- Every character in inputStr is W, D, or L.
+
+### Example 1
+- **inputStr** (`String`) = `"LDWDL"`
+- **output** (`String`) = `"WDLDL"`
+
+The first round appends W, then D, then L. The remaining D and L are appended in that order during the next round.
+
+### Example 2
+- **inputStr** (`String`) = `"WWWLLDDLD"`
+- **output** (`String`) = `"WDLWDLWDL"`
+
+There are three copies of each character, so three complete W, D, L rounds consume the string.
+
+### Example 3
+- **inputStr** (`String`) = `"LLLL"`
+- **output** (`String`) = `"LLLL"`
+
+Every round skips W and D, then appends one remaining L.
+
+## Starter code
+
+```
+public String solution(String inputStr) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The visible source omits input-size bounds. The judged core task matches it at about 99%.
+
+
+---
+
+# Count One-Swap Number Pairs  (TikTok)
+
+> id: `tiktok-count-one-swap-number-pairs` | difficulty: medium | stage: OA | platform: codesignal | topics: array, string, hash_table, combinatorics | last seen: 2026-09-25, 2026-09-10 | employment: INTERN, NEW GRAD
+
+## Problem
+
+You are given an array of positive integers numbers. Count the index pairs (i, j) such that i < j and one number in the pair can be transformed into the other by swapping at most one pair of digit positions.
+No swap is required when the two numbers are already equal. Each pair of indices is counted once, even when several different digit swaps produce the same value.
+Use each number's ordinary decimal representation without leading zeroes. A swapped representation that begins with 0 is invalid, so valid transformed numbers have the same number of digits.
+Return the number of qualifying index pairs.
+
+## Constraints
+
+- 1 ≤ numbers.length ≤ 10^4
+  - 1 ≤ numbers[i] ≤ 10^9
+
+### Example 1
+- **numbers** (`int[]`) = `[1,23,156,1650,651,165,32]`
+- **output** (`int`) = `3`
+
+The qualifying pairs are 23 with 32, 156 with 651, and 156 with 165. Therefore, the result is 3.
+
+### Example 2
+- **numbers** (`int[]`) = `[123,321,123]`
+- **output** (`int`) = `3`
+
+The two copies of 123 form a qualifying pair without a swap. Each copy of 123 also pairs with 321 by swapping the first and last digits, for 3 pairs in total.
+
+## Starter code
+
+```
+public int countOneSwapPairs(int[] numbers) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The source does not specify whether a swap that creates a leading zero is valid. The judged task rejects that representation and otherwise matches the visible source at about 96%.
+
+
+---
+
+# Lowest Number in an Open Range  (TikTok)
+
+> id: `tiktok-lowest-number-in-open-range` | difficulty: easy | stage: OA | platform: codesignal | topics: array | last seen: 2026-09-25, 2026-09-10 | employment: INTERN, NEW GRAD
+
+## Problem
+
+You are given an array of positive integers numbers and a two-element array nRange describing a number range whose endpoints satisfy nRange[0] ≤ nRange[1].
+Return the smallest value in numbers that lies strictly between the two endpoints. In other words, find the smallest numbers[i] such that nRange[0] < numbers[i] < nRange[1].
+If no value satisfies both strict inequalities, return 0.
+
+## Constraints
+
+- 1 ≤ numbers.length ≤ 100
+  - 1 ≤ numbers[i] ≤ 100
+  - nRange.length = 2
+  - Both values in nRange are positive integers that fit in a signed 32-bit integer.
+  - nRange[0] ≤ nRange[1]
+
+### Example 1
+- **numbers** (`int[]`) = `[11,4,23,9,10]`
+- **nRange** (`int[]`) = `[5,12]`
+- **output** (`int`) = `9`
+
+The values strictly between 5 and 12 are 11, 9, and 10. Their minimum is 9.
+
+### Example 2
+- **numbers** (`int[]`) = `[1,3,2]`
+- **nRange** (`int[]`) = `[1,1]`
+- **output** (`int`) = `0`
+
+No integer can be strictly greater than 1 and strictly less than 1 at the same time, so the result is 0.
+
+### Example 3
+- **numbers** (`int[]`) = `[7,23,3,1,3,5,2]`
+- **nRange** (`int[]`) = `[2,7]`
+- **output** (`int`) = `3`
+
+The qualifying values are 3, 3, and 5. The smallest is 3.
+
+## Starter code
+
+```
+public int findLowestInRange(int[] numbers, int[] nRange) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+Part of the source's trailing range constraints is cropped. The judged core task and all visible examples match the source at about 98%.
+
+
+---
+
+# Partition Matrix by Nonnegative Averages  (TikTok)
+
+> id: `tiktok-partition-matrix-by-nonnegative-averages` | difficulty: medium | stage: OA | platform: unknown | topics: matrix, prefix_sum | last seen: 2026-09-25, 2026-09-14 | employment: NEW GRAD
+
+## Problem
+
+You are given an integer matrix with at least two rows and two columns. Choose a row index r and a column index c that divide the matrix into four non-empty rectangular regions:
+  - top-left: rows 0 through r and columns 0 through c;
+  - top-right: rows 0 through r and columns c + 1 through the last column;
+  - bottom-left: rows r + 1 through the last row and columns 0 through c;
+  - bottom-right: rows r + 1 through the last row and columns c + 1 through the last column.
+
+For each region, ignore negative entries and compute the floor of the average of its nonnegative entries. A split is valid only when every region contains at least one nonnegative entry.
+Minimize the difference between the largest and smallest of the four floored averages. If several splits have the same minimum difference, return the one with the smallest r, then the smallest c.
+Return [r, c].
+
+## Constraints
+
+- 2 <= matrix.length <= 200
+  - 2 <= matrix[i].length <= 200
+  - Every row has the same length.
+  - -10^9 <= matrix[i][j] <= 10^9
+  - At least one valid split exists.
+
+### Example 1
+- **matrix** (`int[][]`) = `[[1,2,3],[4,5,6],[7,8,9]]`
+- **output** (`int[]`) = `[0,0]`
+
+The splits at [0,0], [1,0], and [1,1] each have range 6, the minimum possible range. The row-then-column tie rule selects [0,0].
+
+### Example 2
+- **matrix** (`int[][]`) = `[[0,10],[4,8]]`
+- **output** (`int[]`) = `[0,0]`
+
+The only split creates four one-cell regions, all with nonnegative entries, so the result is [0,0].
+
+## Starter code
+
+```
+public int[] findBestPartition(int[][] matrix) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source defines the four-region objective and invalid empty-nonnegative regions but omits a no-solution rule, numeric bounds, and a signature. The judged core task matches it at about 94%.
+
+
+---
+
+# Maximize Minimum Deployment Difficulty  (JP Morgan Chase)
+
+> id: `jpmorgan-maximize-minimum-deployment-difficulty` | difficulty: medium | stage: OA | platform: unknown | topics: array, sorting, greedy | last seen: 2026-09-25 | employment: FULLTIME
+
+## Problem
+
+Distribute every module among three nonempty servers. Afterward, one difficulty d1, d2, and d3 is selected from servers 1, 2, and 3. The selected score is |d1-d2| + |d2-d3|.
+For a distribution, its deployment difficulty is the minimum selected score over all allowed choices. Return the largest deployment difficulty attainable by a distribution.
+
+## Constraints
+
+- 3 <= difficulty.length <= 200000.
+  - 0 <= difficulty[i] <= 10^8.
+
+### Example 1
+- **difficulty** (`int[]`) = `[1,2,3]`
+- **output** (`int`) = `3`
+
+Case 1 exercises the documented deterministic contract.
+
+### Example 2
+- **difficulty** (`int[]`) = `[1,2,3,7,8,15,20,21]`
+- **output** (`int`) = `24`
+
+Case 2 exercises the documented deterministic contract.
+
+### Example 3
+- **difficulty** (`int[]`) = `[5,5,5]`
+- **output** (`int`) = `0`
+
+Case 3 exercises the documented deterministic contract.
+
+## Starter code
+
+```
+public int maximizeMinimumDeploymentDifficulty(int[] difficulty) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The reported task identifies this algorithmic exercise. The executable interface, bounds, deterministic tie rules, and examples are the documented practice contract.
+
+
+---
+
+# Count Subarrays Matching a Comparison Pattern  (TikTok)
+
+> id: `tiktok-count-subarrays-matching-comparison-pattern` | difficulty: medium | stage: OA | platform: unknown | topics: array, string | last seen: 2026-09-25 | employment: NEW GRAD
+
+## Problem
+
+You are given an integer array numbers and an integer array pattern containing only -1, 0, and 1.
+Each pattern value describes one adjacent comparison:
+  - 1 means the next value is greater.
+  - 0 means the next value is equal.
+  - -1 means the next value is smaller.
+
+Return the number of contiguous subarrays of length pattern.length + 1 whose adjacent comparisons exactly match the complete pattern.
+
+## Constraints
+
+- 2 <= numbers.length <= 10^5
+  - 1 <= pattern.length < numbers.length
+  - -10^9 <= numbers[i] <= 10^9
+  - pattern[i] is -1, 0, or 1.
+
+### Example 1
+- **numbers** (`int[]`) = `[1,2,3,4,5,6]`
+- **pattern** (`int[]`) = `[1,1]`
+- **output** (`int`) = `4`
+
+Every length-three window is strictly increasing, so all four candidate windows match.
+
+### Example 2
+- **numbers** (`int[]`) = `[1,4,4,1,3,5,5,3]`
+- **pattern** (`int[]`) = `[1,0,-1]`
+- **output** (`int`) = `2`
+
+The windows [1,4,4,1] and [3,5,5,3] increase, stay equal, and then decrease.
+
+## Starter code
+
+```
+public int countMatchingSubarrays(int[] numbers, int[] pattern) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source states the comparison rules but omits examples, numeric bounds, and a runnable signature. The judged core task matches it at about 94%.
+
+
+---
+
+# Count Subarrays with at Least K Equal-Fruit Pairs  (TikTok)
+
+> id: `tiktok-count-subarrays-with-k-fruit-pairs` | difficulty: medium | stage: OA | platform: unknown | topics: array, sliding_window, hash_table | last seen: 2026-09-25 | employment: NEW GRAD
+
+## Problem
+
+You are given an integer array fruits and an integer k. A pair consists of two equal fruit values, and each array position may belong to at most one pair.
+For a subarray, a fruit value that appears count times contributes floor(count / 2) disjoint pairs. Return the number of contiguous subarrays whose total number of pairs across all fruit values is at least k.
+
+## Constraints
+
+- 2 <= fruits.length <= 10^5
+  - 1 <= fruits[i] <= 10^9
+  - 1 <= k <= floor(fruits.length / 2)
+
+### Example 1
+- **fruits** (`int[]`) = `[1,1,2,2]`
+- **k** (`int`) = `2`
+- **output** (`long`) = `1`
+
+Only the complete subarray contains one pair of 1s and one pair of 2s.
+
+### Example 2
+- **fruits** (`int[]`) = `[1,1,1,1]`
+- **k** (`int`) = `1`
+- **output** (`long`) = `6`
+
+Every subarray of length at least two contains a pair. There are 3 + 2 + 1 = 6 such subarrays.
+
+## Starter code
+
+```
+public long countFruitPairSubarrays(int[] fruits, int k) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source defines pair formation and the sliding-window objective but omits a signature and numeric bounds. The judged core task matches it at about 95%.
+
+
+---
+
+# Maximum System Memory Capacity  (Amazon)
+
+> id: `amazon-maximum-capacity` | difficulty: easy | stage: OA | platform: hackerrank | topics: sorting, greedy | last seen: 2026-09-24, 2026-09-08, 2026-09-05, 2026-07-21, 2026-07-11, 2026-06-04, 2025-07-09 | employment: INTERN, NEW GRAD
+
+## Problem
+
+Amazon is optimizing the capacity of a cloud system with n servers. The memory capacity of the i-th server is memory[i].
+A system uses an even number of servers. If it uses 2x servers, exactly x are primary servers and the other x are backup servers. For every primary server P, it must be paired with a distinct backup server B whose memory capacity is at least that of P.
+The system memory capacity is the sum of the memory capacities of all primary servers. You may leave servers unused. Given memory, return the maximum system memory capacity that can be formed.
+
+### Example 1
+- **memory** (`int[]`) = `[1, 2, 1, 2]`
+- **output** (`long`) = `3`
+
+Here, we have 4 servers [serverA, serverB, serverC, serverD] having memory sizes as [1, 2, 1, 2].
+
+We can choose serverA and serverB as primary servers, and serverC and serverD as their respective backup.
+The conditions hold true since memory[serverC] ≥ memory[serverA] and memory[serverD] ≥ memory[serverB].
+Hence, the maximum system memory capacity is 3.
+
+## Source note
+
+Update (2026-07-21): Reports of Amazon 2027 Intern questions started appearing today. I have not confirmed whether they are real yet, so I am sharing this question for review until I know more.
+
+
+---
+
+# Dasher Pay with Store Waits and Peak Hours  (DoorDash)
+
+> id: `doordash-dasher-pay` | difficulty: medium | stage: OA, PHONE SCREEN, ONSITE INTERVIEW | platform: unknown | topics: hash_table, simulation, string | last seen: 2026-09-24, 2026-09-18, 2026-09-16, 2026-09-01, 2026-08-03, 2026-07-24, 2024-10-15 | employment: FULLTIME
+
+## Problem
+
+A Dasher earns $0.30 per minute for each active delivery. A delivery becomes active when it is accepted and stops being active when it is fulfilled. Therefore, ordinary concurrent-delivery time is paid at activeDeliveries * $0.30 per minute.
+Each string in events has the form HH:MM EVENT orderId, where EVENT is ACCEPT, ARRIVE, PICKUP, or FULFILL. Events are in strictly increasing time order and describe valid order lifecycles.
+An ARRIVE event begins a store-wait interval for that order, and its matching PICKUP ends the interval. While the Dasher is waiting at a store, only the order being waited on contributes pay; other active orders do not contribute during that interval. Outside a store wait, every active order contributes normally.
+Each string in peakHours has the form start end. A peak window is half-open: it includes start and excludes end. Pay earned during a peak window is doubled. Peak windows do not overlap.
+Return the total pay in dollars after processing all events.
+
+## Constraints
+
+- 2 <= events.length <= 1000
+  - 0 <= peakHours.length <= 100
+  - All times use valid same-day 24-hour HH:MM notation.
+  - Events are in strictly increasing timestamp order.
+  - Every order has one ACCEPT before its optional ARRIVE and PICKUP pair and one later FULFILL.
+  - All accepted orders are fulfilled by the final event.
+  - At most one store-wait interval is active at a time.
+  - Peak windows are valid, half-open, and non-overlapping.
+
+### Example 1
+- **events** (`String[]`) = `["06:15 ACCEPT A","06:18 ACCEPT B","06:36 FULFILL A","06:45 FULFILL B"]`
+- **peakHours** (`String[]`) = `[]`
+- **output** (`double`) = `14.4`
+
+Pay is 3 * 0.30 = 0.90, then 18 * 0.60 = 10.80 while two deliveries overlap, then 9 * 0.30 = 2.70. The total is $14.40.
+
+### Example 2
+- **events** (`String[]`) = `["06:15 ACCEPT A","06:18 ACCEPT B","06:19 ARRIVE A","06:22 PICKUP A","06:30 ARRIVE B","06:33 PICKUP B","06:36 FULFILL A","06:45 FULFILL B"]`
+- **peakHours** (`String[]`) = `[]`
+- **output** (`double`) = `12.6`
+
+During 06:19-06:22 only order A contributes, and during 06:30-06:33 only order B contributes. All other intervals use the number of active deliveries, giving $12.60.
+
+### Example 3
+- **events** (`String[]`) = `["06:15 ACCEPT A","06:18 ACCEPT B","06:19 ARRIVE A","06:22 PICKUP A","06:30 ARRIVE B","06:33 PICKUP B","06:36 FULFILL A","06:45 FULFILL B"]`
+- **peakHours** (`String[]`) = `["06:20 06:30"]`
+- **output** (`double`) = `18.0`
+
+The ordinary total is $12.60. The base pay earned from 06:20 through 06:30 is $5.40, and peak time pays that amount once more, for $18.00.
+
+## Starter code
+
+```
+public double calculateDasherPay(String[] events, String[] peakHours) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source describes three progressive parts of a Dasher-pay exercise. The judged contract below combines the final rules. To make the report deterministic, it uses a single same-day event stream, non-overlapping peak windows, and at most one active store wait at a time.
+
+
+---
+
+# Progressive Banking System  (Airbnb)
+
+> id: `airbnb-progressive-banking-system` | difficulty: hard | stage: OA | platform: unknown | topics: design, hash_table, heap, sorting, simulation | last seen: 2026-09-24, 2026-09-22, 2026-08-23, 2026-07-31 | employment: FULLTIME
+
+## Problem
+
+Process queries in order. Each query contains an operation name followed by a strictly increasing non-negative timestamp and its arguments. Before processing an external query at timestamp t, execute every pending scheduled payment whose due time is at most t, ordered by due time and then payment creation order.
+Return one string per external query, in order. Supported operations are:
+  - ["CREATE_ACCOUNT", t, account]: create an account with balance and outgoing total zero. Return true, or false if the active account already exists.
+  - ["DEPOSIT", t, account, amount]: add a positive amount. Return the new balance, or the empty string when the account is absent.
+  - ["TRANSFER", t, source, target, amount]: move a positive amount between two distinct active accounts. Return the source balance after success, or the empty string when either account is absent, the accounts are equal, or funds are insufficient. A successful transfer adds the amount to the source account's outgoing total.
+  - ["TOP_SPENDERS", t, n]: among active accounts, return at most n entries formatted account(outgoing), ordered by outgoing total descending and account identifier ascending, joined by commas.
+  - ["SCHEDULE_PAYMENT", t, account, amount, delay]: schedule a positive payment for time t + delay, where delay is positive. If the account exists, return the next global identifier paymentK; otherwise return the empty string and do not consume an identifier.
+  - ["CANCEL_PAYMENT", t, account, paymentId]: cancel a pending payment only when it currently belongs to that active account. Return true on success and false otherwise. A payment due at t is processed before this cancellation query.
+  - ["MERGE_ACCOUNTS", t, survivor, absorbed]: merge two distinct active accounts. The survivor receives the absorbed balance and outgoing total; pending payments of the absorbed account now belong to the survivor; and the absorbed account closes at t. Return true on success and false otherwise.
+  - ["GET_BALANCE", t, account, timeAt]: return that account's balance immediately after all activity at timestamp timeAt, or after the latest earlier activity when none occurred exactly then. Return the empty string if the account did not exist at that time. The requested time satisfies 0 <= timeAt <= t.
+
+When a scheduled payment becomes due, deduct it only if its current account is active and has enough funds. A successful payment adds to outgoing total. Whether it succeeds or not, it is no longer pending. Balances and totals fit in signed 64-bit integers.
+
+## Constraints
+
+- 1 <= queries.length <= 2 * 10^4.
+  - External query timestamps are strictly increasing integers from 0 through 10^9.
+  - Every query has exactly one valid operation shape described above.
+  - Account identifiers are non-empty printable ASCII strings without commas or parentheses.
+  - Amounts and delays are positive integers, and every arithmetic result fits in a signed 64-bit integer.
+  - 1 <= n <= 10^5 for TOP_SPENDERS.
+
+### Example 1
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","alice"],["CREATE_ACCOUNT","2","bob"],["DEPOSIT","3","alice","100"],["TRANSFER","4","alice","bob","30"],["TOP_SPENDERS","5","2"]]`
+- **output** (`String[]`) = `["true","true","100","70","alice(30),bob(0)"]`
+
+The transfer leaves alice with 70 and records 30 of outgoing activity, so she ranks before bob.
+
+### Example 2
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","a"],["DEPOSIT","2","a","50"],["SCHEDULE_PAYMENT","3","a","20","5"],["GET_BALANCE","7","a","7"],["GET_BALANCE","8","a","8"],["CANCEL_PAYMENT","9","a","payment1"]]`
+- **output** (`String[]`) = `["true","50","payment1","50","30","false"]`
+
+The payment is still pending at timestamp 7. It executes before the query at timestamp 8, so cancellation afterward fails.
+
+### Example 3
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","a"],["CREATE_ACCOUNT","2","b"],["DEPOSIT","3","a","10"],["DEPOSIT","4","b","25"],["SCHEDULE_PAYMENT","5","b","5","5"],["MERGE_ACCOUNTS","6","a","b"],["GET_BALANCE","7","b","5"],["GET_BALANCE","8","b","6"],["GET_BALANCE","10","a","10"]]`
+- **output** (`String[]`) = `["true","true","10","25","payment1","true","25","","30"]`
+
+Account b exists with balance 25 before the merge but is closed at timestamp 6. Its pending payment follows the survivor and reduces the combined balance from 35 to 30 at timestamp 10.
+
+## Starter code
+
+```
+public String[] processBankingQueries(String[][] queries) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source reports four progressive banking levels and their central operations but omits several exact return, tie, and history rules. This exercise supplies one finite ordered-operation contract and matches the reported state transitions at about 88%.
+
+
+---
+
+# Task Management System  (Airbnb)
+
+> id: `airbnb-task-management-system` | difficulty: hard | stage: OA | platform: unknown | topics: design, hash_table, sorting, simulation | last seen: 2026-09-24, 2026-08-07 | employment: FULLTIME
+
+## Problem
+
+Implement a task-management service by processing a finite sequence of timestamped operations in order.
+Every operation begins with an opcode. Timestamps are strictly increasing.
+  - ["ADD_USER", t, userId, quota] creates a user with a maximum number of active tasks.
+  - ["CREATE", t, taskId, userId, priority, dueAt, expiresAt] creates an active task. It fails if the task identifier already exists, the user does not exist, or the user's active-task quota is full.
+  - ["GET", t, taskId] returns [taskId, userId, priority, createdAt, dueAt, expiresAt, status], or an empty row for a missing or deleted task.
+  - ["UPDATE", t, taskId, priority, dueAt, expiresAt] updates an active task.
+  - ["DELETE", t, taskId] marks an existing non-deleted task as deleted.
+  - ["SEARCH", t, userId] returns that user's active task identifiers ordered by decreasing priority, then increasing creation timestamp, then identifier.
+  - ["SET_QUOTA", t, userId, quota] changes a user's quota. Lowering it does not remove existing tasks, but new tasks remain blocked until the active count is below the quota.
+  - ["COMPLETE", t, taskId] marks an active task completed.
+  - ["HISTORY", t, userId, view] returns identifiers in increasing creation order. view is COMPLETED, EXPIRED, UNFINISHED, or OVERDUE. Unfinished tasks are active; overdue tasks are active tasks with dueAt < t.
+
+Before each operation at time t, every active task with expiresAt <= t becomes expired. Completion, deletion, and expiration free an active-task quota slot.
+Return one row per input operation. State-changing operations return ["OK"] on success. Failures return one of ["UNKNOWN_USER"], ["DUPLICATE_TASK"], ["QUOTA_EXCEEDED"], ["NOT_FOUND"], or ["NOT_ACTIVE"]. Search and history operations may return an empty row.
+
+## Constraints
+
+- 1 <= operations.length <= 200000
+  - All timestamps and task time fields are integers in [0, 10^9]; operation timestamps are strictly increasing.
+  - For every CREATE or UPDATE, operation timestamp < dueAt < expiresAt.
+  - User and task identifiers are nonempty ASCII strings of at most 40 characters.
+  - Priority is an integer in [-10^9, 10^9]; quota is in [0, 200000].
+  - ADD_USER uses a new user identifier. SET_QUOTA, SEARCH, and HISTORY name an existing user.
+  - The total number of task records examined by all SEARCH and HISTORY operations is at most 200000.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_USER","1","u1","2"],["CREATE","2","t1","u1","5","10","20"],["CREATE","3","t2","u1","7","4","30"],["SEARCH","5","u1"],["COMPLETE","6","t2"],["HISTORY","7","u1","COMPLETED"],["SET_QUOTA","8","u1","1"],["CREATE","9","t3","u1","9","12","40"],["GET","20","t1"]]`
+- **output** (`String[][]`) = `[["OK"],["OK"],["OK"],["t2","t1"],["OK"],["t2"],["OK"],["QUOTA_EXCEEDED"],["t1","u1","5","2","10","20","EXPIRED"]]`
+
+The higher-priority task is returned first. Completing it frees a quota slot, but the later quota reduction leaves one active task, so the next creation is rejected. The final read first expires t1.
+
+## Starter code
+
+```
+
+public String[][] processTaskOperations(String[][] operations) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source describes a stateful multi-call task service but omits a portable operation-sequence interface and cross-language bounds. The judged core task matches the visible source at about 95%.
+
+
+---
+
+# Alternate String Ends  (Capital One)
+
+> id: `capital-one-alternating-string-ends` | difficulty: easy | stage: OA | platform: unknown | topics: string, two_pointers, simulation | last seen: 2026-09-24, 2026-07-19 | employment: FULLTIME
+
+## Problem
+
+Given a string s, return a new string formed by reading characters from alternating ends.
+Use the characters in this order:
+  - Take the first character.
+  - Take the last character.
+  - Take the second character.
+  - Take the second-to-last character.
+  - Continue moving inward until every character has been used exactly once.
+
+Equivalently, for a string of length n, visit indices 0, n - 1, 1, n - 2, and so on.
+
+### Example 1
+- **s** (`String`) = `"abcde"`
+- **output** (`String`) = `"aebdc"`
+
+The characters are taken from indices 0, 4, 1, 3, and 2, producing aebdc.
+
+### Example 2
+- **s** (`String`) = `"abcdef"`
+- **output** (`String`) = `"afbecd"`
+
+The characters are taken from indices 0, 5, 1, 4, 2, and 3, producing afbecd.
+
+### Example 3
+- **s** (`String`) = `"x"`
+- **output** (`String`) = `"x"`
+
+A one-character string has the same character at the only position, so the result is x.
+
+## Starter code
+
+```
+public String alternateStringEnds(String s) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The judged core task matches the visible source at about 99%.
+
+
+---
+
+# Brightest Position on a Street  (Capital One)
+
+> id: `capital-one-brightest-position-on-street` | difficulty: medium | stage: OA | platform: unknown | topics: intervals, prefix_sum, sorting | last seen: 2026-09-24, 2026-09-20 | employment: NEW GRAD, FULLTIME
+
+## Problem
+
+Each row [position, radius] in lights describes a street light at an integer coordinate. It illuminates every integer coordinate in the inclusive interval [position - radius, position + radius].
+The brightness of a coordinate is the number of lights that illuminate it. Return the smallest coordinate having the maximum brightness.
+
+## Constraints
+
+- 1 <= lights.length <= 10^5
+  - lights[i].length == 2
+  - -10^8 <= position <= 10^8
+  - 0 <= radius <= 10^8
+
+### Example 1
+- **lights** (`int[][]`) = `[[-3,2],[1,2],[3,3]]`
+- **output** (`int`) = `-1`
+
+Coordinate -1 is the smallest coordinate illuminated by the maximum of two lights.
+
+### Example 2
+- **lights** (`int[][]`) = `[[1,0],[0,1]]`
+- **output** (`int`) = `1`
+
+Coordinate 1 is illuminated by both lights.
+
+## Starter code
+
+```
+public int brightestPosition(int[][] lights) {
+  // write your code here
+}
+```
+
+## Source note
+
+The report names the standard brightest-position interval task but omits the full runnable contract. The practice contract supplies conventional bounds and the smallest-coordinate tie rule.
+
+
+---
+
+# Count Subarrays Matching a Comparison Pattern  (Capital One)
+
+> id: `capital-one-count-matching-subarrays` | difficulty: medium | stage: OA | platform: unknown | topics: array, sliding_window | last seen: 2026-09-24, 2026-09-20 | employment: NEW GRAD, FULLTIME
+
+## Problem
+
+You are given an integer array numbers and a pattern containing only -1, 0, and 1. Each pattern value describes one adjacent comparison: 1 means the next number is greater, 0 means equal, and -1 means smaller.
+Return the number of contiguous subarrays of length pattern.length + 1 whose adjacent comparisons exactly match the complete pattern.
+
+## Constraints
+
+- 2 <= numbers.length <= 10^5
+  - 1 <= pattern.length < numbers.length
+  - -10^9 <= numbers[i] <= 10^9
+  - pattern[i] is -1, 0, or 1.
+
+### Example 1
+- **numbers** (`int[]`) = `[1,2,3,4,5,6]`
+- **pattern** (`int[]`) = `[1,1]`
+- **output** (`int`) = `4`
+
+Each length-three window is strictly increasing, so all four candidate windows match.
+
+### Example 2
+- **numbers** (`int[]`) = `[1,4,4,1,3,5,5,3]`
+- **pattern** (`int[]`) = `[1,0,-1]`
+- **output** (`int`) = `2`
+
+The windows [1,4,4,1] and [3,5,5,3] increase, remain equal, and then decrease.
+
+## Starter code
+
+```
+public int countMatchingSubarrays(int[] numbers, int[] pattern) {
+  // write your code here
+}
+```
+
+## Source note
+
+The report identifies the standard adjacent-comparison pattern task but omits examples, numeric bounds, and a runnable signature. The practice contract supplies those conventional details.
+
+
+---
+
+# Sort Adjacent Pairs  (Capital One)
+
+> id: `capital-one-sort-adjacent-pairs` | difficulty: easy | stage: OA | platform: unknown | topics: array, sorting | last seen: 2026-09-24, 2026-09-20 | employment: NEW GRAD, FULLTIME
+
+## Problem
+
+Given an integer array values, independently sort each adjacent pair in nondecreasing order: indices 0 and 1 form the first pair, indices 2 and 3 form the second pair, and so on.
+If the array has odd length, leave its final unpaired value unchanged. Return the resulting array without modifying the input array.
+
+## Constraints
+
+- 1 <= values.length <= 10^5
+  - -10^9 <= values[i] <= 10^9
+
+### Example 1
+- **values** (`int[]`) = `[5,4,2,3,7]`
+- **output** (`int[]`) = `[4,5,2,3,7]`
+
+The pair [5,4] becomes [4,5], [2,3] is already sorted, and the final 7 is unpaired.
+
+### Example 2
+- **values** (`int[]`) = `[3,1,4,2]`
+- **output** (`int[]`) = `[1,3,2,4]`
+
+Sort the two independent pairs [3,1] and [4,2].
+
+## Starter code
+
+```
+public int[] sortAdjacentPairs(int[] values) {
+  // write your code here
+}
+```
+
+## Source note
+
+The report gives the adjacent-pair transformation and example but omits numeric bounds and a runnable interface. The practice contract preserves the reported transformation and specifies standard bounds.
+
+
+---
+
+# Distinct Values on Maximum-Sum Frames  (Capital One)
+
+> id: `capital-one-maximum-border-frame-values` | difficulty: medium | stage: OA | platform: unknown | topics: matrix | last seen: 2026-09-24 | employment: FULLTIME
+
+## Problem
+
+Given an integer matrix and frameSize, consider every contiguous frameSize × frameSize submatrix. Its border contains each cell on its top row, bottom row, left column, or right column exactly once.
+Find the maximum border sum. Among every frame tied for that maximum, collect all integer values that occur on a winning border. Return the sum of those distinct values.
+
+## Constraints
+
+- 1 <= rows, columns <= 200.
+  - 1 <= frameSize <= min(rows, columns).
+  - Matrix values fit in a 32-bit signed integer; the result fits in a 64-bit signed integer.
+
+### Example 1
+- **matrix** (`int[][]`) = `[[1,2,3],[4,5,6],[7,8,9]]`
+- **frameSize** (`int`) = `2`
+- **output** (`long`) = `28`
+
+The bottom-right 2-by-2 frame has the unique maximum border sum, and 5+6+8+9=28.
+
+### Example 2
+- **matrix** (`int[][]`) = `[[1,1,1],[1,0,1],[1,1,1]]`
+- **frameSize** (`int`) = `2`
+- **output** (`long`) = `1`
+
+All four frames tie; the union of their border values is {0,1}.
+
+## Starter code
+
+```
+public long sumDistinctWinningBorderValues(int[][] matrix, int frameSize) {
+  // write your code here
+}
+```
+
+## Source note
+
+The interview report establishes the task identity and central capability. This practice contract supplies only the portable interface, deterministic boundary rules, and output serialization needed for consistent execution.
+
+
+---
+
+# Wait Until the Next Bus  (Capital One)
+
+> id: `capital-one-next-bus-wait` | difficulty: easy | stage: OA | platform: unknown | topics: array, simulation | last seen: 2026-09-24 | employment: FULLTIME
+
+## Problem
+
+You are given a current time and a list of bus departure times for the same service day. Every time is a zero-padded 24-hour string in HH:MM format.
+Return the number of minutes until the earliest departure that is at or after the current time. A bus departing exactly now has wait 0. Return -1 if every listed departure has already passed.
+
+## Constraints
+
+- 1 <= departures.length <= 10^5.
+  - Every time is a valid same-day HH:MM value.
+
+### Example 1
+- **currentTime** (`String`) = `"09:10"`
+- **departures** (`String[]`) = `["08:45","09:30","10:00"]`
+- **output** (`int`) = `20`
+
+The first departure not earlier than 09:10 is 09:30.
+
+### Example 2
+- **currentTime** (`String`) = `"17:00"`
+- **departures** (`String[]`) = `["12:00","17:00","16:30"]`
+- **output** (`int`) = `0`
+
+A departure occurs at the current time.
+
+## Starter code
+
+```
+public int nextBusWait(String currentTime, String[] departures) {
+  // write your code here
+}
+```
+
+## Source note
+
+The interview report establishes the task identity and central capability. This practice contract supplies only the portable interface, deterministic boundary rules, and output serialization needed for consistent execution.
+
+
+---
+
+# Longest Low-Slippage Execution Window  (FalconX)
+
+> id: `falconx-longest-low-slippage-window` | difficulty: medium | stage: OA | platform: unknown | topics: sorting, sliding_window | last seen: 2026-09-24 | employment: FULLTIME
+
+## Problem
+
+Each execution log row is [timestamp, venue, fillPrice, benchmarkPrice, volume], with integer numeric fields encoded as strings. Filter to targetVenue, then sort by increasing timestamp; equal timestamps retain input order.
+The slippage cost of a row is abs(fillPrice - benchmarkPrice) * volume. Return the maximum length of a contiguous filtered window whose fill-price range is at most maxPriceRange and whose total slippage cost is at most maxSlippage. Return 0 if no target row is valid.
+
+## Constraints
+
+- 0 <= logs.length <= 500.
+  - Prices, volume, and bounds are nonnegative integers.
+  - Slippage totals fit in a 64-bit signed integer.
+
+### Example 1
+- **logs** (`String[][]`) = `[["3","A","103","100","2"],["1","A","100","100","5"],["2","B","90","90","1"],["2","A","101","100","2"]]`
+- **targetVenue** (`String`) = `"A"`
+- **maxPriceRange** (`int`) = `3`
+- **maxSlippage** (`long`) = `8`
+- **output** (`int`) = `3`
+
+After filtering and sorting, all three A rows have range 3 and total slippage 8.
+
+### Example 2
+- **logs** (`String[][]`) = `[["1","B","10","10","1"]]`
+- **targetVenue** (`String`) = `"A"`
+- **maxPriceRange** (`int`) = `0`
+- **maxSlippage** (`long`) = `0`
+- **output** (`int`) = `0`
+
+No row belongs to the target venue.
+
+## Starter code
+
+```
+public int longestExecutionWindow(String[][] logs, String targetVenue, int maxPriceRange, long maxSlippage) {
+  // write your code here
+}
+```
+
+## Source note
+
+The interview report establishes the task identity and central capability. This practice contract supplies only the portable interface, deterministic boundary rules, and output serialization needed for consistent execution.
+
+
+---
+
+# Shortest Path from an Encoded Graph  (Intuit)
+
+> id: `intuit-shortest-path-from-encoded-graph` | difficulty: medium | stage: OA | platform: coderbyte | topics: graph, breadth_first_search, shortest_path | last seen: 2026-09-24 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You are given an array of strings strArr that the source describes as modeling a non-looping Graph.
+The array is organized as follows:
+  - The first element is the number of nodes N, written as a string.
+  - The next N elements are the node names. A node name may contain spaces, such as Brick Street or Main Street.
+  - Every remaining element describes one connection in the form nodeA-nodeB. A connection works in both directions. The graph may contain no connections.
+
+FastPrep practice interpretation: Here, non-looping means that a connection cannot join a node to itself. Cycles involving different nodes are allowed, as shown by the source examples.
+Return the shortest path from the first listed node to the last listed node, joining the node names with hyphens. There will be only one shortest path. If no path connects the first and last nodes, return -1.
+
+## Constraints
+
+- The encoded graph contains at least two nodes.
+  - Each connection joins two listed nodes and can be traversed in either direction.
+  - If a path exists, its shortest route is unique.
+
+### Example 1
+- **strArr** (`String[]`) = `["4","A","B","C","D","A-B","B-D","B-C","C-D"]`
+- **output** (`String`) = `"A-B-D"`
+
+The path A-B-D reaches the last listed node in two connections, which is shorter than going through C.
+
+### Example 2
+- **strArr** (`String[]`) = `["7","A","B","C","D","E","F","G","A-B","A-E","B-C","C-D","D-F","E-D","F-G"]`
+- **output** (`String`) = `"A-E-D-F-G"`
+
+The unique shortest route from A to G is A-E-D-F-G.
+
+### Example 3
+- **strArr** (`String[]`) = `["5","A","B","C","D","F","A-B","A-C","B-C","C-D","D-F"]`
+- **output** (`String`) = `"A-C-D-F"`
+
+Starting with A-C reaches F through D in three connections.
+
+### Example 4
+- **strArr** (`String[]`) = `["4","X","Y","Z","W","X-Y","Y-Z","X-W"]`
+- **output** (`String`) = `"X-W"`
+
+The direct connection X-W is the shortest route.
+
+## Starter code
+
+```
+public String shortestPath(String[] strArr) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The judged core task and all four visible examples match the two source slides at about 99%.
+
+
+---
+
+# Minimum Digit Changes Between String Halves  (JP Morgan Chase)
+
+> id: `jpmorgan-minimum-digit-anagram-changes` | difficulty: easy | stage: OA | platform: unknown | topics: string, hash_table | last seen: 2026-09-24 | employment: INTERN, NEW GRAD
+
+## Problem
+
+You are given an even-length string s that contains digits only. Split it into two equal halves.
+In one operation, choose any position in the first half and replace its digit with any other digit from 0 through 9.
+Return the minimum number of operations needed to make the first half an anagram of the second half.
+
+## Constraints
+
+- 1 <= s.length <= 10^5
+  - s.length is a multiple of 2.
+  - s contains digits only.
+
+### Example 1
+- **s** (`String`) = `"123212"`
+- **output** (`int`) = `1`
+
+The halves are 123 and 212. Replace digit 3 in the first half with 2, producing 122, which is an anagram of 212.
+
+### Example 2
+- **s** (`String`) = `"123456"`
+- **output** (`int`) = `3`
+
+The halves 123 and 456 share no digit. Every position in the first half must be replaced, so the minimum is 3.
+
+## Starter code
+
+```
+
+public int getAnagram(String s) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The photographed assessment shows the complete rule, function, bounds, and worked example. The judged core task matches the visible source at about 99%.
+
+
+---
+
+# Same Substring Within Budget  (JP Morgan Chase)
+
+> id: `jpmorgan-same-substring-within-budget` | difficulty: medium | stage: OA | platform: unknown | topics: string, sliding_window | last seen: 2026-09-24 | employment: INTERN, NEW GRAD
+
+## Problem
+
+You are given two equal-length lowercase strings s and t, and an integer budget K.
+Changing s[i] into t[i] costs the absolute difference between their lowercase-letter positions. Choose one contiguous substring of s and change every character in it to the corresponding character of t.
+Return the maximum possible substring length whose total change cost is at most K. A zero-length substring is allowed.
+
+## Constraints
+
+- 1 <= s.length = t.length <= 2 * 10^5
+  - 0 <= K <= 10^6
+  - s and t contain lowercase English letters only.
+
+### Example 1
+- **s** (`String`) = `"uaccd"`
+- **t** (`String`) = `"gbbeg"`
+- **K** (`int`) = `4`
+- **output** (`int`) = `3`
+
+The position costs are [14,1,1,2,3]. The range from index 1 through index 3 costs 1 + 1 + 2 = 4, so length 3 is possible. No longer range fits the budget.
+
+### Example 2
+- **s** (`String`) = `"abcd"`
+- **t** (`String`) = `"bcdf"`
+- **K** (`int`) = `3`
+- **output** (`int`) = `3`
+
+The first three positions each cost 1, so abc can become bcd for total cost 3. Adding the fourth position would exceed the budget.
+
+## Starter code
+
+```
+
+public int sameSubstring(String s, String t, int K) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The photographed source preserves the parameters, bounds, sample, and cost trace; its opening definition is partly outside the frame. The judged core task matches the visible evidence at about 97%.
+
+
+---
+
+# Count Digit Replacements with No Equal Adjacent Digits  (Microsoft)
+
+> id: `microsoft-count-digit-replacements-with-no-equal-adjacent-digits` | difficulty: medium | stage: OA | platform: hackerrank | topics: string, dynamic_programming, combinatorics | last seen: 2026-09-24 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You are given a string s containing digits from 0 through 9 and question marks.
+Replace every ? with one digit so that no two adjacent digits are equal. Return the number of valid replacements modulo 10^9 + 7.
+
+## Constraints
+
+- 1 <= s.length <= 10^5
+  - s contains only digits from 0 through 9 and ?.
+
+### Example 1
+- **s** (`String`) = `"1?3?"`
+- **output** (`int`) = `72`
+
+The first question mark may be any digit except 1 and 3, giving 8 choices. The last may be any digit except 3, giving 9 choices. Therefore the result is 8 * 9 = 72.
+
+### Example 2
+- **s** (`String`) = `"??"`
+- **output** (`int`) = `90`
+
+The first position has 10 choices, and the second has 9 choices different from the first.
+
+## Starter code
+
+```
+public int getNumOfWays(String s) {
+  // write your code here
+}
+```
+
+## Source note
+
+The judged task, example, signature, and numeric bounds match the visible source at about 99%.
+
+
+---
+
+# Maximize Pipeline Throughput Under a Scaling Budget  (Microsoft)
+
+> id: `microsoft-maximize-pipeline-throughput-under-budget` | difficulty: medium | stage: OA | platform: hackerrank | topics: binary_search, greedy | last seen: 2026-09-24 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You have a serial pipeline of services. Service i has base throughput throughput[i] and one scaling operation costs scalingCost[i].
+After scaling service i exactly x times, its capacity is throughput[i] * (x + 1) and the spent budget is x * scalingCost[i].
+The pipeline throughput is the minimum capacity among all services. Given a total budget, return the maximum pipeline throughput that can be achieved without exceeding the budget.
+
+## Constraints
+
+- 1 <= throughput.length = scalingCost.length <= 10^5
+  - 1 <= throughput[i] <= 10^7
+  - 1 <= scalingCost[i] <= 200
+  - 1 <= budget <= 10^9
+  - The answer is at most 10^9.
+
+### Example 1
+- **throughput** (`int[]`) = `[3,2,5]`
+- **scalingCost** (`int[]`) = `[2,5,10]`
+- **budget** (`long`) = `28`
+- **output** (`long`) = `6`
+
+Reaching 6 costs 2 + 10 + 10 = 22. Reaching 7 would cost 4 + 15 + 10 = 29, which exceeds the budget.
+
+### Example 2
+- **throughput** (`int[]`) = `[5,2,4]`
+- **scalingCost** (`int[]`) = `[3,10,2]`
+- **budget** (`long`) = `0`
+- **output** (`long`) = `2`
+
+With no available scaling operation, the pipeline remains limited by the service whose base throughput is 2.
+
+## Starter code
+
+```
+public long maximizePipelineThroughput(int[] throughput, int[] scalingCost, long budget) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source shows the optimization objective, limits, and sample but its top scaling-rule text is cropped. The judged core task uses the standard linear scale-up interpretation and matches the visible source at about 92%.
+
+
+---
+
+# Three-Resource 0/1 Knapsack  (Morgan Stanley)
+
+> id: `morgan-stanley-three-resource-knapsack` | difficulty: medium | stage: OA | platform: unknown | topics: array, dynamic_programming | last seen: 2026-09-24 | employment: INTERN
+
+## Problem
+
+Each item has a value and consumes three independent resources. Select each item at most once without exceeding any of the three capacities, and return the maximum total value.
+
+## Constraints
+
+- 1 <= values.length <= 40.
+  - All four item arrays have equal length.
+  - 0 <= costs and capacities <= 40.
+  - Values are nonnegative and the answer fits a signed 32-bit integer.
+
+### Example 1
+- **values** (`int[]`) = `[10,20]`
+- **firstCosts** (`int[]`) = `[1,2]`
+- **secondCosts** (`int[]`) = `[1,2]`
+- **thirdCosts** (`int[]`) = `[1,2]`
+- **firstCapacity** (`int`) = `2`
+- **secondCapacity** (`int`) = `2`
+- **thirdCapacity** (`int`) = `2`
+- **output** (`int`) = `20`
+
+Case 1 exercises the documented deterministic contract.
+
+### Example 2
+- **values** (`int[]`) = `[6,10,12]`
+- **firstCosts** (`int[]`) = `[1,2,3]`
+- **secondCosts** (`int[]`) = `[2,1,2]`
+- **thirdCosts** (`int[]`) = `[1,2,1]`
+- **firstCapacity** (`int`) = `4`
+- **secondCapacity** (`int`) = `4`
+- **thirdCapacity** (`int`) = `3`
+- **output** (`int`) = `18`
+
+Case 2 exercises the documented deterministic contract.
+
+### Example 3
+- **values** (`int[]`) = `[5]`
+- **firstCosts** (`int[]`) = `[0]`
+- **secondCosts** (`int[]`) = `[0]`
+- **thirdCosts** (`int[]`) = `[0]`
+- **firstCapacity** (`int`) = `0`
+- **secondCapacity** (`int`) = `0`
+- **thirdCapacity** (`int`) = `0`
+- **output** (`int`) = `5`
+
+Case 3 exercises the documented deterministic contract.
+
+## Starter code
+
+```
+public int maximizeKnapsackValue(int[] values, int[] firstCosts, int[] secondCosts, int[] thirdCosts, int firstCapacity, int secondCapacity, int thirdCapacity) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The reported task identifies this algorithmic exercise. The executable interface, bounds, deterministic tie rules, and examples are the documented practice contract.
+
+
+---
+
+# Minimum Power-of-Two Removal Operations  (Visa)
+
+> id: `visa-minimum-power-of-two-removal-operations` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, math, bit_manipulation | last seen: 2026-09-24 | employment: INTERN
+
+## Problem
+
+You are given an integer array arr of length n. You may perform the following operation any number of times until the array becomes empty:
+  - Let m be the current size of the array.
+  - Choose an integer k such that 1 <= k <= m, and remove any k elements from the array.
+  - The removal is allowed only when the chosen elements satisfy 2^arr[i1] + 2^arr[i2] + ... + 2^arr[ik] = 2^p for some integer p >= 0.
+
+You may remove elements from any positions; they do not need to be consecutive. The exponent p may differ between operations.
+Return the minimum number of operations required to remove every element from the array.
+
+## Constraints
+
+- 1 <= n <= 10^5.
+  - 0 <= arr[i] <= 10^6.
+
+### Example 1
+- **arr** (`int[]`) = `[1,1,3,2,3]`
+- **output** (`int`) = `2`
+
+- Remove the elements at positions 1, 2, and 4. Their sum is 2^1 + 2^1 + 2^2 = 2^3, leaving [3,3].
+  - Remove the two remaining elements because 2^3 + 2^3 = 2^4.
+
+The array is empty after two operations.
+
+### Example 2
+- **arr** (`int[]`) = `[1,1,3,5]`
+- **output** (`int`) = `3`
+
+Remove the two values 1 together because 2^1 + 2^1 = 2^2. The values 3 and 5 must then be removed in separate operations, so the minimum is 3.
+
+### Example 3
+- **arr** (`int[]`) = `[0,0,0,0]`
+- **output** (`int`) = `1`
+
+All four elements can be removed together because 2^0 + 2^0 + 2^0 + 2^0 = 2^2.
+
+## Starter code
+
+```
+public int findMinOperations(int[] arr) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The visible source supplies the operation, function signature, two worked cases, and numeric bounds. The judged core task matches the screenshots at about 99%.
+
+
+---
+
+# Optimal Transfer  (Visa)
+
+> id: `visa-optimal-transfer` | difficulty: hard | stage: OA | platform: hackerrank | topics: graph, greedy, prefix_sum | last seen: 2026-09-24 | employment: INTERN
+
+## Problem
+
+There are n servers in a network, arranged in ascending order of their capacities. The capacity of server i is capacity[i].
+The distance between server i and server j is |capacity[i] - capacity[j]|. When n > 1, each server's closest server is the one with the smallest distance in capacity, and that closest server is guaranteed to be unique.
+You may perform either of the following operations from a server x:
+  - Connect directly to any server y at cost |capacity[x] - capacity[y]|.
+  - When another server exists, connect to the closest server of x at a fixed cost of 1.
+
+Given query arrays fromServer and toServer, compute the minimum cost required to connect from fromServer[i] to toServer[i] for every query. A connection may be direct or may route through intermediate servers. A query whose start and destination are equal costs 0.
+
+## Constraints
+
+- 1 <= n, m <= 2 * 10^5.
+  - 1 <= capacity[i] <= 10^9.
+  - capacity is strictly increasing.
+  - When n > 1, every server has a unique closest server.
+  - fromServer.length == toServer.length == m.
+  - 0 <= fromServer[i], toServer[i] < n.
+
+### Example 1
+- **capacity** (`int[]`) = `[2,7,10]`
+- **fromServer** (`int[]`) = `[0,1,2]`
+- **toServer** (`int[]`) = `[2,2,1]`
+- **output** (`int[]`) = `[2,1,1]`
+
+The closest-server moves are 0 -> 1, 1 -> 2, and 2 -> 1, each at cost 1. Therefore the optimal costs are 0 -> 1 -> 2 = 2, 1 -> 2 = 1, and 2 -> 1 = 1.
+
+### Example 2
+- **capacity** (`int[]`) = `[2,3,5,6]`
+- **fromServer** (`int[]`) = `[0,2,0]`
+- **toServer** (`int[]`) = `[3,0,1]`
+- **output** (`int[]`) = `[4,3,1]`
+
+The closest-server moves are 0 -> 1, 1 -> 0, 2 -> 3, and 3 -> 2. The minimum costs are 1 + 2 + 1 = 4 from 0 to 3, 2 + 1 = 3 from 2 to 0, and 1 from 0 to 1.
+
+### Example 3
+- **capacity** (`int[]`) = `[1,4,9,15]`
+- **fromServer** (`int[]`) = `[0,3,1]`
+- **toServer** (`int[]`) = `[3,0,3]`
+- **output** (`int[]`) = `[12,3,11]`
+
+The directed closest-server moves are 0 -> 1, 1 -> 0, 2 -> 1, and 3 -> 2. Walking through adjacent servers costs 12, 3, and 11 for the three queries.
+
+## Starter code
+
+```
+public int[] getMinCost(int[] capacity, int[] fromServer, int[] toServer) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The visible source supplies the connection rules, function signature, full example, and numeric bounds. For the stated n = 1 boundary, same-server queries cost zero. The judged core task matches the screenshots at about 99%.
+
+
+---
+
+# Top Mutual-Friend Recommendations  (Visa)
+
+> id: `visa-mutual-friend-recommendations` | difficulty: medium | stage: OA | platform: hackerrank | topics: graph, hash_table, sorting | last seen: 2026-09-24 | employment: INTERN
+
+## Problem
+
+You are given a list of friendships in a social network as an array friends. Each entry [u, v] represents a mutual friendship between users u and v. You are also given a target user t.
+Suggest up to three new connections for t. Consider only users who:
+  - are not the target user t; and
+  - are not already direct friends of t.
+
+For each candidate user p, count how many users are common friends of both p and t. Rank candidates by these rules:
+  - A higher number of mutual friends comes first.
+  - When counts tie, the lexicographically smaller user name comes first.
+
+Return the first three user names in that order, or every candidate when fewer than three exist.
+
+## Constraints
+
+- 2 <= friends.length <= 2 * 10^5.
+  - Every friends[i] contains exactly two user names and represents one undirected friendship.
+  - Every user name has length at most 10 and contains only Latin letters.
+  - The graph has no self-loops or duplicate undirected edges.
+  - The target user t appears in at least one friendship pair.
+
+### Example 1
+- **friends** (`String[][]`) = `[["Alice","Bob"],["Alice","Carol"],["Alice","Dave"],["Bob","Carol"],["Bob","Eve"],["Bob","Frank"],["Carol","Dave"],["Carol","Grace"],["Dave","Grace"],["Dave","Henry"],["Eve","Frank"],["Eve","Grace"],["Frank","Grace"]]`
+- **t** (`String`) = `"Alice"`
+- **output** (`String[]`) = `["Grace","Eve","Frank"]`
+
+Alice's direct friends are Bob, Carol, and Dave. The eligible candidates are Eve, Frank, Grace, and Henry. Grace shares two friends with Alice. The other three each share one, so lexical order selects Eve and Frank for the remaining positions.
+
+### Example 2
+- **friends** (`String[][]`) = `[["A","B"],["B","C"],["B","D"]]`
+- **t** (`String`) = `"A"`
+- **output** (`String[]`) = `["C","D"]`
+
+C and D each share B with A, so both are returned in lexical order.
+
+## Starter code
+
+```
+public String[] recommendFriends(String[][] friends, String t) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The visible source supplies the ranking rules, full worked example, and graph constraints; the callable signature is adapted for practice. The judged core task matches the screenshot at about 99%.
+
+
+---
+
+# House Robber  (Walmart)
+
+> id: `walmart-house-robber` | difficulty: medium | stage: OA | platform: unknown | topics: array, dynamic_programming | last seen: 2026-09-24 | employment: FULLTIME
+
+## Problem
+
+You are given an integer array nums. The value nums[i] is the amount available in the ith house on a street.
+You may choose any set of houses, but you cannot choose two adjacent houses.
+Return the maximum total amount you can collect.
+
+## Constraints
+
+- 1 <= nums.length <= 10^5
+  - 0 <= nums[i] <= 10^4
+  - The maximum total fits in a signed int.
+
+### Example 1
+- **nums** (`int[]`) = `[2,5,1,3]`
+- **output** (`int`) = `8`
+
+Choose the houses with amounts 5 and 3. They are not adjacent, and their total is 8.
+
+### Example 2
+- **nums** (`int[]`) = `[4,1,1,9,1]`
+- **output** (`int`) = `13`
+
+Choose the first house with amount 4 and the fourth house with amount 9 for a total of 13.
+
+## Starter code
+
+```
+public int rob(int[] nums) {
+    // write your code here
+}
+```
+
+## Source note
+
+The interview report identifies this task and its central operation. This practice version states the deterministic interface, boundary behavior, and ordering rules needed for consistent execution while preserving the reported capability.
+
+
+---
+
+# Power Cell Bank  (Optiver)
+
+> id: `optiver-power-cell-bank` | difficulty: hard | stage: OA | platform: unknown | topics: hash_table, sorting, design, simulation | last seen: 2026-09-23, 2026-09-12, 2026-09-08, 2026-08-18, 2026-08-12, 2026-08-06, 2026-08-03, 2026-07-23, 2026-07-11 | employment: INTERN, NEW GRAD
+
+## Problem
+
+ᨳଓ A big thank you to the friend who shared this problem with FastPrep!  ᢉ𐭩
+You are writing dispatch logic for a battery-management system that powers a heavy-duty industrial load. Cells enter a tiered power-cell bank through load_cell, and discharge draws batches for the load. Unused cells self-discharge from charged through depleted to spent, and adjacent racks are equalised before each dispatch batch to keep output voltage stable.
+Implement the PowerCellBank class.
+The bank contains num_racks racks arranged from front to back. Rack 1 is the front rack, and rack i has capacity 2^i.
+A cell is installed with a load timestamp and a rated duration. As time passes, each cell automatically moves through three temporal states: charged, depleted, and spent.
+Class Interface
+class PowerCellBank:
+    def __init__(self, num_racks: int) -> None:
+        ...
+
+    def load_cell(
+        self,
+        timestamp: float,
+        cell_id: str,
+        rated_duration: float,
+    ) -> bool:
+        ...
+
+    def discharge(
+        self,
+        timestamp: float,
+        max_dispatch: int,
+    ) -> list[str]:
+        ...Constructor
+__init__(num_racks: int) -> None
+Initializes an empty bank containing num_racks racks. The racks are numbered from 1 to num_racks. Rack 1 is the front rack, and rack i has capacity 2^i.
+For example, with three racks, the capacities are:
+  - rack 1: 2
+  - rack 2: 4
+  - rack 3: 8
+
+Loading A Cell
+load_cell(
+    timestamp: float,
+    cell_id: str,
+    rated_duration: float,
+) -> boolInstalls one freshly charged cell into the bank. The cell is placed in the frontmost rack that still has free capacity.
+Return:
+  - True if the cell was installed successfully.
+  - False if every rack is full.
+
+A spent cell is treated as absent, so it does not occupy rack capacity, its slot may be reused, and its cell_id may be reused by a later load_cell call.
+You may assume:
+  - rated_duration > 0.
+  - No non-spent cell currently in the bank has the same cell_id as the new cell.
+
+A dispatched cell is also removed from the bank, so its ID may later be reused.
+Temporal States
+For a cell loaded at load_timestamp, define t = timestamp - load_timestamp.
+The cell's state at the current operation timestamp is:
+StateElapsed timeDispatchable?Occupies a slot?Output labelChargedt < rated_durationYesYes"charged"Depletedrated_duration <= t < 2 * rated_durationYesYes"depleted"Spentt >= 2 * rated_durationNoNononeState changes happen automatically as time passes. No explicit update is required at the transition moment.
+Spent cells are treated as absent everywhere:
+  - They are not dispatched.
+  - They do not occupy rack capacity.
+  - They are excluded from all counts.
+  - They are excluded from charge equalisation.
+  - They are excluded from bus-shift selection.
+  - They do not appear in output.
+
+Throughout the specification, cell means a non-spent cell unless stated otherwise.
+Charge Ordering
+At a call's timestamp, define a cell's charge window as load_timestamp + rated_duration - timestamp.
+This value is positive for charged cells and zero or negative for depleted cells. Cells are ordered by charge window.
+  - The most-charged cell is the cell with the largest charge window.
+  - The most-depleted cell is the cell with the smallest charge window.
+
+When charge windows tie, choose the cell with the lexicographically smallest cell_id using ordinary ASCII comparison. For example, "a" < "b". The same tie-breaking rule applies to both most-charged and most-depleted selection.
+Discharging Cells
+discharge(
+    timestamp: float,
+    max_dispatch: int,
+) -> list[str]The operation has two stages:
+  - Run one charge-equalisation cycle.
+  - Dispatch up to max_dispatch cells using repeated bus-shift pulls.
+
+The returned list contains entries in dispatch order. Each entry has the form cell_id:state, where state is "charged" if the cell is still within its rated window at the call's timestamp and "depleted" otherwise.
+For example: ["c2:charged", "c7:depleted"].
+Dispatching stops early when the bank is empty. You may assume 1 <= max_dispatch <= 2^10.
+Charge Equalisation
+Charge equalisation runs once at the start of every discharge call.
+A rack is below-sag when it contains at least one cell and strictly fewer than 50% of its cells are charged. Equivalently, 2 * charged_cell_count < total_cell_count.
+The equalisation cycle visits racks from front to back. For each rack k that has a rear neighbour k + 1, while both of the following conditions hold:
+  - rack k is below-sag;
+  - rack k + 1 contains at least one charged cell;
+
+perform one balance swap:
+  - Choose rack k's most-depleted cell.
+  - Choose rack k + 1's most-charged charged cell.
+  - Swap the two cells.
+
+Continue swapping until rack k is no longer below-sag or rack k + 1 has no charged cells remaining. Then move on to rack k + 1.
+The final rack has no rear neighbour, so no equalisation begins from it.
+Bus Shift
+Each bus-shift pull dispatches exactly one cell through two actions.
+1. Dispatch
+Find the active rack, defined as the frontmost rack containing at least one cell. Dispatch the most-charged cell from that rack. When charge windows tie, dispatch the cell with the lexicographically smallest cell_id.
+If no active rack exists, the bank is empty and the discharge call stops.
+2. Inward Shift
+The dispatched cell frees one slot in the active rack. Fill that slot by moving the most-charged cell from the next rack back into the active rack.
+That movement frees one slot in the next rack, so fill it by moving the most-charged cell from the rack behind it. Continue propagating the vacancy toward the back.
+The shift stops when the next rack is empty or there is no further rack.
+A cell moved into a rack during the inward shift is immediately eligible for dispatch during the next pull.
+FastPrep Runner Adapter
+The executable FastPrep interface represents calls to the class as one operation stream without changing any bank behavior:
+powerCellBank(int numRacks, String[][] operations) -> String[][]Operations arrive in non-decreasing timestamp order and are processed in the order supplied. When multiple operations share a timestamp, preserve their input order.
+Process each operation and return one row for every operation:
+  - ["load_cell", timestamp, cell_id, rated_duration]: call load_cell and append ["true"] or ["false"].
+  - ["discharge", timestamp, max_dispatch]: call discharge and append its returned list. This row may be empty.
+
+All values inside an operation row are strings. Parse timestamps and rated durations as floating-point numbers and max_dispatch as an integer.
+
+## Constraints
+
+- 1 <= numRacks <= 2^4.
+  - rated_duration > 0.
+  - No non-spent cell currently in the bank has the same cell_id as a new cell.
+  - 1 <= max_dispatch <= 2^10.
+  - Operations arrive in non-decreasing timestamp order and are processed in the order received. Within a single timestamp, ties are broken by call order.
+  - Timestamps are positive floating-point Unix-epoch seconds with millisecond precision and fit in 32 bits.
+  - rated_duration is a floating-point value with millisecond precision (three decimal places).
+  - State-transition thresholds and the 50% charged-fraction threshold are exact.
+
+### Example 1
+- **numRacks** (`int`) = `2`
+- **operations** (`String[][]`) = `[["load_cell","0","a","4"],["load_cell","0","b","5"],["load_cell","2","c","10"],["load_cell","2","d","10"],["discharge","6","3"],["discharge","9","2"],["load_cell","9","a","2"]]`
+- **output** (`String[][]`) = `[["true"],["true"],["true"],["true"],["c:charged","d:charged","b:depleted"],[],["true"]]`
+
+At timestamp 6, cells a and b are depleted in rack 1, while c and d are charged in rack 2. Equalisation swaps a, the most-depleted front cell, with c, the lexicographically first of the tied rear cells. The three bus-shift pulls then dispatch c, d, and b.
+Cell a remains, but it is spent by timestamp 9, so the next discharge returns an empty row. Its ID can then be loaded again.
+
+### Example 2
+- **numRacks** (`int`) = `1`
+- **operations** (`String[][]`) = `[["load_cell","0","x","10"],["load_cell","0","y","10"],["load_cell","1","z","10"],["discharge","1","1"],["load_cell","1","z","10"]]`
+- **output** (`String[][]`) = `[["true"],["true"],["false"],["x:charged"],["true"]]`
+
+The only rack has capacity 2, so loading z initially fails. Cells x and y have equal charge windows at timestamp 1, so the ASCII tie-break dispatches x. The freed slot then allows z to be loaded.
+
+## Starter code
+
+```
+public String[][] powerCellBank(int numRacks, String[][] operations) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The judged task matches the visible source at about 99%. August 19, 2026 update: confirmed inclusive upper bounds backed by the newest sources found; examples remain derived from the stated rules.
+
+
+---
+
+# Maximum Escape Game Score  (Microsoft)
+
+> id: `microsoft-maximum-escape-game-score` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, hash_table, dynamic_programming, sorting | last seen: 2026-09-23, 2026-09-08, 2026-07-05, 2026-06-22 | employment: NEW GRAD, INTERN
+
+## Problem
+
+In an escape game, players must solve puzzles to earn points and progress. One puzzle involves an array of integers and specific rules for earning points. Here are the rules:
+  - Select a value v. Remove all occurrences of that value from the array and add their sum to your score.
+  - Remove all elements equal to v + 1 or v - 1 without scoring points.
+  - Repeat steps 1 and 2 until the array is empty.
+
+Determine the maximum score that can be obtained by following these rules.
+
+## Constraints
+
+- 1 ≤ elements.length ≤ 10^5
+  - 1 ≤ elements[i] ≤ 10^5
+
+### Example 1
+- **elements** (`int[]`) = `[5,6,6,4,11]`
+- **output** (`long`) = `27`
+
+Delete 11 for 11 points. Next, delete the two 6s for 12 points, which removes 5 without scoring. Finally, delete 4 for 4 points, giving 11 + 12 + 4 = 27.
+
+### Example 2
+- **elements** (`int[]`) = `[3,4,2]`
+- **output** (`long`) = `6`
+
+Delete 4 for 4 points, which removes 3 without scoring. Deleting the remaining 2 gives a total score of 6.
+
+## Starter code
+
+```
+public long maxEscapeGameScore(int[] elements) {
+  // Write your code here.
+}
+```
+
+
+---
+
+# K Most Recent Unique Request IDs  (Microsoft)
+
+> id: `microsoft-k-most-recent-unique-request-ids` | difficulty: easy | stage: OA | platform: hackerrank | topics: array, hash_table | last seen: 2026-09-23, 2026-08-29 | employment: INTERN, NEW GRAD
+
+## Problem
+
+You are given an array of request IDs, requests, and an integer k. The end of requests represents the most recent request.
+A request ID may appear more than once. Scan requests from right to left and collect each distinct request ID the first time you encounter it. Stop after collecting k distinct IDs.
+Return the collected request IDs in order from most recent to least recent.
+
+## Constraints
+
+- 1 <= k <= requests.length <= 10^5
+  - requests contains at least k distinct request IDs.
+  - Every requests[i] consists only of lowercase English letters and digits.
+
+### Example 1
+- **requests** (`String[]`) = `["item1","item2","item3","item1","item3"]`
+- **k** (`int`) = `3`
+- **output** (`String[]`) = `["item3","item1","item2"]`
+
+Scanning from right to left first collects "item3" and then "item1". The next "item3" is skipped because it has already been collected. Collecting "item2" produces the required three distinct IDs.
+
+## Starter code
+
+```
+public String[] getMostRecentUniqueRequests(String[] requests, int k) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The visible source omits the guarantee that the input contains at least k distinct request IDs. The judged core task matches it at about 99%.
+
+
+---
+
+# Total Server Downtime  (Visa)
+
+> id: `visa-total-server-downtime` | difficulty: easy | stage: OA | platform: hackerrank | topics: array, sorting, intervals | last seen: 2026-09-23, 2026-09-20 | employment: FULLTIME, NEW GRAD, INTERN
+
+## Problem
+
+A server is monitored during every integer second from 1 through t, inclusive. You are given intervals, where intervals[i] = [start, end] means the server was running from second start through second end, inclusive.
+The uptime intervals may overlap. Return the total number of seconds in the monitoring window during which the server was not running.
+
+## Constraints
+
+- 1 <= intervals.length <= 2 * 10^5.
+  - 1 <= t <= 10^9.
+  - 1 <= intervals[i][0] <= intervals[i][1] <= t.
+
+### Example 1
+- **intervals** (`int[][]`) = `[[1,3],[2,5]]`
+- **t** (`int`) = `10`
+- **output** (`int`) = `5`
+
+The intervals overlap and cover seconds 1 through 5. The server is down during seconds 6 through 10, for a total of 5 seconds.
+
+### Example 2
+- **intervals** (`int[][]`) = `[[2,2],[5,7]]`
+- **t** (`int`) = `8`
+- **output** (`int`) = `4`
+
+The server is up for seconds 2, 5, 6, and 7. Four of the eight monitored seconds are downtime.
+
+### Example 3
+- **intervals** (`int[][]`) = `[[1,2],[2,4],[7,8]]`
+- **t** (`int`) = `9`
+- **output** (`int`) = `3`
+
+The first two intervals merge into [1,4], and [7,8] is separate. The server is up for 6 of the 9 monitored seconds, so total downtime is 3.
+
+## Starter code
+
+```
+public int getTotalDowntime(int[][] intervals, int t) {
+  // write your code here
+}
+```
+
+## Source note
+
+The judged task matches the visible source at about 99%.
+
+
+---
+
+# Count Palindromic Base Representations  (SEDEMAC)
+
+> id: `sedemac-count-palindromic-base-representations` | difficulty: easy | stage: OA | platform: unknown | topics: math, simulation | last seen: 2026-09-23 | employment: NEW GRAD
+
+## Problem
+
+For each integer base from 2 through 16, convert the positive integer value to that base. Return how many of those digit sequences read the same from left to right and right to left. Digits are compared by numeric value, so bases above ten need no special text encoding.
+
+## Constraints
+
+- 1 <= value <= 1000000000
+  - bases 2 through 16 are inclusive
+
+### Example 1
+- **value** (`int`) = `9`
+- **output** (`int`) = `9`
+
+The binary and base-eight forms are palindromes, and every base above nine uses one digit.
+
+### Example 2
+- **value** (`int`) = `5`
+- **output** (`int`) = `13`
+
+Each base is checked independently using its digit sequence.
+
+## Starter code
+
+```
+public int countPalindromicBases(int value) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+An online assessment report asks for palindrome counting after conversion to bases two through sixteen. This practice contract uses a positive bounded integer and counts every base in that inclusive range.
+
+
+---
+
+# Filter Isolated Interior Signal Bits  (SEDEMAC)
+
+> id: `sedemac-filter-isolated-interior-bits` | difficulty: easy | stage: OA | platform: unknown | topics: string, simulation | last seen: 2026-09-23 | employment: NEW GRAD
+
+## Problem
+
+Given a binary signal string, replace every interior 1 whose immediate left and right neighbors are both 0 with 0. Determine all replacements from the original signal, so removals are simultaneous. Keep the first and last bits unchanged.
+
+## Constraints
+
+- 1 <= signal.length <= 200000
+  - signal[i] is '0' or '1'
+
+### Example 1
+- **signal** (`String`) = `"01010"`
+- **output** (`String`) = `"00000"`
+
+Both interior one bits are isolated in the original signal and are removed simultaneously.
+
+### Example 2
+- **signal** (`String`) = `"11011"`
+- **output** (`String`) = `"11011"`
+
+No one bit has zero-valued neighbors on both sides.
+
+## Starter code
+
+```
+public String filterIsolatedInteriorBits(String signal) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+An online assessment report describes filtering one-bit noise surrounded by zeros while ignoring edge noise. This practice contract makes the replacement simultaneous and preserves both endpoint bits.
+
+
+---
+
+# Minimum Unique-Character Segments After Deletion  (Salesforce)
+
+> id: `salesforce-minimum-unique-segments-after-deletion` | difficulty: medium | stage: OA | platform: unknown | topics: string, greedy, bit_manipulation | last seen: 2026-09-23 | employment: FULLTIME
+
+## Problem
+
+You are given a string s containing only lowercase English letters.
+Perform exactly one deletion operation:
+  - Choose any lowercase English letter removed. The chosen letter does not need to appear in s.
+  - Delete every occurrence of removed from s.
+
+After the deletion, partition the remaining string into the minimum possible number of contiguous, nonempty segments such that no letter appears more than once inside any segment.
+Return the minimum segment count obtainable over all choices of removed. If the deletion leaves an empty string, return 0.
+
+## Constraints
+
+- 1 <= s.length <= 2 * 10^5.
+  - s contains only lowercase English letters.
+  - The deletion operation chooses one of the 26 lowercase English letters and removes all of its occurrences.
+
+### Example 1
+- **s** (`String`) = `"abac"`
+- **output** (`int`) = `1`
+
+Choose 'a'. Removing every 'a' leaves "bc", whose letters are distinct, so one segment is enough.
+
+### Example 2
+- **s** (`String`) = `"abacbc"`
+- **output** (`int`) = `2`
+
+Deleting 'a' leaves "bcbc", which can be partitioned as "bc" | "bc". Deleting 'c' similarly leaves "abab". No deletion choice makes every remaining letter distinct, so the answer is 2.
+
+### Example 3
+- **s** (`String`) = `"aaaa"`
+- **output** (`int`) = `0`
+
+Choose 'a'. Every character is deleted, so the remaining empty string needs zero nonempty segments.
+
+## Starter code
+
+```
+public int minSegmentsAfterDeletion(String s) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The interview report provides the deletion objective, partition rule, alphabet, and input bound. This practice version makes two conventional edge rules explicit: the chosen lowercase letter may be absent, and deleting the entire string yields zero segments. The judged core task matches the visible report at about 98%.
+
+
+---
+
+# Longest Distinct String  (Superhuman)
+
+> id: `superhuman-longest-distinct-string` | difficulty: medium | stage: OA | platform: unknown | topics: string, sliding_window, hash_table | last seen: 2026-09-23 | employment: NEW GRAD, INTERN
+
+## Problem
+
+Given a string s, return the length of its longest contiguous substring in which no character appears more than once.
+A substring is a contiguous sequence of characters within s. Return only the maximum length, not the substring itself.
+
+## Constraints
+
+- 1 <= s.length <= 100000
+  - s contains printable ASCII characters.
+
+### Example 1
+- **s** (`String`) = `"abcc"`
+- **output** (`int`) = `3`
+
+The substring "abc" contains no repeated character and has length 3.
+
+### Example 2
+- **s** (`String`) = `"abcabcbb"`
+- **output** (`int`) = `3`
+
+Substrings such as "abc" have length 3, and every longer substring repeats a character.
+
+### Example 3
+- **s** (`String`) = `"bbbbb"`
+- **output** (`int`) = `1`
+
+Every distinct-character substring contains only one b.
+
+## Starter code
+
+```
+public int longestDistinctString(String s) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The visible source supplies the complete objective and one worked example but omits input bounds and a callable signature. The judged core task matches the screenshot at about 98%.
+
+
+---
+
+# Minimum Time on Two Processors  (Superhuman)
+
+> id: `superhuman-minimum-two-processor-time` | difficulty: medium | stage: OA | platform: unknown | topics: dynamic_programming, array | last seen: 2026-09-23 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You are given an integer array data, where data[i] is the size of one indivisible data file. Every file must be assigned to exactly one of two processors.
+Processor A needs processTimeA seconds for each unit of data, and Processor B needs processTimeB seconds for each unit. The two processors work in parallel.
+If the total data assigned to A is sumA and the total assigned to B is sumB, all work finishes after max(sumA * processTimeA, sumB * processTimeB) seconds.
+Return the minimum possible finishing time over all file assignments.
+
+## Constraints
+
+- 1 <= data.length <= 100
+  - 1 <= data[i] <= 10^3
+  - 1 <= processTimeA, processTimeB <= 10^3
+
+### Example 1
+- **data** (`int[]`) = `[4,4,6,2,5]`
+- **processTimeA** (`int`) = `3`
+- **processTimeB** (`int`) = `2`
+- **output** (`int`) = `26`
+
+Assign the two files of size 4 to A for 24 seconds. Assign 6, 2, and 5 to B for 26 seconds. The finishing time is 26.
+
+### Example 2
+- **data** (`int[]`) = `[5,5]`
+- **processTimeA** (`int`) = `1`
+- **processTimeB** (`int`) = `1`
+- **output** (`int`) = `5`
+
+Assign one file to each processor, so both finish after 5 seconds.
+
+## Starter code
+
+```
+public int getMinProcessingTime(int[] data, int processTimeA, int processTimeB) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The visible source supplies the complete two-processor objective, worked example, signature, and bounds. The judged core task matches the screenshot at about 99%.
+
+
+---
+
+# Top Mutual-Friend Recommendations  (Superhuman)
+
+> id: `superhuman-mutual-friend-recommendations` | difficulty: medium | stage: OA | platform: unknown | topics: graph, hash_table, sorting | last seen: 2026-09-23 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You are given a simple undirected friendship graph as an array friends. Each entry contains the two user names joined by one friendship. You are also given a target user t.
+A recommendation candidate must not be t, must not already be a direct friend of t, and must share at least one direct friend with t.
+Rank candidates by these rules:
+  - A higher number of mutual friends comes first.
+  - When counts tie, the lexicographically smaller user name comes first.
+
+Return the first three user names in that order, or every candidate when fewer than three exist.
+
+## Constraints
+
+- 2 <= friends.length <= 2 * 10^5
+  - Every friends[i] contains exactly two user names.
+  - Every user name has length at most 10 and contains only Latin letters.
+  - The graph has no self-loops or duplicate undirected edges.
+  - The target user t appears in at least one friendship pair.
+
+### Example 1
+- **friends** (`String[][]`) = `[["Alice","Bob"],["Alice","Carol"],["Alice","Dave"],["Bob","Carol"],["Bob","Eve"],["Bob","Frank"],["Carol","Dave"],["Carol","Grace"],["Dave","Grace"],["Dave","Henry"],["Eve","Frank"],["Eve","Grace"],["Frank","Grace"]]`
+- **t** (`String`) = `"Alice"`
+- **output** (`String[]`) = `["Grace","Eve","Frank"]`
+
+Grace shares two friends with Alice. Eve, Frank, and Henry each share one; lexical order selects Eve and Frank for the remaining positions.
+
+### Example 2
+- **friends** (`String[][]`) = `[["A","B"],["B","C"],["B","D"]]`
+- **t** (`String`) = `"A"`
+- **output** (`String[]`) = `["C","D"]`
+
+C and D each share B with A, so both are returned in lexical order.
+
+## Starter code
+
+```
+public String[] recommendFriends(String[][] friends, String t) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The visible source supplies the ranking rules, full worked example, and graph constraints; the callable signature is adapted for practice. The judged core task matches the screenshot at about 99%.
+
+
+---
+
+# Longest String Chain  (Visa)
+
+> id: `visa-longest-string-chain` | difficulty: medium | stage: OA | platform: hackerrank | topics: dynamic_programming, hash_table, sorting, string | last seen: 2026-09-23 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You are given an array of lowercase words words representing a dictionary.
+A string chain starts with one dictionary word. At each step, remove exactly one character from the current word. The resulting word must also be present in the dictionary.
+Return the maximum number of words in any valid chain. A single dictionary word forms a chain of length 1.
+FastPrep practice interpretation: Repeated copies of the same word do not create extra chain positions; membership is determined by distinct word values.
+
+## Constraints
+
+- 1 <= words.length <= 50000
+  - 1 <= words[i].length <= 60
+  - Every word contains only lowercase English letters from a through z.
+
+### Example 1
+- **words** (`String[]`) = `["a","and","an","bear"]`
+- **output** (`int`) = `3`
+
+The chain ["and", "an", "a"] removes one character at each step and has length 3.
+
+### Example 2
+- **words** (`String[]`) = `["a","b","ba","bca","bda","bdca"]`
+- **output** (`int`) = `4`
+
+One longest chain is ["bdca", "bda", "ba", "a"].
+
+### Example 3
+- **words** (`String[]`) = `["abcd","dbqca"]`
+- **output** (`int`) = `1`
+
+Neither word becomes the other by deleting one character, so the longest chain contains one word.
+
+## Starter code
+
+```
+public int longestChain(String[] words) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The visible source supplies the full core task, one example, and bounds; duplicate-word behavior is unspecified. The judged core task matches the screenshot at about 97%.
+
+
+---
+
+# Maximum Three-Server Difficulty Score  (Visa)
+
+> id: `visa-maximum-three-server-difficulty-score` | difficulty: easy | stage: OA | platform: hackerrank | topics: array, greedy, sorting, math | last seen: 2026-09-23 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You are given an integer array difficulty, where each value is the difficulty of one module.
+Distribute all modules among three labeled servers. Every module must be assigned to exactly one server, and each server must receive at least one module. Then choose one module from each server. Let their difficulties, in server order, be d1, d2, and d3.
+The score is |d1 - d2| + |d2 - d3|. Return the maximum score obtainable over all valid distributions and choices.
+FastPrep practice interpretation: The explicit two-term formula and the reported extreme-value strategy determine the judged score. The selected modules must be three distinct array elements, although equal difficulty values are allowed.
+
+## Constraints
+
+- 3 <= difficulty.length <= 100000
+  - 1 <= difficulty[i] <= 10^9
+
+### Example 1
+- **difficulty** (`int[]`) = `[1,4,7,10]`
+- **output** (`long`) = `15`
+
+Place difficulties 1, 10, and 4 on servers one, two, and three. The score is |1 - 10| + |10 - 4| = 9 + 6 = 15.
+
+### Example 2
+- **difficulty** (`int[]`) = `[5,5,5]`
+- **output** (`long`) = `0`
+
+Every selected difficulty is 5, so both absolute differences are 0.
+
+### Example 3
+- **difficulty** (`int[]`) = `[2,3,100]`
+- **output** (`long`) = `195`
+
+Use 100 as d2 and the other two values as the endpoints. The score is |2 - 100| + |100 - 3| = 98 + 97 = 195.
+
+## Starter code
+
+```
+public long maximumDifficultyScore(int[] difficulty) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The source gives the two-term score and extreme-value strategy but omits numeric bounds and initially describes the score more broadly. The judged core task matches the report at about 92%.
+
+
+---
+
+# Minimize Malware Spread by Removing a Node  (Visa)
+
+> id: `visa-minimize-malware-spread` | difficulty: medium | stage: OA | platform: hackerrank | topics: graph, breadth_first_search, simulation | last seen: 2026-09-23 | employment: NEW GRAD, INTERN
+
+## Problem
+
+There are gNodes servers numbered from 1 through gNodes. The parallel arrays gFrom and gTo describe bidirectional connections: edge i joins gFrom[i] and gTo[i].
+The binary array malware describes the initial infection state. Server i is initially infected exactly when malware[i - 1] == 1. An infected server repeatedly infects every directly connected non-infected server until no additional infection is possible.
+Before propagation begins, remove exactly one server, whether infected or not, together with all of its incident connections. Return the label of the server whose removal minimizes the number of infected servers remaining after propagation. If several removals produce the same minimum, return the smallest server label.
+
+## Constraints
+
+- 1 ≤ gNodes ≤ 500
+  - 0 ≤ gFrom.length = gTo.length ≤ 5000
+  - Every edge endpoint is between 1 and gNodes.
+  - malware.length = gNodes.
+  - Every value in malware is 0 or 1, and at least one server is initially infected.
+
+### Example 1
+- **gNodes** (`int`) = `9`
+- **gFrom** (`int[]`) = `[1,2,4,6,7]`
+- **gTo** (`int[]`) = `[2,3,5,7,8]`
+- **malware** (`int[]`) = `[0,0,1,0,1,0,0,0,0]`
+- **output** (`int`) = `3`
+
+Removing infected server 3 protects servers 1 and 2. Only servers 4 and 5 become infected, which is fewer than for any other removal.
+
+### Example 2
+- **gNodes** (`int`) = `6`
+- **gFrom** (`int[]`) = `[1,1,1,1,1]`
+- **gTo** (`int[]`) = `[2,3,4,5,6]`
+- **malware** (`int[]`) = `[0,1,1,0,0,0]`
+- **output** (`int`) = `1`
+
+Removing the uninfected center server 1 separates the two infected leaves from every other leaf, leaving only servers 2 and 3 infected.
+
+## Starter code
+
+```
+public int minimizeMalwareSpread(int gNodes, int[] gFrom, int[] gTo, int[] malware) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The visible source omits input-size bounds and a callable signature. The judged core task matches it at about 98%.
+
+
+---
+
+# Decreasing Subsequences  (Google)
+
+> id: `google-split-array-into-consecutive-subsequences` | difficulty: medium | stage: OA | platform: codesignal | topics: greedy, heap | last seen: 2026-09-22, 2026-09-09, 2026-08-10, 2024-02-16 | employment: INTERN, NEW GRAD
+
+## Problem
+
+Given an int array nums of length n . Split it into strictly decreasing su...
+
+### Example 1
+- **nums** (`int[]`) = `[5, 2, 4, 3, 1, 6]`
+- **output** (`int`) = `3`
+
+You can split this array into: [5, 2, 1], [4, 3], [6]. And there are 3 subsequences you get.
+Or you can split it into [5, 4, 3], [2, 1], [6]. Also 3 subsequences.
+But [5, 4, 3, 2, 1], [6] is not legal because [5, 4, 3, 2, 1] is not a subsequence of the original array.
+
+
+---
+
+# Rightmost Longest Character Run  (Hudson River Trading)
+
+> id: `hrt-rightmost-longest-character-run` | difficulty: easy | stage: OA | platform: codesignal | topics: string, two_pointers | last seen: 2026-09-22, 2026-09-09, 2026-08-18, 2026-08-10 | employment: INTERN, NEW GRAD
+
+## Problem
+
+You are given a string source consisting of lowercase English letters.
+Find the longest contiguous substring that consists of the same character. If several such substrings have the same maximum length, choose the rightmost one.
+Return a string containing the chosen character followed by the number of times it occurs in that substring.
+A solution with time complexity no worse than O(source.length^3) fits within the execution time limit.
+
+## Constraints
+
+- source consists only of lowercase English letters.
+
+### Example 1
+- **source** (`String`) = `"bbacccdbbab"`
+- **output** (`String`) = `"c3"`
+
+The character a appears in two runs of length 1. The character b appears in three runs: two of length 2 and one of length 1. The single c run has length 3, so it is the longest run and the result is "c3".
+
+### Example 2
+- **source** (`String`) = `"bbaacaa"`
+- **output** (`String`) = `"a2"`
+
+The runs "bb", the first "aa", and the final "aa" all have the maximum length 2. The final "aa" is the rightmost maximum run, so the result is "a2".
+
+## Starter code
+
+```
+public String solution(String source) {
+  // Write your code here.
+}
+
+```
+
+
+---
+
+# Minimize Absolute Difference of Server Loads  (Google)
+
+> id: `google-minimize-absolute-difference-of-server-loads` | difficulty: medium | stage: OA | platform: codesignal | topics: dynamic_programming, array | last seen: 2026-09-22, 2026-09-09, 2024-02-16 | employment: INTERN, NEW GRAD
+
+## Problem
+
+There are some processes that need to be executed. Amount of a load that process causes on a server that runs it, is being represented by a single integer. Total load caused on a server is the sum of the loads of all the processes that run on that server. You have at your disposal two servers, on which mentioned processes can be run. Your goal is to distribute given processes between those two servers in the way that, absolute difference of their loads will be minimized.
+
+### Example 1
+- **loads** (`int[]`) = `[1, 2, 3, 4, 5]`
+- **output** (`int`) = `1`
+
+We can distribute the processes with loads [1, 2, 4] to the first server and [3, 5] to the second one, so that their total loads will be 7 and 8, respectively, and the difference of their loads will be equal to 1.
+
+
+---
+
+# Dynamic Sum Pair Queries  (Hudson River Trading)
+
+> id: `hrt-dynamic-sum-pair-queries` | difficulty: medium | stage: OA | platform: codesignal | topics: array, hash_table, simulation | last seen: 2026-09-22, 2026-09-09 | employment: INTERN, NEW GRAD
+
+## Problem
+
+You are given two arrays of integers a and b, and an array queries, the elements of which are queries you are required to process. Every queries[i] can have one of the following two forms:
+  - [0, i, x]. In this case, you need to assign a[i] the value of x (a[i] = x).
+  - [1, x]. In this case, you need to find the total number of pairs of indices i and j such that a[i] + b[j] = x.
+
+Perform the given queries in order and return an array containing the results of the queries of the type [1, x].
+
+## Constraints
+
+- FastPrep execution-adapter constraints (not shown in the source image):
+  - a and b are non-empty integer arrays.
+  - queries is non-empty.
+  - Every query is either [0, i, x] or [1, x].
+  - Every update index i is valid for a.
+
+### Example 1
+- **a** (`int[]`) = `[3,4]`
+- **b** (`int[]`) = `[1,2,3]`
+- **queries** (`int[][]`) = `[[1,5],[0,0,1],[1,5]]`
+- **output** (`long[]`) = `[2,1]`
+
+For a = [3, 4], b = [1, 2, 3], and queries = [[1, 5], [0, 0, 1], [1, 5]], the output should be solution(a, b, queries) = [2, 1].
+The arrays look like this initially:
+a = [3, 4] and b = [1, 2, 3]
+For the query [1, 5], there are two ways to form a sum of 5 using an element from each array: 5 = 3 + 2 = a[0] + b[1] and 5 = 4 + 1 = a[1] + b[0]. So the result is 2.
+The query [0, 0, 1] re-assigns the value of a[0] to 1, so the arrays now look like this:
+a = [1, 4] and b = [1, 2, 3]
+For the final [1, 5] query, there's now only one way to form a sum of 5 using an element from each array: 5 = 4 + 1 = a[1] + b[0]. So the result is 1.
+Since the two queries of type [1, x] gave results of 2 and 1 respectively, the answer is [2, 1].
+
+### Example 2
+- **a** (`int[]`) = `[2,3]`
+- **b** (`int[]`) = `[1,2,2]`
+- **queries** (`int[][]`) = `[[1,4],[0,0,3],[1,5]]`
+- **output** (`long[]`) = `[3,4]`
+
+For a = [2, 3], b = [1, 2, 2], and queries = [[1, 4], [0, 0, 3], [1, 5]], the output should be solution(a, b, queries) = [3, 4].
+The arrays look like this initially:
+a = [2, 3] and b = [1, 2, 2]
+The remainder of this explanation is cropped from the source image.
+
+## Starter code
+
+```
+public long[] solution(int[] a, int[] b, int[][] queries) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The source omits complete numeric bounds. The judged core task and visible examples match the source at about 99%.
+
+
+---
+
+# Product Minus Sum of Digits  (Hudson River Trading)
+
+> id: `hrt-product-minus-sum-of-digits` | difficulty: easy | stage: OA | platform: codesignal | topics: math, simulation | last seen: 2026-09-22, 2026-09-09 | employment: INTERN, NEW GRAD
+
+## Problem
+
+Given a positive integer number n, your task is to calculate the difference between the product of its digits and the sum of its digits.
+Note: The order matters; the answer should be of the form product - sum (and not sum - product).
+
+## Constraints
+
+- Input/Output: [execution time limit] 4 seconds (py3)
+  - [memory limit] 1 GB
+  - [input] integer n — A positive integer.
+  - Guaranteed constraints: 1 ≤ n ≤ 10^9.
+  - [output] integer
+
+### Example 1
+- **n** (`int`) = `123456`
+- **output** (`int`) = `699`
+
+For n = 123456, the output should be solution(n) = 699.
+  - The product of the digits is equal to 1 * 2 * 3 * 4 * 5 * 6 = 720.
+  - The sum of the digits is equal to 1 + 2 + 3 + 4 + 5 + 6 = 21.
+
+So the final answer is 720 - 21 = 699.
+
+### Example 2
+- **n** (`int`) = `1010`
+- **output** (`int`) = `-2`
+
+For n = 1010, the output should be solution(n) = -2.
+  - The multiplication of the digits is equal to 1 * 0 * 1 * 0 = 0.
+  - The sum of the digits is equal to 1 + 0 + 1 + 0 = 2.
+
+So the final answer is 0 - 2 = -2.
+
+## Starter code
+
+```
+public int solution(int n) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The judged core task, numeric bound, and visible examples match the source at about 99%.
+
+
+---
+
+# Count One-Swap Number Pairs  (Capital One)
+
+> id: `capital-one-count-one-swap-number-pairs` | difficulty: medium | stage: OA | platform: unknown | topics: array, string, hash_table, combinatorics | last seen: 2026-09-22 | employment: FULLTIME
+
+## Problem
+
+You are given an array of positive integers numbers. Count the index pairs (i, j) such that i < j and one number in the pair can be transformed into the other by swapping at most one pair of digit positions.
+No swap is required when the two numbers are already equal. Each pair of indices is counted once, even when several different digit swaps produce the same value.
+Use each number's ordinary decimal representation without leading zeroes. A swapped representation that begins with 0 is invalid, so valid transformed numbers have the same number of digits.
+Return the number of qualifying index pairs.
+
+## Constraints
+
+- 1 ≤ numbers.length ≤ 10^4
+  - 1 ≤ numbers[i] ≤ 10^9
+
+### Example 1
+- **numbers** (`int[]`) = `[1,23,156,1650,651,165,32]`
+- **output** (`int`) = `3`
+
+The qualifying pairs are 23 with 32, 156 with 651, and 156 with 165. Therefore, the result is 3.
+
+### Example 2
+- **numbers** (`int[]`) = `[123,321,123]`
+- **output** (`int`) = `3`
+
+The two copies of 123 form a qualifying pair without a swap. Each copy of 123 also pairs with 321 by swapping the first and last digits, for 3 pairs in total.
+
+## Starter code
+
+```
+public int countOneSwapPairs(int[] numbers) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The interview report asks for unordered index pairs whose decimal representations can match after at most one swap across either member. It clarifies that the pair receives one swap total and omits bounds and leading-zero handling; this practice version supplies those deterministic details. The judged core task matches the visible report at about 85%.
+
+
+---
+
+# Oldest and Youngest Employees  (Intuit)
+
+> id: `intuit-oldest-and-youngest-employees` | difficulty: easy | stage: OA | platform: unknown | topics: database | last seen: 2026-09-22 | employment: INTERN
+
+## Problem
+
+The employees table contains each employee's full name and date of birth. Return the full name and date of birth of every oldest employee and every youngest employee.
+The oldest employees have the earliest date of birth; the youngest employees have the latest date of birth. Include everyone tied at either extreme. Combine the two groups with UNION ALL semantics, so a row appears twice if it belongs to both groups.
+Return exactly two columns, FULL_NAME followed by DATE_OF_BIRTH. Row order does not matter.
+
+## Constraints
+
+- The table contains at least one employee.
+  - Every full_name is non-empty and every date_of_birth is a known date.
+
+## Table schemas
+
+```json
+[
+  {
+    "columns": [
+      {
+        "name": "full_name",
+        "nullable": false,
+        "type": "text"
+      },
+      {
+        "name": "date_of_birth",
+        "nullable": false,
+        "type": "date"
+      }
+    ],
+    "name": "employees"
+  }
+]
+```
+
+## Source note
+
+The source does not specify tie handling or whether dates may be missing. The judged core task matches the report at about 92%.
+
+
+---
+
+# Pressure-Isolation Shutdown Order  (Intuit)
+
+> id: `intuit-pressure-isolation-shutdown-order` | difficulty: hard | stage: OA | platform: unknown | topics: array, dynamic_programming, combinatorics | last seen: 2026-09-22 | employment: NEW GRAD, INTERN
+
+## Problem
+
+An offshore processing platform has n valves in a line. Valve i has signed pressure coefficient coefficients[i]. Permanent boundary regulators with coefficients leftBoundary and rightBoundary stand immediately outside the line and are never shut down.
+Shut down every valve exactly once. When valve i is shut down, let x and y be the coefficients of its nearest valves or boundary regulators that are still active on its left and right. This shutdown adds x * coefficients[i] * y to the total stability score. Valve i is then removed, so later shutdowns may have different neighbors.
+Return a two-element array: the maximum possible total stability score, followed by the number of distinct shutdown orders that attain that maximum. Report the number of orders modulo 10^9 + 7. Two orders are distinct when their valve-index sequences differ.
+
+## Constraints
+
+- 1 <= coefficients.length <= 200.
+  - -1000 <= coefficients[i], leftBoundary, rightBoundary <= 1000.
+  - Use signed 64-bit arithmetic for stability scores and the returned score.
+  - The returned count is reduced modulo 10^9 + 7.
+
+### Example 1
+- **coefficients** (`int[]`) = `[3]`
+- **leftBoundary** (`int`) = `2`
+- **rightBoundary** (`int`) = `5`
+- **output** (`long[]`) = `[30,1]`
+
+There is one shutdown order. Its only step contributes 2 * 3 * 5 = 30.
+
+### Example 2
+- **coefficients** (`int[]`) = `[1,1]`
+- **leftBoundary** (`int`) = `1`
+- **rightBoundary** (`int`) = `1`
+- **output** (`long[]`) = `[2,2]`
+
+Either valve can be shut down first. Both orders score 1 + 1 = 2, so there are two maximizing orders.
+
+### Example 3
+- **coefficients** (`int[]`) = `[1,2]`
+- **leftBoundary** (`int`) = `1`
+- **rightBoundary** (`int`) = `1`
+- **output** (`long[]`) = `[4,1]`
+
+Closing the first valve before the second scores 1 * 1 * 2 + 1 * 2 * 1 = 4. The other order scores 1 * 2 * 1 + 1 * 1 * 1 = 3.
+
+## Starter code
+
+```
+public long[] maximizeStabilityAndCount(int[] coefficients, int leftBoundary, int rightBoundary) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The source screenshot cuts off the count modulus and numeric bounds. The judged core task matches the visible source at about 88%.
+
+
+---
+
+# Submask Sum Queries  (Intuit)
+
+> id: `intuit-submask-sum-queries` | difficulty: hard | stage: OA | platform: unknown | topics: dynamic_programming, bit_manipulation | last seen: 2026-09-22 | employment: INTERN
+
+## Problem
+
+You are given a nonnegative bit count n, an integer array values of length 2^n, and an array of query masks queries.
+A mask s is a submask of m when every set bit of s is also set in m. For each query mask m, return the sum of values[s] over every submask s of m. Return answers in the same order as the queries.
+
+## Constraints
+
+- 0 ≤ n ≤ 12 and values.length = 2^n.
+  - -10^9 ≤ values[i] ≤ 10^9.
+  - 1 ≤ queries.length ≤ 1000 and every query is a valid mask in [0, 2^n - 1].
+  - Every answer fits in a signed 64-bit integer.
+
+### Example 1
+- **n** (`int`) = `2`
+- **values** (`long[]`) = `[1,2,3,4]`
+- **queries** (`int[]`) = `[3,1]`
+- **output** (`long[]`) = `[10,3]`
+
+Every mask from 0 through 3 is a submask of 3, so the first sum is 1 + 2 + 3 + 4 = 10. The submasks of 1 are 0 and 1, producing 1 + 2 = 3.
+
+### Example 2
+- **n** (`int`) = `1`
+- **values** (`long[]`) = `[-2,5]`
+- **queries** (`int[]`) = `[0,1]`
+- **output** (`long[]`) = `[-2,3]`
+
+Mask 0 has only itself as a submask, so the first result is -2. Mask 1 has submasks 0 and 1, producing -2 + 5 = 3.
+
+## Starter code
+
+```
+public long[] sumSubmaskValues(int n, long[] values, int[] queries) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The source screenshot begins within the examples and omits numerical limits. The judged core task matches the report at about 94%.
+
+
+---
+
+# Convert Sparse Records to a Filled Table  (Netflix)
+
+> id: `netflix-records-to-filled-table` | difficulty: medium | stage: OA | platform: unknown | topics: hash_table, sorting, array | last seen: 2026-09-22 | employment: NEW GRAD
+
+## Problem
+
+Each record is represented by parallel arrays keysByRow[i] and valuesByRow[i]. Keys are unique within a record, while different records may contain different keys.
+Return a rectangular table. Its first row is the lexicographically sorted union of all keys. Every following row corresponds to one input record in original order and contains its value under each header key, or fill when that key is absent.
+If there are no records, return one empty header row.
+
+## Constraints
+
+- 0 <= keysByRow.length == valuesByRow.length <= 100000.
+  - For each row, key and value counts are equal and keys are unique.
+  - Keys are nonempty case-sensitive strings of at most 100 characters.
+  - The total number of key-value pairs is at most 200000.
+
+### Example 1
+- **keysByRow** (`String[][]`) = `[["name","age"],["name","city"]]`
+- **valuesByRow** (`String[][]`) = `[["Ada","36"],["Lin","Paris"]]`
+- **fill** (`String`) = `""`
+- **output** (`String[][]`) = `[["age","city","name"],["36","","Ada"],["","Paris","Lin"]]`
+
+The header is the sorted key union and missing cells use fill.
+
+### Example 2
+- **keysByRow** (`String[][]`) = `[["b"],[],["a","b"]]`
+- **valuesByRow** (`String[][]`) = `[["2"],[],["1","3"]]`
+- **fill** (`String`) = `"NA"`
+- **output** (`String[][]`) = `[["a","b"],["NA","2"],["NA","NA"],["1","3"]]`
+
+Empty records still produce a fully filled row.
+
+### Example 3
+- **keysByRow** (`String[][]`) = `[]`
+- **valuesByRow** (`String[][]`) = `[]`
+- **fill** (`String`) = `"x"`
+- **output** (`String[][]`) = `[[]]`
+
+With no records, the table contains only an empty header.
+
+## Starter code
+
+```
+public String[][] recordsToTable(String[][] keysByRow, String[][] valuesByRow, String fill) {
+    // Write your solution here.
+}
+```
+
+## Source note
+
+The interview report asks to turn records with varying key sets into a table and to fill missing fields. It omits column order and the empty case; this practice version sorts the union of keys and returns an explicit header row. The judged core task matches the visible report at about 85%.
+
+
+---
+
+# Sparse Matrix Multiplication  (Netflix)
+
+> id: `netflix-sparse-matrix-multiplication` | difficulty: medium | stage: OA | platform: unknown | topics: array, matrix | last seen: 2026-09-22 | employment: NEW GRAD
+
+## Problem
+
+You are given two rectangular integer matrices, mat1 with dimensions m × k and mat2 with dimensions k × n.
+Return their matrix product product, an m × n matrix. For every valid row i and column j:
+product[i][j] = mat1[i][0] * mat2[0][j] + ... + mat1[i][k - 1] * mat2[k - 1][j]Sparse-matrix requirement
+Many entries may be 0. Although the matrices use ordinary dense arrays for input and output, design the multiplication so it skips contributions whose left or right factor is 0.
+
+## Constraints
+
+- 1 ≤ m, k, n ≤ 100.
+  - mat1.length = m and every row of mat1 has length k.
+  - mat2.length = k and every row of mat2 has length n.
+  - -100 ≤ mat1[i][t], mat2[t][j] ≤ 100.
+  - The product of the two matrices fits in a signed 32-bit integer matrix.
+
+### Example 1
+- **mat1** (`int[][]`) = `[[1,0,0],[-1,0,3]]`
+- **mat2** (`int[][]`) = `[[7,0,0],[0,0,0],[0,0,1]]`
+- **output** (`int[][]`) = `[[7,0,0],[-7,0,3]]`
+
+The first row has only one nonzero value, so it contributes 1 × [7,0,0]. The second row contributes -1 × [7,0,0] and 3 × [0,0,1], producing [-7,0,3].
+
+### Example 2
+- **mat1** (`int[][]`) = `[[0,0],[0,0]]`
+- **mat2** (`int[][]`) = `[[1,2],[3,4]]`
+- **output** (`int[][]`) = `[[0,0],[0,0]]`
+
+Every value in mat1 is 0, so there are no nonzero contributions to the product.
+
+### Example 3
+- **mat1** (`int[][]`) = `[[1,2],[0,3]]`
+- **mat2** (`int[][]`) = `[[4,0,5],[6,7,0]]`
+- **output** (`int[][]`) = `[[16,14,5],[18,21,0]]`
+
+For example, product[0][0] = 1 × 4 + 2 × 6 = 16, while product[1][2] = 0 × 5 + 3 × 0 = 0.
+
+## Starter code
+
+```
+public int[][] multiply(int[][] mat1, int[][] mat2) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The interview report names sparse matrix multiplication but omits the representation, dimensions, numeric domain, output shape, examples, and bounds. This practice version uses compatible rectangular integer matrices, skips zero contributions internally, and returns the dense product. The judged core task matches the visible report at about 85%.
+
+
+---
+
+# Shortest Digit Prefix for Target Multisets  (Visa)
+
+> id: `visa-shortest-digit-prefix-for-targets` | difficulty: medium | stage: OA | platform: unknown | topics: string, prefix_sum, hash_table | last seen: 2026-09-22 | employment: NEW GRAD
+
+## Problem
+
+Given a digit string digits and an array targets, return one answer per target.
+The answer is the minimum prefix length of digits whose characters contain every digit of the target with at least the same multiplicity. Prefix characters that are not used by the target may be ignored, so the target may be rearranged into any permutation.
+Return 0 for an empty target and -1 when the full source string lacks a required occurrence.
+
+## Constraints
+
+- 0 <= digits.length <= 200000.
+  - 1 <= targets.length <= 100000.
+  - All strings contain only characters 0 through 9.
+  - The combined target length is at most 200000.
+
+### Example 1
+- **digits** (`String`) = `"012340221"`
+- **targets** (`String[]`) = `["20","42","111","9"]`
+- **output** (`int[]`) = `[3,5,-1,-1]`
+
+Each answer is the latest required occurrence among that target's digits; the source has too few ones and no nine for the final targets.
+
+### Example 2
+- **digits** (`String`) = `"777"`
+- **targets** (`String[]`) = `["","7","77","777"]`
+- **output** (`int[]`) = `[0,1,2,3]`
+
+The empty target needs no characters, while repeated sevens need successive occurrences.
+
+### Example 3
+- **digits** (`String`) = `"314159"`
+- **targets** (`String[]`) = `["95","13","66"]`
+- **output** (`int[]`) = `[6,2,-1]`
+
+Excess prefix digits may remain unused.
+
+## Starter code
+
+```
+public int[] shortestDigitPrefixes(String digits, String[] targets) {
+    // Write your solution here.
+}
+```
+
+## Source note
+
+The interview report identifies the source digit string, per-target shortest-prefix objective, and permutation-by-multiset interpretation. It omits impossible-target and excess-character behavior; this practice version returns -1 when impossible and permits unused prefix digits. The judged core task matches the visible report at about 85%.
+
+
+---
+
+# Sum of Index-Ordered Pair Differences  (Visa)
+
+> id: `visa-sum-of-index-pair-differences` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, math | last seen: 2026-09-21, 2026-08-11, 2026-07-23 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You are given an integer array arr of length n.
+For every pair of indices (i, j) such that 0 <= i < j < n, compute:
+arr[j] - arr[i]
+Find the sum of these differences over all valid pairs. Return the result modulo 10^9 + 7.
+Complete the function sumPairDifferences, which accepts arr and returns the required result. Here, n = arr.length.
+
+## Constraints
+
+- 1 <= n <= 2 * 10^5
+  - 0 <= arr[i] <= 10^9
+
+### Example 1
+- **arr** (`int[]`) = `[1, 2, 3]`
+- **output** (`int`) = `4`
+
+Here, n = 3. All pair differences are:
+  - 2 - 1 = 1
+  - 3 - 1 = 2
+  - 3 - 2 = 1
+
+The sum is 1 + 2 + 1 = 4, and 4 modulo 10^9 + 7 is 4.
+
+### Example 2
+- **arr** (`int[]`) = `[4, 1, 3, 2]`
+- **output** (`int`) = `1000000003`
+
+Here, n = 4. All pair differences are:
+  - 1 - 4 = -3
+  - 3 - 4 = -1
+  - 2 - 4 = -2
+  - 3 - 1 = 2
+  - 2 - 1 = 1
+  - 2 - 3 = -1
+
+The sum is (-3) + (-1) + (-2) + 2 + 1 + (-1) = -4, and -4 modulo 10^9 + 7 is 1000000003.
+
+## Starter code
+
+```
+public int sumPairDifferences(int[] arr) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The shared source includes the pair-difference formula, modulo rule, worked example, and linear-time prefix-sum idea; it omits the callable signature and numeric bounds. The judged core task matches at about 98%.
+
+
+---
+
+# Maximum Equalized Substrings After One Adjacent Swap  (Visa)
+
+> id: `visa-maximum-equalized-substrings-after-one-adjacent-swap` | difficulty: medium | stage: OA | platform: unknown | topics: string, prefix_sum, greedy | last seen: 2026-09-21 | employment: INTERN
+
+## Problem
+
+You are given a string s containing only L and R.
+A substring is equalized when it contains the same number of L and R characters. You may swap at most one pair of adjacent characters in s.
+After the optional swap, split the entire string into consecutive, nonempty equalized substrings. Return the maximum possible number of substrings in such a split. If the complete string has different total counts of L and R, return 0 because no complete equalized split is possible.
+
+## Constraints
+
+- 1 <= s.length <= 2 * 10^5
+  - Every character of s is either L or R.
+  - You may perform zero or one adjacent swap.
+
+### Example 1
+- **s** (`String`) = `"RLRRLLRLRL"`
+- **output** (`int`) = `5`
+
+Swap the adjacent R and L at indices 3 and 4. The string becomes RLRLRLRLRL, which splits as RL | RL | RL | RL | RL.
+
+### Example 2
+- **s** (`String`) = `"RL"`
+- **output** (`int`) = `1`
+
+The whole string is already one equalized substring, and no adjacent swap can create a second nonempty part.
+
+### Example 3
+- **s** (`String`) = `"RRLL"`
+- **output** (`int`) = `2`
+
+Swap the middle R and L to obtain RLRL, then split it as RL | RL.
+
+## Starter code
+
+```
+public int maxEqualizedSubstrings(String s) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source omits the unequal-total convention, callable signature, and numeric bound. The judged core task matches the shared source at about 94%.
+
+
+---
+
+# Minimum Unreachable Warehouses  (Visa)
+
+> id: `visa-minimum-unreachable-warehouses` | difficulty: medium | stage: OA | platform: unknown | topics: graph, depth_first_search, union_find | last seen: 2026-09-21 | employment: INTERN
+
+## Problem
+
+There are warehouseNodes warehouses numbered from 1 through warehouseNodes. The parallel arrays warehouseFrom and warehouseTo describe undirected roads: road i connects warehouseFrom[i] and warehouseTo[i].
+You must choose one direction for every road. A warehouse is reachable when at least one directed road points into it; otherwise it is unreachable.
+Return the minimum possible number of unreachable warehouses after directing every road. An isolated warehouse is a one-vertex tree component and therefore contributes one unreachable warehouse.
+
+## Constraints
+
+- 1 <= warehouseNodes <= 2 * 10^5
+  - 0 <= warehouseFrom.length = warehouseTo.length <= 2 * 10^5
+  - 1 <= warehouseFrom[i], warehouseTo[i] <= warehouseNodes
+  - Each array pair represents one undirected road.
+
+### Example 1
+- **warehouseNodes** (`int`) = `6`
+- **warehouseFrom** (`int[]`) = `[1,2,4,5,6]`
+- **warehouseTo** (`int[]`) = `[2,3,5,6,4]`
+- **output** (`int`) = `1`
+
+Warehouses 1, 2, 3 form a tree, so every orientation leaves at least one warehouse without an incoming road. Warehouses 4, 5, 6 form a cycle, whose roads can be directed in a loop. Only the tree component contributes to the answer.
+
+### Example 2
+- **warehouseNodes** (`int`) = `3`
+- **warehouseFrom** (`int[]`) = `[1,2,3]`
+- **warehouseTo** (`int[]`) = `[2,3,1]`
+- **output** (`int`) = `0`
+
+All three warehouses lie on one cycle. Direct the roads as 1 -> 2, 2 -> 3, and 3 -> 1 so every warehouse has an incoming road.
+
+### Example 3
+- **warehouseNodes** (`int`) = `5`
+- **warehouseFrom** (`int[]`) = `[]`
+- **warehouseTo** (`int[]`) = `[]`
+- **output** (`int`) = `5`
+
+Every isolated warehouse is its own tree component, and every one has no incoming road.
+
+## Starter code
+
+```
+public int minimumUnreachableWarehouses(int warehouseNodes, int[] warehouseFrom, int[] warehouseTo) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source supplies the component rule and worked tree-versus-cycle example but omits the callable signature and numeric bounds. The judged core task matches the shared source at about 97%.
+
+
+---
+
+# Minimum Grid Inconvenience  (Amazon)
+
+> id: `amazon-minimum-grid-inconvenience` | difficulty: hard | stage: OA | platform: unknown | topics: matrix, breadth_first_search, binary_search | last seen: 2026-09-20, 2026-09-16, 2026-08-30, 2026-08-28, 2026-08-27, 2026-08-21, 2026-08-18, 2026-08-14, 2026-07-16, 2026-07-09, 2026-07-04 | employment: FULLTIME, NEW GRAD
+
+## Problem
+
+A city is represented by a binary grid. A cell marked 1 is a delivery center, and a cell marked 0 is any other place.
+The distance between two cells is the maximum of the absolute row-coordinate difference and the absolute column-coordinate difference. The inconvenience of the grid is the maximum, over every 0 cell, of its distance to the nearest delivery center.
+Amazon may open one new delivery center by converting at most one 0 cell into 1. Return the minimum possible inconvenience after this conversion.
+
+## Constraints
+
+- 1 <= n, m <= 500
+  - 0 <= grid[i][j] <= 1
+
+### Example 1
+- **grid** (`int[][]`) = `[[0,0,0,0],[0,0,0,0],[0,0,0,0]]`
+- **output** (`int`) = `2`
+
+With no existing delivery center, it is optimal to convert the center cell (1,1) to 1. The farthest cells then have distance 2.
+
+### Example 2
+- **grid** (`int[][]`) = `[[0]]`
+- **output** (`int`) = `0`
+
+Convert the only cell to a delivery center, leaving no 0 cell with positive distance.
+
+## Starter code
+
+```
+public int getMinInconvenience(int[][] grid) {
+  // write your code here
+}
+```
+
+
+---
+
+# Minimum Number of Chairs  (Google)
+
+> id: `google-meeting-rooms-ii` | difficulty: easy | stage: OA, PHONE SCREEN, ONSITE INTERVIEW | platform: codesignal | topics: intervals, sorting, heap | last seen: 2026-09-20, 2026-02-02, 2026-02-01, 2025-12-09, 2024-02-16 | employment: FULLTIME, NEW GRAD
+
+## Problem
+
+There are n guests who are invited to a party. The k-th guest will attend the party at time S[k] and leave the party at time E[k].
+    
+
+    Given an integer array S and an integer array E, both of length n, return an integer denoting the minimum number of chairs you need such that everyone attending the party can sit down.
+    
+Function Description 
+      Complete the function minChairs in the editor.
+      
+
+      minChairs has the following parameters:
+        
+
+            - int S[n]: an array of integers representing the arrival times
+
+            - int E[n]: an array of integers representing the leaving times
+
+        
+Returns 
+        int: the minimum number of chairs needed
+
+## Constraints
+
+- 1 ≤ S.length = E.length ≤ 2 * 10^5
+  - S[i] < E[i] for every guest.
+  - Attendance intervals are half-open: a guest leaving at time t frees a chair for a guest arriving at time t.
+  - All times are integers in [-10^9, 10^9].
+
+### Example 1
+- **S** (`int[]`) = `[1, 2, 6, 5, 3]`
+- **E** (`int[]`) = `[5, 5, 7, 6, 8]`
+- **output** (`int`) = `3`
+
+There are five guests attending the party.
+        
+          
+  - The 1st guest will arrive at time 1. We need one chair at time 1.
+  - The 2nd guest will arrive at time 2. There are now two guests at the party, so we need two chairs at time 2.
+  - The 5th guest will arrive at time 3. There are now three guests at the party, so we need three chairs at time 3.
+  - The 4th guest will arrive at time 5 and, at the same moment, the 1st and 2nd guests will leave the party.
+  - There are now two (the 4th and 5th) guests at the party, so we need two chairs at time 5.
+  - The 3rd guest will arrive at time 6, and the 4th guest will leave the party at the same time.
+  - There are now two (the 3rd and 5th) guests at the party, so we need two chairs at time 6.
+
+      
+So we need at least 3 chairs.
+
+## Starter code
+
+```
+
+public int minChairs(int[] S, int[] E) {
+    // write your code here
+}
+
+```
+
+## Source note
+
+A 2026 Google master's internship report described a coding question equivalent to the familiar meeting-room allocation problem. Because the report only identified the pattern, this existing canonical version is preserved.
+
+
+---
+
+# Count Score Categories  (Google)
+
+> id: `google-count-score-categories` | difficulty: easy | stage: OA | platform: codility | topics: array, simulation | last seen: 2026-09-20, 2026-09-17, 2026-09-14, 2026-09-10 | employment: INTERN, NEW GRAD
+
+## Problem
+
+You are given an integer array scores. Classify every score into exactly one category:
+  - Failed: the score is less than 50.
+  - Regular pass: the score is from 50 through 80, inclusive.
+  - Passed with honors: the score is greater than 80.
+
+Return an array containing the three category counts in this order: failed, regular pass, passed with honors.
+
+## Constraints
+
+- 1 <= scores.length <= 100.
+  - 0 <= scores[i] <= 100.
+
+### Example 1
+- **scores** (`int[]`) = `[49,50,80,81,100]`
+- **output** (`int[]`) = `[1,2,2]`
+
+49 fails, 50 and 80 are regular passes, and 81 and 100 pass with honors.
+
+### Example 2
+- **scores** (`int[]`) = `[50,75,80,20,90]`
+- **output** (`int[]`) = `[1,3,1]`
+
+Only 20 fails, 50, 75, and 80 are regular passes, and 90 passes with honors.
+
+### Example 3
+- **scores** (`int[]`) = `[0,100]`
+- **output** (`int[]`) = `[1,0,1]`
+
+0 fails, no score is a regular pass, and 100 passes with honors.
+
+## Starter code
+
+```
+public int[] countScoreCategories(int[] scores) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source image supplies the category order, the [0,100] example, exact score bounds, and the visible one-pass logic. The judged core task matches the visible source at about 98%.
+
+
+---
+
+# Book Reading Evenings  (Google)
+
+> id: `google-book-reading-evenings` | difficulty: easy | stage: OA | platform: codility | topics: array, greedy, simulation | last seen: 2026-09-20, 2026-09-17, 2026-09-10 | employment: INTERN, NEW GRAD
+
+## Problem
+
+A book contains chapters that must be read in order. The integer array chapter gives the minutes needed to finish each chapter, and evening[j] gives the minutes available on the j-th evening.
+During each evening, read as many consecutive unread chapters as possible. A chapter may be started only when it can be finished during that same evening, so a chapter is never split across evenings. Any unused time at the end of an evening is discarded.
+Return the one-based number of the evening on which the final chapter is finished. If the book cannot be finished within the supplied evenings, return -1.
+
+## Constraints
+
+- 1 <= chapter.length, evening.length <= 100000.
+  - 1 <= chapter[i], evening[j] <= 10^9.
+
+### Example 1
+- **chapter** (`int[]`) = `[3,2,1]`
+- **evening** (`int[]`) = `[2,5,3,3]`
+- **output** (`int`) = `3`
+
+No chapter fits on evening 1. The first two chapters fit on evening 2, and the last chapter finishes on evening 3.
+
+### Example 2
+- **chapter** (`int[]`) = `[5,8,5]`
+- **evening** (`int[]`) = `[9,4,5,3,8]`
+- **output** (`int`) = `-1`
+
+The first chapter finishes on evening 1. The second chapter cannot finish until evening 5, leaving no evening for the final chapter.
+
+### Example 3
+- **chapter** (`int[]`) = `[3,4,7]`
+- **evening** (`int[]`) = `[5,6,7]`
+- **output** (`int`) = `3`
+
+Exactly one chapter is completed on each evening, so the book finishes on evening 3.
+
+## Starter code
+
+```
+public int solution(int[] chapter, int[] evening) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source images supply the ordered whole-chapter rules, Python solution entry point, and all three original examples. The source does not state the practice bounds. The judged core task matches the visible source at about 98%.
+
+
+---
+
+# Obstacle Placement Queries  (Capital One)
+
+> id: `capital-one-obstacle-placement-queries` | difficulty: medium | stage: OA | platform: unknown | topics: intervals, simulation | last seen: 2026-09-20, 2026-08-04 | employment: INTERN, FULLTIME
+
+## Problem
+
+A special thank-you to the friend who kindly shared that this problem was seen again on August 4, 2026! ദ്ദി(ᵔᗜᵔ)
+You are given an infinite number line and an array operations. Process the operations in order while maintaining the coordinates that contain obstacles.
+  - [1, x]: Place an obstacle at coordinate x. Coordinate x is guaranteed to contain no obstacle when this operation is performed.
+  - [2, x, size]: Check whether a block of length size can end immediately before coordinate x. The block would occupy every integer coordinate from x - size through x - 1. Append '1' to the answer if none of those coordinates contains an obstacle; otherwise append '0'. This operation only checks feasibility and does not place the block.
+
+Return the binary string formed by the results of all type-2 operations in their original order.
+
+### Example 1
+- **operations** (`int[][]`) = `[[2, 0, 2], [1, 1], [2, 0, 2], [2, 2, 2]]`
+- **output** (`String`) = `"110"`
+
+- [2, 0, 2] checks coordinates -2 and -1. There are no obstacles, so append 1.
+  - [1, 1] places an obstacle at coordinate 1.
+  - [2, 0, 2] still checks coordinates -2 and -1. Both are free, so append 1.
+  - [2, 2, 2] checks coordinates 0 and 1. Coordinate 1 contains an obstacle, so append 0.
+
+## Starter code
+
+```
+public String obstaclePlacementQueries(int[][] operations) {
+  // write your code here
+}
+
+```
+
+
+---
+
+# Lowest Common Ancestor in a Parent Tree  (BlackRock)
+
+> id: `blackrock-lowest-common-ancestor-parent-tree` | difficulty: easy | stage: OA | platform: unknown | topics: tree, hash_table | last seen: 2026-09-20 | employment: NEW GRAD
+
+## Problem
+
+A rooted tree with nodes 0 through n - 1 is represented by parent. The root is node 0, parent[0] = -1, and for every other node i, parent[i] is its direct parent.
+Given nodes p and q, return their lowest common ancestor: the common ancestor farthest from the root. A node is an ancestor of itself.
+
+## Constraints
+
+- 1 <= parent.length <= 100000.
+  - parent[0] = -1.
+  - For i > 0, 0 <= parent[i] < i.
+  - 0 <= p, q < parent.length.
+
+### Example 1
+- **parent** (`int[]`) = `[-1,0,0,1,1,2,2]`
+- **p** (`int`) = `3`
+- **q** (`int`) = `4`
+- **output** (`int`) = `1`
+
+Nodes 3 and 4 are both direct children of node 1.
+
+### Example 2
+- **parent** (`int[]`) = `[-1,0,0,1,1,2,2]`
+- **p** (`int`) = `3`
+- **q** (`int`) = `6`
+- **output** (`int`) = `0`
+
+The two nodes lie in different root subtrees.
+
+## Starter code
+
+```
+public int lowestCommonAncestor(int[] parent, int p, int q) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The original report names the lowest-common-ancestor task but not a portable tree interface. This practice version uses the smallest deterministic parent-array representation of the same rooted-tree capability.
+
+
+---
+
+# Valid Parentheses  (BlackRock)
+
+> id: `blackrock-valid-parentheses` | difficulty: easy | stage: OA | platform: unknown | topics: string, stack | last seen: 2026-09-20 | employment: NEW GRAD
+
+## Problem
+
+Given a string s containing only (, ), [, ], {, and }, return whether it is valid.
+A string is valid when every opening bracket is closed by the same bracket type and brackets close in the correct nested order. The empty string is valid.
+
+## Constraints
+
+- 0 <= s.length <= 100000.
+  - s contains only the six bracket characters listed above.
+
+### Example 1
+- **s** (`String`) = `"([]{})"`
+- **output** (`boolean`) = `true`
+
+Every bracket closes in the reverse order in which it opened.
+
+### Example 2
+- **s** (`String`) = `"([)]"`
+- **output** (`boolean`) = `false`
+
+The closing parenthesis appears before the square bracket is closed.
+
+## Starter code
+
+```
+public boolean isValidParentheses(String s) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The original report names the canonical bracket-validation task. This practice version states the conventional bracket alphabet, nesting rule, and empty-input behavior.
+
+
+---
+
+# Circular High-Low Pattern  (Capital One)
+
+> id: `capital-one-circular-high-low-pattern` | difficulty: easy | stage: OA | platform: unknown | topics: array | last seen: 2026-09-20 | employment: FULLTIME
+
+## Problem
+
+Given an even-length circular integer array values, return whether its elements strictly alternate between local lows and local highs.
+For every index i, compare values[i] with its two circular neighbors. Every element must be strictly greater than both neighbors or strictly less than both neighbors, and adjacent elements must have opposite roles. Equal adjacent values are not allowed.
+
+## Constraints
+
+- 4 <= values.length <= 100000.
+  - values.length is even.
+  - -1000000000 <= values[i] <= 1000000000.
+
+### Example 1
+- **values** (`int[]`) = `[1,3,2,4]`
+- **output** (`boolean`) = `true`
+
+Reading around the circle gives low, high, low, high.
+
+### Example 2
+- **values** (`int[]`) = `[1,2,3,4]`
+- **output** (`boolean`) = `false`
+
+Values 2 and 3 are neither alternating circular extrema.
+
+## Starter code
+
+```
+public boolean isCircularHighLow(int[] values) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The original report asks whether a circular array follows a high-low arrangement. This practice version makes strict circular-neighbor comparisons and equality behavior explicit.
+
+
+---
+
+# Find a Symbolic Matrix Pattern  (Capital One)
+
+> id: `capital-one-symbolic-matrix-pattern` | difficulty: medium | stage: OA | platform: unknown | topics: matrix, hash_table | last seen: 2026-09-20 | employment: FULLTIME
+
+## Problem
+
+Given an integer matrix matrix and a rectangular symbol grid pattern, find the first contiguous submatrix whose equality structure matches the pattern.
+Each distinct symbol must map to exactly one integer. Repeated copies of a symbol must map to the same integer, and different symbols must map to different integers. Return the top-left coordinate [row, column] of the first match in row-major order, or [-1, -1] when no match exists.
+
+## Constraints
+
+- 1 <= matrix.length, matrix[i].length <= 200.
+  - 1 <= pattern.length <= matrix.length.
+  - Every pattern row has the same positive length, no greater than the matrix width.
+  - Each symbol is a nonempty string of letters.
+
+### Example 1
+- **matrix** (`int[][]`) = `[[1,2,4,5],[2,3,6,7],[6,4,2,2]]`
+- **pattern** (`String[][]`) = `[["A","T"],["T","B"]]`
+- **output** (`int[]`) = `[0,0]`
+
+A maps to 1, T maps to 2, and B maps to 3.
+
+### Example 2
+- **matrix** (`int[][]`) = `[[5,5],[5,6]]`
+- **pattern** (`String[][]`) = `[["X","Y"],["Y","Z"]]`
+- **output** (`int[]`) = `[-1,-1]`
+
+Different symbols X and Y cannot both map to 5.
+
+## Starter code
+
+```
+public int[] findSymbolicPattern(int[][] matrix, String[][] pattern) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The original report supplies an integer matrix, a smaller symbol pattern, and a concrete repeated-symbol example. This practice version states the conventional bijective symbol-to-value rule and deterministic first-match result.
+
+
+---
+
+# Incident Monitor  (Stripe)
+
+> id: `stripe-incident-monitor` | difficulty: hard | stage: OA | platform: unknown | topics: array, string, hash_table, sliding_window, queue, simulation, parsing | last seen: 2026-09-19, 2026-09-15, 2026-09-07, 2026-09-01, 2026-08-27, 2026-08-23, 2026-08-11, 2026-07-26, 2026-07-15 | employment: FULLTIME, NEW GRAD
+
+## Problem
+
+Background & Definitions
+At Stripe, we monitor millions of transactions hourly to ensure API health. Your goal is to analyze a list of transaction logs, detect error spikes, and trigger alerts when an incident is likely in progress.
+Task
+Implement the detect_incidents(logs) function. It analyzes a list of transactions (that can be successful or erroneous), and emit alert trigger/resolve events if certain conditions are met.
+Sliding Window
+For every entry in the transaction log, evaluate whether an alert needs to be triggered or resolved. All evaluations use a 30-second sliding window.
+For example, for a log at timestamp T, the window includes all logs with timestamps in the range [T-29, T] (inclusive on both ends).
+The evaluation criteria will be described below.
+Alert
+Each alert is tied to a specific (merchant_id, status_code) pair (details about these fields can be found below, in the Input Format section).
+A merchant may therefore have multiple active alerts at once, one per distinct error status code.
+De-duplication
+If an alert has been triggered for a particular (merchant_id, status_code) pair and is still active (has not been resolved in the meantime), do not trigger a duplicate alert, even if the conditions for the alert continue to manifest.
+Input Format
+The input (the logs parameter) represents the list of transactions to analyze. It is an array of strings, where each entry has the format: timestamp,merchant_id,status_code,count.
+  - timestamp: An integer that represents seconds.
+  - merchant_id: The id of the merchant these transactions belong to.
+  - status_code: HTTP Status Code. Always one of the following:  - 200: Represents successful transactions.
+  - 4xx (e.g., 400, 404, 429): Represents client errors.
+  - 5xx (e.g., 500, 503): Represents server errors.
+
+  - count: An integer representing how many times that outcome was observed for that merchant in that second.
+
+Assumptions:
+  - The input is always valid, and corresponds to the format described above.
+  - Logs are guaranteed to be sorted by timestamp.
+  - The input dataset contains no duplicate (timestamp, merchant_id, status_code) entries.
+
+Output Format
+The function will return all the alert events that result from the given list of transactions.
+The output format is an array of strings, where each string is a record in the format: timestamp,event_type,merchant_id,status_code, representing:
+  - timestamp: the timestamp (second) when the alert event was triggered/resolved.
+  - event_type: one of the following:  - TRIGGER: Emitted when error conditions are first met for a merchant_id/status_code pair.
+  - RESOLVE: Emitted when a previously triggered alert's conditions are no longer met.
+
+  - merchant_id: The id of the merchant associated with the current alert.
+  - status_code: The error status code associated with the current alert.
+
+Important: The output must be sorted by (timestamp ASC, merchant_id ASC, status_code ASC, event_type ASC). For event_type, alphabetical order means RESOLVE comes before TRIGGER.
+Part 1: Basic Incident Detection
+Let's build a basic incident detection mechanism first.
+Alerts should be triggered if there are at least 5 failures with the exact same error code for the same merchant within the last 30 seconds.
+Note: After finishing part 1, test cases 0 - 3 should pass.
+Part 1 Sample Test Case
+Input:
+10,merchant1,500,2
+10,merchant2,500,1
+15,merchant1,500,2
+20,merchant1,500,1
+20,merchant2,500,4Output:
+20,TRIGGER,merchant1,500
+20,TRIGGER,merchant2,500Part 2: Impact Rate Filtering (The 1% Rule)
+Large merchants naturally have more errors due to high volume. To reduce noise, we only want to alert when the error rate is significant relative to the merchant's successful transaction volume.
+Update your logic to include an Impact Threshold. An alert is now only TRIGGERED if, within the last 30 seconds, BOTH criteria are met for a specific error code:
+  - Volume: At least 5 failures for a specific error code.
+  - Impact: Those specific failures represent more than 1% of the merchant's successful transaction volume (the total count of transactions with status code 200 for that merchant) in that same window.
+
+Note: After finishing part 2, test cases 0 - 8 should pass.
+Part 2 Sample Test Case
+Input:
+10,merchant1,200,600
+12,merchant1,500,6
+15,merchant2,200,599
+16,merchant2,500,6Output:
+16,TRIGGER,merchant2,500Explanation:
+  - At timestamp 12, merchant1 has 6 errors, but they are exactly 1% of the merchant's successful volume (600), not more than that.
+  - At timestamp 16, merchant2 has 6 errors, which is > 1% of its success volume (599). So, an alert is triggered for merchant2.
+
+Part 3: Incident Resolution
+An incident monitor is only useful if it knows when a problem has stopped. Let's now implement RESOLVED events.
+An active alert for a (merchant_id, status_code) pair transitions to RESOLVED when a log arrives and the previous 30 seconds of logs no longer meet the TRIGGER criteria.
+The TRIGGER conditions from Part 2 (volume ≥ 5 AND impact > 1%) still apply.
+Rules
+  - Resolution Criteria: An alert is resolved at timestamp T if a log arrives for that merchant at T, and the 30-second window ending at T no longer meets the Trigger conditions (from Part 2).
+
+FastPrep Implementation Clarification
+In this workspace, implement detectIncidents(logs), which corresponds to the source function detect_incidents(logs).
+  - Process the entries in their given order. After each entry at timestamp T, evaluate the relevant alert states for that entry's merchant using the inclusive window [T-29, T].
+  - Emit RESOLVE only when an alert is currently active and the Part 2 conditions become false.
+  - After a RESOLVE event, that alert becomes inactive. It may emit TRIGGER again only if the Part 2 conditions are met again later.
+
+### Example 1
+- **logs** (`String[]`) = `["10,merchant1,500,2","10,merchant2,500,1","15,merchant1,500,2","20,merchant1,500,1","20,merchant2,500,4"]`
+- **output** (`String[]`) = `["20,TRIGGER,merchant1,500","20,TRIGGER,merchant2,500"]`
+
+### Example 2
+- **logs** (`String[]`) = `["10,merchant1,200,600","12,merchant1,500,6","15,merchant2,200,599","16,merchant2,500,6"]`
+- **output** (`String[]`) = `["16,TRIGGER,merchant2,500"]`
+
+At timestamp 12, merchant1 has 6 errors, but they are exactly 1% of the merchant's successful volume (600), not more than that.
+At timestamp 16, merchant2 has 6 errors, which is > 1% of its success volume (599). So, an alert is triggered for merchant2.
+
+## Starter code
+
+```
+public String[] detectIncidents(String[] logs) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The judged core task is about a 98% match to the available sources. The 30-second window, alert identity and de-duplication, five-failure threshold, strictly-greater-than-1% impact rule, resolution behavior, output ordering, and both examples are source-backed. Only a few lifecycle edge details required clarification to keep the task deterministic.
+
+
+---
+
+# Get Minimum Amount  (Amazon)
+
+> id: `amazon-get-min-amount` | difficulty: None | stage: OA | platform: unknown | topics:  | last seen: 2026-09-19, 2026-09-12, 2026-08-15, 2026-08-07, 2026-07-20, 2026-06-21, 2026-06-08 | employment: NEW GRAD
+
+## Problem
+
+The manager of the Amazon warehouse has decided to make changes to the inventory. Currently, the inventory has n products, where the quality of the ith product after quality checks is represented by the array element quality[i].
+The manager wants to create an optimal inventory, where the array of products quality follows the following property:
+  - All occurrences of each quality value must be contiguous.
+
+In order to convert the inventory into an optimal inventory, the manager can do the following operation any number of times:
+  - Choose two quality values x and y.
+  - Replace every product with quality x to have quality y instead.
+  - This operation costs num_replacements units of money, where num_replacements is the number of products whose quality was changed.
+
+Given n products and an array quality, find the minimum amount of money the manager has to spend to convert the inventory into an optimal inventory.
+Note: The quality of a product can be negative indicating that the product is of poor quality.
+Function Description Complete the function getMinAmount in the editor below.
+getMinAmount has the following parameter(s):
+int quality[n]: the quality of products
+Returns int: the minimum amount of money the manager has to spend to convert the inventory into an optimal inventory.
+
+### Example 1
+- **quality** (`int[]`) = `[7, 7, 5, 7, 3, 5, 3]`
+- **output** (`int`) = `4`
+
+Given n = 7, quality = [7, 7, 5, 7, 3, 5, 3].
+One of the optimal ways to convert is explained below:
+Hence, the total amount spent is 4.
+
+## Starter code
+
+```
+
+public int getMinAmount(int[] quality) {
+  // write your code here
+}
+
+```
+
+
+---
+
+# Rank Flights by Airline and Destination Frequency  (Capital One)
+
+> id: `capital-one-rank-flights-by-airline-and-destination` | difficulty: easy | stage: OA | platform: codesignal | topics: database, sorting | last seen: 2026-09-19, 2026-08-29, 2026-08-17, 2026-08-11 | employment: INTERN, NEW GRAD
+
+## Problem
+
+You are given a flights table. Return one output row for every flight.
+Output exactly the columns id, destination, and departure_time.
+Ordering
+  - Airlines with more total flights come first.
+  - If two airlines have the same total, order them by aviacompany in ascending order.
+  - Within an airline, destinations with more flights for that airline come first.
+  - If two destinations for the same airline have the same count, order them by destination in ascending order.
+  - Within an airline and destination, order rows by departure_time in ascending order.
+  - If all preceding sort keys tie, order rows by id in ascending order.
+
+Compute both flight counts from all rows in the input table. The duration column is not returned and does not affect the ordering.
+
+## Constraints
+
+- The id column uniquely identifies a flight.
+  - Every input cell is non-null.
+  - aviacompany and destination contain non-empty uppercase ASCII letters and spaces.
+  - departure_time is a zero-padded 24-hour time in HH-MM format.
+  - duration is an integer number of minutes.
+  - The flights table may be empty.
+
+## Table schemas
+
+```json
+[
+  {
+    "columns": [
+      {
+        "description": "Unique flight identifier.",
+        "name": "id",
+        "nullable": false,
+        "type": "integer"
+      },
+      {
+        "description": "Airline operating the flight.",
+        "name": "aviacompany",
+        "nullable": false,
+        "type": "text"
+      },
+      {
+        "description": "Flight destination code.",
+        "name": "destination",
+        "nullable": false,
+        "type": "text"
+      },
+      {
+        "description": "Zero-padded departure time in HH-MM format.",
+        "name": "departure_time",
+        "nullable": false,
+        "type": "text"
+      },
+      {
+        "description": "Flight duration in minutes.",
+        "name": "duration",
+        "nullable": false,
+        "type": "integer"
+      }
+    ],
+    "description": "Flight records used to compute airline and destination frequencies.",
+    "name": "flights",
+    "primaryKey": [
+      "id"
+    ]
+  }
+]
+```
+
+## Source note
+
+The source omits how to break ties after departure time; the judged core task matches the visible source at about 98%.
+
+
+---
+
+# Minimize Expression Value with Parentheses  (Hudson River Trading)
+
+> id: `hrt-minimize-expression-value-with-parentheses` | difficulty: medium | stage: OA | platform: codesignal | topics: string, math | last seen: 2026-09-19 | employment: FULLTIME, NEW GRAD, INTERN
+
+## Problem
+
+You are given a string expr representing the sum of two positive integers. Neither integer contains a zero in its decimal representation.
+Insert exactly one pair of parentheses so that the plus sign is inside the parentheses and there is at least one digit between the plus sign and each parenthesis.
+Any digits outside the parentheses form multiplication factors. If there are no digits on one side of the parentheses, the missing factor is 1.
+For example, 741+12 may become 74(1+1)2, which is evaluated as 74 * (1 + 1) * 2 = 296. Placements such as (74)1+12 and 741(+12) are invalid.
+Return the smallest value obtainable from any valid placement of the parentheses.
+A solution with time complexity no worse than O(expr.length^4) will fit within the execution time limit.
+
+## Constraints
+
+- expr contains exactly one plus sign.
+  - At least one digit appears on each side of the plus sign.
+  - Every digit in expr is between 1 and 9.
+  - Every value produced by a valid placement fits in a signed 32-bit integer.
+
+### Example 1
+- **expr** (`String`) = `"112+422"`
+- **output** (`int`) = `108`
+
+The placement 1(12+42)2 evaluates to 1 * 54 * 2 = 108, the smallest value among all valid placements.
+
+### Example 2
+- **expr** (`String`) = `"12+34"`
+- **output** (`int`) = `20`
+
+The placement 1(2+3)4 evaluates to 1 * 5 * 4 = 20, which is minimal.
+
+### Example 3
+- **expr** (`String`) = `"999+999"`
+- **output** (`int`) = `1998`
+
+Putting both complete numbers inside the parentheses yields (999+999) = 1998. Every placement with an outside factor is larger.
+
+## Starter code
+
+```
+public int solution(String expr) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The source omits complete numeric bounds. The judged core task and visible example match the source at about 98%.
+
+
+---
+
+# Obstacle Placement Queries  (Hudson River Trading)
+
+> id: `hrt-obstacle-placement-queries` | difficulty: medium | stage: OA | platform: codesignal | topics: intervals, simulation | last seen: 2026-09-19 | employment: FULLTIME, NEW GRAD, INTERN
+
+## Problem
+
+You are given an infinite integer number line and an array operations. Process the operations in order while maintaining the coordinates that contain obstacles.
+  - [1, x]: Place an obstacle at coordinate x. Coordinate x is guaranteed to contain no obstacle when this operation is performed.
+  - [2, x, size]: Check whether a block of length size can end immediately before coordinate x. The block would occupy every integer coordinate from x - size through x - 1. Append '1' to the answer if none of those coordinates contains an obstacle; otherwise append '0'. This operation only checks feasibility and does not place the block.
+
+Return the binary string formed by the results of all type-2 operations in their original order.
+
+### Example 1
+- **operations** (`int[][]`) = `[[1,2],[1,5],[2,5,2],[2,6,3],[2,2,1],[2,3,2]]`
+- **output** (`String`) = `"1010"`
+
+- Place obstacles at coordinates 2 and 5.
+  - The block before 5 covers 3 and 4, so append 1.
+  - The block before 6 covers 3, 4, and 5; coordinate 5 is blocked, so append 0.
+  - The block before 2 covers only coordinate 1, so append 1.
+  - The block before 3 covers coordinates 1 and 2; coordinate 2 is blocked, so append 0.
+
+## Starter code
+
+```
+public String solution(int[][] operations) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The source image crops the example result and complete numeric bounds. The judged operation contract matches the source at about 97%.
+
+
+---
+
+# Sorted Absolute-Difference Sums Across Cyclic Shifts  (Hudson River Trading)
+
+> id: `hrt-cyclic-shift-absolute-difference-sums` | difficulty: medium | stage: OA | platform: codesignal | topics: array, sorting, simulation | last seen: 2026-09-19 | employment: FULLTIME, NEW GRAD, INTERN
+
+## Problem
+
+Given two integer arrays nums1 and nums2 of equal length n, consider every cyclic right shift of nums1.
+For a shift of s positions, the value compared with nums2[i] is nums1[(i - s + n) % n]. Compute the sum of absolute pairwise differences for each shift s from 0 through n - 1.
+Return all n sums sorted in nondecreasing order. Use 64-bit arithmetic for the differences and sums.
+
+## Constraints
+
+- 1 <= nums1.length == nums2.length <= 200
+  - -10^9 <= nums1[i], nums2[i] <= 10^9
+
+### Example 1
+- **nums1** (`int[]`) = `[1, 4, 2, 11]`
+- **nums2** (`int[]`) = `[10, 1, 8, 4]`
+- **output** (`long[]`) = `[7, 13, 25, 25]`
+
+The four right shifts produce difference sums 25, 25, 13, and 7. Sorting them gives the returned array.
+
+### Example 2
+- **nums1** (`int[]`) = `[1, 2]`
+- **nums2** (`int[]`) = `[2, 1]`
+- **output** (`long[]`) = `[0, 2]`
+
+Without shifting, the sum is 2. Shifting right once produces [2, 1], whose sum is 0.
+
+## Starter code
+
+```
+public long[] solution(int[] nums1, int[] nums2) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The source omits formal parameter types and numeric bounds. The judged core task and visible example match the source at about 98%.
+
+
+---
+
+# Reconstruct Landmark Journey  (Capital One)
+
+> id: `capital-one-reconstruct-landmark-journey` | difficulty: medium | stage: OA | platform: codility | topics: graph, hash_table | last seen: 2026-09-18, 2026-07-20, 2026-07-01, 2026-06-26 | employment: INTERN, NEW GRAD
+
+## Problem
+
+A traveler visited a series of unique landmarks on a journey. Unfortunately, their travel journal was damaged, and they can no longer remember the exact order of their visits. However, they do have a collection of photos, each showing exactly two landmarks that were visited consecutively. Either landmark could have been visited first.
+Given the collection of photos represented as pairs of landmark IDs in travelPhotos, help the traveler reconstruct the complete journey. Each landmark was visited exactly once, and for every consecutive pair of landmarks in the journey, there exists a photo containing both landmarks.
+You may reconstruct the journey in either forward or reverse order; both are considered correct.
+
+### Example 1
+- **travelPhotos** (`int[][]`) = `[[3, 5], [1, 4], [2, 4], [1, 5]]`
+- **output** (`int[]`) = `[3, 5, 1, 4, 2]`
+
+- The photos show that landmarks 3 and 5 were visited consecutively, as were 1 and 4, 2 and 4, and 1 and 5.
+  - The journey [3, 5, 1, 4, 2] contains each of those consecutive landmark pairs.
+
+## Starter code
+
+```
+public int[] solution(int[][] travelPhotos) {
+  // write your code here
+}
+```
+
+
+---
+
+# Sewer Drainage Partition  (Two Sigma)
+
+> id: `twosigma-sewer-drainage-partition` | difficulty: medium | stage: OA | platform: hackerrank | topics: tree, depth_first_search | last seen: 2026-09-18, 2026-08-20, 2026-07-24, 2026-03-18 | employment: FULLTIME
+
+## Problem
+
+A sewer drainage system forms a rooted tree. Water enters at n nodes numbered from 0 to n - 1 and flows upward to the root 0.
+The tree is described by parent, where parent[i] = j means water flows from node i to its direct parent j. The root has parent[0] = -1.
+input[i] is the amount of water entering directly at node i. The total flow through a node is its own direct input plus the total flows of all of its children.
+Cut exactly one branch so the tree is split into two subtrees. Return the minimum possible absolute difference between the total flows of the two resulting parts.
+Function Description Complete drainagePartition.
+drainagePartition has the following parameters:
+  - int[] parent: the parent array describing the rooted tree
+  - int[] input: direct inflow at each node
+
+Returns: int minimum absolute difference after cutting one branch.
+
+## Constraints
+
+- 2 <= n <= 10^5
+  - 1 <= input[i] <= 10^4
+  - parent[0] = -1
+  - 0 <= parent[i] < i for 1 <= i < n
+  - The tree depth is at most 500.
+
+### Example 1
+- **parent** (`int[]`) = `[-1,0,0,1,1,2]`
+- **input** (`int[]`) = `[1,2,2,1,1,1]`
+- **output** (`int`) = `0`
+
+Cut the edge between nodes 1 and 0. One component has nodes {0,2,5} with total flow 4, and the other has nodes {1,3,4} with total flow 4. The difference is 0.
+
+### Example 2
+- **parent** (`int[]`) = `[-1,0,1,2]`
+- **input** (`int[]`) = `[1,4,3,4]`
+- **output** (`int`) = `2`
+
+Cut the edge between nodes 1 and 2. The two resulting parts have total flows 5 and 7, so the minimum difference is 2.
+
+## Starter code
+
+```
+public int drainagePartition(int[] parent, int[] input) {
+  // write your code here
+}
+
+```
+
+
+---
+
+# Compare Counts Around Pivot  (Capital One)
+
+> id: `capital-one-compare-counts-around-pivot` | difficulty: easy | stage: OA | platform: codility | topics: array, simulation | last seen: 2026-09-18, 2026-07-20, 2026-06-26 | employment: INTERN
+
+## Problem
+
+You are given an array of integers numbers and an integer pivot. Let countGreater denote how many integers within numbers are strictly greater than pivot, and countLess denote how many integers are strictly less than pivot.
+Your task is to compute countGreater and countLess, then return:
+  - "greater" if countGreater is greater than countLess;
+  - "smaller" if countGreater is less than countLess;
+  - "tie" if they are equal.
+
+Note: You are not expected to provide the most optimal solution, but a solution with time complexity not worse than O(numbers.length^2) will fit within the execution time limit.
+
+### Example 1
+- **numbers** (`int[]`) = `[1, 3, 0, -1, 1, 4, 3]`
+- **pivot** (`int`) = `2`
+- **output** (`String`) = `"smaller"`
+
+There are countGreater = 3 integers greater than pivot = 2. The integers less than 2 are 1, 0, -1, and 1, so countLess = 4. Since countGreater is less than countLess, the result is "smaller".
+
+## Starter code
+
+```
+public String solution(int[] numbers, int pivot) {
+  // write your code here
+}
+```
+
+
+---
+
+# Format a Newspaper Page  (Capital One)
+
+> id: `capital-one-format-newspaper-page` | difficulty: medium | stage: OA | platform: codesignal | topics: string, greedy, simulation | last seen: 2026-09-18, 2026-07-20, 2026-06-26 | employment: INTERN
+
+## Problem
+
+You are given an array of paragraphs paragraphs, an array aligns, and an integer width.
+  - paragraphs[i] is the ith paragraph, represented as an ordered array of words.
+  - aligns[i] is either LEFT or RIGHT and specifies how paragraph i is aligned.
+  - width is the exact number of characters in every formatted output line.
+
+Format the paragraphs in order. Within each paragraph, preserve the word order and separate adjacent words with one space. Greedily place as many consecutive words as possible on each line without making its length exceed width. If the next word does not fit, start a new line with that word.
+After packing a line, fill its remaining positions with spaces. For LEFT alignment, append the spaces after the words. For RIGHT alignment, prepend the spaces before the words.
+Return all formatted lines in paragraph order as a string array. Each returned string must contain exactly width characters.
+
+## Constraints
+
+- paragraphs.length = aligns.length.
+  - Every value in aligns is either LEFT or RIGHT.
+  - width is positive.
+  - Every word has length at most width.
+
+### Example 1
+- **paragraphs** (`String[][]`) = `[["The","quick","brown","fox"],["jumps","over","it"]]`
+- **aligns** (`String[]`) = `["LEFT","RIGHT"]`
+- **width** (`int`) = `10`
+- **output** (`String[]`) = `["The quick ","brown fox ","jumps over","        it"]`
+
+The first paragraph is left-aligned. The quick and brown fox each use 9 characters, so each receives one trailing space. The second paragraph is right-aligned. jumps over already uses all 10 characters, while it receives eight leading spaces.
+
+## Starter code
+
+```
+public String[] formatNewspaperPage(String[][] paragraphs, String[] aligns, int width) {
+  // write your code here
+}
+```
+
+## Source note
+
+The lower portion of the original prompt is not visible. The judged core task matches the visible text-packing and paragraph-alignment rules at about 92%.
+
+
+---
+
+# Inventory Allocation  (Amazon)
+
+> id: `amazon-inventory-allocation` | difficulty: medium | stage: OA | platform: unknown | topics: simulation, sorting, heap | last seen: 2026-09-18, 2026-06-28 | employment: NEW GRAD
+
+## Problem
+
+You are given a list of inventory requests. Each request is represented as [customerId, quantity, bidAmount, timestamp].
+Allocate totalInventory items using these rules:
+  - Requests with a higher bidAmount are processed before lower bids.
+  - For requests with the same bidAmount, items are distributed in round-robin order by increasing timestamp.
+  - During each round, a customer can receive at most one item.
+  - A customer leaves the current round-robin group once their requested quantity is fulfilled.
+  - Lower bids are considered only after every higher bid has either been fulfilled or inventory is exhausted.
+
+Return the customer IDs of customers who receive no items, in the same order their requests appear in the input.
+Function Description Complete the function getUnfulfilledCustomers.
+  - int requests[n][4]: rows of [customerId, quantity, bidAmount, timestamp]
+  - int totalInventory: the number of items available
+
+Returns int[]: customers who receive no items.
+
+## Constraints
+
+- 1 <= requests.length <= 10^5
+  - requests[i].length = 4
+  - customer IDs are unique.
+  - 0 <= timestamp <= 10^9
+  - 0 <= totalInventory <= 10^9
+
+### Example 1
+- **requests** (`int[][]`) = `[[1,5,5,0],[2,7,8,1],[3,7,5,1],[4,10,3,3]]`
+- **totalInventory** (`int`) = `18`
+- **output** (`int[]`) = `[4]`
+
+Customer 2 is fully served first because bid 8 is highest. Customers 1 and 3 then share the remaining inventory at bid 5. No inventory remains for customer 4.
+
+### Example 2
+- **requests** (`int[][]`) = `[[1,2,10,0],[2,3,10,1],[3,1,5,0]]`
+- **totalInventory** (`int`) = `3`
+- **output** (`int[]`) = `[3]`
+
+The bid-10 group receives all 3 available items before the lower bid is considered, so customer 3 receives none.
+
+## Starter code
+
+```
+public int[] getUnfulfilledCustomers(int[][] requests, int totalInventory) {
+  // write your code here
+}
+```
+
+
+---
+
+# Linear Warehouse Drone Delivery  (Capital One)
+
+> id: `capital-one-linear-warehouse-drone-delivery` | difficulty: easy | stage: OA | platform: codesignal | topics: array, sorting, two_pointers, greedy, simulation | last seen: 2026-09-18, 2026-06-26 | employment: INTERN
+
+## Problem
+
+You are designing a delivery system that uses drones in a linear warehouse. The warehouse is a number line that starts at position 0 and ends at position target.
+Charging stations are placed at the positions in stations. A fully charged drone can carry the cargo at most 10 units to the right. For example, a drone launched at position 12 can reach any position through 22, inclusive, but cannot reach position 23.
+Starting with the cargo at position 0, repeat this protocol until it reaches target:
+  - Carry the cargo on foot from its current position to the nearest charging station at or ahead of that position. If there is no such station before the target, carry the cargo directly to target.
+  - Launch a fully charged drone from that station and send the cargo as far as possible toward target, up to 10 units.
+  - If the target has not been reached, walk to the position where the drone landed, retrieve the cargo, and repeat.
+
+Return the total distance over which the cargo is carried on foot. Walking performed without the cargo is not included.
+
+## Constraints
+
+- 1 ≤ target ≤ 10^9
+  - 0 ≤ stations.length ≤ 10^5
+  - 0 ≤ stations[i] ≤ target
+
+### Example 1
+- **target** (`int`) = `23`
+- **stations** (`int[]`) = `[7,4,14]`
+- **output** (`int`) = `4`
+
+Carry the cargo from 0 to station 4, adding 4. The drone carries it to 14. A drone can then launch from station 14 and reach 23, so no more cargo-carrying on foot is needed.
+
+### Example 2
+- **target** (`int`) = `25`
+- **stations** (`int[]`) = `[20,10,0]`
+- **output** (`int`) = `0`
+
+The cargo begins at station 0. Drones launched from stations 0, 10, and 20 carry it all the way to the target, so the cargo is never carried on foot.
+
+### Example 3
+- **target** (`int`) = `28`
+- **stations** (`int[]`) = `[25,3]`
+- **output** (`int`) = `15`
+
+Carry the cargo 3 units to station 3, then the drone carries it to 13. Carry it another 12 units to station 25, whose drone reaches the target. The total is 3 + 12 = 15.
+
+## Starter code
+
+```
+public int solution(int target, int[] stations) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The visible source establishes the warehouse model, the 10-unit drone range, the first two delivery steps, and the sort-and-scan approach. The completed retrieval step, return-value details, examples, numeric bounds, and some edge behavior are reconstructed for practice. The judged core task matches the visible source at about 92%.
+
+
+---
+
 # Customer Resource Usage Analysis  (IBM)
 
-> id: `ibm-customer-resource-usage-analysis` | difficulty: easy | stage: OA | platform: unknown | topics: database | last seen: 2026-09-18, 2026-09-06 | employment: FULLTIME
+> id: `ibm-customer-resource-usage-analysis` | difficulty: easy | stage: OA | platform: unknown | topics: database | last seen: 2026-09-18, 2026-09-06 | employment: FULLTIME, NEW GRAD, INTERN
 
 ## Problem
 
@@ -100,46 +5983,311 @@ The source provides the PostgreSQL objective, complete two-table schema, result 
 
 ---
 
-# Count Score Categories  (Google)
+# Minimum Jump Cost  (Microsoft)
 
-> id: `google-count-score-categories` | difficulty: easy | stage: OA | platform: codility | topics: array, simulation | last seen: 2026-09-17, 2026-09-14, 2026-09-10 | employment: INTERN
+> id: `microsoft-minimum-jump-cost` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, dynamic_programming, queue | last seen: 2026-09-18, 2026-08-01 | employment: FULLTIME
 
 ## Problem
 
-You are given an integer array scores. Classify every score into exactly one category:
+There are n points on the x-axis at coordinates 1, 2, 3, ..., n. The i-th point has an associated cost cost[i].
+Starting from coordinate x = 0, you can make jumps of length at most k. Whenever you stop at a point, you incur the cost of that point.
+Find the minimum total cost required to reach point n.
+
+## Constraints
+
+- 1 <= n <= 3 * 10^5
+  - 1 <= k <= n
+  - 1 <= cost[i] <= 10^9
 
 ### Example 1
-- **scores** (`int[]`) = `[49,50,80,81,100]`
-- **output** (`int[]`) = `[1,2,2]`
+- **cost** (`int[]`) = `[4,3,9,3,1]`
+- **k** (`int`) = `2`
+- **output** (`long`) = `7`
 
-49 fails, 50 and 80 are regular passes, and 81 and 100 pass with honors.
+The optimal jump pattern is 0 -> 2 -> 4 -> 5. The cost of stopping at points 2, 4, and 5 is 3 + 3 + 1 = 7, which is the minimum possible.
 
-## Source note
+### Example 2
+- **cost** (`int[]`) = `[1,2,3,4]`
+- **k** (`int`) = `2`
+- **output** (`long`) = `6`
 
-The source image supplies the category order, the [0,100] example, exact score bounds, and the visible one-pass logic. The judged core task matches the visible source at about 98%.
+The optimal path is 0 -> 2 -> 4, with total cost 2 + 4 = 6.
+
+## Starter code
+
+```
+public long getMinimumCost(int[] cost, int k) {
+  // write your code here
+}
+```
 
 
 ---
 
-# Book Reading Evenings  (Google)
+# IPO Share Allocation  (Two Sigma)
 
-> id: `google-book-reading-evenings` | difficulty: easy | stage: OA | platform: codility | topics: array, greedy, simulation | last seen: 2026-09-17, 2026-09-10 | employment: INTERN
+> id: `two-sigma-ipo-share-allocation` | difficulty: hard | stage: OA | platform: unknown | topics: sorting, greedy, simulation | last seen: 2026-09-18, 2026-08-20 | employment: FULLTIME
 
 ## Problem
 
-A book contains chapters that must be read in order. The integer array chapter gives the minutes needed to finish each chapter, and evening[j] gives the minutes available on the j-th evening.
-During each evening, read as many consecutive unread chapters as possible. A chapter may be started only when it can be finished during that same evening, so a chapter is never split across evenings. Any unused time at the end of an evening is discarded.
+An initial public offering (IPO) refers to the process of offering shares of a private corporation to the public in a new stock issuance. Public share issuance allows a company to raise capital from public investors. IPO process can go through a typical auction, and an IPO price is not set before the auction. Potential buyers are able to bid for the shares they want and the price they are willing to pay. The bidders who were willing to pay the highest price are then allocated the shares available.
+Before the auction ends, potential buyers can submit bids containing: user Id, number of shares, bidding price, timestamp. Once all the bids are submitted, the allotted placement is assigned to the bidders from the highest bids down, until all of the allotted shares are assigned. The auction assigns shares in multiple rounds until all shares are allocated or no more bids. In each round, it finds the bids with highest prices, assigns the shares, and removes the assigned bids:
+  - If the bid (with the highest price) has only 1 bidders, the bidder gets shares he/she bids for (or get whatever left if the unallocated shares are less than the bid shares);
+  - If the bids (with the highest price) have multiple bidders, the bidders are assigned shares as follows: Shares are distributed round robin style (i.e. one share per bidder in sequence until shares are all allocated) to bidders in the same price group, with the bidders sorted by timestamp. Once a bidder gets the number of shares they bid for, they will be removed from the above iterative process and the process which then continues until all bidders are removed or the shares get exhausted, whichever comes first.
+
+Find out all bidders (user IDs) with no share allocation.
+Complete the function getResults in the editor below. The function must return a list of integers, each an Id for those bidders who receive no shares, sorted ascending.
+getResults has the following parameter(s):
+  - bids[bids[0],...bids[n-1]]: a 2D array of arrays of integers, Id, shares, price, timestamp named u, sc, bp, ts going forward
+  - totalShares: an integer, the total shares to allocate
+
+## Constraints
+
+- 1 ≤ n < 10^4
+  - 1 ≤ u, sc, bp, ts, totalShares < 10^8
 
 ### Example 1
-- **chapter** (`int[]`) = `[3,2,1]`
-- **evening** (`int[]`) = `[2,5,3,3]`
-- **output** (`int`) = `3`
+- **bids** (`int[][]`) = `[[1,2,5,0],[2,1,4,2],[3,5,4,6]]`
+- **totalShares** (`int`) = `3`
+- **output** (`int[]`) = `[3]`
 
-No chapter fits on evening 1. The first two chapters fit on evening 2, and the last chapter finishes on evening 3.
+There are totalShares = 3 shares among the 3 bidders. The first 2 shares are allotted to the user with Id 1 as it has the highest bidding price. The 3rd share is allotted to the user with Id 2 as it is the first user, based on timestamp, in the bidding group having the bidding price 4. The only bidder who doesn't receive shares has user Id of 3.
+
+## Starter code
+
+```
+public int[] getResults(int[][] bids, int totalShares) {
+  // Write your code here.
+}
+
+```
 
 ## Source note
 
-The source images supply the ordered whole-chapter rules, Python solution entry point, and all three original examples. The source does not state the practice bounds. The judged core task matches the visible source at about 98%.
+One visible constraint line is unreadable; the judged core task otherwise matches the visible source at about 99%.
+
+
+---
+
+# Tool Changer  (IBM)
+
+> id: `ibm-tool-changer` | difficulty: easy | stage: OA | platform: unknown | topics: array, simulation | last seen: 2026-09-18 | employment: NEW GRAD, INTERN
+
+## Problem
+
+A milling machine has a circular tool changer containing n tools. A tool name may appear more than once.
+The operator can move through the changer one position at a time, either left or right. The changer is circular, so moving past one end wraps around to the other end.
+You are given:
+  - tools, the tool names in circular order;
+  - startIndex, the index of the tool currently in use; and
+  - target, the required tool name.
+
+Return the minimum number of one-position moves needed to reach any occurrence of target from startIndex.
+
+## Constraints
+
+- 1 <= tools.length <= 100
+  - 0 <= startIndex < tools.length
+  - 1 <= tools[i].length, target.length <= 100
+  - target appears at least once in tools.
+
+### Example 1
+- **tools** (`String[]`) = `["ballendmill", "keywaycutter", "slotdrill", "facemill"]`
+- **startIndex** (`int`) = `1`
+- **target** (`String`) = `"ballendmill"`
+- **output** (`int`) = `1`
+
+The current tool is keywaycutter at index 1. The target ballendmill is at index 0. Moving left takes 1 step, while moving right takes 3 steps, so the answer is 1.
+
+### Example 2
+- **tools** (`String[]`) = `["ballendmill", "facemill", "keywaycutter", "slotdrill"]`
+- **startIndex** (`int`) = `1`
+- **target** (`String`) = `"slotdrill"`
+- **output** (`int`) = `2`
+
+The current tool is facemill at index 1. The target slotdrill is at index 3. Moving left or right takes 2 steps, so the answer is 2.
+
+## Starter code
+
+```
+public int toolchanger(String[] tools, int startIndex, String target) {
+  // Write your code here
+}
+
+```
+
+## Source note
+
+The visible circular-movement task, duplicate-target rule, outputs, and bounds match this practice at about 95%; distorted tool-name labels in the source screenshot were normalized for readability.
+
+
+---
+
+# EV Charging Cost Optimization  (Tata Consultancy Services)
+
+> id: `tata-consultancy-services-ev-charging-cost-optimization` | difficulty: medium | stage: OA | platform: unknown | topics: greedy, sorting, array | last seen: 2026-09-18 | employment: FULLTIME
+
+## Problem
+
+A fleet has charging requirements given by vehicles. Only the total required energy matters; energy from any charging slot may be assigned to any vehicle.
+Each entry in costs represents one charging slot. A slot can provide at most maxCapacity units, and every unit taken from that slot costs the corresponding value in costs. Each slot may be used partially or skipped.
+After using the slots, every unfulfilled unit costs penalty. Return the minimum total cost needed to cover or penalize the entire demand.
+Implement minimumChargingCost with integer-array parameters vehicles and costs, integer parameters maxCapacity and penalty, and return the minimum total cost as a long.
+
+## Constraints
+
+- 1 <= vehicles.length, costs.length <= 200000
+  - 0 <= vehicles[i] <= 10^9
+  - 1 <= costs[i], maxCapacity, penalty <= 10^9
+  - The answer fits in a signed 64-bit integer.
+
+### Example 1
+- **vehicles** (`int[]`) = `[5,7,3]`
+- **costs** (`int[]`) = `[10,4,8,20]`
+- **maxCapacity** (`int`) = `6`
+- **penalty** (`int`) = `9`
+- **output** (`long`) = `99`
+
+The total demand is 15. Use 6 units from the cost-4 slot and 6 units from the cost-8 slot, then pay the penalty for the remaining 3 units: 24 + 48 + 27 = 99.
+
+### Example 2
+- **vehicles** (`int[]`) = `[4,4]`
+- **costs** (`int[]`) = `[3,5]`
+- **maxCapacity** (`int`) = `5`
+- **penalty** (`int`) = `10`
+- **output** (`long`) = `30`
+
+Both slots are cheaper than the penalty. Buy 5 units at cost 3 and the remaining 3 units at cost 5.
+
+### Example 3
+- **vehicles** (`int[]`) = `[10]`
+- **costs** (`int[]`) = `[12,15]`
+- **maxCapacity** (`int`) = `4`
+- **penalty** (`int`) = `7`
+- **output** (`long`) = `70`
+
+Every charging slot is more expensive per unit than the penalty, so skip both slots and pay 10 * 7.
+
+## Starter code
+
+```
+public long minimumChargingCost(int[] vehicles, int[] costs, int maxCapacity, int penalty) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source omits input bounds and explicit equal-cost tie behavior. The judged core task matches the visible source at about 95%.
+
+
+---
+
+# Maximum Gap After Sorting  (Tata Consultancy Services)
+
+> id: `tata-consultancy-services-maximum-gap` | difficulty: easy | stage: OA | platform: unknown | topics: array, sorting | last seen: 2026-09-18 | employment: FULLTIME
+
+## Problem
+
+Given an integer array nums, sort its values in nondecreasing order and find the maximum difference between consecutive values in that sorted order.
+Return 0 when nums contains fewer than 2 values.
+Implement maximumGap with the integer-array parameter nums and return the maximum adjacent difference as an int.
+
+## Constraints
+
+- 1 <= nums.length <= 200000
+  - -10^9 <= nums[i] <= 10^9
+  - The answer fits in a signed 32-bit integer.
+
+### Example 1
+- **nums** (`int[]`) = `[3,6,9,1]`
+- **output** (`int`) = `3`
+
+After sorting, the array is [1, 3, 6, 9]. The adjacent gaps are 2, 3, and 3, so the maximum is 3.
+
+### Example 2
+- **nums** (`int[]`) = `[10]`
+- **output** (`int`) = `0`
+
+A single value has no adjacent pair.
+
+### Example 3
+- **nums** (`int[]`) = `[-5,-1,-10,4]`
+- **output** (`int`) = `5`
+
+The sorted array is [-10, -5, -1, 4], with gaps 5, 4, and 5.
+
+## Starter code
+
+```
+public int maximumGap(int[] nums) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source omits input bounds and the fewer-than-two-values edge case. The judged core task matches the visible source at about 95%.
+
+
+---
+
+# Rule-Driven Transaction Fraud Detection  (Stripe)
+
+> id: `stripe-rule-driven-transaction-fraud-detection` | difficulty: medium | stage: OA, PHONE SCREEN, ONSITE INTERVIEW | platform: unknown | topics: design, hash_table, simulation | last seen: 2026-09-17, 2026-07-25 | employment: FULLTIME
+
+## Problem
+
+Process a finite ordered batch of rule-configuration and transaction-evaluation operations. Maintain active fraud rules by unique rule ID.
+Each operation is a string array in one of these forms:
+  - ["UPSERT", ruleId, "AMOUNT_AT_LEAST", value]: create or replace a rule that matches when a transaction amount is at least value.
+  - ["UPSERT", ruleId, "COUNTRY_IS", value]: create or replace a rule that matches when the country equals value.
+  - ["UPSERT", ruleId, "MERCHANT_IS", value]: create or replace a rule that matches when the merchant equals value.
+  - ["DELETE", ruleId]: remove that rule. Deleting an unknown ID has no effect.
+  - ["EVAL", amount, country, merchant]: evaluate one transaction against the rules active at this point.
+
+An UPSERT with an existing ID replaces the complete old rule before later operations are processed. Country and merchant comparisons are case-sensitive exact string comparisons.
+A transaction is fraudulent if at least one active rule matches it. If no active rule matches, it is allowed. Return one boolean for each EVAL operation, in evaluation order: true for fraudulent and false for allowed.
+
+## Constraints
+
+- 1 <= operations.length <= 200000
+  - There is at least one EVAL operation.
+  - Every operation has one of the valid forms described above.
+  - ruleId, country, and merchant are non-empty ASCII strings of length at most 40.
+  - Every amount and every AMOUNT_AT_LEAST value is a base-10 integer from 0 through 10^9.
+  - At most 200000 rules are active at once.
+  - String comparisons are case-sensitive.
+
+### Example 1
+- **operations** (`String[][]`) = `[["UPSERT","r1","AMOUNT_AT_LEAST","1000"],["UPSERT","r2","COUNTRY_IS","RU"],["EVAL","900","US","books"],["EVAL","1200","US","books"],["EVAL","20","RU","coffee"]]`
+- **output** (`boolean[]`) = `[false,true,true]`
+
+The first transaction matches neither rule. The second reaches the amount threshold, and the third matches the country rule.
+
+### Example 2
+- **operations** (`String[][]`) = `[["UPSERT","risk","AMOUNT_AT_LEAST","100"],["EVAL","100","US","safe"],["UPSERT","risk","MERCHANT_IS","risky"],["EVAL","100","US","safe"],["EVAL","1","US","risky"],["DELETE","risk"],["EVAL","1","US","risky"]]`
+- **output** (`boolean[]`) = `[true,false,true,false]`
+
+The first evaluation matches the amount rule. Reusing ID risk replaces that rule with a merchant rule. Deleting it leaves no active rules for the final evaluation.
+
+### Example 3
+- **operations** (`String[][]`) = `[["EVAL","0","US","outlet"],["UPSERT","c","COUNTRY_IS","CA"],["UPSERT","m","MERCHANT_IS","outlet"],["EVAL","0","US","outlet"],["EVAL","0","CA","shop"],["DELETE","missing"],["DELETE","m"],["EVAL","0","US","outlet"]]`
+- **output** (`boolean[]`) = `[false,true,true,false]`
+
+An evaluation before any rule is allowed. The next two evaluations each match one active rule. Deleting an unknown ID changes nothing; deleting rule m makes the final transaction allowed.
+
+## Starter code
+
+```
+public boolean[] classifyTransactions(String[][] operations) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source identifies a transaction fraud detector driven by supplied rules but omits the rule schema, update lifecycle, and exact output. The judged core task matches the visible source at about 88%.
 
 
 ---
@@ -347,147 +6495,151 @@ The source image is cropped before the opening border definition. The visible ex
 
 ---
 
-# Minimum Grid Inconvenience  (Amazon)
+# Minimum Circular Redistribution Cost  (Amazon)
 
-> id: `amazon-minimum-grid-inconvenience` | difficulty: hard | stage: OA | platform: unknown | topics: matrix, breadth_first_search, binary_search | last seen: 2026-09-16, 2026-08-30, 2026-08-28, 2026-08-27, 2026-08-21, 2026-08-18, 2026-08-14, 2026-07-16, 2026-07-09, 2026-07-04 | employment: FULLTIME, NEW GRAD
-
-## Problem
-
-A city is represented by a binary grid. A cell marked 1 is a delivery center, and a cell marked 0 is any other place.
-The distance between two cells is the maximum of the absolute row-coordinate difference and the absolute column-coordinate difference. The inconvenience of the grid is the maximum, over every 0 cell, of its distance to the nearest delivery center.
-
-### Example 1
-- **grid** (`int[][]`) = `[[0,0,0,0],[0,0,0,0],[0,0,0,0]]`
-- **output** (`int`) = `2`
-
-With no existing delivery center, it is optimal to convert the center cell (1,1) to 1. The farthest cells then have distance 2.
-
-
----
-
-# Deployment Window Scheduler  (Stripe)
-
-> id: `stripe-deployment-window-scheduler` | difficulty: hard | stage: OA | platform: hackerrank | topics: intervals, sorting, simulation | last seen: 2026-09-16, 2026-09-09, 2026-09-01, 2026-08-24, 2026-07-24, 2026-07-10 | employment: INTERN, NEW GRAD, FULLTIME
+> id: `amazon-find-minimum-cost` | difficulty: hard | stage: OA | platform: hackerrank | topics: array, prefix_sum, greedy | last seen: 2026-09-16, 2026-09-09, 2026-08-18, 2026-08-08, 2026-07-24, 2026-07-20, 2026-06-20, 2024-10-06, 2024-09-26 | employment: NEW GRAD, FULLTIME
 
 ## Problem
 
-At Stripe, teams ship changes to services all the time. To keep production stable, the Service Deployments team runs a scheduler that decides when deployments are allowed.
-Time Format and Window Representation
-Time is represented as an integer minute_of_week in the range [0, 10079], meaning minutes since Monday 00:00. For example, 0 is Monday 00:00, 60 is Monday 01:00, 1440 is Tuesday 00:00, and 10079 is Sunday 23:59.
-Every window is represented as start_minute,end_minute and is half-open: it includes start_minute and excludes end_minute. For example, 10,12 covers minutes 10 and 11.
-Implement scheduleDeploymentWindows. The value of part selects one of the following two stages, and inputCsv contains the corresponding CSV rows. Return the resulting deployment windows as [[start, end], ...], sorted by start time.
-Part 1: Allowed Windows (Tests 1–4)
-A team defines the times of the week when deployments are allowed. During an incident, the Service Deployments team can also define freeze windows that prevent deployments.
-A minute is deployable only when it is inside at least one allowed window and inside no freeze window. Compute the week's sorted, continuously deployable windows.
-For Part 1, part is "part1", and every row in inputCsv has this format:
-start,end,typeThe type is either allowed or freeze. Allowed windows may overlap, freeze windows may overlap, and adjacent deployable intervals are returned as one continuous window.
-Part 1 Source Example
-part1
-540,600,allowed
-570,585,freezeThe deployable output is [[540,570],[585,600]].
-Part 2: Time Zones and Minimum Duration (Tests 5–11)
-The scheduler now aggregates windows from teams around the world. Each window may use a different local time zone, but all rows contribute to one global calendar and the result must be returned in UTC.
-For Part 2, part is "part2". The first row of inputCsv contains:
-utc_now,lead_time_minutes,min_continuous_minutes,kEach remaining row has this format:
-start,end,type,timezone_offset_minutesThe window endpoints are local minute_of_week values for that row's time zone, where local = UTC + timezone_offset_minutes. Convert every window to UTC, normalizing over the 10080-minute week. If a converted interval crosses the weekly boundary, split it at the boundary.
-After conversion, a minute is deployable when it is inside at least one allowed window and inside no freeze window. A returned UTC window must:
-  - start no earlier than utc_now + lead_time_minutes;
-  - remain continuously deployable for at least min_continuous_minutes;
-  - end no later than minute 10080.
+A warehouse has n identical containers arranged in a circle. Adjacent containers are one unit apart, and the goal is to make every container hold the same number of products.
+  - Choose either clockwise or counterclockwise movement; all transfers must use that same direction.
+  - Products may be collected from containers with excess units and delivered to containers with deficits.
+  - Moving one product across one edge costs 1.
 
-Clip deployable intervals to the earliest permitted start, discard any remaining interval that is too short, sort the surviving UTC intervals by start time, and return at most the first k. Return fewer than k windows when fewer valid windows exist.
+Return the minimum total transfer cost. It is guaranteed that equal redistribution is possible.
 
 ## Constraints
 
-- Weekly minute values are normalized over a 10080-minute week.
-  - All intervals are half-open.
-  - Window rows use type allowed or freeze.
+1 
+0 
+The answer may exceed the 32-bit integer range.
 
 ### Example 1
-- **part** (`String`) = `"part1"`
-- **inputCsv** (`String[]`) = `["540,600,allowed","570,585,freeze"]`
-- **output** (`int[][]`) = `[[540,570],[585,600]]`
+- **products** (`int[]`) = `[3, 4, 6, 6, 6]`
+- **output** (`long`) = `7`
 
-Part 1. The freeze interval removes [570,585) from the allowed interval [540,600).
+Consider a circular arrangement of containers. The units in each container are products = [3, 4, 6, 6, 6].
+
+  
+    
+    
+    
+    
+    
+
+    Position 1
+    Position 2
+    Position 3
+    Position 4
+    Position 5
+
+    
+    
+    
+    
+    
+
+    3 Products
+    4 Products
+    6 Products
+    6 Products
+    6 Products
+  
+
+Option 1:
+Start at the 3rd position and move clockwise. Collect one product each from the 3rd, 4th, and 5th positions.
+Transfer the products from:
+the 5th position to the 1st position, the cost is 1.
+the 4th position to the 1st position, the cost is 2.
+the 3rd position to the 2nd position, the cost is 4.
+
+Now each container has 5 units and the total cost is 1 + 2 + 4 = 7.
+Option 2:
+Start at the 5th position moving anti-clockwise. Collect one product each from the 5th, 4th, and 3rd positions.
+Transfer the product from:
+the 3rd position to the 1st position, the cost is 2.
+the 4th position to the 1st position, the cost is 3.
+the 5th position to the 2nd position, the cost is 3.
+
+Now each container has 5 units and the total cost is 2 + 3 + 3 = 8. Return 7, the minimum cost achievable.
 
 ### Example 2
-- **part** (`String`) = `"part2"`
-- **inputCsv** (`String[]`) = `["1020,0,10,5","540,600,allowed,-480","550,565,freeze,-480"]`
-- **output** (`int[][]`) = `[[1020,1030],[1045,1080]]`
+- **products** (`int[]`) = `[1, 11, 1, 1, 1]`
+- **output** (`long`) = `20`
 
-Part 2. The offset converts the allowed interval to [1020,1080) and the freeze interval to [1030,1045). Both remaining windows are at least 10 minutes long.
+The final average is 3. One container has 8 extra products. Moving in either fixed direction, send 2 products to each of the other four containers, for total cost 2*1 + 2*2 + 2*3 + 2*4 = 20.
 
 ## Starter code
 
 ```
-public int[][] scheduleDeploymentWindows(String part, String[] inputCsv) {
+public long findMinimumCost(int[] products) {
   // write your code here
 }
-
 ```
-
-## Source note
-
-🐿️ This practice version is about a 90% match to the available source. The minute-of-week model, half-open windows, allowed-minus-freeze logic, UTC offset conversion, lead time, minimum continuous duration, and next-k window objective come directly from the source. The original callable signature, complete Part 2 CSV example, exact numeric bounds, and week-boundary behavior were not shown, so FastPrep filled those details in consistently without changing what the original question asks you to build.
 
 
 ---
 
-# Dasher Pay with Store Waits and Peak Hours  (DoorDash)
+# WebSocket Load Balancer — Parts 1–5  (Stripe)
 
-> id: `doordash-dasher-pay` | difficulty: medium | stage: OA, PHONE SCREEN, ONSITE INTERVIEW | platform: unknown | topics: hash_table, simulation, string | last seen: 2026-09-16, 2026-09-01, 2026-08-03, 2026-07-24, 2024-10-15 | employment: FULLTIME
+> id: `stripe-websocket-load-balancer` | difficulty: hard | stage: OA, ONSITE INTERVIEW | platform: hackerrank | topics: hash_table, simulation | last seen: 2026-09-16, 2026-07-26, 2025-12-03, 2025-11-16, 2025-11-11, 2025-11-08, 2025-10-30, 2025-10-03, 2025-09-23 | employment: INTERN, NEW GRAD
 
 ## Problem
 
-A Dasher earns $0.30 per minute for each active delivery. A delivery becomes active when it is accepted and stops being active when it is fulfilled. Therefore, ordinary concurrent-delivery time is paid at activeDeliveries * $0.30 per minute.
-Each string in events has the form HH:MM EVENT orderId, where EVENT is ACCEPT, ARRIVE, PICKUP, or FULFILL. Events are in strictly increasing time order and describe valid order lifecycles.
-An ARRIVE event begins a store-wait interval for that order, and its matching PICKUP ends the interval. While the Dasher is waiting at a store, only the order being waited on contributes pay; other active orders do not contribute during that interval. Outside a store wait, every active order contributes normally.
-Each string in peakHours has the form start end. A peak window is half-open: it includes start and excludes end. Pay earned during a peak window is doubled. Peak windows do not overlap.
-Return the total pay in dollars after processing all events.
+Stripe runs multiple Jupyter targets and routes long-lived WebSocket connections across them. Implement routeRequests and process the request stream in order. Targets use one-based indices from 1 through numTargets.
+Request records
+  - CONNECT,connectionId,userId,objectId
+  - DISCONNECT,connectionId,userId,objectId
+  - SHUTDOWN,targetIndex
+
+Every successful assignment appends connectionId,userId,targetIndex to the returned log. Rejected connections and actions that do not assign a connection append nothing.
+Part 1: Least-loaded routing
+A new connection without an active object affinity goes to the active target with the fewest connections. Break a load tie by smaller target index.
+Part 2: Disconnect
+DISCONNECT removes the active connection with that ID and frees its target slot. A disconnect for a non-active ID is a no-op.
+Part 3: Object affinity
+While an object has active connections, every later connection for that objectId must use the same target. When the last active connection for an object disappears, its affinity is cleared.
+Part 4: Capacity and duplicate IDs
+No target may exceed maxConnectionsPerTarget. If the target selected by the preceding rules is full, reject the connection without trying another target. If a CONNECT repeats an active connectionId, keep state unchanged and append that connection's original user and target log.
+Part 5: Shutdown and rerouting
+SHUTDOWN,targetIndex permanently removes that target. Evict all of its active connections in their original successful-assignment order, clear their old state, and reroute them one at a time with Parts 1–4. A rerouted connection produces a new log when successful and is dropped when it cannot be placed. Repeated shutdown of an inactive target is a no-op.
 
 ## Constraints
 
-- 2 <= events.length <= 1000
-  - 0 <= peakHours.length <= 100
-  - All times use valid same-day 24-hour HH:MM notation.
-  - Events are in strictly increasing timestamp order.
-  - Every order has one ACCEPT before its optional ARRIVE and PICKUP pair and one later FULFILL.
-  - All accepted orders are fulfilled by the final event.
-  - At most one store-wait interval is active at a time.
-  - Peak windows are valid, half-open, and non-overlapping.
+- 1 <= numTargets <= 10^5.
+  - 1 <= maxConnectionsPerTarget <= 10^9.
+  - 1 <= requests.length <= 2 * 10^5.
+  - Every record follows one of the documented schemas; identifiers are non-empty and contain no commas.
+  - A SHUTDOWN target index is within 1..numTargets. A repeated shutdown is allowed and is a no-op.
+  - Output order is the order in which successful assignments occur, including duplicate-ID log repeats and shutdown reroutes.
 
 ### Example 1
-- **events** (`String[]`) = `["06:15 ACCEPT A","06:18 ACCEPT B","06:36 FULFILL A","06:45 FULFILL B"]`
-- **peakHours** (`String[]`) = `[]`
-- **output** (`double`) = `14.4`
+- **numTargets** (`int`) = `3`
+- **maxConnectionsPerTarget** (`int`) = `2`
+- **requests** (`String[]`) = `["CONNECT,c1,u1,docA","CONNECT,c2,u2,docB","CONNECT,c3,u3,docA","DISCONNECT,c1,u1,docA","CONNECT,c4,u4,docC","CONNECT,c5,u5,docA","CONNECT,c6,u6,docA"]`
+- **output** (`String[]`) = `["c1,u1,1","c2,u2,2","c3,u3,1","c4,u4,3","c5,u5,1"]`
 
-Pay is 3 * 0.30 = 0.90, then 18 * 0.60 = 10.80 while two deliveries overlap, then 9 * 0.30 = 2.70. The total is $14.40.
+The second docA connection follows object affinity to target 1. Disconnecting c1 frees one slot there. The final docA connection is rejected because its affinity target is full, so it produces no log.
 
 ### Example 2
-- **events** (`String[]`) = `["06:15 ACCEPT A","06:18 ACCEPT B","06:19 ARRIVE A","06:22 PICKUP A","06:30 ARRIVE B","06:33 PICKUP B","06:36 FULFILL A","06:45 FULFILL B"]`
-- **peakHours** (`String[]`) = `[]`
-- **output** (`double`) = `12.6`
+- **numTargets** (`int`) = `3`
+- **maxConnectionsPerTarget** (`int`) = `2`
+- **requests** (`String[]`) = `["CONNECT,a,u1,x","CONNECT,b,u2,y","CONNECT,c,u3,x","CONNECT,d,u4,z","SHUTDOWN,1","CONNECT,e,u5,x","DISCONNECT,b,u2,y","CONNECT,f,u6,y"]`
+- **output** (`String[]`) = `["a,u1,1","b,u2,2","c,u3,1","d,u4,3","a,u1,2","f,u6,2"]`
 
-During 06:19-06:22 only order A contributes, and during 06:30-06:33 only order B contributes. All other intervals use the number of active deliveries, giving $12.60.
-
-### Example 3
-- **events** (`String[]`) = `["06:15 ACCEPT A","06:18 ACCEPT B","06:19 ARRIVE A","06:22 PICKUP A","06:30 ARRIVE B","06:33 PICKUP B","06:36 FULFILL A","06:45 FULFILL B"]`
-- **peakHours** (`String[]`) = `["06:20 06:30"]`
-- **output** (`double`) = `18.0`
-
-The ordinary total is $12.60. The base pay earned from 06:20 through 06:30 is $5.40, and peak time pays that amount once more, for $18.00.
+Shutdown evicts a then c. The first reroutes to target 2; the second is dropped because object x is then pinned to a full target 2. After b disconnects, f takes the newly free slot.
 
 ## Starter code
 
 ```
-public double calculateDasherPay(String[] events, String[] peakHours) {
-    // Write your code here.
+public String[] routeRequests(int numTargets, int maxConnectionsPerTarget, String[] requests) {
+  // Write your code here.
 }
 ```
 
 ## Source note
 
-The source describes three progressive parts of a Dasher-pay exercise. The judged contract below combines the final rules. To make the report deterministic, it uses a single same-day event stream, non-overlapping peak windows, and at most one active store wait at a time.
+The judged core task matches the available firsthand reports at about 95%. The reports do not specify missing-action no-ops, affinity cleanup after the last connection, exact reroute-log behavior, or numeric bounds; the practice contract states those edge rules explicitly.
 
 
 ---
@@ -1183,6 +7335,42 @@ The judged core task matches the visible interview report at about 99%.
 
 ---
 
+# Maximum Points by Deleting Elements  (Walmart)
+
+> id: `walmart-maximum-points-by-deleting-elements` | difficulty: medium | stage: OA | platform: unknown | topics: array, hash_table, dynamic_programming | last seen: 2026-09-16 | employment: FULLTIME
+
+## Problem
+
+You are given an integer array elements. Repeatedly choose one remaining element with value x and earn x points. The chosen element is removed, and every remaining element equal to x - 1 or x + 1 is deleted.
+Continue until no elements remain. Return the maximum total number of points you can earn.
+
+## Constraints
+
+- 1 <= elements.length <= 10^5.
+  - 1 <= elements[i] <= 10^5 for every valid index i.
+
+### Example 1
+- **elements** (`int[]`) = `[3,4,2]`
+- **output** (`long`) = `6`
+
+Choose 4 to earn 4 points, which deletes the neighboring value 3. Then choose 2 to earn 2 more points. The total is 4 + 2 = 6.
+
+## Starter code
+
+```
+public long maxPoints(int[] elements) {
+    // write your code here
+}
+
+```
+
+## Source note
+
+The source image provides the maxPoints signature, return type, exact bounds, and the [3,4,2] example; the caption supplies the repeated deletion rule and value-frequency insight. The original screenshot contains redactions and an account watermark across task pixels, so it is retained as evidence rather than displayed. The judged core task matches the report at about 97%.
+
+
+---
+
 # Count Unordered Coin Combinations  (WorldQuant)
 
 > id: `worldquant-count-unordered-coin-combinations` | difficulty: medium | stage: OA | platform: unknown | topics: dynamic_programming, array | last seen: 2026-09-16 | employment: NEW GRAD
@@ -1233,120 +7421,6 @@ public int countCombinations(int[] coins, int target) {
 ## Source note
 
 The visible report omits duplicate-denomination behavior, the zero-target rule, and numeric bounds. The judged core task matches the report at about 95%.
-
-
----
-
-# Incident Monitor  (Stripe)
-
-> id: `stripe-incident-monitor` | difficulty: hard | stage: OA | platform: unknown | topics: array, string, hash_table, sliding_window, queue, simulation, parsing | last seen: 2026-09-15, 2026-09-07, 2026-09-01, 2026-08-27, 2026-08-23, 2026-08-11, 2026-07-26, 2026-07-15 | employment: FULLTIME, NEW GRAD
-
-## Problem
-
-Background & Definitions
-At Stripe, we monitor millions of transactions hourly to ensure API health. Your goal is to analyze a list of transaction logs, detect error spikes, and trigger alerts when an incident is likely in progress.
-Task
-Implement the detect_incidents(logs) function. It analyzes a list of transactions (that can be successful or erroneous), and emit alert trigger/resolve events if certain conditions are met.
-Sliding Window
-For every entry in the transaction log, evaluate whether an alert needs to be triggered or resolved. All evaluations use a 30-second sliding window.
-For example, for a log at timestamp T, the window includes all logs with timestamps in the range [T-29, T] (inclusive on both ends).
-The evaluation criteria will be described below.
-Alert
-Each alert is tied to a specific (merchant_id, status_code) pair (details about these fields can be found below, in the Input Format section).
-A merchant may therefore have multiple active alerts at once, one per distinct error status code.
-De-duplication
-If an alert has been triggered for a particular (merchant_id, status_code) pair and is still active (has not been resolved in the meantime), do not trigger a duplicate alert, even if the conditions for the alert continue to manifest.
-Input Format
-The input (the logs parameter) represents the list of transactions to analyze. It is an array of strings, where each entry has the format: timestamp,merchant_id,status_code,count.
-  - timestamp: An integer that represents seconds.
-  - merchant_id: The id of the merchant these transactions belong to.
-  - status_code: HTTP Status Code. Always one of the following:  - 200: Represents successful transactions.
-  - 4xx (e.g., 400, 404, 429): Represents client errors.
-  - 5xx (e.g., 500, 503): Represents server errors.
-
-  - count: An integer representing how many times that outcome was observed for that merchant in that second.
-
-Assumptions:
-  - The input is always valid, and corresponds to the format described above.
-  - Logs are guaranteed to be sorted by timestamp.
-  - The input dataset contains no duplicate (timestamp, merchant_id, status_code) entries.
-
-Output Format
-The function will return all the alert events that result from the given list of transactions.
-The output format is an array of strings, where each string is a record in the format: timestamp,event_type,merchant_id,status_code, representing:
-  - timestamp: the timestamp (second) when the alert event was triggered/resolved.
-  - event_type: one of the following:  - TRIGGER: Emitted when error conditions are first met for a merchant_id/status_code pair.
-  - RESOLVE: Emitted when a previously triggered alert's conditions are no longer met.
-
-  - merchant_id: The id of the merchant associated with the current alert.
-  - status_code: The error status code associated with the current alert.
-
-Important: The output must be sorted by (timestamp ASC, merchant_id ASC, status_code ASC, event_type ASC). For event_type, alphabetical order means RESOLVE comes before TRIGGER.
-Part 1: Basic Incident Detection
-Let's build a basic incident detection mechanism first.
-Alerts should be triggered if there are at least 5 failures with the exact same error code for the same merchant within the last 30 seconds.
-Note: After finishing part 1, test cases 0 - 3 should pass.
-Part 1 Sample Test Case
-Input:
-10,merchant1,500,2
-10,merchant2,500,1
-15,merchant1,500,2
-20,merchant1,500,1
-20,merchant2,500,4Output:
-20,TRIGGER,merchant1,500
-20,TRIGGER,merchant2,500Part 2: Impact Rate Filtering (The 1% Rule)
-Large merchants naturally have more errors due to high volume. To reduce noise, we only want to alert when the error rate is significant relative to the merchant's successful transaction volume.
-Update your logic to include an Impact Threshold. An alert is now only TRIGGERED if, within the last 30 seconds, BOTH criteria are met for a specific error code:
-  - Volume: At least 5 failures for a specific error code.
-  - Impact: Those specific failures represent more than 1% of the merchant's successful transaction volume (the total count of transactions with status code 200 for that merchant) in that same window.
-
-Note: After finishing part 2, test cases 0 - 8 should pass.
-Part 2 Sample Test Case
-Input:
-10,merchant1,200,600
-12,merchant1,500,6
-15,merchant2,200,599
-16,merchant2,500,6Output:
-16,TRIGGER,merchant2,500Explanation:
-  - At timestamp 12, merchant1 has 6 errors, but they are exactly 1% of the merchant's successful volume (600), not more than that.
-  - At timestamp 16, merchant2 has 6 errors, which is > 1% of its success volume (599). So, an alert is triggered for merchant2.
-
-Part 3: Incident Resolution
-An incident monitor is only useful if it knows when a problem has stopped. Let's now implement RESOLVED events.
-An active alert for a (merchant_id, status_code) pair transitions to RESOLVED when a log arrives and the previous 30 seconds of logs no longer meet the TRIGGER criteria.
-The TRIGGER conditions from Part 2 (volume ≥ 5 AND impact > 1%) still apply.
-Rules
-  - Resolution Criteria: An alert is resolved at timestamp T if a log arrives for that merchant at T, and the 30-second window ending at T no longer meets the Trigger conditions (from Part 2).
-
-FastPrep Implementation Clarification
-In this workspace, implement detectIncidents(logs), which corresponds to the source function detect_incidents(logs).
-  - Process the entries in their given order. After each entry at timestamp T, evaluate the relevant alert states for that entry's merchant using the inclusive window [T-29, T].
-  - Emit RESOLVE only when an alert is currently active and the Part 2 conditions become false.
-  - After a RESOLVE event, that alert becomes inactive. It may emit TRIGGER again only if the Part 2 conditions are met again later.
-
-### Example 1
-- **logs** (`String[]`) = `["10,merchant1,500,2","10,merchant2,500,1","15,merchant1,500,2","20,merchant1,500,1","20,merchant2,500,4"]`
-- **output** (`String[]`) = `["20,TRIGGER,merchant1,500","20,TRIGGER,merchant2,500"]`
-
-### Example 2
-- **logs** (`String[]`) = `["10,merchant1,200,600","12,merchant1,500,6","15,merchant2,200,599","16,merchant2,500,6"]`
-- **output** (`String[]`) = `["16,TRIGGER,merchant2,500"]`
-
-At timestamp 12, merchant1 has 6 errors, but they are exactly 1% of the merchant's successful volume (600), not more than that.
-At timestamp 16, merchant2 has 6 errors, which is > 1% of its success volume (599). So, an alert is triggered for merchant2.
-
-## Starter code
-
-```
-public String[] detectIncidents(String[] logs) {
-  // Write your code here.
-}
-
-```
-
-## Source note
-
-The judged core task is about a 98% match to the available sources. The 30-second window, alert identity and de-duplication, five-failure threshold, strictly-greater-than-1% impact rule, resolution behavior, output ordering, and both examples are source-backed. Only a few lifecycle edge details required clarification to keep the task deterministic.
 
 
 ---
@@ -3222,165 +9296,6 @@ The source does not specify how exact halfway percentages are rounded; the judge
 
 ---
 
-# Power Cell Bank  (Optiver)
-
-> id: `optiver-power-cell-bank` | difficulty: hard | stage: OA | platform: unknown | topics: hash_table, sorting, design, simulation | last seen: 2026-09-12, 2026-09-08, 2026-08-18, 2026-08-12, 2026-08-06, 2026-08-03, 2026-07-23, 2026-07-11 | employment: INTERN, NEW GRAD
-
-## Problem
-
-ᨳଓ A big thank you to the friend who shared this problem with FastPrep!  ᢉ𐭩
-You are writing dispatch logic for a battery-management system that powers a heavy-duty industrial load. Cells enter a tiered power-cell bank through load_cell, and discharge draws batches for the load. Unused cells self-discharge from charged through depleted to spent, and adjacent racks are equalised before each dispatch batch to keep output voltage stable.
-Implement the PowerCellBank class.
-The bank contains num_racks racks arranged from front to back. Rack 1 is the front rack, and rack i has capacity 2^i.
-A cell is installed with a load timestamp and a rated duration. As time passes, each cell automatically moves through three temporal states: charged, depleted, and spent.
-Class Interface
-class PowerCellBank:
-    def __init__(self, num_racks: int) -> None:
-        ...
-
-    def load_cell(
-        self,
-        timestamp: float,
-        cell_id: str,
-        rated_duration: float,
-    ) -> bool:
-        ...
-
-    def discharge(
-        self,
-        timestamp: float,
-        max_dispatch: int,
-    ) -> list[str]:
-        ...Constructor
-__init__(num_racks: int) -> None
-Initializes an empty bank containing num_racks racks. The racks are numbered from 1 to num_racks. Rack 1 is the front rack, and rack i has capacity 2^i.
-For example, with three racks, the capacities are:
-  - rack 1: 2
-  - rack 2: 4
-  - rack 3: 8
-
-Loading A Cell
-load_cell(
-    timestamp: float,
-    cell_id: str,
-    rated_duration: float,
-) -> boolInstalls one freshly charged cell into the bank. The cell is placed in the frontmost rack that still has free capacity.
-Return:
-  - True if the cell was installed successfully.
-  - False if every rack is full.
-
-A spent cell is treated as absent, so it does not occupy rack capacity, its slot may be reused, and its cell_id may be reused by a later load_cell call.
-You may assume:
-  - rated_duration > 0.
-  - No non-spent cell currently in the bank has the same cell_id as the new cell.
-
-A dispatched cell is also removed from the bank, so its ID may later be reused.
-Temporal States
-For a cell loaded at load_timestamp, define t = timestamp - load_timestamp.
-The cell's state at the current operation timestamp is:
-StateElapsed timeDispatchable?Occupies a slot?Output labelChargedt < rated_durationYesYes"charged"Depletedrated_duration <= t < 2 * rated_durationYesYes"depleted"Spentt >= 2 * rated_durationNoNononeState changes happen automatically as time passes. No explicit update is required at the transition moment.
-Spent cells are treated as absent everywhere:
-  - They are not dispatched.
-  - They do not occupy rack capacity.
-  - They are excluded from all counts.
-  - They are excluded from charge equalisation.
-  - They are excluded from bus-shift selection.
-  - They do not appear in output.
-
-Throughout the specification, cell means a non-spent cell unless stated otherwise.
-Charge Ordering
-At a call's timestamp, define a cell's charge window as load_timestamp + rated_duration - timestamp.
-This value is positive for charged cells and zero or negative for depleted cells. Cells are ordered by charge window.
-  - The most-charged cell is the cell with the largest charge window.
-  - The most-depleted cell is the cell with the smallest charge window.
-
-When charge windows tie, choose the cell with the lexicographically smallest cell_id using ordinary ASCII comparison. For example, "a" < "b". The same tie-breaking rule applies to both most-charged and most-depleted selection.
-Discharging Cells
-discharge(
-    timestamp: float,
-    max_dispatch: int,
-) -> list[str]The operation has two stages:
-  - Run one charge-equalisation cycle.
-  - Dispatch up to max_dispatch cells using repeated bus-shift pulls.
-
-The returned list contains entries in dispatch order. Each entry has the form cell_id:state, where state is "charged" if the cell is still within its rated window at the call's timestamp and "depleted" otherwise.
-For example: ["c2:charged", "c7:depleted"].
-Dispatching stops early when the bank is empty. You may assume 1 <= max_dispatch <= 2^10.
-Charge Equalisation
-Charge equalisation runs once at the start of every discharge call.
-A rack is below-sag when it contains at least one cell and strictly fewer than 50% of its cells are charged. Equivalently, 2 * charged_cell_count < total_cell_count.
-The equalisation cycle visits racks from front to back. For each rack k that has a rear neighbour k + 1, while both of the following conditions hold:
-  - rack k is below-sag;
-  - rack k + 1 contains at least one charged cell;
-
-perform one balance swap:
-  - Choose rack k's most-depleted cell.
-  - Choose rack k + 1's most-charged charged cell.
-  - Swap the two cells.
-
-Continue swapping until rack k is no longer below-sag or rack k + 1 has no charged cells remaining. Then move on to rack k + 1.
-The final rack has no rear neighbour, so no equalisation begins from it.
-Bus Shift
-Each bus-shift pull dispatches exactly one cell through two actions.
-1. Dispatch
-Find the active rack, defined as the frontmost rack containing at least one cell. Dispatch the most-charged cell from that rack. When charge windows tie, dispatch the cell with the lexicographically smallest cell_id.
-If no active rack exists, the bank is empty and the discharge call stops.
-2. Inward Shift
-The dispatched cell frees one slot in the active rack. Fill that slot by moving the most-charged cell from the next rack back into the active rack.
-That movement frees one slot in the next rack, so fill it by moving the most-charged cell from the rack behind it. Continue propagating the vacancy toward the back.
-The shift stops when the next rack is empty or there is no further rack.
-A cell moved into a rack during the inward shift is immediately eligible for dispatch during the next pull.
-FastPrep Runner Adapter
-The executable FastPrep interface represents calls to the class as one operation stream without changing any bank behavior:
-powerCellBank(int numRacks, String[][] operations) -> String[][]Operations arrive in non-decreasing timestamp order and are processed in the order supplied. When multiple operations share a timestamp, preserve their input order.
-Process each operation and return one row for every operation:
-  - ["load_cell", timestamp, cell_id, rated_duration]: call load_cell and append ["true"] or ["false"].
-  - ["discharge", timestamp, max_dispatch]: call discharge and append its returned list. This row may be empty.
-
-All values inside an operation row are strings. Parse timestamps and rated durations as floating-point numbers and max_dispatch as an integer.
-
-## Constraints
-
-- 1 <= numRacks <= 2^4.
-  - rated_duration > 0.
-  - No non-spent cell currently in the bank has the same cell_id as a new cell.
-  - 1 <= max_dispatch <= 2^10.
-  - Operations arrive in non-decreasing timestamp order and are processed in the order received. Within a single timestamp, ties are broken by call order.
-  - Timestamps are positive floating-point Unix-epoch seconds with millisecond precision and fit in 32 bits.
-  - rated_duration is a floating-point value with millisecond precision (three decimal places).
-  - State-transition thresholds and the 50% charged-fraction threshold are exact.
-
-### Example 1
-- **numRacks** (`int`) = `2`
-- **operations** (`String[][]`) = `[["load_cell","0","a","4"],["load_cell","0","b","5"],["load_cell","2","c","10"],["load_cell","2","d","10"],["discharge","6","3"],["discharge","9","2"],["load_cell","9","a","2"]]`
-- **output** (`String[][]`) = `[["true"],["true"],["true"],["true"],["c:charged","d:charged","b:depleted"],[],["true"]]`
-
-At timestamp 6, cells a and b are depleted in rack 1, while c and d are charged in rack 2. Equalisation swaps a, the most-depleted front cell, with c, the lexicographically first of the tied rear cells. The three bus-shift pulls then dispatch c, d, and b.
-Cell a remains, but it is spent by timestamp 9, so the next discharge returns an empty row. Its ID can then be loaded again.
-
-### Example 2
-- **numRacks** (`int`) = `1`
-- **operations** (`String[][]`) = `[["load_cell","0","x","10"],["load_cell","0","y","10"],["load_cell","1","z","10"],["discharge","1","1"],["load_cell","1","z","10"]]`
-- **output** (`String[][]`) = `[["true"],["true"],["false"],["x:charged"],["true"]]`
-
-The only rack has capacity 2, so loading z initially fails. Cells x and y have equal charge windows at timestamp 1, so the ASCII tie-break dispatches x. The freed slot then allows z to be loaded.
-
-## Starter code
-
-```
-public String[][] powerCellBank(int numRacks, String[][] operations) {
-  // write your code here
-}
-
-```
-
-## Source note
-
-The judged task matches the visible source at about 99%. August 19, 2026 update: confirmed inclusive upper bounds backed by the newest sources found; examples remain derived from the stated rules.
-
-
----
-
 # Binary Circuit  (Akuna Capital)
 
 > id: `akuna-get-max-cost` | difficulty: hard | stage: OA | platform: hackerrank | topics: string, greedy, math | last seen: 2026-09-12, 2026-09-10, 2026-08-08, 2026-07-28, 2026-07-21, 2024-08-23 | employment: FULLTIME, INTERN
@@ -3440,29 +9355,6 @@ public long getMaxCost(String s) {
 }
 
 ```
-
-
----
-
-# Get Minimum Amount  (Amazon)
-
-> id: `amazon-get-min-amount` | difficulty: None | stage: OA | platform: unknown | topics:  | last seen: 2026-09-12, 2026-08-15, 2026-08-07, 2026-07-20, 2026-06-21, 2026-06-08 | employment: NEW GRAD
-
-## Problem
-
-The manager of the Amazon warehouse has decided to make changes to the inventory. Currently, the inventory has n products, where the quality of the ith product after quality checks is represented by the array element quality[i].
-The manager wants to create an optimal inventory, where the array of products quality follows the following property:
-  - All occurrences of each quality value must be contiguous.
-
-In order to convert the inventory into an optimal inventory, the manager can do the following operation any number of times:
-
-### Example 1
-- **quality** (`int[]`) = `[7, 7, 5, 7, 3, 5, 3]`
-- **output** (`int`) = `4`
-
-Given n = 7, quality = [7, 7, 5, 7, 3, 5, 3].
-One of the optimal ways to convert is explained below:
-Hence, the total amount spent is 4.
 
 
 ---
@@ -4089,6 +9981,69 @@ public int minChangesForPalindromicBlocks(String password, int k) {
 ## Source note
 
 The visible source asks for the minimum character changes that make every length-k block palindromic. It omits a portable interface, character bounds, and the incomplete-block convention. The judged core task matches the visible source at about 94%.
+
+
+---
+
+# Compress Editor Actions into Operational Transform Operations  (Replit)
+
+> id: `replit-compress-editor-actions-to-ot` | difficulty: medium | stage: OA, PHONE SCREEN, ONSITE INTERVIEW | platform: unknown | topics: array, string, stack, simulation | last seen: 2026-09-11, 2026-03-05 | employment: FULLTIME, NEW GRAD
+
+## Problem
+
+You are given an original text document and a finite sequence of editor actions. A cursor starts immediately before the first character of document. Convert the actions into a compressed sequence of Operational Transform operations against the original document.
+Each action is one of the following rows:
+  - ["APPEND", ch] inserts the one-character string ch at the cursor and moves the cursor after it.
+  - ["RIGHT"] moves the cursor over the next original-document character. If no original character remains to the right, it does nothing.
+  - ["BACKSPACE"] removes the character immediately to the left of the cursor. If that character was inserted by an unmatched APPEND, the insertion is canceled. Otherwise, that original-document character becomes deleted. If there is no character to the left, the action does nothing.
+
+Return rows representing the transformation:
+  - ["INSERT", text] inserts text.
+  - ["DELETE", count] deletes count original characters.
+  - ["SKIP", count] keeps count original characters.
+
+The count value is a positive decimal string. Merge every pair of adjacent operations with the same type: concatenate text for INSERT, and add counts for DELETE or SKIP. Omit canceled inserts, zero-count operations, and actions that do nothing. The unvisited suffix of document is unchanged implicitly, so do not append a final SKIP for it.
+
+## Constraints
+
+- 0 <= document.length <= 100000.
+  - 0 <= actions.length <= 100000.
+  - document contains only lowercase English letters.
+  - Every action is exactly ["RIGHT"], ["BACKSPACE"], or ["APPEND", ch], where ch is one lowercase English letter.
+  - The sum of document.length and the number of APPEND actions is at most 200000.
+
+### Example 1
+- **document** (`String`) = `"abcd"`
+- **actions** (`String[][]`) = `[["APPEND","x"],["APPEND","y"],["RIGHT"],["BACKSPACE"],["APPEND","z"],["RIGHT"]]`
+- **output** (`String[][]`) = `[["INSERT","xy"],["DELETE","1"],["INSERT","z"],["SKIP","1"]]`
+
+The two initial appends merge into INSERT xy. Moving right crosses a, and the following backspace deletes that original character, so it becomes DELETE 1. Then z is inserted and b is kept.
+
+### Example 2
+- **document** (`String`) = `"abc"`
+- **actions** (`String[][]`) = `[["RIGHT"],["RIGHT"],["BACKSPACE"],["BACKSPACE"],["BACKSPACE"]]`
+- **output** (`String[][]`) = `[["DELETE","2"]]`
+
+The cursor first crosses a and b. Two backspaces delete them in reverse cursor order, and the adjacent deletions merge into DELETE 2. The final backspace has nothing left to remove.
+
+### Example 3
+- **document** (`String`) = `"ab"`
+- **actions** (`String[][]`) = `[["RIGHT"],["APPEND","x"],["BACKSPACE"],["RIGHT"],["RIGHT"],["APPEND","y"]]`
+- **output** (`String[][]`) = `[["SKIP","2"],["INSERT","y"]]`
+
+The first RIGHT keeps a. The inserted x is immediately canceled by backspace. The next successful RIGHT keeps b, the extra RIGHT does nothing at the end, and y remains inserted.
+
+## Starter code
+
+```
+public String[][] compressEditorActions(String document, String[][] actions) {
+    // Write your solution here.
+}
+```
+
+## Source note
+
+The original-author report specifies how append, backspace, and right map to insert, delete or no-op, and skip, including adjacent-operation merging. It does not supply an original-document parameter or exact record shapes; an older non-author report only corroborates those details. This practice authors the lowercase-document and finite string-row adapter, initial cursor and character-provenance rules, boundary no-ops, decimal serialization and implicit suffix treatment, and portable numeric bounds. The judged mapping-and-merge capability matches the original-author report at about 91%.
 
 
 ---
@@ -5144,105 +11099,6 @@ The source image does not show the trailing numeric bounds. The judged rules and
 
 ---
 
-# Count One-Swap Number Pairs  (TikTok)
-
-> id: `tiktok-count-one-swap-number-pairs` | difficulty: medium | stage: OA | platform: codesignal | topics: array, string, hash_table, combinatorics | last seen: 2026-09-10 | employment: INTERN
-
-## Problem
-
-You are given an array of positive integers numbers. Count the index pairs (i, j) such that i < j and one number in the pair can be transformed into the other by swapping at most one pair of digit positions.
-No swap is required when the two numbers are already equal. Each pair of indices is counted once, even when several different digit swaps produce the same value.
-Use each number's ordinary decimal representation without leading zeroes. A swapped representation that begins with 0 is invalid, so valid transformed numbers have the same number of digits.
-Return the number of qualifying index pairs.
-
-## Constraints
-
-- 1 ≤ numbers.length ≤ 10^4
-  - 1 ≤ numbers[i] ≤ 10^9
-
-### Example 1
-- **numbers** (`int[]`) = `[1,23,156,1650,651,165,32]`
-- **output** (`int`) = `3`
-
-The qualifying pairs are 23 with 32, 156 with 651, and 156 with 165. Therefore, the result is 3.
-
-### Example 2
-- **numbers** (`int[]`) = `[123,321,123]`
-- **output** (`int`) = `3`
-
-The two copies of 123 form a qualifying pair without a swap. Each copy of 123 also pairs with 321 by swapping the first and last digits, for 3 pairs in total.
-
-## Starter code
-
-```
-public int countOneSwapPairs(int[] numbers) {
-    // Write your code here.
-}
-
-```
-
-## Source note
-
-The source does not specify whether a swap that creates a leading zero is valid. The judged task rejects that representation and otherwise matches the visible source at about 96%.
-
-
----
-
-# Lowest Number in an Open Range  (TikTok)
-
-> id: `tiktok-lowest-number-in-open-range` | difficulty: easy | stage: OA | platform: codesignal | topics: array | last seen: 2026-09-10 | employment: INTERN
-
-## Problem
-
-You are given an array of positive integers numbers and a two-element array nRange describing a number range whose endpoints satisfy nRange[0] ≤ nRange[1].
-Return the smallest value in numbers that lies strictly between the two endpoints. In other words, find the smallest numbers[i] such that nRange[0] < numbers[i] < nRange[1].
-If no value satisfies both strict inequalities, return 0.
-
-## Constraints
-
-- 1 ≤ numbers.length ≤ 100
-  - 1 ≤ numbers[i] ≤ 100
-  - nRange.length = 2
-  - Both values in nRange are positive integers that fit in a signed 32-bit integer.
-  - nRange[0] ≤ nRange[1]
-
-### Example 1
-- **numbers** (`int[]`) = `[11,4,23,9,10]`
-- **nRange** (`int[]`) = `[5,12]`
-- **output** (`int`) = `9`
-
-The values strictly between 5 and 12 are 11, 9, and 10. Their minimum is 9.
-
-### Example 2
-- **numbers** (`int[]`) = `[1,3,2]`
-- **nRange** (`int[]`) = `[1,1]`
-- **output** (`int`) = `0`
-
-No integer can be strictly greater than 1 and strictly less than 1 at the same time, so the result is 0.
-
-### Example 3
-- **numbers** (`int[]`) = `[7,23,3,1,3,5,2]`
-- **nRange** (`int[]`) = `[2,7]`
-- **output** (`int`) = `3`
-
-The qualifying values are 3, 3, and 5. The smallest is 3.
-
-## Starter code
-
-```
-public int findLowestInRange(int[] numbers, int[] nRange) {
-    // Write your code here.
-}
-
-```
-
-## Source note
-
-Part of the source's trailing range constraints is cropped. The judged core task and all visible examples match the source at about 98%.
-
-
----
-
 # Maximum Rhombic Area Sum  (TikTok)
 
 > id: `tiktok-maximum-rhombic-area-sum` | difficulty: medium | stage: OA | platform: codesignal | topics: matrix, geometry, prefix_sum | last seen: 2026-09-10 | employment: INTERN
@@ -5295,91 +11151,6 @@ public int maximumRhombicSum(int[][] matrix, int r) {
 ## Source note
 
 The source supplies the rhombus geometry and task direction but no visible examples or complete bounds. The judged core task matches the visible source at about 91%.
-
-
----
-
-# Minimum Circular Redistribution Cost  (Amazon)
-
-> id: `amazon-find-minimum-cost` | difficulty: hard | stage: OA | platform: hackerrank | topics: array, prefix_sum, greedy | last seen: 2026-09-09, 2026-08-18, 2026-08-08, 2026-07-24, 2026-07-20, 2026-06-20, 2024-10-06, 2024-09-26 | employment: NEW GRAD, FULLTIME
-
-## Problem
-
-A warehouse has n identical containers arranged in a circle. Adjacent containers are one unit apart, and the goal is to make every container hold the same number of products.
-  - Choose either clockwise or counterclockwise movement; all transfers must use that same direction.
-  - Products may be collected from containers with excess units and delivered to containers with deficits.
-  - Moving one product across one edge costs 1.
-
-Return the minimum total transfer cost. It is guaranteed that equal redistribution is possible.
-
-## Constraints
-
-1 
-0 
-The answer may exceed the 32-bit integer range.
-
-### Example 1
-- **products** (`int[]`) = `[3, 4, 6, 6, 6]`
-- **output** (`long`) = `7`
-
-Consider a circular arrangement of containers. The units in each container are products = [3, 4, 6, 6, 6].
-
-  
-    
-    
-    
-    
-    
-
-    Position 1
-    Position 2
-    Position 3
-    Position 4
-    Position 5
-
-    
-    
-    
-    
-    
-
-    3 Products
-    4 Products
-    6 Products
-    6 Products
-    6 Products
-  
-
-Option 1:
-Start at the 3rd position and move clockwise. Collect one product each from the 3rd, 4th, and 5th positions.
-Transfer the products from:
-the 5th position to the 1st position, the cost is 1.
-the 4th position to the 1st position, the cost is 2.
-the 3rd position to the 2nd position, the cost is 4.
-
-Now each container has 5 units and the total cost is 1 + 2 + 4 = 7.
-Option 2:
-Start at the 5th position moving anti-clockwise. Collect one product each from the 5th, 4th, and 3rd positions.
-Transfer the product from:
-the 3rd position to the 1st position, the cost is 2.
-the 4th position to the 1st position, the cost is 3.
-the 5th position to the 2nd position, the cost is 3.
-
-Now each container has 5 units and the total cost is 2 + 3 + 3 = 8. Return 7, the minimum cost achievable.
-
-### Example 2
-- **products** (`int[]`) = `[1, 11, 1, 1, 1]`
-- **output** (`long`) = `20`
-
-The final average is 3. One container has 8 extra products. Moving in either fixed direction, send 2 products to each of the other four containers, for total cost 2*1 + 2*2 + 2*3 + 2*4 = 20.
-
-## Starter code
-
-```
-public long findMinimumCost(int[] products) {
-  // write your code here
-}
-```
 
 
 ---
@@ -5475,140 +11246,6 @@ It is still possible to move the first token, but it cannot collect any coins.
 public int solution(String board) {
   // write your code here
 }
-```
-
-
----
-
-# Decreasing Subsequences  (Google)
-
-> id: `google-split-array-into-consecutive-subsequences` | difficulty: medium | stage: OA | platform: codesignal | topics: greedy, heap | last seen: 2026-09-09, 2026-08-10, 2024-02-16 | employment: INTERN
-
-## Problem
-
-Given an int array nums of length n. Split it into strictly decreasing subsequences. 
-    Output the min number of subsequences you can get by splitting.
-
-## Constraints
-
-- 1 ≤ nums.length ≤ 2 * 10^5
-  - -10^9 ≤ nums[i] ≤ 10^9
-  - Every input element must appear in exactly one output subsequence, and each subsequence preserves input order.
-
-### Example 1
-- **nums** (`int[]`) = `[5, 2, 4, 3, 1, 6]`
-- **output** (`int`) = `3`
-
-You can split this array into: [5, 2, 1], [4, 3], [6]. And there are 3 subsequences you get.
-Or you can split it into [5, 4, 3], [2, 1], [6]. Also 3 subsequences.
-But [5, 4, 3, 2, 1], [6] is not legal because [5, 4, 3, 2, 1] is not a subsequence of the original array.
-
-### Example 2
-- **nums** (`int[]`) = `[2, 9, 12, 13, 4, 7, 6, 5, 10]`
-- **output** (`int`) = `4`
-
-You can split the array into: [2], [9, 4], [12, 10], [13, 7, 6, 5].
-
-### Example 3
-- **nums** (`int[]`) = `[1, 1, 1]`
-- **output** (`int`) = `3`
-
-Because of the strictly descending order you have to split it into 3 subsequences: [1], [1], [1].
-
-## Starter code
-
-```
-
-public int minSubsequences(int[] nums) {
-    // write your code here
-}
-
-```
-
-
----
-
-# Rightmost Longest Character Run  (Hudson River Trading)
-
-> id: `hrt-rightmost-longest-character-run` | difficulty: easy | stage: OA | platform: codesignal | topics: string, two_pointers | last seen: 2026-09-09, 2026-08-18, 2026-08-10 | employment: INTERN, NEW GRAD
-
-## Problem
-
-You are given a string source consisting of lowercase English letters.
-Find the longest contiguous substring that consists of the same character. If several such substrings have the same maximum length, choose the rightmost one.
-Return a string containing the chosen character followed by the number of times it occurs in that substring.
-A solution with time complexity no worse than O(source.length^3) fits within the execution time limit.
-
-## Constraints
-
-- source consists only of lowercase English letters.
-
-### Example 1
-- **source** (`String`) = `"bbacccdbbab"`
-- **output** (`String`) = `"c3"`
-
-The character a appears in two runs of length 1. The character b appears in three runs: two of length 2 and one of length 1. The single c run has length 3, so it is the longest run and the result is "c3".
-
-### Example 2
-- **source** (`String`) = `"bbaacaa"`
-- **output** (`String`) = `"a2"`
-
-The runs "bb", the first "aa", and the final "aa" all have the maximum length 2. The final "aa" is the rightmost maximum run, so the result is "a2".
-
-## Starter code
-
-```
-public String solution(String source) {
-  // Write your code here.
-}
-
-```
-
-
----
-
-# Minimize Absolute Difference of Server Loads  (Google)
-
-> id: `google-minimize-absolute-difference-of-server-loads` | difficulty: medium | stage: OA | platform: codesignal | topics: dynamic_programming, array | last seen: 2026-09-09, 2024-02-16 | employment: INTERN
-
-## Problem
-
-There are some processes that need to be executed. Amount of a load that process causes on a server that runs it, is being represented by a single integer. Total load caused on a server is the sum of the loads of all the processes that run on that server. You have at your disposal two servers, on which mentioned processes can be run. Your goal is to distribute given processes between those two servers in the way that, absolute difference of their loads will be minimized.
-    
-
-    Given an array of n integers, of which represents loads caused by successive processes, return the minimum absolute difference of server loads.
-    
-Function Description 
-      Complete the function minAbsDifference in the editor.
-      
-
-      minAbsDifference has the following parameter:
-        
-
-            - int[] loads: an array of integers representing the loads
-
-        
-Returns 
-        int: the minimum absolute difference of server loads
-
-## Constraints
-
-- 1 ≤ loads.length ≤ 1,000
-
-### Example 1
-- **loads** (`int[]`) = `[1, 2, 3, 4, 5]`
-- **output** (`int`) = `1`
-
-We can distribute the processes with loads [1, 2, 4] to the first server and [3, 5] to the second one, so that their total loads will be 7 and 8, respectively, and the difference of their loads will be equal to 1.
-
-## Starter code
-
-```
-
-public int minAbsDifference(int[] loads) {
-    // write your code here
-}
-
 ```
 
 
@@ -6542,206 +12179,6 @@ The source does not show a character alphabet or numeric size bound. The judged 
 
 ---
 
-# Dynamic Sum Pair Queries  (Hudson River Trading)
-
-> id: `hrt-dynamic-sum-pair-queries` | difficulty: medium | stage: OA | platform: codesignal | topics: array, hash_table, simulation | last seen: 2026-09-09 | employment: INTERN
-
-## Problem
-
-You are given two arrays of integers a and b, and an array queries, the elements of which are queries you are required to process. Every queries[i] can have one of the following two forms:
-  - [0, i, x]. In this case, you need to assign a[i] the value of x (a[i] = x).
-  - [1, x]. In this case, you need to find the total number of pairs of indices i and j such that a[i] + b[j] = x.
-
-Perform the given queries in order and return an array containing the results of the queries of the type [1, x].
-
-## Constraints
-
-- FastPrep execution-adapter constraints (not shown in the source image):
-  - a and b are non-empty integer arrays.
-  - queries is non-empty.
-  - Every query is either [0, i, x] or [1, x].
-  - Every update index i is valid for a.
-
-### Example 1
-- **a** (`int[]`) = `[3,4]`
-- **b** (`int[]`) = `[1,2,3]`
-- **queries** (`int[][]`) = `[[1,5],[0,0,1],[1,5]]`
-- **output** (`long[]`) = `[2,1]`
-
-For a = [3, 4], b = [1, 2, 3], and queries = [[1, 5], [0, 0, 1], [1, 5]], the output should be solution(a, b, queries) = [2, 1].
-The arrays look like this initially:
-a = [3, 4] and b = [1, 2, 3]
-For the query [1, 5], there are two ways to form a sum of 5 using an element from each array: 5 = 3 + 2 = a[0] + b[1] and 5 = 4 + 1 = a[1] + b[0]. So the result is 2.
-The query [0, 0, 1] re-assigns the value of a[0] to 1, so the arrays now look like this:
-a = [1, 4] and b = [1, 2, 3]
-For the final [1, 5] query, there's now only one way to form a sum of 5 using an element from each array: 5 = 4 + 1 = a[1] + b[0]. So the result is 1.
-Since the two queries of type [1, x] gave results of 2 and 1 respectively, the answer is [2, 1].
-
-### Example 2
-- **a** (`int[]`) = `[2,3]`
-- **b** (`int[]`) = `[1,2,2]`
-- **queries** (`int[][]`) = `[[1,4],[0,0,3],[1,5]]`
-- **output** (`long[]`) = `[3,4]`
-
-For a = [2, 3], b = [1, 2, 2], and queries = [[1, 4], [0, 0, 3], [1, 5]], the output should be solution(a, b, queries) = [3, 4].
-The arrays look like this initially:
-a = [2, 3] and b = [1, 2, 2]
-The remainder of this explanation is cropped from the source image.
-
-## Starter code
-
-```
-public long[] solution(int[] a, int[] b, int[][] queries) {
-    // Write your code here.
-}
-
-```
-
-## Source note
-
-The source omits complete numeric bounds. The judged core task and visible examples match the source at about 99%.
-
-
----
-
-# Product Minus Sum of Digits  (Hudson River Trading)
-
-> id: `hrt-product-minus-sum-of-digits` | difficulty: easy | stage: OA | platform: codesignal | topics: math, simulation | last seen: 2026-09-09 | employment: INTERN
-
-## Problem
-
-Given a positive integer number n, your task is to calculate the difference between the product of its digits and the sum of its digits.
-Note: The order matters; the answer should be of the form product - sum (and not sum - product).
-
-## Constraints
-
-- Input/Output: [execution time limit] 4 seconds (py3)
-  - [memory limit] 1 GB
-  - [input] integer n — A positive integer.
-  - Guaranteed constraints: 1 ≤ n ≤ 10^9.
-  - [output] integer
-
-### Example 1
-- **n** (`int`) = `123456`
-- **output** (`int`) = `699`
-
-For n = 123456, the output should be solution(n) = 699.
-  - The product of the digits is equal to 1 * 2 * 3 * 4 * 5 * 6 = 720.
-  - The sum of the digits is equal to 1 + 2 + 3 + 4 + 5 + 6 = 21.
-
-So the final answer is 720 - 21 = 699.
-
-### Example 2
-- **n** (`int`) = `1010`
-- **output** (`int`) = `-2`
-
-For n = 1010, the output should be solution(n) = -2.
-  - The multiplication of the digits is equal to 1 * 0 * 1 * 0 = 0.
-  - The sum of the digits is equal to 1 + 0 + 1 + 0 = 2.
-
-So the final answer is 0 - 2 = -2.
-
-## Starter code
-
-```
-public int solution(int n) {
-    // Write your code here.
-}
-
-```
-
-## Source note
-
-The judged core task, numeric bound, and visible examples match the source at about 99%.
-
-
----
-
-# Sort Matrix Borders  (Hudson River Trading)
-
-> id: `hrt-sort-matrix-borders` | difficulty: medium | stage: OA | platform: codesignal | topics: array, matrix, sorting, simulation | last seen: 2026-09-09 | employment: INTERN
-
-## Problem
-
-Given matrix, an n x m rectangular matrix of integers, let's define its 0-border as the union of its leftmost and rightmost columns, as well as its top and bottom rows. A vector's 0-border is the vector itself.
-If we were to remove the matrix's 0-border, then the 0-border of the resulting matrix can be defined as the 1-border of the original matrix. We can continue this way to define the 2-border, 3-border, etc, until we reach the center of the matrix.
-For each valid k, your task is to sort the elements in each k-border and place them clockwise in ascending order, starting from the top-left corner.
-Note: You are not expected to provide the most optimal solution, but a solution with time complexity not worse than O(n * m * (n + m)) will fit within the execution time limit.
-
-## Constraints
-
-- FastPrep execution-adapter constraints (not shown in the source image):
-  - matrix is non-empty.
-  - Every row has the same positive length.
-  - Every entry is an integer.
-
-### Example 1
-- **matrix** (`int[][]`) = `[[9,7,-4,5],[1,6,2,-6],[12,20,2,0]]`
-- **output** (`int[][]`) = `[[-6,-4,0,1],[20,2,6,2],[12,9,7,5]]`
-
-For
-matrix = [[9, 7, -4, 5],
-          [1, 6, 2, -6],
-          [12, 20, 2, 0]]FastPrep-authored deterministic derivation: The source image shows this example input but is cropped before its output. Applying the visible border-sorting rule gives the executable output shown here.
-
-## Starter code
-
-```
-public int[][] solution(int[][] matrix) {
-    // Write your code here.
-}
-
-```
-
-## Source note
-
-The source omits complete numeric bounds. The judged core task and visible matrix example match the source at about 98%.
-
-
----
-
-# Maximum Game Board Score  (JP Morgan Chase)
-
-> id: `jpmorgan-maximum-game-board-score` | difficulty: medium | stage: OA | platform: unknown | topics: array, dynamic_programming | last seen: 2026-09-09 | employment: NEW GRAD, INTERN
-
-## Problem
-
-You are given a game board with spaces arranged in a straight line, each space worth a different number of points, either positive or negative. The goal of the game is to accumulate as many points as possible.
-Your game piece can start at any point on the board, and it can jump exactly k number of spaces at a time, only moving to the right, accumulating the number of points written on each space your piece lands on. Once your piece jumps past the final space, the game ends.
-Given a game board, and a jump length, choose the ideal starting space to maximize the number of points gained. Return the total points.
-
-## Constraints
-
-- 1 ≤ size of game_val ≤ 10^6
-  - -10^3 ≤ game_val[i] ≤ 10^3
-  - 1 ≤ k < size of game_val
-
-### Example 1
-- **gameVal** (`int[]`) = `[2,-3,4,6,1]`
-- **k** (`int`) = `2`
-- **output** (`int`) = `7`
-
-Suppose game_val = [2, -3, 4, 6, 1] and k = 2.
-Output: 7
-Choose index = 1 as starting point.
-2 + 4 + 1 = 7
-
-## Starter code
-
-```
-public int maxGameScore(int[] gameVal, int k) {
-  // Write your code here.
-}
-
-```
-
-## Source note
-
-The judged core task matches the visible source at about 99%.
-
-
----
-
 # Minimum Meeting Rooms  (JP Morgan Chase)
 
 > id: `jpmorgan-minimum-meeting-rooms` | difficulty: medium | stage: OA | platform: unknown | topics: array, sorting, heap, intervals | last seen: 2026-09-09 | employment: NEW GRAD, INTERN
@@ -7181,162 +12618,6 @@ public int getDistinctPairs(int[] investmentReturns, int goal) {
 
 ---
 
-# Maximum System Memory Capacity  (Amazon)
-
-> id: `amazon-maximum-capacity` | difficulty: easy | stage: OA | platform: hackerrank | topics: sorting, greedy | last seen: 2026-09-08, 2026-09-05, 2026-07-21, 2026-07-11, 2026-06-04, 2025-07-09 | employment: INTERN, NEW GRAD
-
-## Problem
-
-Amazon is optimizing the capacity of a cloud system with n servers. The memory capacity of the i-th server is memory[i].
-A system uses an even number of servers. If it uses 2x servers, exactly x are primary servers and the other x are backup servers. For every primary server P, it must be paired with a distinct backup server B whose memory capacity is at least that of P.
-The system memory capacity is the sum of the memory capacities of all primary servers. You may leave servers unused. Given memory, return the maximum system memory capacity that can be formed.
-Complete maximumCapacity, which receives the integer array memory and returns the maximum capacity as a long.
-
-## Constraints
-
-- 2 ≤ n ≤ 2 * 10^5
-
-      - 1 ≤ size[i] ≤ 10^9
-
-### Example 1
-- **memory** (`int[]`) = `[1, 2, 1, 2]`
-- **output** (`long`) = `3`
-
-Here, we have 4 servers [serverA, serverB, serverC, serverD] having memory sizes as [1, 2, 1, 2].
-
-We can choose serverA and serverB as primary servers, and serverC and serverD as their respective backup.
-The conditions hold true since memory[serverC] ≥ memory[serverA] and memory[serverD] ≥ memory[serverB].
-Hence, the maximum system memory capacity is 3.
-
-### Example 2
-- **memory** (`int[]`) = `[1, 2, 1]`
-- **output** (`long`) = `1`
-
-Here, we have 3 servers [serverA, serverB, serverC] having memory sizes as [1, 2, 1].
-
-We can choose serverA as a primary server, and serverB as its respective backup server.
-The conditions hold true since memory[serverB] ≥ memory[serverA].
-Hence, the maximum system memory capacity is 1.
-
-### Example 3
-- **memory** (`int[]`) = `[2, 4, 3, 1, 2]`
-- **output** (`long`) = `5`
-
-Given 5 servers as [serverA, serverB, serverC, serverD, serverE] having memory = [2, 4, 3, 1, 2].
-
-    
-      
-        Primary Servers Options
-        Backup Servers Options
-        Conditions
-        Valid Option
-      
-    
-    
-      
-        serverA, serverB
-        serverC, serverD
-        memory[serverA] <= memory[serverC], memory[serverB] <= memory[serverD]
-        No
-      
-      
-        serverA, serverD
-        serverB, serverE
-        memory[serverA] <= memory[serverB], memory[serverD] <= memory[serverE]
-        Yes
-      
-      
-        serverA, serverC
-        serverE, serverB
-        memory[serverA] <= memory[serverE], memory[serverC] <= memory[serverB]
-        Yes
-      
-    
-  
-In the second configuration, the system memory capacity is memory[serverA] + memory[serverD] = 3.
-While in the third configuration, it is memory[serverA] + memory[serverC] = 5.
-
-Hence, the maximum system memory capacity is 5.
-
-## Starter code
-
-```
-
-public long maximumCapacity(int[] memory) {
-  // write your code here
-}
-
-```
-
-## Source note
-
-Update (2026-07-21): Reports of Amazon 2027 Intern questions started appearing today. I have not confirmed whether they are real yet, so I am sharing this question for review until I know more.
-
-
----
-
-# Minimum Merge Conflicts  (Amazon)
-
-> id: `amazon-minimum-merge-conflicts` | difficulty: hard | stage: OA | platform: unknown | topics: dynamic_programming, string | last seen: 2026-09-08, 2026-08-27, 2026-07-11, 2026-06-22, 2026-05-17, 2026-04-28 | employment: INTERN, FULLTIME, NEW GRAD
-
-## Problem
-
-Developers want to merge two source-control branches into one unified branch while preserving the relative order of commits from each branch.
-Each branch is represented by a lowercase string. Each character represents a commit priority, where a lower alphabetical character has higher priority.
-A conflict occurs when, in the merged branch, a lower-priority commit appears before a higher-priority commit. In other words, for positions i < j in the merged string, there is a conflict when merged[i] > merged[j].
-Return the minimum possible number of conflicts over all valid merges of primary and secondary.
-A valid merge must contain every character from both branches and preserve the original order within each input branch.
-Function Description The function getMinimumConflicts takes the following input:
-  - string primary: the commit sequence of the primary branch
-  - string secondary: the commit sequence of the secondary branch
-
-Returns int: the minimum number of conflicts after a valid merge
-
-## Constraints
-
-- 1 <= |primary|, |secondary| <= 1000
-  - primary and secondary consist of lowercase English letters only.
-
-### Example 1
-- **primary** (`String`) = `"zc"`
-- **secondary** (`String`) = `"d"`
-- **output** (`int`) = `2`
-
-Valid merges include:
-  - zcd with 2 merge conflicts (z being lower priority is placed before higher priority commits c and d).
-  - Similarly, zdc with 3 merge conflicts.
-  - Similarly, dzc with 2 merge conflicts.
-
-The minimum number of merge conflicts possible is 2.
-
-### Example 2
-- **primary** (`String`) = `"dae"`
-- **secondary** (`String`) = `"add"`
-- **output** (`int`) = `1`
-
-adadde has 1 merge conflict.
-
-### Example 3
-- **primary** (`String`) = `"aaa"`
-- **secondary** (`String`) = `"abb"`
-- **output** (`int`) = `0`
-
-aaaabb has no merge conflicts.
-Added from a newer source found on June 24, 2026 🦒
-
-## Starter code
-
-```
-
-public int getMinimumConflicts(String primary, String secondary) {
-    // write your code here
-}
-
-```
-
-
----
-
 # Rectangle Fit Queries  (Capital One)
 
 > id: `capital-one-rectangle-fit-queries` | difficulty: medium | stage: OA | platform: codesignal | topics: array, geometry, simulation | last seen: 2026-09-08, 2026-09-06, 2026-09-05, 2026-09-04 | employment: NEW GRAD, INTERN
@@ -7769,32 +13050,82 @@ The visible assessment source provides the formulas, classification rules, sampl
 
 ---
 
-# Maximum Escape Game Score  (Microsoft)
+# Planning Production  (Visa)
 
-> id: `microsoft-maximum-escape-game-score` | difficulty: medium | stage: OA | platform: unknown | topics: array, hash_table, dynamic_programming, sorting | last seen: 2026-09-08, 2026-07-05, 2026-06-22 | employment: 
+> id: `visa-planning-production` | difficulty: medium | stage: OA | platform: unknown | topics: greedy, sorting | last seen: 2026-09-08, 2026-09-02, 2026-07-08 | employment: NEW GRAD
 
 ## Problem
 
-In an escape game, players must solve puzzles to earn points and progress. One puzzle involves an array of integers and specific rules for earning points. Here are the rules:
-  - Select a value v. Remove all occurrences of that value from the array and add their sum to your score.
-  - Remove all elements equal to v + 1 or v - 1 without scoring points.
-  - Repeat steps 1 and 2 until the array is empty.
+You must plan production for a company that manufactures multiple products. For each product i:
+  - worstCase[i] is the minimum cash that must be available before production begins.
+  - expected[i] is the cost actually spent during production.
 
-Determine the maximum score that can be obtained by following these rules.
+Determine the minimum amount of starting cash needed to manufacture all products. Products can be produced in any order, and after completing each product, the remaining cash can be used for subsequent products.
 
 ### Example 1
-- **elements** (`int[]`) = `[5, 6, 6, 4, 11]`
-- **output** (`int`) = `27`
+- **worstCase** (`int[]`) = `[6, 5, 7]`
+- **expected** (`int[]`) = `[4, 2, 1]`
+- **output** (`long`) = `9`
 
-Delete 11 for 11 points. Since there are no elements equal to 11 - 1 = 10 or 11 + 1 = 12, proceed with the remaining elements: [5, 6, 6, 4].
-Delete the two 6s for 12 more points. Delete any elements equal to 6 - 1 = 5 or 6 + 1 = 7. Then proceed with the remaining elements: [4].
-Deleting 4 gives 4 more points, so the total score is 11 + 12 + 4 = 27.
+The optimal production order is 2, 1, 0:
+  - Start with 9 units of cash.
+  - Produce product 2: requires 7 units worst-case, spends 1 unit expected.  - Remaining cash: 9 - 1 = 8 units
+
+  - Produce product 1: requires 5 units worst-case, spends 2 units expected.  - Remaining cash: 8 - 2 = 6 units
+
+  - Produce product 0: requires 6 units worst-case, spends 4 units expected.  - Remaining cash: 6 - 4 = 2 units
+
+Therefore, the minimum starting amount is 9 units of cash.
 
 ## Starter code
 
 ```
+public long plenProduction(int[] worstCase, int[] expected) {
+  // write your code here
+}
 
-public int maxEscapeGameScore(int[] elements) {
+```
+
+## Source note
+
+The screenshot cuts off the bottom of the Function Description, but the statement and example clearly show the two input arrays, worstCase and expected. FastPrep worked that out strictly from the visible details and stated rules. If we come across a fuller version later, we'll come back and update this.
+
+
+---
+
+# Subarray Sum  (Visa)
+
+> id: `visa-subarray-sum` | difficulty: easy | stage: OA | platform: unknown | topics: array, math, combinatorics | last seen: 2026-09-08, 2026-09-02, 2026-07-08 | employment: NEW GRAD
+
+## Problem
+
+A subarray is a contiguous segment of an array. Given an array of n integers, determine the sum of all elements across all subarrays of that array.
+
+## Constraints
+
+- 1 <= n <= 2 * 10^5
+  - 1 <= arr[i] <= 10^3, where 0 <= i < n
+
+### Example 1
+- **n** (`int`) = `3`
+- **arr** (`int[]`) = `[4, 5, 6]`
+- **output** (`long`) = `50`
+
+The subarrays are [4], [5], [6], [4, 5], [5, 6], and [4, 5, 6].
+Their total sum is 4 + 5 + 6 + (4 + 5) + (5 + 6) + (4 + 5 + 6) = 50.
+
+### Example 2
+- **n** (`int`) = `3`
+- **arr** (`int[]`) = `[1, 1, 1]`
+- **output** (`long`) = `10`
+
+The subarrays are [1], [1], [1], [1, 1], [1, 1], and [1, 1, 1].
+Their total sum is 1 + 1 + 1 + (1 + 1) + (1 + 1) + (1 + 1 + 1) = 10.
+
+## Starter code
+
+```
+public long getSubarraySum(int n, int[] arr) {
   // write your code here
 }
 
@@ -8030,6 +13361,54 @@ public int solution(int[] tileColors, int size) {
   // write your code here
 }
 ```
+
+
+---
+
+# Minimum Anagram Period  (Visa)
+
+> id: `visa-minimum-anagram-period` | difficulty: medium | stage: OA | platform: unknown | topics: string, hash_table, math | last seen: 2026-09-08, 2026-07-08 | employment: NEW GRAD
+
+## Problem
+
+You are given a string inputStr containing lowercase English letters.
+Choose a positive block length p that divides inputStr.length. Split the entire string into consecutive blocks of length p. A block length is valid when every block is an anagram of every other block, meaning that all blocks have identical character frequencies.
+Return the minimum valid block length.
+
+## Constraints
+
+- 1 <= inputStr.length <= 10^5.
+  - inputStr contains only lowercase English letters.
+
+### Example 1
+- **inputStr** (`String`) = `"abcbcacba"`
+- **output** (`int`) = `3`
+
+Split the string into abc, bca, and cba. The three blocks are anagrams, and no smaller block length works.
+
+### Example 2
+- **inputStr** (`String`) = `"ababbaab"`
+- **output** (`int`) = `2`
+
+The blocks are ab, ab, ba, and ab. Every block has one a and one b.
+
+### Example 3
+- **inputStr** (`String`) = `"aaaa"`
+- **output** (`int`) = `1`
+
+Every one-character block is the string a, so the minimum valid length is 1.
+
+## Starter code
+
+```
+public int getAnagramPeriod(String inputStr) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source provides the core task, lowercase-string constraint, custom input format, and worked samples. The judged task matches the visible source at about 99%.
 
 
 ---
@@ -9089,6 +14468,111 @@ public String[] historicalFieldValues(String[][] operations) {
 ## Source note
 
 The report explicitly combines get, set, delete and TTL with key-and-field get_when queries, using version start/end timestamps rather than whole-database rollback. This exercise authors a finite string-row operation format, query-only output, numeric bounds, zero-TTL convention and exact half-open endpoints. Historical timestamp zero is an ordinary time, not a special current-read alias. Approximate source match: 97%.
+
+
+---
+
+# Event Statistics Aggregator  (Wells Fargo)
+
+> id: `wellsfargo-event-statistics-aggregator` | difficulty: medium | stage: OA | platform: hackerrank | topics: hash_table, design, simulation | last seen: 2026-09-07 | employment: INTERN
+
+## Problem
+
+Process a finite sequence of operations for an event-statistics aggregator. Each event name keeps its count, sum, minimum, and maximum.
+Every operation is a string array:
+  - ["add", name, value] records one decimal value for name and produces no output.
+  - ["count"] appends the total number of recorded events as a decimal integer string.
+  - ["avg"], ["min"], and ["max"] append one formatted dictionary string for that statistic.
+
+A formatted dictionary lists event names in ascending lexicographic order as name:value pairs separated by one space. Every numeric value has exactly six digits after the decimal point. A statistic query before any event is recorded appends the empty string.
+Return the query outputs in operation order.
+
+## Constraints
+
+- 1 <= operations.length <= 2000.
+  - Every operation is one of the documented forms.
+  - Every event name is a non-empty string of lowercase English letters and underscores.
+  - Every added value is a base-10 decimal string in [-10^6, 10^6] with at most three digits after the decimal point.
+
+### Example 1
+- **operations** (`String[][]`) = `[["count"],["avg"],["add","click","2"],["add","purchase","10"],["add","click","4"],["count"],["avg"],["min"],["max"]]`
+- **output** (`String[]`) = `["0","","3","click:3.000000 purchase:10.000000","click:2.000000 purchase:10.000000","click:4.000000 purchase:10.000000"]`
+
+The first two queries observe the empty aggregator. After three additions, click has values 2 and 4, while purchase has value 10.
+
+### Example 2
+- **operations** (`String[][]`) = `[["add","view","-1.5"],["add","view","2.5"],["avg"],["min"],["max"]]`
+- **output** (`String[]`) = `["view:0.500000","view:-1.500000","view:2.500000"]`
+
+The two view values average to 0.5; their minimum and maximum remain -1.5 and 2.5.
+
+## Starter code
+
+```
+public String[] aggregateEventStats(String[][] operations) {
+  // Write your code here
+}
+
+```
+
+## Source note
+
+The source omits a finite execution format, event-name ordering, and exact numeric serialization. The judged statistical behavior matches the visible source at about 93%.
+
+
+---
+
+# Ordered Deployment Configuration Validator  (Wells Fargo)
+
+> id: `wellsfargo-ordered-deployment-configuration-validator` | difficulty: easy | stage: OA | platform: hackerrank | topics: parsing, simulation | last seen: 2026-09-07 | employment: INTERN
+
+## Problem
+
+Validate a four-element string array values in this exact order: app_name, port, debug_mode, and max_connections. Stop at the first failed field.
+  - app_name must be non-empty and contain at most 50 characters. Otherwise use app_name must be non-empty and max 50 characters.
+  - port must be a strict base-10 integer string from 1024 through 65535, inclusive. Otherwise use port must be between 1024 and 65535.
+  - debug_mode is case-insensitive and must be true or false. Otherwise use debug_mode must be true or false.
+  - max_connections must be a strict base-10 integer string from 1 through 10000, inclusive. Otherwise use max_connections must be between 1 and 10000.
+
+Inputs are not trimmed. A strict integer string contains an optional leading + or - followed by one or more digits.
+Encode a successful typed configuration as ["ok", app_name, port, debug_mode, max_connections], using normalized decimal integers and a lowercase boolean. Encode a failure as ["error", message].
+
+## Constraints
+
+- values.length == 4.
+  - Each element of values is a non-null string.
+  - Inputs are validated exactly as received, except debug_mode is converted to lowercase.
+
+### Example 1
+- **values** (`String[]`) = `["payments","8080","TRUE","250"]`
+- **output** (`String[]`) = `["ok","payments","8080","true","250"]`
+
+All four fields pass in order. The integer strings are normalized and TRUE becomes true.
+
+### Example 2
+- **values** (`String[]`) = `["","80","maybe","0"]`
+- **output** (`String[]`) = `["error","app_name must be non-empty and max 50 characters"]`
+
+Validation stops immediately at the empty app_name, even though later fields are also invalid.
+
+### Example 3
+- **values** (`String[]`) = `["api","65536","false","100"]`
+- **output** (`String[]`) = `["error","port must be between 1024 and 65535"]`
+
+The application name is valid, but 65536 is one above the allowed port range.
+
+## Starter code
+
+```
+public String[] validateDeploymentConfig(String[] values) {
+  // Write your code here
+}
+
+```
+
+## Source note
+
+The source omits the exact callable encoding, strict integer syntax, and two error strings. The judged validation behavior matches the visible source at about 95%.
 
 
 ---
@@ -10457,90 +15941,6 @@ One source image omits the constraints, while another omits the opening statemen
 
 ---
 
-# Planning Production  (Visa)
-
-> id: `visa-planning-production` | difficulty: medium | stage: OA | platform: unknown | topics: greedy, sorting | last seen: 2026-09-02, 2026-07-08 | employment: 
-
-## Problem
-
-You must plan production for a company that manufactures multiple products. For each product i:
-  - worstCase[i] is the minimum cash that must be available before production begins.
-  - expected[i] is the cost actually spent during production.
-
-Determine the minimum amount of starting cash needed to manufacture all products. Products can be produced in any order, and after completing each product, the remaining cash can be used for subsequent products.
-
-### Example 1
-- **worstCase** (`int[]`) = `[6, 5, 7]`
-- **expected** (`int[]`) = `[4, 2, 1]`
-- **output** (`long`) = `9`
-
-The optimal production order is 2, 1, 0:
-  - Start with 9 units of cash.
-  - Produce product 2: requires 7 units worst-case, spends 1 unit expected.  - Remaining cash: 9 - 1 = 8 units
-
-  - Produce product 1: requires 5 units worst-case, spends 2 units expected.  - Remaining cash: 8 - 2 = 6 units
-
-  - Produce product 0: requires 6 units worst-case, spends 4 units expected.  - Remaining cash: 6 - 4 = 2 units
-
-Therefore, the minimum starting amount is 9 units of cash.
-
-## Starter code
-
-```
-public long plenProduction(int[] worstCase, int[] expected) {
-  // write your code here
-}
-
-```
-
-## Source note
-
-The screenshot cuts off the bottom of the Function Description, but the statement and example clearly show the two input arrays, worstCase and expected. FastPrep worked that out strictly from the visible details and stated rules. If we come across a fuller version later, we'll come back and update this.
-
-
----
-
-# Subarray Sum  (Visa)
-
-> id: `visa-subarray-sum` | difficulty: easy | stage: OA | platform: unknown | topics: array, math, combinatorics | last seen: 2026-09-02, 2026-07-08 | employment: 
-
-## Problem
-
-A subarray is a contiguous segment of an array. Given an array of n integers, determine the sum of all elements across all subarrays of that array.
-
-## Constraints
-
-- 1 <= n <= 2 * 10^5
-  - 1 <= arr[i] <= 10^3, where 0 <= i < n
-
-### Example 1
-- **n** (`int`) = `3`
-- **arr** (`int[]`) = `[4, 5, 6]`
-- **output** (`long`) = `50`
-
-The subarrays are [4], [5], [6], [4, 5], [5, 6], and [4, 5, 6].
-Their total sum is 4 + 5 + 6 + (4 + 5) + (5 + 6) + (4 + 5 + 6) = 50.
-
-### Example 2
-- **n** (`int`) = `3`
-- **arr** (`int[]`) = `[1, 1, 1]`
-- **output** (`long`) = `10`
-
-The subarrays are [1], [1], [1], [1, 1], [1, 1], and [1, 1, 1].
-Their total sum is 1 + 1 + 1 + (1 + 1) + (1 + 1) + (1 + 1 + 1) = 10.
-
-## Starter code
-
-```
-public long getSubarraySum(int n, int[] arr) {
-  // write your code here
-}
-
-```
-
-
----
-
 # Minimum Adjacent Swaps to Group Binary Values  (Amazon)
 
 > id: `amazon-minimum-adjacent-swaps-binary-groups` | difficulty: medium | stage: OA | platform: unknown | topics: array, greedy | last seen: 2026-09-02 | employment: NEW GRAD
@@ -10765,6 +16165,80 @@ The judged task matches the visible source at about 99%.
 
 ---
 
+# Progressive Banking System with Cashback  (Airbnb)
+
+> id: `airbnb-progressive-banking-system-with-cashback` | difficulty: hard | stage: OA | platform: codesignal | topics: design, hash_table, heap, sorting, simulation | last seen: 2026-09-01 | employment: FULLTIME
+
+## Problem
+
+Implement a progressive banking system. All operations have a timestamp parameter — a stringified timestamp in milliseconds. All timestamps are unique, lie in the range from 1 to 10^9, and are supplied in strictly increasing order.
+Before every operation at timestamp t, process every cashback whose due time is at most t. A cashback due exactly at t is credited before that operation.
+Level 1
+Initially, the banking system does not contain any accounts. Support account creation, deposits, and transfers between two different accounts:
+  - createAccount(timestamp, accountId) creates a new account with the given identifier if it does not already exist. It returns true when the account is created and false when an active account with accountId already exists.
+  - deposit(timestamp, accountId, amount) deposits the given amount into the specified account and returns its resulting balance. It returns null when the account does not exist.
+  - transfer(timestamp, sourceAccountId, targetAccountId, amount) transfers the given amount from the source account to the target account and returns the resulting source balance. It returns null when either account is missing, the identifiers are equal, or the source has insufficient funds.
+
+Level 2
+topSpenders(timestamp, n) returns up to n active accounts with the highest total outgoing transactions. Outgoing transactions include successful transfers out and successful payments. Sort by outgoing total in descending order, then by accountId in ascending lexicographic order. Format every entry as accountId(totalOutgoing). If fewer than n accounts exist, return all of them. Cashback never counts as outgoing activity.
+Level 3
+  - pay(timestamp, accountId, amount) withdraws the amount when the account exists and has sufficient funds. A successful payment contributes to outgoing activity, returns the next global identifier paymentK, and schedules floor(amount * 2 / 100) cashback for timestamp + 86400000. A failed payment returns null and does not consume an identifier.
+  - getPaymentStatus(timestamp, accountId, payment) returns IN_PROGRESS before that payment's cashback is processed and CASHBACK_RECEIVED afterward. It returns null when the account or payment does not exist, or when the payment belongs to a different current account lineage.
+
+Level 4
+  - mergeAccounts(timestamp, accountId1, accountId2) merges accountId2 into accountId1. It returns false if the identifiers are equal or either active account is missing; otherwise it returns true.
+  - The survivor receives the absorbed balance and outgoing total. Pending cashback follows the survivor, old payments from the absorbed account become queryable through the survivor, and accountId2 is removed. A removed identifier may later be created as a new, independent account.
+  - getBalance(timestamp, accountId, timeAt) returns the account balance immediately after all activity at timeAt, or after the latest earlier activity when nothing happened exactly then. It returns null if accountId is not active at the query timestamp or if that surviving account did not yet exist at timeAt.
+  - After a merge, the survivor inherits the absorbed account's balance history. For a historical time when both lineages existed, the survivor's historical balance is their sum; internal transfers between the two lineages cancel naturally.
+
+FastPrep Batch Interface
+Implement processBankingQueries(queries). Each row contains an uppercase operation name followed by the arguments shown below. Return one string per query in the same order.
+  - Use CREATE_ACCOUNT, DEPOSIT, TRANSFER, TOP_SPENDERS, PAY, GET_PAYMENT_STATUS, MERGE_ACCOUNTS, and GET_BALANCE.
+  - Serialize booleans as true or false, numbers in base 10, and every conceptual null as the empty string.
+  - Serialize TOP_SPENDERS by joining its formatted entries with commas and no spaces.
+
+## Constraints
+
+- 1 <= queries.length <= 2000.
+  - External timestamps are unique, strictly increasing integers from 1 through 10^9.
+  - Every query uses one valid operation shape described above, and 1 <= timeAt <= timestamp.
+  - Account identifiers match [a-z][a-z0-9_]{0,19}.
+  - Amounts are positive integers at most 10^9, and every balance and outgoing total fits in a signed 64-bit integer.
+  - 1 <= n <= 10^5 for TOP_SPENDERS.
+
+### Example 1
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","alice"],["CREATE_ACCOUNT","2","bob"],["DEPOSIT","3","alice","1000"],["TRANSFER","4","alice","bob","250"],["TOP_SPENDERS","5","2"]]`
+- **output** (`String[]`) = `["true","true","1000","750","alice(250),bob(0)"]`
+
+The transfer leaves alice with 750 and records 250 of outgoing activity for alice. Bob has no outgoing activity, so alice ranks first.
+
+### Example 2
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","a"],["DEPOSIT","2","a","1000"],["PAY","3","a","200"],["GET_PAYMENT_STATUS","4","a","payment1"],["DEPOSIT","86400003","a","1"],["GET_PAYMENT_STATUS","86400004","a","payment1"],["GET_BALANCE","86400005","a","86400003"]]`
+- **output** (`String[]`) = `["true","1000","payment1","IN_PROGRESS","805","CASHBACK_RECEIVED","805"]`
+
+Paying 200 leaves 800 and schedules floor(2% of 200) = 4 for timestamp 86400003. The cashback is credited before the deposit at that same timestamp, so the deposit returns 805.
+
+### Example 3
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","a"],["DEPOSIT","2","a","100"],["CREATE_ACCOUNT","3","b"],["DEPOSIT","4","b","500"],["PAY","5","b","200"],["MERGE_ACCOUNTS","6","a","b"],["GET_PAYMENT_STATUS","7","a","payment1"],["GET_PAYMENT_STATUS","8","b","payment1"],["TOP_SPENDERS","9","2"],["GET_BALANCE","10","a","4"],["GET_BALANCE","11","a","5"],["GET_BALANCE","86400005","a","86400005"]]`
+- **output** (`String[]`) = `["true","100","true","500","payment1","true","IN_PROGRESS","","a(200)","600","400","404"]`
+
+After b is absorbed, its payment is queried through a and its outgoing total belongs to a. The inherited history totals both lineages, and the pending cashback is later credited to a.
+
+## Starter code
+
+```
+public String[] processBankingQueries(String[][] queries) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source images define the four progressive levels and most operation rules. They omit the full pay and merge declarations, complete examples, numeric bounds, and a batch runner; the judged core task matches the visible source at about 95%.
+
+
+---
+
 # Rotten Oranges / Grid Infection BFS  (Lyft)
 
 > id: `lyft-rotten-oranges-grid-bfs` | difficulty: medium | stage: OA | platform: unknown | topics: matrix, breadth_first_search | last seen: 2026-08-31, 2026-05-12, 2023-10-14 | employment: FULLTIME
@@ -10852,144 +16326,92 @@ public String minimizeCommute(String[][] grid, int[] time, int[] cost) {
 
 ---
 
-# Consistent Logs  (Rippling)
+# Banking System with Accepted Transfers, Part 4: Account Merging and Balance History  (Airbnb)
 
-> id: `rippling-consistent-logs` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, hash_table, sliding_window | last seen: 2026-08-31, 2026-08-06 | employment: NEW GRAD, INTERN
+> id: `airbnb-banking-accepted-transfers-level-4` | difficulty: hard | stage: OA | platform: codesignal | topics: hash_table, sorting, binary_search, design, simulation | last seen: 2026-08-31 | employment: FULLTIME
 
 ## Problem
 
-You are given an integer array userEvent, where userEvent[i] is the ID of the user who triggered event i.
-Let minimumGlobalFrequency be the smallest total frequency of any user ID in the entire array. A contiguous subarray is consistent when the frequency of its most frequent user is exactly minimumGlobalFrequency.
-Return the maximum length of a consistent subarray.
+Implement a simplified banking system through four cumulative levels. The source exposes direct methods; this practice version serializes the same calls as one ordered String[][] queries batch and returns one string per query.
+
+Timestamp and output rules
+
+  - Every query starts with an uppercase operation name followed by its arguments. All timestamps are unique integers from 1 through 10^9 and arrive in strictly increasing order.
+  - Serialize booleans as true or false, numbers in base 10, and conceptual null results as the empty string.
+  - Before each external query at timestamp t, expire every pending transfer whose acceptance window ended before t. A transfer created at s remains acceptable through s + 86400000 and expires at the beginning of the next millisecond.
+
+Level 1: Accounts, deposits, and payments
+
+  - ["CREATE_ACCOUNT", timestamp, accountId] implements createAccount. Create the account with balance zero and return true, or return false when that active ID already exists.
+  - ["DEPOSIT", timestamp, accountId, amount] implements deposit. Add the positive amount and return the resulting balance, or the empty string when the account does not exist.
+  - ["PAY", timestamp, accountId, amount] implements pay. Subtract the positive amount and return the resulting balance. Return the empty string when the account is missing or has insufficient funds.
+
+Level 2: Activity ranking
+
+  - ["TOP_ACTIVITY", timestamp, n] implements topActivity. Rank active accounts by total transaction value descending and then accountId ascending.
+  - Total transaction value is the sum of every successful processed amount affecting the account: deposits, payments, and both sides of an accepted transfer. Creating, rejecting, holding, expiring, refunding, or merely initiating a transfer adds no activity.
+  - Format entries as accountId(total), join them with , , and return at most n entries.
+
+Level 3: Pending transfer acceptance
+
+  - ["TRANSFER", timestamp, sourceAccountId, targetAccountId, amount] implements transfer. Hold the amount from the source until the target accepts or the transfer expires. Return the next global ID transferK. Return the empty string, without consuming an ID, when the IDs are equal, either account is missing, or funds are insufficient.
+  - ["ACCEPT_TRANSFER", timestamp, accountId, transferId] implements acceptTransfer. Return true only when the transfer is still pending and accountId is its current target; credit the target and add the amount to both accounts' transaction totals. Return false for a missing, accepted, canceled, expired, or wrong-target transfer.
+  - An expired or canceled transfer refunds its held amount to its current source and never changes either transaction total.
+
+Level 4: Account merging and historical balance
+
+  - ["MERGE_ACCOUNTS", timestamp, accountId1, accountId2] implements mergeAccounts. Return false when the IDs are equal or either active account is missing; otherwise merge Account 2 into Account 1 and return true.
+  - Cancel every pending transfer whose source is Account 2 and refund its hold. Also cancel and refund every pending transfer from Account 1 to Account 2. Redirect every other pending transfer targeting Account 2 so that it targets Account 1.
+  - After those cancellations, add Account 2's balance and transaction total to Account 1. Account 1 keeps its ID; Account 2 is removed.
+  - ["GET_BALANCE", timestamp, accountId, timeAt] implements getBalance. Return that ID's balance immediately after all activity at timeAt, or after the latest earlier activity when nothing occurred exactly then. Return the empty string if that account generation did not exist at timeAt.
+  - Before the merge, each ID keeps its own history. At the merge timestamp, Account 1 records the final combined balance and Account 2 stops existing. Account 2 remains queryable only for times before the merge.
 
 ## Constraints
 
-- 1 <= userEvent.length <= 3 * 10^5
-  - 1 <= userEvent[i] <= 10^9
+- 1 <= queries.length <= 1000.
+  - Every timestamp is a unique integer from 1 through 10^9, and queries are supplied in strictly increasing timestamp order.
+  - Every query row is well formed and uses an operation available in Levels 1 through 4.
+  - Amounts and n are positive base-10 integers. Every balance, transaction total, and pending-transfer due time fits in a signed 64-bit integer.
+  - For GET_BALANCE, 0 <= timeAt <= timestamp.
+  - Account identifiers are non-empty strings that do not contain commas or parentheses.
 
 ### Example 1
-- **userEvent** (`int[]`) = `[1,2,1,3,4,2,4,3,3,4]`
-- **output** (`int`) = `8`
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account1"],["CREATE_ACCOUNT","3","account2"],["DEPOSIT","4","non-existing","2700"],["DEPOSIT","5","account1","2700"],["PAY","6","non-existing","2700"],["PAY","7","account1","2701"],["PAY","8","account1","200"]]`
+- **output** (`String[]`) = `["true","false","true","","2700","","","2500"]`
 
-In the entire array, users 1 and 2 each appear 2 times, while users 3 and 4 each appear 3 times. Therefore, minimumGlobalFrequency = 2.
-The subarray [1,2,1,3,4,2,4,3] has length 8, and every user in it appears exactly 2 times. Its maximum frequency is therefore 2, so it is consistent. Every subarray of length at least 9 contains a user with frequency 3, so 8 is the maximum length.
+The duplicate account creation fails. Missing-account operations and an overdraw return empty strings. The final payment succeeds and leaves account1 with 2500.
 
 ### Example 2
-- **userEvent** (`int[]`) = `[7,7,8,8]`
-- **output** (`int`) = `4`
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account2"],["CREATE_ACCOUNT","3","account3"],["DEPOSIT","4","account1","2000"],["DEPOSIT","5","account2","3000"],["DEPOSIT","6","account3","4000"],["TOP_ACTIVITY","7","3"],["PAY","8","account1","1500"],["PAY","9","account2","250"],["DEPOSIT","10","account3","250"],["TOP_ACTIVITY","11","3"]]`
+- **output** (`String[]`) = `["true","true","true","2000","3000","4000","account3(4000), account2(3000), account1(2000)","500","2750","4250","account3(4250), account1(3500), account2(3250)"]`
 
-Both users appear 2 times in the entire array, so minimumGlobalFrequency = 2. The full array is consistent and has length 4.
+The first ranking follows the three deposits. Payments count toward total activity even though they reduce balances, so the second ranking uses totals 4250, 3500, and 3250.
+
+### Example 3
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account2"],["DEPOSIT","3","account1","2000"],["DEPOSIT","4","account2","3000"],["TRANSFER","5","account1","account2","5000"],["TRANSFER","16","account1","account2","1000"],["ACCEPT_TRANSFER","20","account1","transfer1"],["ACCEPT_TRANSFER","21","non-existing","transfer1"],["ACCEPT_TRANSFER","22","account1","transfer2"],["ACCEPT_TRANSFER","25","account2","transfer1"],["ACCEPT_TRANSFER","30","account2","transfer1"],["TRANSFER","40","account1","account2","1000"],["ACCEPT_TRANSFER","86400045","account2","transfer2"],["TRANSFER","86400050","account1","account1","1000"]]`
+- **output** (`String[]`) = `["true","true","2000","3000","","transfer1","false","false","false","true","false","transfer2","false",""]`
+
+The first transfer fails for insufficient funds. Only account2 can accept transfer1, and it can be accepted only once. transfer2 expires before timestamp 86400045, so its held funds are refunded and acceptance fails.
+
+### Example 4
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","a"],["CREATE_ACCOUNT","2","b"],["DEPOSIT","3","a","100"],["DEPOSIT","4","b","50"],["TRANSFER","5","b","a","20"],["MERGE_ACCOUNTS","6","a","b"],["GET_BALANCE","7","b","4"],["GET_BALANCE","8","b","5"],["GET_BALANCE","9","b","6"],["GET_BALANCE","10","a","6"],["TOP_ACTIVITY","11","2"]]`
+- **output** (`String[]`) = `["true","true","100","50","transfer1","true","50","30","","150","a(150)"]`
+
+The pending transfer would become internal after the merge, so it is canceled and its held 20 is refunded before the balances combine. Account b keeps its historical balances before timestamp 6 but is closed at the merge timestamp.
 
 ## Starter code
 
 ```
-public int findConsistentLogs(int[] userEvent) {
-  // Write your code here.
-}
-
-```
-
-
----
-
-# Costliest Chocolate  (Rippling)
-
-> id: `rippling-costliest-chocolate` | difficulty: easy | stage: OA | platform: hackerrank | topics: array, math, simulation | last seen: 2026-08-31, 2026-08-06 | employment: NEW GRAD, INTERN
-
-## Problem
-
-A chocolate catalog is represented offline by aligned arrays:
-  - recordBrands[i] is the brand of chocolate i.
-  - productNumbers[i] is its unique product identifier.
-  - prices[i][j] and weights[i][j] are the price and weight in grams of variation j of that chocolate.
-
-Among chocolates whose brand exactly equals brand, evaluate the price-per-gram ratio prices[i][j] / weights[i][j] for every variation. Return the productNumber of the chocolate containing the largest ratio.
-Compare ratios as exact fractions. If multiple chocolates share the largest ratio, return the smaller productNumber.
-
-## Constraints
-
-- 1 <= recordBrands.length == productNumbers.length == prices.length == weights.length <= 10^5
-  - 1 <= sum(prices[i].length) <= 2 * 10^5
-  - prices[i].length == weights[i].length
-  - 1 <= prices[i].length
-  - 1 <= prices[i][j], weights[i][j] <= 10^9
-  - 1 <= productNumbers[i] <= 10^18
-  - All product numbers are unique.
-  - At least one entry has recordBrands[i] == brand.
-  - Brand comparison is case-sensitive.
-
-### Example 1
-- **brand** (`String`) = `"ABC"`
-- **recordBrands** (`String[]`) = `["ABC","ABC","Other"]`
-- **productNumbers** (`long[]`) = `[20,10,5]`
-- **prices** (`int[][]`) = `[[400,900],[500],[1000]]`
-- **weights** (`int[][]`) = `[[100,200],[100],[10]]`
-- **output** (`long`) = `10`
-
-For product 20, the best ratio is 900 / 200 = 4.5. Product 10 has ratio 500 / 100 = 5, which is larger. Product 5 belongs to another brand and is ignored.
-
-### Example 2
-- **brand** (`String`) = `"Cocoa"`
-- **recordBrands** (`String[]`) = `["Cocoa","Cocoa","Other"]`
-- **productNumbers** (`long[]`) = `[42,7,1]`
-- **prices** (`int[][]`) = `[[6],[9],[1000]]`
-- **weights** (`int[][]`) = `[[2],[3],[1]]`
-- **output** (`long`) = `7`
-
-Products 42 and 7 both have price-per-gram ratio 3. The tie is resolved by the smaller product number, so the answer is 7. The higher ratio from Other is irrelevant.
-
-## Starter code
-
-```
-public long costliestChocolate(String brand, String[] recordBrands, long[] productNumbers, int[][] prices, int[][] weights) {
-  // Write your code here.
+public String[] bankingAcceptedTransfersLevel4(String[][] queries) {
+  // Process the queries in order and return one string per query.
+  // write your code here
 }
 
 ```
 
 ## Source note
 
-The source uses a paginated REST API and omits numeric bounds and failure behavior. The judged core task matches the visible source at about 90%.
-
-
----
-
-# Server Management  (Rippling)
-
-> id: `rippling-server-management` | difficulty: easy | stage: OA | platform: unknown | topics: array, greedy, sorting | last seen: 2026-08-31, 2026-08-06 | employment: NEW GRAD, INTERN
-
-## Problem
-
-A company has n servers. For server i, serverCapacity[i] is its capacity and incomingRequests[i] is the number of requests arriving at that server.
-Without an upgrade, server i can handle at most min(serverCapacity[i], incomingRequests[i]) requests.
-Choose exactly k servers and double their capacities. Return the maximum total number of requests that can be handled across all servers after these upgrades.
-
-## Constraints
-
-- 1 <= k <= serverCapacity.length <= 2 * 10^5
-  - serverCapacity.length == incomingRequests.length
-  - 1 <= serverCapacity[i], incomingRequests[i] <= 10^9
-
-### Example 1
-- **serverCapacity** (`int[]`) = `[10,4,3,7]`
-- **incomingRequests** (`int[]`) = `[3,10,4,5]`
-- **k** (`int`) = `2`
-- **output** (`long`) = `20`
-
-Double the capacities of servers 1 and 2, using zero-based indices. The four servers can then handle 3, 8, 4, and 5 requests, for a total of 20.
-
-## Starter code
-
-```
-public long maximumHandledRequests(int[] serverCapacity, int[] incomingRequests, int k) {
-    // Write your code here.
-}
-
-```
-
-## Source note
-
-The visible source does not show a callable signature. The judged core task matches the visible source at about 99%.
+The source shows a four-level CodeSignal banking-system assessment with direct methods for accounts, transaction ranking, pending transfers, account merging, and historical balances. FastPrep represents those methods as one ordered batch.
 
 
 ---
@@ -11994,86 +17416,6 @@ public int[] getUnexpiredTokens(int time_to_live, String[] queries) {
 
 ---
 
-# Rank Flights by Airline and Destination Frequency  (Capital One)
-
-> id: `capital-one-rank-flights-by-airline-and-destination` | difficulty: easy | stage: OA | platform: codesignal | topics: database, sorting | last seen: 2026-08-29, 2026-08-17, 2026-08-11 | employment: INTERN, NEW GRAD
-
-## Problem
-
-You are given a flights table. Return one output row for every flight.
-Output exactly the columns id, destination, and departure_time.
-Ordering
-  - Airlines with more total flights come first.
-  - If two airlines have the same total, order them by aviacompany in ascending order.
-  - Within an airline, destinations with more flights for that airline come first.
-  - If two destinations for the same airline have the same count, order them by destination in ascending order.
-  - Within an airline and destination, order rows by departure_time in ascending order.
-  - If all preceding sort keys tie, order rows by id in ascending order.
-
-Compute both flight counts from all rows in the input table. The duration column is not returned and does not affect the ordering.
-
-## Constraints
-
-- The id column uniquely identifies a flight.
-  - Every input cell is non-null.
-  - aviacompany and destination contain non-empty uppercase ASCII letters and spaces.
-  - departure_time is a zero-padded 24-hour time in HH-MM format.
-  - duration is an integer number of minutes.
-  - The flights table may be empty.
-
-## Table schemas
-
-```json
-[
-  {
-    "columns": [
-      {
-        "description": "Unique flight identifier.",
-        "name": "id",
-        "nullable": false,
-        "type": "integer"
-      },
-      {
-        "description": "Airline operating the flight.",
-        "name": "aviacompany",
-        "nullable": false,
-        "type": "text"
-      },
-      {
-        "description": "Flight destination code.",
-        "name": "destination",
-        "nullable": false,
-        "type": "text"
-      },
-      {
-        "description": "Zero-padded departure time in HH-MM format.",
-        "name": "departure_time",
-        "nullable": false,
-        "type": "text"
-      },
-      {
-        "description": "Flight duration in minutes.",
-        "name": "duration",
-        "nullable": false,
-        "type": "integer"
-      }
-    ],
-    "description": "Flight records used to compute airline and destination frequencies.",
-    "name": "flights",
-    "primaryKey": [
-      "id"
-    ]
-  }
-]
-```
-
-## Source note
-
-The source omits how to break ties after departure time; the judged core task matches the visible source at about 98%.
-
-
----
-
 # Maximum String Operations  (Microsoft)
 
 > id: `microsoft-maximum-string-operations` | difficulty: medium | stage: OA | platform: unknown | topics: string, greedy | last seen: 2026-08-29, 2026-08-20 | employment: INTERN, NEW GRAD
@@ -12411,45 +17753,6 @@ The source omits a numeric upper bound. The judged core task matches the visible
 
 ---
 
-# K Most Recent Unique Request IDs  (Microsoft)
-
-> id: `microsoft-k-most-recent-unique-request-ids` | difficulty: easy | stage: OA | platform: unknown | topics: array, hash_table | last seen: 2026-08-29 | employment: INTERN
-
-## Problem
-
-You are given an array of request IDs, requests, and an integer k. The end of requests represents the most recent request.
-A request ID may appear more than once. Scan requests from right to left and collect each distinct request ID the first time you encounter it. Stop after collecting k distinct IDs.
-Return the collected request IDs in order from most recent to least recent.
-
-## Constraints
-
-- 1 <= k <= requests.length <= 10^5
-  - requests contains at least k distinct request IDs.
-  - Every requests[i] consists only of lowercase English letters and digits.
-
-### Example 1
-- **requests** (`String[]`) = `["item1","item2","item3","item1","item3"]`
-- **k** (`int`) = `3`
-- **output** (`String[]`) = `["item3","item1","item2"]`
-
-Scanning from right to left first collects "item3" and then "item1". The next "item3" is skipped because it has already been collected. Collecting "item2" produces the required three distinct IDs.
-
-## Starter code
-
-```
-public String[] getMostRecentUniqueRequests(String[] requests, int k) {
-  // Write your code here.
-}
-
-```
-
-## Source note
-
-The visible source omits the guarantee that the input contains at least k distinct request IDs. The judged core task matches it at about 99%.
-
-
----
-
 # Drawing Edge  (WeRide)
 
 > id: `weride-drawing-edge` | difficulty: easy | stage: OA | platform: hackerrank | topics: graph, math, combinatorics | last seen: 2026-08-29 | employment: FULLTIME
@@ -12656,52 +17959,9 @@ The original report specifies the progressive cloud-storage capabilities and det
 
 ---
 
-# Grid Paths with Override Passes  (IMC Trading)
-
-> id: `imc-grid-paths-with-override-passes` | difficulty: medium | stage: OA | platform: hackerrank | topics: dynamic_programming, matrix | last seen: 2026-08-28, 2026-08-10, 2026-08-05 | employment: INTERN, NEW GRAD
-
-## Problem
-
-A delivery robot navigates a city represented by an n x m grid. A cell containing 1 is an open street, while a cell containing 0 is blocked by construction.
-The robot starts at the top-left cell (0, 0) and must reach the bottom-right cell (n - 1, m - 1). The starting and ending cells may themselves be blocked. From any cell, the robot may move exactly one cell Right or one cell Down.
-The robot has k override passes. Including one blocked cell in a path consumes exactly one pass, and the robot may consume at most k passes over its entire path.
-Return the number of distinct paths from the start to the destination that use at most k override passes, modulo 10^9 + 7.
-
-## Constraints
-
-- 1 <= n, m <= 200
-  - 0 <= k <= 10
-  - Every cell of grid is either 0 or 1.
-
-### Example 1
-- **grid** (`int[][]`) = `[[1,0,1],[1,0,1],[1,1,1]]`
-- **k** (`int`) = `1`
-- **output** (`int`) = `4`
-
-Four paths use at most one override pass. Three of them enter exactly one blocked cell, and the path that moves Down, Down, Right, Right enters no blocked cells.
-
-### Example 2
-- **grid** (`int[][]`) = `[[1,0],[0,1]]`
-- **k** (`int`) = `0`
-- **output** (`int`) = `0`
-
-Both possible first moves enter a blocked cell, but no override pass is available.
-
-## Starter code
-
-```
-public int numPaths(int[][] grid, int k) {
-    // Write your code here.
-}
-
-```
-
-
----
-
 # In-Memory Database  (Airbnb)
 
-> id: `airbnb-in-memory-database` | difficulty: hard | stage: OA | platform: codesignal | topics: design, hash_table, simulation | last seen: 2026-08-28, 2026-08-17 | employment: FULLTIME
+> id: `airbnb-in-memory-database` | difficulty: hard | stage: OA | platform: codesignal | topics: design, hash_table, simulation | last seen: 2026-08-28, 2026-08-21, 2026-08-17 | employment: FULLTIME, NEW GRAD
 
 ## Problem
 
@@ -12792,6 +18052,49 @@ public String[][] runInMemoryDatabase(String[][] operations) {
 ## Source note
 
 The judged core task matches the source at about 99%.
+
+
+---
+
+# Grid Paths with Override Passes  (IMC Trading)
+
+> id: `imc-grid-paths-with-override-passes` | difficulty: medium | stage: OA | platform: hackerrank | topics: dynamic_programming, matrix | last seen: 2026-08-28, 2026-08-10, 2026-08-05 | employment: INTERN, NEW GRAD
+
+## Problem
+
+A delivery robot navigates a city represented by an n x m grid. A cell containing 1 is an open street, while a cell containing 0 is blocked by construction.
+The robot starts at the top-left cell (0, 0) and must reach the bottom-right cell (n - 1, m - 1). The starting and ending cells may themselves be blocked. From any cell, the robot may move exactly one cell Right or one cell Down.
+The robot has k override passes. Including one blocked cell in a path consumes exactly one pass, and the robot may consume at most k passes over its entire path.
+Return the number of distinct paths from the start to the destination that use at most k override passes, modulo 10^9 + 7.
+
+## Constraints
+
+- 1 <= n, m <= 200
+  - 0 <= k <= 10
+  - Every cell of grid is either 0 or 1.
+
+### Example 1
+- **grid** (`int[][]`) = `[[1,0,1],[1,0,1],[1,1,1]]`
+- **k** (`int`) = `1`
+- **output** (`int`) = `4`
+
+Four paths use at most one override pass. Three of them enter exactly one blocked cell, and the path that moves Down, Down, Right, Right enters no blocked cells.
+
+### Example 2
+- **grid** (`int[][]`) = `[[1,0],[0,1]]`
+- **k** (`int`) = `0`
+- **output** (`int`) = `0`
+
+Both possible first moves enter a blocked cell, but no override pass is available.
+
+## Starter code
+
+```
+public int numPaths(int[][] grid, int k) {
+    // Write your code here.
+}
+
+```
 
 
 ---
@@ -14163,67 +19466,6 @@ The source specifies weighted undirected cities, per-city fuel prices, an unlimi
 
 ---
 
-# Progressive Banking System  (Airbnb)
-
-> id: `airbnb-progressive-banking-system` | difficulty: hard | stage: OA | platform: unknown | topics: design, hash_table, heap, sorting, simulation | last seen: 2026-08-23, 2026-07-31 | employment: FULLTIME
-
-## Problem
-
-Process queries in order. Each query contains an operation name followed by a strictly increasing non-negative timestamp and its arguments. Before processing an external query at timestamp t, execute every pending scheduled payment whose due time is at most t, ordered by due time and then payment creation order.
-Return one string per external query, in order. Supported operations are:
-  - ["CREATE_ACCOUNT", t, account]: create an account with balance and outgoing total zero. Return true, or false if the active account already exists.
-  - ["DEPOSIT", t, account, amount]: add a positive amount. Return the new balance, or the empty string when the account is absent.
-  - ["TRANSFER", t, source, target, amount]: move a positive amount between two distinct active accounts. Return the source balance after success, or the empty string when either account is absent, the accounts are equal, or funds are insufficient. A successful transfer adds the amount to the source account's outgoing total.
-  - ["TOP_SPENDERS", t, n]: among active accounts, return at most n entries formatted account(outgoing), ordered by outgoing total descending and account identifier ascending, joined by commas.
-  - ["SCHEDULE_PAYMENT", t, account, amount, delay]: schedule a positive payment for time t + delay, where delay is positive. If the account exists, return the next global identifier paymentK; otherwise return the empty string and do not consume an identifier.
-  - ["CANCEL_PAYMENT", t, account, paymentId]: cancel a pending payment only when it currently belongs to that active account. Return true on success and false otherwise. A payment due at t is processed before this cancellation query.
-  - ["MERGE_ACCOUNTS", t, survivor, absorbed]: merge two distinct active accounts. The survivor receives the absorbed balance and outgoing total; pending payments of the absorbed account now belong to the survivor; and the absorbed account closes at t. Return true on success and false otherwise.
-  - ["GET_BALANCE", t, account, timeAt]: return that account's balance immediately after all activity at timestamp timeAt, or after the latest earlier activity when none occurred exactly then. Return the empty string if the account did not exist at that time. The requested time satisfies 0 <= timeAt <= t.
-
-When a scheduled payment becomes due, deduct it only if its current account is active and has enough funds. A successful payment adds to outgoing total. Whether it succeeds or not, it is no longer pending. Balances and totals fit in signed 64-bit integers.
-
-## Constraints
-
-- 1 <= queries.length <= 2 * 10^4.
-  - External query timestamps are strictly increasing integers from 0 through 10^9.
-  - Every query has exactly one valid operation shape described above.
-  - Account identifiers are non-empty printable ASCII strings without commas or parentheses.
-  - Amounts and delays are positive integers, and every arithmetic result fits in a signed 64-bit integer.
-  - 1 <= n <= 10^5 for TOP_SPENDERS.
-
-### Example 1
-- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","alice"],["CREATE_ACCOUNT","2","bob"],["DEPOSIT","3","alice","100"],["TRANSFER","4","alice","bob","30"],["TOP_SPENDERS","5","2"]]`
-- **output** (`String[]`) = `["true","true","100","70","alice(30),bob(0)"]`
-
-The transfer leaves alice with 70 and records 30 of outgoing activity, so she ranks before bob.
-
-### Example 2
-- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","a"],["DEPOSIT","2","a","50"],["SCHEDULE_PAYMENT","3","a","20","5"],["GET_BALANCE","7","a","7"],["GET_BALANCE","8","a","8"],["CANCEL_PAYMENT","9","a","payment1"]]`
-- **output** (`String[]`) = `["true","50","payment1","50","30","false"]`
-
-The payment is still pending at timestamp 7. It executes before the query at timestamp 8, so cancellation afterward fails.
-
-### Example 3
-- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","a"],["CREATE_ACCOUNT","2","b"],["DEPOSIT","3","a","10"],["DEPOSIT","4","b","25"],["SCHEDULE_PAYMENT","5","b","5","5"],["MERGE_ACCOUNTS","6","a","b"],["GET_BALANCE","7","b","5"],["GET_BALANCE","8","b","6"],["GET_BALANCE","10","a","10"]]`
-- **output** (`String[]`) = `["true","true","10","25","payment1","true","25","","30"]`
-
-Account b exists with balance 25 before the merge but is closed at timestamp 6. Its pending payment follows the survivor and reduces the combined balance from 35 to 30 at timestamp 10.
-
-## Starter code
-
-```
-public String[] processBankingQueries(String[][] queries) {
-    // Write your code here.
-}
-```
-
-## Source note
-
-The source reports four progressive banking levels and their central operations but omits several exact return, tie, and history rules. This exercise supplies one finite ordered-operation contract and matches the reported state transitions at about 88%.
-
-
----
-
 # Assign Locker  (Google)
 
 > id: `google-assign-locker` | difficulty: easy | stage: OA, PHONE SCREEN | platform: codesignal | topics: hash_table, heap | last seen: 2026-08-23, 2024-07-28 | employment: INTERN
@@ -15421,57 +20663,6 @@ The source omits the complete numeric bounds. The judged core task matches the v
 
 ---
 
-# Sewer Drainage Partition  (Two Sigma)
-
-> id: `twosigma-sewer-drainage-partition` | difficulty: medium | stage: OA | platform: hackerrank | topics: tree, depth_first_search | last seen: 2026-08-20, 2026-07-24, 2026-03-18 | employment: FULLTIME
-
-## Problem
-
-A sewer drainage system forms a rooted tree. Water enters at n nodes numbered from 0 to n - 1 and flows upward to the root 0.
-The tree is described by parent, where parent[i] = j means water flows from node i to its direct parent j. The root has parent[0] = -1.
-input[i] is the amount of water entering directly at node i. The total flow through a node is its own direct input plus the total flows of all of its children.
-Cut exactly one branch so the tree is split into two subtrees. Return the minimum possible absolute difference between the total flows of the two resulting parts.
-Function Description Complete drainagePartition.
-drainagePartition has the following parameters:
-  - int[] parent: the parent array describing the rooted tree
-  - int[] input: direct inflow at each node
-
-Returns: int minimum absolute difference after cutting one branch.
-
-## Constraints
-
-- 2 <= n <= 10^5
-  - 1 <= input[i] <= 10^4
-  - parent[0] = -1
-  - 0 <= parent[i] < i for 1 <= i < n
-  - The tree depth is at most 500.
-
-### Example 1
-- **parent** (`int[]`) = `[-1,0,0,1,1,2]`
-- **input** (`int[]`) = `[1,2,2,1,1,1]`
-- **output** (`int`) = `0`
-
-Cut the edge between nodes 1 and 0. One component has nodes {0,2,5} with total flow 4, and the other has nodes {1,3,4} with total flow 4. The difference is 0.
-
-### Example 2
-- **parent** (`int[]`) = `[-1,0,1,2]`
-- **input** (`int[]`) = `[1,4,3,4]`
-- **output** (`int`) = `2`
-
-Cut the edge between nodes 1 and 2. The two resulting parts have total flows 5 and 7, so the minimum difference is 2.
-
-## Starter code
-
-```
-public int drainagePartition(int[] parent, int[] input) {
-  // write your code here
-}
-
-```
-
-
----
-
 # Drawing Edge  (IBM)
 
 > id: `ibm-drawing-edge` | difficulty: easy | stage: OA | platform: unknown | topics: graph, combinatorics, math | last seen: 2026-08-20 | employment: FULLTIME, INTERN
@@ -15698,54 +20889,9 @@ The available source does not show numeric input bounds. The judged core task ot
 
 ---
 
-# IPO Share Allocation  (Two Sigma)
-
-> id: `two-sigma-ipo-share-allocation` | difficulty: hard | stage: OA | platform: unknown | topics: sorting, greedy, simulation | last seen: 2026-08-20 | employment: FULLTIME
-
-## Problem
-
-An initial public offering (IPO) refers to the process of offering shares of a private corporation to the public in a new stock issuance. Public share issuance allows a company to raise capital from public investors. IPO process can go through a typical auction, and an IPO price is not set before the auction. Potential buyers are able to bid for the shares they want and the price they are willing to pay. The bidders who were willing to pay the highest price are then allocated the shares available.
-Before the auction ends, potential buyers can submit bids containing: user Id, number of shares, bidding price, timestamp. Once all the bids are submitted, the allotted placement is assigned to the bidders from the highest bids down, until all of the allotted shares are assigned. The auction assigns shares in multiple rounds until all shares are allocated or no more bids. In each round, it finds the bids with highest prices, assigns the shares, and removes the assigned bids:
-  - If the bid (with the highest price) has only 1 bidders, the bidder gets shares he/she bids for (or get whatever left if the unallocated shares are less than the bid shares);
-  - If the bids (with the highest price) have multiple bidders, the bidders are assigned shares as follows: Shares are distributed round robin style (i.e. one share per bidder in sequence until shares are all allocated) to bidders in the same price group, with the bidders sorted by timestamp. Once a bidder gets the number of shares they bid for, they will be removed from the above iterative process and the process which then continues until all bidders are removed or the shares get exhausted, whichever comes first.
-
-Find out all bidders (user IDs) with no share allocation.
-Complete the function getResults in the editor below. The function must return a list of integers, each an Id for those bidders who receive no shares, sorted ascending.
-getResults has the following parameter(s):
-  - bids[bids[0],...bids[n-1]]: a 2D array of arrays of integers, Id, shares, price, timestamp named u, sc, bp, ts going forward
-  - totalShares: an integer, the total shares to allocate
-
-## Constraints
-
-- 1 ≤ n < 10^4
-  - 1 ≤ u, sc, bp, ts, totalShares < 10^8
-
-### Example 1
-- **bids** (`int[][]`) = `[[1,2,5,0],[2,1,4,2],[3,5,4,6]]`
-- **totalShares** (`int`) = `3`
-- **output** (`int[]`) = `[3]`
-
-There are totalShares = 3 shares among the 3 bidders. The first 2 shares are allotted to the user with Id 1 as it has the highest bidding price. The 3rd share is allotted to the user with Id 2 as it is the first user, based on timestamp, in the bidding group having the bidding price 4. The only bidder who doesn't receive shares has user Id of 3.
-
-## Starter code
-
-```
-public int[] getResults(int[][] bids, int totalShares) {
-  // Write your code here.
-}
-
-```
-
-## Source note
-
-One visible constraint line is unreadable; the judged core task otherwise matches the visible source at about 99%.
-
-
----
-
 # Worker Management, Part 1: Office Registration  (Airbnb)
 
-> id: `airbnb-worker-management-level-1` | difficulty: easy | stage: OA | platform: unknown | topics: hash_table, design, simulation | last seen: 2026-08-19, 2026-08-17, 2026-07-26 | employment: NEW GRAD
+> id: `airbnb-worker-management-level-1` | difficulty: easy | stage: OA | platform: codesignal | topics: hash_table, design, simulation | last seen: 2026-08-19, 2026-08-17, 2026-07-26 | employment: NEW GRAD, FULLTIME
 
 ## Problem
 
@@ -15781,7 +20927,7 @@ The report omits the exact operation-sequence interface and response strings. Th
 
 # Worker Management, Part 2: Top Workers  (Airbnb)
 
-> id: `airbnb-worker-management-level-2` | difficulty: medium | stage: OA | platform: unknown | topics: hash_table, sorting, design, simulation | last seen: 2026-08-19, 2026-08-17, 2026-07-26 | employment: NEW GRAD
+> id: `airbnb-worker-management-level-2` | difficulty: medium | stage: OA | platform: codesignal | topics: hash_table, sorting, design, simulation | last seen: 2026-08-19, 2026-08-17, 2026-07-26 | employment: NEW GRAD, FULLTIME
 
 ## Problem
 
@@ -16795,7 +21941,46 @@ The source does not specify how discarded expired nuts count against one retriev
 
 ---
 
-# Worker Management with Full-Shift Double Pay  (Airbnb)
+# Worker Management (Promotion Track), Part 3: Promotions and Salary  (Airbnb)
+
+> id: `airbnb-worker-management-level-3` | difficulty: hard | stage: OA | platform: unknown | topics: hash_table, intervals, design, simulation | last seen: 2026-08-17, 2026-07-26 | employment: NEW GRAD
+
+## Problem
+
+Continue the worker management system from Parts 1 and 2. Existing operations keep their behavior.
+Promotions
+  - ["PROMOTE", worker_id, new_position, new_compensation, start_timestamp]: register a pending promotion. Return success, or invalid_request if the worker is missing or already has an unapplied promotion.
+  - The promotion becomes active when the worker first enters the office at a timestamp greater than or equal to start_timestamp. A session that begins earlier keeps the previous position and compensation.
+  - TOP_N_WORKERS considers only each worker's current position. GET continues to sum completed time across every past and current position.
+
+Salary
+  - ["CALC_SALARY", worker_id, start_timestamp, end_timestamp]: return the salary earned during the half-open interval [start_timestamp, end_timestamp).
+  - Only completed office sessions are paid. For each session, multiply the length of its intersection with the requested interval by the compensation active for that session.
+  - Return an empty string for a missing worker.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_WORKER","John","Middle Developer","200"],["REGISTER","John","100"],["REGISTER","John","125"],["PROMOTE","John","Senior Developer","500","200"],["REGISTER","John","150"],["PROMOTE","John","Senior Developer","350","250"],["REGISTER","John","300"],["REGISTER","John","325"],["CALC_SALARY","John","0","500"],["TOP_N_WORKERS","3","Senior Developer"],["REGISTER","John","400"],["GET","John"],["TOP_N_WORKERS","10","Senior Developer"],["TOP_N_WORKERS","10","Middle Developer"],["CALC_SALARY","John","110","350"]]`
+- **output** (`String[]`) = `["true","registered","registered","success","registered","invalid_request","registered","registered","35000","John(0)","registered","250","John(75)","","45500"]`
+
+The session beginning at 150 keeps the old compensation because it starts before 200. The promotion applies when John next enters at 325. Salary over [110,350) is 15*200 + 150*200 + 25*500 = 45500.
+
+## Starter code
+
+```
+public String[] workerManagementLevel3(String[][] operations) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The report omits salary interval boundaries and unfinished-session handling. The judged core task matches the reported task at about 95%.
+
+
+---
+
+# Worker Management (Promotion Track), Part 4: Full-Shift Double Pay  (Airbnb)
 
 > id: `airbnb-worker-management-full-shift-grants` | difficulty: hard | stage: OA | platform: unknown | topics: hash_table, intervals, sorting, design, simulation | last seen: 2026-08-17, 2026-07-26 | employment: NEW GRAD
 
@@ -16853,45 +22038,6 @@ public String[] workerManagementFullShiftGrants(String[][] operations) {
 ## Source note
 
 The source specifies a four-level worker registry and full-session double pay, but omits the exact grant scope, interval-union behavior, gross-salary convention, and batch interface. The judged core task matches the visible source at about 86%.
-
-
----
-
-# Worker Management, Part 3: Promotions and Salary  (Airbnb)
-
-> id: `airbnb-worker-management-level-3` | difficulty: hard | stage: OA | platform: unknown | topics: hash_table, intervals, design, simulation | last seen: 2026-08-17, 2026-07-26 | employment: NEW GRAD
-
-## Problem
-
-Continue the worker management system from Parts 1 and 2. Existing operations keep their behavior.
-Promotions
-  - ["PROMOTE", worker_id, new_position, new_compensation, start_timestamp]: register a pending promotion. Return success, or invalid_request if the worker is missing or already has an unapplied promotion.
-  - The promotion becomes active when the worker first enters the office at a timestamp greater than or equal to start_timestamp. A session that begins earlier keeps the previous position and compensation.
-  - TOP_N_WORKERS considers only each worker's current position. GET continues to sum completed time across every past and current position.
-
-Salary
-  - ["CALC_SALARY", worker_id, start_timestamp, end_timestamp]: return the salary earned during the half-open interval [start_timestamp, end_timestamp).
-  - Only completed office sessions are paid. For each session, multiply the length of its intersection with the requested interval by the compensation active for that session.
-  - Return an empty string for a missing worker.
-
-### Example 1
-- **operations** (`String[][]`) = `[["ADD_WORKER","John","Middle Developer","200"],["REGISTER","John","100"],["REGISTER","John","125"],["PROMOTE","John","Senior Developer","500","200"],["REGISTER","John","150"],["PROMOTE","John","Senior Developer","350","250"],["REGISTER","John","300"],["REGISTER","John","325"],["CALC_SALARY","John","0","500"],["TOP_N_WORKERS","3","Senior Developer"],["REGISTER","John","400"],["GET","John"],["TOP_N_WORKERS","10","Senior Developer"],["TOP_N_WORKERS","10","Middle Developer"],["CALC_SALARY","John","110","350"]]`
-- **output** (`String[]`) = `["true","registered","registered","success","registered","invalid_request","registered","registered","35000","John(0)","registered","250","John(75)","","45500"]`
-
-The session beginning at 150 keeps the old compensation because it starts before 200. The promotion applies when John next enters at 325. Salary over [110,350) is 15*200 + 150*200 + 25*500 = 45500.
-
-## Starter code
-
-```
-public String[] workerManagementLevel3(String[][] operations) {
-  // write your code here
-}
-
-```
-
-## Source note
-
-The report omits salary interval boundaries and unfinished-session handling. The judged core task matches the reported task at about 95%.
 
 
 ---
@@ -17626,6 +22772,96 @@ The report asks whether a date is Saturday or Sunday but omits the date represen
 
 ---
 
+# Count Parent Nodes With a Target Sum  (Adobe)
+
+> id: `adobe-count-parent-nodes-with-target-sum` | difficulty: easy | stage: OA | platform: unknown | topics: tree, depth_first_search, recursion, parsing | last seen: 2026-08-14 | employment: FULLTIME
+
+## Problem
+
+A binary tree is serialized in preorder as one comma-separated string preorder. Each non-null node is written as its signed integer value, and each missing child is written as #.
+A parent node qualifies only when it has both a left child and a right child. Count the qualifying parent nodes whose own value plus the values of their two direct children equals target.
+Return the total number of qualifying parent nodes.
+
+## Constraints
+
+- The serialization describes one valid, non-empty binary tree.
+  - 1 <= number of non-null nodes <= 2000
+  - -10^9 <= node value <= 10^9
+  - -3 * 10^9 <= target <= 3 * 10^9
+  - Tokens are separated by commas and may contain surrounding spaces.
+
+### Example 1
+- **preorder** (`String`) = `"5,3,#,#,2,#,#"`
+- **target** (`long`) = `10`
+- **output** (`int`) = `1`
+
+The root has direct children 3 and 2, and 5 + 3 + 2 = 10. The leaves are not parent nodes.
+
+### Example 2
+- **preorder** (`String`) = `"1,2,4,#,#,5,#,#,3,#,6,#,#"`
+- **target** (`long`) = `11`
+- **output** (`int`) = `1`
+
+Node 2 has children 4 and 5, so it qualifies because 2 + 4 + 5 = 11. Node 3 has only one child and does not qualify.
+
+## Starter code
+
+```
+public int countTargetParents(String preorder, long target) {
+    // Write your solution here
+}
+```
+
+## Source note
+
+The source omits the null-token convention, callable signature, numeric bounds, and examples. This practice version uses an explicit # marker and a 2,000-node bound. The judged core task matches the visible source at about 94%.
+
+
+---
+
+# Largest Binary Number by Concatenation  (Adobe)
+
+> id: `adobe-largest-binary-number-by-concatenation` | difficulty: medium | stage: OA | platform: unknown | topics: string, sorting, greedy | last seen: 2026-08-14 | employment: FULLTIME
+
+## Problem
+
+Given an array binaries of non-empty binary strings, reorder every string exactly once and concatenate them.
+Return the lexicographically largest concatenation. Because all candidate concatenations have the same total length and contain only 0 and 1, this is also the largest binary value. Preserve every input character, including leading zeros.
+
+## Constraints
+
+- 1 <= binaries.length <= 10^4
+  - 1 <= binaries[i].length
+  - 1 <= sum of all string lengths <= 10^5
+  - Every character is 0 or 1.
+
+### Example 1
+- **binaries** (`String[]`) = `["10","101","1"]`
+- **output** (`String`) = `"110110"`
+
+The order 1, 101, 10 produces 110110. For every adjacent pair, placing the first string before the second gives the larger pairwise concatenation.
+
+### Example 2
+- **binaries** (`String[]`) = `["0","00","1"]`
+- **output** (`String`) = `"1000"`
+
+The string 1 must come first. The two zero-only strings commute, and all of their zeros are preserved, so the result is 1000.
+
+## Starter code
+
+```
+public String largestBinaryConcatenation(String[] binaries) {
+    // Write your solution here
+}
+```
+
+## Source note
+
+The source omits array bounds and a callable signature. The judged core task matches the visible source at about 98%.
+
+
+---
+
 # Drone Delivery Route  (Amazon)
 
 > id: `amazon-drone-delivery-route` | difficulty: medium | stage: OA | platform: unknown | topics: array, prefix_sum, math | last seen: 2026-08-13, 2026-08-08, 2026-08-05, 2026-07-31, 2026-07-22, 2026-07-20, 2026-07-08, 2026-06-30, 2026-06-20, 2026-05-18, 2026-05-06 | employment: FULLTIME, NEW GRAD
@@ -18262,6 +23498,49 @@ The original report specifies repeatedly lowering a highest pile to the next dis
 
 ---
 
+# Maximum Server Processing Time  (Visa)
+
+> id: `visa-maximum-server-processing-time` | difficulty: hard | stage: OA | platform: hackerrank | topics: array, dynamic_programming, heap | last seen: 2026-08-11, 2026-07-23 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You are given numTasks tasks and numServer servers.
+The tasks must be assigned to the servers under the following conditions:
+  - Each server is assigned a contiguous block of tasks.
+  - Every task is assigned to exactly one server.
+  - Each server must be assigned at least m tasks.
+
+The processing time of task i is processTime[i].
+For any server, its processing time is the sum of the m largest processing times among the tasks assigned to that server.
+The servers work sequentially: one server completes all of its assigned tasks before the next server begins.
+Determine the maximum total processing time required for all servers to complete all tasks.
+Complete the function getMaximumProcessingTime. The array processTime contains the processing times of the tasks, numServer is the number of servers, and m is the minimum number of tasks assigned to each server. Here, numTasks = processTime.length. Return the maximum total processing time.
+
+### Example 1
+- **processTime** (`int[]`) = `[1, 3, 5, 2, 7, 1, 5, 9]`
+- **numServer** (`int`) = `3`
+- **m** (`int`) = `2`
+- **output** (`long`) = `31`
+
+Here, numTasks = 8. A maximum-total assignment is:
+  - Server 1 handles tasks 1, 2, and 3. Its two largest processing times are 3 and 5, so its processing time is 8.
+  - Server 2 handles tasks 4, 5, and 6. Its two largest processing times are 2 and 7, so its processing time is 9.
+  - Server 3 handles tasks 7 and 8. Its two largest processing times are 5 and 9, so its processing time is 14.
+
+The total processing time is 8 + 9 + 14 = 31. Thus, the maximum total processing time is 31.
+
+## Starter code
+
+```
+public long getMaximumProcessingTime(int[] processTime, int numServer, int m) {
+  // write your code here
+}
+
+```
+
+
+---
+
 # Stock Marking Position Monitor  (Akuna Capital)
 
 > id: `akuna-stock-marking-position-monitor` | difficulty: medium | stage: OA | platform: unknown | topics: hash_table, simulation, design | last seen: 2026-08-11 | employment: INTERN
@@ -18713,6 +23992,52 @@ The original report identifies two learned substitution stages and asks to decry
 
 ---
 
+# Binary Sorting Rounds After Flips  (Visa)
+
+> id: `visa-binary-sorting-rounds-after-flips` | difficulty: hard | stage: OA | platform: hackerrank | topics: string, array, segment_tree | last seen: 2026-08-11 | employment: INTERN
+
+## Problem
+
+You are given a binary string binary and an array flips. Process the flip indices in order. Each flip changes the character at that index from 0 to 1.
+After every flip, define the current sorting-round count as the maximum, over all remaining 0 characters, of the number of 1 characters before that zero. If no zero remains, the sorting-round count is 0.
+Return the sorting-round count after each flip.
+
+## Constraints
+
+- 1 <= binary.length <= 2 * 10^5.
+  - binary contains only 0 and 1.
+  - 1 <= flips.length <= binary.length.
+  - Every value in flips is a distinct 0-based index whose current character is 0.
+
+### Example 1
+- **binary** (`String`) = `"10100"`
+- **flips** (`int[]`) = `[1,3]`
+- **output** (`int[]`) = `[3,4]`
+
+After flipping index 1, the remaining zeros are at indices 3 and 4, each with three ones before it. After flipping index 3, the final zero has four ones before it.
+
+### Example 2
+- **binary** (`String`) = `"000"`
+- **flips** (`int[]`) = `[1,0,2]`
+- **output** (`int[]`) = `[1,2,0]`
+
+The first flip leaves the last zero with one preceding one. The second leaves it with two preceding ones. The final flip removes the last zero, so the answer becomes 0.
+
+## Starter code
+
+```
+public int[] getSortingRounds(String binary, int[] flips) {
+  // write your code here
+}
+```
+
+## Source note
+
+The report gives the sorting-round metric and zero-to-one update effect but omits the callable batch interface, index convention, and bounds. The judged core task matches the report at about 90%.
+
+
+---
+
 # Connected Components with Divisor Threshold  (InMobi)
 
 > id: `inmobi-divisor-threshold-components` | difficulty: medium | stage: OA | platform: unknown | topics: graph, math, union_find | last seen: 2026-08-10, 2026-02-13 | employment: FULLTIME
@@ -19034,6 +24359,212 @@ public long[] totalEscapeTimes(String directions, int[] costs) {
 ## Source note
 
 The source omits numeric bounds, examples, and a callable signature. The judged core task matches the visible source at about 96%.
+
+
+---
+
+# K-th Ancestor Subtree Preorder Query  (Adobe)
+
+> id: `adobe-kth-ancestor-subtree-preorder` | difficulty: hard | stage: OA | platform: unknown | topics: tree, depth_first_search, binary_search | last seen: 2026-08-09 | employment: FULLTIME
+
+## Problem
+
+You are given a tree with nodes numbered from 1 to n. Node i stores values[i - 1]. The tree is rooted at node 1.
+The undirected edges are processed in their given order. After rooting the tree, each node's children are visited in the order in which their incident edges first appear in edges.
+For each query [u, k]:
+  - Find the k-th ancestor of node u, where the 0-th ancestor is u itself.
+  - If that ancestor does not exist, return the one-element row [-1].
+  - Otherwise, return the values in that ancestor's subtree in preorder.
+
+Return one result row for each query, preserving query order.
+
+## Constraints
+
+- 1 <= n == values.length <= 2 * 10^5
+  - -10^9 <= values[i] <= 10^9
+  - edges.length == n - 1
+  - edges describes one valid tree on nodes 1 through n.
+  - 1 <= queries.length <= 2 * 10^5
+  - 1 <= u <= n
+  - 0 <= k <= n
+  - The total number of values returned across all successful queries is at most 2 * 10^5.
+
+### Example 1
+- **values** (`int[]`) = `[10, 20, 30, 40, 50]`
+- **edges** (`int[][]`) = `[[1, 2], [1, 3], [2, 4], [2, 5]]`
+- **queries** (`int[][]`) = `[[4, 1], [4, 2], [3, 0], [1, 1]]`
+- **output** (`int[][]`) = `[[20, 40, 50], [10, 20, 40, 50, 30], [30], [-1]]`
+
+The first query reaches node 2 and returns its preorder subtree. The second reaches root 1. The third keeps node 3, and the root has no first ancestor for the last query.
+
+### Example 2
+- **values** (`int[]`) = `[1, 2, 3, 4]`
+- **edges** (`int[][]`) = `[[2, 4], [1, 3], [1, 2]]`
+- **queries** (`int[][]`) = `[[4, 1], [4, 2]]`
+- **output** (`int[][]`) = `[[2, 4], [1, 3, 2, 4]]`
+
+Node 1 visits child 3 before child 2 because edge [1, 3] appears earlier than [1, 2]. Node 2 then visits node 4.
+
+## Starter code
+
+```
+public int[][] subtreeValuesAfterAncestor(int[] values, int[][] edges, int[][] queries) {
+    // Write your solution here
+}
+```
+
+## Source note
+
+The source omits bounds and a callable return format; the accompanying solution establishes the root and traversal order. The judged core task matches the visible report at about 97%.
+
+
+---
+
+# Minimum Numeric Code Transformation  (Adobe)
+
+> id: `adobe-minimum-numeric-code-transformation` | difficulty: hard | stage: OA | platform: unknown | topics: breadth_first_search, graph, math, string | last seen: 2026-08-09 | employment: FULLTIME
+
+## Problem
+
+You receive one reconfiguration request. Start with the positive integer x and transform it into y. Each allowed operation costs exactly one step:
+  - Scale: choose an integer a with 2 <= a <= k and replace the current value v with v * a, only when the result is at most 10^6.
+  - Split: choose an integer a with 2 <= a <= k. If v is divisible by a, replace it with v / a.
+  - Mirror: reverse the decimal digits. Leading zeros produced by reversal are discarded, so 120 becomes 21.
+  - Rotate last to front: move the final decimal digit to the front. This operation is forbidden when it would create a leading zero.
+  - Swap adjacent digits: swap any one adjacent pair. This operation is forbidden when it would create a leading zero.
+
+Every intermediate value must remain between 1 and 10^6, inclusive. Return the minimum number of operations needed to reach y, or -1 when no valid sequence exists.
+
+## Constraints
+
+- 1 <= x, y <= 10^6
+  - 2 <= k <= 10^3
+
+### Example 1
+- **x** (`int`) = `4`
+- **y** (`int`) = `6`
+- **k** (`int`) = `3`
+- **output** (`int`) = `2`
+
+Scale by 3 to get 12, then split by 2 to get 6. No one-step operation transforms 4 directly into 6.
+
+### Example 2
+- **x** (`int`) = `120`
+- **y** (`int`) = `21`
+- **k** (`int`) = `10`
+- **output** (`int`) = `1`
+
+One mirror operation reverses 120 to 021; the leading zero is discarded, leaving 21.
+
+## Starter code
+
+```
+public int minimumCodeTransformOperations(int x, int y, int k) {
+    // Write your solution here
+}
+```
+
+## Source note
+
+The judged task, five operations, bounds, and sample match the visible source at about 99%.
+
+
+---
+
+# Number-Character Bijective Mapping  (Adobe)
+
+> id: `adobe-number-character-bijective-mapping` | difficulty: easy | stage: OA | platform: unknown | topics: array, string, hash_table | last seen: 2026-08-09 | employment: FULLTIME
+
+## Problem
+
+Given an integer array pattern and an array of candidate strings passcodes, test each passcode independently.
+A passcode is valid when it has the same length as pattern and the positions define a bijection between integer values and characters:
+  - Every occurrence of the same integer maps to the same character.
+  - Two different integers never map to the same character.
+
+Return a boolean array in query order, where each value states whether the corresponding passcode is valid.
+
+## Constraints
+
+- 1 <= pattern.length <= 10^5
+  - -10^9 <= pattern[i] <= 10^9
+  - 1 <= passcodes.length <= 10^5
+  - 0 <= passcodes[i].length
+  - sum of all passcode lengths <= 2 * 10^5
+  - Every passcode contains only ASCII letters or digits.
+
+### Example 1
+- **pattern** (`int[]`) = `[1, 2, 1]`
+- **passcodes** (`String[]`) = `["aba","abc","xyx","x"]`
+- **output** (`boolean[]`) = `[true, false, true, false]`
+
+aba and xyx preserve the repeated first value. In abc, value 1 maps to two characters, and x has the wrong length.
+
+### Example 2
+- **pattern** (`int[]`) = `[7, 7, 8]`
+- **passcodes** (`String[]`) = `["aab","abb","aac"]`
+- **output** (`boolean[]`) = `[true, false, true]`
+
+aab and aac assign one character to value 7 and a different character to value 8. In abb, the repeated value 7 maps inconsistently.
+
+## Starter code
+
+```
+public boolean[] checkBijectiveMappings(int[] pattern, String[] passcodes) {
+    // Write your solution here
+}
+```
+
+## Source note
+
+The source omits numeric bounds and a callable signature. The judged core task matches the visible report and accompanying solution at about 98%.
+
+
+---
+
+# Trapped Characters in a Grid  (Adobe)
+
+> id: `adobe-trapped-characters-in-grid` | difficulty: easy | stage: OA | platform: unknown | topics: matrix, simulation, array | last seen: 2026-08-09 | employment: FULLTIME
+
+## Problem
+
+Given a rectangular character grid, a cell is a trapped character when all of the following hold:
+  - The cell is not X.
+  - It has four in-bounds orthogonal neighbors: up, down, left, and right.
+  - All four of those neighbors contain X.
+
+Return one string for every trapped character in row-major order. Format each string as character row column, using zero-based indices and single spaces.
+
+## Constraints
+
+- 1 <= grid.length <= 200
+  - 1 <= grid[i].length <= 200
+  - Every row has the same length.
+  - Each cell is X, an ASCII letter, or a decimal digit.
+
+### Example 1
+- **grid** (`String[]`) = `["XXXXX","XAX1X","XXXXX"]`
+- **output** (`String[]`) = `["A 1 1","1 1 3"]`
+
+Both interior non-X cells have X directly above, below, left, and right. Row-major order reports A first.
+
+### Example 2
+- **grid** (`String[]`) = `["AXX","XXX","XXB"]`
+- **output** (`String[]`) = `[]`
+
+The two characters lie on the boundary and therefore do not have four in-bounds neighbors.
+
+## Starter code
+
+```
+public String[] trappedCharacters(String[] grid) {
+    // Write your solution here
+}
+```
+
+## Source note
+
+The source states the four-sided X-neighbor rule but omits bounds, edge behavior, ordering, and a callable format. The judged core task matches the visible report at about 91%.
 
 
 ---
@@ -19403,56 +24934,43 @@ The original report gives the proportional-momentum rule and one five-decimal re
 
 ---
 
-# Task Management System  (Airbnb)
+# Merge Intervals  (Bloomberg LP)
 
-> id: `airbnb-task-management-system` | difficulty: hard | stage: OA | platform: unknown | topics: design, hash_table, sorting, simulation | last seen: 2026-08-07 | employment: FULLTIME
+> id: `bloomberg-merge-intervals` | difficulty: medium | stage: OA, PHONE SCREEN, ONSITE INTERVIEW | platform: unknown | topics: array, sorting, intervals | last seen: 2026-08-07, 2025-10-28, 2025-10-23, 2025-10-03, 2022-11-10, 2022-10-26, 2022-10-18, 2022-10-17, 2022-10-13, 2022-09-28, 2022-09-26, 2022-09-21, 2022-09-13, 2022-09-12, 2022-09-07, 2022-07-29, 2022-07-05, 2022-03-22, 2022-03-15, 2022-03-12, 2022-01-31, 2022-01-18, 2021-01-20, 2020-12-09, 2020-09-17, 2020-03-15, 2019-10-24, 2018-05-07 | employment: FULLTIME, NEW GRAD
 
 ## Problem
 
-Implement a task-management service by processing a finite sequence of timestamped operations in order.
-Every operation begins with an opcode. Timestamps are strictly increasing.
-  - ["ADD_USER", t, userId, quota] creates a user with a maximum number of active tasks.
-  - ["CREATE", t, taskId, userId, priority, dueAt, expiresAt] creates an active task. It fails if the task identifier already exists, the user does not exist, or the user's active-task quota is full.
-  - ["GET", t, taskId] returns [taskId, userId, priority, createdAt, dueAt, expiresAt, status], or an empty row for a missing or deleted task.
-  - ["UPDATE", t, taskId, priority, dueAt, expiresAt] updates an active task.
-  - ["DELETE", t, taskId] marks an existing non-deleted task as deleted.
-  - ["SEARCH", t, userId] returns that user's active task identifiers ordered by decreasing priority, then increasing creation timestamp, then identifier.
-  - ["SET_QUOTA", t, userId, quota] changes a user's quota. Lowering it does not remove existing tasks, but new tasks remain blocked until the active count is below the quota.
-  - ["COMPLETE", t, taskId] marks an active task completed.
-  - ["HISTORY", t, userId, view] returns identifiers in increasing creation order. view is COMPLETED, EXPIRED, UNFINISHED, or OVERDUE. Unfinished tasks are active; overdue tasks are active tasks with dueAt < t.
-
-Before each operation at time t, every active task with expiresAt <= t becomes expired. Completion, deletion, and expiration free an active-task quota slot.
-Return one row per input operation. State-changing operations return ["OK"] on success. Failures return one of ["UNKNOWN_USER"], ["DUPLICATE_TASK"], ["QUOTA_EXCEEDED"], ["NOT_FOUND"], or ["NOT_ACTIVE"]. Search and history operations may return an empty row.
+Given an array intervals where intervals[i] = [start_i, end_i], merge every pair of overlapping closed intervals. Return the non-overlapping intervals that cover exactly the same values, ordered by increasing start.
 
 ## Constraints
 
-- 1 <= operations.length <= 200000
-  - All timestamps and task time fields are integers in [0, 10^9]; operation timestamps are strictly increasing.
-  - For every CREATE or UPDATE, operation timestamp < dueAt < expiresAt.
-  - User and task identifiers are nonempty ASCII strings of at most 40 characters.
-  - Priority is an integer in [-10^9, 10^9]; quota is in [0, 200000].
-  - ADD_USER uses a new user identifier. SET_QUOTA, SEARCH, and HISTORY name an existing user.
-  - The total number of task records examined by all SEARCH and HISTORY operations is at most 200000.
+- 1 <= intervals.length <= 10^4
+  - intervals[i].length = 2
+  - 0 <= start_i <= end_i <= 10^4
 
 ### Example 1
-- **operations** (`String[][]`) = `[["ADD_USER","1","u1","2"],["CREATE","2","t1","u1","5","10","20"],["CREATE","3","t2","u1","7","4","30"],["SEARCH","5","u1"],["COMPLETE","6","t2"],["HISTORY","7","u1","COMPLETED"],["SET_QUOTA","8","u1","1"],["CREATE","9","t3","u1","9","12","40"],["GET","20","t1"]]`
-- **output** (`String[][]`) = `[["OK"],["OK"],["OK"],["t2","t1"],["OK"],["t2"],["OK"],["QUOTA_EXCEEDED"],["t1","u1","5","2","10","20","EXPIRED"]]`
+- **intervals** (`int[][]`) = `[[1,3],[2,6],[8,10],[15,18]]`
+- **output** (`int[][]`) = `[[1,6],[8,10],[15,18]]`
 
-The higher-priority task is returned first. Completing it frees a quota slot, but the later quota reduction leaves one active task, so the next creation is rejected. The final read first expires t1.
+The closed intervals [1,3] and [2,6] overlap, so they merge into [1,6].
+
+### Example 2
+- **intervals** (`int[][]`) = `[[1,4],[4,5]]`
+- **output** (`int[][]`) = `[[1,5]]`
+
+Closed intervals that share an endpoint overlap.
 
 ## Starter code
 
 ```
-
-public String[][] processTaskOperations(String[][] operations) {
-  // write your code here
+public int[][] merge(int[][] intervals) {
+    // write your code here
 }
-
 ```
 
 ## Source note
 
-The source describes a stateful multi-call task service but omits a portable operation-sequence interface and cross-language bounds. The judged core task matches the visible source at about 95%.
+The judged core task matches the original report at about 99%.
 
 
 ---
@@ -19711,41 +25229,6 @@ public int findSumOfBeauties(int[] arr, int[][] pairs) {
   // write your code here
 }
 
-```
-
-
----
-
-# Maximum Reward Points  (Microsoft)
-
-> id: `microsoft-get-maximum-reward-points` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, greedy, sorting | last seen: 2026-08-05, 2026-08-04, 2026-07-16 | employment: NEW GRAD, INTERN
-
-## Problem
-
-Two interns are assigned to complete a total of n tasks. Each task must be completed by exactly one of them. For task i, the first intern earns reward_1[i] points and the second intern earns reward_2[i] points.
-The first intern must complete exactly k tasks, which may be any k of the n tasks. The second intern completes the remaining tasks. Return the maximum possible combined reward points.
-
-## Constraints
-
-- 1 ≤ n ≤ 10^5
-  - 0 ≤ k ≤ n
-  - 1 ≤ reward_1[i] ≤ 10^4
-  - 1 ≤ reward_2[i] ≤ 10^4
-
-### Example 1
-- **k** (`int`) = `3`
-- **reward_1** (`int[]`) = `[5, 4, 3, 2, 1]`
-- **reward_2** (`int[]`) = `[1, 2, 3, 4, 5]`
-- **output** (`int`) = `21`
-
-The first intern completes the first three tasks and earns 5 + 4 + 3 points. The second intern completes the remaining two tasks and earns 4 + 5 points. Their combined reward is 5 + 4 + 3 + 4 + 5 = 21, which is the maximum possible.
-
-## Starter code
-
-```
-public int getMaximumRewardPoints(int k, int[] reward_1, int[] reward_2) {
-  // write your code here
-}
 ```
 
 
@@ -20838,40 +26321,6 @@ The source gives both perfect-pair inequalities in an Adyen one-hour HackerRank 
 
 ---
 
-# Obstacle Placement Queries  (Capital One)
-
-> id: `capital-one-obstacle-placement-queries` | difficulty: medium | stage: OA | platform: unknown | topics: intervals, simulation | last seen: 2026-08-04 | employment: INTERN
-
-## Problem
-
-A special thank-you to the friend who kindly shared that this problem was seen again on August 4, 2026! ദ്ദി(ᵔᗜᵔ)
-You are given an infinite number line and an array operations. Process the operations in order while maintaining the coordinates that contain obstacles.
-  - [1, x]: Place an obstacle at coordinate x. Coordinate x is guaranteed to contain no obstacle when this operation is performed.
-  - [2, x, size]: Check whether a block of length size can end immediately before coordinate x. The block would occupy every integer coordinate from x - size through x - 1. Append '1' to the answer if none of those coordinates contains an obstacle; otherwise append '0'. This operation only checks feasibility and does not place the block.
-
-Return the binary string formed by the results of all type-2 operations in their original order.
-
-### Example 1
-- **operations** (`int[][]`) = `[[2, 0, 2], [1, 1], [2, 0, 2], [2, 2, 2]]`
-- **output** (`String`) = `"110"`
-
-- [2, 0, 2] checks coordinates -2 and -1. There are no obstacles, so append 1.
-  - [1, 1] places an obstacle at coordinate 1.
-  - [2, 0, 2] still checks coordinates -2 and -1. Both are free, so append 1.
-  - [2, 2, 2] checks coordinates 0 and 1. Coordinate 1 contains an obstacle, so append 0.
-
-## Starter code
-
-```
-public String obstaclePlacementQueries(int[][] operations) {
-  // write your code here
-}
-
-```
-
-
----
-
 # Maximize Array Beauty After Deletions  (Point72)
 
 > id: `point72-maximize-array-beauty-after-deletions` | difficulty: hard | stage: OA | platform: unknown | topics: array, dynamic_programming, binary_search | last seen: 2026-08-04 | employment: FULLTIME
@@ -21161,7 +26610,7 @@ public static String removeVowel(String engStr) {
 
 # Merchant Fraud Risk Scoring  (Stripe)
 
-> id: `stripe-merchant-fraud-risk-scoring` | difficulty: medium | stage: OA | platform: unknown | topics: hash_table, simulation | last seen: 2026-08-03, 2026-07-26 | employment: NEW GRAD, INTERN
+> id: `stripe-merchant-fraud-risk-scoring` | difficulty: medium | stage: OA | platform: unknown | topics: hash_table, simulation | last seen: 2026-08-03, 2026-07-26, 2026-01-17 | employment: NEW GRAD, INTERN
 
 ## Problem
 
@@ -22152,47 +27601,6 @@ Updated 2026-08-01. This problem is presented as a read-only source reference be
 
 ---
 
-# Minimum Jump Cost  (Microsoft)
-
-> id: `microsoft-minimum-jump-cost` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, dynamic_programming, queue | last seen: 2026-08-01 | employment: FULLTIME
-
-## Problem
-
-There are n points on the x-axis at coordinates 1, 2, 3, ..., n. The i-th point has an associated cost cost[i].
-Starting from coordinate x = 0, you can make jumps of length at most k. Whenever you stop at a point, you incur the cost of that point.
-Find the minimum total cost required to reach point n.
-
-## Constraints
-
-- 1 <= n <= 3 * 10^5
-  - 1 <= k <= n
-  - 1 <= cost[i] <= 10^9
-
-### Example 1
-- **cost** (`int[]`) = `[4,3,9,3,1]`
-- **k** (`int`) = `2`
-- **output** (`long`) = `7`
-
-The optimal jump pattern is 0 -> 2 -> 4 -> 5. The cost of stopping at points 2, 4, and 5 is 3 + 3 + 1 = 7, which is the minimum possible.
-
-### Example 2
-- **cost** (`int[]`) = `[1,2,3,4]`
-- **k** (`int`) = `2`
-- **output** (`long`) = `6`
-
-The optimal path is 0 -> 2 -> 4, with total cost 2 + 4 = 6.
-
-## Starter code
-
-```
-public long getMinimumCost(int[] cost, int k) {
-  // write your code here
-}
-```
-
-
----
-
 # Concatenate Non-Alphabetic Character Positions  (Texas Instruments)
 
 > id: `texas-instruments-nonalphabetic-index-concatenation` | difficulty: easy | stage: OA | platform: unknown | topics: string | last seen: 2026-08-01 | employment: NEW GRAD
@@ -22499,6 +27907,63 @@ public int xorMultiplication(int A, int B, int N) {
 }
 
 ```
+
+
+---
+
+# Minimum Snapshots for a Version Tree  (Adobe)
+
+> id: `adobe-snapshot-budget` | difficulty: hard | stage: OA | platform: hackerrank | topics: tree, greedy, segment_tree | last seen: 2026-07-31 | employment: NEW GRAD
+
+## Problem
+
+A version-control system stores n + 1 versions as a rooted tree. Version 0 is the root and is always stored as a snapshot. For every version i from 1 through n, parents[i - 1] is its parent and is smaller than i.
+Reading a version requires replaying edits from its nearest stored ancestor. Its reconstruction cost is the number of tree edges to that ancestor; a stored version has cost 0.
+You may store additional versions as snapshots. Return the minimum number of additional snapshots needed so that every version has reconstruction cost at most maxCost.
+
+## Constraints
+
+- 1 <= n <= 2 * 10^5.
+  - parents.length = n.
+  - 0 <= parents[i] <= i for every 0 <= i < n.
+  - 0 <= maxCost <= n.
+  - Version 0 is already stored and is not counted in the result.
+
+### Example 1
+- **n** (`int`) = `5`
+- **maxCost** (`int`) = `2`
+- **parents** (`int[]`) = `[0,1,2,3,4]`
+- **output** (`int`) = `1`
+
+The versions form one chain. Storing version 3 keeps versions 3, 4, and 5 within cost 2; root snapshot 0 already covers versions 1 and 2.
+
+### Example 2
+- **n** (`int`) = `3`
+- **maxCost** (`int`) = `1`
+- **parents** (`int[]`) = `[0,1,1]`
+- **output** (`int`) = `1`
+
+Store version 1. Both children 2 and 3 are then one edge from a stored ancestor.
+
+### Example 3
+- **n** (`int`) = `6`
+- **maxCost** (`int`) = `2`
+- **parents** (`int[]`) = `[0,1,2,3,4,5]`
+- **output** (`int`) = `2`
+
+One optimal choice stores versions 1 and 4. Every version is then at most two edges below its nearest stored ancestor.
+
+## Starter code
+
+```
+public int minimumSnapshots(int n, int maxCost, int[] parents) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source supplies the version tree, reconstruction-cost rule, and minimum-snapshot objective but omits numeric bounds, examples, and a runnable signature. The judged core task matches it at about 96%.
 
 
 ---
@@ -23570,6 +29035,164 @@ The source gives the aggregation and top-three objective but omits the input rep
 
 ---
 
+# Longest Subsequence That Is a Substring  (Wells Fargo)
+
+> id: `wellsfargo-longest-subsequence-substring` | difficulty: medium | stage: OA | platform: unknown | topics: string, dynamic_programming | last seen: 2026-07-28 | employment: FULLTIME
+
+## Problem
+
+Given two strings x and y, return the maximum length of a subsequence of x that is also a contiguous substring of y.
+A subsequence keeps the relative order of selected characters but may delete characters. A substring uses consecutive characters.
+
+## Constraints
+
+- 1 <= x.length, y.length <= 2000.
+  - x and y contain only lowercase English letters.
+
+### Example 1
+- **x** (`String`) = `"abcd"`
+- **y** (`String`) = `"abdc"`
+- **output** (`int`) = `3`
+
+"abd" is a subsequence of x and a contiguous substring of y, so the answer is 3.
+
+### Example 2
+- **x** (`String`) = `"hackerranks"`
+- **y** (`String`) = `"hackers"`
+- **output** (`int`) = `7`
+
+"hackers" appears contiguously in y and can be selected in order from x.
+
+### Example 3
+- **x** (`String`) = `"abc"`
+- **y** (`String`) = `"aedace"`
+- **output** (`int`) = `2`
+
+"ac" is a subsequence of x and a substring of y. No qualifying value has length 3.
+
+## Starter code
+
+```
+public int longestSubsequence(String x, String y) {
+  // Write your code here
+}
+
+```
+
+## Source note
+
+The displayed source contains one conflicting sample-output glyph; the judged task follows its maximum-length statement and explanation. The core task matches the visible source at about 99%.
+
+
+---
+
+# Overloaded Game Account Inventories  (Wells Fargo)
+
+> id: `wellsfargo-overloaded-game-account-inventories` | difficulty: medium | stage: OA | platform: unknown | topics: database | last seen: 2026-07-28 | employment: FULLTIME
+
+## Problem
+
+Generate a report of game accounts whose inventories are overloaded.
+For every qualifying account, return:
+  - username.
+  - email.
+  - The number of owned items as item_count.
+  - The total weight of owned items as total_weight.
+
+An account qualifies only when total_weight > 20. Sort rows by total_weight in descending order, then by username in ascending order.
+
+## Constraints
+
+- items.account_id references accounts.id.
+  - Every accounts.username is unique.
+  - Only accounts with a strict total weight greater than 20 appear.
+  - Every input row follows the declared schema.
+
+## Table schemas
+
+```json
+[
+  {
+    "columns": [
+      {
+        "name": "id",
+        "nullable": false,
+        "type": "integer"
+      },
+      {
+        "name": "username",
+        "nullable": false,
+        "type": "text"
+      },
+      {
+        "name": "email",
+        "nullable": false,
+        "type": "text"
+      }
+    ],
+    "description": "Game account identity and contact data.",
+    "name": "accounts",
+    "primaryKey": [
+      "id"
+    ]
+  },
+  {
+    "columns": [
+      {
+        "name": "id",
+        "nullable": false,
+        "type": "integer"
+      },
+      {
+        "name": "account_id",
+        "nullable": false,
+        "type": "integer"
+      },
+      {
+        "name": "type",
+        "nullable": false,
+        "type": "text"
+      },
+      {
+        "name": "name",
+        "nullable": false,
+        "type": "text"
+      },
+      {
+        "name": "weight",
+        "nullable": false,
+        "type": "integer"
+      }
+    ],
+    "description": "Inventory items and the account that owns each item.",
+    "foreignKeys": [
+      {
+        "columns": [
+          "account_id"
+        ],
+        "references": {
+          "columns": [
+            "id"
+          ],
+          "table": "accounts"
+        }
+      }
+    ],
+    "name": "items",
+    "primaryKey": [
+      "id"
+    ]
+  }
+]
+```
+
+## Source note
+
+The source does not show the item-to-account join column or exact result aliases. The judged core report matches the visible source at about 95%.
+
+
+---
+
 # Parcel Event Tracking  (Airbnb)
 
 > id: `airbnb-parcel-event-tracking` | difficulty: medium | stage: OA | platform: codesignal | topics: design, hash_table, string, simulation | last seen: 2026-07-27 | employment: FULLTIME
@@ -23867,69 +29490,6 @@ public String[][] rearrangeSongs(String[][] songs) {
 ## Source note
 
 The source does not specify tie ordering, the impossible-case result, numeric limits, or a callable interface. The judged core task matches the visible source at about 90%.
-
-
----
-
-# WebSocket Load Balancer — Basic Load Balancing (Part 1)  (Stripe)
-
-> id: `stripe-websocket-load-balancer` | difficulty: hard | stage: OA | platform: hackerrank | topics: hash_table, simulation | last seen: 2026-07-26, 2025-11-11 | employment: INTERN, NEW GRAD
-
-## Problem
-
-Stripe's notebook platform is based on Jupyter, which does not perform well with a large number of users. To provide a good developer experience, Stripe runs multiple Jupyter servers and directs developers to different servers according to current load.
-Each incoming request represents a WebSocket connection. Once it reaches a target Jupyter server, the connection remains alive indefinitely and continuously contributes load. This exercise does not route requests over the network; routeRequests only determines the target for each incoming request.
-Implement routeRequests, the Java-style execution adapter for the source function route_requests. The targets are numbered from 1 through numTargets.
-Part 1: Basic load balancing (test cases 1–4)
-For this exercise, assume every target starts with zero active connections. Process the requests in the order received. For every request:
-  - Choose a target with the smallest current number of active connections.
-  - If several targets have the same load, choose the one with the smaller target index.
-  - Assign the connection to that target. Because connections do not end in Part 1, its active-connection count increases by one and never decreases.
-
-Routing in Part 1 is independent of the user's other requests. The objectId field also does not affect this basic load-balancing decision.
-Request records
-For this exercise, assume every request is a valid Part 1 record with the following comma-separated form:
-CONNECT,connectionId,userId,objectIdFor this exercise, assume every field is non-empty and does not contain a comma. The full source also lists an action,targetIndex schema for later parts, but those actions are not part of this Part 1 practice because their rules are not visible.
-The parameter maxConnectionsPerTarget is retained because it appears in the source interface. The source explicitly marks it as used in Part 4, so it does not limit assignments in Part 1.
-Return one log string for every CONNECT request, in input order, using the format:
-connectionId,userId,targetIndexThe returned targetIndex is one-based.
-
-## Constraints
-
-- For this exercise, assume 1 <= numTargets <= 10^5.
-  - For this exercise, assume every target starts with zero active connections.
-  - For this exercise, assume 1 <= maxConnectionsPerTarget <= 10^9; this value is retained but not used in Part 1.
-  - For this exercise, assume 1 <= requests.length <= 2 * 10^5.
-  - Every request is a valid CONNECT,connectionId,userId,objectId record whose fields are non-empty and contain no commas.
-  - Target indices in the returned logs are one-based.
-
-### Example 1
-- **numTargets** (`int`) = `3`
-- **maxConnectionsPerTarget** (`int`) = `10`
-- **requests** (`String[]`) = `["CONNECT,c1,u1,o1","CONNECT,c2,u2,o2","CONNECT,c3,u3,o3","CONNECT,c4,u4,o4","CONNECT,c5,u5,o5"]`
-- **output** (`String[]`) = `["c1,u1,1","c2,u2,2","c3,u3,3","c4,u4,1","c5,u5,2"]`
-
-The first three connections take targets 1, 2, and 3 by the smaller-index tie-break. After all targets have load 1, the next tie again starts at target 1, followed by target 2.
-
-### Example 2
-- **numTargets** (`int`) = `2`
-- **maxConnectionsPerTarget** (`int`) = `1`
-- **requests** (`String[]`) = `["CONNECT,a,sameUser,sameObject","CONNECT,b,sameUser,sameObject","CONNECT,c,sameUser,otherObject","CONNECT,d,otherUser,sameObject"]`
-- **output** (`String[]`) = `["a,sameUser,1","b,sameUser,2","c,sameUser,1","d,otherUser,2"]`
-
-Part 1 uses only current target load, so repeated users and objects do not change the assignments. The value maxConnectionsPerTarget = 1 is not enforced in Part 1 because the source reserves that parameter for Part 4.
-
-## Starter code
-
-```
-public String[] routeRequests(int numTargets, int maxConnectionsPerTarget, String[] requests) {
-  // Write your code here.
-}
-```
-
-## Source note
-
-The judged Part 1 task matches the visible source at about 100%. The screenshot does not show Parts 2–5, complete numeric bounds, or examples, so this practice version is intentionally limited to Part 1 and uses only minimal input-validity assumptions, bounds, and examples.
 
 
 ---
@@ -24303,66 +29863,6 @@ public int solution(int[] A) {
 }
 
 ```
-
-
----
-
-# Rule-Driven Transaction Fraud Detection  (Stripe)
-
-> id: `stripe-rule-driven-transaction-fraud-detection` | difficulty: medium | stage: OA, PHONE SCREEN | platform: unknown | topics: design, hash_table, simulation | last seen: 2026-07-25 | employment: FULLTIME
-
-## Problem
-
-Process a finite ordered batch of rule-configuration and transaction-evaluation operations. Maintain active fraud rules by unique rule ID.
-Each operation is a string array in one of these forms:
-  - ["UPSERT", ruleId, "AMOUNT_AT_LEAST", value]: create or replace a rule that matches when a transaction amount is at least value.
-  - ["UPSERT", ruleId, "COUNTRY_IS", value]: create or replace a rule that matches when the country equals value.
-  - ["UPSERT", ruleId, "MERCHANT_IS", value]: create or replace a rule that matches when the merchant equals value.
-  - ["DELETE", ruleId]: remove that rule. Deleting an unknown ID has no effect.
-  - ["EVAL", amount, country, merchant]: evaluate one transaction against the rules active at this point.
-
-An UPSERT with an existing ID replaces the complete old rule before later operations are processed. Country and merchant comparisons are case-sensitive exact string comparisons.
-A transaction is fraudulent if at least one active rule matches it. If no active rule matches, it is allowed. Return one boolean for each EVAL operation, in evaluation order: true for fraudulent and false for allowed.
-
-## Constraints
-
-- 1 <= operations.length <= 200000
-  - There is at least one EVAL operation.
-  - Every operation has one of the valid forms described above.
-  - ruleId, country, and merchant are non-empty ASCII strings of length at most 40.
-  - Every amount and every AMOUNT_AT_LEAST value is a base-10 integer from 0 through 10^9.
-  - At most 200000 rules are active at once.
-  - String comparisons are case-sensitive.
-
-### Example 1
-- **operations** (`String[][]`) = `[["UPSERT","r1","AMOUNT_AT_LEAST","1000"],["UPSERT","r2","COUNTRY_IS","RU"],["EVAL","900","US","books"],["EVAL","1200","US","books"],["EVAL","20","RU","coffee"]]`
-- **output** (`boolean[]`) = `[false,true,true]`
-
-The first transaction matches neither rule. The second reaches the amount threshold, and the third matches the country rule.
-
-### Example 2
-- **operations** (`String[][]`) = `[["UPSERT","risk","AMOUNT_AT_LEAST","100"],["EVAL","100","US","safe"],["UPSERT","risk","MERCHANT_IS","risky"],["EVAL","100","US","safe"],["EVAL","1","US","risky"],["DELETE","risk"],["EVAL","1","US","risky"]]`
-- **output** (`boolean[]`) = `[true,false,true,false]`
-
-The first evaluation matches the amount rule. Reusing ID risk replaces that rule with a merchant rule. Deleting it leaves no active rules for the final evaluation.
-
-### Example 3
-- **operations** (`String[][]`) = `[["EVAL","0","US","outlet"],["UPSERT","c","COUNTRY_IS","CA"],["UPSERT","m","MERCHANT_IS","outlet"],["EVAL","0","US","outlet"],["EVAL","0","CA","shop"],["DELETE","missing"],["DELETE","m"],["EVAL","0","US","outlet"]]`
-- **output** (`boolean[]`) = `[false,true,true,false]`
-
-An evaluation before any rule is allowed. The next two evaluations each match one active rule. Deleting an unknown ID changes nothing; deleting rule m makes the final transaction allowed.
-
-## Starter code
-
-```
-public boolean[] classifyTransactions(String[][] operations) {
-    // Write your code here.
-}
-```
-
-## Source note
-
-The source identifies a transaction fraud detector driven by supplied rules but omits the rule schema, update lifecycle, and exact output. The judged core task matches the visible source at about 88%.
 
 
 ---
@@ -25454,49 +30954,6 @@ public long getProfitablePairs(int[] profit, int[] implementationCost) {
 
 ---
 
-# Maximum Server Processing Time  (Visa)
-
-> id: `visa-maximum-server-processing-time` | difficulty: hard | stage: OA | platform: unknown | topics: array, dynamic_programming, heap | last seen: 2026-07-23 | employment: NEW GRAD
-
-## Problem
-
-You are given numTasks tasks and numServer servers.
-The tasks must be assigned to the servers under the following conditions:
-  - Each server is assigned a contiguous block of tasks.
-  - Every task is assigned to exactly one server.
-  - Each server must be assigned at least m tasks.
-
-The processing time of task i is processTime[i].
-For any server, its processing time is the sum of the m largest processing times among the tasks assigned to that server.
-The servers work sequentially: one server completes all of its assigned tasks before the next server begins.
-Determine the maximum total processing time required for all servers to complete all tasks.
-Complete the function getMaximumProcessingTime. The array processTime contains the processing times of the tasks, numServer is the number of servers, and m is the minimum number of tasks assigned to each server. Here, numTasks = processTime.length. Return the maximum total processing time.
-
-### Example 1
-- **processTime** (`int[]`) = `[1, 3, 5, 2, 7, 1, 5, 9]`
-- **numServer** (`int`) = `3`
-- **m** (`int`) = `2`
-- **output** (`long`) = `31`
-
-Here, numTasks = 8. A maximum-total assignment is:
-  - Server 1 handles tasks 1, 2, and 3. Its two largest processing times are 3 and 5, so its processing time is 8.
-  - Server 2 handles tasks 4, 5, and 6. Its two largest processing times are 2 and 7, so its processing time is 9.
-  - Server 3 handles tasks 7 and 8. Its two largest processing times are 5 and 9, so its processing time is 14.
-
-The total processing time is 8 + 9 + 14 = 31. Thus, the maximum total processing time is 31.
-
-## Starter code
-
-```
-public long getMaximumProcessingTime(int[] processTime, int numServer, int m) {
-  // write your code here
-}
-
-```
-
-
----
-
 # Signal Pings  (Visa)
 
 > id: `visa-signal-pings` | difficulty: medium | stage: OA | platform: unknown | topics: array, sorting, simulation | last seen: 2026-07-23 | employment: NEW GRAD
@@ -25520,60 +30977,6 @@ Sweep counts for each pingPingOperations required to process signalsSignal after
 
 ```
 public int[] getRequiredSweeps(int[] ping) {
-  // write your code here
-}
-
-```
-
-
----
-
-# Sum of Index-Ordered Pair Differences  (Visa)
-
-> id: `visa-sum-of-index-pair-differences` | difficulty: medium | stage: OA | platform: unknown | topics: array, math | last seen: 2026-07-23 | employment: NEW GRAD
-
-## Problem
-
-You are given an integer array arr of length n.
-For every pair of indices (i, j) such that 0 <= i < j < n, compute:
-arr[j] - arr[i]
-Find the sum of these differences over all valid pairs. Return the result modulo 10^9 + 7.
-Complete the function sumPairDifferences, which accepts arr and returns the required result. Here, n = arr.length.
-
-## Constraints
-
-- 1 <= n <= 2 * 10^5
-  - 0 <= arr[i] <= 10^9
-
-### Example 1
-- **arr** (`int[]`) = `[1, 2, 3]`
-- **output** (`int`) = `4`
-
-Here, n = 3. All pair differences are:
-  - 2 - 1 = 1
-  - 3 - 1 = 2
-  - 3 - 2 = 1
-
-The sum is 1 + 2 + 1 = 4, and 4 modulo 10^9 + 7 is 4.
-
-### Example 2
-- **arr** (`int[]`) = `[4, 1, 3, 2]`
-- **output** (`int`) = `1000000003`
-
-Here, n = 4. All pair differences are:
-  - 1 - 4 = -3
-  - 3 - 4 = -1
-  - 2 - 4 = -2
-  - 3 - 1 = 2
-  - 2 - 1 = 1
-  - 2 - 3 = -1
-
-The sum is (-3) + (-1) + (-2) + 2 + 1 + (-1) = -4, and -4 modulo 10^9 + 7 is 1000000003.
-
-## Starter code
-
-```
-public int sumPairDifferences(int[] arr) {
   // write your code here
 }
 
@@ -26067,34 +31470,6 @@ public int travelDistanceOnScooters(int finish, int[] scooters) {
 
 ---
 
-# Reconstruct Landmark Journey  (Capital One)
-
-> id: `capital-one-reconstruct-landmark-journey` | difficulty: medium | stage: OA | platform: codility | topics: graph, hash_table | last seen: 2026-07-20, 2026-07-01, 2026-06-26 | employment: INTERN, NEW GRAD
-
-## Problem
-
-A traveler visited a series of unique landmarks on a journey. Unfortunately, their travel journal was damaged, and they can no longer remember the exact order of their visits. However, they do have a collection of photos, each showing exactly two landmarks that were visited consecutively. Either landmark could have been visited first.
-Given the collection of photos represented as pairs of landmark IDs in travelPhotos, help the traveler reconstruct the complete journey. Each landmark was visited exactly once, and for every consecutive pair of landmarks in the journey, there exists a photo containing both landmarks.
-You may reconstruct the journey in either forward or reverse order; both are considered correct.
-
-### Example 1
-- **travelPhotos** (`int[][]`) = `[[3, 5], [1, 4], [2, 4], [1, 5]]`
-- **output** (`int[]`) = `[3, 5, 1, 4, 2]`
-
-- The photos show that landmarks 3 and 5 were visited consecutively, as were 1 and 4, 2 and 4, and 1 and 5.
-  - The journey [3, 5, 1, 4, 2] contains each of those consecutive landmark pairs.
-
-## Starter code
-
-```
-public int[] solution(int[][] travelPhotos) {
-  // write your code here
-}
-```
-
-
----
-
 # Array Challenge (QR Intern)  (Akuna Capital)
 
 > id: `akuna-array-challenge` | difficulty: easy | stage: OA | platform: hackerrank | topics: array, simulation, prefix_sum, math | last seen: 2026-07-20, 2024-09-20 | employment: INTERN
@@ -26133,83 +31508,6 @@ public int[] arrayChallenge(int[] arr) {
 }
 
 ```
-
-
----
-
-# Compare Counts Around Pivot  (Capital One)
-
-> id: `capital-one-compare-counts-around-pivot` | difficulty: easy | stage: OA | platform: codility | topics: array, simulation | last seen: 2026-07-20, 2026-06-26 | employment: INTERN
-
-## Problem
-
-You are given an array of integers numbers and an integer pivot. Let countGreater denote how many integers within numbers are strictly greater than pivot, and countLess denote how many integers are strictly less than pivot.
-Your task is to compute countGreater and countLess, then return:
-  - "greater" if countGreater is greater than countLess;
-  - "smaller" if countGreater is less than countLess;
-  - "tie" if they are equal.
-
-Note: You are not expected to provide the most optimal solution, but a solution with time complexity not worse than O(numbers.length^2) will fit within the execution time limit.
-
-### Example 1
-- **numbers** (`int[]`) = `[1, 3, 0, -1, 1, 4, 3]`
-- **pivot** (`int`) = `2`
-- **output** (`String`) = `"smaller"`
-
-There are countGreater = 3 integers greater than pivot = 2. The integers less than 2 are 1, 0, -1, and 1, so countLess = 4. Since countGreater is less than countLess, the result is "smaller".
-
-## Starter code
-
-```
-public String solution(int[] numbers, int pivot) {
-  // write your code here
-}
-```
-
-
----
-
-# Format a Newspaper Page  (Capital One)
-
-> id: `capital-one-format-newspaper-page` | difficulty: medium | stage: OA | platform: codesignal | topics: string, greedy, simulation | last seen: 2026-07-20, 2026-06-26 | employment: INTERN
-
-## Problem
-
-You are given an array of paragraphs paragraphs, an array aligns, and an integer width.
-  - paragraphs[i] is the ith paragraph, represented as an ordered array of words.
-  - aligns[i] is either LEFT or RIGHT and specifies how paragraph i is aligned.
-  - width is the exact number of characters in every formatted output line.
-
-Format the paragraphs in order. Within each paragraph, preserve the word order and separate adjacent words with one space. Greedily place as many consecutive words as possible on each line without making its length exceed width. If the next word does not fit, start a new line with that word.
-After packing a line, fill its remaining positions with spaces. For LEFT alignment, append the spaces after the words. For RIGHT alignment, prepend the spaces before the words.
-Return all formatted lines in paragraph order as a string array. Each returned string must contain exactly width characters.
-
-## Constraints
-
-- paragraphs.length = aligns.length.
-  - Every value in aligns is either LEFT or RIGHT.
-  - width is positive.
-  - Every word has length at most width.
-
-### Example 1
-- **paragraphs** (`String[][]`) = `[["The","quick","brown","fox"],["jumps","over","it"]]`
-- **aligns** (`String[]`) = `["LEFT","RIGHT"]`
-- **width** (`int`) = `10`
-- **output** (`String[]`) = `["The quick ","brown fox ","jumps over","        it"]`
-
-The first paragraph is left-aligned. The quick and brown fox each use 9 characters, so each receives one trailing space. The second paragraph is right-aligned. jumps over already uses all 10 characters, while it receives eight leading spaces.
-
-## Starter code
-
-```
-public String[] formatNewspaperPage(String[][] paragraphs, String[] aligns, int width) {
-  // write your code here
-}
-```
-
-## Source note
-
-The lower portion of the original prompt is not visible. The judged core task matches the visible text-packing and paragraph-alignment rules at about 92%.
 
 
 ---
@@ -26662,55 +31960,6 @@ public int minimumCourseCost(int[] courseDays, int[] passDurations, int[] passCo
 ## Source note
 
 The source asks for the minimum price to take required courses and identifies a travel-pass-style dynamic-programming approach, but omits the course-day model, pass representation, coverage boundary, edge cases, and bounds. The judged contract below supplies those details for deterministic practice.
-
-
----
-
-# Alternate String Ends  (Capital One)
-
-> id: `capital-one-alternating-string-ends` | difficulty: easy | stage: OA | platform: unknown | topics: string, two_pointers, simulation | last seen: 2026-07-19 | employment: FULLTIME
-
-## Problem
-
-Given a string s, return a new string formed by reading characters from alternating ends.
-Use the characters in this order:
-  - Take the first character.
-  - Take the last character.
-  - Take the second character.
-  - Take the second-to-last character.
-  - Continue moving inward until every character has been used exactly once.
-
-Equivalently, for a string of length n, visit indices 0, n - 1, 1, n - 2, and so on.
-
-### Example 1
-- **s** (`String`) = `"abcde"`
-- **output** (`String`) = `"aebdc"`
-
-The characters are taken from indices 0, 4, 1, 3, and 2, producing aebdc.
-
-### Example 2
-- **s** (`String`) = `"abcdef"`
-- **output** (`String`) = `"afbecd"`
-
-The characters are taken from indices 0, 5, 1, 4, 2, and 3, producing afbecd.
-
-### Example 3
-- **s** (`String`) = `"x"`
-- **output** (`String`) = `"x"`
-
-A one-character string has the same character at the only position, so the result is x.
-
-## Starter code
-
-```
-public String alternateStringEnds(String s) {
-  // Write your code here.
-}
-```
-
-## Source note
-
-The judged core task matches the visible source at about 99%.
 
 
 ---
@@ -30876,118 +36125,6 @@ public int vowelSubstring(String s) {
 
 ---
 
-# Inventory Allocation  (Amazon)
-
-> id: `amazon-inventory-allocation` | difficulty: medium | stage: OA | platform: unknown | topics: simulation, sorting, heap | last seen: 2026-06-28 | employment: NEW GRAD
-
-## Problem
-
-You are given a list of inventory requests. Each request is represented as [customerId, quantity, bidAmount, timestamp].
-Allocate totalInventory items using these rules:
-  - Requests with a higher bidAmount are processed before lower bids.
-  - For requests with the same bidAmount, items are distributed in round-robin order by increasing timestamp.
-  - During each round, a customer can receive at most one item.
-  - A customer leaves the current round-robin group once their requested quantity is fulfilled.
-  - Lower bids are considered only after every higher bid has either been fulfilled or inventory is exhausted.
-
-Return the customer IDs of customers who receive no items, in the same order their requests appear in the input.
-Function Description Complete the function getUnfulfilledCustomers.
-  - int requests[n][4]: rows of [customerId, quantity, bidAmount, timestamp]
-  - int totalInventory: the number of items available
-
-Returns int[]: customers who receive no items.
-
-## Constraints
-
-- 1 <= requests.length <= 10^5
-  - requests[i].length = 4
-  - customer IDs are unique.
-  - 0 <= timestamp <= 10^9
-  - 0 <= totalInventory <= 10^9
-
-### Example 1
-- **requests** (`int[][]`) = `[[1,5,5,0],[2,7,8,1],[3,7,5,1],[4,10,3,3]]`
-- **totalInventory** (`int`) = `18`
-- **output** (`int[]`) = `[4]`
-
-Customer 2 is fully served first because bid 8 is highest. Customers 1 and 3 then share the remaining inventory at bid 5. No inventory remains for customer 4.
-
-### Example 2
-- **requests** (`int[][]`) = `[[1,2,10,0],[2,3,10,1],[3,1,5,0]]`
-- **totalInventory** (`int`) = `3`
-- **output** (`int[]`) = `[3]`
-
-The bid-10 group receives all 3 available items before the lower bid is considered, so customer 3 receives none.
-
-## Starter code
-
-```
-public int[] getUnfulfilledCustomers(int[][] requests, int totalInventory) {
-  // write your code here
-}
-```
-
-
----
-
-# Linear Warehouse Drone Delivery  (Capital One)
-
-> id: `capital-one-linear-warehouse-drone-delivery` | difficulty: easy | stage: OA | platform: codesignal | topics: array, sorting, two_pointers, greedy, simulation | last seen: 2026-06-26 | employment: INTERN
-
-## Problem
-
-You are designing a delivery system that uses drones in a linear warehouse. The warehouse is a number line that starts at position 0 and ends at position target.
-Charging stations are placed at the positions in stations. A fully charged drone can carry the cargo at most 10 units to the right. For example, a drone launched at position 12 can reach any position through 22, inclusive, but cannot reach position 23.
-Starting with the cargo at position 0, repeat this protocol until it reaches target:
-  - Carry the cargo on foot from its current position to the nearest charging station at or ahead of that position. If there is no such station before the target, carry the cargo directly to target.
-  - Launch a fully charged drone from that station and send the cargo as far as possible toward target, up to 10 units.
-  - If the target has not been reached, walk to the position where the drone landed, retrieve the cargo, and repeat.
-
-Return the total distance over which the cargo is carried on foot. Walking performed without the cargo is not included.
-
-## Constraints
-
-- 1 ≤ target ≤ 10^9
-  - 0 ≤ stations.length ≤ 10^5
-  - 0 ≤ stations[i] ≤ target
-
-### Example 1
-- **target** (`int`) = `23`
-- **stations** (`int[]`) = `[7,4,14]`
-- **output** (`int`) = `4`
-
-Carry the cargo from 0 to station 4, adding 4. The drone carries it to 14. A drone can then launch from station 14 and reach 23, so no more cargo-carrying on foot is needed.
-
-### Example 2
-- **target** (`int`) = `25`
-- **stations** (`int[]`) = `[20,10,0]`
-- **output** (`int`) = `0`
-
-The cargo begins at station 0. Drones launched from stations 0, 10, and 20 carry it all the way to the target, so the cargo is never carried on foot.
-
-### Example 3
-- **target** (`int`) = `28`
-- **stations** (`int[]`) = `[25,3]`
-- **output** (`int`) = `15`
-
-Carry the cargo 3 units to station 3, then the drone carries it to 13. Carry it another 12 units to station 25, whose drone reaches the target. The total is 3 + 12 = 15.
-
-## Starter code
-
-```
-public int solution(int target, int[] stations) {
-  // Write your code here.
-}
-
-```
-
-## Source note
-
-The visible source establishes the warehouse model, the 10-unit drone range, the first two delivery steps, and the sort-and-scan approach. The completed retrieval step, return-value details, examples, numeric bounds, and some edge behavior are reconstructed for practice. The judged core task matches the visible source at about 92%.
-
-
----
-
 # Directly Linked Users  (Stripe)
 
 > id: `stripe-directly-linked-users` | difficulty: easy | stage: OA | platform: unknown | topics: hash_table, graph | last seen: 2026-06-24 | employment: 
@@ -32993,6 +38130,57 @@ public int solution(int N) {
 
 ---
 
+# Hungarian Lottery Winner Counts  (Alpaca)
+
+> id: `alpaca-hungarian-lottery-winners` | difficulty: medium | stage: OA | platform: unknown | topics: array, hash_table, simulation | last seen: 2026-06-02 | employment: FULLTIME
+
+## Problem
+
+Players submit lottery tickets containing five distinct numbers. Given all submitted tickets and the five drawn numbers, count how many tickets match exactly two, three, four, and five drawn numbers.
+Return the four counts in that order: [matches2, matches3, matches4, matches5].
+
+## Constraints
+
+- 0 ≤ tickets.length ≤ 10^7.
+  - Every ticket and drawn contain five distinct integers from 1 through 90.
+  - The input fits in memory.
+
+### Example 1
+- **tickets** (`int[][]`) = `[[1,2,3,4,5],[1,2,6,7,8],[1,2,3,9,10],[11,12,13,14,15]]`
+- **drawn** (`int[]`) = `[1,2,3,4,5]`
+- **output** (`int[]`) = `[1,1,0,1]`
+
+The four tickets match exactly five, two, three, and zero drawn numbers.
+
+### Example 2
+- **tickets** (`int[][]`) = `[[1,2,3,4,5],[5,4,3,2,1]]`
+- **drawn** (`int[]`) = `[1,2,3,4,5]`
+- **output** (`int[]`) = `[0,0,0,2]`
+
+Ticket order does not matter; both tickets match all five numbers.
+
+### Example 3
+- **tickets** (`int[][]`) = `[]`
+- **drawn** (`int[]`) = `[1,2,3,4,5]`
+- **output** (`int[]`) = `[0,0,0,0]`
+
+No submitted tickets means no winners in any prize tier.
+
+## Starter code
+
+```
+public int[] countLotteryMatches(int[][] tickets, int[] drawn) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The judged task preserves the reported Hungarian lottery rules and winner-count query. The callable input format is authored for practice, and the core task matches the visible source at about 98%.
+
+
+---
+
 # Consolidate On-Call Rotations  (Google)
 
 > id: `google-consolidate-on-call-rotations` | difficulty: None | stage: OA | platform: unknown | topics:  | last seen: 2026-06-02 | employment: FULLTIME
@@ -33554,6 +38742,373 @@ public int secondsToRearrange(String s) {
 ## Source note
 
 The report names an exact equivalent binary-string task but omits its alternate narrative context; the judged core task matches it at about 99%.
+
+
+---
+
+# Cloud Storage System, Part 1: File Operations  (Ramp)
+
+> id: `ramp-cloud-storage-level-1` | difficulty: easy | stage: OA | platform: codesignal | topics: hash_table, design, simulation | last seen: 2026-05-18, 2024-10-04 | employment: NEW GRAD
+
+## Problem
+
+Your task is to implement a simple cloud storage system. All operations that should be supported are listed below.
+Solving this task consists of several levels. Subsequent levels are opened when the current level is correctly solved. You always have access to the data for the current and all previous levels.
+Requirements
+Your task is to implement a simple cloud storage system that maps objects (files) to their metainformation. Specifically, the storage should maintain files and information about them, including each file name and size. This system is in-memory; it does not use the real filesystem.
+The levels are cumulative:
+  - Level 1 supports adding, retrieving, and deleting files.
+  - Level 2 displays the largest files matching a prefix.
+  - Level 3 adds capacity-limited users and user merging.
+  - Level 4 backs up and restores a user's files.
+
+To move to the next level, all tests at the current level must pass.
+Note
+The queries never call operations that produce a collision between a file name and a directory name.
+FastPrep Operation-Sequence Adapter
+FastPrep calls the function once with operations. Process the rows from left to right while preserving one shared storage state. Every row starts with an uppercase operation name followed by that method's string arguments.
+Return one string-array row for every input operation:
+  - Encode a Boolean as ["true"] or ["false"].
+  - Encode an integer as one element, such as ["10"].
+  - Encode None as an empty row [].
+  - Return the formatted list from GET_N_LARGEST directly; an empty list is also [].
+
+Multipart Series
+  - Part 1: File Operations
+  - Part 2: Largest Files
+  - Part 3: Users and Capacity
+  - Part 4: Backup and Restore
+
+Level 1: File Operations
+The cloud storage system should support file manipulation.
+  - add_file(self, name: str, size: int) -> bool adds a new file name to the storage. size is the amount of memory required in bytes. The operation fails if a file with the same name already exists. Return True if the file was added successfully or False otherwise. The adapter row is ["ADD_FILE", name, size]. Files added this way are owned by the unlimited admin user.
+  - get_file_size(self, name: str) -> int | None returns the size of file name if it exists, or None otherwise. The adapter row is ["GET_FILE_SIZE", name].
+  - delete_file(self, name: str) -> int | None deletes file name. Return the deleted file size when deletion succeeds, or None if the file does not exist. The adapter row is ["DELETE_FILE", name].
+
+## Constraints
+
+- Every operation row is well formed and uses an operation available at this level.
+  - Every numeric argument is a base-10 integer string whose value and all arithmetic results fit in a signed 64-bit integer.
+  - File names, prefixes, and user IDs are non-empty case-sensitive strings.
+  - The input never creates a collision between a file name and a directory name.
+  - All users share one global file-name namespace. The admin user exists initially and has unlimited capacity.
+  - Process operations in the supplied order. The storage starts empty.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_FILE","/dir1/dir2/file.txt","10"],["ADD_FILE","/dir1/dir2/file.txt","5"],["GET_FILE_SIZE","/dir1/dir2/file.txt"],["DELETE_FILE","/non-existing.file"],["DELETE_FILE","/dir1/dir2/file.txt"],["GET_FILE_SIZE","/not-existing.file"]]`
+- **output** (`String[][]`) = `[["true"],["false"],["10"],[],["10"],[]]`
+
+The first add succeeds, the duplicate add fails, and the existing file size is 10. Deleting a missing file returns None; deleting the existing file returns 10; the final lookup again returns None.
+
+## Starter code
+
+```
+public String[][] cloudStorageLevel1(String[][] operations) {
+  // Process the operations in order and return one result row per operation.
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source screenshot provides the complete Level 1 method contracts and visible example. Only the FastPrep operation-sequence wrapper and numeric representation are adapted; the judged core matches the visible source at about 99%.
+
+
+---
+
+# Cloud Storage System, Part 2: Largest Files  (Ramp)
+
+> id: `ramp-cloud-storage-level-2` | difficulty: medium | stage: OA | platform: codesignal | topics: hash_table, sorting, design, simulation | last seen: 2026-05-18, 2024-10-04 | employment: NEW GRAD
+
+## Problem
+
+Your task is to implement a simple cloud storage system. All operations that should be supported are listed below.
+Solving this task consists of several levels. Subsequent levels are opened when the current level is correctly solved. You always have access to the data for the current and all previous levels.
+Requirements
+Your task is to implement a simple cloud storage system that maps objects (files) to their metainformation. Specifically, the storage should maintain files and information about them, including each file name and size. This system is in-memory; it does not use the real filesystem.
+The levels are cumulative:
+  - Level 1 supports adding, retrieving, and deleting files.
+  - Level 2 displays the largest files matching a prefix.
+  - Level 3 adds capacity-limited users and user merging.
+  - Level 4 backs up and restores a user's files.
+
+To move to the next level, all tests at the current level must pass.
+Note
+The queries never call operations that produce a collision between a file name and a directory name.
+FastPrep Operation-Sequence Adapter
+FastPrep calls the function once with operations. Process the rows from left to right while preserving one shared storage state. Every row starts with an uppercase operation name followed by that method's string arguments.
+Return one string-array row for every input operation:
+  - Encode a Boolean as ["true"] or ["false"].
+  - Encode an integer as one element, such as ["10"].
+  - Encode None as an empty row [].
+  - Return the formatted list from GET_N_LARGEST directly; an empty list is also [].
+
+Multipart Series
+  - Part 1: File Operations
+  - Part 2: Largest Files
+  - Part 3: Users and Capacity
+  - Part 4: Backup and Restore
+
+Level 1: File Operations
+The cloud storage system should support file manipulation.
+  - add_file(self, name: str, size: int) -> bool adds a new file name to the storage. size is the amount of memory required in bytes. The operation fails if a file with the same name already exists. Return True if the file was added successfully or False otherwise. The adapter row is ["ADD_FILE", name, size]. Files added this way are owned by the unlimited admin user.
+  - get_file_size(self, name: str) -> int | None returns the size of file name if it exists, or None otherwise. The adapter row is ["GET_FILE_SIZE", name].
+  - delete_file(self, name: str) -> int | None deletes file name. Return the deleted file size when deletion succeeds, or None if the file does not exist. The adapter row is ["DELETE_FILE", name].
+
+Level 2: Largest Files
+Implement an operation for retrieving statistics about files with a specific prefix.
+  - get_n_largest(self, prefix: str, n: int) -> list[str] returns the names of the top n largest files whose names start with prefix, formatted as ["<name_1>(<size_1>)", ..., "<name_n>(<size_n>)"].
+  - Sort matching files by size in descending order. Break a size tie by file name in lexicographical ascending order.
+  - If there are no matching files, return an empty list. If fewer than n files match, return all of them in the specified format.
+  - The adapter row is ["GET_N_LARGEST", prefix, n].
+
+The visible source table contains one malformed no-match call whose second argument is a file name even though the declared signature requires n: int. The judged contract follows the declared signature: n is an integer, and a prefix with no matches returns an empty row.
+
+## Constraints
+
+- Every operation row is well formed and uses an operation available at this level.
+  - Every numeric argument is a base-10 integer string whose value and all arithmetic results fit in a signed 64-bit integer.
+  - File names, prefixes, and user IDs are non-empty case-sensitive strings.
+  - The input never creates a collision between a file name and a directory name.
+  - All users share one global file-name namespace. The admin user exists initially and has unlimited capacity.
+  - Process operations in the supplied order. The storage starts empty.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_FILE","/dir1/dir2/file.txt","10"],["ADD_FILE","/dir1/dir2/file.txt","5"],["GET_FILE_SIZE","/dir1/dir2/file.txt"],["DELETE_FILE","/non-existing.file"],["DELETE_FILE","/dir1/dir2/file.txt"],["GET_FILE_SIZE","/not-existing.file"]]`
+- **output** (`String[][]`) = `[["true"],["false"],["10"],[],["10"],[]]`
+
+The first add succeeds, the duplicate add fails, and the existing file size is 10. Deleting a missing file returns None; deleting the existing file returns 10; the final lookup again returns None.
+
+### Example 2
+- **operations** (`String[][]`) = `[["ADD_FILE","/dir/file1.txt","5"],["ADD_FILE","/dir/file2","20"],["ADD_FILE","/dir/deeper/file3.mov","9"],["GET_N_LARGEST","/dir","2"],["GET_N_LARGEST","/dir/file","3"],["GET_N_LARGEST","/another_dir","3"],["ADD_FILE","/big_file.mp4","20"],["GET_N_LARGEST","/","2"]]`
+- **output** (`String[][]`) = `[["true"],["true"],["true"],["/dir/file2(20)","/dir/deeper/file3.mov(9)"],["/dir/file2(20)","/dir/file1.txt(5)"],[],["true"],["/big_file.mp4(20)","/dir/file2(20)"]]`
+
+Prefix filtering keeps matching names only. Size is the primary order; equal sizes are ordered lexicographically. The no-match query returns an empty row.
+
+## Starter code
+
+```
+public String[][] cloudStorageLevel2(String[][] operations) {
+  // Process the operations in order and return one result row per operation.
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source screenshot provides the complete Level 2 ranking contract and visible example. One example row conflicts with the declared integer parameter and is called out explicitly; otherwise the judged core matches the visible source at about 98%.
+
+
+---
+
+# Cloud Storage System, Part 3: Users and Capacity  (Ramp)
+
+> id: `ramp-cloud-storage-level-3` | difficulty: medium | stage: OA | platform: codesignal | topics: hash_table, sorting, design, simulation | last seen: 2026-05-18, 2024-10-04 | employment: NEW GRAD
+
+## Problem
+
+Your task is to implement a simple cloud storage system. All operations that should be supported are listed below.
+Solving this task consists of several levels. Subsequent levels are opened when the current level is correctly solved. You always have access to the data for the current and all previous levels.
+Requirements
+Your task is to implement a simple cloud storage system that maps objects (files) to their metainformation. Specifically, the storage should maintain files and information about them, including each file name and size. This system is in-memory; it does not use the real filesystem.
+The levels are cumulative:
+  - Level 1 supports adding, retrieving, and deleting files.
+  - Level 2 displays the largest files matching a prefix.
+  - Level 3 adds capacity-limited users and user merging.
+  - Level 4 backs up and restores a user's files.
+
+To move to the next level, all tests at the current level must pass.
+Note
+The queries never call operations that produce a collision between a file name and a directory name.
+FastPrep Operation-Sequence Adapter
+FastPrep calls the function once with operations. Process the rows from left to right while preserving one shared storage state. Every row starts with an uppercase operation name followed by that method's string arguments.
+Return one string-array row for every input operation:
+  - Encode a Boolean as ["true"] or ["false"].
+  - Encode an integer as one element, such as ["10"].
+  - Encode None as an empty row [].
+  - Return the formatted list from GET_N_LARGEST directly; an empty list is also [].
+
+Multipart Series
+  - Part 1: File Operations
+  - Part 2: Largest Files
+  - Part 3: Users and Capacity
+  - Part 4: Backup and Restore
+
+Level 1: File Operations
+The cloud storage system should support file manipulation.
+  - add_file(self, name: str, size: int) -> bool adds a new file name to the storage. size is the amount of memory required in bytes. The operation fails if a file with the same name already exists. Return True if the file was added successfully or False otherwise. The adapter row is ["ADD_FILE", name, size]. Files added this way are owned by the unlimited admin user.
+  - get_file_size(self, name: str) -> int | None returns the size of file name if it exists, or None otherwise. The adapter row is ["GET_FILE_SIZE", name].
+  - delete_file(self, name: str) -> int | None deletes file name. Return the deleted file size when deletion succeeds, or None if the file does not exist. The adapter row is ["DELETE_FILE", name].
+
+Level 2: Largest Files
+Implement an operation for retrieving statistics about files with a specific prefix.
+  - get_n_largest(self, prefix: str, n: int) -> list[str] returns the names of the top n largest files whose names start with prefix, formatted as ["<name_1>(<size_1>)", ..., "<name_n>(<size_n>)"].
+  - Sort matching files by size in descending order. Break a size tie by file name in lexicographical ascending order.
+  - If there are no matching files, return an empty list. If fewer than n files match, return all of them in the specified format.
+  - The adapter row is ["GET_N_LARGEST", prefix, n].
+
+The visible source table contains one malformed no-match call whose second argument is a file name even though the declared signature requires n: int. The judged contract follows the declared signature: n is an integer, and a prefix with no matches returns an empty row.
+Level 3: Users and Capacity
+Support queries from different users. All users share one common filesystem, and every non-admin user has a storage-capacity limit.
+  - add_user(self, user_id: str, capacity: int) -> bool adds a new user with capacity bytes. The total size of files owned by user_id cannot exceed this limit. The operation fails if the user already exists. Return True on success and False otherwise. The adapter row is ["ADD_USER", user_id, capacity].
+  - add_file_by(self, user_id: str, name: str, size: int) -> int | None behaves like add_file, but the new file is owned by user_id. The operation fails when the user is absent, the name is already occupied, or the addition would exceed the user's capacity. Return the user's remaining capacity after success, or None otherwise. The adapter row is ["ADD_FILE_BY", user_id, name, size].
+  - Every ADD_FILE operation from Level 1 is run by the admin user, who has unlimited storage capacity.
+  - merge_user(self, user_id_1: str, user_id_2: str) -> int | None merges user_id_2 into user_id_1. Transfer ownership of every file owned by user_id_2, add the remaining storage capacity of user_id_2 to user_id_1's limit, and delete user_id_2. Return user_id_1's remaining capacity, or None when either user is absent or the IDs are equal. Neither merge argument is admin. The adapter row is ["MERGE_USER", user_id_1, user_id_2].
+
+## Constraints
+
+- Every operation row is well formed and uses an operation available at this level.
+  - Every numeric argument is a base-10 integer string whose value and all arithmetic results fit in a signed 64-bit integer.
+  - File names, prefixes, and user IDs are non-empty case-sensitive strings.
+  - The input never creates a collision between a file name and a directory name.
+  - All users share one global file-name namespace. The admin user exists initially and has unlimited capacity.
+  - Process operations in the supplied order. The storage starts empty.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_FILE","/dir1/dir2/file.txt","10"],["ADD_FILE","/dir1/dir2/file.txt","5"],["GET_FILE_SIZE","/dir1/dir2/file.txt"],["DELETE_FILE","/non-existing.file"],["DELETE_FILE","/dir1/dir2/file.txt"],["GET_FILE_SIZE","/not-existing.file"]]`
+- **output** (`String[][]`) = `[["true"],["false"],["10"],[],["10"],[]]`
+
+The first add succeeds, the duplicate add fails, and the existing file size is 10. Deleting a missing file returns None; deleting the existing file returns 10; the final lookup again returns None.
+
+### Example 2
+- **operations** (`String[][]`) = `[["ADD_FILE","/dir/file1.txt","5"],["ADD_FILE","/dir/file2","20"],["ADD_FILE","/dir/deeper/file3.mov","9"],["GET_N_LARGEST","/dir","2"],["GET_N_LARGEST","/dir/file","3"],["GET_N_LARGEST","/another_dir","3"],["ADD_FILE","/big_file.mp4","20"],["GET_N_LARGEST","/","2"]]`
+- **output** (`String[][]`) = `[["true"],["true"],["true"],["/dir/file2(20)","/dir/deeper/file3.mov(9)"],["/dir/file2(20)","/dir/file1.txt(5)"],[],["true"],["/big_file.mp4(20)","/dir/file2(20)"]]`
+
+Prefix filtering keeps matching names only. Size is the primary order; equal sizes are ordered lexicographically. The no-match query returns an empty row.
+
+### Example 3
+- **operations** (`String[][]`) = `[["ADD_USER","user1","100"],["ADD_USER","user2","40"],["ADD_FILE_BY","user1","/a","60"],["ADD_FILE_BY","user2","/b","10"],["ADD_FILE_BY","user2","/c","30"],["MERGE_USER","user1","user2"],["GET_FILE_SIZE","/b"],["ADD_FILE_BY","user2","/d","1"],["ADD_FILE_BY","user1","/d","40"],["MERGE_USER","user1","user1"]]`
+- **output** (`String[][]`) = `[["true"],["true"],["40"],["30"],["0"],["40"],["10"],[],["0"],[]]`
+
+The merge transfers both files and the remaining capacity, then deletes user2. Calls for the deleted user and a self-merge return None.
+
+## Starter code
+
+```
+public String[][] cloudStorageLevel3(String[][] operations) {
+  // Process the operations in order and return one result row per operation.
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source screenshot provides the complete Level 3 user, capacity, file-ownership, and merge contracts. Only the FastPrep operation-sequence wrapper and numeric representation are adapted; the judged core matches the visible source at about 99%.
+
+
+---
+
+# Cloud Storage System, Part 4: Backup and Restore  (Ramp)
+
+> id: `ramp-cloud-storage-system` | difficulty: medium | stage: OA | platform: codesignal | topics: design, hash_table, sorting, simulation | last seen: 2026-05-18, 2024-10-04 | employment: NEW GRAD, INTERN
+
+## Problem
+
+Your task is to implement a simple cloud storage system. All operations that should be supported are listed below.
+Solving this task consists of several levels. Subsequent levels are opened when the current level is correctly solved. You always have access to the data for the current and all previous levels.
+Requirements
+Your task is to implement a simple cloud storage system that maps objects (files) to their metainformation. Specifically, the storage should maintain files and information about them, including each file name and size. This system is in-memory; it does not use the real filesystem.
+The levels are cumulative:
+  - Level 1 supports adding, retrieving, and deleting files.
+  - Level 2 displays the largest files matching a prefix.
+  - Level 3 adds capacity-limited users and user merging.
+  - Level 4 backs up and restores a user's files.
+
+To move to the next level, all tests at the current level must pass.
+Note
+The queries never call operations that produce a collision between a file name and a directory name.
+FastPrep Operation-Sequence Adapter
+FastPrep calls the function once with operations. Process the rows from left to right while preserving one shared storage state. Every row starts with an uppercase operation name followed by that method's string arguments.
+Return one string-array row for every input operation:
+  - Encode a Boolean as ["true"] or ["false"].
+  - Encode an integer as one element, such as ["10"].
+  - Encode None as an empty row [].
+  - Return the formatted list from GET_N_LARGEST directly; an empty list is also [].
+
+Multipart Series
+  - Part 1: File Operations
+  - Part 2: Largest Files
+  - Part 3: Users and Capacity
+  - Part 4: Backup and Restore
+
+Level 1: File Operations
+The cloud storage system should support file manipulation.
+  - add_file(self, name: str, size: int) -> bool adds a new file name to the storage. size is the amount of memory required in bytes. The operation fails if a file with the same name already exists. Return True if the file was added successfully or False otherwise. The adapter row is ["ADD_FILE", name, size]. Files added this way are owned by the unlimited admin user.
+  - get_file_size(self, name: str) -> int | None returns the size of file name if it exists, or None otherwise. The adapter row is ["GET_FILE_SIZE", name].
+  - delete_file(self, name: str) -> int | None deletes file name. Return the deleted file size when deletion succeeds, or None if the file does not exist. The adapter row is ["DELETE_FILE", name].
+
+Level 2: Largest Files
+Implement an operation for retrieving statistics about files with a specific prefix.
+  - get_n_largest(self, prefix: str, n: int) -> list[str] returns the names of the top n largest files whose names start with prefix, formatted as ["<name_1>(<size_1>)", ..., "<name_n>(<size_n>)"].
+  - Sort matching files by size in descending order. Break a size tie by file name in lexicographical ascending order.
+  - If there are no matching files, return an empty list. If fewer than n files match, return all of them in the specified format.
+  - The adapter row is ["GET_N_LARGEST", prefix, n].
+
+The visible source table contains one malformed no-match call whose second argument is a file name even though the declared signature requires n: int. The judged contract follows the declared signature: n is an integer, and a prefix with no matches returns an empty row.
+Level 3: Users and Capacity
+Support queries from different users. All users share one common filesystem, and every non-admin user has a storage-capacity limit.
+  - add_user(self, user_id: str, capacity: int) -> bool adds a new user with capacity bytes. The total size of files owned by user_id cannot exceed this limit. The operation fails if the user already exists. Return True on success and False otherwise. The adapter row is ["ADD_USER", user_id, capacity].
+  - add_file_by(self, user_id: str, name: str, size: int) -> int | None behaves like add_file, but the new file is owned by user_id. The operation fails when the user is absent, the name is already occupied, or the addition would exceed the user's capacity. Return the user's remaining capacity after success, or None otherwise. The adapter row is ["ADD_FILE_BY", user_id, name, size].
+  - Every ADD_FILE operation from Level 1 is run by the admin user, who has unlimited storage capacity.
+  - merge_user(self, user_id_1: str, user_id_2: str) -> int | None merges user_id_2 into user_id_1. Transfer ownership of every file owned by user_id_2, add the remaining storage capacity of user_id_2 to user_id_1's limit, and delete user_id_2. Return user_id_1's remaining capacity, or None when either user is absent or the IDs are equal. Neither merge argument is admin. The adapter row is ["MERGE_USER", user_id_1, user_id_2].
+
+Level 4: Backup and Restore
+Allow users to back up their files.
+  - backup_user(self, user_id: str) -> int | None backs up the current state of every file owned by user_id, including each file name and size. The backup is stored separately and is not changed by later file-manipulation queries. A new backup replaces any previous backup for the same user. Return the number of backed-up files, or None if user_id does not exist. The adapter row is ["BACKUP_USER", user_id].
+  - restore_user(self, user_id: str) -> int | None restores the user's files to the latest backup. If there is no backup, delete all files currently owned by the user. When a backed-up file name is currently occupied by another user, ignore that file. Return the number of files restored successfully, or None if user_id does not exist. The adapter row is ["RESTORE_USER", user_id].
+  - merge_user does not change user_id_1's backup, and user_id_2 is deleted together with its backup.
+  - restore_user does not change the user's capacity.
+
+## Constraints
+
+- 1 <= operations.length <= 2000.
+  - Every operation row is well-formed and uses one of the operation names described above.
+  - Sizes, capacities, and n are positive base-10 integers at most 10^9.
+  - File names, prefixes, and user IDs are non-empty case-sensitive ASCII strings of length at most 100.
+  - The input does not create collisions between file and directory names.
+  - All users share one file-name namespace; admin exists initially and has unlimited capacity.
+  - Process operations in the supplied order. The system is empty initially except for admin.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_FILE","/dir1/dir2/file.txt","10"],["ADD_FILE","/dir1/dir2/file.txt","5"],["GET_FILE_SIZE","/dir1/dir2/file.txt"],["DELETE_FILE","/non-existing.file"],["DELETE_FILE","/dir1/dir2/file.txt"],["GET_FILE_SIZE","/not-existing.file"]]`
+- **output** (`String[][]`) = `[["true"],["false"],["10"],[],["10"],[]]`
+
+This preserves every Level 1 row shown in the source example: the first add succeeds, the duplicate add fails, the existing size is 10, deleting a missing file returns None, deleting the existing file returns 10, and the final lookup returns None.
+
+### Example 2
+- **operations** (`String[][]`) = `[["ADD_FILE","/dir/file1.txt","5"],["ADD_FILE","/dir/file2","20"],["ADD_FILE","/dir/deeper/file3.mov","9"],["GET_N_LARGEST","/dir","2"],["GET_N_LARGEST","/dir/file","3"],["GET_N_LARGEST","/another_dir","3"],["ADD_FILE","/big_file.mp4","20"],["GET_N_LARGEST","/","2"]]`
+- **output** (`String[][]`) = `[["true"],["true"],["true"],["/dir/file2(20)","/dir/deeper/file3.mov(9)"],["/dir/file2(20)","/dir/file1.txt(5)"],[],["true"],["/big_file.mp4(20)","/dir/file2(20)"]]`
+
+The first three files reproduce the source's Level 2 table. Prefix filtering keeps only matching names, size determines primary order, and the final root-prefix query resolves the size-20 tie lexicographically. The no-match row follows the explicit empty-list rule.
+
+### Example 3
+- **operations** (`String[][]`) = `[["ADD_USER","user1","100"],["ADD_USER","user2","40"],["ADD_FILE_BY","user1","/a","60"],["ADD_FILE_BY","user2","/b","10"],["ADD_FILE_BY","user2","/c","30"],["MERGE_USER","user1","user2"],["GET_FILE_SIZE","/b"],["ADD_FILE_BY","user2","/d","1"],["ADD_FILE_BY","user1","/d","40"],["MERGE_USER","user1","user1"]]`
+- **output** (`String[][]`) = `[["true"],["true"],["40"],["30"],["0"],["40"],["10"],[],["0"],[]]`
+
+Before the merge, user1 has 40 bytes remaining and user2 has none. The merge transfers both files, deletes user2, and leaves user1 with 40 bytes. Calls for the deleted user and a self-merge return None.
+
+### Example 4
+- **operations** (`String[][]`) = `[["ADD_USER","user","100"],["ADD_FILE_BY","user","/file3.mp4","60"],["ADD_FILE_BY","user","/file4.txt","10"],["BACKUP_USER","user"],["DELETE_FILE","/file3.mp4"],["DELETE_FILE","/file4.txt"],["ADD_FILE","/file3.mp4","140"],["ADD_FILE_BY","user","/dir/file5.new","20"],["RESTORE_USER","user"],["GET_FILE_SIZE","/file3.mp4"],["GET_FILE_SIZE","/file4.txt"],["GET_FILE_SIZE","/dir/file5.new"]]`
+- **output** (`String[][]`) = `[["true"],["40"],["30"],["2"],["60"],["10"],["true"],["80"],["1"],["140"],["10"],[]]`
+
+The backup remembers /file3.mp4 and /file4.txt. Before restore, admin occupies the former name and the user owns /dir/file5.new. Restore deletes the user's current file, skips the conflicting name, restores /file4.txt, and returns 1.
+
+## Starter code
+
+```
+public String[][] cloudStorageSystem(String[][] operations) {
+  // Process operations in order and return one result row per operation.
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source screenshots provide the complete four-level contract, including user backup, restore, collision handling, merge-backup behavior, and capacity preservation. Only the FastPrep operation-sequence wrapper and numeric representation are adapted; the judged core matches the visible source at about 99%.
 
 
 ---
@@ -35507,6 +41062,57 @@ public int getMinErrors(String errorString, int x, int y) {
 }
 
 ```
+
+
+---
+
+# GPU Capacity With Limited Cluster Switching  (Mistral AI)
+
+> id: `mistral-ai-gpu-cluster-switching` | difficulty: hard | stage: OA | platform: codesignal | topics: dynamic_programming, array | last seen: 2026-04-16 | employment: FULLTIME
+
+## Problem
+
+You operate several GPU clusters for a sequence of days. Cluster c has a fixed capacity capacities[c]. Each row [day, cluster, used] records the GPUs already occupied on that day; an omitted pair has zero usage.
+Choose exactly one cluster per day. Its contribution is capacity - used. Moving from one cluster to a different cluster between consecutive days consumes one switch. Return the maximum total remaining GPU capacity obtainable with at most maxSwitches switches.
+Every day and cluster pair appears at most once in usages.
+
+## Constraints
+
+- 1 <= capacities.length <= 50
+  - 1 <= numDays <= 200
+  - 0 <= maxSwitches < numDays
+  - 0 <= used <= capacities[cluster] <= 10000
+
+### Example 1
+- **capacities** (`int[]`) = `[10,8]`
+- **numDays** (`int`) = `3`
+- **usages** (`int[][]`) = `[[0,0,9],[0,1,1],[1,0,0],[1,1,7],[2,0,9],[2,1,0]]`
+- **maxSwitches** (`int`) = `1`
+- **output** (`int`) = `19`
+
+Use cluster 1 on day 0, switch to cluster 0 on day 1, and remain there on day 2 for 7 + 10 + 1 = 18.
+
+### Example 2
+- **capacities** (`int[]`) = `[5,9]`
+- **numDays** (`int`) = `2`
+- **usages** (`int[][]`) = `[]`
+- **maxSwitches** (`int`) = `0`
+- **output** (`int`) = `18`
+
+With no switches, staying on cluster 1 contributes 9 on each day.
+
+## Starter code
+
+```
+public int maximizeRemainingGpu(int[] capacities, int numDays, int[][] usages, int maxSwitches) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+A firsthand Mistral AI CodeSignal report dated April 16, 2026 describes remaining GPU capacity, daily reset, unlimited switching, and a final dynamic-programming part with at most K cluster switches. The sparse row encoding and exact tie-independent return value are declared practice adapters; the recovered algorithmic core is retained.
 
 
 ---
@@ -37560,6 +43166,154 @@ The source directly asks for string reversal but omits the interface, empty-inpu
 
 ---
 
+# Closest Number Pairs  (Adobe)
+
+> id: `adobe-closest-number-pairs` | difficulty: easy | stage: OA | platform: hackerrank | topics: array, sorting | last seen: 2026-03-12, 2026-01-12 | employment: INTERN
+
+## Problem
+
+Given an integer array numbers, find the minimum absolute difference between any two values.
+Return every pair that has this minimum difference as a two-dimensional integer array. Within each pair, place the smaller value first. Order the returned pairs by their first value in ascending order.
+
+## Constraints
+
+- 2 <= numbers.length <= 10^5.
+  - -10^9 <= numbers[i] <= 10^9.
+  - All values in numbers are distinct.
+
+### Example 1
+- **numbers** (`int[]`) = `[4,2,1,3]`
+- **output** (`int[][]`) = `[[1,2],[2,3],[3,4]]`
+
+After sorting, the array is [1,2,3,4]. Every adjacent difference is 1, so all three adjacent pairs are returned.
+
+### Example 2
+- **numbers** (`int[]`) = `[-10,-3,0,5]`
+- **output** (`int[][]`) = `[[-3,0]]`
+
+The sorted adjacent differences are 7, 3, and 5. Only [-3,0] has the minimum difference.
+
+## Starter code
+
+```
+public int[][] closestNumberPairs(int[] numbers) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source specifies sorting adjacent values and returning every closest pair, but omits duplicate handling, numeric bounds, examples, and a runnable signature. The judged core task matches it at about 92%.
+
+
+---
+
+# Count Distinct Fixed-Length Substrings  (Adobe)
+
+> id: `adobe-count-distinct-fixed-length-substrings` | difficulty: medium | stage: OA | platform: hackerrank | topics: string, hash_table, sliding_window | last seen: 2026-03-12, 2026-01-12 | employment: INTERN
+
+## Problem
+
+Given a lowercase string text and an integer k, consider every contiguous substring of text whose length is exactly k.
+Return the number of distinct substring values among those windows. Equal text appearing at different positions counts once.
+
+## Constraints
+
+- 1 <= text.length <= 10^5.
+  - text contains only lowercase English letters.
+  - 1 <= k <= text.length.
+
+### Example 1
+- **text** (`String`) = `"ababa"`
+- **k** (`int`) = `2`
+- **output** (`int`) = `2`
+
+The length-2 windows are ab, ba, ab, and ba. The distinct values are ab and ba.
+
+### Example 2
+- **text** (`String`) = `"aaaa"`
+- **k** (`int`) = `2`
+- **output** (`int`) = `1`
+
+Every length-2 window is aa, so there is one distinct value.
+
+### Example 3
+- **text** (`String`) = `"abc"`
+- **k** (`int`) = `1`
+- **output** (`int`) = `3`
+
+The one-character windows are a, b, and c, all distinct.
+
+## Starter code
+
+```
+public int countDistinctSubstrings(String text, int k) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source specifies counting distinct length-k substrings and describes a rolling-hash approach, but omits alphabet and size bounds, examples, and a runnable signature. The judged core task matches it at about 95%.
+
+
+---
+
+# Maximum Reachable Value Within a Step Budget  (Adobe)
+
+> id: `adobe-maximum-reachable-value` | difficulty: easy | stage: OA | platform: hackerrank | topics: math | last seen: 2026-03-12, 2026-01-12 | employment: INTERN
+
+## Problem
+
+You start at coordinate x on the integer number line and must finish at coordinate y. Each step moves exactly 1 unit left or right.
+You may use at most steps steps. Return the maximum coordinate that can be visited by any valid walk that ends at y. If y cannot be reached within the step budget, return -1.
+
+## Constraints
+
+- 0 <= x <= 10^9.
+  - 0 <= y <= 10^9.
+  - 0 <= steps <= 2 * 10^9.
+  - The result fits in a signed 64-bit integer.
+
+### Example 1
+- **x** (`long`) = `3`
+- **y** (`long`) = `4`
+- **steps** (`long`) = `5`
+- **output** (`long`) = `6`
+
+The walk 3,4,5,6,5,4 uses 5 steps, ends at 4, and reaches coordinate 6.
+
+### Example 2
+- **x** (`long`) = `2`
+- **y** (`long`) = `8`
+- **steps** (`long`) = `4`
+- **output** (`long`) = `-1`
+
+Reaching 8 from 2 requires at least 6 steps, so the budget is insufficient.
+
+### Example 3
+- **x** (`long`) = `10`
+- **y** (`long`) = `4`
+- **steps** (`long`) = `8`
+- **output** (`long`) = `11`
+
+Moving from 10 to 4 needs 6 steps. The two extra steps allow a detour to 11 before returning through 10 and continuing to 4.
+
+## Starter code
+
+```
+public long maximumReachableValue(long x, long y, long steps) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source supplies the reachability rule and maximum-value formula but omits numeric bounds, examples, and a runnable signature. The judged core task matches it at about 97%.
+
+
+---
+
 # Compute Walking Distance  (TikTok)
 
 > id: `tiktok-compute-walking-distance` | difficulty: easy | stage: OA | platform: codesignal | topics: array, sorting, greedy | last seen: 2026-03-10 | employment: FULLTIME
@@ -37831,6 +43585,183 @@ public int[] chooseResponse(String guess, List<String> previousGuesses, List<Lis
   // write your code here
 }
 ```
+
+
+---
+
+# In-Memory Database with TTL and Historical Lookup  (Ramp)
+
+> id: `ramp-in-memory-database-historical-lookup` | difficulty: hard | stage: OA | platform: codesignal | topics: hash_table, database, design, simulation | last seen: 2026-03-04, 2025-10-09, 2024-08-31, 2024-08-28, 2024-08-05 | employment: NEW GRAD, INTERN
+
+## Problem
+
+Level 4 - Current level
+Instructions
+Your task is to implement a simplified version of an in-memory database. All operations that should be supported by this database are described below.
+Solving this task consists of several levels. Subsequent levels are opened when the current level is correctly solved. You always have access to the data for the current and all previous levels.
+You are not required to provide the most efficient implementation. Any code that passes the unit tests is sufficient.
+You can execute a single test case by running the following command in the terminal:
+bash run_single_test.sh "<test_case_name>"Requirements
+Your task is to implement a simplified version of an in-memory database. Plan your design according to the level specifications below:
+  - Level 1: In-memory database should support basic operations to manipulate records, fields, and values within fields.
+  - Level 2: In-memory database should support displaying a record's fields based on a filter.
+
+Levels 1 through 3 operations
+For this exercise, the earlier levels use the following complete operation family. The database stores integer values in records identified by a string key; every record contains string field names.
+  - set(timestamp, key, field, value): set or replace the field with a non-expiring integer value.
+  - get(timestamp, key, field): return the visible value, or None when the record or field is absent or expired.
+  - compare_and_set(timestamp, key, field, expected_value, new_value): replace the visible value only when it equals expected_value, and return whether the replacement happened.
+  - compare_and_delete(timestamp, key, field, expected_value): delete the visible field only when its value equals expected_value, and return whether the deletion happened.
+  - scan(timestamp, key): return every visible field as field(value), sorted lexicographically by field name.
+  - scan_by_prefix(timestamp, key, prefix): return only the visible fields whose names begin with prefix, using the same formatting and order.
+  - set_with_ttl(timestamp, key, field, value, ttl): set or replace the field. The new value is visible during the half-open interval [timestamp, timestamp + ttl).
+  - compare_and_set_with_ttl(timestamp, key, field, expected_value, new_value, ttl): perform the conditional replacement and, on success, give the new value the supplied TTL.
+  - All reads, scans, comparisons, and deletions treat an expired value as absent.
+
+Level 4
+The database should support look back get operation.
+  - get_when(self, timestamp: int, key: str, field: str, at_timestamp: int) -> int | None — should return the value of field at at_timestamp from the record associated with key. If at_timestamp is 0, perform the get operation described in Level 1. It is guaranteed that at_timestamp will not be greater than timestamp. If the specified field or record did not exist at the given timestamp, return None.
+
+Examples The example below shows how these operations should work (the section is scrollable to the right):
+Queries
+set_with_ttl(1, "A", "B", 3, 10)
+compare_and_set_with_ttl(4, "A", "B", 3, 7, 9)
+get(10, "A", "B")
+get_when(13, "A", "B", 3)
+get_when(15, "A", "B", 13)
+
+Explanations
+database state: {"A": {"B": 3}} with {"B": 3} expiring at timestamp 11
+returns True; database state: {"A": {"B": 7}}
+updates field "B" to {"B": 7} expiring at timestamp 13
+returns 7; field "B" in record "A" had a value of 7 at timestamp 10
+returns 3; field "B" in record "A" had a value of 3 at timestamp 3
+returns None; field "B" in record "A" expired at timestamp 13  - [execution time limit] 3 seconds
+  - [memory limit] 4g
+
+FastPrep practice interface
+Complete runHistoricalDatabase. Process the rows of operations in order. The second item in every row is a strictly increasing timestamp. Return one string array for every input row.
+  - ["SET", timestamp, key, field, value]: call set and return an empty array.
+  - ["GET", timestamp, key, field]: call get and return a one-item array containing the value, or an empty array for None.
+  - ["COMPARE_AND_SET", timestamp, key, field, expectedValue, newValue]: call compare_and_set and return ["true"] or ["false"].
+  - ["COMPARE_AND_DELETE", timestamp, key, field, expectedValue]: call compare_and_delete and return ["true"] or ["false"].
+  - ["SCAN", timestamp, key]: call scan and return its formatted list.
+  - ["SCAN_BY_PREFIX", timestamp, key, prefix]: call scan_by_prefix and return its formatted list.
+  - ["SET_WITH_TTL", timestamp, key, field, value, ttl]: call set_with_ttl and return an empty array.
+  - ["COMPARE_AND_SET_WITH_TTL", timestamp, key, field, expectedValue, newValue, ttl]: call compare_and_set_with_ttl and return ["true"] or ["false"].
+  - ["GET_WHEN", timestamp, key, field, atTimestamp]: call get_when and return a one-item array containing the value, or an empty array for None.
+  - Overwrites and successful deletions end the previous version at their timestamp but do not erase earlier history. An older value never reappears after a later version expires.
+
+## Constraints
+
+- 1 <= operations.length <= 2000.
+  - Every operation row has exactly the format listed in the statement.
+  - Timestamps are base-10 integers in [1, 10^9] and strictly increase across the input.
+  - atTimestamp is in [0, timestamp].
+  - Every ttl is in [1, 10^9].
+  - Values are canonical signed 32-bit decimal integers.
+  - Keys, fields, and prefixes contain 1 through 50 case-sensitive English letters or digits.
+  - The source execution time limit is 3 seconds and the source memory limit is 4 GB.
+
+### Example 1
+- **operations** (`String[][]`) = `[["SET_WITH_TTL","1","A","B","3","10"],["COMPARE_AND_SET_WITH_TTL","4","A","B","3","7","9"],["GET","10","A","B"],["GET_WHEN","13","A","B","3"],["GET_WHEN","15","A","B","13"]]`
+- **output** (`String[][]`) = `[[],["true"],["7"],["3"],[]]`
+
+The value 3 is first visible on [1,11). The successful TTL compare-and-set writes 7 on [4,13), so the current read at timestamp 10 returns 7, the historical read at timestamp 3 returns 3, and the read at the exact expiration timestamp 13 returns no value.
+
+### Example 2
+- **operations** (`String[][]`) = `[["SET","1","user2","age","18"],["SET","2","user2","height","180"],["SET","3","user2","address","1"],["SCAN","4","user2"],["SCAN_BY_PREFIX","5","user2","a"],["COMPARE_AND_SET","6","user2","age","18","19"],["COMPARE_AND_DELETE","7","user2","height","181"],["GET","8","user2","age"]]`
+- **output** (`String[][]`) = `[[],[],[],["address(1)","age(18)","height(180)"],["address(1)","age(18)"],["true"],["false"],["19"]]`
+
+The full scan sorts address, age, and height by field name. The prefix scan keeps only the two fields beginning with a. The conditional update of age succeeds, while deleting height with the wrong expected value fails.
+
+## Starter code
+
+```
+public String[][] runHistoricalDatabase(String[][] operations) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The source directly shows the historical lookup contract and a worked TTL/conditional-update example, while only summarizing the earlier basic and filtering levels. The judged core task matches the visible source at about 92%.
+
+
+---
+
+# Recipe Management System  (Ramp)
+
+> id: `ramp-recipe-management-system` | difficulty: hard | stage: OA | platform: unknown | topics: design, hash_table, sorting, simulation | last seen: 2026-03-03 | employment: FULLTIME
+
+## Problem
+
+Process an ordered sequence of operations for an in-memory recipe manager. Recipe IDs are assigned monotonically as recipe1, recipe2, and so on; deleted IDs are never reused. Return one string-list result for every operation.
+Recipe Operations
+  - ["ADD_RECIPE", name, ingredientsCsv, stepsCsv]: add a recipe when no current recipe has the same name case-insensitively. Return [recipeId], or an empty list on conflict.
+  - ["GET_RECIPE", recipeId]: return [name, ingredientsCsv, stepsCsv], or an empty list when missing.
+  - ["UPDATE_RECIPE", recipeId, name, ingredientsCsv, stepsCsv]: replace all fields, subject to the same name rule. Return ["true"] on success and ["false"] otherwise. Every successful update appends a version whose editor is system.
+  - ["DELETE_RECIPE", recipeId]: delete the recipe and return a one-element lowercase boolean list.
+
+Search and Users
+  - ["SEARCH_INGREDIENT", ingredient]: return IDs containing that exact ingredient case-insensitively, ordered by ingredient count ascending and then numeric recipe ID ascending.
+  - ["LIST_RECIPES", sortBy]: return all current IDs. For ingredient_count, sort by ingredient count and numeric ID. For name, or an unsupported value, sort by case-insensitive name and numeric ID.
+  - ["ADD_USER", userId]: add a case-sensitive user and return a one-element lowercase boolean list.
+  - ["EDIT_RECIPE", userId, recipeId, name, ingredientsCsv, stepsCsv]: let any existing user edit any current recipe, subject to name uniqueness. A success appends a version whose editor is userId. Return a one-element lowercase boolean list.
+
+Version History
+  - A newly added recipe has no history. Each successful UPDATE_RECIPE, EDIT_RECIPE, or rollback appends the complete post-operation state as the next version, starting at version 1.
+  - ["VERSION_RECIPE", recipeId]: return every version in ascending order, formatted as version:name:ingredientsCsv:stepsCsv:lastEditedBy. Return an empty list when the recipe is missing or has never been edited.
+  - ["ROLLBACK_RECIPE", recipeId, version]: restore the name, ingredients, and steps from an existing version. The old history stays immutable and the restored state is appended as a new version whose editor is rollback. Return ["false"] for a missing recipe or version, or when the restored name conflicts with another current recipe.
+
+Runner Interface
+manageRecipes accepts String[][] operations and returns String[][].
+
+## Constraints
+
+- 1 <= operations.length <= 10^4.
+  - Every operation has a documented opcode and exact arity.
+  - Names, user IDs, ingredients, and steps contain printable ASCII characters. Names and user IDs are non-empty.
+  - Ingredient and step elements are non-empty, contain no commas or colons, have length at most 100, and each CSV has at most 100 elements.
+  - Recipe-name equality and ordering and ingredient matching are case-insensitive. User IDs are case-sensitive.
+  - A rollback version is a canonical positive decimal integer that fits in a signed 32-bit integer.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_RECIPE","Pancakes","Flour,Egg,Milk","Mix,Cook"],["ADD_RECIPE","Salad","Lettuce,Tomato","Chop,Toss"],["GET_RECIPE","recipe1"],["SEARCH_INGREDIENT","egg"],["LIST_RECIPES","name"]]`
+- **output** (`String[][]`) = `[["recipe1"],["recipe2"],["Pancakes","Flour,Egg,Milk","Mix,Cook"],["recipe1"],["recipe1","recipe2"]]`
+
+The ingredient lookup is case-insensitive, so egg finds recipe1. Name order places Pancakes before Salad.
+
+### Example 2
+- **operations** (`String[][]`) = `[["ADD_RECIPE","Soup","Water,Carrot","Boil,Serve"],["ADD_RECIPE","sOuP","Stock","Heat"],["UPDATE_RECIPE","recipe1","Stew","Potato,Beef,Carrot","Brown,Simmer"],["GET_RECIPE","recipe1"],["DELETE_RECIPE","recipe9"],["DELETE_RECIPE","recipe1"],["GET_RECIPE","recipe1"]]`
+- **output** (`String[][]`) = `[["recipe1"],[],["true"],["Stew","Potato,Beef,Carrot","Brown,Simmer"],["false"],["true"],[]]`
+
+The second add conflicts with Soup case-insensitively. Updating changes every stored field; deletion releases the name but never reuses the ID.
+
+### Example 3
+- **operations** (`String[][]`) = `[["ADD_RECIPE","Beta","X,Y","One,Two"],["ADD_RECIPE","Alpha","Z","Only"],["ADD_USER","chef"],["ADD_USER","chef"],["EDIT_RECIPE","missing","recipe1","Nope","X","Only"],["EDIT_RECIPE","chef","recipe1","Gamma","X","Only"],["LIST_RECIPES","ingredient_count"],["LIST_RECIPES","unsupported"]]`
+- **output** (`String[][]`) = `[["recipe1"],["recipe2"],["true"],["false"],["false"],["true"],["recipe1","recipe2"],["recipe2","recipe1"]]`
+
+Only an existing user can edit. After the edit, both recipes have one ingredient, so numeric ID breaks that tie. The unsupported sort key defaults to name order.
+
+### Example 4
+- **operations** (`String[][]`) = `[["ADD_RECIPE","Soup","Water,Carrot","Boil,Serve"],["VERSION_RECIPE","recipe1"],["UPDATE_RECIPE","recipe1","Stew","Carrot,Potato","Chop,Simmer"],["ADD_USER","chef"],["EDIT_RECIPE","chef","recipe1","Curry","Spice,Potato","Toast,Simmer"],["VERSION_RECIPE","recipe1"],["ROLLBACK_RECIPE","recipe1","1"],["GET_RECIPE","recipe1"],["VERSION_RECIPE","recipe1"]]`
+- **output** (`String[][]`) = `[["recipe1"],[],["true"],["true"],["true"],["1:Stew:Carrot,Potato:Chop,Simmer:system","2:Curry:Spice,Potato:Toast,Simmer:chef"],["true"],["Stew","Carrot,Potato","Chop,Simmer"],["1:Stew:Carrot,Potato:Chop,Simmer:system","2:Curry:Spice,Potato:Toast,Simmer:chef","3:Stew:Carrot,Potato:Chop,Simmer:rollback"]]`
+
+The initial add creates no version. The system update and user edit create versions 1 and 2. Rolling back to version 1 restores Stew and appends version 3 without changing the earlier entries.
+
+## Starter code
+
+```
+public String[][] manageRecipes(String[][] operations) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source provides the complete four-level method contract, including CRUD, ordering, user edits, immutable version history, and rollback. A finite operation-sequence wrapper makes the stateful API executable across all supported languages; the judged core matches the visible source at about 99%.
 
 
 ---
@@ -38356,6 +44287,64 @@ public int getMinEuclideanTime(int n, int d, int[] x, int[] y) {
 
 ---
 
+# Design an Ordered Stream  (Bloomberg LP)
+
+> id: `bloomberg-design-ordered-stream` | difficulty: easy | stage: OA, PHONE SCREEN, ONSITE INTERVIEW | platform: unknown | topics: array, hash_table, design | last seen: 2026-02-17, 2025-10-03, 2024-02-15, 2022-11-16, 2022-11-09, 2022-10-27, 2022-10-15, 2022-10-10, 2022-10-06, 2022-09-28, 2022-09-26, 2022-09-16, 2022-02-16, 2021-11-27, 2021-10-15 | employment: NEW GRAD
+
+## Problem
+
+An ordered stream expects exactly n unique pairs whose IDs are the integers from 1 through n. The pairs arrive in arbitrary order.
+The arrays ids and values describe the insert calls in time order: call i inserts (ids[i], values[i]). After each insertion, return the largest contiguous chunk of values beginning at the smallest ID that has not been returned yet. Return an empty chunk when that next ID is still missing.
+Return one chunk for every insertion. Concatenating all returned chunks must produce the values in increasing ID order.
+
+## Constraints
+
+- 1 <= n <= 1000.
+  - ids.length == values.length == n.
+  - ids is a permutation of the integers from 1 through n.
+  - 1 <= values[i].length <= 100.
+  - Each value contains lowercase English letters.
+
+### Example 1
+- **n** (`int`) = `5`
+- **ids** (`int[]`) = `[3,1,2,5,4]`
+- **values** (`String[]`) = `["ccccc","aaaaa","bbbbb","eeeee","ddddd"]`
+- **output** (`String[][]`) = `[[],["aaaaa"],["bbbbb","ccccc"],[],["ddddd","eeeee"]]`
+
+ID 3 arrives before IDs 1 and 2, so it waits. Inserting ID 1 emits one value; inserting ID 2 then emits both IDs 2 and 3. The same behavior later joins IDs 4 and 5.
+
+### Example 2
+- **n** (`int`) = `1`
+- **ids** (`int[]`) = `[1]`
+- **values** (`String[]`) = `["only"]`
+- **output** (`String[][]`) = `[["only"]]`
+
+The first and only expected ID arrives immediately.
+
+### Example 3
+- **n** (`int`) = `4`
+- **ids** (`int[]`) = `[2,4,1,3]`
+- **values** (`String[]`) = `["b","d","a","c"]`
+- **output** (`String[][]`) = `[[],[],["a","b"],["c","d"]]`
+
+The stream waits for ID 1, then emits IDs 1 and 2. The final insert fills ID 3 and releases the already stored ID 4.
+
+## Starter code
+
+```
+public String[][] orderedStreamChunks(int n, int[] ids, String[] values) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The source names Design an Ordered Stream, and the official reference supplies the exact insertion and contiguous-chunk behavior. The judged task batches the constructor and insert calls into arrays while preserving their order, matching the named exercise at about 99%.
+
+
+---
+
 # Cloud Storage Compression and Decompression  (Anthropic)
 
 > id: `anthropic-cloud-storage-compression` | difficulty: hard | stage: OA | platform: codesignal | topics: hash_table, sorting, design, simulation | last seen: 2026-02-13, 2025-02-24, 2024-07-08 | employment: 
@@ -38587,7 +44576,7 @@ public int travelDistanceOnScooters(int finish, int[] scooters) {
 
 # Count Server Replacements  (Wells Fargo)
 
-> id: `wellsfargo-count-server-replacements` | difficulty: easy | stage: OA | platform: unknown | topics: hash_table, simulation | last seen: 2026-02-08 | employment: 
+> id: `wellsfargo-count-server-replacements` | difficulty: easy | stage: OA, PHONE SCREEN | platform: hackerrank | topics: hash_table, simulation | last seen: 2026-02-08, 2026-02-07, 2025-07-23 | employment: NEW GRAD
 
 ## Problem
 
@@ -38620,7 +44609,7 @@ public int countServerReplacements(int n, String[] logs) {
 
 # Minimum Remaining Length  (Wells Fargo)
 
-> id: `wellsfargo-minimum-remaining-length` | difficulty: medium | stage: OA | platform: unknown | topics: string, stack | last seen: 2026-02-08 | employment: 
+> id: `wellsfargo-minimum-remaining-length` | difficulty: medium | stage: OA, PHONE SCREEN | platform: hackerrank | topics: string, stack | last seen: 2026-02-08, 2026-02-07, 2025-07-23 | employment: NEW GRAD
 
 ## Problem
 
@@ -38896,6 +44885,60 @@ public String[] analyzeTree(int[] values, int[][] children) {
 
 ---
 
+# Word Search  (Bloomberg LP)
+
+> id: `bloomberg-word-search` | difficulty: medium | stage: OA, PHONE SCREEN, ONSITE INTERVIEW | platform: unknown | topics: matrix, depth_first_search, backtracking | last seen: 2026-02-03, 2026-02-01, 2025-11-23, 2025-11-17, 2025-10-03, 2025-02-17, 2023-12-18, 2023-11-15, 2022-11-16, 2022-10-17, 2022-10-13, 2022-05-21, 2021-02-03, 2021-01-12, 2020-09-30, 2020-05-26, 2019-07-12 | employment: NEW GRAD
+
+## Problem
+
+Given a rectangular character grid board and a string word, return true if word can be formed by a path through the grid. Otherwise, return false.
+A path may move horizontally or vertically between adjacent cells. The same grid cell cannot be used more than once in one path.
+
+## Constraints
+
+- 1 <= board.length <= 6
+  - 1 <= board[i].length <= 6
+  - Every row of board has the same length.
+  - 1 <= word.length <= 15
+  - board and word contain only uppercase and lowercase English letters.
+
+### Example 1
+- **board** (`char[][]`) = `[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]`
+- **word** (`String`) = `"ABCCED"`
+- **output** (`boolean`) = `true`
+
+The path uses the top-row cells A, B, and C, then continues down to C, left to E, and left to D.
+
+### Example 2
+- **board** (`char[][]`) = `[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]`
+- **word** (`String`) = `"ABCB"`
+- **output** (`boolean`) = `false`
+
+The only adjacent B that could finish the word is the cell already used after the starting A, and a cell cannot be reused.
+
+### Example 3
+- **board** (`char[][]`) = `[["A"]]`
+- **word** (`String`) = `"A"`
+- **output** (`boolean`) = `true`
+
+The single grid cell forms the complete word.
+
+## Starter code
+
+```
+public boolean wordExists(char[][] board, String word) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+Reported across multiple first-hand Bloomberg new-grad phone and onsite interview experiences. The practice contract searches orthogonal paths without reusing cells.
+
+
+---
+
 # Longest Balanced Binary Subarray  (IBM)
 
 > id: `ibm-longest-balanced-binary-subarray` | difficulty: None | stage: OA | platform: hackerrank | topics:  | last seen: 2026-02-03, 2025-12-17 | employment: INTERN, FULLTIME
@@ -38988,75 +45031,6 @@ public int countUnstableProcesses(String[] process, int[] timestamp, int[] limit
   // write your code here
 }
 ```
-
-
----
-
-# Minimum Number of Chairs  (Google)
-
-> id: `google-meeting-rooms-ii` | difficulty: easy | stage: OA, PHONE SCREEN | platform: codesignal | topics: intervals, sorting, heap | last seen: 2026-02-02, 2024-02-16 | employment: FULLTIME
-
-## Problem
-
-There are n guests who are invited to a party. The k-th guest will attend the party at time S[k] and leave the party at time E[k].
-    
-
-    Given an integer array S and an integer array E, both of length n, return an integer denoting the minimum number of chairs you need such that everyone attending the party can sit down.
-    
-Function Description 
-      Complete the function minChairs in the editor.
-      
-
-      minChairs has the following parameters:
-        
-
-            - int S[n]: an array of integers representing the arrival times
-
-            - int E[n]: an array of integers representing the leaving times
-
-        
-Returns 
-        int: the minimum number of chairs needed
-
-## Constraints
-
-- 1 ≤ S.length = E.length ≤ 2 * 10^5
-  - S[i] < E[i] for every guest.
-  - Attendance intervals are half-open: a guest leaving at time t frees a chair for a guest arriving at time t.
-  - All times are integers in [-10^9, 10^9].
-
-### Example 1
-- **S** (`int[]`) = `[1, 2, 6, 5, 3]`
-- **E** (`int[]`) = `[5, 5, 7, 6, 8]`
-- **output** (`int`) = `3`
-
-There are five guests attending the party.
-        
-          
-  - The 1st guest will arrive at time 1. We need one chair at time 1.
-  - The 2nd guest will arrive at time 2. There are now two guests at the party, so we need two chairs at time 2.
-  - The 5th guest will arrive at time 3. There are now three guests at the party, so we need three chairs at time 3.
-  - The 4th guest will arrive at time 5 and, at the same moment, the 1st and 2nd guests will leave the party.
-  - There are now two (the 4th and 5th) guests at the party, so we need two chairs at time 5.
-  - The 3rd guest will arrive at time 6, and the 4th guest will leave the party at the same time.
-  - There are now two (the 3rd and 5th) guests at the party, so we need two chairs at time 6.
-
-      
-So we need at least 3 chairs.
-
-## Starter code
-
-```
-
-public int minChairs(int[] S, int[] E) {
-    // write your code here
-}
-
-```
-
-## Source note
-
-A 2026 Google master's internship report described a coding question equivalent to the familiar meeting-room allocation problem. Because the report only identified the pattern, this existing canonical version is preserved.
 
 
 ---
@@ -39273,6 +45247,254 @@ public long calculateVmRentalRevenue(int[] vmStock, int customerRequests) {
 
 ---
 
+# Worker Management, Part 1: Office Registration  (Ramp)
+
+> id: `ramp-worker-management-level-1` | difficulty: easy | stage: OA | platform: codesignal | topics: hash_table, design, simulation | last seen: 2026-01-21, 2024-08-22, 2024-01-15, 2023-11-25, 2023-08-31 | employment: NEW GRAD, INTERN
+
+## Problem
+
+The source assessment is a cumulative four-level worker-hours register for contract workers at a facility. Each level includes every operation from the earlier levels. This page implements Level 1 and returns one string result for every query in input order.
+Level 1: Workers and Office Sessions
+  - ["ADD_WORKER", workerId, position, compensation] adds a new worker and stores the worker's position and compensation. If workerId already exists, leave the system unchanged and return false; otherwise return true. Worker IDs and positions contain only English letters and spaces.
+  - ["REGISTER", workerId, timestamp] records an office entry when the worker is outside and records an exit when the worker is inside. Calls to REGISTER arrive in increasing timestamp order. Return invalid_request for an unknown worker and registered after a successful entry or exit.
+  - ["GET", workerId] returns the worker's total time in the office using completed sessions only. A current session without an exit contributes nothing. Return the empty string when the worker does not exist.
+
+FastPrep Runner Interface
+The source uses an array of query rows and one string output per query. FastPrep exposes the same operation rows as workerManagementLevel1(String[][] operations) and returns String[]. Numeric arguments are encoded as base-10 strings.
+Multipart Series
+  - Part 1: Office Registration
+  - Part 2: Top Workers
+  - Part 3: Promotions and Salary
+  - Part 4: Double-Paid Intervals
+
+## Constraints
+
+- 1 <= operations.length <= 500, matching the source's query-count bound.
+  - Every row uses an operation available at this level, has the documented arity, and satisfies the source-stated operation preconditions.
+  - Every numeric argument is a valid base-10 integer string.
+  - Worker IDs and positions contain only English letters and spaces.
+  - All REGISTER calls are supplied in increasing timestamp order.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_WORKER","Ashley","Middle Developer","150"],["ADD_WORKER","Ashley","Junior Developer","100"],["REGISTER","Ashley","10"],["REGISTER","Ashley","25"],["GET","Ashley"],["REGISTER","Ashley","40"],["REGISTER","Ashley","67"],["REGISTER","Ashley","100"],["GET","Ashley"],["GET","Walter"],["REGISTER","Walter","120"]]`
+- **output** (`String[]`) = `["true","false","registered","registered","15","registered","registered","registered","42","","invalid_request"]`
+
+Ashley's completed sessions are [10,25) and [40,67), totaling 42. The entry at 100 is unfinished and does not count.
+
+## Starter code
+
+```
+public String[] workerManagementLevel1(String[][] operations) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source provides the complete Level 1 query contract, return values, query-count bound, and visible output sequence. Only the FastPrep function wrapper is adapted; the judged core matches the visible source at about 99%.
+
+
+---
+
+# Worker Management, Part 2: Top Workers  (Ramp)
+
+> id: `ramp-worker-management-level-2` | difficulty: medium | stage: OA | platform: codesignal | topics: hash_table, sorting, design, simulation | last seen: 2026-01-21, 2024-08-22, 2024-01-15, 2023-11-25, 2023-08-31 | employment: NEW GRAD, INTERN
+
+## Problem
+
+The source assessment is a cumulative four-level worker-hours register for contract workers at a facility. Each level includes every operation from the earlier levels. This page implements Levels 1 through 2 and returns one string result for every query in input order.
+Level 1: Workers and Office Sessions
+  - ["ADD_WORKER", workerId, position, compensation] adds a new worker and stores the worker's position and compensation. If workerId already exists, leave the system unchanged and return false; otherwise return true. Worker IDs and positions contain only English letters and spaces.
+  - ["REGISTER", workerId, timestamp] records an office entry when the worker is outside and records an exit when the worker is inside. Calls to REGISTER arrive in increasing timestamp order. Return invalid_request for an unknown worker and registered after a successful entry or exit.
+  - ["GET", workerId] returns the worker's total time in the office using completed sessions only. A current session without an exit contributes nothing. Return the empty string when the worker does not exist.
+
+Level 2: Ordered Worker Statistics
+  - ["TOP_N_WORKERS", n, position] returns at most n workers whose current position equals position.
+  - Order workers by completed office time in descending order. Break equal-time ties by worker ID in ascending alphabetical order.
+  - Format the result as workerId1(time1), workerId2(time2), .... Return every matching worker when fewer than n exist, and return the empty string when there are no matches.
+  - A worker with no completed office session has time 0.
+
+FastPrep Runner Interface
+The source uses an array of query rows and one string output per query. FastPrep exposes the same operation rows as workerManagementLevel2(String[][] operations) and returns String[]. Numeric arguments are encoded as base-10 strings.
+Multipart Series
+  - Part 1: Office Registration
+  - Part 2: Top Workers
+  - Part 3: Promotions and Salary
+  - Part 4: Double-Paid Intervals
+
+## Constraints
+
+- 1 <= operations.length <= 500, matching the source's query-count bound.
+  - Every row uses an operation available at this level, has the documented arity, and satisfies the source-stated operation preconditions.
+  - Every numeric argument is a valid base-10 integer string.
+  - Worker IDs and positions contain only English letters and spaces.
+  - All REGISTER calls are supplied in increasing timestamp order.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_WORKER","John","Junior Developer","120"],["ADD_WORKER","Jason","Junior Developer","120"],["ADD_WORKER","Ashley","Junior Developer","120"],["REGISTER","John","100"],["REGISTER","John","150"],["REGISTER","Jason","200"],["REGISTER","Jason","250"],["REGISTER","Jason","275"],["TOP_N_WORKERS","5","Junior Developer"],["TOP_N_WORKERS","1","Junior Developer"],["REGISTER","Ashley","400"],["REGISTER","Ashley","500"],["REGISTER","Jason","575"],["TOP_N_WORKERS","3","Junior Developer"],["TOP_N_WORKERS","3","Middle Developer"]]`
+- **output** (`String[]`) = `["true","true","true","registered","registered","registered","registered","registered","Jason(50), John(50), Ashley(0)","Jason(50)","registered","registered","registered","Jason(350), Ashley(100), John(50)",""]`
+
+Jason and John initially tie at 50, so Jason comes first alphabetically. Jason's session from 275 to 575 later raises his total to 350.
+
+## Starter code
+
+```
+public String[] workerManagementLevel2(String[][] operations) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source provides the complete cumulative Level 1–2 query contract, ranking order, tie rule, formatting, zero-time behavior, query-count bound, and visible output sequence. Only the FastPrep function wrapper is adapted; the judged core matches the visible source at about 99%.
+
+
+---
+
+# Worker Management, Part 3: Promotions and Salary  (Ramp)
+
+> id: `ramp-worker-management-level-3` | difficulty: hard | stage: OA | platform: codesignal | topics: hash_table, intervals, design, simulation | last seen: 2026-01-21, 2024-08-22, 2024-01-15, 2023-11-25, 2023-08-31 | employment: NEW GRAD, INTERN
+
+## Problem
+
+The source assessment is a cumulative four-level worker-hours register for contract workers at a facility. Each level includes every operation from the earlier levels. This page implements Levels 1 through 3 and returns one string result for every query in input order.
+Level 1: Workers and Office Sessions
+  - ["ADD_WORKER", workerId, position, compensation] adds a new worker and stores the worker's position and compensation. If workerId already exists, leave the system unchanged and return false; otherwise return true. Worker IDs and positions contain only English letters and spaces.
+  - ["REGISTER", workerId, timestamp] records an office entry when the worker is outside and records an exit when the worker is inside. Calls to REGISTER arrive in increasing timestamp order. Return invalid_request for an unknown worker and registered after a successful entry or exit.
+  - ["GET", workerId] returns the worker's total time in the office using completed sessions only. A current session without an exit contributes nothing. Return the empty string when the worker does not exist.
+
+Level 2: Ordered Worker Statistics
+  - ["TOP_N_WORKERS", n, position] returns at most n workers whose current position equals position.
+  - Order workers by completed office time in descending order. Break equal-time ties by worker ID in ascending alphabetical order.
+  - Format the result as workerId1(time1), workerId2(time2), .... Return every matching worker when fewer than n exist, and return the empty string when there are no matches.
+  - A worker with no completed office session has time 0.
+
+Level 3: Promotions and Salary
+  - ["PROMOTE", workerId, newPosition, newCompensation, startTimestamp] schedules a new position and compensation. The source guarantees that newPosition differs from the worker's current position and that startTimestamp is greater than the timestamp of the latest REGISTER call for any worker.
+  - A scheduled promotion becomes active on the worker's first office entry whose timestamp is at least startTimestamp. A session beginning earlier keeps the previous position and compensation.
+  - Return invalid_request when the worker does not exist or already has a promotion waiting to take effect. Return success when the promotion is scheduled.
+  - After promotions exist, TOP_N_WORKERS selects workers by current position and ranks them using completed time accumulated in that current position. GET continues to return lifetime completed time across past and current positions.
+  - ["CALC_SALARY", workerId, startTimestamp, endTimestamp] returns salary earned between the two timestamps. Only completed office sessions contribute. For each contributing portion of a session, multiply its duration by the compensation attached to that session. Return the empty string for an unknown worker.
+
+FastPrep Runner Interface
+The source uses an array of query rows and one string output per query. FastPrep exposes the same operation rows as workerManagementLevel3(String[][] operations) and returns String[]. Numeric arguments are encoded as base-10 strings.
+Multipart Series
+  - Part 1: Office Registration
+  - Part 2: Top Workers
+  - Part 3: Promotions and Salary
+  - Part 4: Double-Paid Intervals
+
+## Constraints
+
+- 1 <= operations.length <= 500, matching the source's query-count bound.
+  - Every row uses an operation available at this level, has the documented arity, and satisfies the source-stated operation preconditions.
+  - Every numeric argument is a valid base-10 integer string.
+  - Worker IDs and positions contain only English letters and spaces.
+  - All REGISTER calls are supplied in increasing timestamp order.
+  - Each PROMOTE uses a new position different from the worker's current position.
+  - A promotion's startTimestamp is greater than the timestamp of the latest prior REGISTER call for any worker.
+  - Each salary query satisfies endTimestamp > startTimestamp >= 0.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_WORKER","John","Middle Developer","200"],["REGISTER","John","100"],["REGISTER","John","125"],["PROMOTE","John","Senior Developer","500","200"],["REGISTER","John","150"],["PROMOTE","John","Senior Developer","350","250"],["REGISTER","John","300"],["REGISTER","John","325"],["CALC_SALARY","John","0","500"],["TOP_N_WORKERS","3","Senior Developer"],["REGISTER","John","400"],["GET","John"],["TOP_N_WORKERS","10","Senior Developer"],["TOP_N_WORKERS","10","Middle Developer"],["CALC_SALARY","John","110","350"]]`
+- **output** (`String[]`) = `["true","registered","registered","success","registered","invalid_request","registered","registered","35000","John(0)","registered","250","John(75)","","45500"]`
+
+The session beginning at 150 keeps the old compensation because it starts before 200. The promotion applies when John next enters at 325. Salary over [110,350) is 15*200 + 150*200 + 25*500 = 45500.
+
+## Starter code
+
+```
+public String[] workerManagementLevel3(String[][] operations) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source provides the complete cumulative Level 1–3 query contract, including promotion activation, repeated-promotion rejection, current-position ranking, lifetime time totals, salary rules, query-count bound, and visible output sequence. The FastPrep wrapper and explicit half-open interval notation are adapted; the judged core matches the visible source at about 98%.
+
+
+---
+
+# Worker Management, Part 4: Double-Paid Intervals  (Ramp)
+
+> id: `ramp-worker-management-level-4` | difficulty: hard | stage: OA | platform: codesignal | topics: hash_table, intervals, sorting, design, simulation | last seen: 2026-01-21, 2024-08-22, 2024-01-15, 2023-11-25, 2023-08-31 | employment: NEW GRAD, INTERN
+
+## Problem
+
+The source assessment is a cumulative four-level worker-hours register for contract workers at a facility. Each level includes every operation from the earlier levels. This page implements Levels 1 through 4 and returns one string result for every query in input order.
+Level 1: Workers and Office Sessions
+  - ["ADD_WORKER", workerId, position, compensation] adds a new worker and stores the worker's position and compensation. If workerId already exists, leave the system unchanged and return false; otherwise return true. Worker IDs and positions contain only English letters and spaces.
+  - ["REGISTER", workerId, timestamp] records an office entry when the worker is outside and records an exit when the worker is inside. Calls to REGISTER arrive in increasing timestamp order. Return invalid_request for an unknown worker and registered after a successful entry or exit.
+  - ["GET", workerId] returns the worker's total time in the office using completed sessions only. A current session without an exit contributes nothing. Return the empty string when the worker does not exist.
+
+Level 2: Ordered Worker Statistics
+  - ["TOP_N_WORKERS", n, position] returns at most n workers whose current position equals position.
+  - Order workers by completed office time in descending order. Break equal-time ties by worker ID in ascending alphabetical order.
+  - Format the result as workerId1(time1), workerId2(time2), .... Return every matching worker when fewer than n exist, and return the empty string when there are no matches.
+  - A worker with no completed office session has time 0.
+
+Level 3: Promotions and Salary
+  - ["PROMOTE", workerId, newPosition, newCompensation, startTimestamp] schedules a new position and compensation. The source guarantees that newPosition differs from the worker's current position and that startTimestamp is greater than the timestamp of the latest REGISTER call for any worker.
+  - A scheduled promotion becomes active on the worker's first office entry whose timestamp is at least startTimestamp. A session beginning earlier keeps the previous position and compensation.
+  - Return invalid_request when the worker does not exist or already has a promotion waiting to take effect. Return success when the promotion is scheduled.
+  - After promotions exist, TOP_N_WORKERS selects workers by current position and ranks them using completed time accumulated in that current position. GET continues to return lifetime completed time across past and current positions.
+  - ["CALC_SALARY", workerId, startTimestamp, endTimestamp] returns salary earned between the two timestamps. Only completed office sessions contribute. For each contributing portion of a session, multiply its duration by the compensation attached to that session. Return the empty string for an unknown worker.
+
+Level 4: Double-Paid Periods
+  - ["SET_DOUBLE_PAID", startTimestamp, endTimestamp] registers a period during which worked time receives double pay.
+  - Double-paid periods may overlap, but overlapping coverage never stacks beyond a 2× multiplier.
+  - The operation has no worker parameter, so the registered periods apply to every worker. CALC_SALARY pays normal compensation for completed-session time and adds one extra copy of compensation for covered time.
+
+FastPrep representation choices
+  - Salary-query and double-paid periods use half-open intervals [startTimestamp, endTimestamp).
+  - SET_DOUBLE_PAID returns the empty string because the source report preserves its state change but not a scalar return value.
+
+FastPrep Runner Interface
+The source uses an array of query rows and one string output per query. FastPrep exposes the same operation rows as workerManagementLevel4(String[][] operations) and returns String[]. Numeric arguments are encoded as base-10 strings.
+Multipart Series
+  - Part 1: Office Registration
+  - Part 2: Top Workers
+  - Part 3: Promotions and Salary
+  - Part 4: Double-Paid Intervals
+
+## Constraints
+
+- 1 <= operations.length <= 500, matching the source's query-count bound.
+  - Every row uses an operation available at this level, has the documented arity, and satisfies the source-stated operation preconditions.
+  - Every numeric argument is a valid base-10 integer string.
+  - Worker IDs and positions contain only English letters and spaces.
+  - All REGISTER calls are supplied in increasing timestamp order.
+  - Each PROMOTE uses a new position different from the worker's current position.
+  - A promotion's startTimestamp is greater than the timestamp of the latest prior REGISTER call for any worker.
+  - Each salary query satisfies endTimestamp > startTimestamp >= 0.
+  - For the FastPrep interval representation, each SET_DOUBLE_PAID query satisfies endTimestamp > startTimestamp >= 0.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_WORKER","Alice","Engineer","100"],["REGISTER","Alice","10"],["REGISTER","Alice","30"],["SET_DOUBLE_PAID","15","25"],["CALC_SALARY","Alice","0","40"],["SET_DOUBLE_PAID","20","35"],["CALC_SALARY","Alice","0","40"]]`
+- **output** (`String[]`) = `["true","registered","registered","","3000","","3500"]`
+
+Alice's completed session pays 20*100 = 2000 normally. The first double-paid interval overlaps it for 10 units, producing 3000. After merging [15,25) with [20,35), the session has 15 double-paid units, producing 3500.
+
+## Starter code
+
+```
+public String[] workerManagementLevel4(String[][] operations) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source provides the complete cumulative Level 1–3 contract and identifies Level 4's double-paid periods, including the rule that overlapping periods remain only double-paid. The FastPrep wrapper, half-open interval notation, and empty SET_DOUBLE_PAID result complete the executable contract; the judged core matches the visible source at about 94%.
+
+
+---
+
 # Generate Table of Contents  (JP Morgan Chase)
 
 > id: `jpmorgan-generate-table-of-contents` | difficulty: easy | stage: OA | platform: hackerrank | topics: string, parsing, simulation | last seen: 2026-01-19, 2025-08-22 | employment: FULLTIME
@@ -39349,6 +45571,134 @@ public int countDroppedRequests(int[] server) {
 }
 
 ```
+
+
+---
+
+# Progressive Banking System  (Ramp)
+
+> id: `ramp-progressive-banking-system` | difficulty: hard | stage: OA | platform: codesignal | topics: design, hash_table, heap, sorting, simulation | last seen: 2026-01-17, 2025-09-06, 2024-08-21, 2024-08-19, 2024-08-15, 2024-08-08 | employment: NEW GRAD, INTERN, FULLTIME
+
+## Problem
+
+Process queries in order. Each query contains an operation name followed by a strictly increasing non-negative timestamp and its arguments. Before processing an external query at timestamp t, execute every pending scheduled payment whose due time is at most t, ordered by due time and then payment creation order.
+Return one string per external query, in order. Supported operations are:
+  - ["CREATE_ACCOUNT", t, account]: create an account with balance and outgoing total zero. Return true, or false if the active account already exists.
+  - ["DEPOSIT", t, account, amount]: add a positive amount. Return the new balance, or the empty string when the account is absent.
+  - ["TRANSFER", t, source, target, amount]: move a positive amount between two distinct active accounts. Return the source balance after success, or the empty string when either account is absent, the accounts are equal, or funds are insufficient. A successful transfer adds the amount to the source account's outgoing total.
+  - ["TOP_SPENDERS", t, n]: among active accounts, return at most n entries formatted account(outgoing), ordered by outgoing total descending and account identifier ascending, joined by commas.
+  - ["SCHEDULE_PAYMENT", t, account, amount, delay]: schedule a positive payment for time t + delay, where delay is positive. If the account exists, return the next global identifier paymentK; otherwise return the empty string and do not consume an identifier.
+  - ["CANCEL_PAYMENT", t, account, paymentId]: cancel a pending payment only when it currently belongs to that active account. Return true on success and false otherwise. A payment due at t is processed before this cancellation query.
+  - ["MERGE_ACCOUNTS", t, survivor, absorbed]: merge two distinct active accounts. The survivor receives the absorbed balance and outgoing total; pending payments of the absorbed account now belong to the survivor; and the absorbed account closes at t. Return true on success and false otherwise.
+  - ["GET_BALANCE", t, account, timeAt]: return that account's balance immediately after all activity at timestamp timeAt, or after the latest earlier activity when none occurred exactly then. Return the empty string if the account did not exist at that time. The requested time satisfies 0 <= timeAt <= t.
+
+When a scheduled payment becomes due, deduct it only if its current account is active and has enough funds. A successful payment adds to outgoing total. Whether it succeeds or not, it is no longer pending. Balances and totals fit in signed 64-bit integers.
+
+## Constraints
+
+- 1 <= queries.length <= 2 * 10^4.
+  - External query timestamps are strictly increasing integers from 0 through 10^9.
+  - Every query has exactly one valid operation shape described above.
+  - Account identifiers are non-empty printable ASCII strings without commas or parentheses.
+  - Amounts and delays are positive integers, and every arithmetic result fits in a signed 64-bit integer.
+  - 1 <= n <= 10^5 for TOP_SPENDERS.
+
+### Example 1
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","alice"],["CREATE_ACCOUNT","2","bob"],["DEPOSIT","3","alice","100"],["TRANSFER","4","alice","bob","30"],["TOP_SPENDERS","5","2"]]`
+- **output** (`String[]`) = `["true","true","100","70","alice(30),bob(0)"]`
+
+The transfer leaves alice with 70 and records 30 of outgoing activity, so she ranks before bob.
+
+### Example 2
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","a"],["DEPOSIT","2","a","50"],["SCHEDULE_PAYMENT","3","a","20","5"],["GET_BALANCE","7","a","7"],["GET_BALANCE","8","a","8"],["CANCEL_PAYMENT","9","a","payment1"]]`
+- **output** (`String[]`) = `["true","50","payment1","50","30","false"]`
+
+The payment is still pending at timestamp 7. It executes before the query at timestamp 8, so cancellation afterward fails.
+
+### Example 3
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","a"],["CREATE_ACCOUNT","2","b"],["DEPOSIT","3","a","10"],["DEPOSIT","4","b","25"],["SCHEDULE_PAYMENT","5","b","5","5"],["MERGE_ACCOUNTS","6","a","b"],["GET_BALANCE","7","b","5"],["GET_BALANCE","8","b","6"],["GET_BALANCE","10","a","10"]]`
+- **output** (`String[]`) = `["true","true","10","25","payment1","true","25","","30"]`
+
+Account b exists with balance 25 before the merge but is closed at timestamp 6. Its pending payment follows the survivor and reduces the combined balance from 35 to 30 at timestamp 10.
+
+## Starter code
+
+```
+public String[] processBankingQueries(String[][] queries) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source directly supports the four cumulative banking levels and their scheduled-payment, cancellation, merge, and historical-balance capabilities; bounded runner details are reconstructed. The judged core task matches the visible source at about 96%.
+
+
+---
+
+# Task Manager with Timed Assignments  (Ramp)
+
+> id: `ramp-task-management-system` | difficulty: hard | stage: OA | platform: unknown | topics: design, hash_table, sorting, simulation | last seen: 2026-01-17 | employment: FULLTIME
+
+## Problem
+
+Process a finite sequence of timestamped operations for an in-memory task manager. Timestamps are strictly increasing. Return one string-list row for every operation.
+Tasks
+  - ["ADD_TASK", timestamp, name, priority]: create a task and return its ID. IDs are task_id_1, task_id_2, and so on. Equal names and priorities are allowed.
+  - ["UPDATE_TASK", timestamp, taskId, name, priority]: replace a task's name and priority. Return a one-element lowercase boolean row.
+  - ["GET_TASK", timestamp, taskId]: return one compact JSON string, {"name":"NAME","priority":P}, or an empty row when missing.
+  - ["SEARCH_TASKS", timestamp, nameFilter, maxResults]: return up to maxResults IDs whose names contain the case-sensitive filter. Sort by priority descending, then numeric creation order ascending. A nonpositive limit returns an empty row.
+  - ["LIST_TASKS_SORTED", timestamp, limit]: return up to limit IDs with the same priority and creation-order sort.
+
+Users and Timed Assignments
+  - ["ADD_USER", timestamp, userId, quota]: create a user whose quota is the maximum number of simultaneously active assignments. Return a one-element lowercase boolean row.
+  - ["ASSIGN_TASK", timestamp, taskId, userId, finishTime]: create an assignment active on the half-open interval [timestamp, finishTime). It fails when the task or user is missing, finishTime <= timestamp, the user's quota is full, or that task already has an active assignment. A task may be assigned again after its prior assignment completes or expires.
+  - ["GET_USER_TASKS", timestamp, userId]: return the user's currently active task IDs in numeric creation order, or an empty row for a missing user.
+  - ["COMPLETE_TASK", timestamp, taskId, userId]: complete the matching active assignment and immediately free its quota slot. Return a one-element lowercase boolean row.
+  - ["GET_OVERDUE_ASSIGNMENTS", timestamp, userId]: return one task ID for every assignment to that user whose finishTime <= timestamp and which was not completed. Order by finish time ascending and then assignment creation order. A task assigned in multiple expired intervals can appear more than once.
+
+Runner Interface
+manageTasks accepts String[][] operations and returns String[][].
+
+## Constraints
+
+- 1 <= operations.length <= 10^4.
+  - Operation timestamps are distinct, strictly increasing integers in [0, 10^9].
+  - Priorities and quotas are integers in [0, 10^9]; limits fit in signed 32-bit integers.
+  - Every successful assignment has timestamp < finishTime <= 10^9.
+  - Task names have 1 to 80 ASCII letters, digits, spaces, underscores, or hyphens. User IDs have 1 to 40 ASCII letters, digits, underscores, or hyphens.
+  - Name filters contain at most 80 printable ASCII characters and may be empty.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_TASK","1","Alpha","5"],["ADD_TASK","2","Beta","7"],["ADD_TASK","3","Alpha detail","7"],["GET_TASK","4","task_id_1"],["SEARCH_TASKS","5","Alpha","2"],["LIST_TASKS_SORTED","6","2"],["UPDATE_TASK","7","task_id_1","Alpha high","9"],["LIST_TASKS_SORTED","8","3"]]`
+- **output** (`String[][]`) = `[["task_id_1"],["task_id_2"],["task_id_3"],["{\"name\":\"Alpha\",\"priority\":5}"],["task_id_3","task_id_1"],["task_id_2","task_id_3"],["true"],["task_id_1","task_id_2","task_id_3"]]`
+
+Search keeps only case-sensitive matches. Priority orders results first, and the numeric task sequence breaks the tie between tasks 2 and 3.
+
+### Example 2
+- **operations** (`String[][]`) = `[["ADD_TASK","1","One","1"],["ADD_TASK","2","Two","2"],["ADD_USER","3","u","1"],["ASSIGN_TASK","4","task_id_1","u","10"],["ASSIGN_TASK","5","task_id_2","u","8"],["GET_USER_TASKS","9","u"],["GET_USER_TASKS","10","u"],["ASSIGN_TASK","11","task_id_2","u","14"],["COMPLETE_TASK","12","task_id_2","u"],["ASSIGN_TASK","13","task_id_1","u","20"],["GET_USER_TASKS","14","u"]]`
+- **output** (`String[][]`) = `[["task_id_1"],["task_id_2"],["true"],["true"],["false"],["task_id_1"],[],["true"],["true"],["true"],["task_id_1"]]`
+
+The first assignment occupies the only quota slot through timestamps below 10. Expiration and completion each free the slot immediately.
+
+### Example 3
+- **operations** (`String[][]`) = `[["ADD_TASK","1","One","1"],["ADD_TASK","2","Two","1"],["ADD_USER","3","u","2"],["ASSIGN_TASK","4","task_id_1","u","7"],["ASSIGN_TASK","5","task_id_2","u","10"],["COMPLETE_TASK","6","task_id_1","u"],["GET_OVERDUE_ASSIGNMENTS","7","u"],["GET_OVERDUE_ASSIGNMENTS","10","u"],["COMPLETE_TASK","11","task_id_2","u"],["ASSIGN_TASK","12","task_id_2","u","13"],["GET_OVERDUE_ASSIGNMENTS","14","u"]]`
+- **output** (`String[][]`) = `[["task_id_1"],["task_id_2"],["true"],["true"],["true"],["true"],[],["task_id_2"],["false"],["true"],["task_id_2","task_id_2"]]`
+
+Completing task 1 before its finish time prevents it from becoming overdue. Task 2 expires twice without completion, so both overdue assignments remain in history.
+
+## Starter code
+
+```
+public String[][] manageTasks(String[][] operations) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source provides the complete four-level task-management method contract for task creation, search and priority listing, users with time-bounded assignment quotas, completion, and overdue queries. A finite operation adapter supplies cross-language serialization; the judged core matches the visible source at about 97%.
 
 
 ---
@@ -39564,6 +45914,73 @@ public int firstBalancedRemovalIndex(int[] nums) {
 
 ---
 
+# Bank Requests with Delayed Cashback  (Ramp)
+
+> id: `ramp-bank-requests-with-delayed-cashback` | difficulty: medium | stage: OA | platform: unknown | topics: array, queue, simulation, parsing | last seen: 2025-12-21, 2025-07-08, 2025-05-23, 2024-06-28, 2024-02-28, 2023-09-27 | employment: NEW GRAD, INTERN, FULLTIME
+
+## Problem
+
+You are given the initial balances of several bank accounts and a sequence of timestamped requests. Process the requests in order and return the resulting balances.
+Account holder IDs are the 1-based positions of their accounts in balances.
+Request format
+Every request is a lowercase space-delimited string in one of these forms:
+  - deposit timestamp holderId amount: add amount to the selected account.
+  - withdraw timestamp holderId amount: remove amount from the selected account and schedule a cashback equal to floor(amount * 2 / 100).
+
+Cashback processing
+A scheduled cashback is credited exactly 86400 seconds after its successful withdrawal. Before processing an external request at timestamp t, apply every cashback whose due timestamp is at most t. Therefore, a cashback due at the same timestamp as a deposit or withdrawal is applied first.
+After the last external request is processed, ignore every cashback whose due timestamp is later than that request.
+Invalid requests
+A request is invalid when its holderId is outside 1..balances.length, or when a withdrawal exceeds the account's available balance after all cashback due at that timestamp has been applied.
+Result
+If every request is valid, return the final balances. Otherwise, stop at the first invalid request and return a one-element array containing the negative 1-based index of that request.
+
+## Constraints
+
+- 1 <= balances.length <= 200000
+  - 1 <= requests.length <= 200000
+  - 0 <= balances[i] <= 10^9
+  - Every request has exactly four space-delimited tokens and uses deposit or withdraw.
+  - Every request amount is in 1..10^9.
+  - Request timestamps are nonnegative and strictly increasing.
+  - Every intermediate balance fits in a signed 64-bit integer.
+
+### Example 1
+- **balances** (`long[]`) = `[1000,500]`
+- **requests** (`String[]`) = `["withdraw 100 1 200","deposit 200 2 300","withdraw 86500 1 500"]`
+- **output** (`long[]`) = `[304,800]`
+
+The first withdrawal leaves account 1 at 800 and schedules cashback 4 for timestamp 86500. The deposit raises account 2 to 800. At timestamp 86500, cashback is applied first, so account 1 becomes 804 before the withdrawal leaves it at 304. The new cashback is due after the last request and is ignored.
+
+### Example 2
+- **balances** (`long[]`) = `[100]`
+- **requests** (`String[]`) = `["withdraw 10 1 100","withdraw 86410 1 3"]`
+- **output** (`long[]`) = `[-2]`
+
+The first withdrawal schedules cashback 2. That cashback is credited before request 2 at the same timestamp, but the balance is still only 2. Withdrawing 3 is invalid, so the result is [-2].
+
+### Example 3
+- **balances** (`long[]`) = `[200,300]`
+- **requests** (`String[]`) = `["deposit 5 3 10"]`
+- **output** (`long[]`) = `[-1]`
+
+There are only two accounts, so holder ID 3 makes the first request invalid.
+
+## Starter code
+
+```
+public long[] processBankRequests(long[] balances, String[] requests) {
+    // write your code here
+}
+```
+
+## Source note
+
+The source omits a callable request encoding and numeric bounds. The judged core task matches the visible source at about 96%.
+
+
+---
+
 # Reach the End in Time  (Google)
 
 > id: `google-reach-the-end-in-time` | difficulty: easy | stage: OA | platform: codesignal | topics: matrix, breadth_first_search | last seen: 2025-12-20, 2024-12-18 | employment: 
@@ -39718,6 +46135,102 @@ public int longestEqualBinarySubarrayAfterOneFlip(int[] arr) {
 
 ---
 
+# Format a Centered Newspaper Page  (Visa)
+
+> id: `visa-format-newspaper-page` | difficulty: medium | stage: OA | platform: codesignal | topics: string, greedy, simulation | last seen: 2025-12-16, 2025-10-28, 2025-08-28 | employment: FULLTIME, INTERN
+
+## Problem
+
+You are given an array of paragraphs paragraphs and an integer width. Each paragraph is an ordered array of words.
+Format the paragraphs in order. Within one paragraph, preserve word order and separate adjacent words with one space. Greedily place as many consecutive words as possible on each line without making the text longer than width. Paragraphs do not share a line.
+Center every packed line inside exactly width character positions. If a line needs s spaces, place floor(s / 2) before the text and the remaining spaces after it. Thus, when s is odd, the extra space goes on the right.
+Draw a newspaper border with * characters. The first and last returned strings consist of width + 2 asterisks. Wrap every centered content line with one leading and one trailing asterisk.
+Return the complete bordered page as a string array.
+
+## Constraints
+
+- 1 <= paragraphs.length <= 104
+  - Every paragraph contains at least one non-empty word.
+  - 1 <= word.length <= width <= 104
+  - The total number of words and characters is at most 105.
+  - Words contain visible non-space ASCII characters.
+
+### Example 1
+- **paragraphs** (`String[][]`) = `[["The","quick","brown","fox"],["jumps","over","it"]]`
+- **width** (`int`) = `10`
+- **output** (`String[]`) = `["************","*The quick *","*brown fox *","*jumps over*","*    it    *","************"]`
+
+The first paragraph packs into The quick and brown fox; each needs one extra space on the right. The second packs jumps over exactly and centers it with four spaces on each side. The top and bottom borders each contain 12 asterisks.
+
+### Example 2
+- **paragraphs** (`String[][]`) = `[["a","bb","ccc"]]`
+- **width** (`int`) = `4`
+- **output** (`String[]`) = `["******","*a bb*","*ccc *","******"]`
+
+a bb exactly fills the content width. The remaining word ccc needs one padding space, which goes on the right before the closing border.
+
+## Starter code
+
+```
+public String[] formatCenteredNewspaperPage(String[][] paragraphs, int width) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+Visa CodeSignal OA reports dated August 28, October 28, and December 16, 2025 independently identify the centered text-justification/newspaper task; the December report also calls out odd/even padding and the decorative asterisk frame. The sources omit the odd-space side, paragraph-boundary behavior, numeric bounds, and callable signature, so this practice contract makes those details explicit.
+
+
+---
+
+# First Prefix Reaching a Target Score  (Visa)
+
+> id: `visa-first-prefix-reaching-target-score` | difficulty: easy | stage: OA | platform: codesignal | topics: array, prefix_sum | last seen: 2025-12-16 | employment: FULLTIME
+
+## Problem
+
+You are given an integer array scores and an integer target.
+Starting from index 0, add the scores in order. Return the first index i for which scores[0] + scores[1] + ... + scores[i] is greater than or equal to target.
+If no prefix reaches the target, return -1.
+
+## Constraints
+
+- 1 <= scores.length <= 105
+  - -109 <= scores[i], target <= 109
+  - Every prefix sum fits in a signed 64-bit integer.
+
+### Example 1
+- **scores** (`int[]`) = `[2,3,1,4]`
+- **target** (`int`) = `6`
+- **output** (`int`) = `2`
+
+The prefix sums are 2, 5, and 6. Index 2 is the first index that reaches the target.
+
+### Example 2
+- **scores** (`int[]`) = `[-2,5,-1]`
+- **target** (`int`) = `4`
+- **output** (`int`) = `-1`
+
+The prefix sums are -2, 3, and 2, so none reaches 4.
+
+## Starter code
+
+```
+public int firstPrefixAtLeastTarget(int[] scores, int target) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+A December 16, 2025 Visa Senior Software Engineer CodeSignal OA report supplies the ordered prefix-sum threshold rule and the -1 outcome. The source omits bounds, signed-score behavior, arithmetic width, and a callable signature, so this practice version makes those execution details explicit.
+
+
+---
+
 # Previous Bus Departure  (Visa)
 
 > id: `visa-previous-bus-departure` | difficulty: None | stage: OA | platform: codesignal | topics:  | last seen: 2025-12-16 | employment: FULLTIME
@@ -39753,6 +46266,45 @@ public String previousBusDeparture(String[] departures, String currentTime) {
   // write your code here
 }
 ```
+
+
+---
+
+# Reconstruct Island Visit Order  (Visa)
+
+> id: `visa-reconstruct-island-visit-order` | difficulty: medium | stage: OA | platform: codesignal | topics: array, hash_table, graph | last seen: 2025-12-16 | employment: FULLTIME
+
+## Problem
+
+You visited a sequence of unique islands but forgot their exact order. Each pair in consecutiveVisits contains two islands that were visited consecutively; either island may have come first.
+Reconstruct the complete visit order. Every island appears exactly once, and every adjacent pair in the returned order must correspond to one supplied pair.
+The pairs are guaranteed to describe one simple path containing every island. A path and its reversal both satisfy the adjacency evidence, so return the orientation that starts from the numerically larger endpoint.
+
+## Constraints
+
+- 1 <= consecutiveVisits.length <= 105
+  - Every element of consecutiveVisits contains exactly two distinct island IDs in the range [-109, 109].
+  - The undirected pairs form one simple path and contain no duplicate edge.
+  - Return the path starting from the numerically larger of its two endpoints.
+
+### Example 1
+- **consecutiveVisits** (`int[][]`) = `[[1,2],[2,3],[4,5],[1,5]]`
+- **output** (`int[]`) = `[4,5,1,2,3]`
+
+The pairs connect the path 4 - 5 - 1 - 2 - 3. Its endpoints are 3 and 4; the deterministic exercise convention starts from the larger endpoint, 4.
+
+## Starter code
+
+```
+public int[] reconstructIslandVisitOrder(int[][] consecutiveVisits) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+A December 16, 2025 Visa Senior Software Engineer CodeSignal OA report supplies the consecutive-island pairs and the complete example path. Because either path orientation is valid in the report, this practice version adds the deterministic larger-endpoint convention, portable bounds, and a descriptive callable name.
 
 
 ---
@@ -39966,6 +46518,206 @@ public long minimizedTotalIdleTime(int[] processingTimes) {
   // write your code here
 }
 ```
+
+
+---
+
+# Distribution Center Package Allocation  (Visa)
+
+> id: `visa-distribution-center-package-allocation` | difficulty: medium | stage: OA | platform: codesignal | topics: array, simulation, parsing | last seen: 2025-12-10, 2025-06-29 | employment: FULLTIME
+
+## Problem
+
+You manage a network of distribution centers indexed from 0 to n - 1. Center i can process centerCapacities[i] packages before it needs a reset.
+Process the entries of dailyLog in order. Every entry is one of:
+  - "PACKAGE": a package arrives for processing.
+  - "CLOSURE j": center j closes and remains unavailable for the rest of the process.
+
+Packages are assigned to centers in increasing index order, beginning at center 0. A center handles consecutive packages until its remaining capacity reaches 0, then allocation advances to the next available center. Closed centers are always bypassed.
+When allocation passes the end of the center array, one complete rotation has finished. Restore every operational center to its original capacity, continue from index 0, and keep bypassing closed centers. If a center closes while it still has unused capacity, the next package advances to the next available center.
+Return the index of the center that processed the most packages. If several centers processed the same maximum number, return the highest index among them.
+
+## Constraints
+
+- 1 <= centerCapacities.length, dailyLog.length <= 105
+  - 1 <= centerCapacities[i] <= 5
+  - Every entry of dailyLog is either "PACKAGE" or "CLOSURE j" for a valid center index j.
+  - At least one center remains operational throughout the process.
+
+### Example 1
+- **centerCapacities** (`int[]`) = `[2,1,3]`
+- **dailyLog** (`String[]`) = `["PACKAGE","PACKAGE","PACKAGE","PACKAGE","CLOSURE 2","PACKAGE","PACKAGE","PACKAGE"]`
+- **output** (`int`) = `0`
+
+Before the closure, centers 0, 1, and 2 process 2, 1, and 1 packages. Center 2 then closes. The next rotation assigns two packages to center 0 and one to center 1, so the totals are [4, 2, 1] and center 0 wins.
+
+### Example 2
+- **centerCapacities** (`int[]`) = `[1,1,1]`
+- **dailyLog** (`String[]`) = `["PACKAGE","PACKAGE","PACKAGE"]`
+- **output** (`int`) = `2`
+
+Each center processes exactly one package. The totals are tied, so the highest center index, 2, is returned.
+
+### Example 3
+- **centerCapacities** (`int[]`) = `[3,2,1]`
+- **dailyLog** (`String[]`) = `["PACKAGE","CLOSURE 0","PACKAGE","PACKAGE","PACKAGE","PACKAGE"]`
+- **output** (`int`) = `1`
+
+Center 0 processes one package and then closes with capacity remaining. Center 1 processes the next two packages, center 2 processes one, and the final package starts a new rotation at center 1. The totals are [1, 3, 1].
+
+## Starter code
+
+```
+public int mostPackagesProcessed(int[] centerCapacities, String[] dailyLog) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+Visa CodeSignal OA reports dated June 29 and December 10, 2025 supply the allocation, reset, closure, capacity, and tie rules. The sources omit array-length bounds and use a platform-generic callable, so this practice version adds portable bounds and the descriptive name mostPackagesProcessed without changing the reported simulation.
+
+
+---
+
+# Count Alternating-Parity Subarrays  (Visa)
+
+> id: `visa-count-alternating-parity-subarrays` | difficulty: easy | stage: OA | platform: codesignal | topics: array, dynamic_programming | last seen: 2025-12-10 | employment: FULLTIME
+
+## Problem
+
+You are given an integer array nums.
+A contiguous subarray is alternating when every pair of adjacent elements has different parity: one is even and the other is odd. Every one-element subarray is alternating.
+Return the total number of alternating contiguous subarrays.
+
+## Constraints
+
+- 1 <= nums.length <= 105
+  - -109 <= nums[i] <= 109
+  - The answer fits in a signed 64-bit integer.
+
+### Example 1
+- **nums** (`int[]`) = `[1,3,5,7,9]`
+- **output** (`long`) = `5`
+
+Every adjacent pair has odd-odd parity, so only the five one-element subarrays qualify.
+
+### Example 2
+- **nums** (`int[]`) = `[1,2,1,2,1]`
+- **output** (`long`) = `15`
+
+The entire array alternates. All 5 * 6 / 2 = 15 contiguous subarrays therefore qualify.
+
+### Example 3
+- **nums** (`int[]`) = `[1,2,3,7,6,5]`
+- **output** (`long`) = `12`
+
+The equal-parity pair 3, 7 splits the array into two alternating runs of length 3. Each contributes 3 * 4 / 2 = 6 subarrays.
+
+## Starter code
+
+```
+public long countAlternatingParitySubarrays(int[] nums) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+A December 10, 2025 Visa CodeSignal OA report supplies the alternating-parity definition, length-one rule, linear-time requirement, and three examples. The source omits numeric bounds, return width, and a callable signature, so this practice version adds a portable 64-bit contract and descriptive method name.
+
+
+---
+
+# Count Length-Three Windows with Matching Ends  (Visa)
+
+> id: `visa-count-length-three-windows-with-matching-ends` | difficulty: easy | stage: OA | platform: codesignal | topics: string, sliding_window | last seen: 2025-12-10 | employment: FULLTIME
+
+## Problem
+
+You are given a string text.
+Count the contiguous substrings of length exactly 3 whose first and last characters are equal. Windows may overlap. Return the count.
+
+## Constraints
+
+- 0 <= text.length <= 2 * 105
+  - text contains printable ASCII characters.
+
+### Example 1
+- **text** (`String`) = `"abcxccc"`
+- **output** (`int`) = `2`
+
+The matching windows are cxc and ccc.
+
+### Example 2
+- **text** (`String`) = `"aba"`
+- **output** (`int`) = `1`
+
+The only length-three window begins and ends with a.
+
+### Example 3
+- **text** (`String`) = `"ab"`
+- **output** (`int`) = `0`
+
+A string shorter than three characters contains no eligible window.
+
+## Starter code
+
+```
+public int countMatchingEndpointTriples(String text) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+A December 10, 2025 Visa CodeSignal OA report states that a length-three window counts when its first and last characters match, and its longer example yields cxc and ccc. The same report lists abc as 1 despite a not matching c; this practice item records that isolated sample as a source typo and follows the stated rule and corroborating longer example.
+
+
+---
+
+# Maximum Digital Root  (Visa)
+
+> id: `visa-maximum-digital-root` | difficulty: easy | stage: OA | platform: codesignal | topics: array, math | last seen: 2025-12-10 | employment: FULLTIME
+
+## Problem
+
+You are given an integer array values.
+For each value, repeatedly replace it with the sum of its decimal digits until only one digit remains. This final digit is the value's digital root.
+Return the maximum digital root among all values in the array.
+
+## Constraints
+
+- 1 <= values.length <= 105
+  - 0 <= values[i] <= 109
+
+### Example 1
+- **values** (`int[]`) = `[123,456,789,101]`
+- **output** (`int`) = `6`
+
+The repeated digit sums are 123 -> 6, 456 -> 15 -> 6, 789 -> 24 -> 6, and 101 -> 2. The maximum is 6.
+
+### Example 2
+- **values** (`int[]`) = `[999,19,0]`
+- **output** (`int`) = `9`
+
+999 has digital root 9, 19 has digital root 1, and 0 remains 0.
+
+## Starter code
+
+```
+public int maxDigitalRoot(int[] values) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+A December 10, 2025 Visa CodeSignal OA report supplies the repeated digit-sum rule and the complete four-value example. The source omits numeric bounds and a callable signature, so this practice version adds portable bounds and the descriptive name maxDigitalRoot.
 
 
 ---
@@ -40375,6 +47127,113 @@ The judged core task matches the reported source at about 95%. Halfway values us
 
 ---
 
+# Apply Binary State Operations  (Visa)
+
+> id: `visa-apply-binary-state-operations` | difficulty: easy | stage: OA | platform: codesignal | topics: array, simulation | last seen: 2025-11-08 | employment: FULLTIME
+
+## Problem
+
+You have a binary state array of length n, initially filled with 0. Apply the strings in operations in order:
+  - "L": find the leftmost state equal to 0 and change it to 1. If no zero remains, do nothing.
+  - "Cj": change the state at zero-based index j to 0, regardless of its current value. The index may contain multiple digits.
+
+Return the final state as a string of 0 and 1 characters.
+
+## Constraints
+
+- 1 <= n <= 105
+  - 1 <= operations.length <= 105
+  - Every operation is either "L" or "Cj" for an index 0 <= j < n.
+
+### Example 1
+- **n** (`int`) = `8`
+- **operations** (`String[]`) = `["L","L","C1","C6","L"]`
+- **output** (`String`) = `"11000000"`
+
+The first two operations set indices 0 and 1. C1 clears index 1, C6 leaves an existing zero unchanged, and the final L sets index 1 again.
+
+### Example 2
+- **n** (`int`) = `4`
+- **operations** (`String[]`) = `["L","L","L","C0","L"]`
+- **output** (`String`) = `"1110"`
+
+Three loads produce 1110. Clearing index 0 produces 0110, and the last load selects index 0 again.
+
+## Starter code
+
+```
+public String applyBinaryStateOperations(int n, String[] operations) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+A November 8, 2025 Visa CodeSignal OA report supplies the all-zero initial state, leftmost-zero load operation, indexed clear operation including multi-digit indices, and string output. The source omits bounds, the full-array load behavior, and a callable signature, so this practice version defines an exhausted load as a no-op.
+
+
+---
+
+# Travel Distance on Scooters  (Visa)
+
+> id: `visa-travel-distance-on-scooters` | difficulty: easy | stage: OA | platform: codesignal | topics: array, sorting, greedy, simulation | last seen: 2025-11-08 | employment: FULLTIME
+
+## Problem
+
+Imagine that you are standing at the starting point of a straight street and are trying to reach the end of the street. The street is represented by a number line starting at 0 and ending at finish, where finish > 0.
+Electric scooters are scattered along the street. The array scooters stores their locations, where scooters[i] is the position of the i-th scooter. Each scooter can travel at most 10 points to the right before its battery is exhausted.
+You must follow this exact algorithm:
+  - From your current position, walk to the nearest scooter to your right. If there is no scooter to your right, walk directly to finish.
+  - Ride that scooter as far as possible toward finish, using all of its remaining range.
+  - If you have still not reached finish, repeat from step 1.
+
+Return the total distance that you travel while riding scooters.
+You are not required to provide the optimal asymptotic solution. A solution with time complexity no worse than O(scooters.length * finish) fits within the limit.
+
+## Constraints
+
+- 1 <= finish <= 1000
+  - 0 <= scooters.length <= 105
+  - All scooter locations are distinct integers satisfying 0 <= scooters[i] < finish.
+
+### Example 1
+- **finish** (`int`) = `20`
+- **scooters** (`int[]`) = `[7, 4, 14]`
+- **output** (`int`) = `16`
+
+From position 0, the nearest scooter is at 4, so you ride from 4 to 14 for 10 units. A scooter is available at 14; only 6 more units are needed to reach 20. The total scooter distance is 16.
+
+### Example 2
+- **finish** (`int`) = `27`
+- **scooters** (`int[]`) = `[15, 7, 3, 10]`
+- **output** (`int`) = `20`
+
+You first walk to the scooter at 3 and ride it to 13. Then the nearest scooter to the right is at 15, which takes you to 25. After that, there are no more scooters to the right, so you finish on foot. The scooter distance is 10 + 10 = 20.
+
+### Example 3
+- **finish** (`int`) = `10`
+- **scooters** (`int[]`) = `[]`
+- **output** (`int`) = `0`
+
+There are no scooters on the street, so you travel the entire route on foot and accumulate no scooter distance.
+
+## Starter code
+
+```
+public int travelDistanceOnScooters(int finish, int[] scooters) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+A November 8, 2025 Visa CodeSignal OA report supplies the endpoint, scooter positions, prescribed nearest-scooter behavior, and ten-unit scooter range. The source omits bounds, a callable signature, and whether the final ride stops at the endpoint, so this practice version truncates only the final ride and records that execution assumption explicitly.
+
+
+---
+
 # Process Execution Time  (IBM)
 
 > id: `ibm-process-execution-time` | difficulty: easy | stage: OA | platform: hackerrank | topics: intervals, sorting | last seen: 2025-11-03 | employment: FULLTIME, NEW GRAD
@@ -40442,6 +47301,491 @@ public String[] detectTimedOutServices(int[] timestamps, String[] serviceIds, in
 }
 
 ```
+
+
+---
+
+# High Resource Usage Customers  (Wells Fargo)
+
+> id: `wellsfargo-high-resource-usage-customers` | difficulty: medium | stage: OA | platform: unknown | topics: database | last seen: 2025-11-01 | employment: NEW GRAD
+
+## Problem
+
+Identify every customer with at least one site_data log where memory utilization, disk utilization, or CPU utilization is strictly greater than 50%.
+For each qualifying customer, calculate averages across all of that customer's logs:
+  - average_memory_usage: average of 100 * memory_used_gb / memory_allocated_gb.
+  - average_disk_storage: average of 100 * disk_used_gb / disk_allocated_gb.
+  - average_cpu_utilization: average of cpu_utilization_percent.
+
+Round every average to two decimal places. Return rows ordered by customer_name ascending, then customer_id ascending.
+
+## Constraints
+
+- customers.customer_id and site_data.log_id are unique primary keys.
+  - Every site_data.customer_id references an existing customer.
+  - memory_allocated_gb and disk_allocated_gb are positive.
+  - Usage and allocation values are nonnegative decimals, and CPU utilization is between 0 and 100.
+  - A customer may have multiple logs; averages include every log after the customer qualifies.
+
+## Table schemas
+
+```json
+[
+  {
+    "columns": [
+      {
+        "name": "customer_id",
+        "nullable": false,
+        "type": "integer"
+      },
+      {
+        "name": "customer_name",
+        "nullable": false,
+        "type": "text"
+      }
+    ],
+    "description": "Customer identities.",
+    "name": "customers",
+    "primaryKey": [
+      "customer_id"
+    ]
+  },
+  {
+    "columns": [
+      {
+        "name": "log_id",
+        "nullable": false,
+        "type": "integer"
+      },
+      {
+        "name": "customer_id",
+        "nullable": false,
+        "type": "integer"
+      },
+      {
+        "name": "memory_used_gb",
+        "nullable": false,
+        "type": "decimal"
+      },
+      {
+        "name": "memory_allocated_gb",
+        "nullable": false,
+        "type": "decimal"
+      },
+      {
+        "name": "disk_used_gb",
+        "nullable": false,
+        "type": "decimal"
+      },
+      {
+        "name": "disk_allocated_gb",
+        "nullable": false,
+        "type": "decimal"
+      },
+      {
+        "name": "cpu_utilization_percent",
+        "nullable": false,
+        "type": "decimal"
+      }
+    ],
+    "description": "Resource-usage logs for monitored customer sites.",
+    "foreignKeys": [
+      {
+        "columns": [
+          "customer_id"
+        ],
+        "references": {
+          "columns": [
+            "customer_id"
+          ],
+          "table": "customers"
+        }
+      }
+    ],
+    "name": "site_data",
+    "primaryKey": [
+      "log_id"
+    ]
+  }
+]
+```
+
+## Source note
+
+The source provides both schemas, the any-resource qualification rule, requested result columns, and two-decimal formatting. Percentage-based memory and disk averages, positive allocations, and deterministic row ordering are explicit practice assumptions. The judged task matches the visible source at about 91%.
+
+
+---
+
+# Maximum Taxi Earnings  (Wells Fargo)
+
+> id: `wellsfargo-maximum-taxi-earnings` | difficulty: medium | stage: OA | platform: unknown | topics: array, binary_search, dynamic_programming, sorting | last seen: 2025-11-01 | employment: NEW GRAD
+
+## Problem
+
+You are given three arrays pickup, drop, and tip describing taxi ride requests. Ride i starts at pickup[i], ends at drop[i], and earns (drop[i] - pickup[i]) + tip[i].
+You can complete only one ride at a time. After finishing a ride at position x, you may take another ride whose pickup position is at least x.
+Return the maximum total earnings obtainable from a subset of non-overlapping rides.
+
+## Constraints
+
+- 1 <= pickup.length = drop.length = tip.length <= 10^4.
+  - 0 <= pickup[i] < drop[i] <= 10^12.
+  - 0 <= tip[i] <= 10^5.
+
+### Example 1
+- **pickup** (`long[]`) = `[2,4,5]`
+- **drop** (`long[]`) = `[5,5,7]`
+- **tip** (`long[]`) = `[4,1,2]`
+- **output** (`long`) = `11`
+
+Take the ride from 2 to 5 for 7, then the ride from 5 to 7 for 4.
+
+### Example 2
+- **pickup** (`long[]`) = `[1,2,3]`
+- **drop** (`long[]`) = `[2,3,4]`
+- **tip** (`long[]`) = `[0,0,0]`
+- **output** (`long`) = `3`
+
+All three rides are compatible and each earns 1.
+
+### Example 3
+- **pickup** (`long[]`) = `[0]`
+- **drop** (`long[]`) = `[1000000000000]`
+- **tip** (`long[]`) = `[100000]`
+- **output** (`long`) = `1000000100000`
+
+The only ride earns its distance plus its tip. This example also shows why 64-bit arithmetic is required.
+
+## Starter code
+
+```
+public long maxTaxiEarnings(long[] pickup, long[] drop, long[] tip) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source provides the ride model, profit formula, compatibility rule, objective, and numeric bounds but uses an overflow-prone int signature. The judged core task matches the visible source at about 98%.
+
+
+---
+
+# Minimum Anagram Period  (Wells Fargo)
+
+> id: `wellsfargo-minimum-anagram-period` | difficulty: medium | stage: OA | platform: unknown | topics: string, hash_table, math | last seen: 2025-11-01 | employment: NEW GRAD
+
+## Problem
+
+You are given a lowercase string inputStr.
+Choose a positive block length p that divides inputStr.length. Split the string into consecutive blocks of length p. The length is valid when every block is an anagram of every other block.
+Return the minimum valid block length.
+
+## Constraints
+
+- 1 <= inputStr.length <= 10^5.
+  - inputStr contains only lowercase English letters.
+
+### Example 1
+- **inputStr** (`String`) = `"ababbaab"`
+- **output** (`int`) = `2`
+
+Split the string into ab, ab, ba, and ab. All four blocks are anagrams, and no block length smaller than 2 works.
+
+### Example 2
+- **inputStr** (`String`) = `"abcabc"`
+- **output** (`int`) = `3`
+
+The two blocks abc and abc match. Lengths 1 and 2 do not produce blocks with equal character counts.
+
+### Example 3
+- **inputStr** (`String`) = `"aaaa"`
+- **output** (`int`) = `1`
+
+Every one-character block is the string a.
+
+## Starter code
+
+```
+public int getAnagramPeriod(String inputStr) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source provides the complete task, function, constraints, and a worked example. The judged task matches the visible source at about 99%.
+
+
+---
+
+# Collect Sticks for a Bird's Nest  (Duolingo)
+
+> id: `duolingo-collect-sticks-for-birds-nest` | difficulty: medium | stage: OA | platform: codesignal | topics: array, two_pointers, simulation | last seen: 2025-10-29 | employment: NEW GRAD
+
+## Problem
+
+You are helping a bird build its nest. You are given an integer array forest containing positive integers and zeros, and an index bird representing the bird's initial position.
+Each positive value forest[i] is a stick whose length equals that value. Each zero is an empty position. The starting position is guaranteed to be empty.
+The bird follows this process:
+  - Fly to the right until reaching the first remaining stick, take that stick, and return to bird.
+  - Fly to the left until reaching the first remaining stick, take that stick, and return to bird.
+  - Continue alternating right and left until the total length of collected sticks is at least 100.
+
+Return the original zero-based indices of the collected sticks in the order in which the bird finds them.
+
+## Constraints
+
+- forest[bird] = 0.
+  - Every value in forest is a non-negative integer; every positive value is a stick length.
+  - The sum of all stick lengths is at least 100.
+  - Before the collected total reaches 100, the next required direction always contains a remaining stick.
+  - A solution with time complexity no worse than O(forest.length^2) fits the source's execution limit.
+
+### Example 1
+- **forest** (`int[]`) = `[25,0,50,0,0,0,0,15,0,0,45]`
+- **bird** (`int`) = `4`
+- **output** (`int[]`) = `[7,2,10]`
+
+The first stick to the right is at index 7 with length 15. The first stick to the left is at index 2 with length 50. Moving right again finds index 10 with length 45. The collected total is 110, so the process stops.
+
+## Starter code
+
+```
+public int[] collectNestSticks(int[] forest, int bird) {
+    // write your code here
+}
+```
+
+## Source note
+
+The judged task matches the visible source at about 99%.
+
+
+---
+
+# Dynamic Pair Sum Queries  (Duolingo)
+
+> id: `duolingo-dynamic-pair-sum-queries` | difficulty: medium | stage: OA | platform: codesignal | topics: array, hash_table | last seen: 2025-10-29 | employment: NEW GRAD
+
+## Problem
+
+You are given two integer arrays a and b and a sequence of queries. Process the queries in order.
+  - A query [0, i, x] adds x to a[i].
+  - A query [1, x] asks for the number of index pairs (i, j) such that the current values satisfy a[i] + b[j] = x.
+
+Return the answers to all type-1 queries in their original order.
+
+## Constraints
+
+- a, b, and queries are non-empty.
+  - Every type-0 query has the form [0, i, x] with 0 <= i < a.length.
+  - Every type-1 query has the form [1, x].
+  - Array b is never modified.
+
+### Example 1
+- **a** (`int[]`) = `[1,4]`
+- **b** (`int[]`) = `[1,2,3]`
+- **queries** (`int[][]`) = `[[1,5],[0,0,2],[1,5]]`
+- **output** (`long[]`) = `[1,2]`
+
+Before the update, only a[1] + b[0] = 4 + 1 = 5, so the first answer is 1. The update changes a[0] from 1 to 3. Then both 3 + 2 and 4 + 1 equal 5, so the second answer is 2.
+
+## Starter code
+
+```
+public long[] processPairSumQueries(int[] a, int[] b, int[][] queries) {
+    // write your code here
+}
+```
+
+## Source note
+
+The judged task matches the visible source at about 99%.
+
+
+---
+
+# Longest Border-Ending Diagonal Pattern  (Duolingo)
+
+> id: `duolingo-longest-border-ending-diagonal-pattern` | difficulty: medium | stage: OA | platform: codesignal | topics: matrix, dynamic_programming, simulation | last seen: 2025-10-29 | employment: NEW GRAD
+
+## Problem
+
+Given a rectangular integer matrix matrix, find the longest diagonal segment that matches the infinite pattern 1, 2, 0, 2, 0, ....
+A valid segment:
+  - starts at any matrix cell whose value is 1;
+  - continues in exactly one of the four diagonal directions;
+  - matches 2 after the initial 1, then alternates 0 and 2; and
+  - ends at a cell on the first row, last row, first column, or last column.
+
+Return the maximum length of a valid segment.
+
+## Constraints
+
+- matrix is non-empty and rectangular.
+  - Every matrix value is 0, 1, or 2.
+  - A segment moves by one row and one column at each step and never changes direction.
+  - A solution with time complexity no worse than O(matrix.length^2 * matrix[0].length^2) fits the source's execution limit.
+
+### Example 1
+- **matrix** (`int[][]`) = `[[0,0,1,2],[0,2,2,2],[2,1,0,1]]`
+- **output** (`int`) = `3`
+
+Starting at matrix[2][3] and moving up-left produces 1, 2, 0 at cells (2,3), (1,2), and (0,1). The last cell is on the first row, so this is a valid length-3 segment. No longer valid segment exists.
+
+## Starter code
+
+```
+public int longestBorderDiagonal(int[][] matrix) {
+    // write your code here
+}
+```
+
+## Source note
+
+The judged task matches the visible source at about 99%.
+
+
+---
+
+# Reverse the Interior of Vowel-Bounded Words  (Visa)
+
+> id: `visa-reverse-interior-of-vowel-bounded-words` | difficulty: easy | stage: OA | platform: codesignal | topics: array, string, two_pointers | last seen: 2025-10-28 | employment: INTERN
+
+## Problem
+
+You are given an array of strings text, where each string represents a word.
+A word qualifies when both its first and last characters are vowels. The vowels are a, e, i, o, and u, and the check is case-insensitive.
+For every qualifying word, reverse only the substring between its first and last characters. Keep the two endpoint characters unchanged. Leave every other word unchanged and preserve the original array order.
+Return the modified array of strings.
+
+## Constraints
+
+- 1 <= text.length <= 105
+  - Every element of text is a non-empty word containing uppercase or lowercase English letters.
+  - The total number of characters across all words is at most 105.
+  - Vowel checks are case-insensitive, while every character's original case is preserved.
+
+### Example 1
+- **text** (`String[]`) = `["abcde","acvbn","Etuilo"]`
+- **output** (`String[]`) = `["adcbe","acvbn","Eliuto"]`
+
+- abcde begins with a and ends with e, so reversing bcd produces adcbe.
+  - acvbn does not end with a vowel and remains unchanged.
+  - Etuilo begins and ends with vowels; reversing tuil produces Eliuto.
+
+## Starter code
+
+```
+public String[] reverseVowelBoundedInteriors(String[] text) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+An October 24, 2025 Visa Summer Intern CodeSignal OA report supplies the endpoint-vowel rule and an exact mixed-case example. The source omits numeric bounds and uses a platform-generic callable, so this practice version adds portable bounds and the descriptive name reverseVowelBoundedInteriors without changing the reported transformation.
+
+
+---
+
+# Build a Hollow Square  (Visa)
+
+> id: `visa-build-hollow-square` | difficulty: easy | stage: OA | platform: codesignal | topics: string, simulation | last seen: 2025-10-24 | employment: INTERN
+
+## Problem
+
+You are given an integer n. Build an n by n hollow square as a string array.
+  - Every border position contains *.
+  - Every interior position contains -.
+
+Return the rows from top to bottom.
+
+## Constraints
+
+- 2 <= n <= 1000
+  - The returned output contains exactly n2 characters.
+
+### Example 1
+- **n** (`int`) = `4`
+- **output** (`String[]`) = `["****","*--*","*--*","****"]`
+
+The first and last rows are all border characters. Each middle row has two border stars surrounding two interior dashes.
+
+### Example 2
+- **n** (`int`) = `2`
+- **output** (`String[]`) = `["**","**"]`
+
+A square of side two has no interior positions, so both rows contain only stars.
+
+## Starter code
+
+```
+public String[] buildHollowSquare(int n) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+An October 24, 2025 Visa Summer Intern CodeSignal OA report supplies the star border, dash interior, and exact n = 4 pattern. The source omits bounds, the n = 1 convention, and a callable signature, so this practice version uses n at least 2 and a descriptive method name.
+
+
+---
+
+# Count Uniform-or-Alternating Parity Subarrays  (Visa)
+
+> id: `visa-count-uniform-or-alternating-parity-subarrays` | difficulty: medium | stage: OA | platform: codesignal | topics: array, dynamic_programming | last seen: 2025-10-24 | employment: INTERN
+
+## Problem
+
+You are given an integer array nums.
+A contiguous subarray is valid when its parity pattern is one of:
+  - uniform: every value has the same parity, or
+  - alternating: every adjacent pair has different parity.
+
+Every one-element and two-element subarray is valid. Return the total number of valid contiguous subarrays.
+
+## Constraints
+
+- 1 <= nums.length <= 105
+  - -109 <= nums[i] <= 109
+  - The answer fits in a signed 64-bit integer.
+
+### Example 1
+- **nums** (`int[]`) = `[1,2,3,4]`
+- **output** (`long`) = `10`
+
+The entire array alternates, so every one of its 4 * 5 / 2 = 10 subarrays is valid.
+
+### Example 2
+- **nums** (`int[]`) = `[1,3,5,7]`
+- **output** (`long`) = `10`
+
+All values are odd, so every subarray has uniform parity.
+
+### Example 3
+- **nums** (`int[]`) = `[1,2,4]`
+- **output** (`long`) = `5`
+
+All three singletons and both length-two subarrays are valid. The full parity pattern odd-even-even is neither uniform nor alternating.
+
+## Starter code
+
+```
+public long countUniformOrAlternatingParitySubarrays(int[] nums) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+An October 24, 2025 Visa Summer Intern CodeSignal OA report defines valid sequences through four positive examples covering alternating, all-odd, and all-even parity, plus two negative examples where the same/different adjacency relation changes. The source gives n up to 100000 but omits value bounds, return width, and a callable signature.
 
 
 ---
@@ -40620,6 +47964,131 @@ public String[] finalPrice(int[] prices) {
 ## Source note
 
 2026-06-29 — The source image is blurry, so FastPrep derived both visible outputs from the stated discount rule. Recheck them if a clearer source becomes available.
+
+
+---
+
+# Sparse Valid Conv2D From Scratch  (NVIDIA)
+
+> id: `nvidia-sparse-valid-conv2d-from-scratch` | difficulty: medium | stage: OA | platform: unknown | topics: array, matrix, simulation | last seen: 2025-10-06 | employment: FULLTIME
+
+## Problem
+
+Implement two-dimensional valid cross-correlation from scratch over one integer image and one integer kernel. At each output position [row][col], sum image[row + dr][col + dc] * kernel[dr][dc] over every kernel cell. Return all valid output positions in a rectangular matrix.
+Use the common ML convention: do not reverse the kernel. There is one channel, unit stride, no padding and no dilation. The output has imageRows - kernelRows + 1 rows and imageCols - kernelCols + 1 columns. An optimized implementation can precompute nonzero kernel taps and avoid copying every image patch.
+
+## Constraints
+
+- The image is rectangular, with 1 to 30 rows and 1 to 30 columns.
+  - The rectangular kernel has at least one row and column, and fits within the image in both dimensions.
+  - Each image and kernel entry is an integer in [-100,100].
+  - Every result fits in a signed 32-bit integer.
+
+### Example 1
+- **image** (`int[][]`) = `[[1,2,3],[4,5,6],[7,8,9]]`
+- **kernel** (`int[][]`) = `[[1,0],[0,-1]]`
+- **output** (`int[][]`) = `[[-4,-4],[-4,-4]]`
+
+The asymmetric diagonal weights distinguish kernel orientation.
+
+### Example 2
+- **image** (`int[][]`) = `[[2,-1],[-3,4]]`
+- **kernel** (`int[][]`) = `[[2]]`
+- **output** (`int[][]`) = `[[4,-2],[-6,8]]`
+
+A one-cell filter scales every pixel, preserving the matrix shape.
+
+### Example 3
+- **image** (`int[][]`) = `[[1,2,3],[4,5,6]]`
+- **kernel** (`int[][]`) = `[[0,0,0],[0,0,0]]`
+- **output** (`int[][]`) = `[[0]]`
+
+A full-size all-zero filter produces one zero.
+
+## Starter code
+
+```
+public int[][] conv2D(int[][] image, int[][] kernel) {
+    // Compute each valid output position.
+}
+```
+
+## Source note
+
+The report asks for Conv2D from scratch and a loop optimization, but omits tensor dimensions and operator conventions. This single-channel valid practice task matches the visible core at about 75%.
+
+
+---
+
+# Accept or Decline Queries  (Ramp)
+
+> id: `ramp-accept-or-decline-queries` | difficulty: medium | stage: OA | platform: codesignal | topics: sliding_window, hash_table, queue | last seen: 2025-09-29, 2025-06-24, 2025-04-19, 2025-04-17, 2025-03-21 | employment: NEW GRAD, FULLTIME
+
+## Problem
+
+Hi! I made a tiny modification in the input timestamps, it is supposed to be int[], but Java says it is too large as integer, so
+    I have to change it to String[]. Things might be a bit more complicated, but I believe you can handle it :P
+    
+
+    Given a list of timestamped queries, you will need to accept or decline each of them, depending on the number of request from the same IP during a given window.
+    
+
+    The queries are represented by the two arrays timestamps and ipAddresses:
+    
+  - 
+        timestamps, an array of integers representing the Unix timestamps of the requests.
+      
+          
+  - a. timestamps[i] represents the ith timestamp for the ith request, in milliseconds.
+  - b. All requests are guaranteed to be in chronological order, i.e., timestamps is sorted in non-decreasing order.
+  - c. It's guaranteed that no two requests from the same IP have the same timestamp.
+  - 
+        ipAddresses, an array of strings representing source IP addresses.
+          
+  - d. ipAddresses[i] corresponds to the ith request's IP address.
+
+    You're also given two integers limit and timeWindow:
+    
+  - limit represents the maximum number of requests that can be accepted from the same IP address, within the time window.
+  - timeWindow represents the duration of the inclusive time window, in milliseconds.
+
+    You must return an array of integers where the ith element of the array corresponds to the ith request. Each element of the array should equal to 1 if the ith request was accepted and 0 if it was rejected.
+
+## Constraints
+
+- TO-DO
+
+### Example 1
+- **timestamps** (`String[]`) = `["1600040547954", "1600040547957", "1600040547958"]`
+- **ipAddresses** (`String[]`) = `["127.127.420.312", "127.127.420.312", "127.127.420.312"]`
+- **limit** (`int`) = `1`
+- **timeWindow** (`int`) = `3`
+- **output** (`int[]`) = `[1, 0, 1]`
+
+Request at 0 has arrived at timestamp 1600040547954 from IP address 127.127.420.312, and since there are no accepted requests from 127.127.420.312, it's accepted. Thus 1.
+
+Request at 1 has arrived at timestamp 1600040547957 from IP address 127.127.420.312. There's already a request from the same IP address within the same time window so we reject. Thus 0.
+
+Request at 2 has arrived at timestamp 1600040547958 from IP address 127.127.420.312. There are no accepted requests from this IP address within this time window, it's accepted. Thus 1.
+
+### Example 2
+- **timestamps** (`String[]`) = `["52245", "52245", "52246", "52247", "52248", "52249", "52253"]`
+- **ipAddresses** (`String[]`) = `["00.00.00.15", "00.00.00.42", "00.00.00.15", "00.00.00.15", "00.00.00.42", "00.00.00.15", "00.00.00.96"]`
+- **limit** (`int`) = `2`
+- **timeWindow** (`int`) = `3`
+- **output** (`int[]`) = `[1, 1, 1, 0, 1, 1, 1]`
+
+:)
+
+## Starter code
+
+```
+
+public int[] acceptOrDeclineQueries(String[] timestamps, String[] ipAddresses, int limit, int timeWindow) {
+  // write your code here
+}
+
+```
 
 
 ---
@@ -40825,6 +48294,156 @@ public int decryptCodeLock(int[] codeSequence, int maxValue) {
 
 ---
 
+# Count Subarrays with at Least K Distinct Values  (Visa)
+
+> id: `visa-count-subarrays-with-at-least-k-distinct` | difficulty: medium | stage: OA | platform: codesignal | topics: array, hash_table, sliding_window | last seen: 2025-08-28 | employment: INTERN
+
+## Problem
+
+You are given an integer array nums and an integer k.
+Return the number of contiguous subarrays that contain at least k distinct values. Repeated occurrences of the same value count only once toward a subarray's distinct-value total.
+
+## Constraints
+
+- 1 <= nums.length <= 2 * 105
+  - -109 <= nums[i] <= 109
+  - 1 <= k <= nums.length
+  - The answer fits in a signed 64-bit integer.
+
+### Example 1
+- **nums** (`int[]`) = `[1,2,1]`
+- **k** (`int`) = `2`
+- **output** (`long`) = `3`
+
+The valid subarrays are [1,2], [2,1], and [1,2,1].
+
+### Example 2
+- **nums** (`int[]`) = `[1,1,1]`
+- **k** (`int`) = `2`
+- **output** (`long`) = `0`
+
+Every subarray contains only the value 1, so none has two distinct values.
+
+## Starter code
+
+```
+public long countSubarraysWithAtLeastKDistinct(int[] nums, int k) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+An August 28, 2025 Visa SDE Intern CodeSignal OA report supplies the contiguous-subarray objective, the at-least-k threshold, and the rule that repeats do not increase the distinct count. The source omits bounds, return width, and a callable signature, so this practice version adds a portable 64-bit contract.
+
+
+---
+
+# Space Station Shuttle Missions  (Visa)
+
+> id: `visa-space-station-shuttle-missions` | difficulty: easy | stage: OA | platform: codesignal | topics: array, two_pointers, simulation, binary_search | last seen: 2025-08-28 | employment: INTERN
+
+## Problem
+
+A space-station network has two hubs, Alpha and Beta. Shuttle departures from Alpha to Beta are given by the sorted integer array alpha2beta, and departures from Beta to Alpha are given by the sorted integer array beta2alpha.
+Every shuttle trip takes exactly 100 time units. Your journey starts at Alpha at time 0.
+Complete missions missions. Each mission consists of traveling from Alpha to Beta and then returning from Beta to Alpha. For every leg, take the earliest shuttle whose departure time is at or after your arrival at that hub.
+Return the time when all missions are complete. The schedules guarantee that every required leg can be completed.
+
+## Constraints
+
+- 1 <= missions <= 105
+  - missions <= alpha2beta.length, beta2alpha.length <= 105
+  - 0 <= alpha2beta[i], beta2alpha[i] <= 109
+  - alpha2beta and beta2alpha are sorted in nondecreasing order.
+  - Every Alpha-to-Beta and Beta-to-Alpha trip takes exactly 100 time units.
+  - For every required leg, the corresponding schedule contains an available departure at or after the current time.
+
+### Example 1
+- **alpha2beta** (`int[]`) = `[0,200,500]`
+- **beta2alpha** (`int[]`) = `[99,210,450]`
+- **missions** (`int`) = `1`
+- **output** (`int`) = `310`
+
+Take the Alpha-to-Beta shuttle at time 0 and arrive at Beta at time 100. The earliest available return shuttle departs at time 210, so the mission finishes at Alpha at time 310.
+
+### Example 2
+- **alpha2beta** (`int[]`) = `[0,300,700]`
+- **beta2alpha** (`int[]`) = `[150,500,900]`
+- **missions** (`int`) = `2`
+- **output** (`int`) = `600`
+
+The first mission uses departures 0 and 150, finishing at time 250. The second uses departures 300 and 500, finishing at time 600.
+
+### Example 3
+- **alpha2beta** (`int[]`) = `[100,400]`
+- **beta2alpha** (`int[]`) = `[200,500]`
+- **missions** (`int`) = `2`
+- **output** (`int`) = `600`
+
+After departing Alpha at 100, you arrive at Beta exactly when the shuttle at 200 departs. The second mission similarly uses departures 400 and 500, so all missions finish at time 600.
+
+## Starter code
+
+```
+public int completeShuttleMissions(int[] alpha2beta, int[] beta2alpha, int missions) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+An August 28, 2025 Visa SDE Intern OA report identifies this two-sorted-schedule mission task and the repeated next-departure rule. The report omits the trip duration, exact inclusive boundary, bounds, and callable signature; this practice version records the 100-unit duration and at-or-after rule as source-compatible exercise assumptions drawn from the exact task identity.
+
+
+---
+
+# Sum Strict Local Maxima  (Visa)
+
+> id: `visa-sum-strict-local-maxima` | difficulty: easy | stage: OA | platform: codesignal | topics: array | last seen: 2025-08-28 | employment: INTERN
+
+## Problem
+
+You are given an integer array nums.
+An element at index i is a strict local maximum when it has two neighbors and is greater than both of them: nums[i] > nums[i - 1] and nums[i] > nums[i + 1].
+Return the sum of all strict local maxima. The first and last elements are never considered because they do not have two neighbors.
+
+## Constraints
+
+- 3 <= nums.length <= 105
+  - -109 <= nums[i] <= 109
+  - The answer fits in a signed 64-bit integer.
+
+### Example 1
+- **nums** (`int[]`) = `[1,5,2,4,3]`
+- **output** (`long`) = `9`
+
+5 is greater than 1 and 2, and 4 is greater than 2 and 3. Their sum is 9.
+
+### Example 2
+- **nums** (`int[]`) = `[5,1,4]`
+- **output** (`long`) = `0`
+
+The only eligible element is 1, which is smaller than both neighbors. The endpoints are not eligible.
+
+## Starter code
+
+```
+public long sumStrictLocalMaxima(int[] nums) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+An August 28, 2025 Visa SDE Intern CodeSignal OA report states the neighbor-sum task: add elements greater than both neighbors. The source omits endpoint behavior, bounds, return width, and a callable signature, so this practice version excludes endpoints and makes the execution contract explicit.
+
+
+---
+
 # Reduce the Array (Also for DA)  (JP Morgan Chase)
 
 > id: `jpmorgan-minimize-cost` | difficulty: medium | stage: OA | platform: hackerrank | topics: heap, greedy | last seen: 2025-08-22, 2024-07-10 | employment: INTERN
@@ -40956,6 +48575,72 @@ public int[] findFairDistribution(int[] points, int[] values) {
   // write your code here
 }
 ```
+
+
+---
+
+# Cloud Storage Compression and Decompression  (Ramp)
+
+> id: `ramp-cloud-storage-compression` | difficulty: hard | stage: OA | platform: codesignal | topics: hash_table, sorting, design, simulation | last seen: 2025-08-09, 2025-01-16, 2024-02-06 | employment: NEW GRAD, FULLTIME
+
+## Problem
+
+Implement the compression level of an in-memory cloud storage system with user ownership and capacity limits. Return one string result per operation. Use the literal string null for an empty optional result.
+Base File Operations
+  - ["ADD_FILE", name, size]: add an admin-owned file. The admin has unlimited capacity. Return true, or false when the name already exists.
+  - ["COPY_FILE", name_from, name_to]: copy a file when the source exists and the destination does not. Preserve the source owner's identity and return true; otherwise return false.
+  - ["GET_FILE_SIZE", name]: return the file size, or null when missing.
+
+Finding Files
+  - ["FIND_FILES", prefix, suffix]: find every current file name that starts with prefix and ends with suffix. Order matches by size descending and then name ascending, format each as name(size), and join them with ", ". Return the empty string when no file matches.
+
+Users and Capacity
+  - ["ADD_USER", user_id, capacity]: create a unique user and return true, or false when the ID exists.
+  - ["ADD_FILE_BY", user_id, name, size]: add an owned file without exceeding capacity. Return the user's remaining capacity, or null on failure.
+  - ["UPDATE_CAPACITY", user_id, capacity]: replace the user's capacity. If current files exceed it, remove the largest files until usage fits; break equal-size ties by file name in lexicographic order. Return the number removed, or null for a missing user.
+
+Compression
+  - ["COMPRESS_FILE", user_id, name]: require an existing file owned by the user. Replace it with name + ".COMPRESSED", preserve ownership, and halve its size. File sizes supplied to this operation are guaranteed even. Return remaining capacity, or null on failure.
+  - The input name to COMPRESS_FILE never already ends in .COMPRESSED. ADD_FILE and ADD_FILE_BY are never used to introduce compressed names. COPY_FILE preserves the suffix.
+  - ["DECOMPRESS_FILE", user_id, name]: name ends in .COMPRESSED. Require that it exists and belongs to the user. Replace it with the suffix-free name and double its size.
+  - Decompression fails with null if the uncompressed name already exists or the larger file would exceed the user's capacity. On success, return remaining capacity.
+
+Runner Interface
+cloudStorageCompression accepts String[][] operations and returns a String[].
+
+## Constraints
+
+- 1 <= operations.length <= 2000.
+  - Every operation uses one documented opcode and exact arity.
+  - File names, prefixes, suffixes, and user IDs contain at most 100 printable ASCII characters; required names and user IDs are non-empty.
+  - Every file size is a positive even integer at most 10^9.
+  - Every user capacity is an integer in [0, 10^18].
+  - All capacity and used-space arithmetic fits in a signed 64-bit integer.
+
+### Example 1
+- **operations** (`String[][]`) = `[["ADD_USER","user1","1000"],["ADD_USER","user2","5000"],["ADD_FILE_BY","user1","/dir/file.mp4","500"],["COMPRESS_FILE","user2","/dir/file.mp4"],["COMPRESS_FILE","user3","/dir/file.mp4"],["COMPRESS_FILE","user1","/folder/non_existing_file"],["COMPRESS_FILE","user1","/dir/file.mp4"],["GET_FILE_SIZE","/dir/file.mp4.COMPRESSED"],["GET_FILE_SIZE","/dir/file.mp4"],["COPY_FILE","/dir/file.mp4.COMPRESSED","/file.mp4.COMPRESSED"],["ADD_FILE_BY","user1","/dir/file.mp4","500"],["DECOMPRESS_FILE","user1","/dir/file.mp4.COMPRESSED"],["UPDATE_CAPACITY","user1","2000"],["DECOMPRESS_FILE","user2","/dir/file.mp4.COMPRESSED"],["DECOMPRESS_FILE","user3","/dir/file.mp4.COMPRESSED"],["DECOMPRESS_FILE","user1","/dir/file.mp4.COMPRESSED"],["DECOMPRESS_FILE","user1","/file.mp4.COMPRESSED"]]`
+- **output** (`String[]`) = `["true","true","500","null","null","null","750","250","null","true","0","null","0","null","null","null","750"]`
+
+Only User 1 owns the original file. Compression reduces it from 500 to 250. The first decompression attempt lacks capacity, and a later attempt conflicts with the re-created uncompressed name. After the capacity increase, the copied compressed file can be decompressed successfully.
+
+### Example 2
+- **operations** (`String[][]`) = `[["ADD_FILE","/logs/z.txt","4"],["ADD_FILE","/logs/a.txt","8"],["ADD_FILE","/logs/b.log","8"],["FIND_FILES","/logs/",".txt"],["FIND_FILES","/tmp/",".txt"]]`
+- **output** (`String[]`) = `["true","true","true","/logs/a.txt(8), /logs/z.txt(4)",""]`
+
+The two .txt files are ordered by size descending. The unrelated .log file is excluded, and the unmatched prefix returns the empty string.
+
+## Starter code
+
+```
+public String[] cloudStorageCompression(String[][] operations) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source directly identifies the file, prefix-and-suffix search, user-capacity, and compression/decompression levels. Some edge behavior is reconstructed, and the judged core task matches the visible source at about 96%.
 
 
 ---
@@ -41408,6 +49093,58 @@ public int[] batteryDischargeOrder(int t, int[] capacity, int[] recharge) {
 ## Source note
 
 I re-audited the available legacy author-written Roblox reports and could not find an original report supporting this cyclic battery and recharge task. Its current Roblox attribution, statement, role, stage, signature, examples, constraints, and edge cases therefore have a 0% match to verified source material. The page is retained for continuity, but it should be treated as an independently authored practice exercise rather than a source-backed Roblox interview question.
+
+
+---
+
+# Connect Four Winner  (Airbnb)
+
+> id: `airbnb-connect-four-winner` | difficulty: medium | stage: OA | platform: unknown | topics: matrix, simulation | last seen: 2025-07-28 | employment: FULLTIME
+
+## Problem
+
+Simulate a standard Connect Four game on a board with 6 rows and 7 columns.
+The integer array moves lists the chosen column for each move in chronological order. Player 1 moves first, and the players alternate. A disc falls into the lowest empty cell in its chosen column.
+Return the player number of the first player who forms four of their discs in a contiguous horizontal, vertical, or diagonal line. Return 0 if the sequence ends without a winner.
+Every supplied move is legal, and the sequence contains no move after a player has won.
+
+## Constraints
+
+- 1 <= moves.length <= 42.
+  - Every value in moves is an integer from 0 through 6.
+  - Each move selects a column that is not full.
+  - Player 1 moves first, then the players alternate.
+  - The sequence stops at the first winning move or before any player wins.
+
+### Example 1
+- **moves** (`int[]`) = `[3,2,3,2,3,2,3]`
+- **output** (`int`) = `1`
+
+Player 1 places four discs in column 3, so the final move completes a vertical line.
+
+### Example 2
+- **moves** (`int[]`) = `[0,0,1,1,2,2,3]`
+- **output** (`int`) = `1`
+
+Player 1 occupies the bottom cells of columns 0 through 3 and wins horizontally.
+
+### Example 3
+- **moves** (`int[]`) = `[0,1,2,3]`
+- **output** (`int`) = `0`
+
+Neither player has four connected discs when the move sequence ends.
+
+## Starter code
+
+```
+public int connectFourWinner(int[] moves) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source names Connect Four but omits the interface, board dimensions, move-validity contract, and requested output. This exercise uses the standard game and matches the reported core task at about 75%.
 
 
 ---
@@ -43100,6 +50837,149 @@ public int computeChecksumAggregation(int n) {
 }
 
 ```
+
+
+---
+
+# Concatenate Digit-wise Sums  (Visa)
+
+> id: `visa-concatenate-digit-wise-sums` | difficulty: easy | stage: OA | platform: codesignal | topics: string, two_pointers, simulation | last seen: 2025-06-29 | employment: FULLTIME
+
+## Problem
+
+You are given two non-empty strings a and b consisting of decimal digits.
+Right-align the strings. For each aligned position, add the corresponding digits. If one string has no digit at that position, use the digit from the other string as the sum for that position.
+Return a string formed by concatenating these per-position sums from the leftmost aligned position to the rightmost. A sum such as 18 contributes both characters 1 and 8; there is no carry between positions.
+
+## Constraints
+
+- 1 <= a.length, b.length <= 105
+  - a and b contain only decimal digits and each represents a positive integer.
+  - Digits are aligned from the right, and every position is summed independently without carrying.
+
+### Example 1
+- **a** (`String`) = `"99"`
+- **b** (`String`) = `"99"`
+- **output** (`String`) = `"1818"`
+
+The two aligned positions each contain 9 + 9 = 18. Concatenating the two sums gives "1818".
+
+### Example 2
+- **a** (`String`) = `"11"`
+- **b** (`String`) = `"9"`
+- **output** (`String`) = `"110"`
+
+The leftmost position contains only 1, and the rightmost position has 1 + 9 = 10. Concatenating 1 and 10 gives "110".
+
+## Starter code
+
+```
+public String concatenateDigitSums(String a, String b) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+A June 29, 2025 Visa Staff Software Engineer CodeSignal OA report supplies right-aligned digit-wise addition without carry and both examples. The source omits numeric bounds and uses the platform-generic name solution, so this practice version adds portable bounds and the descriptive callable name concatenateDigitSums without changing the reported task.
+
+
+---
+
+# Count Subarrays with K Disjoint Equal Pairs  (Visa)
+
+> id: `visa-count-subarrays-with-k-disjoint-equal-pairs` | difficulty: medium | stage: OA | platform: codesignal | topics: array, sliding_window, hash_table | last seen: 2025-06-29 | employment: FULLTIME
+
+## Problem
+
+Given an integer array nums and a positive integer k, count contiguous subarrays that contain at least k pairwise disjoint pairs of equal values.
+Each array occurrence may belong to at most one pair. Therefore, a subarray with frequencies freq[x] contains sum floor(freq[x] / 2) disjoint equal pairs.
+
+## Constraints
+
+- 1 <= nums.length <= 2 * 10^5.
+  - 1 <= k <= nums.length / 2.
+  - The answer fits in a 64-bit signed integer.
+
+### Example 1
+- **nums** (`int[]`) = `[1,1,2]`
+- **k** (`int`) = `1`
+- **output** (`long`) = `2`
+
+The qualifying subarrays are [1,1] and [1,1,2].
+
+### Example 2
+- **nums** (`int[]`) = `[1,1,1,1]`
+- **k** (`int`) = `2`
+- **output** (`long`) = `1`
+
+Only the full array contains two disjoint equal pairs.
+
+## Starter code
+
+```
+public long countSubarraysWithEqualPairs(int[] nums, int k) {
+  // write your code here
+}
+```
+
+## Source note
+
+The report preserves the pair-count rule but omits numeric bounds and the callable signature. The judged core task matches the visible source at about 96%.
+
+
+---
+
+# Time Travel Hours  (Visa)
+
+> id: `visa-time-travel-hours` | difficulty: easy | stage: OA | platform: codesignal | topics: array, simulation | last seen: 2025-06-29 | employment: FULLTIME
+
+## Problem
+
+You are given an integer array years describing the years that a time traveler must visit in order, starting at years[0].
+For each consecutive pair:
+  - Traveling to the same year costs 0 hours.
+  - Traveling forward to a later year costs 1 hour.
+  - Traveling backward to an earlier year costs 2 hours.
+
+Return the total travel time for the complete journey.
+
+## Constraints
+
+- 1 <= years.length <= 100
+  - 1 <= years[i] <= 104
+
+### Example 1
+- **years** (`int[]`) = `[2000, 1990, 2005, 2050]`
+- **output** (`int`) = `4`
+
+Traveling from 2000 back to 1990 costs 2 hours. Traveling forward from 1990 to 2005 and then to 2050 costs 1 hour per trip, for a total of 4.
+
+### Example 2
+- **years** (`int[]`) = `[2000, 2021, 2005]`
+- **output** (`int`) = `3`
+
+Traveling forward from 2000 to 2021 costs 1 hour, and traveling backward from 2021 to 2005 costs 2 hours, for a total of 3.
+
+### Example 3
+- **years** (`int[]`) = `[2021, 2021, 2005]`
+- **output** (`int`) = `2`
+
+Staying in 2021 costs 0 hours, and traveling backward from 2021 to 2005 costs 2 hours.
+
+## Starter code
+
+```
+public int timeTravelHours(int[] years) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+A June 29, 2025 Visa Staff Software Engineer CodeSignal OA report supplies every travel-cost rule and two examples. The source omits numeric bounds and uses the platform-generic name solution, so this practice version adds portable bounds and the descriptive callable name timeTravelHours without changing the reported task.
 
 
 ---
@@ -46041,6 +53921,161 @@ public int getMaximumCount(int[] arr, int k) {
 
 ---
 
+# Canonical Euler Trail  (Wells Fargo)
+
+> id: `wellsfargo-canonical-euler-trail` | difficulty: hard | stage: OA | platform: unknown | topics: graph | last seen: 2025-05-26 | employment: INTERN
+
+## Problem
+
+You are given a connected undirected multigraph with vertices numbered from 1 through n. Edge i joins edgeFrom[i] and edgeTo[i]. Parallel edges are allowed.
+The graph is guaranteed to have an Euler trail: a vertex sequence that uses every edge exactly once. Return the trail produced by this canonical Hierholzer order:
+  - If exactly two vertices have odd degree, start at the smaller one. Otherwise start at the smallest vertex incident to an edge.
+  - Whenever the traversal is at a vertex, consume the unused incident edge whose other endpoint is smallest. If several such edges have the same endpoint, consume the one with the smallest input index.
+  - Use Hierholzer backtracking and reverse the completed postorder sequence.
+
+## Constraints
+
+- 2 <= n <= 10^5.
+  - 1 <= edgeFrom.length == edgeTo.length <= 2 * 10^5.
+  - Every endpoint is between 1 and n, and no edge is a self-loop.
+  - The graph is connected after ignoring isolated vertices and has either zero or two odd-degree vertices.
+  - Every vertex from 1 through n is incident to at least one edge.
+
+### Example 1
+- **n** (`int`) = `3`
+- **edgeFrom** (`int[]`) = `[1,2]`
+- **edgeTo** (`int[]`) = `[2,3]`
+- **output** (`int[]`) = `[1,2,3]`
+
+The only Euler trail starts at odd-degree vertex 1 and follows both edges.
+
+### Example 2
+- **n** (`int`) = `3`
+- **edgeFrom** (`int[]`) = `[1,2,3]`
+- **edgeTo** (`int[]`) = `[2,3,1]`
+- **output** (`int[]`) = `[1,2,3,1]`
+
+All degrees are even, so traversal starts at vertex 1 and takes neighbor 2 first.
+
+### Example 3
+- **n** (`int`) = `4`
+- **edgeFrom** (`int[]`) = `[1,1,2,3]`
+- **edgeTo** (`int[]`) = `[2,3,4,4]`
+- **output** (`int[]`) = `[1,2,4,3,1]`
+
+Vertices 1 and 4 are odd; start at 1 and consume the edge to 2 before the edge to 3.
+
+## Starter code
+
+```
+public int[] canonicalEulerTrail(int n, int[] edgeFrom, int[] edgeTo) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source identifies a hard graph task asking for an Euler path. The standard edge-based definition, undirected multigraph model, guaranteed feasibility, and deterministic traversal order are explicit practice assumptions. The judged task matches the visible source at about 62%.
+
+
+---
+
+# Floor Square Roots for an Array  (Wells Fargo)
+
+> id: `wellsfargo-floor-square-roots` | difficulty: easy | stage: OA | platform: unknown | topics: array, binary_search, math | last seen: 2025-05-26 | employment: INTERN
+
+## Problem
+
+Given an array of nonnegative integers values, return an array where result i is the floor square root of values[i].
+For a number x, its floor square root is the largest integer r such that r * r <= x.
+
+## Constraints
+
+- 1 <= values.length <= 10^5.
+  - 0 <= values[i] <= 2^31 - 1.
+
+### Example 1
+- **values** (`int[]`) = `[0,1,4,9,16]`
+- **output** (`int[]`) = `[0,1,2,3,4]`
+
+Every value is a perfect square.
+
+### Example 2
+- **values** (`int[]`) = `[2,8,15,26]`
+- **output** (`int[]`) = `[1,2,3,5]`
+
+Each result is rounded down to the largest integer whose square does not exceed the input.
+
+### Example 3
+- **values** (`int[]`) = `[2147395600,2147483647]`
+- **output** (`int[]`) = `[46340,46340]`
+
+Both values have floor square root 46340; multiplication must avoid 32-bit overflow.
+
+## Starter code
+
+```
+public int[] floorSquareRoots(int[] values) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source identifies an easy array-based square-root task. The per-element floor rule, nonnegative domain, bounds, and callable interface are explicit practice assumptions. The judged task matches the visible source at about 72%.
+
+
+---
+
+# Longest Common Prefix  (Wells Fargo)
+
+> id: `wellsfargo-longest-common-prefix` | difficulty: medium | stage: OA | platform: unknown | topics: array, string | last seen: 2025-05-26 | employment: INTERN
+
+## Problem
+
+Given a nonempty array of lowercase strings words, return the longest string that is a prefix of every word.
+If the words share no nonempty prefix, return the empty string.
+
+## Constraints
+
+- 1 <= words.length <= 10^5.
+  - 1 <= words[i].length <= 10^5.
+  - The sum of all string lengths is at most 2 * 10^5.
+  - Every string contains lowercase English letters.
+
+### Example 1
+- **words** (`String[]`) = `["flower","flow","flight"]`
+- **output** (`String`) = `"fl"`
+
+All three words begin with fl, but their third characters differ.
+
+### Example 2
+- **words** (`String[]`) = `["dog","racecar","car"]`
+- **output** (`String`) = `""`
+
+The first characters are not all equal.
+
+### Example 3
+- **words** (`String[]`) = `["interview","internet","internal"]`
+- **output** (`String`) = `"inter"`
+
+The shared prefix ends before the sixth character.
+
+## Starter code
+
+```
+public String longestCommonPrefix(String[] words) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source identifies a medium longest-common-prefix task over an array of strings. The lowercase domain, nonempty input, bounds, and empty-result rule are explicit practice assumptions. The judged task matches the visible source at about 88%.
+
+
+---
+
 # Find Minimum Replacements  (Amazon)
 
 > id: `amazon-find-min-replacements` | difficulty: hard | stage: OA | platform: hackerrank | topics: array, greedy | last seen: 2025-05-24, 2025-03-30, 2025-03-29 | employment: FULLTIME
@@ -47358,6 +55393,55 @@ public int countUniqueDigits(int a, int b) {
 
 ---
 
+# Convert Snake Case Variables to Camel Case  (Ramp)
+
+> id: `ramp-convert-snake-case-variables-to-camel-case` | difficulty: easy | stage: OA | platform: unknown | topics: string, parsing | last seen: 2025-04-20, 2025-01-16, 2024-11-17, 2024-11-15, 2024-10-14, 2024-09-11, 2024-04-15, 2024-03-04, 2023-12-08 | employment: FULLTIME, NEW GRAD
+
+## Problem
+
+Given a string text containing space-separated variable names written in snake_case, convert every variable name to camelCase and return the resulting string.
+For each variable name:
+  - Preserve every leading and trailing underscore.
+  - Remove each underscore between lowercase words and capitalize the first letter of the following word.
+  - Leave a variable name with no internal underscore unchanged.
+
+Keep the variable names in their original order and keep the single spaces between them.
+
+## Constraints
+
+- 1 <= text.length <= 10^5.
+  - text contains lowercase English letters, underscores, and single spaces.
+  - Variable names are separated by exactly one space, with no leading or trailing space.
+  - Each variable name contains at least one letter.
+  - After removing its leading and trailing underscores, each variable name contains one or more non-empty lowercase words separated by single underscores.
+
+### Example 1
+- **text** (`String`) = `"__variable_one__ _variable_two variable_three"`
+- **output** (`String`) = `"__variableOne__ _variableTwo variableThree"`
+
+The leading and trailing underscores stay in place. The internal underscores are removed, and the letters o and t that follow them become uppercase.
+
+### Example 2
+- **text** (`String`) = `"foo_bar __hello_world_ plain"`
+- **output** (`String`) = `"fooBar __helloWorld_ plain"`
+
+foo_bar becomes fooBar, __hello_world_ becomes __helloWorld_, and plain is unchanged.
+
+## Starter code
+
+```
+public String toCamelCase(String text) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The source omits token grammar and length bounds. The judged core task matches the visible source at about 95%.
+
+
+---
+
 # Get Minimum Dock Bays  (Amazon)
 
 > id: `amazon-get-minimum-dock-bays` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, binary_search, heap | last seen: 2025-04-20 | employment: NEW GRAD
@@ -47404,6 +55488,327 @@ With only one dock bay, all trucks can be unloaded in 2 + 3 + 1 = 6 minutes, whi
 ```
 
 public int getMinimumDockBays(int[] truckCargoSize, long maxTurnaroundTime) {
+  // write your code here
+}
+
+```
+
+
+---
+
+# For All Intents And Purposes Part 1 - Initializing the System 🏗️  (Stripe)
+
+> id: `stripe-for-all-intents-and-purposes` | difficulty: easy | stage: OA | platform: hackerrank | topics: design, hash_table, simulation | last seen: 2025-04-17, 2024-12-09, 2024-11-18 | employment: INTERN, NEW GRAD
+
+## Problem
+
+🐝 Hi there! The description you are currently reading is just 1st part of the problem set. It is highly recommended to read ALL THE PARTS before coding as parts may build on top of each other 🐳
+    
+  - For All Intents And Purposes Part 1 - Initilizing the System 🏗️
+  - For All Intents And Purposes Part 2 - Change Is Good! 👍
+  - For All Intents And Purposes Part 3 - Accepting Failure 😌
+  - For All Intents And Purposes Part 4 - Timing Matters ⏰
+
+    Background
+    
+
+    Stripe processes billions of dollars of payments to businesses every day through dozens of different payment
+    methods like cards, bank debits, and even papaer cheques.
+    
+
+    We don't want merchants (the businesses who use Stripe to accept peyments) to have to worry about
+    the details for each specific payment method. For example, for many payment methods, payments are not completed
+    instantly and can take a few days to process and be confirmed or fail, while others are processed much more
+    quickly. Stripe abstracts this payment flow with a simple state machine object called a Payment Intent.
+    
+
+    Today, imagine you are an engineer working at Stripe in its early days. You will implement a system that handles
+    the creation and management of these Payment Intens, helping merchants easily setup and accept payments from customers.
+    
+
+    Please read all instructions for each part before you begin coding for that part.
+    
+
+     What is a Payment Intent?
+    
+
+    A Payment Intent tracks a payment through its flow from initilization to processing to confirmation. We
+    model this flow as a state machine: an abstract object that can exist in one of a number of states and transition
+    between states.
+    
+
+    A Payment Intent stores information like the merchant receiving the peyment and the monetary amount. It also
+    should keep track of its state, which can be one of three values
+        
+  - REQUIRES_ACTION
+
+👉 The initial state of a Payment Intent upon creation. Can transition to PROCESSING.
+  - PROCESSING
+
+👉 The customer has attempted to pay but the attempt has not yet succeeded or failed. Can transition to either REQUIRES_ACTION or COMPLETED
+  - COMPLETED
+
+👉 The attempt to pay succeeded and the Payment Intent amount was added to the merchant's balance.
+
+     You Task
+     
+
+     You will implement a function that executes a chronologically ordered list of commands to create and manage Payment Intents for different
+     merchants and then returns the account balances for each merchant after executing all commands.
+     
+
+     Input
+    
+
+    You will receive a chronologically ordered list of commands in the form ['INIT m1 0', 'CREATE p1 m1 100'] where
+    each command is a single string. You will also receive the part number, corresponding to the pairs in the problem
+    description. The commands you need to support are decribed below.
+    
+
+    Output
+    
+
+    A list of merchant balances in the form ['m1 100', 'm2 200'] representing the balance for each merchant after
+    executing all commands. The list should be sorted by merchant ID in ascending alphabetical order.
+    
+
+    Part 1: Good Intentions
+    
+
+    To build the initial version of our system, we will support a few basic commands for initializing a merchant,
+    creating a Payment Intent, attempting a Payment Intent, and succeeding a Payment Intent.
+    
+
+    Commands
+    
+
+    For this part, your system should handle the following commands -
+    
+
+    INIT <merchant_id> <starting_balance>
+    
+  - Initializes a merchant with a unique identifier string and starting balance (the amount of money in their account)
+  - If a merchant with the given identifier has already been created, this command should do nothing.
+
+    CREATE <payment_init_id> <merchant_id> <amount>
+    
+  - Creates a Payment Intent for a merchant with a given amount. After creation, the state of the Payment Itent should be REQUIRES_ACTION.
+  - If a Payment Intent with the given identifier already exists, or if a merchant with the given identifier doe snot exist, or if the amount is negative, this command should do nothing
+
+    ATTEMPT <payment_init_id>
+    
+  - Transitions a Payment Intent with a given identifier from the REQUIRE_ACTION state to the PROCESSING state.
+  - If no Payment Intent with the given identifier exists, or if the state of the Payment Intent is not REQUIRES_ACTION, this command should do nothing.
+
+    SUCCEED <payment_init_id>
+    
+  - Transitions a Payment Intent with a given identifier from the PROCESSING state to the COMPLETED state
+  - If no Payment Intent with the given identifier exists, or if the state of the Payment Intent is not PROCESSING, this command should do nothing.
+
+    🐳⋆｡˚⋆❀ 🐚🫧𓇼 ˖°Credit to Rachelᥫ᭡.
+
+## Constraints
+
+- 🫶
+
+### Example 1
+- **commands** (`String[]`) = `["INIT m1 0", "INIT m2 10", "CREATE p1 m1 50", "ATTEMPT p1", "SUCCEED p1", "SUCCEED p1", "CREATE p2 m2 100", "ATTEMPT p2"]`
+- **output** (`String[]`) = `["m1 50", "m2 10"]`
+
+Let's look at what happened for each command 🐼
+
+  - INIT m1 0 initializes merchant m1 with a starting balance of 0
+  - INIT m2 10 initializes merchant m2 with a starting balance of 10
+  - Create p1 m1 50 creates a Payment Intent p1 for merchangt m1 with an amount of 50 and initial state of REQUIRES_ACTION initializes merchant m2 with a starting balance of 10
+  - ATTEMPT p1 transitions p1 from REQUIRES_ACTION to PROCESSING
+  - SUCCEED p2 transitions p2 from PROCESSING to COMPLETED and increments merchant m1's balance by 50
+  - CREATE p2 m2 100 creates a Payment Intent p2 for merchant m2 with an amount of 100 and initial state of REQUIRES_ACTION
+  - ATTEMPT p2 transitions p2 from REQUIRES_ACTION to PROCESSING
+
+Because only p1 was successfully completed, at the end of executing all of the commands, m1 should have a balance of 50 and m2 should have a balance of 10 :D
+
+## Starter code
+
+```
+
+public String[] forAllIntentsAndPurposes(String[] commands) {
+  // write your code here
+}
+
+```
+
+
+---
+
+# For All Intents And Purposes Part 2 - Change Is Good! 👍  (Stripe)
+
+> id: `stripe-for-all-intents-and-purposes-part2` | difficulty: easy | stage: OA | platform: hackerrank | topics: design, hash_table, simulation | last seen: 2025-04-17, 2024-12-09, 2024-11-18 | employment: INTERN, NEW GRAD
+
+## Problem
+
+🐝 Hi there! The description you are currently reading is just 2nd part of the problem set. It is highly recommended to read ALL THE PARTS before coding as parts may build on top of each other 🐳
+    
+  - For All Intents And Purposes Part 1 - Initilizing the System 🏗️
+  - For All Intents And Purposes Part 2 - Change Is Good! 👍
+  - For All Intents And Purposes Part 3 - Accepting Failure 😌
+  - For All Intents And Purposes Part 4 - Timing Matters ⏰
+
+    The initial version of our system looks good 😄👍! But it turns out merchants also need to be
+    able to update the amount of initialized Payment Intents. This happen if a customer begins to check out
+    but then decides to change the items in their shopping cart 🛒 and thus the amount of the payment. Let's add
+     that the our system 🍻!  
+    
+
+    Commands
+    
+
+    Your system should support an additional command for updaing a Payment Intent.
+    
+
+    UPDATE <payment_intent_id> <new amount>
+    
+  - Update the monetary amount of an existing Payment Intent in the REQUIRES_ACTION state. This does not transition the state of the Payment Intent.
+  - If no Payment Intent with the given identifier exists, or if the Payment Intent is not in the REQUIRES_ACTION state, or if the new amount is negative, this mommand should do nothing.
+
+    ｡ﾟ•┈꒰ა 🧡 Credit to Rachel 🧡໒꒱┈• ｡ﾟ
+
+## Constraints
+
+- 🫶
+
+### Example 1
+- **commands** (`String[]`) = `["INIT m1 0", "CREATE p1 m1 50", "UPDATE p1 100",  "ATTEMPT p1", "SUCCEED p1"]`
+- **output** (`String[]`) = `["m1 100"]`
+
+While the Payment Intent p1 was initially created with an amount of 50, this was then updated to 100 before being attempted then succeeded. Therefore, merchant m1 has a balance of 100 after all commands have been processed.
+
+## Starter code
+
+```
+
+public String[] forAllIntentsAndPurposes2(String[] commands) {
+  // write your code here
+}
+
+```
+
+
+---
+
+# For All Intents And Purposes Part 3 - Accepting Failure 😌  (Stripe)
+
+> id: `stripe-for-all-intents-and-purposes-part3` | difficulty: easy | stage: OA | platform: hackerrank | topics: design, hash_table, simulation | last seen: 2025-04-17, 2024-12-09, 2024-11-18 | employment: INTERN, NEW GRAD
+
+## Problem
+
+🐝 Hi there! The description you are currently reading is just 3rd part of the problem set. It is highly recommended to read ALL THE PARTS before coding as parts may build on top of each other 🐳
+    
+  - For All Intents And Purposes Part 1 - Initilizing the System 🏗️
+  - For All Intents And Purposes Part 2 - Change Is Good! 👍
+  - For All Intents And Purposes Part 3 - Accepting Failure 😌
+  - For All Intents And Purposes Part 4 - Timing Matters ⏰
+
+    The rest of the team is thrilled with our progress building Stripe's new Payment Intent processor, but they
+    pointed out a few cases we should handle before releasing the system to the public 👥
+    
+
+    First, payments don't alway succeed and can fail for a variety of reasons like a card network declining a
+    transaction or a bank account not having sufficient funds to be debited. Second, even after payments have succeeded, customers need to be
+    able to request refunds from merchant.
+    
+
+    Let's update our implementation to handle two new commands: FAIL and REFUND 🥹.
+    
+
+    Commands
+
+    
+
+    FAIL <payment_intent_id> 
+    
+  - Fails a payment intent in the PROCESSING state, transitioning it from PROCESSING to REQUIRES_ACTION. This occurs when the customer's payment was declined.
+  - If no Payment Intent with the given identifier exists, or if the Payment Intent is not in the PROCESSING state, this command should do nothing.
+
+    REFUND <payment_intent_id>
+    
+  - Processes a refund for a previously successful payment intent in the COMPLETED state. This should decrement the merchant's balance by the amount of the Payment Intent in order to return the refund to the customer
+  - If no Payment Intent with the given identifier exists, or if the Payment Intent is not in the COMPLETED state, or if the Payment Intent has already been refunded, this command should do nothing.
+
+## Constraints
+
+- 🫶
+
+### Example 1
+- **commands** (`String[]`) = `["INIT m1 0", "CREATE p1 m1 50",  "ATTEMPT p1",  "FAIL p1",  "ATTEMPT p1",  "SUCCEED p1",   "CREATE p2 m1 100",  "ATTEMPT p2", "SUCCEED p2", "REFUND p2"]`
+- **output** (`String[]`) = `["m1 50"]`
+
+The Payment Intent p1 was created with an amount of 50, then attempted, then failed which transitioned it back to the REQUIRES_ACTION, then attempted, then succeeded. At that point, m1's balance was 50. The Payment Intent p2 was created with a amount of 100, then attempted, then succeeded. At that point, m1's balance was 150. Then p2 was refunded, so m1's balance after executing all commands is 50 :)
+
+## Starter code
+
+```
+
+public String[] forAllIntentsAndPurposes3(String[] commands) {
+  // write your code here
+}
+
+```
+
+
+---
+
+# For All Intents And Purposes Part 4 - Timing Matters ⏰  (Stripe)
+
+> id: `stripe-for-all-intents-and-purposes-part4` | difficulty: medium | stage: OA | platform: hackerrank | topics: design, hash_table, simulation | last seen: 2025-04-17, 2024-12-09, 2024-11-18 | employment: INTERN, NEW GRAD
+
+## Problem
+
+🐝 Hi there! The description you are currently reading is just 4th part of the problem set. It is highly recommended to read ALL THE 4 PARTS before coding as parts may build on top of each other 🐳
+    
+  - For All Intents And Purposes Part 1 - Initilizing the System 🏗️
+  - For All Intents And Purposes Part 2 - Change Is Good! 👍
+  - For All Intents And Purposes Part 3 - Accepting Failure 😌
+  - For All Intents And Purposes Part 4 - Timing Matters ⏰
+
+    Last month, we received the new Payment Intent system you built 👏, and merchants have been LOVING how simple it makes accepting payments. Congratulations 🎉!
+    
+
+    However, numerous merchants have requested that we augment our refund functionality by letting merchants
+    specify a refund timeout policy: the amount of time after a payment succeeds that refunds are permitted.
+    For example, one merchant, LlmaCorp, only wants to accept refunds within 15 days of a payment succeeding. Being able to return a llama afte 15 days would be absurd after all. 
+    
+
+    Let's add this functionality to our system, which means we will need to change the format of our commands to handle timing 💪.
+    
+
+    Timestamps
+    
+  - All commands will now have an integer timestamp in front. For example, intead of SUCCEED <pi_id>, you will now receive<timestamp>SUCCEED <pi_id>
+  - You can assume that the timestamps will always be integers (representing a unit of time) and that the timestamps of the list of commands will be strictly increasing
+
+    Merchant Refund Timeout Limit
+    
+  - The INIT command that initializes a merchant will now have an optional third argument specifying the merchant's refund timeout limit. The new specification is - 
+
+ 👉 <timestamp> INIT <merchant_id> <starting_balance> <refund_time_out_limit>
+  - If a merchant has a refund_timeout_limit of n, and succeeds a Payment Intent (with the SUCCEED command) at timestamp t, then the timestamp of a REFUND command must be no greater than t + n, otherwise the refund should no succeed.
+  - iF A refund_timeout_limit is not specified during merchant initialization, there is no refund time limit, a a refund should succeed regardless how much time has passed since Payment Intent confirmation. A reund_timeout_limit of 0 means no refunds should be accepted ever, and a negative refund_timeout_limit should be ignore (meaning all refunds should be accepted)
+
+## Constraints
+
+- 🫶
+
+### Example 1
+- **commands** (`String[]`) = `["1 INIT m1 0 5", "2 CREATE p1 m1 100", "3 CREATE p2 m1 50", "4 ATTEMPT p1", "5 ATTEMPT p2", "8 SUCCEED p1", "10 SUCCEED p2", "11 REFUND p1", "16 REFUND p2"]`
+- **output** (`String[]`) = `["m1 50"]`
+
+In the above example, the reund of Payment Intent p1 succeeded because p1 was succeeded at time 8 and refunded at time 11, which is within merchant m1's refund timeout limit of 5. However, the refund of Payment Intent p2 failed because p2 was succeeded at time 10 and refunded at time 16, and 16 - 10 = 6 > 5, meaning it occured after m1's timeout limit. Because p1 was successfully refunded and p2 was not, the final balance of merchant m1 should be 50 :P
+
+## Starter code
+
+```
+
+public String[] forAllIntentsAndPurposes4(String[] commands) {
   // write your code here
 }
 
@@ -49994,79 +58399,6 @@ These words are in s but not part of t.
 ```
 
 public String[] findWordsNotInSubsequence(String s, String t) {
-  // write your code here
-}
-
-```
-
-
----
-
-# Accept or Decline Queries  (Ramp)
-
-> id: `ramp-accept-or-decline-queries` | difficulty: medium | stage: OA | platform: codesignal | topics: sliding_window, hash_table, queue | last seen: 2025-03-21 | employment: 
-
-## Problem
-
-Hi! I made a tiny modification in the input timestamps, it is supposed to be int[], but Java says it is too large as integer, so
-    I have to change it to String[]. Things might be a bit more complicated, but I believe you can handle it :P
-    
-
-    Given a list of timestamped queries, you will need to accept or decline each of them, depending on the number of request from the same IP during a given window.
-    
-
-    The queries are represented by the two arrays timestamps and ipAddresses:
-    
-  - 
-        timestamps, an array of integers representing the Unix timestamps of the requests.
-      
-          
-  - a. timestamps[i] represents the ith timestamp for the ith request, in milliseconds.
-  - b. All requests are guaranteed to be in chronological order, i.e., timestamps is sorted in non-decreasing order.
-  - c. It's guaranteed that no two requests from the same IP have the same timestamp.
-  - 
-        ipAddresses, an array of strings representing source IP addresses.
-          
-  - d. ipAddresses[i] corresponds to the ith request's IP address.
-
-    You're also given two integers limit and timeWindow:
-    
-  - limit represents the maximum number of requests that can be accepted from the same IP address, within the time window.
-  - timeWindow represents the duration of the inclusive time window, in milliseconds.
-
-    You must return an array of integers where the ith element of the array corresponds to the ith request. Each element of the array should equal to 1 if the ith request was accepted and 0 if it was rejected.
-
-## Constraints
-
-- TO-DO
-
-### Example 1
-- **timestamps** (`String[]`) = `["1600040547954", "1600040547957", "1600040547958"]`
-- **ipAddresses** (`String[]`) = `["127.127.420.312", "127.127.420.312", "127.127.420.312"]`
-- **limit** (`int`) = `1`
-- **timeWindow** (`int`) = `3`
-- **output** (`int[]`) = `[1, 0, 1]`
-
-Request at 0 has arrived at timestamp 1600040547954 from IP address 127.127.420.312, and since there are no accepted requests from 127.127.420.312, it's accepted. Thus 1.
-
-Request at 1 has arrived at timestamp 1600040547957 from IP address 127.127.420.312. There's already a request from the same IP address within the same time window so we reject. Thus 0.
-
-Request at 2 has arrived at timestamp 1600040547958 from IP address 127.127.420.312. There are no accepted requests from this IP address within this time window, it's accepted. Thus 1.
-
-### Example 2
-- **timestamps** (`String[]`) = `["52245", "52245", "52246", "52247", "52248", "52249", "52253"]`
-- **ipAddresses** (`String[]`) = `["00.00.00.15", "00.00.00.42", "00.00.00.15", "00.00.00.15", "00.00.00.42", "00.00.00.15", "00.00.00.96"]`
-- **limit** (`int`) = `2`
-- **timeWindow** (`int`) = `3`
-- **output** (`int[]`) = `[1, 1, 1, 0, 1, 1, 1]`
-
-:)
-
-## Starter code
-
-```
-
-public int[] acceptOrDeclineQueries(String[] timestamps, String[] ipAddresses, int limit, int timeWindow) {
   // write your code here
 }
 
@@ -54002,6 +62334,119 @@ public int minAdditionalLatency(int n, int[] latency) {
 
 ---
 
+# Correct Apartment Bedroom Counts  (Ramp)
+
+> id: `ramp-correct-apartment-bedroom-counts` | difficulty: medium | stage: OA | platform: unknown | topics: string, array, parsing, simulation | last seen: 2025-02-02, 2024-10-16, 2024-10-08, 2024-08-25, 2024-08-01, 2024-07-04, 2024-06-28, 2024-03-22 | employment: INTERN, NEW GRAD, FULLTIME
+
+## Problem
+
+We want to query an API endpoint to receive data about currently available apartment listings from a rental website. Among the data fields is a column called num_bedrooms, which takes the value of 1 for a "1-bedroom" apartment and 0 for a "studio".
+Note: This rental agency only works with studios and 1-bedroom apartments, so there will never be 2+ bedroom listings. Each listing includes information about a "studio" or a "1-bedroom" apartment, so there will never be a listing with both a "studio" and "1-bedroom" offerings in one posting.
+The algorithm used occasionally mistags the num_bedrooms value. Specifically, sometimes a "studio" is tagged as having num_bedrooms = 1 or a "1-bedroom" is tagged as num_bedrooms = 0. Further investigation revealed it to be an issue with one of the data fields, description, and the way our algorithm parsed the field to extract a num_bedrooms value.
+For example: "description": "Beautiful 1-bedroom apartment with nearby yoga studio." was detected as a yoga studio instead of 1-bedroom and incorrectly had num_bedrooms = 0.
+Your task is to write a function that takes in the jsonData and corrects this problem. The GET request retrieves the data as a string which looks like this:
+jsonData = [
+  {
+    "id": "3",
+    "agent": "Ton Jett",
+    "unit": "#12",
+    "description": "Beautiful 1-bedroom apartment with nearby yoga studio.",
+    "num_bedrooms": 1
+  },
+  ...
+]While correcting the problem, remember the following edge cases:
+  - If the word "studio" or "1-bedroom" is preceded immediately by any of the words: "yoga", "dance" or "art", don't consider it for num_bedrooms value.
+  - If the description does not contain the word "studio" or "1-bedroom", do not change the value for num_bedrooms.
+  - The rules above should be applied regardless of punctuation or letter casing within the description field.
+
+Your end goal is to return an array of integers representing num_bedrooms for each rental listing, example: [0, 1, 1, 1, 0, 0].
+The source labels the following case Example.
+For
+jsonData = "[{\"id\":\"1\",\"agent\":\"Radulf Katlego\",\"unit\":\"#3\",\"description\":\"This luxurious studio apartment is in the heart of downtown.\",\"num_bedrooms\":1},{\"id\":\"2\",\"agent\":\"Kelemen Konrad\",\"unit\":\"#36\",\"description\":\"We have a 1-bedroom available on the third floor.\",\"num_bedrooms\":1},{\"id\":\"3\",\"agent\":\"Ton Jett\",\"unit\":\"#12\",\"description\":\"Beautiful 1-bedroom apartment with nearby yoga studio.\",\"num_bedrooms\":1},{\"id\":\"4\",\"agent\":\"Fishel Salman\",\"unit\":\"#13\",\"description\":\"Beautiful studio with a nearby art studio.\",\"num_bedrooms\":1}]"the output should be solution(jsonData) = [0, 1, 1, 0].
+The above jsonData represents the following JSON:
+[
+  {
+    "id": "1",
+    "agent": "Radulf Katlego",
+    "unit": "#3",
+    "description": "This luxurious studio apartment is in the heart of downtown.",
+    "num_bedrooms": 1
+  },
+  {
+    "id": "2",
+    "agent": "Kelemen Konrad",
+    "unit": "#36",
+    "description": "We have a 1-bedroom available on the third floor.",
+    "num_bedrooms": 1
+  },
+  {
+    "id": "3",
+    "agent": "Ton Jett",
+    "unit": "#12",
+    "description": "Beautiful 1-bedroom apartment with nearby yoga studio.",
+    "num_bedrooms": 1
+  },
+  {
+    "id": "4",
+    "agent": "Fishel Salman",
+    "unit": "#13",
+    "description": "Beautiful studio with a nearby art studio.",
+    "num_bedrooms": 1
+  }
+]FastPrep practice clarification
+  - The source's two explanation sentences using followed by are retained verbatim below. For judging, follow the explicit source rule: ignore a target occurrence when its immediately preceding word is yoga, dance, or art.
+  - Match the complete words studio and 1-bedroom case-insensitively. Punctuation separates words, so ART...studio has art as the immediately preceding word.
+  - Return corrected values in the same order as the listings in jsonData. If no non-ignored target occurs, retain that listing's original num_bedrooms.
+
+## Constraints
+
+- Input/Output  - [execution time limit] 4 seconds (py3)
+  - [memory limit] 1 GB
+  - [input] string jsonData  - String in JSON format. It's guaranteed that each listing contains the fields "id", "agent", "unit", "description" and "num_bedrooms".
+  - Guaranteed constraints: 136 ≤ jsonData.length ≤ 15366.
+
+  - [output] array.integer  - Return an array that contains the correct values for num_bedrooms for all of the listings in jsonData.
+
+  - FastPrep practice clarification: jsonData is valid standard JSON; description is a string, num_bedrooms is 0 or 1, and each source target or modifier is matched as a complete ASCII word.
+
+### Example 1
+- **jsonData** (`String`) = `"[{\"id\":\"1\",\"agent\":\"Radulf Katlego\",\"unit\":\"#3\",\"description\":\"This luxurious studio apartment is in the heart of downtown.\",\"num_bedrooms\":1},{\"id\":\"2\",\"agent\":\"Kelemen Konrad\",\"unit\":\"#36\",\"description\":\"We have a 1-bedroom available on the third floor.\",\"num_bedrooms\":1},{\"id\":\"3\",\"agent\":\"Ton Jett\",\"unit\":\"#12\",\"description\":\"Beautiful 1-bedroom apartment with nearby yoga studio.\",\"num_bedrooms\":1},{\"id\":\"4\",\"agent\":\"Fishel Salman\",\"unit\":\"#13\",\"description\":\"Beautiful studio with a nearby art studio.\",\"num_bedrooms\":1}]"`
+- **output** (`int[]`) = `[0, 1, 1, 0]`
+
+In the first listing, description = "This luxurious studio apartment is in the heart of downtown."
+  - "studio" should have num_bedrooms = 0;
+
+In the second listing, description = "We have a 1-bedroom available on the third floor."
+  - "1-bedroom" should have num_bedrooms = 1;
+
+In the third listing, description = "Beautiful 1-bedroom apartment with nearby yoga studio."
+  - "1-bedroom" should have num_bedrooms = 1. Ignore "studio" since it is followed by "yoga".
+
+In the fourth listing, description = "Beautiful studio with a nearby art studio."
+  - "studio" should have num_bedrooms = 0. Ignore the second appearance of "studio" since it is followed by "art".
+
+### Example 2
+- **jsonData** (`String`) = `"[{\"id\":\"5\",\"agent\":\"Ari Lane\",\"unit\":\"#21\",\"description\":\"Bright YOGA, studio next to transit.\",\"num_bedrooms\":1},{\"id\":\"6\",\"agent\":\"Mina Park\",\"unit\":\"#22\",\"description\":\"A DANCE/1-BEDROOM rehearsal room is listed nearby.\",\"num_bedrooms\":0},{\"id\":\"7\",\"agent\":\"Noah Reed\",\"unit\":\"#23\",\"description\":\"Quiet apartment near the river.\",\"num_bedrooms\":1}]"`
+- **output** (`int[]`) = `[1, 0, 1]`
+
+FastPrep practice example: YOGA, studio and DANCE/1-BEDROOM are ignored because punctuation does not break the immediately preceding-word relationship. The last listing has no target word, so its original value remains 1.
+
+## Starter code
+
+```
+public int[] solution(String jsonData) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The source provides the JSON contract, rules, example, and limits; its illustrative reference code conflicts with one worked case, so the judged behavior follows the explicit rule and example. The judged core task matches the visible source at about 99%.
+
+
+---
+
 # Get Maximum Events  (Amazon)
 
 > id: `amazon-get-maximum-events` | difficulty: hard | stage: OA | platform: hackerrank | topics: dynamic_programming, sorting, greedy | last seen: 2025-02-02, 2025-01-05 | employment: FULLTIME
@@ -54316,6 +62761,93 @@ public int getMaxPositiveFeedback(String videoFeedback) {
 }
 
 ```
+
+
+---
+
+# Spiral Matrix Traversal  (Visa)
+
+> id: `visa-spiral-matrix-traversal` | difficulty: medium | stage: OA | platform: unknown | topics: array, matrix, simulation | last seen: 2025-02-01 | employment: FULLTIME
+
+## Problem
+
+You are given a non-empty rectangular integer matrix.
+Return all elements in clockwise spiral order, beginning at the top-left corner. Traverse the top edge, right edge, bottom edge in reverse, and left edge in reverse, then repeat on the remaining inner rectangle.
+
+## Constraints
+
+- 1 <= matrix.length, matrix[i].length <= 1000
+  - All rows have the same length.
+  - The matrix contains at most 105 elements.
+  - -109 <= matrix[i][j] <= 109
+
+### Example 1
+- **matrix** (`int[][]`) = `[[1,2,3],[4,5,6],[7,8,9]]`
+- **output** (`int[]`) = `[1,2,3,6,9,8,7,4,5]`
+
+The outer ring is 1,2,3,6,9,8,7,4; the remaining center is 5.
+
+### Example 2
+- **matrix** (`int[][]`) = `[[1,2,3,4],[5,6,7,8]]`
+- **output** (`int[]`) = `[1,2,3,4,8,7,6,5]`
+
+The two-row matrix is consumed entirely by its outer ring.
+
+## Starter code
+
+```
+public int[] spiralTraversal(int[][] matrix) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+A February 1, 2025 Visa Software Engineer I online assessment report directly identifies spiral traversal in a matrix as question 3. The source omits direction, start corner, bounds, and a callable signature, so this practice version uses the conventional clockwise top-left spiral contract.
+
+
+---
+
+# Wait Until the Next Bus  (Visa)
+
+> id: `visa-next-bus-wait-time` | difficulty: easy | stage: OA | platform: codesignal | topics: array, simulation | last seen: 2025-02-01 | employment: FULLTIME
+
+## Problem
+
+You are given a current time and a list of bus departure times for the same service day. Every time is a zero-padded 24-hour string in HH:MM format.
+Return the number of minutes until the earliest departure that is at or after the current time. A bus departing exactly now has wait 0. Return -1 if every listed departure has already passed.
+
+## Constraints
+
+- 1 <= departures.length <= 10^5.
+  - Every time is a valid same-day HH:MM value.
+
+### Example 1
+- **currentTime** (`String`) = `"09:10"`
+- **departures** (`String[]`) = `["08:45","09:30","10:00"]`
+- **output** (`int`) = `20`
+
+The first departure not earlier than 09:10 is 09:30.
+
+### Example 2
+- **currentTime** (`String`) = `"17:00"`
+- **departures** (`String[]`) = `["12:00","17:00","16:30"]`
+- **output** (`int`) = `0`
+
+A departure occurs at the current time.
+
+## Starter code
+
+```
+public int nextBusWait(String currentTime, String[] departures) {
+  // write your code here
+}
+```
+
+## Source note
+
+The report preserves the next-shuttle waiting-time task and time format but omits numeric bounds and the callable signature. The judged core task matches the visible source at about 96%.
 
 
 ---
@@ -57014,6 +65546,71 @@ public List<Integer> getFinalLocations(List<Integer> locations, List<Integer> mo
 
 ---
 
+# Aggregate Paginated Project Run Records  (Replit)
+
+> id: `replit-aggregate-paginated-project-runs` | difficulty: medium | stage: OA | platform: unknown | topics: array, hash_table, sorting, simulation, string | last seen: 2025-01-01 | employment: FULLTIME
+
+## Problem
+
+A project-runs API has already been queried page by page. The flattened responses are provided in pageRecords, in page order and then response order within each page.
+Each row contains exactly five strings:
+  - pageNumber: the positive decimal page number.
+  - runId: the run's unique identifier.
+  - projectId: the project that owns the run.
+  - status: one of SUCCESS, FAILED, or CANCELED.
+  - durationMs: a nonnegative decimal duration in milliseconds.
+
+Rows are ordered by increasing page number. A changing paginated data set can repeat the same runId. Process rows from left to right and treat the first occurrence of each runId as authoritative; ignore every later occurrence completely, even when its fields differ.
+After deduplication, keep only rows whose status is exactly SUCCESS. For each projectId, compute its number of successful runs and the sum of their durations. Keep projects with at least minSuccessfulRuns successful runs.
+Return one row per kept project in the form [projectId, successfulRunCount, totalDurationMs]. Serialize both numeric values as base-10 strings. Sort rows by total duration descending, then successful-run count descending, then project ID in ascending lexicographic order. Return an empty array when no project qualifies.
+
+## Constraints
+
+- 0 <= pageRecords.length <= 200000.
+  - Every row has exactly five strings in the documented order.
+  - pageNumber is a positive decimal integer, and rows are ordered by nondecreasing page number.
+  - runId and projectId are non-empty printable ASCII strings of length at most 64.
+  - status is exactly SUCCESS, FAILED, or CANCELED.
+  - 0 <= durationMs <= 10^9.
+  - 1 <= minSuccessfulRuns <= 200000.
+  - Every project's total successful duration is at most 2 * 10^14 and requires 64-bit arithmetic.
+
+### Example 1
+- **pageRecords** (`String[][]`) = `[["1","r1","alpha","SUCCESS","120"],["1","r2","beta","FAILED","80"],["2","r3","alpha","SUCCESS","30"],["2","r2","beta","SUCCESS","999"],["2","r4","beta","SUCCESS","200"]]`
+- **minSuccessfulRuns** (`int`) = `1`
+- **output** (`String[][]`) = `[["beta","1","200"],["alpha","2","150"]]`
+
+The first r2 record is authoritative and has status FAILED, so its later successful duplicate is ignored. Project alpha has two successful runs totaling 150 ms, while beta has one totaling 200 ms. The larger total duration places beta first.
+
+### Example 2
+- **pageRecords** (`String[][]`) = `[["1","c1","core","SUCCESS","50"],["1","e1","edge","SUCCESS","20"],["2","c2","core","CANCELED","100"],["2","e2","edge","SUCCESS","30"],["3","d1","data","SUCCESS","50"]]`
+- **minSuccessfulRuns** (`int`) = `2`
+- **output** (`String[][]`) = `[["edge","2","50"]]`
+
+Only edge reaches the threshold with two successful runs. The canceled core run does not contribute, so core and data each remain below the threshold.
+
+### Example 3
+- **pageRecords** (`String[][]`) = `[["1","z1","zeta","SUCCESS","40"],["1","z2","zeta","SUCCESS","10"],["1","a1","alpha","SUCCESS","25"],["1","a2","alpha","SUCCESS","25"],["1","b1","beta","SUCCESS","50"]]`
+- **minSuccessfulRuns** (`int`) = `1`
+- **output** (`String[][]`) = `[["alpha","2","50"],["zeta","2","50"],["beta","1","50"]]`
+
+All three projects total 50 ms. Projects with two successful runs precede beta, which has one. The remaining tie places alpha before zeta lexicographically.
+
+## Starter code
+
+```
+public String[][] aggregateProjectRuns(String[][] pageRecords, int minSuccessfulRuns) {
+    // Write your solution here.
+}
+```
+
+## Source note
+
+The public report identifies basic API calls and data manipulation but omits the endpoint, response schema, required transformation, and output ordering. The deterministic paginated-record contract therefore matches the reported core capability at about 30%.
+
+
+---
+
 # Find the Maximum Length of a Good Subsequence I (LC 3176 :)  (Snowflake)
 
 > id: `snowflake-find-the-maximum-length-of-a-good-subsequence-i` | difficulty: medium | stage: OA | platform: hackerrank | topics: dynamic_programming, hash_table | last seen: 2024-12-28 | employment: INTERN
@@ -59021,6 +67618,56 @@ public int findMinimumInefficiency(String serverType) {
 
 ---
 
+# Bouncing Square Reaches a Screen Corner  (Duolingo)
+
+> id: `duolingo-bouncing-square-screen-corner` | difficulty: medium | stage: OA | platform: karat | topics: simulation, math, hash_table | last seen: 2024-12-05 | employment: FULLTIME
+
+## Problem
+
+A 2 x 2 square moves diagonally across a rectangular screen. Its position is represented by the row and column of its top-left cell.
+On every step, the square moves one row and one column in its current direction. If that move would cross a horizontal or vertical screen boundary, the corresponding direction component reverses before the square moves.
+The input direction is one of "up-left", "up-right", "down-left", or "down-right".
+Return the minimum number of steps until the square covers any corner of the screen. The starting position counts, so return 0 when the square already covers a corner. If the square will never cover a corner, return -1.
+
+## Constraints
+
+- size.length = 2 and both dimensions are at least 2.
+  - position.length = 2.
+  - 0 <= position[0] <= size[0] - 2.
+  - 0 <= position[1] <= size[1] - 2.
+  - direction is one of the four supported diagonal direction strings.
+
+### Example 1
+- **size** (`int[]`) = `[6,18]`
+- **position** (`int[]`) = `[3,1]`
+- **direction** (`String`) = `"up-right"`
+- **output** (`int`) = `15`
+
+The square repeatedly reflects while its top-left cell stays within rows 0 through 4 and columns 0 through 16. After 15 moves, it first reaches a top-left position that makes the square cover a screen corner.
+
+### Example 2
+- **size** (`int[]`) = `[6,6]`
+- **position** (`int[]`) = `[1,1]`
+- **direction** (`String`) = `"up-right"`
+- **output** (`int`) = `-1`
+
+The position-and-direction state eventually repeats without covering any screen corner, so no future step can succeed.
+
+## Starter code
+
+```
+public int stepsToScreenCorner(int[] size, int[] position, String direction) {
+    // write your code here
+}
+```
+
+## Source note
+
+The judged task matches the visible source at about 99%.
+
+
+---
+
 # Count Powers of K (MLE)  (Quora)
 
 > id: `quora-count-powers-of-k` | difficulty: easy | stage: OA | platform: codesignal | topics: array, math | last seen: 2024-12-05 | employment: INTERN
@@ -59227,6 +67874,75 @@ public int getMinLength(int[] a, int k) {
 }
 
 ```
+
+
+---
+
+# Product Record Search  (Wells Fargo)
+
+> id: `wellsfargo-product-record-search` | difficulty: medium | stage: OA | platform: unknown | topics: array, sorting, binary_search, string | last seen: 2024-12-03 | employment: FULLTIME
+
+## Problem
+
+A product catalog is represented by aligned arrays: productNames[i], prices[i], and productionYears[i] describe product i.
+Answer a batch of exact-match queries. Query i uses queryFields[i], which is one of name, price, or year, and the string queryValues[i].
+  - For name, compare the value directly with product names.
+  - For price and year, parse the value as a base-10 integer.
+
+Each searchable field is unique across the catalog. Return the matching product name for every query in input order, or the empty string if no product matches.
+Build sorted indexes for the three fields and answer each query with binary search.
+
+## Constraints
+
+- 1 <= productNames.length <= 2 * 10^5.
+  - productNames.length == prices.length == productionYears.length.
+  - Product names are distinct lowercase identifiers of length 1 through 30.
+  - 1 <= prices[i] <= 10^9, and prices are distinct.
+  - 1900 <= productionYears[i] <= 2100, and production years are distinct.
+  - 1 <= queryFields.length == queryValues.length <= 2 * 10^5.
+  - Every query field is name, price, or year. Numeric query values use canonical base-10 notation.
+
+### Example 1
+- **productNames** (`String[]`) = `["laptop","mouse","phone"]`
+- **prices** (`int[]`) = `[1200,25,800]`
+- **productionYears** (`int[]`) = `[2022,2024,2023]`
+- **queryFields** (`String[]`) = `["name","price","year","price"]`
+- **queryValues** (`String[]`) = `["mouse","800","2022","999"]`
+- **output** (`String[]`) = `["mouse","phone","laptop",""]`
+
+The first three queries match by name, price, and year. No product costs 999.
+
+### Example 2
+- **productNames** (`String[]`) = `["book","camera"]`
+- **prices** (`int[]`) = `[15,500]`
+- **productionYears** (`int[]`) = `[2020,2021]`
+- **queryFields** (`String[]`) = `["year","name","price"]`
+- **queryValues** (`String[]`) = `["2021","book","15"]`
+- **output** (`String[]`) = `["camera","book","book"]`
+
+Different searchable fields may resolve to the same product.
+
+### Example 3
+- **productNames** (`String[]`) = `["desk","lamp","monitor"]`
+- **prices** (`int[]`) = `[300,40,250]`
+- **productionYears** (`int[]`) = `[2019,2020,2021]`
+- **queryFields** (`String[]`) = `["name","year","price"]`
+- **queryValues** (`String[]`) = `["chair","2025","1"]`
+- **output** (`String[]`) = `["","",""]`
+
+All three exact-match queries are absent.
+
+## Starter code
+
+```
+public String[] searchProductRecords(String[] productNames, int[] prices, int[] productionYears, String[] queryFields, String[] queryValues) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source identifies product name, price, and production year records plus query-like searches and explicitly requires binary search. The aligned-array interface, unique keys, supported fields, missing-match result, and index preprocessing are explicit practice assumptions. The judged task matches the visible source at about 64%.
 
 
 ---
@@ -60305,63 +69021,9 @@ public int toolchanger(String[] tools, int startIndex, String target) {
 
 ---
 
-# Get Max Deletions  (JP Morgan Chase)
-
-> id: `jpmorgan-get-max-deletions` | difficulty: easy | stage: OA | platform: hackerrank | topics: string, math, simulation | last seen: 2024-11-21 | employment: INTERN
-
-## Problem
-
-A control device has 4 buttons that can be used to move a character around a screen in 4 directions: Up (U), Down (D), Left (L), and Right (R). The movement needs to be optimized by deleting unnecessary instructions while maintaining the same destination. Given the original set of instructions, what is the maximum number of instructions that can be deleted and still have the character reach the destination?
-    
-
-    Note: The instructions that are deleted do not need to be contiguous.
-    
-Function Description 
-      Complete the function getMaxDeletions in the editor below.
-      
-
-      getMaxDeletions has the following parameter:
-        
-
-            - string S: the original instructions that were programmed
-
-        
-Returns 
-        int: the maximum number of instructions that can be deleted from S while maintaining the destination
-
-## Constraints
-
-- 1 ≤ n ≤ 10^5
-  - S contains only the characters 'U', 'D', 'L', and 'R'.
-
-### Example 1
-- **S** (`String`) = `"URDR"`
-- **output** (`int`) = `2`
-
-Given an original set of instructions S = 'URDR', the final destination is 2 units to the right of the initial position after the character moves up, right, down, and right. If 'U' and 'D' are deleted, the destination remains the same. The answer 2 will be returned.
-
-### Example 2
-- **S** (`String`) = `"RRR"`
-- **output** (`int`) = `0`
-
-There is nothing that can be deleted from these instructions, so the answer is 0.
-
-## Starter code
-
-```
-
-public int getMaxDeletions(String S) {
-  // write your code here
-}
-
-```
-
-
----
-
 # Card Range Obfuscation Part 2 (ML Eng :)  (Stripe)
 
-> id: `stripe-card-range-obfuscation-part2` | difficulty: medium | stage: OA | platform: hackerrank | topics: intervals, sorting | last seen: 2024-11-21 | employment: FULLTIME
+> id: `stripe-card-range-obfuscation-part2` | difficulty: medium | stage: OA | platform: hackerrank | topics: intervals, sorting | last seen: 2024-11-21, 2024-11-04 | employment: FULLTIME, NEW GRAD
 
 ## Problem
 
@@ -60413,7 +69075,7 @@ Sort the intervals by suffix start. Extend VISA down to 0000000000 and through 1
 
 # Card Range Obfuscation Part 3 (ML Eng :)  (Stripe)
 
-> id: `stripe-card-range-obfuscation-part3` | difficulty: medium | stage: OA | platform: hackerrank | topics: intervals, sorting | last seen: 2024-11-21 | employment: FULLTIME
+> id: `stripe-card-range-obfuscation-part3` | difficulty: medium | stage: OA | platform: hackerrank | topics: intervals, sorting | last seen: 2024-11-21, 2024-11-04 | employment: FULLTIME, NEW GRAD
 
 ## Problem
 
@@ -60453,7 +69115,7 @@ The VISA interval and the later CB interval are the two covering intervals. VISA
 
 # Card Range Obfuscation Part 4 (ML Eng :)  (Stripe)
 
-> id: `stripe-card-range-obfuscation-part4` | difficulty: hard | stage: OA | platform: hackerrank | topics: intervals, sorting | last seen: 2024-11-21 | employment: FULLTIME
+> id: `stripe-card-range-obfuscation-part4` | difficulty: hard | stage: OA | platform: hackerrank | topics: intervals, sorting | last seen: 2024-11-21, 2024-11-04 | employment: FULLTIME, NEW GRAD
 
 ## Problem
 
@@ -60501,7 +69163,7 @@ Extend the first VISA interval left to 0000000000 and through the gap before the
 
 # Card Range Obfuscation Part1 (ML Eng :)  (Stripe)
 
-> id: `stripe-card-range-obfuscation-part1` | difficulty: easy | stage: OA | platform: hackerrank | topics: intervals, sorting | last seen: 2024-11-21 | employment: FULLTIME
+> id: `stripe-card-range-obfuscation-part1` | difficulty: easy | stage: OA | platform: hackerrank | topics: intervals, sorting | last seen: 2024-11-21, 2024-11-04 | employment: FULLTIME, NEW GRAD
 
 ## Problem
 
@@ -60542,6 +69204,60 @@ Note - I double checked the input & output numbers while uploading, but since th
 ```
 
 public String[][] cardRangeObfuscation1(int BIN, int N, String[][] info) {
+  // write your code here
+}
+
+```
+
+
+---
+
+# Get Max Deletions  (JP Morgan Chase)
+
+> id: `jpmorgan-get-max-deletions` | difficulty: easy | stage: OA | platform: hackerrank | topics: string, math, simulation | last seen: 2024-11-21 | employment: INTERN
+
+## Problem
+
+A control device has 4 buttons that can be used to move a character around a screen in 4 directions: Up (U), Down (D), Left (L), and Right (R). The movement needs to be optimized by deleting unnecessary instructions while maintaining the same destination. Given the original set of instructions, what is the maximum number of instructions that can be deleted and still have the character reach the destination?
+    
+
+    Note: The instructions that are deleted do not need to be contiguous.
+    
+Function Description 
+      Complete the function getMaxDeletions in the editor below.
+      
+
+      getMaxDeletions has the following parameter:
+        
+
+            - string S: the original instructions that were programmed
+
+        
+Returns 
+        int: the maximum number of instructions that can be deleted from S while maintaining the destination
+
+## Constraints
+
+- 1 ≤ n ≤ 10^5
+  - S contains only the characters 'U', 'D', 'L', and 'R'.
+
+### Example 1
+- **S** (`String`) = `"URDR"`
+- **output** (`int`) = `2`
+
+Given an original set of instructions S = 'URDR', the final destination is 2 units to the right of the initial position after the character moves up, right, down, and right. If 'U' and 'D' are deleted, the destination remains the same. The answer 2 will be returned.
+
+### Example 2
+- **S** (`String`) = `"RRR"`
+- **output** (`int`) = `0`
+
+There is nothing that can be deleted from these instructions, so the answer is 0.
+
+## Starter code
+
+```
+
+public int getMaxDeletions(String S) {
   // write your code here
 }
 
@@ -60789,327 +69505,6 @@ First move to (1,0), then increase the value of K to 2, and then move three time
 ```
 
 public int minimumMoves(int a, int b) {
-  // write your code here
-}
-
-```
-
-
----
-
-# For All Intents And Purposes Part 1 - Initializing the System 🏗️  (Stripe)
-
-> id: `stripe-for-all-intents-and-purposes` | difficulty: easy | stage: OA | platform: hackerrank | topics: design, hash_table, simulation | last seen: 2024-11-18 | employment: INTERN, NEW GRAD
-
-## Problem
-
-🐝 Hi there! The description you are currently reading is just 1st part of the problem set. It is highly recommended to read ALL THE PARTS before coding as parts may build on top of each other 🐳
-    
-  - For All Intents And Purposes Part 1 - Initilizing the System 🏗️
-  - For All Intents And Purposes Part 2 - Change Is Good! 👍
-  - For All Intents And Purposes Part 3 - Accepting Failure 😌
-  - For All Intents And Purposes Part 4 - Timing Matters ⏰
-
-    Background
-    
-
-    Stripe processes billions of dollars of payments to businesses every day through dozens of different payment
-    methods like cards, bank debits, and even papaer cheques.
-    
-
-    We don't want merchants (the businesses who use Stripe to accept peyments) to have to worry about
-    the details for each specific payment method. For example, for many payment methods, payments are not completed
-    instantly and can take a few days to process and be confirmed or fail, while others are processed much more
-    quickly. Stripe abstracts this payment flow with a simple state machine object called a Payment Intent.
-    
-
-    Today, imagine you are an engineer working at Stripe in its early days. You will implement a system that handles
-    the creation and management of these Payment Intens, helping merchants easily setup and accept payments from customers.
-    
-
-    Please read all instructions for each part before you begin coding for that part.
-    
-
-     What is a Payment Intent?
-    
-
-    A Payment Intent tracks a payment through its flow from initilization to processing to confirmation. We
-    model this flow as a state machine: an abstract object that can exist in one of a number of states and transition
-    between states.
-    
-
-    A Payment Intent stores information like the merchant receiving the peyment and the monetary amount. It also
-    should keep track of its state, which can be one of three values
-        
-  - REQUIRES_ACTION
-
-👉 The initial state of a Payment Intent upon creation. Can transition to PROCESSING.
-  - PROCESSING
-
-👉 The customer has attempted to pay but the attempt has not yet succeeded or failed. Can transition to either REQUIRES_ACTION or COMPLETED
-  - COMPLETED
-
-👉 The attempt to pay succeeded and the Payment Intent amount was added to the merchant's balance.
-
-     You Task
-     
-
-     You will implement a function that executes a chronologically ordered list of commands to create and manage Payment Intents for different
-     merchants and then returns the account balances for each merchant after executing all commands.
-     
-
-     Input
-    
-
-    You will receive a chronologically ordered list of commands in the form ['INIT m1 0', 'CREATE p1 m1 100'] where
-    each command is a single string. You will also receive the part number, corresponding to the pairs in the problem
-    description. The commands you need to support are decribed below.
-    
-
-    Output
-    
-
-    A list of merchant balances in the form ['m1 100', 'm2 200'] representing the balance for each merchant after
-    executing all commands. The list should be sorted by merchant ID in ascending alphabetical order.
-    
-
-    Part 1: Good Intentions
-    
-
-    To build the initial version of our system, we will support a few basic commands for initializing a merchant,
-    creating a Payment Intent, attempting a Payment Intent, and succeeding a Payment Intent.
-    
-
-    Commands
-    
-
-    For this part, your system should handle the following commands -
-    
-
-    INIT <merchant_id> <starting_balance>
-    
-  - Initializes a merchant with a unique identifier string and starting balance (the amount of money in their account)
-  - If a merchant with the given identifier has already been created, this command should do nothing.
-
-    CREATE <payment_init_id> <merchant_id> <amount>
-    
-  - Creates a Payment Intent for a merchant with a given amount. After creation, the state of the Payment Itent should be REQUIRES_ACTION.
-  - If a Payment Intent with the given identifier already exists, or if a merchant with the given identifier doe snot exist, or if the amount is negative, this command should do nothing
-
-    ATTEMPT <payment_init_id>
-    
-  - Transitions a Payment Intent with a given identifier from the REQUIRE_ACTION state to the PROCESSING state.
-  - If no Payment Intent with the given identifier exists, or if the state of the Payment Intent is not REQUIRES_ACTION, this command should do nothing.
-
-    SUCCEED <payment_init_id>
-    
-  - Transitions a Payment Intent with a given identifier from the PROCESSING state to the COMPLETED state
-  - If no Payment Intent with the given identifier exists, or if the state of the Payment Intent is not PROCESSING, this command should do nothing.
-
-    🐳⋆｡˚⋆❀ 🐚🫧𓇼 ˖°Credit to Rachelᥫ᭡.
-
-## Constraints
-
-- 🫶
-
-### Example 1
-- **commands** (`String[]`) = `["INIT m1 0", "INIT m2 10", "CREATE p1 m1 50", "ATTEMPT p1", "SUCCEED p1", "SUCCEED p1", "CREATE p2 m2 100", "ATTEMPT p2"]`
-- **output** (`String[]`) = `["m1 50", "m2 10"]`
-
-Let's look at what happened for each command 🐼
-
-  - INIT m1 0 initializes merchant m1 with a starting balance of 0
-  - INIT m2 10 initializes merchant m2 with a starting balance of 10
-  - Create p1 m1 50 creates a Payment Intent p1 for merchangt m1 with an amount of 50 and initial state of REQUIRES_ACTION initializes merchant m2 with a starting balance of 10
-  - ATTEMPT p1 transitions p1 from REQUIRES_ACTION to PROCESSING
-  - SUCCEED p2 transitions p2 from PROCESSING to COMPLETED and increments merchant m1's balance by 50
-  - CREATE p2 m2 100 creates a Payment Intent p2 for merchant m2 with an amount of 100 and initial state of REQUIRES_ACTION
-  - ATTEMPT p2 transitions p2 from REQUIRES_ACTION to PROCESSING
-
-Because only p1 was successfully completed, at the end of executing all of the commands, m1 should have a balance of 50 and m2 should have a balance of 10 :D
-
-## Starter code
-
-```
-
-public String[] forAllIntentsAndPurposes(String[] commands) {
-  // write your code here
-}
-
-```
-
-
----
-
-# For All Intents And Purposes Part 2 - Change Is Good! 👍  (Stripe)
-
-> id: `stripe-for-all-intents-and-purposes-part2` | difficulty: easy | stage: OA | platform: hackerrank | topics: design, hash_table, simulation | last seen: 2024-11-18 | employment: INTERN, NEW GRAD
-
-## Problem
-
-🐝 Hi there! The description you are currently reading is just 2nd part of the problem set. It is highly recommended to read ALL THE PARTS before coding as parts may build on top of each other 🐳
-    
-  - For All Intents And Purposes Part 1 - Initilizing the System 🏗️
-  - For All Intents And Purposes Part 2 - Change Is Good! 👍
-  - For All Intents And Purposes Part 3 - Accepting Failure 😌
-  - For All Intents And Purposes Part 4 - Timing Matters ⏰
-
-    The initial version of our system looks good 😄👍! But it turns out merchants also need to be
-    able to update the amount of initialized Payment Intents. This happen if a customer begins to check out
-    but then decides to change the items in their shopping cart 🛒 and thus the amount of the payment. Let's add
-     that the our system 🍻!  
-    
-
-    Commands
-    
-
-    Your system should support an additional command for updaing a Payment Intent.
-    
-
-    UPDATE <payment_intent_id> <new amount>
-    
-  - Update the monetary amount of an existing Payment Intent in the REQUIRES_ACTION state. This does not transition the state of the Payment Intent.
-  - If no Payment Intent with the given identifier exists, or if the Payment Intent is not in the REQUIRES_ACTION state, or if the new amount is negative, this mommand should do nothing.
-
-    ｡ﾟ•┈꒰ა 🧡 Credit to Rachel 🧡໒꒱┈• ｡ﾟ
-
-## Constraints
-
-- 🫶
-
-### Example 1
-- **commands** (`String[]`) = `["INIT m1 0", "CREATE p1 m1 50", "UPDATE p1 100",  "ATTEMPT p1", "SUCCEED p1"]`
-- **output** (`String[]`) = `["m1 100"]`
-
-While the Payment Intent p1 was initially created with an amount of 50, this was then updated to 100 before being attempted then succeeded. Therefore, merchant m1 has a balance of 100 after all commands have been processed.
-
-## Starter code
-
-```
-
-public String[] forAllIntentsAndPurposes2(String[] commands) {
-  // write your code here
-}
-
-```
-
-
----
-
-# For All Intents And Purposes Part 3 - Accepting Failure 😌  (Stripe)
-
-> id: `stripe-for-all-intents-and-purposes-part3` | difficulty: easy | stage: OA | platform: hackerrank | topics: design, hash_table, simulation | last seen: 2024-11-18 | employment: INTERN, NEW GRAD
-
-## Problem
-
-🐝 Hi there! The description you are currently reading is just 3rd part of the problem set. It is highly recommended to read ALL THE PARTS before coding as parts may build on top of each other 🐳
-    
-  - For All Intents And Purposes Part 1 - Initilizing the System 🏗️
-  - For All Intents And Purposes Part 2 - Change Is Good! 👍
-  - For All Intents And Purposes Part 3 - Accepting Failure 😌
-  - For All Intents And Purposes Part 4 - Timing Matters ⏰
-
-    The rest of the team is thrilled with our progress building Stripe's new Payment Intent processor, but they
-    pointed out a few cases we should handle before releasing the system to the public 👥
-    
-
-    First, payments don't alway succeed and can fail for a variety of reasons like a card network declining a
-    transaction or a bank account not having sufficient funds to be debited. Second, even after payments have succeeded, customers need to be
-    able to request refunds from merchant.
-    
-
-    Let's update our implementation to handle two new commands: FAIL and REFUND 🥹.
-    
-
-    Commands
-
-    
-
-    FAIL <payment_intent_id> 
-    
-  - Fails a payment intent in the PROCESSING state, transitioning it from PROCESSING to REQUIRES_ACTION. This occurs when the customer's payment was declined.
-  - If no Payment Intent with the given identifier exists, or if the Payment Intent is not in the PROCESSING state, this command should do nothing.
-
-    REFUND <payment_intent_id>
-    
-  - Processes a refund for a previously successful payment intent in the COMPLETED state. This should decrement the merchant's balance by the amount of the Payment Intent in order to return the refund to the customer
-  - If no Payment Intent with the given identifier exists, or if the Payment Intent is not in the COMPLETED state, or if the Payment Intent has already been refunded, this command should do nothing.
-
-## Constraints
-
-- 🫶
-
-### Example 1
-- **commands** (`String[]`) = `["INIT m1 0", "CREATE p1 m1 50",  "ATTEMPT p1",  "FAIL p1",  "ATTEMPT p1",  "SUCCEED p1",   "CREATE p2 m1 100",  "ATTEMPT p2", "SUCCEED p2", "REFUND p2"]`
-- **output** (`String[]`) = `["m1 50"]`
-
-The Payment Intent p1 was created with an amount of 50, then attempted, then failed which transitioned it back to the REQUIRES_ACTION, then attempted, then succeeded. At that point, m1's balance was 50. The Payment Intent p2 was created with a amount of 100, then attempted, then succeeded. At that point, m1's balance was 150. Then p2 was refunded, so m1's balance after executing all commands is 50 :)
-
-## Starter code
-
-```
-
-public String[] forAllIntentsAndPurposes3(String[] commands) {
-  // write your code here
-}
-
-```
-
-
----
-
-# For All Intents And Purposes Part 4 - Timing Matters ⏰  (Stripe)
-
-> id: `stripe-for-all-intents-and-purposes-part4` | difficulty: medium | stage: OA | platform: hackerrank | topics: design, hash_table, simulation | last seen: 2024-11-18 | employment: INTERN, NEW GRAD
-
-## Problem
-
-🐝 Hi there! The description you are currently reading is just 4th part of the problem set. It is highly recommended to read ALL THE 4 PARTS before coding as parts may build on top of each other 🐳
-    
-  - For All Intents And Purposes Part 1 - Initilizing the System 🏗️
-  - For All Intents And Purposes Part 2 - Change Is Good! 👍
-  - For All Intents And Purposes Part 3 - Accepting Failure 😌
-  - For All Intents And Purposes Part 4 - Timing Matters ⏰
-
-    Last month, we received the new Payment Intent system you built 👏, and merchants have been LOVING how simple it makes accepting payments. Congratulations 🎉!
-    
-
-    However, numerous merchants have requested that we augment our refund functionality by letting merchants
-    specify a refund timeout policy: the amount of time after a payment succeeds that refunds are permitted.
-    For example, one merchant, LlmaCorp, only wants to accept refunds within 15 days of a payment succeeding. Being able to return a llama afte 15 days would be absurd after all. 
-    
-
-    Let's add this functionality to our system, which means we will need to change the format of our commands to handle timing 💪.
-    
-
-    Timestamps
-    
-  - All commands will now have an integer timestamp in front. For example, intead of SUCCEED <pi_id>, you will now receive<timestamp>SUCCEED <pi_id>
-  - You can assume that the timestamps will always be integers (representing a unit of time) and that the timestamps of the list of commands will be strictly increasing
-
-    Merchant Refund Timeout Limit
-    
-  - The INIT command that initializes a merchant will now have an optional third argument specifying the merchant's refund timeout limit. The new specification is - 
-
- 👉 <timestamp> INIT <merchant_id> <starting_balance> <refund_time_out_limit>
-  - If a merchant has a refund_timeout_limit of n, and succeeds a Payment Intent (with the SUCCEED command) at timestamp t, then the timestamp of a REFUND command must be no greater than t + n, otherwise the refund should no succeed.
-  - iF A refund_timeout_limit is not specified during merchant initialization, there is no refund time limit, a a refund should succeed regardless how much time has passed since Payment Intent confirmation. A reund_timeout_limit of 0 means no refunds should be accepted ever, and a negative refund_timeout_limit should be ignore (meaning all refunds should be accepted)
-
-## Constraints
-
-- 🫶
-
-### Example 1
-- **commands** (`String[]`) = `["1 INIT m1 0 5", "2 CREATE p1 m1 100", "3 CREATE p2 m1 50", "4 ATTEMPT p1", "5 ATTEMPT p2", "8 SUCCEED p1", "10 SUCCEED p2", "11 REFUND p1", "16 REFUND p2"]`
-- **output** (`String[]`) = `["m1 50"]`
-
-In the above example, the reund of Payment Intent p1 succeeded because p1 was succeeded at time 8 and refunded at time 11, which is within merchant m1's refund timeout limit of 5. However, the refund of Payment Intent p2 failed because p2 was succeeded at time 10 and refunded at time 16, and 16 - 10 = 6 > 5, meaning it occured after m1's timeout limit. Because p1 was successfully refunded and p2 was not, the final balance of merchant m1 should be 50 :P
-
-## Starter code
-
-```
-
-public String[] forAllIntentsAndPurposes4(String[] commands) {
   // write your code here
 }
 
@@ -63639,6 +72034,123 @@ public int[] meanderingArray(int[] unsorted) {
 }
 
 ```
+
+
+---
+
+# Escape the Haunted Castle  (Persona)
+
+> id: `persona-escape-haunted-castle` | difficulty: easy | stage: OA | platform: unknown | topics: matrix, breadth_first_search, shortest_path | last seen: 2024-10-24 | employment: FULLTIME
+
+## Problem
+
+An adventurer starts at (0, 0) in a rows × columns haunted castle. Walls are impassable, and the adventurer may move one cell up, down, left, or right.
+Return the minimum number of moves needed to reach escapePoint, or -1 when no path exists.
+
+## Constraints
+
+- 1 <= rows, columns <= 10.
+  - Every wall and the escape point are distinct valid cells.
+  - (0, 0) is not a wall.
+
+### Example 1
+- **rows** (`int`) = `2`
+- **columns** (`int`) = `2`
+- **walls** (`int[][]`) = `[[0,1]]`
+- **escapePoint** (`int[]`) = `[1,1]`
+- **output** (`int`) = `2`
+
+The only route moves down and then right.
+
+### Example 2
+- **rows** (`int`) = `3`
+- **columns** (`int`) = `3`
+- **walls** (`int[][]`) = `[[1,0],[1,1],[1,2]]`
+- **escapePoint** (`int[]`) = `[2,2]`
+- **output** (`int`) = `-1`
+
+A complete wall row separates the start from the exit.
+
+### Example 3
+- **rows** (`int`) = `1`
+- **columns** (`int`) = `1`
+- **walls** (`int[][]`) = `[]`
+- **escapePoint** (`int[]`) = `[0,0]`
+- **output** (`int`) = `0`
+
+The adventurer starts on the escape point.
+
+## Starter code
+
+```
+public int escapeCastle(int rows, int columns, int[][] walls, int[] escapePoint) {
+    // Return the shortest escape distance.
+}
+```
+
+## Source note
+
+A firsthand Persona online-assessment report preserves the complete ‘Escape the Haunted Castle Pt 1’ prompt, class model, 10 by 10 grid bound, orthogonal movement, unreachable result, and sample. The narrative and sample require a scalar distance; the photographed starter comment incorrectly labels the return as an integer array, so the executable adapter follows the mutually consistent narrative and sample. The judged contract matches the recoverable source at about 97%.
+
+
+---
+
+# Escape the Haunted Castle with Treasures  (Persona)
+
+> id: `persona-escape-haunted-castle-treasures` | difficulty: hard | stage: OA | platform: unknown | topics: matrix, breadth_first_search, bit_manipulation, shortest_path | last seen: 2024-10-24 | employment: FULLTIME
+
+## Problem
+
+An adventurer starts at (0, 0) in a haunted castle and moves orthogonally around walls. Treasure cells may be collected at most once.
+Return [minimumMoves, maximumTreasures], where the second value is the greatest number of distinct treasures collectible on any minimum-move route to escapePoint. Return [-1, 0] when escape is impossible.
+
+## Constraints
+
+- 1 <= rows, columns <= 10.
+  - 0 <= treasures.length <= 15.
+  - Walls, treasure cells, and the escape point use valid coordinates; the start and exit are not walls.
+
+### Example 1
+- **rows** (`int`) = `3`
+- **columns** (`int`) = `3`
+- **walls** (`int[][]`) = `[[1,1]]`
+- **escapePoint** (`int[]`) = `[2,2]`
+- **treasures** (`int[][]`) = `[[0,1]]`
+- **output** (`int[]`) = `[4,1]`
+
+A four-step route across the top collects the treasure before reaching the exit.
+
+### Example 2
+- **rows** (`int`) = `2`
+- **columns** (`int`) = `2`
+- **walls** (`int[][]`) = `[[0,1],[1,0]]`
+- **escapePoint** (`int[]`) = `[1,1]`
+- **treasures** (`int[][]`) = `[]`
+- **output** (`int[]`) = `[-1,0]`
+
+The start is sealed.
+
+### Example 3
+- **rows** (`int`) = `2`
+- **columns** (`int`) = `3`
+- **walls** (`int[][]`) = `[]`
+- **escapePoint** (`int[]`) = `[0,2]`
+- **treasures** (`int[][]`) = `[[1,0],[1,1],[1,2]]`
+- **output** (`int[]`) = `[2,0]`
+
+Collecting a treasure would require extra moves, so no treasure belongs to a shortest route.
+
+## Starter code
+
+```
+public int[] escapeCastleWithTreasures(int rows, int columns, int[][] walls, int[] escapePoint, int[][] treasures) {
+    // Return {minimumMoves, maximumTreasures}.
+}
+```
+
+## Source note
+
+A firsthand Persona online-assessment report preserves ‘Escape the Haunted Castle Pt 2,’ including the orthogonal grid, once-only treasures, lexicographic objective of fewest moves then most treasures, unreachable pair, Java signature, and sample. The fifteen-treasure execution limit is an authored representation for finite bitmask grading. The judged contract matches the recoverable source at about 96%.
 
 
 ---
@@ -67606,6 +76118,62 @@ public long[] getProcessTime(int[] time) {
 
 ---
 
+# Process Card Transaction Records  (Stripe)
+
+> id: `stripe-card-transaction-record-processor` | difficulty: medium | stage: OA | platform: hackerrank | topics: string, sorting, simulation | last seen: 2024-10-07 | employment: NEW GRAD
+
+## Problem
+
+Each string in records is one unquoted CSV row with six fields:
+payment_id,card_network,month,fee,currency,query_statusTrim surrounding whitespace from every field. The input rows are valid: payment IDs are unique, month uses YYYY-MM, fee is a nonnegative decimal integer, currency is exactly three uppercase English letters, and query_status is OPEN or CLOSED.
+Remove every record whose payment_id appears in defaulterPaymentIds. Sort the remaining records by card_network and then by payment_id, both in ascending lexicographic order.
+Return the retained records in the same six-field order, using the trimmed field values joined by commas.
+
+## Constraints
+
+- 0 <= records.length <= 100000.
+  - 0 <= defaulterPaymentIds.length <= 100000.
+  - Every record has exactly six comma-separated fields and contains no quoted commas.
+  - Payment IDs are unique, and every field has at most 100 characters before trimming.
+  - Every defaulter payment ID is nonempty, and the defaulter list contains no duplicates.
+  - The combined input length is at most 2 * 10^6.
+
+### Example 1
+- **records** (`String[]`) = `["p3,Visa,2024-09,30,USD,OPEN","p1,Amex,2024-08,20,USD,CLOSED","p2,Visa,2024-07,25,EUR,OPEN"]`
+- **defaulterPaymentIds** (`String[]`) = `["p2"]`
+- **output** (`String[]`) = `["p1,Amex,2024-08,20,USD,CLOSED","p3,Visa,2024-09,30,USD,OPEN"]`
+
+Payment p2 is removed. Amex sorts before Visa, so p1 precedes p3.
+
+### Example 2
+- **records** (`String[]`) = `[" b2 , Visa , 2025-01 , 0 , USD , OPEN ","a1,Visa,2024-12,15,USD,CLOSED","c1,Mastercard,2025-02,9,GBP,OPEN"]`
+- **defaulterPaymentIds** (`String[]`) = `[]`
+- **output** (`String[]`) = `["c1,Mastercard,2025-02,9,GBP,OPEN","a1,Visa,2024-12,15,USD,CLOSED","b2,Visa,2025-01,0,USD,OPEN"]`
+
+Fields are trimmed before serialization. Mastercard sorts before Visa, and the two Visa rows are ordered by payment ID.
+
+### Example 3
+- **records** (`String[]`) = `["p1,Amex,2024-01,5,USD,OPEN","p2,Visa,2024-02,8,USD,CLOSED"]`
+- **defaulterPaymentIds** (`String[]`) = `["p1","p2","missing"]`
+- **output** (`String[]`) = `[]`
+
+Both existing payment IDs are marked as defaulters. An unknown defaulter ID has no effect.
+
+## Starter code
+
+```
+public String[] processCardTransactions(String[] records, String[] defaulterPaymentIds) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source preserves CSV-style card and transaction fields, lexicographic network ordering, and removal of defaulter payments, but omits the exact row schema and how defaulters are supplied. The judged core task matches the visible source at about 74%.
+
+
+---
+
 # Compute Encoded Product Name  (Amazon)
 
 > id: `amazon-compute-encoded-product-name` | difficulty: easy | stage: OA | platform: hackerrank | topics: string, sorting | last seen: 2024-10-06, 2024-07-04 | employment: NEW GRAD
@@ -71068,6 +79636,59 @@ public int[] minimalOperations(String[] words) {
 }
 
 ```
+
+
+---
+
+# Parse and Filter Chargeback Disputes  (Stripe)
+
+> id: `stripe-chargeback-dispute-parser` | difficulty: medium | stage: OA | platform: hackerrank | topics: string, hash_table, sorting, simulation | last seen: 2024-09-25 | employment: NEW GRAD
+
+## Problem
+
+You receive network chargeback rows from one or more dated files. Each string in rows has seven comma-separated fields:
+network,file_date,transaction_id,merchant_id,amount,currency,reasonTrim surrounding whitespace from every field. A row is valid only when it has exactly seven nonempty fields, file_date is a decimal integer from 0 through 10^9, amount is a positive decimal integer at most 10^9, currency is exactly three uppercase English letters, and reason contains only uppercase English letters or underscores. Ignore an invalid row without affecting any other row.
+Every valid row whose reason is not WITHDRAWN describes one dispute. A valid WITHDRAWN row cancels the dispute with the same network and transaction_id only when its file_date is strictly later than the dispute row's date.
+Return every valid dispute that was not withdrawn. Format each result as:
+network,transaction_id,merchant_id,amount,currency,reasonSort the results first by network and then by transaction_id, both in ascending lexicographic order.
+
+## Constraints
+
+- 1 <= rows.length <= 100000.
+  - Each input string contains at most 1000 characters and contains no quoted commas.
+  - For one (network, transaction_id) pair, the input contains at most one valid non-withdrawal row and at most one valid withdrawal row.
+  - Every valid non-withdrawal row has a unique (network, transaction_id) pair.
+  - The total output length fits in memory.
+
+### Example 1
+- **rows** (`String[]`) = `["visa,20240901,tx1,m1,5000,USD,FRAUD","visa,20240903,tx1,m1,5000,USD,WITHDRAWN","mc,20240902,tx2,m2,2500,EUR,DUPLICATE"]`
+- **output** (`String[]`) = `["mc,tx2,m2,2500,EUR,DUPLICATE"]`
+
+The later Visa withdrawal cancels tx1. The Mastercard dispute remains and is emitted in normalized form.
+
+### Example 2
+- **rows** (`String[]`) = `["visa,20240901,tx1,m1,1000,USD,FRAUD","bad,row","visa,not-a-date,tx2,m2,500,USD,DUPLICATE","visa,20240905,tx3,m3,900,usd,FRAUD"]`
+- **output** (`String[]`) = `["visa,tx1,m1,1000,USD,FRAUD"]`
+
+Only the first row satisfies the seven-field, date, amount, currency, and reason rules. Each other invalid row is ignored independently.
+
+### Example 3
+- **rows** (`String[]`) = `["visa,10,tx1,m1,100,USD,FRAUD","visa,10,tx1,m1,100,USD,WITHDRAWN"]`
+- **output** (`String[]`) = `["visa,tx1,m1,100,USD,FRAUD"]`
+
+The withdrawal has the same date as the dispute, not a strictly later date, so it does not cancel the dispute.
+
+## Starter code
+
+```
+public String[] parseChargebacks(String[] rows) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source preserves the three progressive goals—parse chargeback files, ignore corrupted rows, and remove disputes withdrawn in later-dated files—but omits the exact row and output schemas. The judged core task matches the visible source at about 78%.
 
 
 ---
@@ -81523,6 +90144,60 @@ public int[] countMinimumCharacters(String s, String[] arr) {
 
 ---
 
+# Count Straight-Line Word Occurrences in a Grid  (Visa)
+
+> id: `visa-count-straight-line-word-occurrences` | difficulty: medium | stage: OA | platform: unknown | topics: matrix, string, simulation | last seen: 2024-08-07 | employment: FULLTIME
+
+## Problem
+
+Given a square grid of characters and a nonempty word, count every straight-line occurrence of the word.
+An occurrence may run horizontally, vertically, or diagonally in either direction, for a total of eight directions. Matches may overlap, and characters are compared exactly, including case.
+Opposite directions are counted separately. Therefore, every palindromic occurrence is counted twice. For a one-character palindrome, count each matching cell twice.
+
+## Constraints
+
+- 3 <= grid.length <= 200
+  - Every row has exactly grid.length characters.
+  - 1 <= word.length <= grid.length
+  - The grid and word contain uppercase or lowercase English letters or decimal digits.
+  - The answer fits in a 32-bit signed integer.
+
+### Example 1
+- **grid** (`String[]`) = `["ctt","cat","cct"]`
+- **word** (`String`) = `"cat"`
+- **output** (`int`) = `4`
+
+The word appears once across the middle row, once vertically, and twice diagonally, for 4 occurrences.
+
+### Example 2
+- **grid** (`String[]`) = `["ABA","BAB","ABA"]`
+- **word** (`String`) = `"ABA"`
+- **output** (`int`) = `8`
+
+Two rows and two columns spell the palindrome. Each of those four geometric lines is counted in both directions, for 8 occurrences.
+
+### Example 3
+- **grid** (`String[]`) = `["A0","aA"]`
+- **word** (`String`) = `"A"`
+- **output** (`int`) = `4`
+
+Two cells contain uppercase A; each one-character palindromic occurrence counts twice.
+
+## Starter code
+
+```
+public int countGridWordOccurrences(String[] grid, String word) {
+    // Write your solution here.
+}
+```
+
+## Source note
+
+An August 7, 2024 Visa OA report supplies the square-grid alphabet, all eight search directions, the palindrome double-count rule, and a complete sample. The source gives only a lower grid bound and a standard-input interface, so this practice version adds portable upper bounds and the callable name countGridWordOccurrences without changing the reported counting task.
+
+
+---
+
 # Maximize Segregation Cost  (Akuna Capital)
 
 > id: `akuna-maximize-segregation-cost` | difficulty: hard | stage: OA | platform: hackerrank | topics: string, greedy, math | last seen: 2024-08-06 | employment: 
@@ -83328,6 +92003,45 @@ public int minInsertionsToBalance(String s) {
 ## Source note
 
 2026-07-17 — Example 2 was corrected to use "))((", matching the source's second walkthrough and output of 4.
+
+
+---
+
+# Time Based Key-Value Store  (Coalition)
+
+> id: `coalition-time-based-key-value-store` | difficulty: medium | stage: OA | platform: unknown | topics: hash_table, binary_search, design | last seen: 2024-07-18 | employment: FULLTIME
+
+## Problem
+
+Process set and get operations on a time-based key-value store. A get returns the value written for that key at the greatest timestamp not exceeding the query timestamp, or the empty string when none exists. Return "null" for set operations.
+
+## Constraints
+
+- All four arrays have equal non-zero length.
+  - Set timestamps for each key are strictly increasing.
+  - There are at most 100000 operations.
+
+### Example 1
+- **operations** (`String[]`) = `["set","get","get","set","get"]`
+- **keys** (`String[]`) = `["foo","foo","foo","foo","foo"]`
+- **values** (`String[]`) = `["bar","","","bar2",""]`
+- **timestamps** (`int[]`) = `[1,1,3,4,4]`
+- **output** (`String[]`) = `["null","bar","bar","null","bar2"]`
+
+Each query sees the most recent value for foo at or before its timestamp.
+
+## Starter code
+
+```
+public String[] runTimeMap(String[] operations, String[] keys, String[] values, int[] timestamps) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+A first-hand Coalition OA report names LeetCode 981. The judged canonical task matches at about 99%.
 
 
 ---
@@ -89929,6 +98643,72 @@ Updated 07-18-2026: The source's first query does not match its own explanation.
 
 ---
 
+# Configurable Retry Strategies  (Airbnb)
+
+> id: `airbnb-configurable-retry-strategies` | difficulty: medium | stage: OA | platform: unknown | topics: simulation, math | last seen: 2024-03-29 | employment: FULLTIME
+
+## Problem
+
+Simulate a retry client whose ordered attempt outcomes are provided in outcomes. Each outcome is either FAILURE or SUCCESS:value.
+The client selects one retry strategy:
+  - ONCE permits at most one retry after the initial attempt.
+  - FIXED permits at most maxRetries retries and waits baseDelay milliseconds before each retry.
+  - EXPONENTIAL permits at most maxRetries retries. The wait before retry number k, where the first retry is k = 1, is baseDelay * 2^(k - 1) milliseconds.
+
+Inspect outcomes from left to right, beginning with the initial attempt at elapsed time 0. Stop at the first success or when the selected retry budget is exhausted. The input always contains enough outcomes for every permitted attempt.
+Return SUCCESS:value|attempts|elapsed after a success, or FAILED|attempts|elapsed when every permitted attempt fails. attempts includes the initial attempt, and elapsed is the sum of waits before executed retries.
+
+## Constraints
+
+- strategy is ONCE, FIXED, or EXPONENTIAL.
+  - 0 <= maxRetries <= 30.
+  - 1 <= baseDelay <= 10^6.
+  - outcomes.length is at least the maximum number of attempts allowed by the selected strategy.
+  - Every outcome is exactly FAILURE or begins with SUCCESS:.
+  - Every elapsed-time result fits in a signed 64-bit integer.
+
+### Example 1
+- **outcomes** (`String[]`) = `["FAILURE","SUCCESS:ok"]`
+- **strategy** (`String`) = `"ONCE"`
+- **maxRetries** (`int`) = `5`
+- **baseDelay** (`long`) = `10`
+- **output** (`String`) = `"SUCCESS:ok|2|10"`
+
+The initial attempt fails. ONCE permits one retry after a 10-millisecond wait, and that retry succeeds.
+
+### Example 2
+- **outcomes** (`String[]`) = `["FAILURE","FAILURE","SUCCESS:ready","FAILURE"]`
+- **strategy** (`String`) = `"EXPONENTIAL"`
+- **maxRetries** (`int`) = `3`
+- **baseDelay** (`long`) = `5`
+- **output** (`String`) = `"SUCCESS:ready|3|15"`
+
+The two executed retries wait 5 and 10 milliseconds. The third attempt succeeds after 15 total milliseconds.
+
+### Example 3
+- **outcomes** (`String[]`) = `["FAILURE","FAILURE","SUCCESS:late","FAILURE"]`
+- **strategy** (`String`) = `"ONCE"`
+- **maxRetries** (`int`) = `3`
+- **baseDelay** (`long`) = `7`
+- **output** (`String`) = `"FAILED|2|7"`
+
+ONCE stops after the initial attempt and one retry, so the later success is never inspected.
+
+## Starter code
+
+```
+public String simulateRetries(String[] outcomes, String strategy, int maxRetries, long baseDelay) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source reports a client-selectable Retryer with one-retry, repeated-retry, and exponential-retry policies but omits the callable adapter and exact result format. The judged core behavior matches the visible source at about 85%.
+
+
+---
+
 # Sum Consecutive Identical Digits  (PayPay)
 
 > id: `paypay-sum-consecutive-identical-digits` | difficulty: easy | stage: OA | platform: unknown | topics: string, simulation | last seen: 2024-03-29 | employment: FULLTIME
@@ -92406,6 +101186,50 @@ public int findDifferenceValue(String firstString, String secondString) {
 
 ---
 
+# Merging Palindromes  (Old Mission)
+
+> id: `old-mission-merging-palindromes` | difficulty: medium | stage: OA | platform: hackerrank | topics: string, hash_table, greedy | last seen: 2024-03-14 | employment: FULLTIME
+
+## Problem
+
+From the letters of first, choose a multiset that can be rearranged into a palindrome. Do the same independently for second. Combine the two chosen multisets and rearrange them into one palindrome.
+Return the longest palindrome obtainable this way. If several have maximum length, return the lexicographically smallest.
+
+## Constraints
+
+- 1 <= first.length, second.length <= 200000
+  - Both strings contain lowercase English letters only.
+
+### Example 1
+- **first** (`String`) = `"aabbc"`
+- **second** (`String`) = `"ddefefq"`
+- **output** (`String`) = `"abdefcfedba"`
+
+Use every available pair from both strings. Among the remaining odd-count letters, c is the smallest possible center, producing the lexicographically smallest maximum-length palindrome.
+
+### Example 2
+- **first** (`String`) = `"abc"`
+- **second** (`String`) = `"xyz"`
+- **output** (`String`) = `"a"`
+
+No character forms a pair in either string. A one-character palindrome is optimal, and a is lexicographically smallest.
+
+## Starter code
+
+```
+public String mergingPalindromes(String first, String second) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+The interview report names the HackerRank task without reproducing its statement. The judged task follows the matching public exercise and matches the visible source at about 95%.
+
+
+---
+
 # Get Sizes of Friends Groups 🥗  (DoorDash)
 
 > id: `doordash-get-sizes-of-friends-groups` | difficulty: easy | stage: OA | platform: hackerrank | topics: union_find | last seen: 2024-03-13 | employment: FULLTIME
@@ -92962,6 +101786,43 @@ public String[] romanizer(int[] numbers) {
 
 ---
 
+# Five-Minute Hit Counter  (Sentry)
+
+> id: `sentry-five-minute-hit-counter` | difficulty: medium | stage: OA, ONSITE INTERVIEW | platform: unknown | topics: queue, design | last seen: 2024-03-08, 2022-09-15, 2022-08-14 | employment: FULLTIME, NEW GRAD
+
+## Problem
+
+Process chronological hit and getHits operations. A query returns the number of hits in the inclusive interval from timestamp - 299 through timestamp. Return "null" for a hit and the decimal count for a query.
+
+## Constraints
+
+- Operation and timestamp arrays have equal non-zero length.
+  - Timestamps are positive and non-decreasing.
+  - There are at most 100000 operations.
+
+### Example 1
+- **operations** (`String[]`) = `["hit","hit","hit","getHits","hit","getHits"]`
+- **timestamps** (`int[]`) = `[1,2,3,4,300,301]`
+- **output** (`String[]`) = `["null","null","null","3","null","3"]`
+
+At time 301, the hit at time 1 has expired but the other three remain.
+
+## Starter code
+
+```
+public String[] runHitCounter(String[] operations, int[] timestamps) {
+  // Write your code here.
+}
+
+```
+
+## Source note
+
+Firsthand Sentry interview reports ask candidates to record function calls during the trailing five minutes and discard older timestamps. This chronological operation sequence exposes the reported hit and query behavior directly.
+
+
+---
+
 # Lexicographically Smallest Palindrome Possible 🍊  (Amazon)
 
 > id: `amazon-lexicographically-smallest-palindrome-possible` | difficulty: medium | stage: OA | platform: hackerrank | topics: string, two_pointers, greedy | last seen: 2024-03-08 | employment: 
@@ -93150,7 +102011,7 @@ public int[] countSentences(String[] wordSet, String[] sentences) {
 
 # Minimum Eating Speed  (Airbnb)
 
-> id: `airbnb-minimum-eating-speed` | difficulty: medium | stage: OA | platform: hackerrank | topics: binary_search, array | last seen: 2024-03-06 | employment: 
+> id: `airbnb-minimum-eating-speed` | difficulty: medium | stage: OA | platform: hackerrank | topics: binary_search, array | last seen: 2024-03-06, 2021-11-30, 2019-09-17 | employment: FULLTIME
 
 ## Problem
 
@@ -93221,6 +102082,10 @@ public int minimumEatingSpeed(int[] candyPiles, int numHours) {
 }
 
 ```
+
+## Source note
+
+The source provides the complete Halloween Candy statement, sample, and core constraints. The judged core task matches the visible source at about 99%.
 
 
 ---
@@ -102684,6 +111549,103 @@ public int[] locationOfDataAfterTransfers(int[] locations, int[]movedFrom, int[]
 
 ---
 
+# In-Memory Database with Backup and Restore  (Ramp)
+
+> id: `ramp-in-memory-database-backup-and-restore` | difficulty: hard | stage: OA | platform: codesignal | topics: design, hash_table, simulation | last seen: 2023-12-22 | employment: INTERN
+
+## Problem
+
+Your task is to implement a simplified version of an in-memory database. All operations that should be supported by this database are described below.
+Solving this task consists of several levels. Subsequent levels are opened when the current level is correctly solved. You always have access to the data for the current and all previous levels.
+You are not required to provide the most efficient implementation. Any code that passes the unit tests is sufficient.
+Level 1
+The basic level of the in-memory database contains records. Each record can be accessed with a unique identifier key of string type. A record may contain several field-value pairs, both of which are of string type.
+  - void set(String key, String field, String value) — should insert a field-value pair to the record associated with key. If the field in the record already exists, replace the existing value with the specified value. If the record does not exist, create a new one.
+  - Optional<String> get(String key, String field) — should return the value contained within field of the record associated with key. If the record or the field does not exist, should return Optional.empty().
+  - boolean delete(String key, String field) — should remove the field from the record associated with key. Returns true if the field was successfully deleted, and false if the key or the field do not exist in the database.
+
+Level 2
+The database should support displaying data based on filters. Introduce an operation to support printing some fields of a record.
+  - List<String> scan(String key) — should return a list of strings representing the fields of a record associated with key. The returned list should be in the following format ["<field_1>(<value_1>)", "<field_2>(<value_2>)", ...], where fields are sorted lexicographically. If the specified record does not exist, returns an empty list.
+  - List<String> scanByPrefix(String key, String prefix) — should return a list of strings representing some fields of a record associated with key. Specifically, only fields that start with prefix should be included. The returned list should be in the same format as in the scan operation with fields sorted in lexicographical order.
+
+Level 3
+Support the timeline of operations and TTL (Time-To-Live) settings for records and fields. Each operation from previous levels now has an alternative version with a timestamp parameter to represent when the operation was executed. For each field-value pair in the database, the TTL determines how long that value will persist before being removed.
+Time should always flow forward, so timestamps are guaranteed to strictly increase as operations are executed.
+Each test cannot contain both versions of operations (with and without timestamp). However, you should maintain backward compatibility, so all previously defined methods should work in the same way as before.
+  - void setAt(String key, String field, String value, int timestamp) — should insert a field-value pair or update the value of the field in the record associated with key.
+  - void setAtWithTtl(String key, String field, String value, int timestamp, int ttl) — should insert a field-value pair or update the value of the field in the record associated with key. Also sets its Time-To-Live starting at timestamp to be ttl. The ttl is the amount of time that this field-value pair should exist in the database, meaning it will be available during this interval: [timestamp, timestamp + ttl).
+  - boolean deleteAt(String key, String field, int timestamp) — the same as delete, but with timestamp of the operation specified.
+  - Optional<String> getAt(String key, String field, int timestamp) — the same as get, but with timestamp of the operation specified.
+  - List<String> scanAt(String key, int timestamp) — the same as scan, but with timestamp of the operation specified.
+  - List<String> scanByPrefixAt(String key, String prefix, int timestamp) — the same as scanByPrefix, but with timestamp of the operation specified.
+
+Level 4
+The database should be backed up from time to time. Introduce operations to support backing up and restoring the database state based on timestamps. When restoring, ttl expiration times should be recalculated accordingly.
+  - int backup(int timestamp) — should save the database state at the specified timestamp, including the remaining ttl for all records and fields. Remaining ttl is the difference between their initial ttl and their current lifespan. Returns the number of non-empty non-expired records in the database.
+  - void restore(int timestamp, int timestampToRestore) — should restore the database from the latest backup before or at timestampToRestore. It is guaranteed that a backup before or at timestampToRestore will exist. Expiration times for restored records and fields should be recalculated according to the timestamp of this operation. Since the database timeline always flows forward, restored records and fields should expire after the timestamp of this operation, depending on their remaining ttls at backup.
+
+FastPrep interface
+Complete runInMemoryDatabase. The operations parameter is an array of string arrays. Process the rows in order and return one result row for every operation.
+  - ["set", key, field, value]
+  - ["get", key, field]
+  - ["delete", key, field]
+  - ["scan", key]
+  - ["scanByPrefix", key, prefix]
+  - ["setAt", key, field, value, timestamp]
+  - ["setAtWithTtl", key, field, value, timestamp, ttl]
+  - ["deleteAt", key, field, timestamp]
+  - ["getAt", key, field, timestamp]
+  - ["scanAt", key, timestamp]
+  - ["scanByPrefixAt", key, prefix, timestamp]
+  - ["backup", timestamp]
+  - ["restore", timestamp, timestampToRestore]
+
+Timestamps and TTLs are base-10 integer strings. Return an empty row for set, setAt, setAtWithTtl, and restore. Return a one-element row for get or getAt when a value exists, and an empty row otherwise. Return ["true"] or ["false"] for delete operations. Scan operations return their formatted fields directly. backup returns the record count as a one-element decimal-string row.
+
+## Constraints
+
+- Time should always flow forward, so timestamps are guaranteed to strictly increase as operations are executed.
+  - Each test cannot contain both versions of operations (with and without timestamp).
+  - Every operation row uses one of the listed adapter formats.
+  - Keys, fields, values, and prefixes are strings.
+  - The source execution time limit is 3 seconds.
+  - The source memory limit is 4 GB.
+
+### Example 1
+- **operations** (`String[][]`) = `[["set","A","B","E"],["set","A","C","F"],["get","A","B"],["get","A","D"],["delete","A","B"],["delete","A","D"]]`
+- **output** (`String[][]`) = `[[],[],["E"],[],["true"],["false"]]`
+
+The first two operations create fields B and C. The first get returns E, the second returns no value, deleting B returns true, and deleting missing field D returns false.
+
+### Example 2
+- **operations** (`String[][]`) = `[["set","A","BC","E"],["set","A","BD","F"],["set","A","C","G"],["scanByPrefix","A","B"],["scan","A"],["scanByPrefix","B","B"]]`
+- **output** (`String[][]`) = `[[],[],[],["BC(E)","BD(F)"],["BC(E)","BD(F)","C(G)"],[]]`
+
+The prefix scan returns fields BC and BD. The full scan also returns C. Record B does not exist, so its scan result is empty.
+
+### Example 3
+- **operations** (`String[][]`) = `[["setAtWithTtl","A","B","C","1","10"],["backup","3"],["setAt","A","D","E","4"],["backup","5"],["deleteAt","A","B","8"],["backup","9"],["restore","10","7"],["backup","11"],["scanAt","A","15"],["scanAt","A","16"]]`
+- **output** (`String[][]`) = `[[],["1"],[],["1"],["true"],["1"],[],["1"],["B(C)","D(E)"],["D(E)"]]`
+
+restore(10, 7) selects the backup at timestamp 5. Field B had 6 units of TTL remaining, so after restoration it expires at timestamp 16. Field D does not expire.
+
+## Starter code
+
+```
+public String[][] runInMemoryDatabase(String[][] operations) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+The source details the field database, scans, timestamped TTL operations, and the backup/restore level. Exact backup selection, remaining-TTL reconstruction, batch serialization, and portable bounds are supplied as deterministic practice rules; the judged core matches the visible source at about 92%.
+
+
+---
+
 # Erase Pairs 🍇  (Amazon)
 
 > id: `erase-pairs` | difficulty: medium | stage: OA | platform: hackerrank | topics: stack, string | last seen: 2023-12-10 | employment: FULLTIME
@@ -103585,6 +112547,313 @@ The Atlassian OA report links the exact Validate Binary Search Tree exercise but
 
 ---
 
+# Banking System with Accepted Transfers, Part 1: Accounts and Payments  (Ramp)
+
+> id: `ramp-banking-accepted-transfers-level-1` | difficulty: easy | stage: OA | platform: codesignal | topics: hash_table, sorting, design, simulation | last seen: 2023-11-20, 2023-09-15 | employment: NEW GRAD
+
+## Problem
+
+Implement a simplified banking system. The assessment is cumulative: after unlocking a new level, every operation from the current and previous levels remains available.
+Query and Output Rules
+  - Each query calls exactly one operation and includes a stringified millisecond timestamp.
+  - Timestamps are unique, lie between 1 and 10^9, and appear in strictly increasing order.
+  - Return one string result for every query, in input order.
+  - Return the empty string when an operation has no successful scalar result, exactly as specified below.
+
+Multipart Series
+  - Part 1: Accounts and Payments
+  - Part 2: Activity Ranking
+  - Part 3: Pending Transfer Acceptance
+  - Part 4: Account Merging and Balance History
+
+Level 1: Accounts and Payments
+The banking system should support creating new accounts, depositing money, and withdrawing or paying money from accounts.
+  - CREATE_ACCOUNT <timestamp> <accountId> creates a new account with the given accountId if it does not already exist. Return "true" if the account is created and "false" if it already exists.
+  - DEPOSIT <timestamp> <accountId> <amount> deposits amount into the account. Return the account balance after processing the query, or the empty string if the account does not exist.
+  - PAY <timestamp> <accountId> <amount> withdraws amount from the account. Return the account balance after processing the query. Return the empty string if the account does not exist or has insufficient funds.
+
+## Constraints
+
+- 1 <= queries.length <= 500.
+  - Every timestamp is a unique integer from 1 through 10^9, and queries are supplied in strictly increasing timestamp order.
+  - Every query row is well formed and uses an operation available at this part.
+  - Amounts and n are positive base-10 integers. Every balance and transaction total fits in a signed 64-bit integer.
+  - Account identifiers are non-empty strings that do not contain commas or parentheses.
+
+### Example 1
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account1"],["CREATE_ACCOUNT","3","account2"],["DEPOSIT","4","non-existing","2700"],["DEPOSIT","5","account1","2700"],["PAY","6","non-existing","2700"],["PAY","7","account1","2701"],["PAY","8","account1","200"]]`
+- **output** (`String[]`) = `["true","false","true","","2700","","","2500"]`
+
+The duplicate account creation fails. Missing-account operations and an overdraw return empty strings. The final payment succeeds and leaves account1 with 2500.
+
+## Starter code
+
+```
+public String[] bankingAcceptedTransfersLevel1(String[][] queries) {
+  // Process the queries in order and return one string per query.
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source screenshots provide the complete Level 1 operations, return values, timestamp rules, query-count bound, and visible example. Only the FastPrep function wrapper is adapted; the judged core matches the visible source at about 99%.
+
+
+---
+
+# Banking System with Accepted Transfers, Part 2: Activity Ranking  (Ramp)
+
+> id: `ramp-banking-accepted-transfers-level-2` | difficulty: medium | stage: OA | platform: codesignal | topics: hash_table, sorting, design, simulation | last seen: 2023-11-20, 2023-09-15 | employment: NEW GRAD
+
+## Problem
+
+Implement a simplified banking system. The assessment is cumulative: after unlocking a new level, every operation from the current and previous levels remains available.
+Query and Output Rules
+  - Each query calls exactly one operation and includes a stringified millisecond timestamp.
+  - Timestamps are unique, lie between 1 and 10^9, and appear in strictly increasing order.
+  - Return one string result for every query, in input order.
+  - Return the empty string when an operation has no successful scalar result, exactly as specified below.
+
+Multipart Series
+  - Part 1: Accounts and Payments
+  - Part 2: Activity Ranking
+  - Part 3: Pending Transfer Acceptance
+  - Part 4: Account Merging and Balance History
+
+Level 1: Accounts and Payments
+The banking system should support creating new accounts, depositing money, and withdrawing or paying money from accounts.
+  - CREATE_ACCOUNT <timestamp> <accountId> creates a new account with the given accountId if it does not already exist. Return "true" if the account is created and "false" if it already exists.
+  - DEPOSIT <timestamp> <accountId> <amount> deposits amount into the account. Return the account balance after processing the query, or the empty string if the account does not exist.
+  - PAY <timestamp> <accountId> <amount> withdraws amount from the account. Return the account balance after processing the query. Return the empty string if the account does not exist or has insufficient funds.
+
+Level 2: Activity Ranking
+The banking system should support ranking accounts by the total value of their transactions.
+  - TOP_ACTIVITY <timestamp> <n> returns the top n accounts with the highest total transaction value, sorted by total value descending and then by accountId alphabetically ascending.
+  - Return one string in the format "<accountId1>(<transactionsValue1>), ..., <accountIdN>(<transactionsValueN>)".
+  - Total transaction value is the sum of every processed amount for an account, regardless of how it changes the balance: deposits, payments, and each side of a successfully accepted transfer count.
+  - If fewer than n accounts exist, return all active accounts in the same format.
+
+## Constraints
+
+- 1 <= queries.length <= 500.
+  - Every timestamp is a unique integer from 1 through 10^9, and queries are supplied in strictly increasing timestamp order.
+  - Every query row is well formed and uses an operation available at this part.
+  - Amounts and n are positive base-10 integers. Every balance and transaction total fits in a signed 64-bit integer.
+  - Account identifiers are non-empty strings that do not contain commas or parentheses.
+
+### Example 1
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account1"],["CREATE_ACCOUNT","3","account2"],["DEPOSIT","4","non-existing","2700"],["DEPOSIT","5","account1","2700"],["PAY","6","non-existing","2700"],["PAY","7","account1","2701"],["PAY","8","account1","200"]]`
+- **output** (`String[]`) = `["true","false","true","","2700","","","2500"]`
+
+The duplicate account creation fails. Missing-account operations and an overdraw return empty strings. The final payment succeeds and leaves account1 with 2500.
+
+### Example 2
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account2"],["CREATE_ACCOUNT","3","account3"],["DEPOSIT","4","account1","2000"],["DEPOSIT","5","account2","3000"],["DEPOSIT","6","account3","4000"],["TOP_ACTIVITY","7","3"],["PAY","8","account1","1500"],["PAY","9","account2","250"],["DEPOSIT","10","account3","250"],["TOP_ACTIVITY","11","3"]]`
+- **output** (`String[]`) = `["true","true","true","2000","3000","4000","account3(4000), account2(3000), account1(2000)","500","2750","4250","account3(4250), account1(3500), account2(3250)"]`
+
+The first ranking follows the three deposits. Payments count toward total activity even though they reduce balances, so the second ranking uses totals 4250, 3500, and 3250.
+
+## Starter code
+
+```
+public String[] bankingAcceptedTransfersLevel2(String[][] queries) {
+  // Process the queries in order and return one string per query.
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source screenshots provide the complete cumulative Level 2 ranking rule, tie-break, activity definition, output format, and visible example. Only the FastPrep function wrapper is adapted; the judged core matches the visible source at about 99%.
+
+
+---
+
+# Banking System with Accepted Transfers, Part 3: Pending Transfer Acceptance  (Ramp)
+
+> id: `ramp-banking-accepted-transfers-level-3` | difficulty: medium | stage: OA | platform: codesignal | topics: hash_table, sorting, design, simulation | last seen: 2023-11-20, 2023-09-15 | employment: NEW GRAD
+
+## Problem
+
+Implement a simplified banking system. The assessment is cumulative: after unlocking a new level, every operation from the current and previous levels remains available.
+Query and Output Rules
+  - Each query calls exactly one operation and includes a stringified millisecond timestamp.
+  - Timestamps are unique, lie between 1 and 10^9, and appear in strictly increasing order.
+  - Return one string result for every query, in input order.
+  - Return the empty string when an operation has no successful scalar result, exactly as specified below.
+
+Multipart Series
+  - Part 1: Accounts and Payments
+  - Part 2: Activity Ranking
+  - Part 3: Pending Transfer Acceptance
+  - Part 4: Account Merging and Balance History
+
+Level 1: Accounts and Payments
+The banking system should support creating new accounts, depositing money, and withdrawing or paying money from accounts.
+  - CREATE_ACCOUNT <timestamp> <accountId> creates a new account with the given accountId if it does not already exist. Return "true" if the account is created and "false" if it already exists.
+  - DEPOSIT <timestamp> <accountId> <amount> deposits amount into the account. Return the account balance after processing the query, or the empty string if the account does not exist.
+  - PAY <timestamp> <accountId> <amount> withdraws amount from the account. Return the account balance after processing the query. Return the empty string if the account does not exist or has insufficient funds.
+
+Level 2: Activity Ranking
+The banking system should support ranking accounts by the total value of their transactions.
+  - TOP_ACTIVITY <timestamp> <n> returns the top n accounts with the highest total transaction value, sorted by total value descending and then by accountId alphabetically ascending.
+  - Return one string in the format "<accountId1>(<transactionsValue1>), ..., <accountIdN>(<transactionsValueN>)".
+  - Total transaction value is the sum of every processed amount for an account, regardless of how it changes the balance: deposits, payments, and each side of a successfully accepted transfer count.
+  - If fewer than n accounts exist, return all active accounts in the same format.
+
+Level 3: Pending Transfer Acceptance
+The banking system should allow transfers to be scheduled and their status to be resolved by the target account.
+  - TRANSFER <timestamp> <sourceAccountId> <targetAccountId> <amount> initiates a transfer. Withdraw amount from the source immediately and hold it until the target accepts the transfer or it expires. Refund the held money to the source when it expires.
+  - Return the empty string when the source equals the target, either account is absent, or the source has insufficient funds.
+  - A transfer expires after 24 * 60 * 60 * 1000 = 86400000 milliseconds. It expires at the beginning of the next millisecond after that period, so acceptance at the exact expiration timestamp is still valid.
+  - A valid transfer returns the next global ID: "transfer1", "transfer2", and so on. Failed transfers do not consume an ID.
+  - The source and target transaction histories are updated only after acceptance. A successfully accepted transfer contributes its amount to the total transaction value of both accounts.
+  - ACCEPT_TRANSFER <timestamp> <accountId> <transferId> accepts a pending transfer. Return "true" on success. Return "false" if the transfer does not exist, was already accepted, expired, or accountId is not its target.
+
+## Constraints
+
+- 1 <= queries.length <= 500.
+  - Every timestamp is a unique integer from 1 through 10^9, and queries are supplied in strictly increasing timestamp order.
+  - Every query row is well formed and uses an operation available at this part.
+  - Amounts and n are positive base-10 integers. Every balance and transaction total fits in a signed 64-bit integer.
+  - Account identifiers are non-empty strings that do not contain commas or parentheses.
+
+### Example 1
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account1"],["CREATE_ACCOUNT","3","account2"],["DEPOSIT","4","non-existing","2700"],["DEPOSIT","5","account1","2700"],["PAY","6","non-existing","2700"],["PAY","7","account1","2701"],["PAY","8","account1","200"]]`
+- **output** (`String[]`) = `["true","false","true","","2700","","","2500"]`
+
+The duplicate account creation fails. Missing-account operations and an overdraw return empty strings. The final payment succeeds and leaves account1 with 2500.
+
+### Example 2
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account2"],["CREATE_ACCOUNT","3","account3"],["DEPOSIT","4","account1","2000"],["DEPOSIT","5","account2","3000"],["DEPOSIT","6","account3","4000"],["TOP_ACTIVITY","7","3"],["PAY","8","account1","1500"],["PAY","9","account2","250"],["DEPOSIT","10","account3","250"],["TOP_ACTIVITY","11","3"]]`
+- **output** (`String[]`) = `["true","true","true","2000","3000","4000","account3(4000), account2(3000), account1(2000)","500","2750","4250","account3(4250), account1(3500), account2(3250)"]`
+
+The first ranking follows the three deposits. Payments count toward total activity even though they reduce balances, so the second ranking uses totals 4250, 3500, and 3250.
+
+### Example 3
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account2"],["DEPOSIT","3","account1","2000"],["DEPOSIT","4","account2","3000"],["TRANSFER","5","account1","account2","5000"],["TRANSFER","16","account1","account2","1000"],["ACCEPT_TRANSFER","20","account1","transfer1"],["ACCEPT_TRANSFER","21","non-existing","transfer1"],["ACCEPT_TRANSFER","22","account1","transfer2"],["ACCEPT_TRANSFER","25","account2","transfer1"],["ACCEPT_TRANSFER","30","account2","transfer1"],["TRANSFER","40","account1","account2","1000"],["ACCEPT_TRANSFER","86400045","account2","transfer2"],["TRANSFER","86400050","account1","account1","1000"]]`
+- **output** (`String[]`) = `["true","true","2000","3000","","transfer1","false","false","false","true","false","transfer2","false",""]`
+
+The first transfer fails for insufficient funds. Only account2 can accept transfer1, and it can be accepted only once. transfer2 expires before timestamp 86400045, so its held funds are refunded and acceptance fails.
+
+## Starter code
+
+```
+public String[] bankingAcceptedTransfersLevel3(String[][] queries) {
+  // Process the queries in order and return one string per query.
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source screenshots provide the complete cumulative Level 3 transfer-reservation, acceptance, expiration, activity-accounting, and ID rules together with the visible example. Only the FastPrep function wrapper is adapted; the judged core matches the visible source at about 99%.
+
+
+---
+
+# Banking System with Accepted Transfers, Part 4: Account Merging and Balance History  (Ramp)
+
+> id: `ramp-banking-accepted-transfers-level-4` | difficulty: hard | stage: OA | platform: codesignal | topics: hash_table, sorting, design, simulation | last seen: 2023-11-20, 2023-09-15 | employment: NEW GRAD
+
+## Problem
+
+Implement a simplified banking system. The assessment is cumulative: after unlocking a new level, every operation from the current and previous levels remains available.
+Query and Output Rules
+  - Each query calls exactly one operation and includes a stringified millisecond timestamp.
+  - Timestamps are unique, lie between 1 and 10^9, and appear in strictly increasing order.
+  - Return one string result for every query, in input order.
+  - Return the empty string when an operation has no successful scalar result, exactly as specified below.
+
+Multipart Series
+  - Part 1: Accounts and Payments
+  - Part 2: Activity Ranking
+  - Part 3: Pending Transfer Acceptance
+  - Part 4: Account Merging and Balance History
+
+Level 1: Accounts and Payments
+The banking system should support creating new accounts, depositing money, and withdrawing or paying money from accounts.
+  - CREATE_ACCOUNT <timestamp> <accountId> creates a new account with the given accountId if it does not already exist. Return "true" if the account is created and "false" if it already exists.
+  - DEPOSIT <timestamp> <accountId> <amount> deposits amount into the account. Return the account balance after processing the query, or the empty string if the account does not exist.
+  - PAY <timestamp> <accountId> <amount> withdraws amount from the account. Return the account balance after processing the query. Return the empty string if the account does not exist or has insufficient funds.
+
+Level 2: Activity Ranking
+The banking system should support ranking accounts by the total value of their transactions.
+  - TOP_ACTIVITY <timestamp> <n> returns the top n accounts with the highest total transaction value, sorted by total value descending and then by accountId alphabetically ascending.
+  - Return one string in the format "<accountId1>(<transactionsValue1>), ..., <accountIdN>(<transactionsValueN>)".
+  - Total transaction value is the sum of every processed amount for an account, regardless of how it changes the balance: deposits, payments, and each side of a successfully accepted transfer count.
+  - If fewer than n accounts exist, return all active accounts in the same format.
+
+Level 3: Pending Transfer Acceptance
+The banking system should allow transfers to be scheduled and their status to be resolved by the target account.
+  - TRANSFER <timestamp> <sourceAccountId> <targetAccountId> <amount> initiates a transfer. Withdraw amount from the source immediately and hold it until the target accepts the transfer or it expires. Refund the held money to the source when it expires.
+  - Return the empty string when the source equals the target, either account is absent, or the source has insufficient funds.
+  - A transfer expires after 24 * 60 * 60 * 1000 = 86400000 milliseconds. It expires at the beginning of the next millisecond after that period, so acceptance at the exact expiration timestamp is still valid.
+  - A valid transfer returns the next global ID: "transfer1", "transfer2", and so on. Failed transfers do not consume an ID.
+  - The source and target transaction histories are updated only after acceptance. A successfully accepted transfer contributes its amount to the total transaction value of both accounts.
+  - ACCEPT_TRANSFER <timestamp> <accountId> <transferId> accepts a pending transfer. Return "true" on success. Return "false" if the transfer does not exist, was already accepted, expired, or accountId is not its target.
+
+Level 4: Account Merging and Balance History
+The visible source specifies that Level 4 merges two accounts while retaining the balances and transaction histories of the original accounts.
+FastPrep Practice Rules for the Source-Omitted Edge Cases
+  - MERGE_ACCOUNTS <timestamp> <survivorId> <absorbedId> returns "false" if the IDs are equal or either account is not active. Otherwise add the absorbed balance and transaction total to the survivor, close the absorbed account at this timestamp, and return "true".
+  - Retarget a pending transfer that names the absorbed account to the survivor. If that would make the pending transfer's source and target equal, cancel it and refund its held amount before combining balances.
+  - GET_BALANCE <timestamp> <accountId> <timeAt> returns the account's balance immediately after all activity at timeAt, or after the latest earlier activity if nothing happened exactly then. Return the empty string if the account did not yet exist or was already closed at timeAt.
+  - A merged-away account remains queryable for times before its merge timestamp. The survivor's earlier history remains unchanged; at the merge timestamp its balance becomes the combined balance.
+
+## Constraints
+
+- 1 <= queries.length <= 500.
+  - Every timestamp is a unique integer from 1 through 10^9, and queries are supplied in strictly increasing timestamp order.
+  - Every query row is well formed and uses an operation available at this part.
+  - Amounts and n are positive base-10 integers. Every balance and transaction total fits in a signed 64-bit integer.
+  - Account identifiers are non-empty strings that do not contain commas or parentheses.
+
+### Example 1
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account1"],["CREATE_ACCOUNT","3","account2"],["DEPOSIT","4","non-existing","2700"],["DEPOSIT","5","account1","2700"],["PAY","6","non-existing","2700"],["PAY","7","account1","2701"],["PAY","8","account1","200"]]`
+- **output** (`String[]`) = `["true","false","true","","2700","","","2500"]`
+
+The duplicate account creation fails. Missing-account operations and an overdraw return empty strings. The final payment succeeds and leaves account1 with 2500.
+
+### Example 2
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account2"],["CREATE_ACCOUNT","3","account3"],["DEPOSIT","4","account1","2000"],["DEPOSIT","5","account2","3000"],["DEPOSIT","6","account3","4000"],["TOP_ACTIVITY","7","3"],["PAY","8","account1","1500"],["PAY","9","account2","250"],["DEPOSIT","10","account3","250"],["TOP_ACTIVITY","11","3"]]`
+- **output** (`String[]`) = `["true","true","true","2000","3000","4000","account3(4000), account2(3000), account1(2000)","500","2750","4250","account3(4250), account1(3500), account2(3250)"]`
+
+The first ranking follows the three deposits. Payments count toward total activity even though they reduce balances, so the second ranking uses totals 4250, 3500, and 3250.
+
+### Example 3
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","account1"],["CREATE_ACCOUNT","2","account2"],["DEPOSIT","3","account1","2000"],["DEPOSIT","4","account2","3000"],["TRANSFER","5","account1","account2","5000"],["TRANSFER","16","account1","account2","1000"],["ACCEPT_TRANSFER","20","account1","transfer1"],["ACCEPT_TRANSFER","21","non-existing","transfer1"],["ACCEPT_TRANSFER","22","account1","transfer2"],["ACCEPT_TRANSFER","25","account2","transfer1"],["ACCEPT_TRANSFER","30","account2","transfer1"],["TRANSFER","40","account1","account2","1000"],["ACCEPT_TRANSFER","86400045","account2","transfer2"],["TRANSFER","86400050","account1","account1","1000"]]`
+- **output** (`String[]`) = `["true","true","2000","3000","","transfer1","false","false","false","true","false","transfer2","false",""]`
+
+The first transfer fails for insufficient funds. Only account2 can accept transfer1, and it can be accepted only once. transfer2 expires before timestamp 86400045, so its held funds are refunded and acceptance fails.
+
+### Example 4
+- **queries** (`String[][]`) = `[["CREATE_ACCOUNT","1","a"],["CREATE_ACCOUNT","2","b"],["DEPOSIT","3","a","100"],["DEPOSIT","4","b","50"],["TRANSFER","5","b","a","20"],["MERGE_ACCOUNTS","6","a","b"],["GET_BALANCE","7","b","4"],["GET_BALANCE","8","b","5"],["GET_BALANCE","9","b","6"],["GET_BALANCE","10","a","6"],["TOP_ACTIVITY","11","2"]]`
+- **output** (`String[]`) = `["true","true","100","50","transfer1","true","50","30","","150","a(150)"]`
+
+The pending transfer would become internal after the merge, so it is canceled and its held 20 is refunded before the balances combine. Account b keeps its historical balances before timestamp 6 but is closed at the merge timestamp.
+
+## Starter code
+
+```
+public String[] bankingAcceptedTransfersLevel4(String[][] queries) {
+  // Process the queries in order and return one string per query.
+  // write your code here
+}
+
+```
+
+## Source note
+
+The source directly specifies merging accounts while retaining balances and transaction histories, but it omits the exact method signatures and pending-transfer behavior during a merge. Those edge rules are labeled as FastPrep practice rules; the judged core matches the visible source at about 78%.
+
+
+---
+
 # Find Repetitions  (Pure Storage)
 
 > id: `purestorage-find-repetitions` | difficulty: easy | stage: OA | platform: hackerrank | topics: string, sliding_window | last seen: 2023-11-20 | employment: INTERN
@@ -103878,7 +113147,7 @@ public int[][] solution(int h, int w, String[] queries) {
 
 # Install Carbon Filters  (Deloitte)
 
-> id: `deloitte-install-carbon-filters` | difficulty: medium | stage: OA | platform: hackerrank | topics: string, greedy | last seen: 2023-10-21 | employment: NEW GRAD
+> id: `deloitte-install-carbon-filters` | difficulty: medium | stage: OA | platform: codility | topics: string, greedy | last seen: 2023-10-21 | employment: NEW GRAD
 
 ## Problem
 
@@ -103939,7 +113208,7 @@ The visible source permits more than one valid completion. To make exact judging
 
 # Longest Substring with Even Occurrences  (Deloitte)
 
-> id: `deloitte-lonest-substring-with-even-occurrences` | difficulty: medium | stage: OA | platform: hackerrank | topics: string, bit_manipulation, hash_table, prefix_sum | last seen: 2023-10-21 | employment: NEW GRAD
+> id: `deloitte-lonest-substring-with-even-occurrences` | difficulty: medium | stage: OA | platform: codility | topics: string, bit_manipulation, hash_table, prefix_sum | last seen: 2023-10-21 | employment: NEW GRAD
 
 ## Problem
 
@@ -104126,6 +113395,152 @@ public int computeNumberOfLocations(int N, int M, int L, int[] g, int[][] roads)
 }
 
 ```
+
+
+---
+
+# Generate Parameter Combinations  (Gecko Robotics)
+
+> id: `gecko-robotics-parameter-combinations` | difficulty: medium | stage: OA, PHONE SCREEN | platform: unknown | topics: array, backtracking | last seen: 2023-09-25, 2023-08-15 | employment: NEW GRAD
+
+## Problem
+
+Given an ordered list of parameter value lists, return every combination that chooses exactly one value from each list.
+Preserve parameter order within each combination. Enumerate combinations lexicographically according to the given order of values in each parameter list. If there are no parameters, return one empty combination. If any parameter has no values, return no combinations.
+
+## Constraints
+
+- 0 <= parameters.length <= 12.
+  - Each value is a non-empty alphanumeric string that may also contain underscore, hyphen, or period.
+  - Values within one list are distinct and already sorted.
+  - The total number of returned combinations is at most 100000.
+  - Do not use a library Cartesian-product helper.
+
+### Example 1
+- **parameters** (`String[][]`) = `[["red","blue"],["S","M"]]`
+- **output** (`String[][]`) = `[["red","S"],["red","M"],["blue","S"],["blue","M"]]`
+
+Each color is paired with each size. The first attribute changes more slowly because combinations are enumerated from left to right.
+
+### Example 2
+- **parameters** (`String[][]`) = `[["us"],["free","pro"],["light","dark"]]`
+- **output** (`String[][]`) = `[["us","free","light"],["us","free","dark"],["us","pro","light"],["us","pro","dark"]]`
+
+The single region appears in every row, while the two later attributes generate four combinations.
+
+### Example 3
+- **parameters** (`String[][]`) = `[]`
+- **output** (`String[][]`) = `[[]]`
+
+The Cartesian product of zero attribute sets contains one empty assignment.
+
+## Starter code
+
+```
+public String[][] generateParameterCombinations(String[][] parameters) {
+    // write your code here
+}
+```
+
+## Source note
+
+Gecko Robotics OA screenshots dated September 25, 2023 specify a Cartesian-product function over sorted parameter arrays, exact examples, allowed characters, and a no-itertools rule; an August 15 phone report independently describes the same combination task. The judged contract matches the visible source at about 92%.
+
+
+---
+
+# Maximum Damage Patch  (Gecko Robotics)
+
+> id: `gecko-robotics-maximum-damage-patch` | difficulty: medium | stage: OA, PHONE SCREEN | platform: unknown | topics: array, matrix, graph, depth_first_search, breadth_first_search | last seen: 2023-09-25, 2023-08-15 | employment: NEW GRAD
+
+## Problem
+
+Given a rectangular binary matrix grid, return the maximum area of an island. An island is a maximal group of cells containing 1 connected horizontally or vertically. Its area is its number of cells.
+Return 0 when the matrix contains no land.
+
+## Constraints
+
+- 1 <= grid.length, grid[i].length <= 300.
+  - Every row has the same length.
+  - grid[i][j] is either 0 or 1.
+
+### Example 1
+- **grid** (`int[][]`) = `[[0,0,1,0],[1,1,1,0],[0,1,0,1]]`
+- **output** (`int`) = `5`
+
+The center island contains five orthogonally connected land cells. The bottom-right cell is a separate island of area 1.
+
+### Example 2
+- **grid** (`int[][]`) = `[[0,0],[0,0]]`
+- **output** (`int`) = `0`
+
+There are no land cells.
+
+## Starter code
+
+```
+public int maxIslandArea(int[][] grid) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+Firsthand Gecko Robotics reports from August and September 2023 identify this as the Max Area of Island task recast as the largest orthogonally connected damage patch; the source screenshots provide the function contract and examples.
+
+
+---
+
+# File Download Coverage Percentage  (Persona)
+
+> id: `persona-download-coverage-percent` | difficulty: medium | stage: OA | platform: unknown | topics: array, intervals, prefix_sum | last seen: 2023-09-20 | employment: INTERN
+
+## Problem
+
+A file has chunks numbered 1..totalChunks. Each inclusive interval records one completed download of every chunk in that range.
+If requireTwice is false, return the integer percentage of chunks downloaded at least once, rounded down. If it is true, return 100 only when every chunk was downloaded at least twice; otherwise return 0.
+
+## Constraints
+
+- 1 <= totalChunks <= 100000.
+  - 0 <= intervals.length <= 100000.
+  - 1 <= start <= end <= totalChunks.
+
+### Example 1
+- **totalChunks** (`int`) = `5`
+- **intervals** (`int[][]`) = `[[3,4]]`
+- **requireTwice** (`boolean`) = `false`
+- **output** (`int`) = `40`
+
+Two of five chunks were downloaded.
+
+### Example 2
+- **totalChunks** (`int`) = `5`
+- **intervals** (`int[][]`) = `[[1,5],[1,5]]`
+- **requireTwice** (`boolean`) = `true`
+- **output** (`int`) = `100`
+
+Every chunk appears in both intervals.
+
+### Example 3
+- **totalChunks** (`int`) = `5`
+- **intervals** (`int[][]`) = `[[1,5],[2,5]]`
+- **requireTwice** (`boolean`) = `true`
+- **output** (`int`) = `0`
+
+Chunk 1 was downloaded only once.
+
+## Starter code
+
+```
+public int downloadCoveragePercent(int totalChunks, int[][] intervals, boolean requireTwice) {
+    // Compute ordinary or double coverage.
+}
+```
+
+## Source note
+
+Three firsthand Persona internship OA reports describe the same file-downloader interval task: calculate the percentage of a file covered by chunk intervals, with a boolean bonus requiring every point to be covered twice. One report gives total 5 and interval [3,4] as 40 percent. Inclusive one-indexed chunks and floor rounding are the smallest deterministic execution assumptions consistent with that example. The judged contract matches the recoverable source at about 90%.
 
 
 ---
@@ -104535,6 +113950,159 @@ public int maxPathSum(int[] levelOrder) {
 ## Source note
 
 The source identifies the canonical Binary Tree Maximum Path Sum task; the judged core task matches it at about 98%.
+
+
+---
+
+# Remove Duplicates While Preserving Order  (Wells Fargo)
+
+> id: `wellsfargo-remove-duplicates-preserving-order` | difficulty: easy | stage: OA | platform: unknown | topics: array, hash_table | last seen: 2023-08-21 | employment: FULLTIME
+
+## Problem
+
+You are given an integer array values.
+Remove duplicate occurrences so that each distinct value appears exactly once. Preserve the order of first appearance.
+Return the resulting array.
+
+## Constraints
+
+- 1 <= values.length <= 10^5.
+  - -10^6 <= values[i] <= 10^6.
+
+### Example 1
+- **values** (`int[]`) = `[1,1,3,2,1,4,5,4]`
+- **output** (`int[]`) = `[1,3,2,4,5]`
+
+Keep the first occurrences of 1, 3, 2, 4, and 5 in their original order.
+
+### Example 2
+- **values** (`int[]`) = `[1,2,3]`
+- **output** (`int[]`) = `[1,2,3]`
+
+Every value is already distinct.
+
+### Example 3
+- **values** (`int[]`) = `[-1,-1,0,-1]`
+- **output** (`int[]`) = `[-1,0]`
+
+Keep the first -1 and the first 0.
+
+## Starter code
+
+```
+public int[] removeDuplicatesPreservingOrder(int[] values) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source image provides the complete transformation, bounds, and example. The judged task matches the visible source at about 99%.
+
+
+---
+
+# Wildcard Bad-Word Filter  (Sentry)
+
+> id: `sentry-wildcard-bad-word-filter` | difficulty: medium | stage: OA | platform: unknown | topics: string | last seen: 2023-08-17, 2022-10-10, 2020-11-15 | employment: INTERN, NEW GRAD, FULLTIME
+
+## Problem
+
+Replace bad words in a message while preserving every punctuation mark and whitespace character.
+A candidate word is a maximal run of ASCII letters. Matching ignores case. A pattern without * must equal the whole word. A leading * matches any prefix, a trailing * matches any suffix, and both match any containing word. Only edge wildcards are allowed; patterns containing no letters are ignored.
+Replace every letter of a matching word with *.
+
+## Constraints
+
+- 1 <= badWords.length <= 1000.
+  - 1 <= message.length <= 100000.
+  - Patterns contain ASCII letters and optional edge * characters; the message contains printable ASCII and whitespace.
+
+### Example 1
+- **badWords** (`String[]`) = `["jerk*","*lame*"]`
+- **message** (`String`) = `"Stop it, you jerkwad! I remain blameless!"`
+- **output** (`String`) = `"Stop it, you *******! I remain *********!"`
+
+The prefix and contains patterns match while punctuation remains.
+
+### Example 2
+- **badWords** (`String[]`) = `["bad","*tail","head*"]`
+- **message** (`String`) = `"BAD cocktail headwind badge"`
+- **output** (`String`) = `"*** ******** ******** badge"`
+
+Matching ignores case and exact bad does not match badge.
+
+### Example 3
+- **badWords** (`String[]`) = `["*","**"]`
+- **message** (`String`) = `"keep  all!"`
+- **output** (`String`) = `"keep  all!"`
+
+Wildcard-only patterns are ignored and repeated spaces stay unchanged.
+
+## Starter code
+
+```
+public String filterBadWords(String[] badWords, String message) {
+    // write your code here
+}
+```
+
+## Source note
+
+Firsthand Sentry OA reports from 2020 through 2023 consistently describe a case-insensitive bad-word filter with exact, prefix, suffix, and contains wildcards, punctuation-heavy messages, repeated spaces, and same-length asterisk replacement. Screenshots in the earliest report corroborate the edge-wildcard rules. The judged contract matches the visible source at about 92%.
+
+
+---
+
+# Word Wrap with Even Justification  (Sentry)
+
+> id: `sentry-word-wrap-justification` | difficulty: hard | stage: OA | platform: hackerrank | topics: string, simulation, greedy | last seen: 2023-08-17 | employment: INTERN
+
+## Problem
+
+Format a sequence of words into fixed-width lines. Any run of whitespace separates words, except that whitespace immediately around a hyphen is ignored, so go - to becomes go-to.
+Pack words greedily using one space while deciding what fits. Every returned line must then have exactly width characters. For a line with multiple words, distribute as many spaces as possible equally between every adjacent pair and append any remainder to the end. Center a one-word line, placing an unmatched extra space at the end.
+Keep a hyphenated word intact when its normalized form fits within width. When it is longer than width, repeatedly split at the rightmost hyphen whose left piece, including that hyphen, fits; treat the pieces as consecutive words.
+
+## Constraints
+
+- 1 <= text.length <= 100000.
+  - 1 <= width <= 200.
+  - The input contains printable ASCII characters and whitespace; non-whitespace text consists of letters and hyphens.
+  - After normalizing whitespace around hyphens, every ordinary word and every segment between allowed hyphen splits fits within width.
+
+### Example 1
+- **text** (`String`) = `"a cat is an animal"`
+- **width** (`int`) = `6`
+- **output** (`String[]`) = `["a  cat","is  an","animal"]`
+
+After greedy packing, final justification gives both two-word lines six characters.
+
+### Example 2
+- **text** (`String`) = `"cat is an animal and so is a dog"`
+- **width** (`int`) = `12`
+- **output** (`String[]`) = `["cat  is  an ","animal   and","so is a dog "]`
+
+The first line has two spaces per gap and one leftover space at the end.
+
+### Example 3
+- **text** (`String`) = `"auto-complete is my go - to"`
+- **width** (`int`) = `8`
+- **output** (`String[]`) = `[" auto-  ","complete","is    my"," go-to  "]`
+
+The long hyphenated word splits after auto-, while whitespace around the hyphen in go - to is ignored.
+
+## Starter code
+
+```
+public String[] justifyWords(String text, int width) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+A firsthand Sentry intern HackerRank assessment report dated August 17, 2023 includes five screenshots of this complete word-wrapping challenge, including exact whitespace distribution, single-word centering, and hyphen rules. The judged contract matches the visible source at about 98%.
 
 
 ---
@@ -105310,6 +114878,54 @@ public int totalExecutionTime(int[] execution) {
 
 ---
 
+# Validate BST Node Descriptions  (Airbnb)
+
+> id: `airbnb-validate-bst-node-descriptions` | difficulty: hard | stage: OA | platform: unknown | topics: array, hash_table, tree, depth_first_search | last seen: 2023-05-17, 2022-11-06, 2021-10-03 | employment: FULLTIME
+
+## Problem
+
+You are given an array nodes. Each row [value, left, right] describes one proposed binary-tree node:
+  - value is the node's unique integer value.
+  - left is the value of its left child, or -1 when it has no left child.
+  - right is the value of its right child, or -1 when it has no right child.
+
+Determine whether all rows together describe exactly one valid binary search tree. A valid description must have exactly one root, every non-root node must have exactly one parent, every referenced child must have its own row, every node must be reachable from the root, and the strict binary-search-tree ordering rule must hold for every descendant.
+Return the root value when the description is valid. Otherwise, return -1.
+
+## Constraints
+
+- 1 <= nodes.length <= 10^5.
+  - nodes[i].length == 3.
+  - 0 <= value <= 10^9, and all value entries are distinct.
+  - Each child entry is -1 or an integer from 0 through 10^9.
+
+### Example 1
+- **nodes** (`int[][]`) = `[[17,-1,-1],[15,13,17],[7,-1,-1],[13,-1,-1],[5,3,7],[3,-1,-1],[10,5,15]]`
+- **output** (`int`) = `10`
+
+The rows form one connected tree rooted at 10. Every value in its left subtree is smaller, and every value in its right subtree is larger.
+
+### Example 2
+- **nodes** (`int[][]`) = `[[2,3,-1],[3,-1,-1]]`
+- **output** (`int`) = `-1`
+
+Node 3 is described as the left child of 2, which violates the strict binary-search-tree ordering rule.
+
+## Starter code
+
+```
+public int findValidBstRoot(int[][] nodes) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The source images and discussion define the node triples and validation goal; the portable bounds are supplied for practice. The judged core task matches the visible source at about 97%.
+
+
+---
+
 # Stable Parity Partition  (Zoom)
 
 > id: `zoom-stable-parity-partition` | difficulty: easy | stage: OA | platform: unknown | topics: array, sorting | last seen: 2023-05-13 | employment: FULLTIME
@@ -105357,6 +114973,55 @@ public int[] partitionByParity(int[] nums) {
 ## Source note
 
 The report gives only the parity-grouping objective. This version preserves relative order within both groups and matches the reported core task at about 88%.
+
+
+---
+
+# Minimum Cost to Remove Stones  (Airbnb)
+
+> id: `airbnb-minimum-cost-to-remove-stones` | difficulty: hard | stage: OA | platform: unknown | topics: array, dynamic_programming | last seen: 2023-04-09 | employment: FULLTIME
+
+## Problem
+
+There are n stones in a row, indexed from 0 to n - 1. Stone i has two associated costs: oneNeighborCost[i] and twoNeighborCost[i].
+Remove every stone in any order. At the moment stone i is removed, its cost is:
+  - twoNeighborCost[i] if both immediately adjacent stones i - 1 and i + 1 still exist.
+  - oneNeighborCost[i] if exactly one of those immediately adjacent stones still exists.
+  - 0 if neither immediately adjacent stone still exists.
+
+An index outside the row does not contain a stone. Return the minimum possible total cost of removing all stones.
+
+## Constraints
+
+- 1 <= n <= 5 * 10^4.
+  - oneNeighborCost.length == twoNeighborCost.length == n.
+  - 1 <= oneNeighborCost[i], twoNeighborCost[i] <= 1000.
+
+### Example 1
+- **oneNeighborCost** (`int[]`) = `[3,4,5]`
+- **twoNeighborCost** (`int[]`) = `[10,1,10]`
+- **output** (`long`) = `1`
+
+Remove stone 1 first for cost 1. Its removal leaves both end stones without an immediate neighbor, so both are then removed for free.
+
+### Example 2
+- **oneNeighborCost** (`int[]`) = `[1,10,1]`
+- **twoNeighborCost** (`int[]`) = `[5,1,5]`
+- **output** (`long`) = `1`
+
+Remove the middle stone first for cost 1. Both end stones are then isolated and can be removed for free.
+
+## Starter code
+
+```
+public long minimumRemovalCost(int[] oneNeighborCost, int[] twoNeighborCost) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The judged task matches the visible source at about 99%.
 
 
 ---
@@ -105682,6 +115347,43 @@ The judged contract follows the complete visible Atlassian online-assessment pro
 
 ---
 
+# Count Teams Outscoring a Target Team  (Bloomberg LP)
+
+> id: `bloomberg-count-teams-outscoring-target` | difficulty: easy | stage: OA | platform: unknown | topics: array, hash_table, sorting | last seen: 2023-02-22 | employment: NEW GRAD
+
+## Problem
+
+matches[i] = [homeTeam, awayTeam] and scores[i] = [homeGoals, awayGoals]. Every team appears in exactly one match.
+Return how many teams scored strictly more goals than targetTeam.
+
+## Constraints
+
+- Match and score arrays have equal length.
+  - The target team appears exactly once.
+
+### Example 1
+- **matches** (`String[][]`) = `[["Red","Blue"],["Green","Yellow"],["Orange","Violet"]]`
+- **scores** (`int[][]`) = `[[0,1],[2,5],[0,0]]`
+- **targetTeam** (`String`) = `"Blue"`
+- **output** (`int`) = `2`
+
+Blue scored one; Green and Yellow scored more.
+
+## Starter code
+
+```
+public int countTeamsOutscoring(String[][] matches, int[][] scores, String targetTeam) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+Reported by the original poster in a reply to a first-hand Bloomberg entry-level process. This corrects the preliminary football-score-combinations label to the actual prompt.
+
+
+---
+
 # Maximum Profit from an Increasing Price Triplet  (Odoo)
 
 > id: `odoo-maximum-profit-increasing-triplet` | difficulty: medium | stage: OA | platform: unknown | topics: array, binary_search, segment_tree, dynamic_programming | last seen: 2023-01-24 | employment: FULLTIME
@@ -105903,6 +115605,53 @@ public int getMinimumMoves(int[][] maze, int k) {
 
 ---
 
+# Minimum Power-of-Two Adjustments  (NVIDIA)
+
+> id: `nvidia-minimum-power-of-two-adjustments` | difficulty: medium | stage: OA | platform: hackerrank | topics: math, bit_manipulation, greedy | last seen: 2022-12-22 | employment: FULLTIME
+
+## Problem
+
+Given a positive integer n, return the minimum number of operations needed to reduce it to zero. In one operation, add or subtract 2^i for any integer i >= 0. Each addition or subtraction costs one operation.
+For this exercise, intermediate values are nonnegative and may exceed the starting value. Removing factors of two in an algorithm is a reasoning step, not an allowed free operation on the actual number.
+
+## Constraints
+
+- 1 <= n <= 65536.
+  - Use integer arithmetic; powers may exceed n.
+
+### Example 1
+- **n** (`int`) = `14`
+- **output** (`int`) = `2`
+
+Add 2 to obtain 16, then subtract 16.
+
+### Example 2
+- **n** (`int`) = `27`
+- **output** (`int`) = `3`
+
+Add 4 to obtain 31, add 1 to obtain 32, then subtract 32.
+
+### Example 3
+- **n** (`int`) = `1`
+- **output** (`int`) = `1`
+
+Subtract 1 to reach zero.
+
+## Starter code
+
+```
+public int minPowerAdjustments(int n) {
+    // Write your code here
+}
+```
+
+## Source note
+
+Based on an NVIDIA HackerRank OA report with the same operation and three examples. The source author recalls a 1 through 2^16 bound in a reply; this practice adopts that bound and specifies nonnegative intermediate values. Approximate source match: 95%.
+
+
+---
+
 # Donut Challenge  (Airbnb)
 
 > id: `airbnb-donut-challenge` | difficulty: medium | stage: OA | platform: hackerrank | topics: binary_search, array | last seen: 2022-12-09 | employment: INTERN
@@ -105953,6 +115702,96 @@ public int minDonutsPerMinute(int[] donutBoxes, int numMinutes) {
 }
 
 ```
+
+
+---
+
+# Course Schedule II  (Chainalysis)
+
+> id: `chainalysis-lexicographically-smallest-course-order` | difficulty: medium | stage: OA | platform: unknown | topics: graph, topological_sort, breadth_first_search, heap | last seen: 2022-11-21 | employment: NEW GRAD
+
+## Problem
+
+You are given numCourses courses labeled from 0 to numCourses - 1 and a list of prerequisite pairs. Each pair [course, prerequisite] means that prerequisite must be completed before course.
+Return an order in which all courses can be completed. Whenever several courses have no remaining prerequisites, choose the smallest numbered course next. If the prerequisite graph contains a cycle and completing every course is impossible, return an empty array.
+
+## Constraints
+
+- 1 <= numCourses <= 2000
+  - 0 <= prerequisites.length <= 5000
+  - Each prerequisite pair contains two distinct course labels in the range [0, numCourses - 1].
+  - All prerequisite pairs are unique.
+  - When multiple courses are available, choose the smallest course label first.
+
+### Example 1
+- **numCourses** (`int`) = `2`
+- **prerequisites** (`int[][]`) = `[[1, 0]]`
+- **output** (`int[]`) = `[0, 1]`
+
+Course 0 has no prerequisite. Completing it unlocks course 1.
+
+### Example 2
+- **numCourses** (`int`) = `4`
+- **prerequisites** (`int[][]`) = `[[1, 0], [2, 0], [3, 1], [3, 2]]`
+- **output** (`int[]`) = `[0, 1, 2, 3]`
+
+After course 0, both courses 1 and 2 are available. The smaller course is chosen first.
+
+### Example 3
+- **numCourses** (`int`) = `2`
+- **prerequisites** (`int[][]`) = `[[1, 0], [0, 1]]`
+- **output** (`int[]`) = `[]`
+
+The two courses form a cycle, so no complete ordering exists.
+
+## Starter code
+
+```
+public int[] findOrder(int numCourses, int[][] prerequisites) {
+  // write your code here
+}
+```
+
+## Source note
+
+A first-hand Chainalysis OA report specifies Course Schedule II with a lexicographically smallest tie rule. The judged task matches at about 99%.
+
+
+---
+
+# Longest Common Suffix  (Chainalysis)
+
+> id: `chainalysis-longest-common-suffix` | difficulty: easy | stage: OA | platform: unknown | topics: string, array | last seen: 2022-11-21 | employment: NEW GRAD
+
+## Problem
+
+Given an array of strings words, return the longest string that is a suffix of every word. Return the empty string when there is no common suffix.
+
+## Constraints
+
+- 1 <= words.length <= 1000.
+  - 0 <= words[i].length <= 1000.
+  - The total number of characters is at most 100000.
+
+### Example 1
+- **words** (`String[]`) = `["running","jogging","walking"]`
+- **output** (`String`) = `"ing"`
+
+### Example 2
+- **words** (`String[]`) = `["cat","dog"]`
+- **output** (`String`) = `""`
+
+## Starter code
+
+```
+public String longestCommonSuffix(String[] words) {
+  // write your code here
+}
+```
+
+## Source note
+
+A first-hand Chainalysis OA report describes Longest Common Prefix transformed to suffixes. The judged task matches at about 95%.
 
 
 ---
@@ -106088,6 +115927,60 @@ The assessment screenshots and accompanying solution agree on the complete team-
 
 ---
 
+# Maximum Crayon Removal Score  (Wells Fargo)
+
+> id: `wellsfargo-maximum-crayon-removal-score` | difficulty: hard | stage: OA | platform: unknown | topics: string, dynamic_programming, recursion | last seen: 2022-10-12 | employment: FULLTIME
+
+## Problem
+
+You are given a string colors representing crayons arranged in a row. Equal letters represent equal colors.
+In one operation, choose a contiguous group of x crayons of the same color, remove it, and earn x * x points. The remaining crayons close the gap and may form new contiguous groups.
+Remove every crayon and return the maximum total score.
+
+## Constraints
+
+- 1 <= colors.length <= 60.
+  - colors contains lowercase English letters.
+
+### Example 1
+- **colors** (`String`) = `"abcccbaba"`
+- **output** (`int`) = `23`
+
+Remove ccc for 9, then one b for 1, then the merged bbb for 9, and finally aa for 4.
+
+### Example 2
+- **colors** (`String`) = `"aba"`
+- **output** (`int`) = `5`
+
+Remove b for 1, then remove the merged aa for 4.
+
+### Example 3
+- **colors** (`String`) = `"aaa"`
+- **output** (`int`) = `9`
+
+Remove all three crayons in one operation.
+
+### Example 4
+- **colors** (`String`) = `"ab"`
+- **output** (`int`) = `2`
+
+The two different crayons must be removed separately for one point each.
+
+## Starter code
+
+```
+public int maximumCrayonScore(String colors) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source supplies the complete removal rule, scoring objective, bound, and a worked example. The judged task matches the visible source at about 99%.
+
+
+---
+
 # Maximum XOR Elimination Score  (Rippling)
 
 > id: `rippling-maximum-xor-elimination-score` | difficulty: hard | stage: OA | platform: unknown | topics: array, graph, greedy, bit_manipulation | last seen: 2022-10-10 | employment: 
@@ -106127,6 +116020,178 @@ public long maximumXorScore(int[] nums) {
 ## Source note
 
 This problem is backed by two Rippling OA reports describing the same elimination game. The worked answer confirms that the requested value is the accumulated XOR score. Estimated match rate: about 95% for the judged task. The reports did not include numeric limits or an exact function signature.
+
+
+---
+
+# Most-Read Page Across Every Valid Storyline  (Duolingo)
+
+> id: `duolingo-most-read-story-page` | difficulty: hard | stage: OA, PHONE SCREEN | platform: karat | topics: graph, backtracking, depth_first_search | last seen: 2022-10-03, 2022-09-21 | employment: NEW GRAD, INTERN
+
+## Problem
+
+You are reading a branching story book whose pages are numbered from 1 through 50. Every storyline begins on page 1.
+On an ordinary page, reading continues to the next numbered page. A row [page, first, second] in choices makes page a choice page whose two options jump to first and second. A page in endings finishes the current storyline immediately.
+Within one storyline, each option of a choice page can be used at most once. Revisiting a choice page after both options have already been used makes that branch invalid. Advancing past page 50 also makes a branch invalid.
+Consider every valid storyline that reaches an ending. Count every visit to every page across all of those storylines. Return [page, count] for the page with the greatest total count. If several pages tie, return the smallest page number. If no valid storyline reaches an ending, return [-1].
+
+## Constraints
+
+- 1 <= endings.length and every ending is a unique page from 1 through 50.
+  - 0 <= choices.length <= 12.
+  - Every choice row has exactly three page numbers from 1 through 50.
+  - Choice-page numbers are unique.
+  - Counts fit in a signed 64-bit integer.
+
+### Example 1
+- **endings** (`int[]`) = `[5,10]`
+- **choices** (`int[][]`) = `[[3,7,9],[9,10,8]]`
+- **output** (`long[]`) = `[9,6]`
+
+There are four valid ending-reaching storylines. Pages 1, 2, 3, 8, and 10 are each read four times, while page 9 is read six times. Therefore the result is [9, 6].
+
+### Example 2
+- **endings** (`int[]`) = `[5]`
+- **choices** (`int[][]`) = `[[1,1,1]]`
+- **output** (`long[]`) = `[-1]`
+
+Both options on page 1 return to page 1. After each option has been used once, the branch is invalid and never reaches page 5. No valid storyline exists.
+
+## Starter code
+
+```
+public long[] mostReadStoryPage(int[] endings, int[][] choices) {
+    // write your code here
+}
+```
+
+## Source note
+
+The source permits any tied page and omits finite bounds; the judged core task matches the visible source at about 93%.
+
+
+---
+
+# Shortest Route Through a Traced Maze  (Duolingo)
+
+> id: `duolingo-shortest-traced-maze-route` | difficulty: medium | stage: OA | platform: hackerrank | topics: graph, breadth_first_search, shortest_path, hash_table | last seen: 2022-09-24, 2022-09-19, 2022-09-09, 2022-09-06, 2022-09-01 | employment: NEW GRAD, INTERN
+
+## Problem
+
+Duo records one route through a maze as a list path whose entries are "north", "east", "south", or "west". The route begins at coordinate (0, 0).
+Every cell visited by the recorded route is known to be passable. No unvisited cell may be inferred to be passable. Two known cells are connected when they are orthogonally adjacent.
+The source guarantees that there is exactly one shortest route through the known cells from (0, 0) to the recorded route's final coordinate. Return that route as a list of direction strings. The result may equal path when the recorded route is already optimal.
+
+## Constraints
+
+- 1 <= path.length <= 100000.
+  - Every entry is exactly "north", "east", "south", or "west".
+  - The source guarantees exactly one shortest route through the visited cells from the origin to the final coordinate.
+  - The returned route is never longer than path.
+
+### Example 1
+- **path** (`String[]`) = `["south","east","east","south","south","west","west","east","east","south"]`
+- **output** (`String[]`) = `["south","east","east","south","south","south"]`
+
+The recorded walk visits cells that create a direct vertical connection near the end. The unique shortest known route removes the west-east detour and uses six moves instead of ten.
+
+## Starter code
+
+```
+public String[] shortestTracedMazeRoute(String[] path) {
+    // write your code here
+}
+```
+
+## Source note
+
+The source omits one route-length bound; the judged core task matches the visible source at about 99%.
+
+
+---
+
+# Count Palindromic Substrings  (Airbnb)
+
+> id: `airbnb-count-palindromic-substrings` | difficulty: medium | stage: OA | platform: unknown | topics: string, dynamic_programming | last seen: 2022-09-23 | employment: INTERN
+
+## Problem
+
+Given a string text, return the number of palindromic substrings in it.
+A palindrome reads the same forward and backward. Substrings are counted by their positions, so equal text appearing at different positions contributes more than once. Every one-character substring is a palindrome.
+
+## Constraints
+
+- 1 <= text.length <= 2000.
+  - text contains lowercase English letters only.
+
+### Example 1
+- **text** (`String`) = `"abc"`
+- **output** (`int`) = `3`
+
+The palindromic substrings are "a", "b", and "c".
+
+### Example 2
+- **text** (`String`) = `"aaa"`
+- **output** (`int`) = `6`
+
+There are three one-character palindromes, two occurrences of "aa", and one "aaa".
+
+## Starter code
+
+```
+public int countPalindromicSubstrings(String text) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The report identifies a string task that counts palindromic substrings but omits the additional conditions used in that assessment. This practice version uses the conventional positional count and matches the visible seed at about 65%.
+
+
+---
+
+# Rank Common Translation Mistakes  (Duolingo)
+
+> id: `duolingo-counting-mistakes` | difficulty: medium | stage: OA | platform: hackerrank | topics: hash_table, sorting, string | last seen: 2022-09-19, 2022-09-09, 2022-09-06, 2022-09-01 | employment: NEW GRAD
+
+## Problem
+
+Learners submit translations of the same sentence. You are given submissions, where every row contains the translated words in their sentence positions.
+For each position independently, find its greatest word frequency. Every word tied for that greatest frequency is considered correct at that position. Every occurrence of any other word at that position is a mistake.
+Aggregate the number of mistaken occurrences for each word across all positions and submissions. Return each distinct mistake word exactly once, ordered by decreasing mistake frequency. When two mistake words have the same frequency, order them alphabetically.
+
+## Constraints
+
+- 1 <= submissions.length <= 1000.
+  - 1 <= submissions[i].length <= 100, and every submission has the same length.
+  - Every word has length from 1 through 30.
+  - Words contain only lowercase letters a through z and digits 0 through 9.
+  - The same word may occur more than once in one submission.
+
+### Example 1
+- **submissions** (`String[][]`) = `[["your","bear","drinks","beer"],["your","bear","eats","beer"],["the","bear","drinks","beer"]]`
+- **output** (`String[]`) = `["eats","the"]`
+
+At position 0, your is modal and the is one mistake. At position 2, drinks is modal and eats is one mistake. Both mistake frequencies are 1, so alphabetical order places eats before the.
+
+### Example 2
+- **submissions** (`String[][]`) = `[["your","bear","drinks","beer"],["your","bear","eats","beer"],["the","bear","drinks","beer"],["your","bear","the","beer"]]`
+- **output** (`String[]`) = `["the","eats"]`
+
+The word the is mistaken once at position 0 and once at position 2, for a total of 2. The word eats is mistaken once, so the appears first.
+
+## Starter code
+
+```
+public String[] countingMistakes(String[][] submissions) {
+    // write your code here
+}
+```
+
+## Source note
+
+One photographed example conflicted with the stated per-position rule and was resolved in favor of that rule; the judged core task matches the visible source at about 96%.
 
 
 ---
@@ -106194,6 +116259,71 @@ class Solution {
 ## Source note
 
 The source omits explicit numeric bounds; the 1-to-1000 practice range follows the reported solution's table. The judged core task matches the visible source at about 98%.
+
+
+---
+
+# Lexicographically Smallest School Assembly  (Wells Fargo)
+
+> id: `wellsfargo-lexicographically-smallest-school-assembly` | difficulty: hard | stage: OA | platform: unknown | topics: string, greedy, heap | last seen: 2022-08-26, 2022-08-20 | employment: FULLTIME
+
+## Problem
+
+You are given a lowercase string s and a nonnegative integer k. Rearrange all characters of s so that between any two equal characters there are at least k other characters.
+If no valid rearrangement exists, return "-1". Otherwise, return the lexicographically smallest valid rearrangement.
+
+## Constraints
+
+- 1 <= s.length <= 10^5.
+  - s contains only lowercase English letters.
+  - 0 <= k <= 1000.
+
+### Example 1
+- **s** (`String`) = `"ddgdghghh"`
+- **k** (`int`) = `2`
+- **output** (`String`) = `"dghdghdgh"`
+
+Each repeated class has exactly two other students between consecutive occurrences, and this is the lexicographically smallest valid ordering.
+
+### Example 2
+- **s** (`String`) = `"aabbcc"`
+- **k** (`int`) = `2`
+- **output** (`String`) = `"abcabc"`
+
+Each letter repeats after two intervening characters.
+
+### Example 3
+- **s** (`String`) = `"aaabc"`
+- **k** (`int`) = `1`
+- **output** (`String`) = `"abaca"`
+
+The three a characters are separated by one character each; choosing b before c gives the smallest valid result.
+
+### Example 4
+- **s** (`String`) = `"aabb"`
+- **k** (`int`) = `3`
+- **output** (`String`) = `"-1"`
+
+The string is too short to put three other characters between both copies of each repeated letter.
+
+### Example 5
+- **s** (`String`) = `"cba"`
+- **k** (`int`) = `0`
+- **output** (`String`) = `"abc"`
+
+With no required gap, sorting the characters gives the lexicographically smallest arrangement.
+
+## Starter code
+
+```
+public String arrangeStudents(String s, int k) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source provides the separation rule, lexicographic objective, impossibility result, and an example but omits bounds and alphabet. The judged core task matches the visible source at about 97%.
 
 
 ---
@@ -106344,6 +116474,54 @@ public int getMinimumMoves(int[][] maze, int k) {
 ## Source note
 
 The judged contract follows the complete visible Atlassian online-assessment prompt.
+
+
+---
+
+# Index of the First Non-Repeating Character  (Visa)
+
+> id: `visa-first-non-repeating-character` | difficulty: easy | stage: OA | platform: unknown | topics: string, hash_table | last seen: 2022-08-04 | employment: FULLTIME
+
+## Problem
+
+Given a non-empty string s, return the zero-based index of the first character whose total frequency in the string is exactly one.
+If no such character exists, return -1. Character comparisons are case-sensitive.
+
+## Constraints
+
+- 1 ≤ s.length ≤ 100000.
+  - s contains printable ASCII characters.
+
+### Example 1
+- **s** (`String`) = `"swiss"`
+- **output** (`int`) = `1`
+
+The character s repeats, while w occurs once at index 1.
+
+### Example 2
+- **s** (`String`) = `"aabbc"`
+- **output** (`int`) = `4`
+
+Only c has frequency one, and its index is 4.
+
+### Example 3
+- **s** (`String`) = `"aabb"`
+- **output** (`int`) = `-1`
+
+Every character repeats, so there is no qualifying index.
+
+## Starter code
+
+```
+public int firstNonRepeatingIndex(String s) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+An August 4, 2022 Visa Staff Software Engineer online assessment report directly identifies the first non-repeating character index task and a hash-map solution. The source omits bounds, character alphabet, and callable signature, so this practice version uses a reviewed portable contract for the same task.
 
 
 ---
@@ -106718,6 +116896,94 @@ public int getMinLatency(int[] requests, int[] max_req) {
 
 ---
 
+# Treasure Hunter  (Persona)
+
+> id: `persona-treasure-hunter` | difficulty: hard | stage: OA | platform: unknown | topics: matrix, breadth_first_search, bit_manipulation, shortest_path | last seen: 2022-05-21 | employment: INTERN
+
+## Problem
+
+You start at the top-left cell of a dungeon with 5 health. Move orthogonally through spaces. X is a wall, a digit is a trap that deals that much damage, H is a potion that restores 10 health, and T is the treasure.
+A trap or potion applies only the first time that path enters its cell. Health must remain positive. Return [minimumSteps, maximumRemainingHealth], maximizing health only among minimum-step surviving paths. Return [-1, 5] when no path reaches a treasure.
+
+## Constraints
+
+- 1 <= rows, columns <= 12.
+  - The grid contains spaces, X, digits, H, and zero or one T.
+  - The top-left cell is a space.
+  - At most 15 trap and potion cells appear.
+
+### Example 1
+- **dungeon** (`String[]`) = `[" X","2T"]`
+- **output** (`int[]`) = `[2,3]`
+
+The two-step path triggers damage 2 and reaches the treasure with health 3.
+
+### Example 2
+- **dungeon** (`String[]`) = `["  H"," XX"," 9T"]`
+- **output** (`int[]`) = `[8,6]`
+
+The shortest surviving route first takes the potion, then survives the damage-9 trap with health 6.
+
+### Example 3
+- **dungeon** (`String[]`) = `[" X","XT"]`
+- **output** (`int[]`) = `[-1,5]`
+
+Walls isolate the treasure.
+
+## Starter code
+
+```
+public int[] treasureHunter(String[] dungeon) {
+    // Return {minimumSteps, maximumRemainingHealth}.
+}
+```
+
+## Source note
+
+A firsthand Persona internship OA report preserves the complete Treasure Hunter prompt and bonus rules in three screenshots: start health 5, minimum steps then maximum health, orthogonal movement, walls, digit traps, optional treasure, once-triggered traps, and ten-health potions. The bounded grid and special-cell limits are authored execution assumptions because the source gives no numeric size cap. The judged contract matches the recoverable source at about 95%.
+
+
+---
+
+# Equal-Sum Digit Partitions  (Alchemy)
+
+> id: `alchemy-equal-sum-digit-partitions` | difficulty: medium | stage: OA | platform: hackerrank | topics: string, backtracking | last seen: 2022-05-18 | employment: FULLTIME
+
+## Problem
+
+Given a nonempty string digits containing decimal digits, insert zero or more underscores between adjacent digits. Keep a partition exactly when every contiguous segment has the same digit sum. Return all valid partition strings in standard lexicographic order.
+The uncut input is always a valid one-segment partition. Leading zeroes remain part of their original segments.
+
+## Constraints
+
+- 1 <= digits.length <= 16.
+  - digits contains only characters 0 through 9.
+
+### Example 1
+- **digits** (`String`) = `"1741380"`
+- **output** (`String[]`) = `["1741380","174_1380","17_413_80"]`
+
+The three valid cuts have common segment sums 24, 12, and 8 respectively.
+
+### Example 2
+- **digits** (`String`) = `"1111"`
+- **output** (`String[]`) = `["1111","11_11","1_1_1_1"]`
+
+## Starter code
+
+```
+public String[] equalSumPartitions(String digits) {
+  // write your code here
+}
+```
+
+## Source note
+
+A first-hand Alchemy HackerRank OA report supplies this digit-partition task. Its first example contains one cut-position typo and orders by segment count despite saying lexicographic; the judged version follows the written lexicographic rule and corrected arithmetic, for about 85% source fidelity.
+
+
+---
+
 # Find Last Affected System  (Wells Fargo)
 
 > id: `wellsfargo-shot-on-mi-a3-ai-triple-camera` | difficulty: medium | stage: OA | platform: hackerrank | topics: math, recursion | last seen: 2022-05-07 | employment: 
@@ -106818,6 +117084,63 @@ The judged contract follows the complete visible Atlassian online-assessment pro
 
 ---
 
+# Cheapest Flight with Its Path  (Airbnb)
+
+> id: `airbnb-cheapest-flight-with-path` | difficulty: hard | stage: OA, ONSITE INTERVIEW | platform: unknown | topics: graph, dynamic_programming, shortest_path | last seen: 2022-04-18, 2021-12-17, 2021-06-21 | employment: FULLTIME
+
+## Problem
+
+There are n cities numbered from 0 to n - 1. Each flight [from, to, price] is a directed edge with a positive price.
+Find a minimum-cost route from src to dst that uses at most k intermediate stops, which is at most k + 1 flights.
+Return an integer array whose first element is the total price and whose remaining elements are the visited city sequence from src through dst. If no valid route exists, return [-1].
+When several routes have the same minimum price, prefer the route with fewer flights. If a tie remains, prefer the lexicographically smaller city sequence.
+
+## Constraints
+
+- 1 <= n <= 100.
+  - 0 <= flights.length <= 5000.
+  - flights[i].length == 3.
+  - 0 <= from, to, src, dst < n.
+  - from != to, and no two flights have the same ordered endpoint pair.
+  - 1 <= price <= 10^6.
+  - 0 <= k < n.
+  - Every valid route price fits in a signed 32-bit integer.
+
+### Example 1
+- **n** (`int`) = `4`
+- **flights** (`int[][]`) = `[[0,1,100],[1,2,100],[2,3,100],[0,2,500],[1,3,600]]`
+- **src** (`int`) = `0`
+- **dst** (`int`) = `3`
+- **k** (`int`) = `2`
+- **output** (`int[]`) = `[300,0,1,2,3]`
+
+The route 0 → 1 → 2 → 3 uses three flights, has two intermediate stops, and costs 300.
+
+### Example 2
+- **n** (`int`) = `3`
+- **flights** (`int[][]`) = `[[0,1,100],[1,2,100],[0,2,500]]`
+- **src** (`int`) = `0`
+- **dst** (`int`) = `2`
+- **k** (`int`) = `0`
+- **output** (`int[]`) = `[500,0,2]`
+
+No intermediate stop is allowed, so only the direct flight is eligible.
+
+## Starter code
+
+```
+public int[] cheapestFlightPath(int n, int[][] flights, int src, int dst, int k) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The reports ask for the cheapest route within a stop limit and explicitly require the path. They omit unreachable and equal-cost tie rules; the judged core task matches the visible source at about 94%.
+
+
+---
+
 # Maximum Sum Rectangle  (Deloitte)
 
 > id: `deloitte-maximum-sum-rectangle` | difficulty: hard | stage: OA | platform: unknown | topics: array, matrix, dynamic_programming, prefix_sum | last seen: 2022-04-05 | employment: NEW GRAD
@@ -106867,6 +117190,175 @@ The report names the maximum-sum rectangle task and provides the matrix objectiv
 
 ---
 
+# Fraction to Recurring Decimal  (Airbnb)
+
+> id: `airbnb-fraction-to-recurring-decimal` | difficulty: medium | stage: OA | platform: unknown | topics: hash_table, math, simulation | last seen: 2022-02-18, 2020-02-14, 2019-09-27 | employment: FULLTIME
+
+## Problem
+
+Given two integers numerator and denominator, return their exact decimal representation as a string.
+  - If the fractional part terminates, return it normally.
+  - If part of the fractional digits repeats forever, enclose the repeating part in parentheses.
+  - Include a leading minus sign exactly when the result is negative.
+
+The result must not contain unnecessary leading zeros or a decimal point when the value is an integer.
+
+## Constraints
+
+- -2^31 <= numerator <= 2^31 - 1.
+  - -2^31 <= denominator <= 2^31 - 1.
+  - denominator != 0.
+
+### Example 1
+- **numerator** (`int`) = `1`
+- **denominator** (`int`) = `2`
+- **output** (`String`) = `"0.5"`
+
+The remainder becomes zero after one decimal digit.
+
+### Example 2
+- **numerator** (`int`) = `2`
+- **denominator** (`int`) = `3`
+- **output** (`String`) = `"0.(6)"`
+
+Remainder 2 repeats, so digit 6 is enclosed in parentheses.
+
+### Example 3
+- **numerator** (`int`) = `-50`
+- **denominator** (`int`) = `8`
+- **output** (`String`) = `"-6.25"`
+
+The signs differ and the fractional part terminates.
+
+## Starter code
+
+```
+public String fractionToDecimal(int numerator, int denominator) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The source image identifies the fraction-to-recurring-decimal task for positive integers. This practice version preserves that exact decimal-formatting objective and extends the input domain to signed 32-bit integers; the judged core task matches the visible source at about 95%.
+
+
+---
+
+# Most Booked Origin-Destination Route  (Airbnb)
+
+> id: `airbnb-most-booked-origin-destination` | difficulty: medium | stage: OA | platform: hackerrank | topics: database | last seen: 2022-02-12 | employment: FULLTIME
+
+## Problem
+
+Two tables describe users and their listing reservations:
+  - users stores each user's home city in origin.
+  - user_booking stores one row per reservation and the booked listing's city in destination.
+
+Find the origin-destination route or routes with the largest number of bookings. Count reservation rows, return every route tied for the maximum, and order tied routes by origin and then destination, both ascending.
+Return the columns origin, destination, and booking_count.
+
+## Constraints
+
+- users.guest_id and user_booking.reservation_id are unique and non-null.
+  - Every user_booking.guest_id references one row in users.
+  - origin and destination are non-null city names.
+  - The input tables may be empty.
+  - Each reservation row contributes exactly one booking to its route.
+
+## Table schemas
+
+```json
+[
+  {
+    "columns": [
+      {
+        "description": "Unique user identifier.",
+        "name": "guest_id",
+        "nullable": false,
+        "type": "integer"
+      },
+      {
+        "description": "The user's home city.",
+        "name": "origin",
+        "nullable": false,
+        "type": "text"
+      }
+    ],
+    "description": "Users and their home cities.",
+    "name": "users",
+    "primaryKey": [
+      "guest_id"
+    ]
+  },
+  {
+    "columns": [
+      {
+        "description": "Unique reservation identifier.",
+        "name": "reservation_id",
+        "nullable": false,
+        "type": "integer"
+      },
+      {
+        "description": "User who made the reservation.",
+        "name": "guest_id",
+        "nullable": false,
+        "type": "integer"
+      },
+      {
+        "description": "Booked listing identifier.",
+        "name": "listing_id",
+        "nullable": false,
+        "type": "integer"
+      },
+      {
+        "description": "City of the booked listing.",
+        "name": "destination",
+        "nullable": false,
+        "type": "text"
+      },
+      {
+        "description": "Timestamp when the booking was made.",
+        "name": "ts_booking",
+        "nullable": false,
+        "type": "timestamp"
+      },
+      {
+        "description": "Calendar date of the booking.",
+        "name": "ds_booking",
+        "nullable": false,
+        "type": "date"
+      }
+    ],
+    "description": "Reservations made by users for listings in destination cities.",
+    "foreignKeys": [
+      {
+        "columns": [
+          "guest_id"
+        ],
+        "references": {
+          "columns": [
+            "guest_id"
+          ],
+          "table": "users"
+        }
+      }
+    ],
+    "name": "user_booking",
+    "primaryKey": [
+      "reservation_id"
+    ]
+  }
+]
+```
+
+## Source note
+
+The source shows the route-count objective and booking schema but clips most of the users schema and omits tie handling. The judged core task matches the visible source at about 88%.
+
+
+---
+
 # Calculate Change  (PayPay)
 
 > id: `paypay-calculate-change` | difficulty: easy | stage: OA | platform: unknown | topics: greedy, math | last seen: 2022-02-08, 2021-09-28 | employment: 
@@ -106895,6 +117387,265 @@ public String calculateChange(float pp, float cash) {
 }
 
 ```
+
+
+---
+
+# Median of Two Sorted Arrays  (Airbnb)
+
+> id: `airbnb-median-of-two-sorted-arrays` | difficulty: hard | stage: OA | platform: unknown | topics: array, binary_search | last seen: 2022-02-07 | employment: FULLTIME
+
+## Problem
+
+Given two sorted integer arrays nums1 and nums2, return the median of the two arrays as if they were merged.
+Your algorithm must run in O(log(min(nums1.length, nums2.length))) time.
+
+## Constraints
+
+- 0 <= nums1.length, nums2.length <= 10^5.
+  - 1 <= nums1.length + nums2.length <= 2 * 10^5.
+  - -10^9 <= nums1[i], nums2[i] <= 10^9.
+  - Both arrays are sorted in nondecreasing order.
+
+### Example 1
+- **nums1** (`int[]`) = `[1,3]`
+- **nums2** (`int[]`) = `[2]`
+- **output** (`double`) = `2.0`
+
+The conceptual merged order is [1,2,3], whose middle value is 2.
+
+### Example 2
+- **nums1** (`int[]`) = `[1,2]`
+- **nums2** (`int[]`) = `[3,4]`
+- **output** (`double`) = `2.5`
+
+The middle values are 2 and 3, so the median is their average.
+
+## Starter code
+
+```
+public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The report directly references the standard Median of Two Sorted Arrays task. The judged core task matches that reference at about 99%.
+
+
+---
+
+# Annual Bank Balance with Monthly Card Fees  (Deloitte)
+
+> id: `deloitte-annual-bank-balance` | difficulty: easy | stage: OA | platform: unknown | topics: array, simulation, math | last seen: 2022-01-28 | employment: FULLTIME
+
+## Problem
+
+You are given two parallel arrays that describe every transaction made by one bank account during a calendar year:
+  - transactions[i] is the signed amount of transaction i. A positive amount is money received, while a negative amount is a card payment.
+  - dates[i] is the transaction date in YYYY-MM-DD format. All dates belong to the same calendar year.
+
+Every transaction amount contributes directly to the balance. The account normally pays a fee of 5 for each of the twelve months, including a month with no transactions.
+A month's fee is waived only when that month contains at least three card payments and the sum of their absolute values is at least 100.
+Starting from balance 0, return the final balance after all transactions and all applicable monthly fees.
+
+## Constraints
+
+- transactions.length == dates.length.
+  - 0 <= transactions.length <= 100,000.
+  - -1,000,000 <= transactions[i] <= 1,000,000.
+  - Every value in dates is a valid date in one calendar year using YYYY-MM-DD format.
+
+### Example 1
+- **transactions** (`int[]`) = `[100,-30,-40,-30]`
+- **dates** (`String[]`) = `["2022-01-01","2022-01-10","2022-01-20","2022-01-30"]`
+- **output** (`int`) = `-55`
+
+The transactions sum to 0. January has three card payments totaling 100, so its fee is waived. The other eleven monthly fees total 55.
+
+### Example 2
+- **transactions** (`int[]`) = `[100]`
+- **dates** (`String[]`) = `["2022-12-01"]`
+- **output** (`int`) = `40`
+
+No month qualifies for a waiver, so all twelve fees total 60. Subtracting them from the transaction total of 100 gives 40.
+
+### Example 3
+- **transactions** (`int[]`) = `[-25,-25,-50,120]`
+- **dates** (`String[]`) = `["2022-02-01","2022-02-02","2022-02-03","2022-07-01"]`
+- **output** (`int`) = `-35`
+
+The transactions sum to 20. February qualifies for a waiver, while the other eleven months contribute 55 in fees, so the final balance is 20 - 55 = -35.
+
+## Starter code
+
+```
+public int annualAccountBalance(int[] transactions, String[] dates) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source omits transaction-sign, empty-month, and input-bound details. The judged core task matches the visible source at about 92%.
+
+
+---
+
+# Count Battleships by Size  (Deloitte)
+
+> id: `deloitte-count-battleship-types` | difficulty: easy | stage: OA | platform: unknown | topics: matrix, depth_first_search, simulation | last seen: 2022-01-28 | employment: FULLTIME
+
+## Problem
+
+You are given a rectangular Battleship board as an array of equal-length strings grid:
+  - # is part of a ship.
+  - . is water.
+
+Each ship is one maximal group of # cells connected vertically or horizontally. Every ship is guaranteed to be a straight horizontal or vertical segment of length 1, 2, or 3. Distinct ships do not touch vertically or horizontally, although they may touch diagonally.
+Return an integer array [single, double, triple], where:
+  - single is the number of length-1 ships.
+  - double is the number of length-2 ships.
+  - triple is the number of length-3 ships.
+
+## Constraints
+
+- 1 <= grid.length <= 500.
+  - 1 <= grid[i].length <= 500.
+  - Every row has the same length.
+  - Every cell is # or ..
+  - Every maximal orthogonally connected ship is a straight segment of length 1, 2, or 3.
+
+### Example 1
+- **grid** (`String[]`) = `["#..##.","......","###...","......"]`
+- **output** (`int[]`) = `[1,1,1]`
+
+The board contains one isolated cell, one horizontal ship of length 2, and one horizontal ship of length 3.
+
+### Example 2
+- **grid** (`String[]`) = `["#.#","..#","..#","...","##."]`
+- **output** (`int[]`) = `[1,1,1]`
+
+The board contains a single-cell ship, a horizontal length-2 ship, and a vertical length-3 ship.
+
+### Example 3
+- **grid** (`String[]`) = `["#.#.#","..#.#","....#","##...","....."]`
+- **output** (`int[]`) = `[1,2,1]`
+
+There is one length-1 ship, two length-2 ships, and one length-3 ship. Diagonal contact does not merge ships.
+
+## Starter code
+
+```
+public int[] countShipTypes(String[] grid) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source omits board symbols, ship shapes, adjacency, and output-order details. The judged core task matches the visible source at about 78%.
+
+
+---
+
+# Equal-Length Character Blocks  (Deloitte)
+
+> id: `deloitte-equal-length-blocks` | difficulty: easy | stage: OA | platform: codility | topics: string, greedy | last seen: 2022-01-28 | employment: FULLTIME
+
+## Problem
+
+Given a string s containing only 'a' and 'b', split it into maximal consecutive blocks of equal characters.
+You may add letters only at the beginning or end of an existing block. Return the minimum number of letters that must be added so that every block has the same length.
+
+## Constraints
+
+- 1 <= s.length <= 40,000
+  - s contains only 'a' and 'b'.
+
+### Example 1
+- **s** (`String`) = `"babaa"`
+- **output** (`int`) = `3`
+
+The blocks have lengths 1, 1, 1, 2. Add one letter to each of the first three blocks to obtain blocks of length 2.
+
+### Example 2
+- **s** (`String`) = `"bbbab"`
+- **output** (`int`) = `4`
+
+The blocks have lengths 3, 1, 1. Add two letters to each shorter block.
+
+### Example 3
+- **s** (`String`) = `"bbbaaabbb"`
+- **output** (`int`) = `0`
+
+All three blocks already have length 3.
+
+## Starter code
+
+```
+public int minAdditionalLetters(String s) {
+    // write your code here
+}
+```
+
+## Source note
+
+The judged core task matches the visible source at about 99%.
+
+
+---
+
+# Number of Steps to Reduce a Binary Number to One  (Deloitte)
+
+> id: `deloitte-reduce-binary-number-to-one` | difficulty: medium | stage: OA | platform: unknown | topics: string, bit_manipulation, simulation | last seen: 2022-01-28 | employment: FULLTIME
+
+## Problem
+
+You are given a binary string binary representing a positive integer.
+Repeatedly apply the following rule until the value becomes 1:
+  - If the current value is even, divide it by 2.
+  - If the current value is odd, add 1.
+
+Return the number of operations performed.
+The binary string may be too long for a built-in integer type, so process it without converting the complete value to an integer.
+
+## Constraints
+
+- 1 <= binary.length <= 500.
+  - binary contains only 0 and 1.
+  - binary[0] == '1'.
+
+### Example 1
+- **binary** (`String`) = `"1101"`
+- **output** (`int`) = `6`
+
+The values are 13 -> 14 -> 7 -> 8 -> 4 -> 2 -> 1, which uses 6 operations.
+
+### Example 2
+- **binary** (`String`) = `"10"`
+- **output** (`int`) = `1`
+
+The value 2 is even, so one division produces 1.
+
+### Example 3
+- **binary** (`String`) = `"1"`
+- **output** (`int`) = `0`
+
+The value is already 1, so no operation is needed.
+
+## Starter code
+
+```
+public int numSteps(String binary) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The report identifies the canonical exercise without restating its contract. The judged task matches that reference at about 99%.
 
 
 ---
@@ -107145,6 +117896,52 @@ The report clearly described the array, the sum limit, and the requirement that 
 
 ---
 
+# Module Rebuild Costs  (Airbnb)
+
+> id: `airbnb-module-rebuild-costs` | difficulty: medium | stage: OA | platform: unknown | topics: graph, depth_first_search, topological_sort, sorting | last seen: 2021-12-01, 2021-03-03, 2020-10-24, 2019-11-14 | employment: FULLTIME
+
+## Problem
+
+A codebase is split into modules connected by an acyclic dependency graph. Each string in dependencies is a comma-separated row. The first token names one module, and every later token names a module that it directly depends on.
+Changing a module requires rebuilding that module and every module that depends on it, either directly or transitively. The cost of a module is the number of distinct modules rebuilt after changing it.
+Return one string "module,cost" for every module, ordered lexicographically by module name.
+
+## Constraints
+
+- 1 <= dependencies.length <= 10^4.
+  - Every module name is a unique non-empty ASCII identifier containing no comma.
+  - Every referenced dependency has its own row in dependencies.
+  - Each direct dependency appears at most once in a row.
+  - The dependency graph is acyclic.
+  - The total number of direct dependency edges is at most 2 * 10^5.
+
+### Example 1
+- **dependencies** (`String[]`) = `["A,E,N,S","S,H,N","E,N","H","N"]`
+- **output** (`String[]`) = `["A,1","E,2","H,3","N,4","S,2"]`
+
+Changing N rebuilds N, S, E, and A. Changing A rebuilds only A.
+
+### Example 2
+- **dependencies** (`String[]`) = `["core","api,core","web,api,core"]`
+- **output** (`String[]`) = `["api,2","core,3","web,1"]`
+
+A change to core propagates to both api and web.
+
+## Starter code
+
+```
+public String[] moduleRebuildCosts(String[] dependencies) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The judged task matches the linked source statement at about 99%.
+
+
+---
+
 # Merge Two Sorted Arrays  (FlexTrade)
 
 > id: `flextrade-merge-two-sorted-arrays` | difficulty: easy | stage: OA | platform: unknown | topics: array, two_pointers, sorting | last seen: 2021-11-16 | employment: FULLTIME, NEW GRAD
@@ -107302,6 +118099,65 @@ public int[] countTiles(String s) {
 }
 
 ```
+
+
+---
+
+# Maximum Reservoir Power  (Wells Fargo)
+
+> id: `wellsfargo-maximum-reservoir-power` | difficulty: medium | stage: OA | platform: unknown | topics: graph, tree, dynamic_programming, depth_first_search | last seen: 2021-10-18 | employment: FULLTIME
+
+## Problem
+
+A hydropower plant is connected to n water reservoirs. Opening reservoir i generates capacity[i] units of electricity.
+Some pairs of reservoirs conflict and cannot be opened together. The undirected conflict graph is guaranteed to be a forest.
+Choose a set of reservoirs with no conflicting pair and return the maximum total electricity they can generate.
+The arrays conflictFrom and conflictTo have equal length. Their values are 1-indexed reservoir numbers, and pair j connects conflictFrom[j] with conflictTo[j].
+
+## Constraints
+
+- 1 <= capacity.length <= 10^5.
+  - 1 <= capacity[i] <= 10^5.
+  - conflictFrom.length == conflictTo.length.
+  - 0 <= conflictFrom.length <= capacity.length - 1.
+  - Every conflict endpoint is between 1 and capacity.length, endpoints in a pair are different, and pairs are unique.
+  - The conflict graph is a forest.
+
+### Example 1
+- **capacity** (`int[]`) = `[5,1,4,3]`
+- **conflictFrom** (`int[]`) = `[1,2,3]`
+- **conflictTo** (`int[]`) = `[2,3,4]`
+- **output** (`long`) = `9`
+
+Open reservoirs 1 and 3 for 5 + 4 = 9 units.
+
+### Example 2
+- **capacity** (`int[]`) = `[10,1,1,10]`
+- **conflictFrom** (`int[]`) = `[1,2,3]`
+- **conflictTo** (`int[]`) = `[2,3,4]`
+- **output** (`long`) = `20`
+
+Reservoirs 1 and 4 are not adjacent, so both can be opened for 20 units.
+
+### Example 3
+- **capacity** (`int[]`) = `[8,5,6,4,7,3]`
+- **conflictFrom** (`int[]`) = `[1,2,4]`
+- **conflictTo** (`int[]`) = `[2,3,5]`
+- **output** (`long`) = `24`
+
+Choose reservoirs 1 and 3 from the first component, reservoir 5 from the second component, and isolated reservoir 6: 8 + 6 + 7 + 3 = 24.
+
+## Starter code
+
+```
+public long maxReservoirPower(int[] capacity, int[] conflictFrom, int[] conflictTo) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source photos provide the objective, input fields, and bounds. The cycle-free conflict promise, callable arrays, and 64-bit return are stated explicitly for a deterministic judged exercise. The judged task matches the visible source at about 96%.
 
 
 ---
@@ -107478,6 +118334,100 @@ class Solution {
 ## Source note
 
 The fixed-bishop variant omits a formal combined signature and worked examples. The judged core task matches the reported exercise at about 98%.
+
+
+---
+
+# Count Distinct Word Meanings  (Duolingo)
+
+> id: `duolingo-count-distinct-word-meanings` | difficulty: medium | stage: OA | platform: hackerrank | topics: string, hash_table, graph, union_find | last seen: 2021-09-02 | employment: INTERN
+
+## Problem
+
+You are given an array words of lowercase English strings.
+Two different strings are directly related when their lengths differ by exactly 1 and deleting exactly one character from the longer string produces the shorter string. This relationship is undirected.
+Two strings have the same meaning when they are identical or connected by a chain of directly related strings that appear in words. Repeated occurrences of the same string belong to one meaning and do not create additional groups.
+Return the number of distinct meanings represented by words.
+
+## Constraints
+
+- 1 <= words.length <= 20000.
+  - 1 <= words[i].length <= 20.
+  - Every string contains only lowercase English letters.
+  - The sum of all input-string lengths is at most 200000.
+  - Repeated identical strings are allowed.
+
+### Example 1
+- **words** (`String[]`) = `["caw","caaw","caww","hoot","hooot","chirp"]`
+- **output** (`int`) = `3`
+
+The groups are [caw, caaw, caww], [hoot, hooot], and [chirp]. Both four-letter words connect to caw after one deletion.
+
+### Example 2
+- **words** (`String[]`) = `["abc","abd","abcd"]`
+- **output** (`int`) = `1`
+
+Deleting d from abcd produces abc, while deleting c produces abd. The shared longer word connects all three strings into one meaning.
+
+## Starter code
+
+```
+public int countDistinctMeanings(String[] words) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source reverses the derivation direction in one example and omits duplicate and bound rules. The judged graph task matches the report at about 97%.
+
+
+---
+
+# Count Legal Outfit Combinations  (Duolingo)
+
+> id: `duolingo-count-legal-outfit-combinations` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, backtracking, bit_manipulation, combinatorics | last seen: 2021-09-02 | employment: INTERN
+
+## Problem
+
+You are given an array items of distinct clothing-item labels and an array illegalOutfits. Each row [a, b] in illegalOutfits identifies two different labels that may not appear together.
+An outfit is a non-empty subset of items. An outfit is legal when it does not contain both labels from any forbidden pair. Repeated forbidden rows describe the same restriction.
+Return the number of legal outfits as a signed 64-bit integer.
+
+## Constraints
+
+- 1 <= items.length <= 20.
+  - Every value in items is a distinct non-empty string.
+  - 0 <= illegalOutfits.length <= 100.
+  - Every row in illegalOutfits contains exactly two distinct labels from items.
+  - Repeated forbidden rows are allowed and represent the same restriction.
+  - The answer fits in a signed 64-bit integer.
+
+### Example 1
+- **items** (`String[]`) = `["A","B","C"]`
+- **illegalOutfits** (`String[][]`) = `[["A","B"],["A","C"]]`
+- **output** (`long`) = `4`
+
+The legal non-empty subsets are [A], [B], [C], and [B, C]. Every other non-empty subset contains A together with B or C.
+
+### Example 2
+- **items** (`String[]`) = `["hat","shirt","pants","shoes"]`
+- **illegalOutfits** (`String[][]`) = `[["hat","shirt"],["pants","shoes"]]`
+- **output** (`long`) = `8`
+
+For each forbidden pair, choose neither label or exactly one of its two labels. The two independent pairs therefore produce 3 * 3 = 9 subsets including the empty subset, so there are 8 legal outfits.
+
+## Starter code
+
+```
+public long countLegalOutfits(String[] items, String[][] illegalOutfits) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source omits label-normalization and input bounds. The judged core task matches the visible source at about 96%.
 
 
 ---
@@ -107690,6 +118640,60 @@ The report asks for all element pairs that reach the target and forbids reusing 
 
 ---
 
+# Simplified XML Validator  (Airbnb)
+
+> id: `airbnb-simplified-xml-validator` | difficulty: medium | stage: OA | platform: hackerrank | topics: string, stack, parsing | last seen: 2021-06-21, 2019-09-03, 2019-07-21 | employment: FULLTIME
+
+## Problem
+
+Given an ASCII string text, return whether it is valid under this simplified XML format.
+The string consists of ordinary content and tags:
+  - Ordinary content may contain any ASCII character except < and >.
+  - An opening tag has the form <name>.
+  - A closing tag has the form </name>.
+  - A tag name is a non-empty sequence of visible ASCII characters that contains none of <, >, or /.
+  - Opening and closing tags must be correctly nested, with none missing or overlapping.
+
+Text is allowed before, after, and between complete tag pairs, so the input does not need one outer root tag. The empty string is valid.
+
+## Constraints
+
+- 0 <= text.length <= 10^5.
+  - text contains ASCII characters only.
+
+### Example 1
+- **text** (`String`) = `"text<a>more text</a>"`
+- **output** (`boolean`) = `true`
+
+The opening and closing a tags match, and ordinary text is allowed outside and inside the pair.
+
+### Example 2
+- **text** (`String`) = `"<a>text<b>other text</a></b>"`
+- **output** (`boolean`) = `false`
+
+The closing tags overlap: b must close before a.
+
+### Example 3
+- **text** (`String`) = `"<invalid<>text</invalid>"`
+- **output** (`boolean`) = `false`
+
+The opening tag contains another < before it closes.
+
+## Starter code
+
+```
+public boolean isValidSimplifiedXml(String text) {
+  // Write your code here.
+}
+```
+
+## Source note
+
+The source fully specifies the simplified nesting rules and examples but omits the exact tag-name alphabet and empty-input convention. The judged core task matches the visible source at about 97%.
+
+
+---
+
 # Generate Matrix B  (Arista Networks)
 
 > id: `aristanetworks-generate-matrix-b` | difficulty: easy | stage: OA | platform: hackerrank | topics: matrix, prefix_sum | last seen: 2021-06-21 | employment: 
@@ -107743,6 +118747,123 @@ public int[][] generateMatrixB(int[][] A) {
 }
 
 ```
+
+
+---
+
+# Fixed-Round K-Means Assignments  (NVIDIA)
+
+> id: `nvidia-fixed-round-kmeans-assignments` | difficulty: hard | stage: OA, ONSITE INTERVIEW | platform: unknown | topics: array, math, simulation | last seen: 2021-06-07, 2020-07-29 | employment: FULLTIME, NEW GRAD
+
+## Problem
+
+Implement k-means clustering directly for integer points. The rows of points are points in one common dimension. The rows of initialCenters are the supplied starting centers; their row indices are the cluster indices. Duplicate points and duplicate starting centers are valid.
+Perform iterations Lloyd updates. Each update has these two phases:
+  - Assign every point to the old center with the smallest squared Euclidean distance, sum_a((point[a] - center[a])^2). Break an exact distance tie by choosing the smaller cluster index. Keep every old center fixed throughout this complete assignment pass.
+  - Replace each nonempty center with the coordinate-wise arithmetic mean of all its assigned point occurrences. If a cluster is empty, retain its previous center. Apply all replacements together.
+
+After the last update, assign every point once more using the final centers and the same tie rule. Return one zero-based cluster index per input point, in input order. When iterations = 0, assign directly to the supplied starting centers.
+Means and distance comparisons have their exact mathematical values; do not round or truncate centers and do not introduce an approximate tie tolerance. Implement the assignment and update arithmetic without a clustering library. The fixed update budget defines the result; convergence is not required.
+What the interview report shared
+The onsite report asks for handwritten k-means during a basic machine-learning and C++ interview. It does not disclose the data, initialization, stopping rule, empty-cluster behavior, ties, or return interface.
+
+## Constraints
+
+- 1 <= points.length <= 200.
+  - The common dimension d satisfies 1 <= d <= 10.
+  - 1 <= initialCenters.length <= min(points.length, 10).
+  - Every row of both matrices has exactly d coordinates.
+  - Every input coordinate is an integer in [-1000,1000].
+  - 0 <= iterations <= 50.
+
+### Example 1
+- **points** (`int[][]`) = `[[0,0],[10,10],[1,0],[9,10]]`
+- **initialCenters** (`int[][]`) = `[[0,0],[10,10]]`
+- **iterations** (`int`) = `2`
+- **output** (`int[]`) = `[0,1,0,1]`
+
+The first update gives centers [0.5,0] and [9.5,10]. The second update leaves them unchanged. The final assignment keeps the two points near each center together.
+
+### Example 2
+- **points** (`int[][]`) = `[[4,0],[4,0],[4,0],[6,0],[10,0]]`
+- **initialCenters** (`int[][]`) = `[[0,0],[10,0]]`
+- **iterations** (`int`) = `1`
+- **output** (`int[]`) = `[0,0,0,0,1]`
+
+Using the supplied centers, the first three points join cluster 0 and the last two join cluster 1. The update gives centers [4,0] and [8,0]. In the final assignment, [6,0] is equally distant from them, so it joins cluster 0.
+
+### Example 3
+- **points** (`int[][]`) = `[[1],[3],[2]]`
+- **initialCenters** (`int[][]`) = `[[0],[4],[4]]`
+- **iterations** (`int`) = `0`
+- **output** (`int[]`) = `[0,1,0]`
+
+No update is performed. Assign directly to the supplied centers: 1 chooses cluster 0, 3 chooses the lower-index copy of center 4, and 2 chooses cluster 0 on a distance tie.
+
+## Starter code
+
+```
+public int[] fixedRoundKMeans(int[][] points, int[][] initialCenters, int iterations) {
+    // Return one cluster index per point.
+}
+```
+
+## Source note
+
+The report asks for handwritten k-means but omits initialization, stopping and edge-case rules. This fixed-round version states those conventions explicitly; the judged core task matches the visible source at about 65%.
+
+
+---
+
+# Construct a Possible Bipartition  (Airbnb)
+
+> id: `airbnb-bipartition-groups` | difficulty: medium | stage: OA | platform: unknown | topics: graph, breadth_first_search, depth_first_search | last seen: 2021-03-09 | employment: FULLTIME
+
+## Problem
+
+There are n people numbered from 1 through n. Each pair [a, b] in dislikes means that people a and b must be placed in different groups.
+Construct two groups that contain every person exactly once and satisfy every dislike pair. Process people in increasing order. Whenever the next person is still unassigned, place that person in group 1 and color the entire connected component consistently. Sort both completed groups in increasing order.
+If a valid partition exists, return group1|group2, where each group is its comma-separated list of person IDs. An empty group is represented by an empty string. If no valid partition exists, return IMPOSSIBLE.
+
+## Constraints
+
+- 1 <= n <= 2000.
+  - 0 <= dislikes.length <= 10000.
+  - Every pair contains two distinct values in [1, n].
+  - No dislike pair is repeated.
+
+### Example 1
+- **n** (`int`) = `4`
+- **dislikes** (`int[][]`) = `[[1,2],[1,3],[2,4]]`
+- **output** (`String`) = `"1,4|2,3"`
+
+Starting from person 1 puts people 2 and 3 in the opposite group. Person 4 must then share group 1 with person 1.
+
+### Example 2
+- **n** (`int`) = `3`
+- **dislikes** (`int[][]`) = `[[1,2],[2,3],[1,3]]`
+- **output** (`String`) = `"IMPOSSIBLE"`
+
+The three edges form an odd cycle, so two colors cannot satisfy every dislike pair.
+
+### Example 3
+- **n** (`int`) = `5`
+- **dislikes** (`int[][]`) = `[[1,2],[3,4]]`
+- **output** (`String`) = `"1,3,5|2,4"`
+
+People 1, 3, and isolated person 5 seed their components in group 1; their constrained neighbors go to group 2.
+
+## Starter code
+
+```
+public String bipartitionGroups(int n, int[][] dislikes) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source identifies Airbnb problem 886 and explicitly says to return group1 and group2; a reply confirms the DFS/odd-cycle bipartition interpretation. The deterministic group orientation and string encoding are authored practice assumptions. The judged core behavior matches the visible source at about 95%.
 
 
 ---
@@ -107858,6 +118979,243 @@ The source contains two coordinate transcription typos; the judged examples foll
 
 ---
 
+# Count Valid Teams  (Wells Fargo)
+
+> id: `wellsfargo-count-valid-teams` | difficulty: medium | stage: OA | platform: unknown | topics: array, math, combinatorics | last seen: 2020-10-11 | employment: FULLTIME
+
+## Problem
+
+You are given an integer array skills, where each value is one player's skill level. A player is eligible when their skill is between lowerBound and upperBound, inclusive.
+A team is any subset of eligible players containing at least minPlayers players. Players are distinct even when they have equal skill values.
+Return the exact number of valid teams. If fewer than minPlayers players are eligible, return 0.
+
+## Constraints
+
+- 1 <= skills.length <= 60.
+  - -10^9 <= skills[i] <= 10^9.
+  - 1 <= minPlayers <= skills.length.
+  - -10^9 <= lowerBound <= upperBound <= 10^9.
+
+### Example 1
+- **skills** (`int[]`) = `[1,2,3]`
+- **minPlayers** (`int`) = `2`
+- **lowerBound** (`int`) = `1`
+- **upperBound** (`int`) = `3`
+- **output** (`long`) = `4`
+
+All three players are eligible. There are three two-player teams and one three-player team.
+
+### Example 2
+- **skills** (`int[]`) = `[4,8,5,6]`
+- **minPlayers** (`int`) = `2`
+- **lowerBound** (`int`) = `7`
+- **upperBound** (`int`) = `8`
+- **output** (`long`) = `0`
+
+Only the player with skill 8 is eligible, so no team can contain two players.
+
+### Example 3
+- **skills** (`int[]`) = `[1,2,3,4]`
+- **minPlayers** (`int`) = `1`
+- **lowerBound** (`int`) = `2`
+- **upperBound** (`int`) = `3`
+- **output** (`long`) = `3`
+
+Two players are eligible. Their two singleton teams and the team containing both are valid.
+
+## Starter code
+
+```
+public long countValidTeams(int[] skills, int minPlayers, int lowerBound, int upperBound) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source gives the eligibility range, minimum team size, and counting objective but omits overflow and insufficient-player behavior. The judged core task matches the visible source at about 96%.
+
+
+---
+
+# Minimum Bonus Projects  (Wells Fargo)
+
+> id: `wellsfargo-minimum-bonus-projects` | difficulty: medium | stage: OA | platform: unknown | topics: array, binary_search, greedy, math | last seen: 2020-10-11 | employment: FULLTIME
+
+## Problem
+
+You are given an array errorScores of nonnegative employee error scores and two reductions selectedReduction and otherReduction, where selectedReduction > otherReduction.
+In one bonus-project operation, choose one employee. That employee's score decreases by selectedReduction, while every other employee's score decreases by otherReduction. A score that would become negative is treated as 0.
+Return the minimum number of operations required to reduce every score to 0.
+
+## Constraints
+
+- 1 <= errorScores.length <= 10^5.
+  - 0 <= errorScores[i] <= 10^9.
+  - 0 <= otherReduction < selectedReduction <= 10^9.
+
+### Example 1
+- **errorScores** (`long[]`) = `[6,4,1]`
+- **selectedReduction** (`long`) = `4`
+- **otherReduction** (`long`) = `1`
+- **output** (`long`) = `3`
+
+Three operations suffice. With only two operations, the total number of extra selected reductions required is greater than two.
+
+### Example 2
+- **errorScores** (`long[]`) = `[5]`
+- **selectedReduction** (`long`) = `2`
+- **otherReduction** (`long`) = `0`
+- **output** (`long`) = `3`
+
+The sole employee must be selected three times.
+
+### Example 3
+- **errorScores** (`long[]`) = `[3,3]`
+- **selectedReduction** (`long`) = `3`
+- **otherReduction** (`long`) = `1`
+- **output** (`long`) = `2`
+
+Select each employee once. Each receives one reduction of 3 and one reduction of 1, which is enough to reach zero.
+
+### Example 4
+- **errorScores** (`long[]`) = `[0,0]`
+- **selectedReduction** (`long`) = `5`
+- **otherReduction** (`long`) = `1`
+- **output** (`long`) = `0`
+
+Every score is already zero.
+
+## Starter code
+
+```
+public long minimumBonusProjects(long[] errorScores, long selectedReduction, long otherReduction) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source supplies the operation and minimum-count objective but omits the P/Q relationship, numeric bounds, and zero-floor convention. The judged core task matches the visible source at about 95%.
+
+
+---
+
+# TV Tower Expansion  (Wells Fargo)
+
+> id: `wellsfargo-tv-tower-expansion` | difficulty: medium | stage: OA | platform: unknown | topics: matrix, graph, breadth_first_search | last seen: 2020-10-11 | employment: FULLTIME
+
+## Problem
+
+You are given a rectangular binary matrix city. A cell with value 1 initially contains a TV tower, and a cell with value 0 does not.
+Each day, every cell containing a tower installs towers in its orthogonally adjacent cells: up, down, left, and right, when those cells are inside the matrix.
+Return the number of days required for every cell to contain a tower. If the city has no initial tower, return -1.
+
+## Constraints
+
+- 1 <= city.length <= 500.
+  - 1 <= city[i].length <= 500.
+  - Every row has the same length.
+  - city[i][j] is 0 or 1.
+
+### Example 1
+- **city** (`int[][]`) = `[[1,0,0],[0,0,0]]`
+- **output** (`int`) = `3`
+
+The farthest cell is three orthogonal steps from the initial tower.
+
+### Example 2
+- **city** (`int[][]`) = `[[1,0,1],[0,0,0],[0,1,0]]`
+- **output** (`int`) = `1`
+
+Every empty cell is adjacent to at least one of the three initial towers.
+
+### Example 3
+- **city** (`int[][]`) = `[[1,1],[1,1]]`
+- **output** (`int`) = `0`
+
+The city is already fully covered.
+
+### Example 4
+- **city** (`int[][]`) = `[[0,0],[0,0]]`
+- **output** (`int`) = `-1`
+
+No initial tower exists, so expansion cannot begin.
+
+## Starter code
+
+```
+public int daysToCoverCity(int[][] city) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source provides the city matrix, daily expansion, and completion objective but omits the neighborhood and empty-source rules. The judged core task matches the visible source at about 96%.
+
+
+---
+
+# Matrix Path Existence  (Wells Fargo)
+
+> id: `wellsfargo-matrix-path-existence` | difficulty: medium | stage: OA | platform: unknown | topics: matrix, graph, breadth_first_search | last seen: 2020-09-26 | employment: INTERN
+
+## Problem
+
+Given a rectangular binary matrix grid, determine whether a path exists from the top-left cell to the bottom-right cell.
+  - A cell containing 1 is passable.
+  - A cell containing 0 is blocked.
+  - You may move one cell at a time up, down, left, or right.
+
+Return true when such a path exists and false otherwise.
+
+## Constraints
+
+- 1 <= grid.length <= 200.
+  - 1 <= grid[i].length <= 200.
+  - Every row has the same length.
+  - grid[i][j] is 0 or 1.
+
+### Example 1
+- **grid** (`int[][]`) = `[[1,1,0],[0,1,1],[0,0,1]]`
+- **output** (`boolean`) = `true`
+
+A path follows the passable cells from the top-left cell through the center to the bottom-right cell.
+
+### Example 2
+- **grid** (`int[][]`) = `[[1,0],[0,1]]`
+- **output** (`boolean`) = `false`
+
+Diagonal movement is not allowed, so the two passable cells are disconnected.
+
+### Example 3
+- **grid** (`int[][]`) = `[[1]]`
+- **output** (`boolean`) = `true`
+
+The single cell is both the start and the destination.
+
+### Example 4
+- **grid** (`int[][]`) = `[[0,1],[1,1]]`
+- **output** (`boolean`) = `false`
+
+The starting cell is blocked.
+
+## Starter code
+
+```
+public boolean pathExists(int[][] grid) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source says only that finding a path in a matrix was requested. The binary grid, endpoints, movement rules, and boolean result are explicit practice assumptions. The judged core task matches the visible source at about 45%.
+
+
+---
+
 # Configuration System  (Postman)
 
 > id: `postman-configuration-system` | difficulty: hard | stage: OA | platform: hackerrank | topics: array, two_pointers, simulation | last seen: 2020-09-23 | employment: FULLTIME
@@ -107956,6 +119314,166 @@ public long[] summarizeLargeResponses(String[] records) {
 ## Source note
 
 The source images specify a file-based task. This practice interface supplies the log records directly while preserving the parsing and aggregation behavior; the judged core task matches the visible source at about 97%.
+
+
+---
+
+# Pipe Removal Turns  (Wells Fargo)
+
+> id: `wellsfargo-pipe-removal-turns` | difficulty: hard | stage: OA | platform: unknown | topics: array, stack | last seen: 2020-09-20 | employment: FULLTIME
+
+## Problem
+
+Pipes are arranged from left to right, and lengths[i] is the length of pipe i.
+During each turn, mark every pipe whose length is strictly greater than the pipe immediately to its left. Remove all marked pipes simultaneously.
+Repeat until a turn marks no pipes. Return the number of turns in which at least one pipe is removed.
+
+## Constraints
+
+- 2 <= lengths.length <= 10^5.
+  - 1 <= lengths[i] <= 10^9.
+
+### Example 1
+- **lengths** (`int[]`) = `[3,6,9,8]`
+- **output** (`int`) = `2`
+
+Turn 1 removes 6 and 9, leaving [3,8]. Turn 2 removes 8, leaving [3].
+
+### Example 2
+- **lengths** (`int[]`) = `[9,7,5,3]`
+- **output** (`int`) = `0`
+
+No pipe is longer than the pipe immediately to its left.
+
+### Example 3
+- **lengths** (`int[]`) = `[4,3,7,5,6,4,2]`
+- **output** (`int`) = `3`
+
+The successive stable lists are [4,3,5,4,2], [4,3,4,2], and [4,3,2].
+
+## Starter code
+
+```
+public int countPipeRemovalTurns(int[] lengths) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source images provide the complete removal process, bounds, and example. The judged task matches the visible source at about 100%.
+
+
+---
+
+# Longest Balanced Bitonic Subsequence  (Wells Fargo)
+
+> id: `wellsfargo-longest-balanced-bitonic-subsequence` | difficulty: medium | stage: OA | platform: unknown | topics: array, dynamic_programming | last seen: 2020-09-15 | employment: FULLTIME
+
+## Problem
+
+You are given an integer array nums. Choose a subsequence with one peak such that values are strictly increasing up to the peak and strictly decreasing after it.
+The peak belongs to both sides. If each side contains k selected elements including the peak, the balanced bitonic subsequence has length 2 * k - 1.
+Return the maximum possible length of a balanced bitonic subsequence.
+
+## Constraints
+
+- 1 <= nums.length <= 2000.
+  - -10^9 <= nums[i] <= 10^9.
+
+### Example 1
+- **nums** (`int[]`) = `[1,2,3,2,1,4,5,6,7,19,15,12,10,9]`
+- **output** (`int`) = `9`
+
+One balanced choice has five increasing elements ending at 19 and five decreasing elements starting there, for total length 2 * 5 - 1 = 9.
+
+### Example 2
+- **nums** (`int[]`) = `[1,2,3,2,1]`
+- **output** (`int`) = `5`
+
+The entire array is strictly increasing to 3 and then strictly decreasing, with three elements on each side including the peak.
+
+### Example 3
+- **nums** (`int[]`) = `[1,2,3,4]`
+- **output** (`int`) = `1`
+
+No element has a decreasing continuation, so only a single-element balanced subsequence is possible.
+
+### Example 4
+- **nums** (`int[]`) = `[1,3,2,4,3,2]`
+- **output** (`int`) = `5`
+
+Select 1, 3, 4, 3, 2. Both strict sides contain three elements including the peak.
+
+## Starter code
+
+```
+public int longestBalancedBitonicSubsequence(int[] nums) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source provides the balanced bitonic objective and one example but omits strictness, peak-counting, and bounds. The judged core task matches the visible source at about 96%.
+
+
+---
+
+# Minimum Rotations for the Longest Common Prefix  (Wells Fargo)
+
+> id: `wellsfargo-minimum-rotations-longest-prefix` | difficulty: medium | stage: OA | platform: unknown | topics: string, two_pointers, parsing | last seen: 2020-09-13 | employment: FULLTIME
+
+## Problem
+
+You are given two nonempty strings fixed and rotating. The first string never changes.
+In one rotation of rotating, move its first character to the end or move its last character to the front. You may perform either operation any number of times.
+First maximize the length of the common prefix between fixed and the rotated string. Among all rotations that achieve this maximum length, return the minimum number of rotations. If the maximum common-prefix length is 0, return -1.
+
+## Constraints
+
+- 1 <= fixed.length, rotating.length <= 2 * 10^5.
+  - Both strings contain visible ASCII characters.
+
+### Example 1
+- **fixed** (`String`) = `"fm47abcde"`
+- **rotating** (`String`) = `"47ghijfm"`
+- **output** (`int`) = `2`
+
+Move m and then f from the end to the front. The rotated string starts with fm47, the longest possible common prefix.
+
+### Example 2
+- **fixed** (`String`) = `"abcde"`
+- **rotating** (`String`) = `"cabfg"`
+- **output** (`int`) = `1`
+
+Move c from the front to the end. The strings then share prefix ab.
+
+### Example 3
+- **fixed** (`String`) = `"abc"`
+- **rotating** (`String`) = `"xyz"`
+- **output** (`int`) = `-1`
+
+No rotation starts with a, so no nonempty common prefix exists.
+
+### Example 4
+- **fixed** (`String`) = `"hello"`
+- **rotating** (`String`) = `"hello"`
+- **output** (`int`) = `0`
+
+The unrotated strings already have the longest possible prefix.
+
+## Starter code
+
+```
+public int minimumRotationsForLongestPrefix(String fixed, String rotating) {
+  // write your code here
+}
+```
+
+## Source note
+
+The source provides both optimization priorities, rotation semantics, the no-match result, and two examples but omits bounds. The judged core task matches the visible source at about 99%.
 
 
 ---
@@ -108375,6 +119893,71 @@ The judged task matches the visible online-round post at about 99%.
 
 ---
 
+# Decision Tree Regression from Scratch  (NVIDIA)
+
+> id: `nvidia-decision-tree-regression` | difficulty: hard | stage: OA | platform: unknown | topics: tree, recursion, sorting, prefix_sum, math | last seen: 2020-07-29 | employment: NEW GRAD
+
+## Problem
+
+Build a decision-tree regression model from scratch using the training rows trainX and their numeric targets trainY. Return one prediction for each row of queryX, in query order. Implement split selection, recursive construction and prediction traversal directly without a machine-learning or tree-fitting library.
+For this exercise, assume all features and training targets are integers. Every training and query row has the same positive number of features. Repeated training rows remain separate sample occurrences.
+At each node, consider every feature. Sort its distinct values among that node's samples and consider the midpoint between every two consecutive values as a split threshold. A sample goes left when its feature value is less than or equal to the threshold; otherwise, it goes right. Each candidate has two nonempty groups.
+For a group G, its prediction is the arithmetic mean mean(G) of its targets, and its squared error is SSE(G) = sum((y - mean(G))^2). Choose the split minimizing SSE(left) + SSE(right). Use exact mathematical values for split comparisons. On equal errors, prefer the smaller feature index; if that also ties, prefer the smaller threshold.
+The root has depth 0. A node becomes a leaf if its depth equals maxDepth, no valid split exists, or the best split does not strictly reduce the node's squared error. Otherwise, build both children using the same rules. Every leaf predicts the mean of all sample occurrences that reach it, including when their targets differ.
+Traverse the fitted tree for each query using the same inclusive-left split rule and return the reached leaf's mean. Each prediction is judged with absolute tolerance 10^-6.
+What the interview report shared
+The report asks for a decision-tree regression model built from scratch. It does not disclose a dataset, split criterion, depth or stopping rule, tie convention, or training and prediction interface. The deterministic rules above define this practice version.
+
+## Constraints
+
+- For this exercise, assume 1 <= trainX.length == trainY.length <= 60.
+  - Every training and query row has the same number of features d, with 1 <= d <= 5.
+  - 1 <= queryX.length <= 60.
+  - Every feature value and training target is an integer in [-1000,1000].
+  - 0 <= maxDepth <= 6.
+
+### Example 1
+- **trainX** (`int[][]`) = `[[0],[2],[4],[6]]`
+- **trainY** (`int[]`) = `[0,0,10,10]`
+- **queryX** (`int[][]`) = `[[1],[3],[5]]`
+- **maxDepth** (`int`) = `1`
+- **output** (`double[]`) = `[0.0,0.0,10.0]`
+
+The best root threshold is 3: the two groups have means 0 and 10, with zero total squared error. Query 3 follows the inclusive-left rule and predicts 0.
+
+### Example 2
+- **trainX** (`int[][]`) = `[[0,0],[0,2],[2,0],[2,2]]`
+- **trainY** (`int[]`) = `[0,0,10,10]`
+- **queryX** (`int[][]`) = `[[1,1],[2,0],[0,2]]`
+- **maxDepth** (`int`) = `2`
+- **output** (`double[]`) = `[0.0,10.0,0.0]`
+
+Splitting feature 0 at 1 gives pure target groups with means 0 and 10. Splitting feature 1 does not reduce squared error. The first query lies exactly on the chosen threshold and goes left.
+
+### Example 3
+- **trainX** (`int[][]`) = `[[-3],[5],[9]]`
+- **trainY** (`int[]`) = `[-2,4,7]`
+- **queryX** (`int[][]`) = `[[-1000],[0],[1000]]`
+- **maxDepth** (`int`) = `0`
+- **output** (`double[]`) = `[3.0,3.0,3.0]`
+
+The root is already at the depth limit. It remains a leaf and predicts the target mean (-2 + 4 + 7) / 3 = 3 for every query.
+
+## Starter code
+
+```
+public double[] decisionTreeRegression(int[][] trainX, int[] trainY, int[][] queryX, int maxDepth) {
+    // Fit the tree and return predictions in query order.
+}
+```
+
+## Source note
+
+The report names a decision-tree regression model built from scratch but omits the data, split and stopping rules. This version specifies greedy squared-error splits and leaf means; the judged core task matches the report at about 65%.
+
+
+---
+
 # Count Subarrays With Sum Divisible by K  (InMobi)
 
 > id: `inmobi-count-subarrays-sum-divisible-by-k` | difficulty: medium | stage: OA | platform: unknown | topics: array, hash_table, prefix_sum | last seen: 2020-07-22 | employment: NEW GRAD
@@ -108717,6 +120300,314 @@ public int consecutive(long num) {
 
 ---
 
+# Count Subarrays with Sum Divisible by K  (Visa)
+
+> id: `visa-count-subarrays-sum-divisible-by-k` | difficulty: medium | stage: OA | platform: unknown | topics: array, hash_table, prefix_sum | last seen: 2019-11-16 | employment: FULLTIME
+
+## Problem
+
+Given an integer array arr and a positive integer k, return the number of non-empty contiguous subarrays whose element sum is divisible by k.
+A subarray is a contiguous sequence of elements from arr. A sum s is divisible by k when s % k = 0.
+
+## Constraints
+
+- 1 <= arr.length <= 104
+  - 1 <= k <= 104
+  - -109 <= arr[i] <= 109
+  - The answer fits in a signed 64-bit integer.
+
+### Example 1
+- **arr** (`int[]`) = `[2,3,1]`
+- **k** (`int`) = `2`
+- **output** (`long`) = `3`
+
+The qualifying subarrays are [2], [3,1], and [2,3,1], with sums 2, 4, and 6.
+
+### Example 2
+- **arr** (`int[]`) = `[1,2,3,4]`
+- **k** (`int`) = `1`
+- **output** (`long`) = `10`
+
+Every integer sum is divisible by 1, so all 4 × 5 / 2 = 10 non-empty subarrays qualify.
+
+### Example 3
+- **arr** (`int[]`) = `[-1,2,9]`
+- **k** (`int`) = `2`
+- **output** (`long`) = `2`
+
+The qualifying subarrays are [2], whose sum is 2, and [-1,2,9], whose sum is 10.
+
+## Starter code
+
+```
+public long countDivisibleSubarrays(int[] arr, int k) {
+  // write your code here
+}
+```
+
+## Source note
+
+A November 16, 2019 Visa Senior Software Engineer online assessment report directly identifies the contiguous-subarray sum divisible by k task and links the matching LeetCode problem. The source omits bounds, return width, and a callable signature, so this practice version uses a reviewed portable contract for the same task.
+
+
+---
+
+# Longest Common Prefix Length  (Visa)
+
+> id: `visa-longest-common-prefix-length` | difficulty: easy | stage: OA | platform: unknown | topics: string | last seen: 2019-11-16 | employment: FULLTIME
+
+## Problem
+
+You are given two strings a and b.
+Return the length of their longest common prefix: the longest string that begins at index 0 in both inputs. Character comparisons are case-sensitive.
+
+## Constraints
+
+- 0 <= a.length, b.length <= 105
+  - The combined input length is at most 2 * 105.
+  - Both strings contain printable ASCII characters.
+
+### Example 1
+- **a** (`String`) = `"flower"`
+- **b** (`String`) = `"flow"`
+- **output** (`int`) = `4`
+
+Both strings begin with flow, and the second string ends after four characters.
+
+### Example 2
+- **a** (`String`) = `"abc"`
+- **b** (`String`) = `"xyz"`
+- **output** (`int`) = `0`
+
+The first characters differ, so the common prefix is empty.
+
+## Starter code
+
+```
+public int longestCommonPrefixLength(String a, String b) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+A November 16, 2019 Visa Senior Software Engineer online assessment report directly asks for the length of the longest prefix common to two strings and links the matching LeetCode concept. The source omits bounds, alphabet, case behavior, and a callable signature, so this practice version makes those execution details explicit.
+
+
+---
+
+# Most Frequent Valid Substring  (Visa)
+
+> id: `visa-most-frequent-valid-substring` | difficulty: medium | stage: OA | platform: unknown | topics: string, hash_table, sliding_window | last seen: 2019-11-16 | employment: FULLTIME
+
+## Problem
+
+You are given a string s and integers minLength, maxLength, and maxUnique.
+A substring is valid when:
+  - its length is between minLength and maxLength, inclusive, and
+  - it contains at most maxUnique distinct characters.
+
+Return the greatest number of occurrences of any one valid substring in s. Occurrences may overlap. Return 0 if no substring is valid.
+
+## Constraints
+
+- 1 <= s.length <= 104
+  - 1 <= minLength <= maxLength <= s.length
+  - 1 <= maxUnique <= 128
+  - s contains printable ASCII characters.
+
+### Example 1
+- **s** (`String`) = `"aababcaab"`
+- **minLength** (`int`) = `2`
+- **maxLength** (`int`) = `3`
+- **maxUnique** (`int`) = `2`
+- **output** (`int`) = `3`
+
+The valid substring ab occurs three times, starting at indices 1, 3, and 7.
+
+### Example 2
+- **s** (`String`) = `"aaaa"`
+- **minLength** (`int`) = `1`
+- **maxLength** (`int`) = `3`
+- **maxUnique** (`int`) = `1`
+- **output** (`int`) = `4`
+
+The length-one substring a is valid and occurs four times.
+
+## Starter code
+
+```
+public int mostFrequentValidSubstring(String s, int minLength, int maxLength, int maxUnique) {
+    // Write your code here.
+}
+
+```
+
+## Source note
+
+A November 16, 2019 Visa Senior Software Engineer online assessment report supplies the substring length interval, maximum distinct-character rule, and maximum-frequency objective. The source omits bounds, alphabet, overlap behavior, and a callable signature, so this practice version makes those execution details explicit.
+
+
+---
+
+# Validate IP Address  (Visa)
+
+> id: `visa-validate-ip-address` | difficulty: medium | stage: OA | platform: unknown | topics: string, parsing | last seen: 2019-11-16 | employment: FULLTIME
+
+## Problem
+
+Given a string queryIP, return "IPv4" if it is a valid IPv4 address, "IPv6" if it is a valid IPv6 address, or "Neither" otherwise.
+IPv4 rules
+  - The address contains exactly four decimal segments separated by ..
+  - Each segment is an integer from 0 through 255.
+  - A segment has no leading zero unless it is exactly 0.
+  - Every character in a segment is a decimal digit.
+
+IPv6 rules
+  - The address contains exactly eight groups separated by :.
+  - Each group contains one to four hexadecimal characters.
+  - Hexadecimal letters may be lowercase or uppercase.
+  - Leading zeroes are allowed, but an empty group is not.
+
+## Constraints
+
+- queryIP is a non-empty string.
+  - queryIP contains only English letters, decimal digits, ., and :.
+
+### Example 1
+- **queryIP** (`String`) = `"172.16.254.1"`
+- **output** (`String`) = `"IPv4"`
+
+The address has four decimal segments, each is in range, and none has an invalid leading zero.
+
+### Example 2
+- **queryIP** (`String`) = `"2001:0db8:85a3:0:0:8A2E:0370:7334"`
+- **output** (`String`) = `"IPv6"`
+
+The address has eight non-empty hexadecimal groups, and every group contains at most four characters.
+
+### Example 3
+- **queryIP** (`String`) = `"256.256.256.256"`
+- **output** (`String`) = `"Neither"`
+
+Every segment is greater than 255, so this is not a valid IPv4 address.
+
+## Starter code
+
+```
+public String validIPAddress(String queryIP) {
+    // write your code here
+}
+```
+
+## Source note
+
+A November 16, 2019 Visa Senior Software Engineer online assessment report directly identifies IP address validation and links LeetCode Validate IP Address. The source omits bounds and a callable signature, so this practice version uses the exact linked IPv4/IPv6 contract.
+
+
+---
+
+# Build a Profile Sentence from CSV  (Airbnb)
+
+> id: `airbnb-csv-profile-sentence` | difficulty: medium | stage: OA | platform: unknown | topics: string, parsing, simulation | last seen: 2019-11-09, 2019-09-10 | employment: FULLTIME
+
+## Problem
+
+A profile is supplied as one valid CSV record with exactly seven fields in this order: firstname, lastname, email, interests, notes, city, and age.
+An unquoted comma separates fields. A field enclosed in double quotes may contain commas. Inside a quoted field, two consecutive double quotes decode to one literal double quote.
+Parse the record and return exactly:
+<firstname> is <age> years old, lives in <city>, and is interested in <interests>.Use the decoded values without adding or removing characters.
+
+## Constraints
+
+- 7 <= row.length <= 10^5.
+  - row is one valid single-line CSV record with exactly seven non-empty fields.
+  - No whitespace appears outside a quoted field.
+  - Double quotes appear only as the delimiters of a quoted field or as doubled quote escapes inside one.
+  - The decoded firstname, interests, city, and age fields are non-empty.
+
+### Example 1
+- **row** (`String`) = `"Ada,Lovelace,ada@example.com,mathematics,first programmer,London,36"`
+- **output** (`String`) = `"Ada is 36 years old, lives in London, and is interested in mathematics."`
+
+No field is quoted, so the six commas separate the seven fields directly.
+
+### Example 2
+- **row** (`String`) = `"Ada,Lovelace,ada@example.com,\"math, poetry\",first programmer,London,36"`
+- **output** (`String`) = `"Ada is 36 years old, lives in London, and is interested in math, poetry."`
+
+The comma inside the quoted interests field is data rather than a delimiter.
+
+### Example 3
+- **row** (`String`) = `"Grace,Hopper,grace@example.com,\"compilers and \"\"debugging\"\"\",navy pioneer,Arlington,85"`
+- **output** (`String`) = `"Grace is 85 years old, lives in Arlington, and is interested in compilers and \"debugging\"."`
+
+Each doubled quote inside the quoted interests field decodes to one literal quote.
+
+## Starter code
+
+```
+public String profileSentence(String row) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The source reports a seven-field CSV parser whose quoted fields may contain commas and whose doubled quotes decode to one quote, followed by sentence construction from firstname, interests, city, and age. The exact sentence wording and valid-input boundary are authored practice assumptions. The judged core behavior matches the visible source at about 90%.
+
+
+---
+
+# Aggregate Investment Ownership from CSV  (Carta)
+
+> id: `carta-investment-ownership-aggregation` | difficulty: medium | stage: OA, PHONE SCREEN | platform: unknown | topics: hash_table, string, sorting | last seen: 2019-10-25 | employment: FULLTIME
+
+## Problem
+
+Each input row is a headerless CSV investment record: date,investorName,sharesPurchased,cashUsed.
+Aggregate shares and cash by investor. Ownership is the investor's total shares divided by all purchased shares, reduced to a fraction. Return a canonical compact JSON array sorted by investor name, with each object using the field order investorName, sharesPurchased, cashUsed, ownership.
+
+## Constraints
+
+- 1 <= csvRows.length <= 100000.
+  - Dates use YYYY-MM-DD. Investor names contain ASCII letters, digits, spaces, underscores, or hyphens and contain no comma or quote.
+  - Shares and cash are positive integers; all totals fit signed 64-bit integers.
+
+### Example 1
+- **csvRows** (`String[]`) = `["2025-01-01,Alice,100,500","2025-01-02,Bob,50,400","2025-01-03,Alice,50,300"]`
+- **output** (`String`) = `"[{\"investorName\":\"Alice\",\"sharesPurchased\":150,\"cashUsed\":800,\"ownership\":\"3/4\"},{\"investorName\":\"Bob\",\"sharesPurchased\":50,\"cashUsed\":400,\"ownership\":\"1/4\"}]"`
+
+Alice owns 150 of 200 shares and Bob owns 50.
+
+### Example 2
+- **csvRows** (`String[]`) = `["2025-01-01,Solo,7,21"]`
+- **output** (`String`) = `"[{\"investorName\":\"Solo\",\"sharesPurchased\":7,\"cashUsed\":21,\"ownership\":\"1/1\"}]"`
+
+The only investor owns all shares.
+
+### Example 3
+- **csvRows** (`String[]`) = `["2025-01-01,Zed,1,10","2025-01-02,Amy,2,30"]`
+- **output** (`String`) = `"[{\"investorName\":\"Amy\",\"sharesPurchased\":2,\"cashUsed\":30,\"ownership\":\"2/3\"},{\"investorName\":\"Zed\",\"sharesPurchased\":1,\"cashUsed\":10,\"ownership\":\"1/3\"}]"`
+
+Output is sorted by investor, not input order.
+
+## Starter code
+
+```
+public String aggregateOwnership(String[] csvRows) {
+    // write your code here
+}
+```
+
+## Source note
+
+A firsthand Carta take-home report dated October 25, 2019 describes CSV investment records with date, investor name, shares purchased, and cash used, requiring aggregated JSON ownership output and object-oriented organization. The fraction and canonical JSON ordering make the runtime result exact. The judged contract matches the visible source at about 92%.
+
+
+---
+
 # Beautiful Subarrays  (Atlassian)
 
 > id: `atlassian-beautiful-subarrays` | difficulty: medium | stage: OA | platform: unknown | topics: array, hash_table, prefix_sum | last seen: 2019-10-21 | employment: NEW GRAD
@@ -108765,7 +120656,7 @@ The judged task matches the complete visible assessment report at about 99%.
 
 # Resolve Battles  (Airbnb)
 
-> id: `airbnb-resolve-battles` | difficulty: hard | stage: OA | platform: hackerrank | topics: simulation, hash_table, graph | last seen: 2019-10-16 | employment: INTERN
+> id: `airbnb-resolve-battles` | difficulty: hard | stage: OA | platform: hackerrank | topics: simulation, hash_table, graph | last seen: 2019-10-16, 2019-03-25 | employment: INTERN, FULLTIME
 
 ## Problem
 
@@ -109021,6 +120912,254 @@ The source preserves the range-query objective and numeric limits but not a call
 
 ---
 
+# Paginate Search Results by Unique Host  (Airbnb)
+
+> id: `airbnb-paginate-search-results` | difficulty: medium | stage: OA | platform: unknown | topics: array, queue, simulation | last seen: 2019-05-12 | employment: FULLTIME
+
+## Problem
+
+Search results are supplied in descending score order. Each element of results is the original CSV string host_id,listing_id,score,city; the host ID is the substring before the first comma.
+Partition the results into pages containing at most resultsPerPage entries. To build each page:
+  - Scan the remaining results in order and select the earliest entry from each host not yet represented on this page, until the page is full or the scan ends.
+  - If the page is still not full, append the earliest remaining skipped entries in their current order until the page is full or no results remain.
+  - Remove every selected entry, then build the next page from the remaining list.
+
+Return every selected original CSV string in page order. Insert an empty string between consecutive pages, but not after the final page.
+
+## Constraints
+
+- 1 <= resultsPerPage <= 1000.
+  - 0 <= results.length <= 1000.
+  - Every result is a valid CSV string with exactly four fields: integer host ID, integer listing ID, finite decimal score, and a non-empty city containing no comma.
+  - results is already sorted by non-increasing score.
+
+### Example 1
+- **resultsPerPage** (`int`) = `5`
+- **results** (`String[]`) = `["1,28,300.6,San Francisco","4,5,209.1,San Francisco","20,7,203.4,Oakland","6,8,202.9,San Francisco","6,10,199.8,San Francisco","1,16,190.5,San Francisco","6,29,185.3,San Francisco","7,20,180.0,Oakland","6,21,162.2,San Francisco","2,18,161.7,San Jose","2,30,149.8,San Jose","3,76,146.7,San Francisco","2,14,141.8,San Jose"]`
+- **output** (`String[]`) = `["1,28,300.6,San Francisco","4,5,209.1,San Francisco","20,7,203.4,Oakland","6,8,202.9,San Francisco","7,20,180.0,Oakland","","6,10,199.8,San Francisco","1,16,190.5,San Francisco","2,18,161.7,San Jose","3,76,146.7,San Francisco","6,29,185.3,San Francisco","","6,21,162.2,San Francisco","2,30,149.8,San Jose","2,14,141.8,San Jose"]`
+
+The first page takes the earliest entries from hosts 1, 4, 20, 6, and 7. On page two, host 6 appears first, so its later result is skipped during the unique-host scan and then used to pad that page.
+
+### Example 2
+- **resultsPerPage** (`int`) = `3`
+- **results** (`String[]`) = `["1,10,9.0,A","1,11,8.0,A","2,20,7.0,B","1,12,6.0,A"]`
+- **output** (`String[]`) = `["1,10,9.0,A","2,20,7.0,B","1,11,8.0,A","","1,12,6.0,A"]`
+
+The unique-host scan selects hosts 1 and 2. It cannot find a third distinct host, so the earliest skipped host-1 result pads the first page.
+
+### Example 3
+- **resultsPerPage** (`int`) = `2`
+- **results** (`String[]`) = `["1,1,3.0,A","2,2,2.0,B","3,3,1.0,C"]`
+- **output** (`String[]`) = `["1,1,3.0,A","2,2,2.0,B","","3,3,1.0,C"]`
+
+All hosts are distinct, so each page simply takes the next entries in order. The last page has one result and no trailing separator.
+
+## Starter code
+
+```
+public String[] paginate(int resultsPerPage, String[] results) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The complete source screenshots specify the host-diverse pagination rule, padding order, CSV record shape, function inputs, page separators, and a full example. The judged task matches the visible source at about 99%.
+
+
+---
+
+# Round Prices to Match Target  (Airbnb)
+
+> id: `airbnb-round-prices-to-match-target` | difficulty: medium | stage: OA | platform: hackerrank | topics: greedy, sorting, math | last seen: 2019-04-01, 2019-03-25, 2018-12-04 | employment: INTERN, FULLTIME
+
+## Problem
+
+Given a float array prices and an integer target, round every price to either its floor or its ceiling so that the rounded values sum to target while minimizing the total absolute rounding error.
+For example, prices = [1.2, 4.3, 5.8, 6.4] and target = 18 returns [1, 4, 6, 7].
+Practice rule
+  - If equal fractional parts compete for the last round-up position, prefer the smaller original index.
+  - If no floor-or-ceiling assignment can sum to target, return an empty array.
+
+## Constraints
+
+- TO-DO
+
+### Example 1
+- **prices** (`float[]`) = `[1.2, 4.3, 5.8, 6.4]`
+- **target** (`int`) = `18`
+- **output** (`int[]`) = `[1, 4, 6, 7]`
+
+:)
+
+## Starter code
+
+```
+
+public int[] roundPricesToMatchTarget(float[] prices, int target) {
+  // write your code here
+}
+
+```
+
+## Source note
+
+The original report does not define equal-fraction ties or an unreachable target. The practice rule below makes both cases deterministic; the judged core task matches the visible source at about 90%.
+
+
+---
+
+# Minimum Wizard Referral Cost  (Airbnb)
+
+> id: `airbnb-minimum-wizard-referral-cost` | difficulty: medium | stage: OA | platform: hackerrank | topics: graph, shortest_path, heap | last seen: 2019-03-11, 2019-03-01 | employment: FULLTIME
+
+## Problem
+
+There are n wizards ranked from 0 through n - 1. The string referrals[i] contains the space-separated ranks of the wizards whom wizard i can introduce. An empty string means that wizard i has no referrals.
+You are wizard 0. You already know every wizard listed by wizard 0, so following an edge from wizard 0 costs 0. For every other directed referral from wizard i to wizard j, the introduction costs (j - i)2.
+Return the minimum total cost needed to meet the highest-ranked wizard, n - 1. Return -1 if that wizard cannot be reached. The referral graph may contain cycles.
+
+## Constraints
+
+- 2 <= referrals.length <= 500.
+  - Each non-empty row contains distinct integer ranks separated by one space.
+  - Every listed rank is in [0, referrals.length - 1].
+  - The graph may contain directed cycles.
+
+### Example 1
+- **referrals** (`String[]`) = `["1 2","3","3",""]`
+- **output** (`int`) = `1`
+
+Wizards 1 and 2 are both known for free. Asking wizard 2 to introduce wizard 3 costs (3 - 2)^2 = 1, which is cheaper than the cost 4 route through wizard 1.
+
+### Example 2
+- **referrals** (`String[]`) = `["3","","",""]`
+- **output** (`int`) = `0`
+
+Wizard 0 already knows the highest-ranked wizard directly, so no paid introduction is needed.
+
+### Example 3
+- **referrals** (`String[]`) = `["1","0",""]`
+- **output** (`int`) = `-1`
+
+The cycle between wizards 0 and 1 never reaches wizard 2.
+
+## Starter code
+
+```
+public int minimumWizardReferralCost(String[] referrals) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+Two full-time Airbnb OA reports identify the recurring ten-wizards referral problem. The more detailed report specifies directed referrals, rank-squared introduction cost, a rank-0 starting wizard, possible cycles, and a list-of-strings input; the original poster also clarifies that referrals already known by wizard 0 are free. Generalizing ten ranks to referrals.length and returning -1 when the highest rank is unreachable are explicit authored-practice adapters. The judged core behavior matches the rendered source at about 95%.
+
+
+---
+
+# Count Decreasing Triplets  (Airbnb)
+
+> id: `airbnb-count-decreasing-triplets` | difficulty: medium | stage: OA | platform: hackerrank | topics: array, segment_tree, sorting | last seen: 2019-03-05 | employment: FULLTIME
+
+## Problem
+
+Given an integer array nums, count the index triplets (i, j, k) such that i < j < k and nums[i] > nums[j] > nums[k].
+Return the number of strictly decreasing subsequences of length three. Equal values do not satisfy either strict inequality.
+
+## Constraints
+
+- 0 <= nums.length <= 200000.
+  - -10^9 <= nums[i] <= 10^9.
+  - The answer fits in a signed 64-bit integer.
+
+### Example 1
+- **nums** (`int[]`) = `[9,4,6,3,2]`
+- **output** (`long`) = `7`
+
+The valid value triples are (9,4,3), (9,4,2), (9,6,3), (9,6,2), (9,3,2), (4,3,2), and (6,3,2).
+
+### Example 2
+- **nums** (`int[]`) = `[5,4,3,2]`
+- **output** (`long`) = `4`
+
+Every choice of three indices is strictly decreasing, so the answer is C(4,3) = 4.
+
+### Example 3
+- **nums** (`int[]`) = `[3,3,2,1]`
+- **output** (`long`) = `2`
+
+Either occurrence of 3 can precede 2,1. The two equal 3s cannot form a strict pair with each other.
+
+## Starter code
+
+```
+public long countDecreasingTriplets(int[] nums) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The full-time Airbnb OA report directly asks for the number of length-three down sequences and explains the strict greater-on-the-left times strict smaller-on-the-right decomposition for each middle index. The scalable input bounds, long return type, and empty-or-short-array behavior are explicit authored-practice adapters. The judged core behavior matches the rendered source at about 97%.
+
+
+---
+
+# Missing Words  (Airbnb)
+
+> id: `airbnb-missing-words` | difficulty: easy | stage: OA | platform: hackerrank | topics: string, two_pointers | last seen: 2019-03-05 | employment: FULLTIME
+
+## Problem
+
+You are given two sentences s and t. Each sentence contains words separated by single spaces, with no leading or trailing space. The words of t form a case-sensitive subsequence of the words of s: they appear in the same order, but they do not need to be adjacent.
+Return the words of s that are missing from t, preserving their original order.
+
+## Constraints
+
+- 1 <= t.length() <= s.length() <= 10^6.
+  - Both strings contain only English letters and single spaces between words.
+  - Every word has length from 1 through 15.
+  - The words of t are guaranteed to be a subsequence of the words of s.
+  - Matching is case-sensitive.
+
+### Example 1
+- **s** (`String`) = `"I am using HackerRank to improve programming"`
+- **t** (`String`) = `"am HackerRank to improve"`
+- **output** (`List<String>`) = `["I", "using", "programming"]`
+
+Matching the four words of t leaves I, using, and programming unmatched in s.
+
+### Example 2
+- **s** (`String`) = `"I love programming"`
+- **t** (`String`) = `"I love programming"`
+- **output** (`List<String>`) = `[]`
+
+Every word is matched, so no words are missing.
+
+### Example 3
+- **s** (`String`) = `"one two one three"`
+- **t** (`String`) = `"one one"`
+- **output** (`List<String>`) = `["two", "three"]`
+
+The two occurrences of one must be matched in order, leaving the intervening and trailing words.
+
+## Starter code
+
+```
+public List<String> missingWords(String s, String t) {
+    // Write your code here.
+}
+```
+
+## Source note
+
+The rendered Airbnb Coding Challenge 20 screenshot gives the complete Missing Words definition, function name, parameter meanings, case-sensitive subsequence rule, constraints, and sample. The single-space token representation is a narrow practice adapter for the screenshot's space-separated-word inputs. The judged core behavior matches the rendered source at about 99%.
+
+
+---
+
 # Arrange Coins  (Alarm.com)
 
 > id: `alarm-arrange-coins` | difficulty: easy | stage: OA | platform: unknown | topics: math, binary_search | last seen: 2019-03-02 | employment: INTERN
@@ -109234,46 +121373,6 @@ public String[] topLongestSentences(String[] sentences, int n) {
 ## Source note
 
 The report asks for the first longest N sentences but omits the exact output order, tie handling, character model, and bounds. This practice uses a stable length ranking and printable ASCII strings. The judged core task matches the visible report at about 92%.
-
-
----
-
-# Round Prices to Match Target  (Airbnb)
-
-> id: `airbnb-round-prices-to-match-target` | difficulty: medium | stage: OA | platform: hackerrank | topics: greedy, sorting, math | last seen: 2018-12-04 | employment: INTERN
-
-## Problem
-
-Given a float array prices and an integer target, round every price to either its floor or its ceiling so that the rounded values sum to target while minimizing the total absolute rounding error.
-For example, prices = [1.2, 4.3, 5.8, 6.4] and target = 18 returns [1, 4, 6, 7].
-Practice rule
-  - If equal fractional parts compete for the last round-up position, prefer the smaller original index.
-  - If no floor-or-ceiling assignment can sum to target, return an empty array.
-
-## Constraints
-
-- TO-DO
-
-### Example 1
-- **prices** (`float[]`) = `[1.2, 4.3, 5.8, 6.4]`
-- **target** (`int`) = `18`
-- **output** (`int[]`) = `[1, 4, 6, 7]`
-
-:)
-
-## Starter code
-
-```
-
-public int[] roundPricesToMatchTarget(float[] prices, int target) {
-  // write your code here
-}
-
-```
-
-## Source note
-
-The original report does not define equal-fraction ties or an unreachable target. The practice rule below makes both cases deterministic; the judged core task matches the visible source at about 90%.
 
 
 ---

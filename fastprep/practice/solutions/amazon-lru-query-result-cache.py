@@ -3,7 +3,7 @@ from collections import OrderedDict
 from typing import List
 
 
-def runQueryCache(capacity: int, operations: List[List[int]]) -> List[str]:
+def solve(capacity: int, operations: List[List[int]]) -> List[str]:
     cache = OrderedDict()
     out = []
     for op in operations:

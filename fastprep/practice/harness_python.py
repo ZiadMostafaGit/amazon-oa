@@ -55,8 +55,20 @@ def _main():
             continue
 
         try:
-            ok, got_s, exp_s = compare_output(got, case["expectedRaw"], case["outputType"])
-            entry.update(ok=ok, got=got_s, expected=exp_s, stdout=out.getvalue()[:cap])
+            if case.get("validator"):
+                # more than one right answer: judged by the problem's rules
+                named = {i["name"]: a for i, a in zip(case["inputs"], args)}
+                ok, got_s, why = validate_output(got, case["validator"], named,
+                                                 case["outputType"])
+                entry.update(ok=ok, got=got_s, stdout=out.getvalue()[:cap],
+                             validated=True)
+                if case.get("expectedRaw"):
+                    entry["expected"] = case["expectedRaw"] + "  (one valid answer)"
+                if why:
+                    entry["error"] = why
+            else:
+                ok, got_s, exp_s = compare_output(got, case["expectedRaw"], case["outputType"])
+                entry.update(ok=ok, got=got_s, expected=exp_s, stdout=out.getvalue()[:cap])
         except Exception as e:
             entry.update(ok=False, error="could not compare the result: %s" % e,
                          stdout=out.getvalue()[:cap])

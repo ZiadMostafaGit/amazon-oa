@@ -2,7 +2,7 @@
 from typing import List, Optional, Any
 
 
-def canSplitAfterRemoval(nums: List[int]) -> bool:
+def solve(nums: List[int]) -> bool:
     n = len(nums)
     total = sum(nums)
 

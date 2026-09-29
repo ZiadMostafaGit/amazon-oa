@@ -1,5 +1,5 @@
 # Sliding window with last-seen index map.
-def lengthOfLongestSubstring(s: str) -> int:
+def solve(s: str) -> int:
     last = {}
     best = 0
     start = 0

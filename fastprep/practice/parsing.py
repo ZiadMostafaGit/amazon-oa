@@ -9,7 +9,12 @@ It is the part of the app most likely to be quietly wrong, so:
   * the type grammar below is derived from every type that actually occurs in
     the database (28 input types, 27 output types), not from guesswork;
   * `tests/test_parsing.py` unit-tests it, and `tests/test_corpus.py` runs it
-    over all 3533 problems and fails if a single example does not round-trip.
+    over every problem in the bank and fails if a single example does not
+    round-trip.
+
+A problem whose answers are not unique says so with `algorithmOutputValidator`
+in its detail; `validate_output` judges those by the problem's own rules
+rather than by equality with the one reference answer the example shows.
 
 Known shapes, all observed in the data:
   int 5 | long 10 | double 1.5 | float 3.89 | boolean true | char "J"
@@ -373,3 +378,74 @@ def compare_output(got, expected_raw: str, out_type: str):
     return (values_equal(got_j, exp_j, out_type),
             format_value(got_j, out_type),
             format_value(exp_j, out_type))
+
+
+# --------------------------------------------------------------------------
+# problems with more than one right answer
+# --------------------------------------------------------------------------
+def _angle_deg(a, b) -> float:
+    na = math.sqrt(sum(x * x for x in a))
+    nb = math.sqrt(sum(x * x for x in b))
+    if na == 0 or nb == 0:
+        return 0.0
+    c = sum(x * y for x, y in zip(a, b)) / (na * nb)
+    return math.degrees(math.acos(max(-1.0, min(1.0, c))))
+
+
+def _beam_assignment_v1(got, spec: dict, args: dict):
+    """spacex-starlink-beam-planner: any plan that keeps the rules is right."""
+    users = args[spec.get("usersInputName", "users")]
+    sats = args[spec.get("satellitesInputName", "satellites")]
+    need = args[spec.get("minimumServedInputName", "minimumServed")]
+    ib, cb = int(spec.get("indexBase", 0)), int(spec.get("colorBase", 1))
+    colors = set(range(cb, cb + 4))
+    eps = 1e-9
+    if not isinstance(got, (list, tuple)):
+        return False, "expected a list of [userIndex, satelliteIndex, color] rows"
+    seen_users, per_sat = set(), {}
+    for row in got:
+        if not isinstance(row, (list, tuple)) or len(row) != 3 or \
+                not all(isinstance(v, int) and not isinstance(v, bool) for v in row):
+            return False, "row %r is not three integers" % (row,)
+        u, s, c = row[0] - ib, row[1] - ib, row[2]
+        if not (0 <= u < len(users)) or not (0 <= s < len(sats)):
+            return False, "row %r names a user or satellite that does not exist" % (list(row),)
+        if c not in colors:
+            return False, "row %r uses color %d; colors are %s" % (list(row), c, sorted(colors))
+        if u in seen_users:
+            return False, "user %d has more than one beam" % row[0]
+        seen_users.add(u)
+        U, S = users[u], sats[s]
+        if _angle_deg(U, [S[i] - U[i] for i in range(3)]) > 45 + eps:
+            return False, "satellite %d is more than 45 degrees from user %d's zenith" % (row[1], row[0])
+        per_sat.setdefault(s, []).append((u, c))
+    for s, beams in per_sat.items():
+        if len(beams) > 32:
+            return False, "satellite %d serves %d users (at most 32)" % (s + ib, len(beams))
+        S = sats[s]
+        for i in range(len(beams)):
+            for j in range(i + 1, len(beams)):
+                (u1, c1), (u2, c2) = beams[i], beams[j]
+                if c1 != c2:
+                    continue
+                a = [users[u1][k] - S[k] for k in range(3)]
+                b = [users[u2][k] - S[k] for k in range(3)]
+                if _angle_deg(a, b) < 10 - eps:
+                    return False, ("users %d and %d share color %d on satellite %d but are "
+                                   "less than 10 degrees apart" % (u1 + ib, u2 + ib, c1, s + ib))
+    if len(seen_users) < need:
+        return False, "%d users served, at least %d required" % (len(seen_users), need)
+    return True, None
+
+
+VALIDATORS = {"beam_assignment_v1": _beam_assignment_v1}
+
+
+def validate_output(got, spec: dict, args: dict, out_type: str):
+    """(ok, got_display, note) for a problem with its own output validator."""
+    fn = VALIDATORS.get((spec or {}).get("kind"))
+    if fn is None:
+        raise ValueError("unknown output validator %r" % (spec or {}).get("kind"))
+    got_j = to_jsonable(got, out_type)
+    ok, why = fn(got_j, spec, args)
+    return ok, format_value(got_j, out_type), why

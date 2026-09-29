@@ -4,7 +4,7 @@ from typing import List, Optional, Any
 from collections import deque
 
 
-def solve(grid: List[List[int]]) -> int:
+def getMinInconvenience(grid: List[List[int]]) -> int:
     rows = len(grid)
     if rows == 0:
         return 0

@@ -2,7 +2,7 @@
 from typing import List, Optional, Any
 
 
-def maximumCapacity(memory: List[int]) -> int:
+def solve(memory: List[int]) -> int:
     vals = sorted(memory, reverse=True)
     total = 0
     for i in range(1, len(vals), 2):

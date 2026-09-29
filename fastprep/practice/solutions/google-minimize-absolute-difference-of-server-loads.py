@@ -2,7 +2,7 @@
 from typing import List
 
 
-def minAbsDifference(loads: List[int]) -> int:
+def solve(loads: List[int]) -> int:
     if not loads:
         return 0
     total = sum(loads)

@@ -158,10 +158,20 @@ def build(db_path=DB):
 
 
 def main():
-    index = build()
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    with open(OUT, "w") as fh:
+    import argparse
+    ap = argparse.ArgumentParser(description="Map every problem onto the topic canon.")
+    ap.add_argument("--db", default=DB)
+    ap.add_argument("--out", default=OUT)
+    ap.add_argument("--quiet", action="store_true")
+    args = ap.parse_args()
+    index = build(args.db)
+    os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
+    tmp = args.out + ".tmp"
+    with open(tmp, "w") as fh:
         json.dump(index, fh, separators=(",", ":"))
+    os.replace(tmp, args.out)       # a reader sees the old map or the new one
+    if args.quiet:
+        return
     ts = index["topics"]
     rare = [t for t in ts if t["rare"]]
     print("%d problems -> %d topics, %d rare, %s"

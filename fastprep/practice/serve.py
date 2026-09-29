@@ -6,8 +6,10 @@
     python3 serve.py --prefetch-images   # warm the image cache, then exit
     python3 serve.py --selftest          # run the test suite and exit
 
-Nothing here writes to fastprep.db: it is opened read-only, and your progress
-lives in progress.db next to this file.
+The request handlers never write to fastprep.db: it is opened read-only, and
+your progress lives in progress.db next to this file. The one writer is the
+background sync (banksync.py), which pulls newly published problems into the
+bank every few hours on its own connection; --offline or --no-sync turn it off.
 """
 
 from __future__ import annotations
@@ -26,6 +28,7 @@ from urllib.parse import parse_qs, urlparse
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
+import banksync
 import fpdb
 import images
 import languages
@@ -41,6 +44,7 @@ mimetypes.add_type("application/javascript", ".js")
 
 BANK: fpdb.Bank
 PROGRESS: progress_mod.Progress
+SYNC = banksync.DisabledSync("not started")
 ALLOW_FETCH = True
 BASE_PATH = ""          # e.g. "/site" when a reverse proxy mounts the app there
 
@@ -217,7 +221,10 @@ class Handler(BaseHTTPRequestHandler):
                 "progressDb": PROGRESS.path, "imagesCached": images.cached_count(),
                 "environment": languages.environment(),
                 "solutions": solutions_mod.stats(),
+                "sync": SYNC.status(),
             })
+        if path == "/api/sync":
+            return self._json(SYNC.status())
         if path == "/api/facets":
             out = BANK.facets()
             out["progress"] = self._progress_counts(out["meta"]["total"])
@@ -275,6 +282,13 @@ class Handler(BaseHTTPRequestHandler):
         except Exception as e:
             return self._error(400, "bad request body: %s" % e)
         try:
+            if url.path == "/api/sync":
+                status = SYNC.status()
+                if not status["enabled"]:
+                    return self._json(dict(status, error="sync is off: %s"
+                                           % status.get("reason")), 409)
+                started = SYNC.trigger()
+                return self._json(dict(SYNC.status(), started=started), 202)
             if url.path == "/api/run":
                 return self._run(body)
             if url.path == "/api/fuzz":
@@ -423,6 +437,10 @@ class Handler(BaseHTTPRequestHandler):
             if not cases:
                 return self._error(400, "nothing to run: this problem has no visible "
                                         "examples and you have added no cases")
+            validator = detail.get("algorithmOutputValidator")
+            if validator:
+                for c in cases:
+                    c["validator"] = validator
             result = runner.run_python(code, cases, detail.get("functionName") or "solve")
             by_id = {str(c["id"]): c for c in cases}
             for r in result.get("results") or []:
@@ -431,7 +449,7 @@ class Handler(BaseHTTPRequestHandler):
                 r["generated"] = bool(src.get("generated"))
                 if src.get("note"):
                     r["note"] = src["note"]
-                if not src.get("expectedRaw"):
+                if not src.get("expectedRaw") and not validator:
                     r["ok"] = None            # nothing to compare against: informational
                     r["expected"] = None
         else:
@@ -548,8 +566,13 @@ def _prefetch(bank: fpdb.Bank) -> int:
     return 1 if failed else 0
 
 
+def _every(seconds: float) -> str:
+    return ("%gh" % (seconds / 3600)) if seconds >= 3600 else \
+           ("%gmin" % (seconds / 60)) if seconds >= 60 else ("%gs" % seconds)
+
+
 def main() -> int:
-    global BANK, PROGRESS, ALLOW_FETCH
+    global BANK, PROGRESS, ALLOW_FETCH, SYNC
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--db", default=fpdb.DEFAULT_DB, help="the FastPrep bank (read-only)")
@@ -565,6 +588,18 @@ def main() -> int:
                          "verbatim: --base-path /site")
     ap.add_argument("--offline", action="store_true",
                     help="never fetch images; serve only what is cached")
+    ap.add_argument("--no-sync", action="store_true",
+                    help="never pull new problems into the bank in the background")
+    ap.add_argument("--sync-interval", type=float,
+                    default=float(os.environ.get("FP_SYNC_INTERVAL") or banksync.DEFAULT_INTERVAL),
+                    help="seconds between background checks for new problems "
+                         "(default %d; env FP_SYNC_INTERVAL)" % banksync.DEFAULT_INTERVAL)
+    ap.add_argument("--sync-export", default=None,
+                    help="JSON export to keep in step with the bank "
+                         "(default: all_problems.json beside it, when present)")
+    ap.add_argument("--topic-index", default=topics_mod.INDEX_PATH,
+                    help="the study space's topic map, rebuilt after a sync brings "
+                         "in new problems (default: topics/INDEX.json)")
     ap.add_argument("--prefetch-images", action="store_true",
                     help="download every uncached source image, then exit")
     ap.add_argument("--selftest", action="store_true", help="run the tests, then exit")
@@ -582,6 +617,7 @@ def main() -> int:
     BASE_PATH = "/" + trimmed if trimmed else ""
     if args.image_cache:
         images.set_cache_dir(args.image_cache)
+    topics_mod.INDEX_PATH = os.path.abspath(args.topic_index)
     os.makedirs(os.path.dirname(os.path.abspath(args.progress_db)) or ".", exist_ok=True)
     BANK = fpdb.Bank(args.db)
     PROGRESS = progress_mod.Progress(args.progress_db)
@@ -614,6 +650,17 @@ def main() -> int:
     print("  images    %d cached in %s, fetching %s"
           % (images.cached_count(), images.CACHE_DIR,
              "enabled" if ALLOW_FETCH else "disabled"))
+    if args.offline or args.no_sync:
+        SYNC = banksync.DisabledSync("--offline" if args.offline else "--no-sync")
+        print("  sync      off (%s)" % SYNC.reason)
+    else:
+        SYNC = banksync.BankSync(
+            BANK.path, bank=BANK, progress=PROGRESS, interval=args.sync_interval,
+            base=os.environ.get("FASTPREP_BASE", banksync.fastprep.BASE),
+            export_path=args.sync_export or banksync.default_export_path(BANK.path),
+            topic_index=topics_mod.INDEX_PATH).start()
+        print("  sync      checking %s for new problems now and every %s"
+              % (SYNC.base, _every(args.sync_interval)))
     sol = solutions_mod.stats()
     print("  solutions %d stored, %d verified against their visible examples (of %d targeted)"
           % (sol["stored"], sol["verified"], sol["targeted"]))
@@ -628,6 +675,7 @@ def main() -> int:
     except KeyboardInterrupt:
         print("\nbye")
     finally:
+        SYNC.stop()
         httpd.server_close()
     return 0
 
