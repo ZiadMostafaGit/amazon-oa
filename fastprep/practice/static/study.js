@@ -752,6 +752,7 @@ const Study = {
 
 /* -------------------------------------------------------------- helpers */
 function show(on) {
+  if (on && state.finderOpen) Finder.close();
   $('#study').hidden = !on;
   $('#workspace').hidden = on;
   $('#studyBtn').setAttribute('aria-pressed', on ? 'true' : 'false');

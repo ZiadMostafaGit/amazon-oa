@@ -29,7 +29,7 @@ const state = {
   relno: localStorage.getItem('fp:relno') !== '0',
   fontSize: parseInt(localStorage.getItem('fp:fs') || '14', 10),
   showCaseForm: false,
-  topic: '', studyOpen: false, topics: null,
+  topic: '', studyOpen: false, topics: null, finderOpen: false,
 };
 
 const remember = (k, v) => { try { localStorage.setItem('fp:' + k, v); } catch (e) {} };
@@ -69,6 +69,7 @@ function readUrl() {
   MULTI.forEach(k => p.getAll(k).forEach(v => state.filters[k].add(v)));
   SINGLE.forEach(k => { if (p.get(k)) state[k] = p.get(k); });
   FLAGS.forEach(k => { if (p.get(k)) state[k] = true; });
+  state.wantFind = p.get('find') || '';
   const study = p.get('study') || '';
   state.wantTopic = study && study !== 'all' ? study : '';
   state.wantTopicList = study === 'all';
@@ -1971,9 +1972,11 @@ async function boot() {
   Sync.poll();
   wireSplitter();
   Study.wire();
+  Finder.wire();
   Timer.wire();
   if (state.wantTopic) Study.open(state.wantTopic);
   else if (state.wantTopicList) Study.openIndex();
+  if (state.wantFind) { closeDrawer(); Finder.open(); $('#findText').value = state.wantFind; Finder.find(); }
 
   let t = null;
   $('#q').oninput = (e) => {
@@ -2027,6 +2030,7 @@ async function boot() {
       if (Timer.onEscape()) return;
       if (!$('#lightbox').hidden) { $('#lightbox').hidden = true; return; }
       if (drawerOpen()) { closeDrawer(); return; }
+      if (state.finderOpen) { Finder.close(); return; }
       if (state.studyOpen) Study.close();
       return;
     }
@@ -2035,6 +2039,7 @@ async function boot() {
     if (e.key === '/' && !typing) { e.preventDefault(); openDrawer(); return; }
     if (typing) return;
     if (e.key === 's') { state.studyOpen ? Study.close() : Study.openIndex(); return; }
+    if (e.key === 'f') { e.preventDefault(); Finder.toggle(); return; }
     if (e.key === 't') { Timer.toggle(); return; }
     if (e.key === 'j') step(1);
     if (e.key === 'k') step(-1);

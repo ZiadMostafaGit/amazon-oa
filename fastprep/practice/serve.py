@@ -36,6 +36,7 @@ import progress as progress_mod
 import runner
 import solutions as solutions_mod
 import topics as topics_mod
+import match as match_mod
 sys.path.insert(0, os.path.join(HERE, "tools"))
 from gaps import gaps_for
 
@@ -44,6 +45,7 @@ mimetypes.add_type("application/javascript", ".js")
 
 BANK: fpdb.Bank
 PROGRESS: progress_mod.Progress
+MATCHER: match_mod.Matcher
 SYNC = banksync.DisabledSync("not started")
 ALLOW_FETCH = True
 BASE_PATH = ""          # e.g. "/site" when a reverse proxy mounts the app there
@@ -155,7 +157,7 @@ class Handler(BaseHTTPRequestHandler):
     # ------------------------------------------------------------------ GET
     # Everything this app answers at its own root. Anything else in the first
     # segment can only be a mount prefix a proxy added.
-    ROUTES = {"api", "app.js", "editor.js", "study.js", "timer.js", "pyenv.js",
+    ROUTES = {"api", "app.js", "editor.js", "study.js", "timer.js", "pyenv.js", "finder.js",
               "styles.css", "index.html", "vendor", "favicon.ico"}
 
     def _strip_base(self, path: str) -> str:
@@ -303,6 +305,16 @@ class Handler(BaseHTTPRequestHandler):
                 return self._run(body)
             if url.path == "/api/fuzz":
                 return self._fuzz(body)
+            if url.path == "/api/match":
+                text = str(body.get("text") or "")
+                if len(text.strip()) < 8:
+                    return self._error(400, "paste a statement, an example, or a function signature")
+                limit = max(1, min(25, int(body.get("limit") or 10)))
+                out = MATCHER.find(text[:20000], limit)
+                # what the reader has done with each hit, so a known problem reads as known
+                for r in out["results"]:
+                    r["status"] = PROGRESS.get(r["id"]).get("status")
+                return self._json(out)
             if url.path == "/api/scratch":
                 return self._scratch(body)
             if url.path == "/api/script":
@@ -593,7 +605,7 @@ def _every(seconds: float) -> str:
 
 
 def main() -> int:
-    global BANK, PROGRESS, ALLOW_FETCH, SYNC
+    global BANK, PROGRESS, ALLOW_FETCH, SYNC, MATCHER
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--db", default=fpdb.DEFAULT_DB, help="the FastPrep bank (read-only)")
@@ -642,6 +654,7 @@ def main() -> int:
     os.makedirs(os.path.dirname(os.path.abspath(args.progress_db)) or ".", exist_ok=True)
     BANK = fpdb.Bank(args.db)
     PROGRESS = progress_mod.Progress(args.progress_db)
+    MATCHER = match_mod.Matcher(BANK, topics_mod)
     ALLOW_FETCH = not args.offline
 
     if args.prefetch_images:

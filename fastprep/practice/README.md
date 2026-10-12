@@ -59,6 +59,18 @@ inline — click to enlarge. Tabular (SQL) problems have no `examples`; they get
 their table schemas, result contract and visible cases rendered as tables
 instead.
 
+**Find this problem.** Press `f` or **Find** and paste a statement from anywhere
+— a screenshot you typed up, a message, another site — with its examples and
+constraints if you have them. The bank is matched on five signals: shared example
+values (one shared input-and-output pair is close to proof), wording with the
+company story stripped, the title, the function signature, and the constraint
+magnitudes (`10^5`, `1e9`). Every hit carries a 0–100 score, a label (same
+problem · probably the same · related · weak) and the reasons, and copies of the
+same problem under other companies fold into one row. On the bank's own
+duplicates it finds the partner in the top three families 56 times in 60, and a
+statement with its company swapped and examples removed finds its own family at
+rank one 144 times in 150. `?find=<text>` opens it from a URL.
+
 **Study.** Press `s` or the **Study** button for the other half of the app: a
 canon of **150 chapters** filed under **17 subjects** — Graphs is BFS, DFS,
 topological sort, union-find, shortest paths and the rest in one place; Dynamic

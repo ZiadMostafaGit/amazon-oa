@@ -956,6 +956,17 @@ class TestStudySpace(ServerCase):
         self.assertIn("Heaps", out["subjects"])
         self.assertTrue(out["problem"]["id"])
 
+    def test_find_this_problem(self):
+        out, code = self.post("/api/match", {"text": "Given a sorted array nums and a target, return "
+                                                     "how many times target occurs.\nInput: nums = "
+                                                     "[1,2,2,2,3], target = 2\nOutput: 3", "limit": 3})
+        self.assertEqual(code, 200)
+        self.assertEqual(out["results"][0]["id"], "bloomberg-count-target-in-sorted-array")
+        self.assertIn("status", out["results"][0])
+        self.assertEqual(out["query"]["literals"], 2)   # the array, and the answer 3
+        _, code = self.post("/api/match", {"text": "hi"})
+        self.assertEqual(code, 400)
+
     def test_the_listing_groups_chapters_into_subjects(self):
         out = self.get("/api/topics")
         self.assertEqual(sum(len(s["chapters"]) for s in out["subjects"]), 150)

@@ -25,6 +25,11 @@
     <span>Study</span>
   </button>
 
+  <button id="findBtn" class="iconbtn" title="Find this problem — paste a statement from anywhere  (press f)" aria-pressed="false">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    <span>Find</span>
+  </button>
+
   <div class="brand">FastPrep <span>practice</span></div>
 
   <div id="crumb" class="crumb"></div>
@@ -132,6 +137,31 @@
   </section>
 </main>
 
+<!-- ============ find this problem: paste a statement, get the bank's closest ============ -->
+<main id="finder" hidden>
+  <div id="finderPane" class="pane-scroll">
+    <div class="finder-wrap">
+      <header class="topic-head">
+        <h1>Find this problem</h1>
+        <p class="lede">Paste a statement from anywhere — a screenshot you typed up, a friend's
+          message, another site — with its examples and constraints if you have them. The bank is
+          searched on five signals: shared example values, wording with the company story stripped,
+          the title, the function signature, and the constraint magnitudes. Each hit says why.</p>
+      </header>
+      <textarea id="findText" class="find-text" rows="9" spellcheck="false"
+        placeholder="Given a sorted array nums and a target, return how many times target occurs. Must run in O(log n).&#10;&#10;Input: nums = [1,2,2,2,3], target = 2&#10;Output: 3"></textarea>
+      <div class="rowbtns find-bar">
+        <button id="findGo" class="btn primary">Find</button>
+        <button id="findClear" class="btn ghost">Clear</button>
+        <span id="findHint" class="hint">Ctrl-Enter to search</span>
+        <span class="spacer"></span>
+        <button id="finderCloseBtn" class="btn ghost">Close (Esc)</button>
+      </div>
+      <div id="findResults"></div>
+    </div>
+  </div>
+</main>
+
 <!-- ============ drawer: search, filters, results ============ -->
 <div id="scrim" hidden></div>
 <aside id="drawer" hidden aria-label="Browse problems">
@@ -197,6 +227,7 @@
 <script src="pyenv.js"></script>
 <script src="editor.js"></script>
 <script src="study.js"></script>
+<script src="finder.js"></script>
 <script src="timer.js"></script>
 <script src="app.js"></script>
 </body>

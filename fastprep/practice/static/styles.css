@@ -994,3 +994,42 @@ select.plan-input,input.plan-input{resize:none}
   .plan-grid,.pm-grid,.compare-grid{grid-template-columns:1fr}
   .mrow{grid-template-columns:120px 1fr 32px}
 }
+
+
+/* ======================================================================
+   find this problem
+   ====================================================================== */
+#finder{height:calc(100vh - var(--top));overflow:hidden;background:var(--bg)}
+#finderPane{height:100%;overflow:auto;padding:26px 34px 120px}
+.finder-wrap{max-width:860px;margin:0 auto}
+.finder-wrap .lede{color:var(--ink-dim);font-size:14.5px;line-height:1.6;margin:4px 0 16px}
+.find-text{
+  display:block;width:100%;background:var(--pane);border:1px solid var(--line);
+  border-radius:var(--radius);padding:12px 14px;font:13.5px/1.6 var(--mono);color:var(--ink);
+  resize:vertical;min-height:120px;
+}
+.find-text:focus{outline:none;border-color:var(--accent)}
+.find-bar{margin:10px 0 18px;align-items:center}
+.find-list{display:flex;flex-direction:column;gap:8px}
+.find-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--pane);padding:12px 14px}
+.find-card.same{border-left:3px solid var(--good)}
+.find-card.probable{border-left:3px solid var(--accent)}
+.find-card.related{border-left:3px solid var(--warn)}
+.find-card.weak{border-left:3px solid var(--line)}
+.find-top{display:flex;gap:14px;align-items:flex-start}
+.find-score{flex:none;width:64px;text-align:center}
+.find-score b{display:block;font:22px/1 var(--mono);color:var(--ink-strong)}
+.find-bar-track{display:block;height:4px;border-radius:99px;background:var(--raised);margin-top:6px;overflow:hidden}
+.find-bar-track i{display:block;height:100%;background:var(--accent)}
+.find-card.same .find-bar-track i{background:var(--good)}
+.find-mid{flex:1;min-width:0}
+.find-title{font-size:15px;font-weight:600;color:var(--ink-strong);text-align:left}
+.find-title:hover{text-decoration:underline}
+.find-tags{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.tag.same{color:var(--good);border-color:#1e4737;background:var(--good-soft)}
+.tag.probable{color:#cfe0ff;border-color:#2b3b58;background:#182233}
+.tag.related{color:var(--warn);border-color:#4a3c1c;background:var(--warn-soft)}
+.tag.weak{color:var(--ink-faint)}
+.find-why{margin:4px 0 0;padding-left:18px;font-size:12.5px;color:var(--ink-dim);line-height:1.55}
+.find-also{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}
+@media (max-width:900px){ #finderPane{padding:18px 16px 90px} }

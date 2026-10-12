@@ -171,6 +171,54 @@ class TestRecall(unittest.TestCase):
                 self.assertTrue(any(sn.get("stub") for sn in a["snippets"]), f)
 
 
+class TestFinder(unittest.TestCase):
+    """Paste a statement from anywhere; the bank's closest comes back, with why."""
+    @classmethod
+    def setUpClass(cls):
+        import fpdb, match
+        cls.match = match
+        cls.M = match.Matcher(fpdb.Bank(), topics_mod)
+
+    def test_literals_and_magnitudes(self):
+        m = self.match
+        lits = m.literals('Input: nums = [1, 2, 2, 2, 3], target = 2\nOutput: 3')
+        self.assertIn("[1,2,2,2,3]", lits)
+        self.assertIn("3", lits)                       # announced as the answer
+        self.assertEqual(m.magnitudes("1 <= n <= 10^5 and 1e9, also 100000"), {"e5", "e9"})
+        self.assertEqual(m.norm_literal('"[1, 2]"'), "[1,2]")
+        self.assertEqual(m.stem("dependencies"), "dependency")
+        self.assertEqual(m.stem("tasks"), "task")
+        self.assertEqual(m.split_ident("countTarget"), ["count", "target"])
+
+    def test_a_pasted_statement_with_its_example_is_the_same_problem(self):
+        out = self.M.find("Given a sorted array nums and a target, return how many times target "
+                          "occurs in O(log n).\nInput: nums = [1,2,2,2,3], target = 2\nOutput: 3")
+        top = out["results"][0]
+        self.assertEqual(top["id"], "bloomberg-count-target-in-sorted-array")
+        self.assertEqual(top["label"], "same problem")
+        self.assertTrue(any(w.startswith("example: same input and output") for w in top["why"]))
+
+    def test_a_story_rewrite_without_examples_still_finds_its_family(self):
+        import fpdb, re
+        d = fpdb.Bank().detail("amazon-stock-span")
+        text = self.match.html_to_text(d["problemStatement"])
+        text = re.sub(r"(?i)amazon", "Acme", text)
+        out = self.M.find(text)
+        ids = [out["results"][0]["id"]] + [a["id"] for a in out["results"][0]["also"]]
+        self.assertIn("amazon-stock-span", ids)
+
+    def test_same_title_copies_fold_into_one_row(self):
+        out = self.M.find("Given an array of daily stock prices, find the maximum profit from "
+                          "one buy and one sell.")
+        rows = [r["title"] for r in out["results"]]
+        self.assertEqual(len(rows), len(set(rows)))
+        self.assertTrue(any(r["also"] for r in out["results"]))
+
+    def test_nonsense_is_weak_not_confident(self):
+        out = self.M.find("purple elephants juggle quietly under the moon tonight")
+        self.assertTrue(all(r["label"] in ("weak", "related") for r in out["results"]))
+
+
 class TestSubjects(unittest.TestCase):
     """A subject is everything about one thing, as a prerequisite tree."""
     def test_every_chapter_is_filed_under_exactly_one_subject(self):
