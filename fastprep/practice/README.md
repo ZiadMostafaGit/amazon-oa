@@ -380,7 +380,9 @@ write connection:
 
 1. **one** request for FastPrep's index, compared with the bank by id and by a
    hash of each index row: new, changed, gone, and anything missing its detail;
-2. the detail of only those problems, at 2 req/s over 3 workers;
+2. the detail of only those problems, at 1 req/s over 2 workers (a faster
+   pull tripped the host's bot checkpoint once, and the index call is the one
+   that must keep working);
 3. each problem is written in one commit, index row and detail together. A new
    problem is not there at all until its statement is; a changed one keeps its
    old statement until the new one replaces it. A fetch that fails writes

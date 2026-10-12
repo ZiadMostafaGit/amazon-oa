@@ -234,7 +234,15 @@ class Client:
                 self._backoff(attempt)
                 continue
 
-            # 401/403 and friends: retrying will not help
+            # 401/403 and friends: retrying will not help. A 403 whose body is
+            # Vercel's checkpoint page is the host's bot protection deciding
+            # we fetched too much too fast - say that, rather than printing
+            # the page, and let the next scheduled check try again.
+            if "Vercel Security Checkpoint" in (r.text or "")[:4000]:
+                raise RuntimeError(
+                    f"HTTP {r.status_code} for {url}: fastprep.io is behind Vercel's bot "
+                    "checkpoint. Nothing is wrong locally; it clears on its own. Fetch "
+                    "slower (--rps 1 --workers 2) and try again later.")
             raise RuntimeError(f"HTTP {r.status_code} for {url}: {r.text[:200]}")
 
         raise RuntimeError(f"giving up on {url} after {self.max_retries} attempts: {last_err}")
@@ -984,11 +992,12 @@ def main() -> int:
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     def add_http(p):
-        p.add_argument("--workers", type=int, default=5,
-                       help="parallel detail fetchers (default 5)")
-        p.add_argument("--rps", type=float, default=3.0,
-                       help="sustained requests/sec ceiling (default 3.0)")
-        p.add_argument("--burst", type=float, default=3.0)
+        p.add_argument("--workers", type=int, default=3,
+                       help="parallel detail fetchers (default 3)")
+        p.add_argument("--rps", type=float, default=1.5,
+                       help="sustained requests/sec ceiling (default 1.5; a full "
+                            "pull at 3/s tripped the host's bot checkpoint)")
+        p.add_argument("--burst", type=float, default=2.0)
         p.add_argument("--timeout", type=float, default=45.0)
         p.add_argument("--max-retries", type=int, default=5)
         p.add_argument("--user-agent", default=DEFAULT_UA)

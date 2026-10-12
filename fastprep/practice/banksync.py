@@ -62,7 +62,7 @@ def write_topic_index(db_path: str, path: str) -> None:
 class BankSync:
     def __init__(self, db_path: str, bank=None, interval: float = DEFAULT_INTERVAL,
                  base: str = fastprep.BASE, export_path: str | None = None,
-                 workers: int = 3, rps: float = 2.0, first_delay: float = FIRST_CHECK_DELAY,
+                 workers: int = 2, rps: float = 1.0, first_delay: float = FIRST_CHECK_DELAY,
                  progress=None, topic_index: str | None = None):
         self.db_path = os.path.abspath(db_path)
         self.bank = bank

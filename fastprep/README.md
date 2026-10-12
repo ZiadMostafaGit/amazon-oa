@@ -24,8 +24,10 @@ Detail responses come back `cache-control: private, no-store` with
 `x-vercel-cache: MISS`, so **every detail hit is a real function invocation**
 that costs them money. The client is built to be a good citizen:
 
-- **Token-bucket rate limiter** (`--rps`, default 3/s) shared across all threads.
-- **Small worker pool** (`--workers`, default 5) with HTTP keep-alive, so you
+- **Token-bucket rate limiter** (`--rps`, default 1.5/s) shared across all threads.
+  A full pull at 3/s over 6 workers tripped fastprep.io's Vercel bot checkpoint (a
+  403 with an HTML page) for the next request from the same address; it clears on its own.
+- **Small worker pool** (`--workers`, default 3) with HTTP keep-alive, so you
   reuse connections instead of re-handshaking TLS on every request.
 - **Exponential backoff + jitter** on timeouts and 5xx.
 - **Adaptive brake**: the first `429`/`503` pauses every worker and *halves*
@@ -62,8 +64,8 @@ python3 fastprep.py check
 python3 fastprep.py sync
 
 # be gentler / faster
-python3 fastprep.py sync --workers 3 --rps 1.5
-python3 fastprep.py sync --workers 10 --rps 6
+python3 fastprep.py sync --workers 2 --rps 1
+python3 fastprep.py sync --workers 5 --rps 3     # risks the bot checkpoint
 
 # only fetch details for recent OA problems
 python3 fastprep.py sync --stage oa --recent-first --limit 300
