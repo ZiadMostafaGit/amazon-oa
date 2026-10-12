@@ -11,8 +11,10 @@ progress database next to the rest of the user's data.
 
 from __future__ import annotations
 
+import ast
 import json
 import os
+import random
 import re
 
 import mdlite
@@ -99,11 +101,44 @@ def article(slug: str) -> dict | None:
     body = re.sub(r"\A\s*#\s+[^\n]*\n", "", src)
     rendered = mdlite.render(body, lambda s: "?study=" + s)
     words = len(re.findall(r"[A-Za-z0-9'’-]+", re.sub(r"(?s)```.*?```", "", src)))
+    for sn in rendered["snippets"]:
+        sn["stub"] = stub(sn["code"]) if sn["run"] and sn["lang"] == "python" else None
     out = {"mtime": m, "source": src, "summary": _summary(src), "words": words,
            "html": rendered["html"], "toc": rendered["toc"],
            "snippets": rendered["snippets"], "checks": rendered["checks"]}
     _cache["articles"][slug] = out
     return out
+
+
+def stub(code: str) -> str | None:
+    """The same block with every function body removed, so the reader writes
+    it from memory and the block's own asserts grade the attempt. None when
+    the block has no function to blank or nothing left to check it with."""
+    try:
+        tree = ast.parse(code)
+    except SyntaxError:
+        return None
+    funcs = [n for n in tree.body if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]
+    checks = [n for n in ast.walk(tree) if isinstance(n, ast.Assert)
+              and not any(n in ast.walk(f) for f in funcs)]
+    if not funcs or not checks:
+        return None
+    lines = code.split("\n")
+    out, skip_to = [], -1
+    for n in funcs:
+        # keep the signature (and any decorators / docstring), drop the rest
+        body = n.body
+        if body and isinstance(body[0], ast.Expr) and isinstance(
+                getattr(body[0], "value", None), ast.Constant) and isinstance(body[0].value.value, str):
+            body = body[1:]
+        if not body:
+            continue
+        first, last = body[0].lineno, n.end_lineno
+        indent = " " * body[0].col_offset
+        lines[first - 1:last] = [indent + "...  # write it from memory; the asserts below grade you"] + \
+                                [None] * (last - first)
+    out = [l for l in lines if l is not None]
+    return "\n".join(out)
 
 
 def has_article(slug: str) -> bool:
@@ -232,6 +267,32 @@ def subjects() -> list[dict]:
     return out
 
 
+# ------------------------------------------------------------------- mastery
+MASTERY_SOLVED = 3     # queue problems solved before a chapter counts as practised
+
+
+def mastery(t: dict, a: dict | None, st: dict, solved: int) -> dict:
+    """Five things, each either done or not: tried a problem before reading,
+    read the chapter, wrote the implementation back from memory, told the
+    topic apart from its neighbours, and solved enough of its queue. "Read"
+    alone was the old status; it is the weakest of the five."""
+    extra = st.get("extra") or {}
+    recall = extra.get("recall") or {}
+    drill = extra.get("drill") or {}
+    has_queue = bool(t.get("count")) and t.get("kind") != "craft"
+    steps = {
+        "tried": bool(extra.get("tried") and not extra["tried"].get("skipped")) if has_queue else None,
+        "read": st.get("status") == "done",
+        "recalled": any(recall.values()) if (a and any(sn.get("stub") for sn in a["snippets"])) else None,
+        "drilled": (drill.get("score", 0) >= max(1, drill.get("total", 0) - 1)
+                    and drill.get("total", 0) > 0) if has_queue else None,
+        "solved": solved >= MASTERY_SOLVED if has_queue else None,
+    }
+    counted = [v for v in steps.values() if v is not None]
+    return {"steps": steps, "done": sum(1 for v in counted if v), "of": len(counted),
+            "solved": solved, "solvedOf": MASTERY_SOLVED}
+
+
 # ------------------------------------------------------------------ listings
 def listing(progress=None, bank=None) -> dict:
     """Every topic, ranked, with how far the reader has got."""
@@ -253,6 +314,7 @@ def listing(progress=None, bank=None) -> dict:
             "hasArticle": a is not None,
             "solved": sum(1 for i in ids if i in solved),
             "status": st.get("status"),
+            "mastery": mastery(t, a, st, sum(1 for i in ids if i in solved)),
         })
     by_slug = {t["slug"]: t for t in out}
     subs = []
@@ -264,7 +326,9 @@ def listing(progress=None, bank=None) -> dict:
                      "count": s["count"],
                      "solved": sum(1 for i in s["problemIds"] if i in solved),
                      "written": sum(1 for c in chapters if c["hasArticle"]),
-                     "done": sum(1 for c in chapters if c["status"] == "done")})
+                     "done": sum(1 for c in chapters if c["status"] == "done"),
+                     "mastered": sum(1 for c in chapters
+                                     if c["mastery"]["of"] and c["mastery"]["done"] == c["mastery"]["of"])})
     cats = [s["name"] for s in subs]
     return {"topics": out, "categories": cats, "subjects": subs,
             "problems": idx.get("problems", 0),
@@ -300,6 +364,7 @@ def subject_detail(slug: str, bank=None, progress=None, queue_limit: int = 120) 
             "hasArticle": a is not None,
             "solved": sum(1 for i in ids if i in solved),
             "status": st.get("status"),
+            "mastery": mastery(t, a, st, sum(1 for i in ids if i in solved)),
         })
 
     def brief(o):
@@ -354,12 +419,26 @@ def subject_detail(slug: str, bank=None, progress=None, queue_limit: int = 120) 
                           "company": r["company"], "seenCount": r["seenCount"],
                           "status": p.get("status"), "hasSolution": i in verified,
                           "chapters": score[i][0]})
+    # what goes wrong for you in this subject, from your own post-mortems,
+    # and which of its problems are owed a re-solve
+    mistakes: dict[str, int] = {}
+    due = []
+    if progress is not None:
+        for pid, kind in progress.mistakes().items():
+            if pid in s["problemIds"] and kind not in ("", "none"):
+                mistakes[kind] = mistakes.get(kind, 0) + 1
+        for r in progress.reviews()["due"]:
+            if r["id"] in s["problemIds"]:
+                d = bank.detail(r["id"]) if bank is not None else None
+                due.append(dict(r, title=(d or {}).get("title") or r["id"]))
     return {
         "slug": slug, "name": s["name"], "blurb": s["blurb"],
         "count": s["count"], "problems": idx.get("problems", 0),
         "solved": sum(1 for i in s["problemIds"] if i in solved),
         "chapters": chapters, "before": before, "beyond": beyond,
         "queue": queue, "queueTotal": len(score),
+        "mistakes": sorted(mistakes.items(), key=lambda kv: -kv[1]),
+        "reviewsDue": due,
     }
 
 
@@ -391,6 +470,7 @@ def detail(slug: str, bank=None, progress=None, queue_limit: int = 400) -> dict 
                           "company": r["company"], "seenCount": r["seenCount"],
                           "status": p.get("status"), "hasSolution": i in verified})
     st = progress.topic_get(slug) if progress is not None else {}
+    solved_n = sum(1 for q in queue if q["status"] == "solved")
     related = []
     for s in list(t["needs"]) + list(t["near"]):
         o = idx["bySlug"].get(s)
@@ -407,9 +487,117 @@ def detail(slug: str, bank=None, progress=None, queue_limit: int = 400) -> dict 
         "article": None if a is None else {
             "html": a["html"], "toc": a["toc"], "words": a["words"],
             "checks": a["checks"], "summary": a["summary"],
-            "snippets": [{"lang": s["lang"], "run": s["run"], "code": s["code"]}
+            "snippets": [{"lang": s["lang"], "run": s["run"], "code": s["code"],
+                          "stub": s.get("stub")}
                          for s in a["snippets"]],
         },
         "queue": queue, "queueTotal": t["count"],
+        "tryFirst": try_first(queue, st),
+        "drill": drill(slug, bank) if bank is not None and t.get("kind") != "craft" else [],
+        "mastery": mastery(t, a, st, solved_n),
         "study": st,
     }
+
+
+def try_first(queue: list[dict], st: dict) -> dict | None:
+    """The problem to attempt BEFORE reading: the one you already tried if
+    there is one, else the easiest unsolved problem with a reference solution
+    so the attempt can be checked, else the easiest unsolved one."""
+    if not queue:
+        return None
+    tried = ((st.get("extra") or {}).get("tried") or {}).get("pid")
+    for q in queue:
+        if q["id"] == tried:
+            return q
+    fresh = [q for q in queue if q["status"] != "solved"]
+    for q in fresh:
+        if q["hasSolution"]:
+            return q
+    return (fresh or queue)[0]
+
+
+DRILL_SIZE = 4     # of the topic, and as many decoys
+
+
+def drill(slug: str, bank, size: int = DRILL_SIZE) -> list[dict]:
+    """Recognition: a mix of this topic's problems and problems from its
+    neighbours that are NOT this topic, title and opening lines only. Telling
+    them apart is the interview skill, and no chapter can do it for you."""
+    idx = index()
+    t = idx["bySlug"].get(slug)
+    if not t:
+        return []
+    mine = [p for p in (t.get("problems") or [])[:40]]
+    here = set(t.get("problems") or [])
+    pool = []
+    for n in list(t["near"]) + list(t["needs"]):
+        o = idx["bySlug"].get(n)
+        for p in (o.get("problems") or [])[:40] if o else []:
+            if p not in here and p not in pool:
+                pool.append(p)
+    rng = random.Random()
+    picks = [(p, True) for p in rng.sample(mine, min(size, len(mine)))]
+    picks += [(p, False) for p in rng.sample(pool, min(size, len(pool)))]
+    rng.shuffle(picks)
+    out = []
+    for pid, yes in picks:
+        d = bank.detail(pid)
+        if not d:
+            continue
+        text = _text(d.get("problemStatement") or "")
+        out.append({"id": pid, "title": d.get("title") or pid, "isTopic": yes,
+                    "excerpt": _clip(text, 320),
+                    "difficulty": d.get("difficulty"), "company": d.get("company")})
+    return out
+
+
+def _text(html: str) -> str:
+    html = re.sub(r"(?is)<(script|style).*?</\1>", " ", html)
+    html = re.sub(r"(?i)<br\s*/?>|</p>|</li>|</div>", " ", html)
+    text = re.sub(r"<[^>]+>", "", html)
+    text = (text.replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">")
+                .replace("&amp;", "&").replace("&quot;", '"').replace("&#39;", "'"))
+    return re.sub(r"\s+", " ", text).strip()
+
+
+# ------------------------------------------------------------------- reviews
+def reviews(progress, bank=None) -> dict:
+    """Spaced re-solves owed now, with titles and the subject each belongs to."""
+    out = progress.reviews()
+    subjects()
+    idx = index()
+    by_problem = idx.get("byProblem", {})
+    for r in out["due"]:
+        d = bank.detail(r["id"]) if bank is not None else None
+        r["title"] = (d or {}).get("title") or r["id"]
+        r["difficulty"] = (d or {}).get("difficulty")
+        slugs = by_problem.get(r["id"]) or []
+        sub = next((s for s in idx["subjects"] if slugs and slugs[0] in s["depth"]), None)
+        r["subject"] = sub["name"] if sub else None
+    return out
+
+
+def mixed_pick(progress, bank=None) -> dict:
+    """One problem from the subjects you have started, chosen so you do not
+    know which tool it wants: blocked practice teaches the tool, mixed
+    practice teaches choosing it, and interviews are the second kind."""
+    subjects()
+    idx = index()
+    started = {s["slug"] for s in idx["subjects"]
+               if any(c in progress.topics_all() for c in s["chapters"])}
+    if not started:
+        return {"problem": None, "subjects": [], "reason": "no subject started yet"}
+    solved = set(progress.ids_with(status="solved"))
+    pool = []
+    for s in idx["subjects"]:
+        if s["slug"] in started:
+            pool.extend(p for p in s["problemIds"] if p not in solved)
+    pool = sorted(set(pool))
+    names = sorted(s["name"] for s in idx["subjects"] if s["slug"] in started)
+    if not pool:
+        return {"problem": None, "subjects": names, "reason": "everything in them is solved"}
+    pid = random.choice(pool)
+    d = bank.detail(pid) if bank is not None else None
+    return {"problem": {"id": pid, "title": (d or {}).get("title") or pid,
+                        "difficulty": (d or {}).get("difficulty")},
+            "subjects": names, "pool": len(pool)}

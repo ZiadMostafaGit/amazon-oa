@@ -670,7 +670,8 @@ details.disclosure pre{
   border:1px solid transparent;
 }
 .tn-subject-name:hover{background:var(--raised);border-color:var(--line)}
-.tn-subject .tn-title{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--ink-dim)}
+.tn-subject .tn-title{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--ink-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.tn-subject .tn-sub{flex-wrap:nowrap;white-space:nowrap;overflow:hidden}
 .tn-subject.on .tn-subject-name{background:var(--accent-soft);border-color:#2f4b7d}
 .tn-subject.on .tn-title{color:var(--ink-strong)}
 .tn-row{
@@ -905,4 +906,91 @@ details.disclosure pre{
   #studySplit{display:none}
   #topicNav{max-height:38vh}
   #topic{padding:18px 16px 90px}
+}
+
+
+/* ======================================================================
+   the learning loop: plan, post-mortem, re-solves, try-first, recall, drill
+   ====================================================================== */
+.callout.review{border-left-color:var(--accent);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.callout.review .rowbtns{display:inline-flex;gap:6px;margin-left:auto}
+details.disclosure.plan{margin:14px 0 4px}
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;padding-top:12px}
+.plan-field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.plan-field.narrow{max-width:110px}
+.plan-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+.plan-input{
+  width:100%;background:var(--pane);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:8px 10px;font:13px/1.5 var(--sans);color:var(--ink);resize:vertical;
+}
+.plan-input:focus{outline:none;border-color:var(--accent)}
+select.plan-input,input.plan-input{resize:none}
+.postmortem{margin-top:22px}
+.pm-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+.pm-row{display:flex;gap:14px;grid-column:1/-1}
+.pm-row .plan-field{flex:1}
+.compare{margin-top:10px}
+.compare-qs{margin:8px 0 10px;padding-left:18px;color:var(--ink-dim);font-size:13px;line-height:1.6}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.compare-grid pre{margin:4px 0 0;max-height:420px;overflow:auto}
+
+/* mastery pips */
+.mastery{display:inline-flex;gap:3px;align-items:center;flex-shrink:0;padding-top:4px}
+.mastery .pip{width:7px;height:7px;border-radius:99px;background:var(--line);display:inline-block}
+.mastery .pip.on{background:var(--good)}
+.mastery.long{display:flex;flex-wrap:wrap;gap:6px 14px;margin:8px 0 2px;padding:0}
+.pip-label{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-faint)}
+.pip-label.on{color:var(--ink-dim)}
+.pcard-tags .mastery{padding-top:0}
+
+/* try first */
+#topic .tryfirst,#topic .drill,#topic .reviews,#topic .mixed,#topic .mistakes,#topic .chapter-wrap{
+  max-width:820px;margin-left:auto;margin-right:auto;
+}
+.tryfirst{border:1px solid var(--line);border-radius:var(--radius);background:var(--pane);padding:12px 14px;margin:14px auto}
+.tryfirst.hot{border-color:var(--accent);background:var(--accent-soft)}
+.tf-head{margin-bottom:6px}
+.tryfirst .qrow{border:1px solid var(--line);background:var(--raised);margin:6px 0}
+.tryfirst .rowbtns{margin-top:8px}
+.chapter-wrap.gated{position:relative;max-height:360px;overflow:hidden}
+.chapter-wrap.gated::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:300px;
+  background:linear-gradient(180deg,transparent,var(--bg) 70%);pointer-events:none;
+}
+.chapter-wrap.gated .gate-lift{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:1}
+.snippet-recalled{font-size:11px;color:var(--good);margin-left:auto}
+
+/* recognition drill */
+.drill{margin-top:26px}
+.drill-cards{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.drill-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--pane);padding:12px 14px}
+.drill-card.right{border-color:#24402e}
+.drill-card.wrong{border-color:#4a2427}
+.drill-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.drill-text{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:6px 0 8px}
+.drill-verdict{font-size:12px;align-self:center}
+.drill-verdict.good{color:var(--good)}
+.drill-verdict.bad{color:var(--bad)}
+.drill-score{font:13px var(--mono);margin:10px 0 4px;color:var(--ink-dim)}
+.drill-score.good{color:var(--good)}
+.drill-score.meh{color:var(--warn)}
+
+/* re-solves and the mixed drill */
+.reviews{margin:18px auto}
+.review-row{display:flex;gap:8px;align-items:center}
+.review-row .qtitle{flex:1;text-align:left;color:var(--ink)}
+.review-row .qtitle:hover{color:var(--ink-strong);text-decoration:underline}
+.mixed{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0 22px}
+
+/* mistakes histogram */
+.mistakes{margin-top:26px}
+.mrow{display:grid;grid-template-columns:200px 1fr 32px;gap:10px;align-items:center;margin:6px 0;font-size:13px}
+.mkind{color:var(--ink-dim)}
+.mbar{height:8px;border-radius:99px;background:var(--raised);overflow:hidden}
+.mbar i{display:block;height:100%;background:var(--bad);opacity:.8}
+.mnum{font:12px var(--mono);color:var(--ink-faint);text-align:right}
+
+@media (max-width:900px){
+  .plan-grid,.pm-grid,.compare-grid{grid-template-columns:1fr}
+  .mrow{grid-template-columns:120px 1fr 32px}
 }

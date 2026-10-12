@@ -260,6 +260,10 @@ class Handler(BaseHTTPRequestHandler):
                 "X-Image-Source": "cache" if cached else "fetched"})
         if path == "/api/topics":
             return self._json(topics_mod.listing(PROGRESS, BANK))
+        if path == "/api/reviews":
+            return self._json(topics_mod.reviews(PROGRESS, BANK))
+        if path == "/api/mixed":
+            return self._json(topics_mod.mixed_pick(PROGRESS, BANK))
         if path.startswith("/api/subjects/"):
             slug = path[len("/api/subjects/"):].strip("/")
             out = topics_mod.subject_detail(slug, BANK, PROGRESS)
@@ -309,14 +313,21 @@ class Handler(BaseHTTPRequestHandler):
                 slug = url.path[len("/api/study/"):].strip("/")
                 if not topics_mod.index()["bySlug"].get(slug):
                     return self._error(404, "no topic %r" % slug)
-                fields = {k: body[k] for k in ("status", "notes", "checked", "scratch")
+                fields = {k: body[k] for k in ("status", "notes", "checked", "scratch", "extra")
                           if k in body}
                 return self._json(PROGRESS.topic_update(slug, **fields))
+            if url.path.startswith("/api/reviews/"):
+                pid = url.path[len("/api/reviews/"):]
+                out = PROGRESS.review_done(pid, bool(body.get("passed")))
+                if out is None:
+                    return self._error(404, "no review scheduled for %r" % pid)
+                return self._json(out)
             if url.path.startswith("/api/progress/"):
                 pid = url.path[len("/api/progress/"):]
                 if not BANK.detail(pid):
                     return self._error(404, "no problem with id %r" % pid)
-                fields = {k: body[k] for k in ("status", "bookmarked", "notes") if k in body}
+                fields = {k: body[k] for k in ("status", "bookmarked", "notes", "plan", "postmortem")
+                          if k in body}
                 if "code" in body and body.get("language"):
                     PROGRESS.save_submission(pid, body["language"], body["code"])
                 return self._json(PROGRESS.update(pid, **fields))
@@ -523,6 +534,7 @@ class Handler(BaseHTTPRequestHandler):
             study = (q.get("study") or [""])[0]
             if study:
                 boot["topics"] = topics_mod.listing(PROGRESS, BANK)
+                boot["reviews"] = topics_mod.reviews(PROGRESS, BANK)
                 if study.startswith("subject:"):
                     boot["subject"] = topics_mod.subject_detail(
                         study[len("subject:"):], BANK, PROGRESS)

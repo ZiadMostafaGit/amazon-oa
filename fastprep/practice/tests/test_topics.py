@@ -144,6 +144,33 @@ class TestArticles(unittest.TestCase):
                          sum(1 for t in out["topics"] if t["hasArticle"]))
 
 
+class TestRecall(unittest.TestCase):
+    """A runnable block becomes an exercise: bodies blanked, asserts kept."""
+    def test_stub_blanks_bodies_and_keeps_the_grader(self):
+        code = ("def f(x):\n    \"doc\"\n    y = x + 1\n    return y\n\n"
+                "for i in range(3):\n    assert f(i) == i + 1\nprint('ok')\n")
+        st = topics_mod.stub(code)
+        self.assertIn("def f(x):", st)
+        self.assertIn("\"doc\"", st)
+        self.assertNotIn("return y", st)
+        self.assertIn("assert f(i) == i + 1", st)
+        self.assertIn("print('ok')", st)
+        import ast
+        ast.parse(st)                                  # still valid Python
+
+    def test_no_stub_without_a_function_or_without_asserts(self):
+        self.assertIsNone(topics_mod.stub("print(1)\nassert True\n"))
+        self.assertIsNone(topics_mod.stub("def f():\n    return 1\nprint(f())\n"))
+        self.assertIsNone(topics_mod.stub("def f(:\n"))
+
+    def test_every_written_chapter_has_something_to_recall(self):
+        d = os.path.join(HERE, "topics", "articles")
+        for f in os.listdir(d):
+            if f.endswith(".md"):
+                a = topics_mod.article(f[:-3])
+                self.assertTrue(any(sn.get("stub") for sn in a["snippets"]), f)
+
+
 class TestSubjects(unittest.TestCase):
     """A subject is everything about one thing, as a prerequisite tree."""
     def test_every_chapter_is_filed_under_exactly_one_subject(self):

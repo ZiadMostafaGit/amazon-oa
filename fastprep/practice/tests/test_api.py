@@ -902,6 +902,60 @@ class TestStudySpace(ServerCase):
             self.get("/api/subjects/not-a-subject")
         self.assertEqual(cm.exception.code, 404)
 
+    def test_a_chapter_asks_you_to_try_first_and_to_tell_it_apart(self):
+        out = self.get("/api/topics/binary-search")
+        self.assertIn(out["tryFirst"]["id"], [q["id"] for q in out["queue"]])
+        self.assertTrue(out["drill"])
+        self.assertTrue(any(x["isTopic"] for x in out["drill"]))
+        self.assertTrue(any(not x["isTopic"] for x in out["drill"]))
+        for x in out["drill"]:
+            self.assertTrue(x["excerpt"])
+        self.assertEqual(out["mastery"]["done"], 0)
+        self.assertTrue(any(sn["stub"] for sn in out["article"]["snippets"]))
+        stubbed = next(sn["stub"] for sn in out["article"]["snippets"] if sn["stub"])
+        self.assertIn("write it from memory", stubbed)
+        self.assertIn("assert", stubbed)
+
+    def test_mastery_counts_what_you_did(self):
+        slug = "two-pointers"
+        before = self.get("/api/topics/" + slug)
+        self.post("/api/study/" + slug, {"status": "done",
+                                          "extra": {"tried": {"pid": before["tryFirst"]["id"]}}})
+        self.post("/api/study/" + slug, {"extra": {"drill": {"score": 8, "total": 8}}})
+        out = self.get("/api/topics/" + slug)
+        self.assertEqual(out["study"]["extra"]["tried"]["pid"], before["tryFirst"]["id"])
+        self.assertEqual(out["study"]["extra"]["drill"]["score"], 8)   # merged, not replaced
+        steps = out["mastery"]["steps"]
+        self.assertTrue(steps["tried"] and steps["read"] and steps["drilled"])
+        self.assertFalse(steps["solved"])
+        self.assertEqual(out["mastery"]["done"], 3)
+
+    def test_solving_schedules_a_re_solve(self):
+        pid = "amazon-stock-span"
+        out, _ = self.post("/api/progress/" + pid, {"status": "solved",
+                                                     "plan": {"approach": "monotonic stack"},
+                                                     "postmortem": {"mistake": "off-by-one", "minutes": "20"}})
+        self.assertEqual(out["plan"]["approach"], "monotonic stack")
+        self.assertEqual(out["postmortem"]["mistake"], "off-by-one")
+        self.assertEqual(out["review"]["stage"], 0)
+        self.assertFalse(out["review"]["isDue"])
+        self.assertEqual(self.get("/api/reviews")["later"], 1)
+        passed, _ = self.post("/api/reviews/" + pid, {"passed": True})
+        self.assertEqual(passed["stage"], 1)
+        failed, _ = self.post("/api/reviews/" + pid, {"passed": False})
+        self.assertEqual((failed["stage"], failed["lapses"]), (0, 1))
+        _, code = self.post("/api/progress/" + pid, {"postmortem": {"mistake": "cosmic-rays"}})
+        self.assertEqual(code, 400)
+        # un-solving withdraws the schedule
+        self.post("/api/progress/" + pid, {"status": "attempted"})
+        self.assertIsNone(self.get("/api/problems/" + pid)["progress"]["review"])
+
+    def test_the_mixed_drill_draws_from_started_subjects(self):
+        self.post("/api/study/heap", {"status": "reading"})
+        out = self.get("/api/mixed")
+        self.assertIn("Heaps", out["subjects"])
+        self.assertTrue(out["problem"]["id"])
+
     def test_the_listing_groups_chapters_into_subjects(self):
         out = self.get("/api/topics")
         self.assertEqual(sum(len(s["chapters"]) for s in out["subjects"]), 150)

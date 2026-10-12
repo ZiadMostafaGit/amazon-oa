@@ -10,6 +10,7 @@ const Study = {
   index: null,           // {topics, subjects, ...}
   current: null,         // the open chapter's payload
   subject: null,         // the open subject's payload (when no chapter is open)
+  reviews: null,         // {due, later}: spaced re-solves
   filter: '',
   folded: null,          // Set of subject slugs folded shut in the sidebar
   ran: {},               // snippet index -> last output element
@@ -96,6 +97,9 @@ const Study = {
     const boot = window.__BOOT__;
     if (!this.index && boot && boot.topics) this.index = boot.topics;
     if (!this.index) this.index = await api('api/topics');
+    if (!this.reviews) {
+      try { this.reviews = (boot && boot.reviews) || await api('api/reviews'); } catch (e) {}
+    }
     if (!this.folded) {
       let saved = [];
       try { saved = JSON.parse(localStorage.getItem('fp:studyfold') || '[]'); } catch (e) {}
@@ -151,7 +155,8 @@ const Study = {
       const meta = el('span', 'tn-sub');
       meta.append(el('span', 'tn-count', sub.chapters.length + ' chapters · ' +
                                          sub.count.toLocaleString() + ' problems'));
-      if (sub.done) meta.append(el('span', 'tn-solved', sub.done + '/' + sub.chapters.length + ' read'));
+      if (sub.mastered) meta.append(el('span', 'tn-solved', sub.mastered + '/' + sub.chapters.length + ' mastered'));
+      else if (sub.done) meta.append(el('span', 'tn-solved', sub.done + '/' + sub.chapters.length + ' read'));
       name.append(meta);
       name.title = 'Open the subject: its chapters in order, and one practice queue';
       name.onclick = () => Study.openSubject(sub.slug);
@@ -174,7 +179,10 @@ const Study = {
         if (!t.hasArticle) sub.append(el('span', 'tn-todo', 'no chapter yet'));
         mid.append(sub);
         row.append(mid);
-        if (t.status === 'done') row.append(el('span', 'tn-done', '✓'));
+          if (t.mastery && t.mastery.of) {
+          row.append(t.mastery.done === t.mastery.of ? el('span', 'tn-done', '✓')
+                                                     : masteryBar(t.mastery, false));
+        }
         row.onclick = () => Study.open(t.slug);
         host.append(row);
       });
@@ -195,10 +203,18 @@ const Study = {
     /* keep what is open in view, under its sticky subject header */
     const on = host.querySelector('.tn-row.on, .tn-subject.on');
     if (on && !q) {
-      const top = on.offsetTop - host.offsetTop - (on.classList.contains('tn-row') ? 64 : 8);
-      if (top < host.scrollTop || on.offsetTop - host.offsetTop > host.scrollTop + host.clientHeight - 80) {
-        host.scrollTop = Math.max(0, top);
-      }
+      /* the subject header is sticky, so leave room for it above the row */
+      let head = on.previousElementSibling;
+      while (head && !head.classList.contains('tn-subject')) head = head.previousElementSibling;
+      const place = () => {
+        const lead = on.classList.contains('tn-row') ? (head ? head.offsetHeight + 16 : 64) : 8;
+        const top = on.offsetTop - host.offsetTop - lead;
+        if (top < host.scrollTop || on.offsetTop - host.offsetTop > host.scrollTop + host.clientHeight - 80) {
+          host.scrollTop = Math.max(0, top);
+        }
+      };
+      place();
+      requestAnimationFrame(place);          // again once fonts have settled the heights
     }
   },
 
@@ -258,6 +274,7 @@ const Study = {
       if (c.status === 'reading') tags.append(el('span', 'tag medium', 'reading'));
       if (!c.hasArticle) tags.append(el('span', 'tag plain', 'no chapter yet'));
       else tags.append(el('span', 'tag plain', fmtWords(c.words)));
+      if (c.mastery && c.mastery.of) tags.append(masteryBar(c.mastery, false));
       top.append(tags);
       btn.append(top);
       if (c.summary) btn.append(el('div', 'pcard-sum', c.summary));
@@ -277,6 +294,25 @@ const Study = {
       box.append(el('p', 'hint', 'Chapters in other subjects that lean on this one — ' +
         'read them when the path above is done.'));
       box.append(chipRow(d.beyond, 'next'));
+      pane.append(box);
+    }
+
+    if ((d.reviewsDue || []).length) pane.append(reviewList(d.reviewsDue, 'Owed a re-solve in ' + d.name));
+
+    if ((d.mistakes || []).length) {
+      const box = el('section', 'mistakes');
+      box.append(el('h2', 'section', 'Where it goes wrong for you'));
+      box.append(el('p', 'hint', 'From the post-mortems you wrote on this subject\u2019s problems.'));
+      const most = d.mistakes[0][1];
+      d.mistakes.forEach(([kind, n]) => {
+        const row = el('div', 'mrow');
+        row.append(el('span', 'mkind', MISTAKE_LABEL[kind] || kind));
+        const bar = el('span', 'mbar');
+        const fill = el('i'); fill.style.width = Math.round(100 * n / most) + '%';
+        bar.append(fill);
+        row.append(bar, el('span', 'mnum', String(n)));
+        box.append(row);
+      });
       pane.append(box);
     }
 
@@ -358,18 +394,34 @@ const Study = {
       bar.append(back);
     }
     head.append(bar);
+    if (d.mastery && d.mastery.of) head.append(masteryBar(d.mastery, true));
     pane.append(head);
+
+    /* attempt before reading: a chapter read as the answer to a question you
+     * have already struggled with sticks; one read cold does not */
+    const tried = ((d.study || {}).extra || {}).tried;
+    const gated = !!(d.article && d.tryFirst && !tried);
+    if (d.tryFirst) pane.append(this.tryFirst(gated));
 
     if (!d.article) {
       pane.append(callout('warn', 'This chapter has not been written yet.',
         'The topic is mapped and its practice queue below is live; the article is pending.'));
     } else {
-      if (d.article.toc.length > 3) pane.append(toc(d.article.toc));
+      const wrap = el('div', 'chapter-wrap' + (gated ? ' gated' : ''));
+      if (d.article.toc.length > 3) wrap.append(toc(d.article.toc));
       const body = el('article', 'chapter prose');
       body.innerHTML = d.article.html;
-      pane.append(body);
+      wrap.append(body);
+      pane.append(wrap);
       this.wireArticle(body);
+      if (gated) {
+        const lift = el('button', 'btn gate-lift', 'Read without trying first');
+        lift.onclick = () => this.markTried({ pid: d.tryFirst.id, skipped: true, at: new Date().toISOString() });
+        wrap.append(lift);
+      }
     }
+
+    if (d.drill && d.drill.length) pane.append(this.drill());
 
     if (d.related.length) {
       const rel = el('div', 'related');
@@ -399,6 +451,136 @@ const Study = {
                     { notes: notes.value });
     };
     pane.append(notes, el('span', 'saved', 'saved as you type, in progress.db'));
+  },
+
+  tryFirst(gated) {
+    const d = this.current;
+    const t = d.tryFirst;
+    const tried = ((d.study || {}).extra || {}).tried;
+    const box = el('section', 'tryfirst' + (gated ? ' hot' : ''));
+    const line = el('div', 'tf-head');
+    line.append(el('span', 'tn-badge', gated ? 'before you read' : 'you tried first'));
+    box.append(line);
+    const row = el('button', 'qrow');
+    row.append(el('span', 'qmark', t.status === 'solved' ? '✓' : t.status ? '·' : ''));
+    row.append(el('span', 'qtitle', t.title));
+    const tags = el('span', 'qtags');
+    if (t.difficulty) tags.append(el('span', 'tag ' + t.difficulty, t.difficulty));
+    if (t.company) tags.append(el('span', 'tag company', t.company));
+    if (t.hasSolution) tags.append(el('span', 'tag count', 'solution'));
+    row.append(tags);
+    row.onclick = () => this.goTry(t);
+    if (gated) {
+      box.append(el('p', 'hint',
+        'Give this fifteen minutes before the chapter. Struggling first and then reading ' +
+        'is how the idea sticks; it does not matter whether you solve it.'));
+      box.append(row);
+      const go = el('button', 'btn primary', 'Open it with a 15-minute clock');
+      go.onclick = () => this.goTry(t);
+      const goRow = el('div', 'rowbtns'); goRow.append(go); box.append(goRow);
+    } else {
+      box.append(row);
+      if (tried && tried.skipped) box.append(el('span', 'hint', 'skipped the attempt — it is still worth doing'));
+    }
+    return box;
+  },
+
+  goTry(t) {
+    const d = this.current;
+    const tried = ((d.study || {}).extra || {}).tried;
+    if (!tried || tried.skipped) {
+      this.markTried({ pid: t.id, at: new Date().toISOString() }, true);
+    }
+    if (window.Timer) Timer.start(15 * 60000);
+    Study.close();
+    openProblem(t.id);
+  },
+
+  markTried(tried, quiet) {
+    const d = this.current;
+    d.study.extra = Object.assign({}, d.study.extra || {}, { tried: tried });
+    saver.queueTo('studyextra:' + d.slug, 'api/study/' + encodeURIComponent(d.slug),
+                  { extra: { tried: tried } }, 0);
+    if (!tried.skipped && d.mastery) { d.mastery.steps.tried = true; d.mastery.done += 1; }
+    if (!quiet) this.paintTopic();
+  },
+
+  saveExtra(patch) {
+    const d = this.current;
+    d.study.extra = Object.assign({}, d.study.extra || {}, patch);
+    saver.queueTo('studyextra:' + d.slug, 'api/study/' + encodeURIComponent(d.slug),
+                  { extra: patch }, 0);
+  },
+
+  /* recognition: this topic's problems mixed with its neighbours' */
+  drill() {
+    const d = this.current;
+    const box = el('section', 'drill');
+    box.append(el('h2', 'section', 'Is it this topic?'));
+    const prev = ((d.study || {}).extra || {}).drill;
+    box.append(el('p', 'hint',
+      'Half of these want ' + d.title + '; half are neighbours that look like it. ' +
+      'Decide from the opening lines, the way you would in the first minute of an interview.' +
+      (prev ? ' Last time: ' + prev.score + ' of ' + prev.total + '.' : '')));
+    const answers = {};
+    const cards = el('div', 'drill-cards');
+    const score = el('div', 'drill-score');
+    const finish = () => {
+      const total = d.drill.length;
+      const right = d.drill.filter(x => answers[x.id] === x.isTopic).length;
+      score.textContent = right + ' of ' + total + ' right';
+      score.className = 'drill-score ' + (right >= total - 1 ? 'good' : 'meh');
+      this.saveExtra({ drill: { score: right, total: total, at: new Date().toISOString() } });
+      if (d.mastery) {
+        const was = d.mastery.steps.drilled;
+        d.mastery.steps.drilled = right >= total - 1;
+        if (!was && d.mastery.steps.drilled) d.mastery.done += 1;
+        const bar = $('.mastery', $('#topic'));
+        if (bar) bar.replaceWith(masteryBar(d.mastery, true));
+      }
+    };
+    d.drill.forEach(x => {
+      const c = el('div', 'drill-card');
+      const top = el('div', 'drill-top');
+      top.append(el('span', 'pcard-title', x.title));
+      const tags = el('span', 'pcard-tags');
+      if (x.difficulty) tags.append(el('span', 'tag ' + x.difficulty, x.difficulty));
+      if (x.company) tags.append(el('span', 'tag company', x.company));
+      top.append(tags);
+      c.append(top, el('p', 'drill-text', x.excerpt));
+      const btns = el('div', 'rowbtns');
+      const yes = el('button', 'btn', 'Yes, ' + d.title);
+      const no = el('button', 'btn', 'No, something else');
+      const verdict = el('span', 'drill-verdict');
+      const answer = (v) => {
+        if (x.id in answers) return;
+        answers[x.id] = v;
+        const ok = v === x.isTopic;
+        verdict.textContent = ok ? '✓ right' : ('✗ it is ' + (x.isTopic ? '' : 'not ') + d.title);
+        verdict.className = 'drill-verdict ' + (ok ? 'good' : 'bad');
+        c.classList.add(ok ? 'right' : 'wrong');
+        const open = el('button', 'btn ghost', 'open it');
+        open.onclick = async () => { Study.close(); await openProblem(x.id); };
+        btns.append(open);
+        if (Object.keys(answers).length === d.drill.length) finish();
+      };
+      yes.onclick = () => answer(true);
+      no.onclick = () => answer(false);
+      btns.append(yes, no, verdict);
+      c.append(btns);
+      cards.append(c);
+    });
+    box.append(cards, score);
+    const again = el('button', 'btn ghost', 'Another set');
+    again.onclick = async () => {
+      try {
+        const fresh = await api('api/topics/' + encodeURIComponent(d.slug));
+        d.drill = fresh.drill;
+        box.replaceWith(this.drill());
+      } catch (e) {}
+    };
+    const againRow = el('div', 'rowbtns'); againRow.append(again); box.append(againRow);
+    return box;
   },
 
   /* practice queue: the problems in this bank that drill the topic */
@@ -459,6 +641,10 @@ const Study = {
         const run = el('button', 'snippet-run', 'Run');
         const out = el('pre', 'snippet-out');
         out.hidden = true;
+        const spec = d.article.snippets[idx] || {};
+        const recalled = (((d.study || {}).extra || {}).recall || {})[idx];
+        let recalling = false;
+        const memBadge = el('span', 'snippet-recalled', recalled ? '✓ written from memory' : '');
         run.onclick = async () => {
           run.disabled = true; run.textContent = 'running…';
           out.hidden = false; out.className = 'snippet-out';
@@ -472,12 +658,37 @@ const Study = {
                           r.error || ''].filter(Boolean).join('\n').trim();
             out.textContent = text || '(no output)';
             if (r.error) out.className = 'snippet-out bad';
+            /* the block's own asserts are the grader: clean exit from a body
+             * you typed yourself, with no `...` left in it, is a recall */
+            if (!r.error && recalling && code.textContent.indexOf('...  # write it') < 0) {
+              recalling = false;
+              const recall = Object.assign({}, ((d.study || {}).extra || {}).recall || {});
+              recall[idx] = true;
+              Study.saveExtra({ recall: recall });
+              memBadge.textContent = '✓ written from memory';
+              if (d.mastery && !d.mastery.steps.recalled) {
+                d.mastery.steps.recalled = true; d.mastery.done += 1;
+                const bar = $('.mastery', $('#topic'));
+                if (bar) bar.replaceWith(masteryBar(d.mastery, true));
+              }
+            }
           } catch (e) {
             out.className = 'snippet-out bad';
             out.textContent = e.message;
           }
           run.disabled = false; run.textContent = 'Run';
         };
+        let fromMemory = null;
+        if (spec.stub) {
+          fromMemory = el('button', 'snippet-reset', 'From memory');
+          fromMemory.title = 'Blank the function bodies; the asserts grade what you type';
+          fromMemory.onclick = () => {
+            code.textContent = spec.stub;
+            recalling = true;
+            out.hidden = true;
+            code.focus();
+          };
+        }
         const reset = el('button', 'snippet-reset', 'Reset');
         reset.title = 'Put the chapter’s version back';
         reset.onclick = () => {
@@ -496,7 +707,9 @@ const Study = {
           state.editor.setValue(code.textContent);
           Study.close();
         };
-        bar.append(run, reset, toEditor);
+        bar.append(run);
+        if (fromMemory) bar.append(fromMemory);
+        bar.append(reset, toEditor, memBadge);
         box.append(bar, out);
       } else {
         box.append(bar);
@@ -587,6 +800,69 @@ function chipRow(items, kind) {
   return wrap;
 }
 
+const MISTAKE_LABEL = {
+  'misread': 'misread the statement', 'wrong-tool': 'picked the wrong tool',
+  'wrong-state': 'wrong state or invariant', 'off-by-one': 'off by one',
+  'edge-case': 'missed an edge case', 'complexity': 'too slow', 'bug': 'plain bug',
+  'none': 'nothing went wrong',
+};
+
+/* n of m steps, as a row of pips; the long form names them */
+function masteryBar(m, long) {
+  const names = { tried: 'tried a problem first', read: 'read the chapter',
+                  recalled: 'wrote the code from memory', drilled: 'told it apart from its neighbours',
+                  solved: 'solved ' + m.solvedOf + ' of its problems' };
+  const box = el('span', 'mastery' + (long ? ' long' : ''));
+  box.title = m.done + ' of ' + m.of + ' mastery steps';
+  Object.entries(m.steps).forEach(([k, v]) => {
+    if (v === null) return;
+    const pip = el('i', 'pip' + (v ? ' on' : ''));
+    pip.title = names[k] + (k === 'solved' && !v ? ' (' + m.solved + ' so far)' : '');
+    if (long) {
+      const lab = el('span', 'pip-label' + (v ? ' on' : ''));
+      lab.append(pip, document.createTextNode(names[k]));
+      box.append(lab);
+    } else box.append(pip);
+  });
+  return box;
+}
+
+function reviewList(due, title) {
+  const box = el('section', 'reviews');
+  box.append(el('h2', 'section', title));
+  box.append(el('p', 'hint', 'Solved once is forgotten in two weeks. Re-solve each from a blank editor; ' +
+    'say honestly whether you needed help, and it comes back sooner or later accordingly.'));
+  const list = el('div', 'qlist');
+  due.forEach(r => {
+    const row = el('div', 'qrow review-row');
+    const open = el('button', 'qtitle', r.title);
+    open.onclick = async () => { Study.close(); await openProblem(r.id); };
+    const tags = el('span', 'qtags');
+    if (r.difficulty) tags.append(el('span', 'tag ' + r.difficulty, r.difficulty));
+    if (r.subject) tags.append(el('span', 'tag plain', r.subject));
+    tags.append(el('span', 'tag count', 'stage ' + (r.stage + 1) + (r.lapses ? ' · ' + r.lapses + ' lapses' : '')));
+    const pass = el('button', 'btn', 'Re-solved it');
+    const fail = el('button', 'btn ghost', 'Needed help');
+    const mark = async (passed) => {
+      pass.disabled = fail.disabled = true;
+      try {
+        await api('api/reviews/' + encodeURIComponent(r.id), {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ passed: passed }),
+        });
+        row.classList.add(passed ? 'solved' : 'attempted');
+        tags.append(el('span', 'tag ' + (passed ? 'easy' : 'medium'),
+                       passed ? 'next in ' + [10, 30, 90, 90][Math.min(r.stage, 3)] + ' days' : 'back tomorrow'));
+      } catch (e) { pass.disabled = fail.disabled = false; }
+    };
+    pass.onclick = () => mark(true); fail.onclick = () => mark(false);
+    row.append(el('span', 'qmark', '↻'), open, tags, pass, fail);
+    list.append(row);
+  });
+  box.append(list);
+  return box;
+}
+
 function welcome(index) {
   const box = el('div', 'welcome');
   box.append(el('h1', null, 'Study space'));
@@ -595,6 +871,28 @@ function welcome(index) {
     subs.length + ' subjects, ' + index.topics.length + ' chapters, each filed under ' +
     'what it builds on. ' + index.withArticles + ' chapters written. Pick a subject to see ' +
     'everything in it in the order to learn it, or a chapter on the left.'));
+
+  /* today's work first: what is owed, then a problem you cannot pre-classify */
+  const reviews = (window.__BOOT__ && window.__BOOT__.reviews) || Study.reviews;
+  if (reviews && reviews.due && reviews.due.length) {
+    box.append(reviewList(reviews.due, reviews.due.length + ' owed a re-solve today'));
+  } else if (reviews && reviews.later) {
+    box.append(el('p', 'hint', 'Nothing owed a re-solve today; ' + reviews.later + ' scheduled.'));
+  }
+  const mixed = el('section', 'mixed');
+  const mbtn = el('button', 'btn primary', 'Mixed drill: one problem, tool unknown');
+  const mhint = el('span', 'hint', 'Drawn from the subjects you have started. Choosing the tool is the interview.');
+  mbtn.onclick = async () => {
+    mbtn.disabled = true;
+    try {
+      const r = await api('api/mixed');
+      if (!r.problem) { mhint.textContent = 'No mixed drill yet: ' + r.reason + '.'; mbtn.disabled = false; return; }
+      if (window.Timer) Timer.start(30 * 60000);
+      Study.close(); await openProblem(r.problem.id);
+    } catch (e) { mhint.textContent = e.message; mbtn.disabled = false; }
+  };
+  mixed.append(mbtn, mhint);
+  box.append(mixed);
   const grid = el('div', 'welcome-grid');
   subs.forEach(s => {
     const card = el('button', 'wcard');

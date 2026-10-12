@@ -75,6 +75,22 @@ complexity, a clean implementation, the variants, how to recognise it in a
 statement, the traps, and what to memorise — followed by self-check questions
 whose answers stay hidden until you ask.
 
+**Learning, not reading.** A chapter is wrapped in a loop designed around how
+things actually stick. *Try first*: before the chapter opens, one of its problems
+and a fifteen-minute clock, because struggling with a question and then reading
+the answer beats reading cold. *From memory*: every implementation block has a
+button that blanks the function bodies and leaves the asserts, so you write the
+code back and the chapter grades you. *Is it this topic?*: a recognition drill
+mixing the chapter's problems with its neighbours', title and opening lines
+only, because telling them apart is the interview. *Re-solves*: anything you mark
+solved is owed again in 3, 10, 30 and 90 days; say honestly whether you needed
+help and it comes back sooner. *Plan before you code*: approach, invariant,
+complexity and edge cases, written down above the editor. *Post-mortem*: the key
+insight, what you missed, and a mistake category, so a subject page can show
+where it goes wrong for *you*. *Mixed drill*: one problem from the subjects you
+have started, tool unknown. A chapter's "read" tick is replaced by five mastery
+steps, and the sidebar shows them.
+
 Inside a chapter the code blocks are **live**: edit them in place and press Run,
 and they execute in the same sandbox as your solutions. Diagrams are inline SVG.
 Every chapter ends with a **practice queue** — the problems in this bank that

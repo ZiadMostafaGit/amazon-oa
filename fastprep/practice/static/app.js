@@ -807,6 +807,35 @@ function renderProblem() {
   /* --- body --- */
   const body = el('div', 'problem-body');
 
+  /* a spaced re-solve is owed: say so before the statement, and let the
+     verdict be given here rather than hunting for it in the study space */
+  const rv = pr.review;
+  if (rv && rv.isDue) {
+    const n = el('div', 'callout review');
+    n.append(el('b', null, 'Re-solve owed. '), document.createTextNode(
+      'Stage ' + (rv.stage + 1) + (rv.lapses ? ', ' + rv.lapses + ' lapses' : '') +
+      '. Start from a blank editor; open the reference only if you must. '));
+    const pass = el('button', 'btn', 'Re-solved it');
+    const fail = el('button', 'btn ghost', 'Needed help');
+    const mark = async (passed) => {
+      pass.disabled = fail.disabled = true;
+      try {
+        const out = await api('api/reviews/' + encodeURIComponent(d.id), {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ passed: passed }),
+        });
+        d.progress.review = out;
+        n.textContent = passed ? 'Good. It comes back in stage ' + (out.stage + 1) + ', on ' + out.due.slice(0, 10) + '.'
+                               : 'Fair. It comes back tomorrow.';
+      } catch (e) { pass.disabled = fail.disabled = false; }
+    };
+    pass.onclick = () => mark(true); fail.onclick = () => mark(false);
+    const rb = el('span', 'rowbtns'); rb.append(pass, fail); n.append(rb);
+    body.append(n);
+  }
+
+  body.append(planPane(d));
+
   const gaps = (d.gaps || []).filter(g => GAP_TEXT[g]);
   if (gaps.length) {
     const n = el('div', 'callout');
@@ -939,10 +968,106 @@ function renderProblem() {
   };
   body.append(notes, el('span', 'saved', 'saved as you type, in progress.db'));
 
+  body.append(postMortem(d));
+
   host.append(body);
   host.scrollTop = 0;
   renderCases();
   renderSolution();
+}
+
+/* ---------------------------------------------------- plan and post-mortem */
+/* What an interviewer actually grades is said out loud before the code: the
+   approach, the invariant you will keep, the cost, and the edge cases you
+   will test. Writing them down first is the habit; the pane is the nudge. */
+const PLAN_FIELDS = [
+  ['approach', 'Approach', 'In one or two sentences, what will the code do and why does that answer the question?'],
+  ['invariant', 'Invariant', 'What stays true at every step of the loop or recursion? (the thing a proof would use)'],
+  ['complexity', 'Complexity', 'Time and space, with the term that dominates and why.'],
+  ['edges', 'Edge cases', 'Three inputs that would break a careless version: empty, one element, all equal, max size…'],
+];
+
+const MISTAKE_KINDS = [
+  ['', 'what went wrong?'], ['none', 'nothing — clean solve'],
+  ['misread', 'misread the statement'], ['wrong-tool', 'picked the wrong tool'],
+  ['wrong-state', 'wrong state or invariant'], ['off-by-one', 'off by one'],
+  ['edge-case', 'missed an edge case'], ['complexity', 'too slow'], ['bug', 'plain bug'],
+];
+
+function planPane(d) {
+  const pr = d.progress || {};
+  const plan = pr.plan || {};
+  const filled = PLAN_FIELDS.filter(([k]) => (plan[k] || '').trim()).length;
+  const box = el('details', 'disclosure plan');
+  box.open = filled < PLAN_FIELDS.length;
+  const sum = el('summary');
+  sum.append(el('span', 'stamp' + (filled === PLAN_FIELDS.length ? '' : ' pending'),
+                filled + '/' + PLAN_FIELDS.length),
+             el('span', null, 'Plan before you code'),
+             el('span', 'hint', 'approach, invariant, cost, edge cases — the part the interviewer grades'));
+  box.append(sum);
+  const inner = el('div', 'inner plan-grid');
+  PLAN_FIELDS.forEach(([k, label, ph]) => {
+    const f = el('label', 'plan-field');
+    f.append(el('span', 'plan-label', label));
+    const ta = el('textarea', 'plan-input');
+    ta.placeholder = ph; ta.value = plan[k] || ''; ta.rows = 2;
+    ta.oninput = () => {
+      d.progress.plan = Object.assign({}, d.progress.plan || {}, { [k]: ta.value });
+      saver.queue('plan:' + d.id, d.id, { plan: d.progress.plan });
+      const n = PLAN_FIELDS.filter(([kk]) => ((d.progress.plan || {})[kk] || '').trim()).length;
+      const st = sum.querySelector('.stamp');
+      st.textContent = n + '/' + PLAN_FIELDS.length;
+      st.className = 'stamp' + (n === PLAN_FIELDS.length ? '' : ' pending');
+    };
+    f.append(ta);
+    inner.append(f);
+  });
+  box.append(inner);
+  return box;
+}
+
+function postMortem(d) {
+  const pr = d.progress || {};
+  const pm = pr.postmortem || {};
+  const box = el('section', 'postmortem');
+  box.append(el('h2', 'section', 'Post-mortem'));
+  box.append(el('p', 'hint', 'Two minutes after every solve. Fifty of these tell you what no chapter can: ' +
+    'what goes wrong for you.'));
+  const grid = el('div', 'pm-grid');
+  const save = () => saver.queue('pm:' + d.id, d.id, { postmortem: d.progress.postmortem });
+  const put = (k, v) => { d.progress.postmortem = Object.assign({}, d.progress.postmortem || {}, { [k]: v }); save(); };
+  const field = (k, label, ph) => {
+    const f = el('label', 'plan-field');
+    f.append(el('span', 'plan-label', label));
+    const ta = el('textarea', 'plan-input'); ta.rows = 2;
+    ta.placeholder = ph; ta.value = pm[k] || '';
+    ta.oninput = () => put(k, ta.value);
+    f.append(ta);
+    return f;
+  };
+  grid.append(field('insight', 'The key insight', 'The one sentence that, had you known it at minute zero, makes this a ten-minute problem.'));
+  grid.append(field('missed', 'What I missed', 'Where the time went: the wrong first idea, the case you forgot, the bug you chased.'));
+  const row = el('div', 'pm-row');
+  const kind = el('label', 'plan-field');
+  kind.append(el('span', 'plan-label', 'Mistake'));
+  const sel = el('select', 'plan-input');
+  MISTAKE_KINDS.forEach(([v, label]) => {
+    const o = el('option', null, label); o.value = v; if ((pm.mistake || '') === v) o.selected = true;
+    sel.append(o);
+  });
+  sel.onchange = () => put('mistake', sel.value);
+  kind.append(sel);
+  const mins = el('label', 'plan-field narrow');
+  mins.append(el('span', 'plan-label', 'Minutes'));
+  const mi = el('input', 'plan-input'); mi.type = 'number'; mi.min = 0; mi.placeholder = '…';
+  mi.value = pm.minutes || '';
+  mi.oninput = () => put('minutes', mi.value);
+  mins.append(mi);
+  row.append(kind, mins);
+  grid.append(row);
+  box.append(grid);
+  return box;
 }
 
 /* ------------------------------------------------------------- workbench */
@@ -1233,6 +1358,27 @@ function showSolution() {
   bar.append(load, copy, el('span', 'hint', sol.checkedAt ? 'checked ' + sol.checkedAt : ''));
   card.append(bar);
   box.append(card);
+
+  /* reading a good solution next to your own, with a question in mind, is
+     how the code gets better; reading it alone is how it gets copied */
+  const mine = state.editor ? state.editor.getValue() : '';
+  if (mine.trim()) {
+    const cmp = el('div', 'case info compare');
+    const ch = el('div', 'case-head');
+    ch.append(el('span', 'badge', 'COMPARE'), el('span', 'name', 'yours, next to the reference'));
+    cmp.append(ch);
+    const qs = el('ul', 'compare-qs');
+    ['Which case does it handle that yours does not — or the other way round?',
+     'What is named or structured better, and what would you keep from yours?',
+     'What did you do that it did not need? That is usually where the time went.',
+     'Same complexity? If not, which line makes the difference?'].forEach(q => qs.append(el('li', null, q)));
+    const grid = el('div', 'compare-grid');
+    const a = el('div'); a.append(el('div', 'hint', 'yours'), Object.assign(el('pre'), { textContent: mine }));
+    const b = el('div'); b.append(el('div', 'hint', 'reference'), Object.assign(el('pre'), { textContent: sol.code }));
+    grid.append(a, b);
+    cmp.append(qs, grid);
+    box.append(cmp);
+  }
 }
 
 /* Drag the boundary between the editor and its output; double-click resets. */
