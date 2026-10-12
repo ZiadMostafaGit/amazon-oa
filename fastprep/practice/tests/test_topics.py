@@ -144,5 +144,49 @@ class TestArticles(unittest.TestCase):
                          sum(1 for t in out["topics"] if t["hasArticle"]))
 
 
+class TestSubjects(unittest.TestCase):
+    """A subject is everything about one thing, as a prerequisite tree."""
+    def test_every_chapter_is_filed_under_exactly_one_subject(self):
+        out = topics_mod.listing()
+        filed = [c["slug"] for s in out["subjects"] for c in s["chapters"]]
+        self.assertEqual(sorted(filed), sorted(t["slug"] for t in out["topics"]))
+        self.assertEqual(len(filed), len(set(filed)))
+        self.assertEqual([s["name"] for s in out["subjects"]], out["categories"])
+
+    def test_nothing_comes_before_what_it_needs(self):
+        idx = topics_mod.index()
+        for s in topics_mod.subjects():
+            seen = set()
+            for c in s["chapters"]:
+                for n in idx["bySlug"][c]["needs"]:
+                    if n in s["depth"]:
+                        self.assertIn(n, seen, "%s before %s in %s" % (c, n, s["name"]))
+                seen.add(c)
+
+    def test_the_tree_reads_like_a_syllabus(self):
+        by = {s["slug"]: s for s in topics_mod.subjects()}
+        dp = by["dynamic-programming"]["chapters"]
+        self.assertEqual(dp[0], "dynamic-programming")
+        self.assertLess(dp.index("dp-1d"), dp.index("lis"))
+        self.assertEqual(by["dynamic-programming"]["depth"]["lis"], 2)
+        g = by["graphs"]["chapters"]
+        self.assertEqual(g[0], "graphs")
+        self.assertLess(g.index("dfs"), g.index("topological-sort"))
+        self.assertLess(g.index("bfs"), g.index("grid-bfs"))
+        self.assertEqual(by["graphs"]["depth"]["union-find"], 0)
+
+    def test_a_subject_is_the_union_of_its_chapters(self):
+        d = topics_mod.subject_detail("dynamic-programming")
+        self.assertEqual(d["name"], "Dynamic Programming")
+        self.assertEqual([c["slug"] for c in d["chapters"]],
+                         [c for c in topics_mod.index()["subjectBySlug"]["dynamic-programming"]["chapters"]])
+        self.assertEqual(d["queueTotal"], d["count"])
+        self.assertIn("recursion", [b["slug"] for b in d["before"]])
+        self.assertIn("tree-dp", [b["slug"] for b in d["beyond"]])
+        for b in d["before"] + d["beyond"]:
+            self.assertNotIn(b["slug"], [c["slug"] for c in d["chapters"]])
+        self.assertIsNone(topics_mod.subject_detail("not-a-subject"))
+
+
 if __name__ == "__main__":
     unittest.main()

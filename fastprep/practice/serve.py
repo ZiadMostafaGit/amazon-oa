@@ -260,6 +260,12 @@ class Handler(BaseHTTPRequestHandler):
                 "X-Image-Source": "cache" if cached else "fetched"})
         if path == "/api/topics":
             return self._json(topics_mod.listing(PROGRESS, BANK))
+        if path.startswith("/api/subjects/"):
+            slug = path[len("/api/subjects/"):].strip("/")
+            out = topics_mod.subject_detail(slug, BANK, PROGRESS)
+            if out is None:
+                return self._error(404, "no subject %r" % slug)
+            return self._json(out)
         if path.startswith("/api/topics/"):
             slug = path[len("/api/topics/"):].strip("/")
             out = topics_mod.detail(slug, BANK, PROGRESS)
@@ -517,7 +523,10 @@ class Handler(BaseHTTPRequestHandler):
             study = (q.get("study") or [""])[0]
             if study:
                 boot["topics"] = topics_mod.listing(PROGRESS, BANK)
-                if study != "all":
+                if study.startswith("subject:"):
+                    boot["subject"] = topics_mod.subject_detail(
+                        study[len("subject:"):], BANK, PROGRESS)
+                elif study != "all":
                     boot["topic"] = topics_mod.detail(study, BANK, PROGRESS)
         except Exception:
             traceback.print_exc()

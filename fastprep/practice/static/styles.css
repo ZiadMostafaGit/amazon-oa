@@ -643,16 +643,45 @@ details.disclosure pre{
 }
 .tn-head input:focus{outline:none;border-color:var(--accent)}
 .tn-count{padding:8px 14px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+.tn-count{display:flex;align-items:center;gap:8px}
+.tn-foldall{margin-left:auto;font-size:11px;letter-spacing:.04em;text-transform:lowercase;color:var(--ink-faint);
+  border:1px solid transparent;border-radius:var(--radius-sm);padding:2px 6px}
+.tn-foldall:hover{color:var(--ink);background:var(--raised);border-color:var(--line)}
 .tn-list{flex:1;overflow:auto;padding:0 8px 24px}
 .tn-cat{
   position:sticky;top:0;z-index:1;background:var(--pane);
   padding:12px 6px 6px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;
   color:var(--ink-faint);border-bottom:1px solid var(--line-soft);margin-bottom:4px;
 }
+/* a subject heads its chapters; the chevron folds them, the name opens it */
+.tn-subject{
+  position:sticky;top:0;z-index:1;background:var(--pane);
+  display:flex;gap:4px;align-items:flex-start;
+  margin:10px 0 4px;padding:4px 2px 6px;border-bottom:1px solid var(--line-soft);
+}
+.tn-subject.folded{border-bottom-color:transparent}
+.tn-fold{
+  flex:none;width:22px;height:24px;font-size:12px;color:var(--ink-faint);
+  border-radius:var(--radius-sm);border:1px solid transparent;
+}
+.tn-fold:hover{background:var(--raised);border-color:var(--line);color:var(--ink)}
+.tn-subject-name{
+  flex:1;min-width:0;text-align:left;padding:2px 6px;border-radius:var(--radius-sm);
+  border:1px solid transparent;
+}
+.tn-subject-name:hover{background:var(--raised);border-color:var(--line)}
+.tn-subject .tn-title{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--ink-dim)}
+.tn-subject.on .tn-subject-name{background:var(--accent-soft);border-color:#2f4b7d}
+.tn-subject.on .tn-title{color:var(--ink-strong)}
 .tn-row{
   display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;
   padding:8px 8px;border-radius:var(--radius-sm);border:1px solid transparent;
 }
+/* the prerequisite tree: a chapter sits under the one it builds on */
+.tn-row.d1{padding-left:22px}
+.tn-row.d2{padding-left:36px}
+.tn-row.d3{padding-left:50px}
+.tn-row.d1 .tn-title,.tn-row.d2 .tn-title,.tn-row.d3 .tn-title{font-size:13px}
 .tn-row:hover{background:var(--raised);border-color:var(--line)}
 .tn-row.on{background:var(--accent-soft);border-color:#2f4b7d}
 .tn-rank{font:11px/1.6 var(--mono);color:var(--ink-faint);min-width:22px;text-align:right;padding-top:1px}
@@ -825,6 +854,31 @@ details.disclosure pre{
   padding:12px 14px;font:14px/1.7 var(--sans);
 }
 .topic-notes:focus{outline:none;border-color:var(--accent)}
+
+/* a subject page: the chapters as a path */
+#topic .path,#topic .topic-head .lede{max-width:820px;margin-left:auto;margin-right:auto}
+.topic-head .lede{color:var(--ink-dim);font-size:15px;margin:4px 0 0;line-height:1.6}
+.path-list{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.pcard.d1{margin-left:26px}
+.pcard.d2{margin-left:52px}
+.pcard.d3{margin-left:78px}
+.pcard-btn{
+  display:block;width:100%;text-align:left;border:1px solid var(--line);
+  border-radius:var(--radius);background:var(--pane);padding:12px 14px;
+}
+.pcard-btn:hover{border-color:var(--accent);background:var(--raised)}
+.pcard.done .pcard-btn{border-color:#24402e}
+.pcard-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pcard-n{
+  flex:none;min-width:24px;height:24px;border-radius:99px;border:1px solid var(--line);
+  display:inline-flex;align-items:center;justify-content:center;
+  font:11px var(--mono);color:var(--ink-faint);padding:0 6px;
+}
+.pcard.done .pcard-n{color:var(--good);border-color:var(--good)}
+.pcard-title{font-size:14.5px;font-weight:600;color:var(--ink-strong)}
+.pcard-tags{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.pcard-sum{font-size:12.5px;color:var(--ink-dim);margin:6px 0 0 34px;line-height:1.55}
+.pcard-covers{font-size:11.5px;color:var(--ink-faint);margin:4px 0 0 34px}
 
 /* the landing page of the study space */
 .welcome h1{font-size:30px;margin:0 0 8px;color:var(--ink-strong)}

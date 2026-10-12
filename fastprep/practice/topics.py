@@ -54,15 +54,32 @@ def article_path(slug: str) -> str:
     return os.path.join(ARTICLE_DIR, "%s.md" % slug)
 
 
+def _clip(text: str, limit: int = 240) -> str:
+    """The first sentence or two, never cut mid-word."""
+    text = re.sub(r"\s+", " ", re.sub(r"[*`]", "", text)).strip()
+    if len(text) <= limit:
+        return text
+    cut = text[:limit]
+    end = max(cut.rfind(". "), cut.rfind("! "), cut.rfind("? "))
+    if end > limit // 2:
+        return cut[:end + 1]
+    return cut[:cut.rfind(" ")] + "…"
+
+
 def _summary(src: str) -> str:
+    quote = []
     for line in src.split("\n"):
         s = line.strip()
         if s.startswith(">"):
-            return re.sub(r"[*`]", "", s.lstrip("> ").strip())
+            quote.append(s.lstrip("> ").strip())
+        elif quote:
+            break
+    if quote:
+        return _clip(" ".join(quote))
     for para in re.split(r"\n\s*\n", src):
         p = para.strip()
         if p and not p.startswith("#"):
-            return re.sub(r"[*`]", "", p.split("\n")[0])[:240]
+            return _clip(p)
     return ""
 
 
@@ -93,6 +110,128 @@ def has_article(slug: str) -> bool:
     return os.path.isfile(article_path(slug))
 
 
+# ----------------------------------------------------------------- subjects
+# The canon's categories, in the order you would learn them. A subject is the
+# unit you study - "Graphs" is BFS, DFS, topological sort, shortest paths and
+# the rest in one place - and its chapters are ordered so that nothing comes
+# before what it needs. Categories the canon adds later land after these, by
+# how much of the bank uses them.
+SUBJECTS = [
+    ("Foundations", "foundations",
+     "Recursion, invariants, induction and complexity: the tools every other "
+     "chapter assumes you have."),
+    ("Arrays and Strings", "arrays-and-strings",
+     "Contiguous memory and the patterns over it: two pointers, sliding "
+     "windows, prefix sums, in-place tricks, and the string techniques."),
+    ("Hashing", "hashing",
+     "Hash tables, counting with them, and what a hash function has to be."),
+    ("Linear Structures", "linear-structures",
+     "Stacks, queues, deques and linked lists - and the monotonic versions "
+     "that turn O(n^2) scans into O(n)."),
+    ("Sorting and Searching", "sorting-and-searching",
+     "The sorts worth knowing by hand, comparators, selection, and binary "
+     "search in all its forms - including searching over the answer."),
+    ("Trees", "trees",
+     "Binary trees, traversals, BSTs, tries, LCA and DP on trees."),
+    ("Heaps", "heaps",
+     "Priority queues and the problems they settle: top-k, k-way merges, "
+     "running medians."),
+    ("Graphs", "graphs",
+     "Modelling a problem as a graph, then BFS, DFS, topological sort, "
+     "union-find, shortest paths, flows and the structural algorithms."),
+    ("Search and Enumeration", "search-and-enumeration",
+     "Backtracking over permutations and subsets, pruning, and splitting the "
+     "search in half."),
+    ("Greedy", "greedy",
+     "When a local choice is safe, how to prove it, and the interval and "
+     "scheduling problems it owns."),
+    ("Dynamic Programming", "dynamic-programming",
+     "The method, designing the state, then every family: 1-D, 2-D, strings, "
+     "knapsacks, partitions, counting, games, bitmasks and digits."),
+    ("Mathematics", "mathematics",
+     "Number theory, modular arithmetic, combinatorics, big integers, "
+     "geometry and numerical care."),
+    ("Bit Manipulation", "bit-manipulation",
+     "Bits as sets, the tricks worth memorising, and XOR."),
+    ("Advanced Structures", "advanced-structures",
+     "Segment trees, Fenwick trees, sparse tables, ordered sets and the rest "
+     "of the range-query toolkit."),
+    ("Design and Systems", "design-and-systems",
+     "Simulation, designing a data structure to a spec, streams, "
+     "concurrency and rate limiting."),
+    ("Data and SQL", "data-and-sql",
+     "The SQL an assessment asks for: joins, aggregation, windows, subqueries."),
+    ("Interview Craft", "interview-craft",
+     "How you work on any problem: decomposing it, spotting the pattern, "
+     "testing, debugging and talking it through."),
+]
+_SUBJECT_BY_NAME = {name: (slug, blurb) for name, slug, blurb in SUBJECTS}
+_SUBJECT_BY_SLUG = {slug: name for name, slug, _ in SUBJECTS}
+
+
+def _slugify(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+
+
+def _learning_order(ts: list[dict]) -> list[tuple[dict, int]]:
+    """The subject as a tree, walked in preorder: each chapter files under the
+    most specific chapter it needs inside the subject (the least-used of its
+    prerequisites here), chapters that need nothing here are roots, and
+    siblings go most-used first. So Graphs reads graphs > dfs > topological
+    sort > ... > bfs > grid bfs > flood fill ..., and Dynamic Programming puts
+    LIS and Kadane under one-dimensional DP rather than wherever their counts
+    happen to fall. Returns (chapter, depth)."""
+    here = {t["slug"]: t for t in ts}
+    kids: dict[str | None, list[dict]] = {}
+    for t in ts:
+        needs = [here[n] for n in t["needs"] if n in here and n != t["slug"]]
+        parent = min(needs, key=lambda n: (n["count"], n["slug"]))["slug"] if needs else None
+        kids.setdefault(parent, []).append(t)
+    for v in kids.values():
+        v.sort(key=lambda t: (-t["count"], t.get("kind") == "method", t["title"]))
+    out, seen = [], set()
+
+    def walk(parent, depth):
+        for t in kids.get(parent, []):
+            if t["slug"] in seen:
+                continue
+            seen.add(t["slug"])
+            out.append((t, depth))
+            walk(t["slug"], depth + 1)
+    walk(None, 0)
+    for t in ts:                              # a cycle in the canon: flush it
+        if t["slug"] not in seen:
+            seen.add(t["slug"]); out.append((t, 0))
+    return out
+
+
+def subjects() -> list[dict]:
+    """Every subject with its chapters in learning order; cached on the index."""
+    idx = index()
+    if "subjects" in idx:
+        return idx["subjects"]
+    groups: dict[str, list[dict]] = {}
+    for t in idx["topics"]:
+        groups.setdefault(t["category"], []).append(t)
+    known = [name for name, _, _ in SUBJECTS if name in groups]
+    extra = sorted((n for n in groups if n not in _SUBJECT_BY_NAME),
+                   key=lambda n: -sum(t["count"] for t in groups[n]))
+    out = []
+    for name in known + extra:
+        ordered = _learning_order(groups[name])
+        slug, blurb = _SUBJECT_BY_NAME.get(name, (_slugify(name), ""))
+        union: set[str] = set()
+        for t, _ in ordered:
+            union.update(t.get("problems") or [])
+        out.append({"slug": slug, "name": name, "blurb": blurb,
+                    "chapters": [t["slug"] for t, _ in ordered],
+                    "depth": {t["slug"]: d for t, d in ordered},
+                    "count": len(union), "problemIds": union})
+    idx["subjects"] = out
+    idx["subjectBySlug"] = {s["slug"]: s for s in out}
+    return out
+
+
 # ------------------------------------------------------------------ listings
 def listing(progress=None, bank=None) -> dict:
     """Every topic, ranked, with how far the reader has got."""
@@ -115,12 +254,113 @@ def listing(progress=None, bank=None) -> dict:
             "solved": sum(1 for i in ids if i in solved),
             "status": st.get("status"),
         })
-    cats = []
-    for t in out:
-        if t["category"] not in cats:
-            cats.append(t["category"])
-    return {"topics": out, "categories": cats, "problems": idx.get("problems", 0),
+    by_slug = {t["slug"]: t for t in out}
+    subs = []
+    for s in subjects():
+        chapters = [by_slug[c] for c in s["chapters"] if c in by_slug]
+        subs.append({"slug": s["slug"], "name": s["name"], "blurb": s["blurb"],
+                     "chapters": [{"slug": c["slug"], "depth": s["depth"][c["slug"]]}
+                                  for c in chapters],
+                     "count": s["count"],
+                     "solved": sum(1 for i in s["problemIds"] if i in solved),
+                     "written": sum(1 for c in chapters if c["hasArticle"]),
+                     "done": sum(1 for c in chapters if c["status"] == "done")})
+    cats = [s["name"] for s in subs]
+    return {"topics": out, "categories": cats, "subjects": subs,
+            "problems": idx.get("problems", 0),
             "withArticles": sum(1 for t in out if t["hasArticle"])}
+
+
+def subject_detail(slug: str, bank=None, progress=None, queue_limit: int = 120) -> dict | None:
+    """One subject: its chapters as a learning path, what it leans on from
+    other subjects, what elsewhere leans on it, and one practice queue over
+    every problem any of its chapters uses."""
+    subjects()
+    idx = index()
+    s = idx["subjectBySlug"].get(slug)
+    if not s:
+        return None
+    here = set(s["chapters"])
+    studied = progress.topics_all() if progress else {}
+    solved = set(progress.ids_with(status="solved")) if progress else set()
+    chapters = []
+    for c in s["chapters"]:
+        t = idx["bySlug"][c]
+        a = article(c)
+        ids = t.get("problems") or []
+        st = studied.get(c) or {}
+        chapters.append({
+            "slug": c, "title": t["title"], "rank": t["rank"], "count": t["count"],
+            "depth": s["depth"][c],
+            "rare": t["rare"], "kind": t.get("kind", "topic"),
+            "covers": t.get("covers") or [],
+            "needs": [n for n in t["needs"] if n in here],
+            "summary": (a or {}).get("summary", ""),
+            "words": (a or {}).get("words", 0),
+            "hasArticle": a is not None,
+            "solved": sum(1 for i in ids if i in solved),
+            "status": st.get("status"),
+        })
+
+    def brief(o):
+        return {"slug": o["slug"], "title": o["title"], "count": o["count"],
+                "subject": _SUBJECT_BY_NAME.get(o["category"], (_slugify(o["category"]),))[0],
+                "subjectName": o["category"], "hasArticle": has_article(o["slug"])}
+
+    # what you should know first, from other subjects
+    before, seen = [], set()
+    for c in s["chapters"]:
+        for n in idx["bySlug"][c]["needs"]:
+            o = idx["bySlug"].get(n)
+            if o and n not in here and n not in seen:
+                seen.add(n); before.append(brief(o))
+    # chapters filed elsewhere that build on this subject (tree DP under
+    # Trees, Floyd-Warshall under Graphs, ...), so "everything about DP" is
+    # really everything
+    beyond, seen = [], set()
+    for t in idx["topics"]:
+        if t["slug"] in here or t["slug"] in seen:
+            continue
+        if any(n in here for n in list(t["needs"]) + list(t["near"])):
+            seen.add(t["slug"]); beyond.append(brief(t))
+    beyond.sort(key=lambda b: -b["count"])
+
+    # one queue over the whole subject: a problem that several chapters
+    # claim is more "about" the subject than one claimed by a single stray
+    # match, so it sorts first; then the chapter's own easiest-first order
+    score: dict[str, list] = {}
+    for c in s["chapters"]:
+        for pos, pid in enumerate(idx["bySlug"][c].get("problems") or []):
+            e = score.setdefault(pid, [0, pos])
+            e[0] += 1
+            e[1] = min(e[1], pos)
+    ordered = sorted(score, key=lambda p: (-score[p][0], score[p][1], p))[:queue_limit]
+    queue = []
+    if ordered and bank is not None:
+        rows = {r["id"]: r for r in bank.query({"ids": ordered}, sort="default",
+                                               limit=len(ordered)).get("items", [])}
+        try:
+            import solutions
+            verified = solutions.verified_ids()
+        except Exception:
+            verified = set()
+        for i in ordered:
+            r = rows.get(i)
+            if not r:
+                continue
+            p = progress.get(i) if progress is not None else None
+            p = p or {}
+            queue.append({"id": i, "title": r["title"], "difficulty": r["difficulty"],
+                          "company": r["company"], "seenCount": r["seenCount"],
+                          "status": p.get("status"), "hasSolution": i in verified,
+                          "chapters": score[i][0]})
+    return {
+        "slug": slug, "name": s["name"], "blurb": s["blurb"],
+        "count": s["count"], "problems": idx.get("problems", 0),
+        "solved": sum(1 for i in s["problemIds"] if i in solved),
+        "chapters": chapters, "before": before, "beyond": beyond,
+        "queue": queue, "queueTotal": len(score),
+    }
 
 
 def detail(slug: str, bank=None, progress=None, queue_limit: int = 400) -> dict | None:
@@ -160,6 +400,7 @@ def detail(slug: str, bank=None, progress=None, queue_limit: int = 400) -> dict 
                             "hasArticle": has_article(s)})
     return {
         "slug": slug, "title": t["title"], "category": t["category"],
+        "subject": _SUBJECT_BY_NAME.get(t["category"], (_slugify(t["category"]),))[0],
         "rank": t["rank"], "count": t["count"], "rare": t["rare"],
         "kind": t.get("kind", "topic"), "covers": t.get("covers") or [],
         "related": related,

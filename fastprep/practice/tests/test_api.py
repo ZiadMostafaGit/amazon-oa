@@ -889,6 +889,24 @@ class TestStudySpace(ServerCase):
             self.get("/api/topics/not-a-topic")
         self.assertEqual(cm.exception.code, 404)
 
+    def test_a_subject_carries_its_path_and_one_queue(self):
+        out = self.get("/api/subjects/graphs")
+        self.assertEqual(out["name"], "Graphs")
+        self.assertEqual(out["chapters"][0]["slug"], "graphs")
+        self.assertTrue(all("depth" in c for c in out["chapters"]))
+        self.assertTrue(out["queue"])
+        self.assertGreaterEqual(out["queue"][0]["chapters"], out["queue"][-1]["chapters"])
+        for q in out["queue"]:
+            self.assertIn("hasSolution", q)
+        with self.assertRaises(urllib.error.HTTPError) as cm:
+            self.get("/api/subjects/not-a-subject")
+        self.assertEqual(cm.exception.code, 404)
+
+    def test_the_listing_groups_chapters_into_subjects(self):
+        out = self.get("/api/topics")
+        self.assertEqual(sum(len(s["chapters"]) for s in out["subjects"]), 150)
+        self.assertIn("Dynamic Programming", [s["name"] for s in out["subjects"]])
+
     def test_a_problem_links_to_its_chapters(self):
         d = self.get("/api/problems/amazon-stock-span")
         slugs = [t["slug"] for t in d["studyTopics"]]

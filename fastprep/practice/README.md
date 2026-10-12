@@ -60,8 +60,15 @@ their table schemas, result contract and visible cases rendered as tables
 instead.
 
 **Study.** Press `s` or the **Study** button for the other half of the app: a
-canon of **150 topics**, ranked by how many of these 3 533 problems actually use
-them. Each one opens a chapter written to a fixed outline — when you reach for
+canon of **150 chapters** filed under **17 subjects** — Graphs is BFS, DFS,
+topological sort, union-find, shortest paths and the rest in one place; Dynamic
+Programming is the method, state design, and every family from 1-D to digit DP.
+Inside a subject the chapters form a **prerequisite tree**: each sits under the
+most specific chapter it needs, so LIS and Kadane come under one-dimensional DP
+and nothing is listed before what it builds on. Opening a subject shows that
+path, what to know first from other subjects, what elsewhere builds on it (tree
+DP under Trees, Floyd-Warshall under Graphs), and one practice queue over every
+problem the subject touches. Each chapter is written to a fixed outline — when you reach for
 it, the idea, a worked-by-hand trace, *why it is correct* (a real invariant /
 base case / inductive step / termination argument, not a restatement), a derived
 complexity, a clean implementation, the variants, how to recognise it in a
