@@ -1,0 +1,68 @@
+{
+ "problemId": "visa-connected-groups",
+ "generatedAt": "2026-11-06T15:50:06",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "related",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 1], [0, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "related",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "related",
+     "type": "int[][]",
+     "rawValue": "[[5, 3, 6, 5, -4]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "related",
+     "type": "int[][]",
+     "rawValue": "[[1, 0, 0, 0], [0, 1, 1, 1], [0, 0, 1, 1]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "related",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 0], [0, -3, 1]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "related",
+     "type": "int[][]",
+     "rawValue": "[[1, 1, 0], [0, 0, 1], [0, 0, 1]]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "The sum of nums[i..j] is pre[j+1] - pre[i], so a subarray ending at j sums to k exactly when an earlier prefix equals pre[j+1] - k. Count earlier prefixes in a hash map as you sweep. Negative values break the sliding window, which is why prefix sums are the tool here.",
+ "hints": [
+  "With negatives and zeros, a sliding window cannot decide when to shrink. Rewrite a subarray sum using prefix sums.",
+  "sum(i..j) = k means pre[i] = pre[j+1] - k. So at each end j, the number of good starts is how many earlier prefixes equal current - k.",
+  "Hash map prefix-sum -> count, seeded with {0: 1}. For each value: s += v, answer += map[s - k], then map[s] += 1. O(n) time and space."
+ ],
+ "pitfalls": [
+  "Seed the map with prefix 0 seen once, or subarrays starting at index 0 are missed.",
+  "Look up s - k before inserting s, or k = 0 counts the empty subarray.",
+  "An empty array returns 0."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

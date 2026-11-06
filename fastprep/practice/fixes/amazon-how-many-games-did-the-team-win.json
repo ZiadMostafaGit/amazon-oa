@@ -1,0 +1,18 @@
+{
+ "pattern": "binary-search",
+ "why": "Move everything to one side: the first team wins (i, j) when d[i] + d[j] > 0 with d[i] = firstTeam[i] - secondTeam[i]. Pairs are unordered, so sort d, and for each i binary search the first j > i with d[j] > -d[i]. Everything from there on wins.",
+ "hints": [
+  "The condition mixes four numbers. Can you rewrite it using one number per index?",
+  "Let d[i] = firstTeam[i] - secondTeam[i]; a win means d[i] + d[j] > 0. Counting unordered pairs does not depend on order, so you may sort d.",
+  "Sort d; for each i, bisect_right(d, -d[i], i+1) gives the first partner that wins, adding n - that index. O(n log n). A two-pointer sweep over the sorted d also works."
+ ],
+ "pitfalls": [
+  "A tie (sums equal) is not a win: you need > 0, so use bisect_right.",
+  "Count each pair once (only j > i).",
+  "The count can reach about 5*10^9; return it modulo 10^9 + 7."
+ ],
+ "statement": "<p>Two teams, <code>firstTeam</code> and <code>secondTeam</code>, each have <code>n</code> players. For every pair of indices <code>i &lt; j</code>, players <code>i</code> and <code>j</code> of the first team play against players <code>i</code> and <code>j</code> of the second team. The first team wins that game if <code>firstTeam[i] + firstTeam[j] &gt; secondTeam[i] + secondTeam[j]</code> (a tie is not a win).</p><p>Return the number of games the first team wins, modulo <code>10^9 + 7</code>.</p><p><b>Worked example.</b> <code>firstTeam = [1,2,3]</code>, <code>secondTeam = [3,2,1]</code>.</p><ul><li>(0,1): 1+2 = 3 vs 3+2 = 5, a loss.</li><li>(0,2): 1+3 = 4 vs 3+1 = 4, a tie, not a win.</li><li>(1,2): 2+3 = 5 vs 2+1 = 3, a win.</li></ul><p>Answer: <b>1</b>.</p>",
+ "constraints": "<ul><li>2 &lt;= n &lt;= 10^5</li><li>firstTeam.length == secondTeam.length == n</li><li>1 &lt;= firstTeam[i], secondTeam[i] &lt;= 10^9</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

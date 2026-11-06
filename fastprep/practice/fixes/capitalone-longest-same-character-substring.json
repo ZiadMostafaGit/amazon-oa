@@ -1,0 +1,16 @@
+{
+ "pattern": "sliding-window",
+ "why": "The answer is the longest run of one repeated character. A window that grows while the character stays the same and restarts when it changes finds every run in one pass.",
+ "hints": [
+  "Every candidate substring is one maximal run of the same letter.",
+  "Scan left to right with a run length that grows while the letter repeats and resets to 1 when it changes; that is a window whose left edge jumps to the change point.",
+  "Keep the best letter and length, updating on >= so a later run of equal length replaces an earlier one. Return letter + str(length). O(n)."
+ ],
+ "pitfalls": [
+  "Ties go to the rightmost run: compare with >=, not >.",
+  "The output joins the letter and the count as text, e.g. 'c3', and the count can have two or more digits ('a100').",
+  "A one-character string returns that letter + '1'."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

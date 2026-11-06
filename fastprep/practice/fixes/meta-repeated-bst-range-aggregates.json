@@ -1,0 +1,16 @@
+{
+ "pattern": "bst",
+ "why": "An in-order walk turns the BST into a sorted array, which makes every range [low, high] a contiguous slice. Prefix sums over that array answer each slice's sum in O(1), and two binary searches find its ends, which also gives the count for the average.",
+ "hints": [
+  "200,000 queries each walking the tree is too slow. What does the BST look like if you flatten it in order?",
+  "In sorted order, the keys inside [low, high] form one contiguous block. Its sum is a difference of two prefix sums and its count is a difference of two indices.",
+  "One iterative in-order traversal plus a prefix-sum array (O(n)), then per query bisect_left(low) and bisect_right(high): O(log n) each."
+ ],
+ "pitfalls": [
+  "An empty range must return [0.0, 0.0], not divide by zero.",
+  "The tree itself may be empty.",
+  "Both bounds are inclusive: use bisect_left for low and bisect_right for high."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

@@ -1,0 +1,1705 @@
+{
+ "about": "Build the DSA learning path: topics in the order to learn them, problems in the order to solve them.",
+ "phases": [
+  {
+   "title": "OA core",
+   "about": "What online assessments test most. Learn these first: they pay off first.",
+   "stages": [
+    {
+     "slug": "arrays-hashing",
+     "title": "Arrays & Hashing",
+     "week": 1,
+     "chapters": [
+      {
+       "slug": "arrays",
+       "title": "Arrays and Contiguous Memory"
+      },
+      {
+       "slug": "hash-tables",
+       "title": "Hash Tables"
+      },
+      {
+       "slug": "frequency-counting",
+       "title": "Frequency Counting"
+      },
+      {
+       "slug": "anagrams",
+       "title": "Anagrams and Character Counting"
+      }
+     ],
+     "tags": [
+      "hash_table"
+     ],
+     "plan": [
+      "amazon-find-min-trips",
+      "amazon-min-operation",
+      "amazon-find-recurring-names",
+      "amazon-find-unique-values",
+      "amazon-get-distinct-pairs",
+      "amazon-get-max-information-gain",
+      "amazon-get-maximum-sum",
+      "amazon-get-total-requests"
+     ],
+     "more": [
+      "location-of-data-after-transfers",
+      "amazon-return-records",
+      "amazon-process-queries-on-cart",
+      "tiktok-validate-3x3-digit-windows",
+      "hsbc-distinct-products-after-removing-one-element",
+      "amazon-minimum-operations-to-make-array-valid",
+      "amazon-minimum-contiguous-replacements",
+      "amazon-find-minimum-city-hops",
+      "amazon-get-stable-periods-count",
+      "amazon-find-idle-skills-query",
+      "stripe-subscription-and-usage-billing-calculator",
+      "roblox-solution",
+      "rippling-consistent-logs",
+      "microsoft-maximum-escape-game-score",
+      "jpmorgan-bitwise-xor-subsequences",
+      "capital-one-longest-common-prefix-of-number-pairs",
+      "akuna-longest-substring-without-repeating-characters",
+      "amazon-render-comment-hierarchy",
+      "amazon-lru-query-result-cache",
+      "amazon-word-break-ii"
+     ],
+     "oaShare": 22,
+     "amazonShare": 20,
+     "classics": 0
+    },
+    {
+     "slug": "sorting-two-pointers",
+     "title": "Sorting & Two Pointers",
+     "week": 2,
+     "chapters": [
+      {
+       "slug": "sorting",
+       "title": "Sorting: the Landscape"
+      },
+      {
+       "slug": "custom-comparators",
+       "title": "Custom Comparators and Stability"
+      },
+      {
+       "slug": "two-pointers",
+       "title": "Two Pointers"
+      }
+     ],
+     "tags": [
+      "sorting",
+      "two_pointers"
+     ],
+     "plan": [
+      "att-three-sum",
+      "amazon-container-with-most-water",
+      "amazon-match-strings",
+      "visa-collect-branches-for-nest",
+      "amazon-predict-answer",
+      "amazon-get-min-cost-book",
+      "amazon-package-delivery-system",
+      "amazon-num-of-suitable-places",
+      "amazon-get-min-operations2",
+      "amazon-minimum-retailers"
+     ],
+     "more": [
+      "hrt-catch-fish-with-reusable-baits",
+      "concentric-ai-linked-list-intersection-node",
+      "bcg-longest-contiguous-character-run",
+      "omnissa-build-and-check-palindrome-list",
+      "meta-first-common-ancestor-with-parent-pointers",
+      "amazon-find-sum-of-beauties",
+      "wex-custom-ordered-string-permutations",
+      "tiktok-minimum-height-difference-between-distant-peaks",
+      "target-minimum-edit-distance-string",
+      "salesforce-maximum-requests-in-window",
+      "roblox-track-received-byte-ranges",
+      "rippling-distributed-system-recovery",
+      "morgan-stanley-maximum-concurrent-processes",
+      "jpmorgan-get-min-machines",
+      "imc-choose-containers",
+      "akuna-delivery-management-system",
+      "amazon-meeting-rooms-ii",
+      "akuna-maximum-k-star-sum",
+      "citadel-search-suggestions-prefix-tree",
+      "salesforce-longest-subsequence-which-is-a-substring"
+     ],
+     "oaShare": 23,
+     "amazonShare": 35,
+     "classics": 2
+    },
+    {
+     "slug": "greedy",
+     "title": "Greedy I: sort, then choose",
+     "week": 3,
+     "chapters": [
+      {
+       "slug": "greedy",
+       "title": "Greedy Algorithms"
+      }
+     ],
+     "tags": [
+      "greedy"
+     ],
+     "plan": [
+      "expedia-assign-cookies",
+      "bloomberg-jump-game",
+      "amazon-find-maximum-num",
+      "amazon-minimum-starting-health-to-win-the-game",
+      "amazon-task-scheduler",
+      "amazon-minimum-adjacent-swaps-binary-groups",
+      "amazon-minimize-array-sum-difference",
+      "amazon-get-min-operations",
+      "salesforce-minimize-total-input-cost",
+      "amazon-get-min-errors"
+     ],
+     "more": [
+      "amazon-maximum-capacity",
+      "amazon-group-students",
+      "amazon-get-min-num-moves",
+      "amazon-get-max-increments",
+      "amazon-find-minimum-dist",
+      "nutanix-min-cost-to-connect-all-points",
+      "google-split-array-into-consecutive-subsequences",
+      "google-maximum-coins-with-moving-tokens",
+      "amazon-min-errors",
+      "amazon-find-max-value",
+      "snowflake-minimum-height",
+      "amazon-rearrange-digits-adjacent-sum-at-most-nine",
+      "amazon-minimize-effort",
+      "amazon-find-maximum-number-of-servers",
+      "amazon-get-min-subsegments",
+      "amazon-maximum-quality-sum",
+      "amazon-maximize-machine-strength-sum",
+      "amazon-find-min-replacements",
+      "amazon-determine-the-best-skipping-strategy",
+      "amazon-bring-servers-down"
+     ],
+     "oaShare": 17,
+     "amazonShare": 41,
+     "classics": 2
+    },
+    {
+     "slug": "prefix-window",
+     "title": "Prefix Sums & Sliding Window",
+     "week": 4,
+     "chapters": [
+      {
+       "slug": "prefix-sums",
+       "title": "Prefix Sums and Difference Arrays"
+      },
+      {
+       "slug": "sliding-window",
+       "title": "Sliding Window"
+      }
+     ],
+     "tags": [
+      "prefix_sum",
+      "sliding_window"
+     ],
+     "plan": [
+      "apple-subarray-sum-equals-k",
+      "intuit-static-range-sums",
+      "ibm-count-increasing-contiguous-windows",
+      "get-success-value",
+      "amazon-find-kth-minimum-vulnerability",
+      "amazon-find-ideal-days",
+      "amazon-dropped-requests",
+      "amazon-choose-warehouses-location",
+      "headlands-sliding-window-means-ieee-floats",
+      "amazon-longest-perfect-anagrams"
+     ],
+     "more": [
+      "amazon-get-max-aggregate-temperature-change",
+      "threshold-alerts",
+      "capitalone-longest-same-character-substring",
+      "count-max-num-teams",
+      "amazon-maximum-user-traffic",
+      "visa-sliding-window-pattern-start-indices",
+      "tiktok-count-alternating-tile-groups",
+      "drw-shortest-path-rectangular-obstacles",
+      "snowflake-vowel-substring",
+      "amazon-get-minimum-boxes",
+      "amazon-get-max-skill-sum",
+      "amazon-get-max-racers",
+      "amazon-get-max-alternating-music",
+      "amazon-ad-click-counts-sliding-window",
+      "rippling-matrix-block-sum",
+      "amazon-get-smaller-items",
+      "amazon-get-redundant-substrings",
+      "amazon-get-max-consecutive-on",
+      "stripe-incident-monitor",
+      "walmart-minimum-cost-to-make-array-equal"
+     ],
+     "oaShare": 10,
+     "amazonShare": 14,
+     "classics": 2
+    },
+    {
+     "slug": "simulation",
+     "title": "Simulation & Strings: careful implementation",
+     "week": 5,
+     "chapters": [
+      {
+       "slug": "simulation",
+       "title": "Simulation Problems"
+      },
+      {
+       "slug": "strings",
+       "title": "Strings and Encoding"
+      },
+      {
+       "slug": "parsing",
+       "title": "Parsing and Tokenising"
+      },
+      {
+       "slug": "matrix-traversal",
+       "title": "Matrix Traversal"
+      }
+     ],
+     "tags": [
+      "simulation"
+     ],
+     "plan": [
+      "nike-spiral-matrix",
+      "tokopedia-rotate-image",
+      "tiktok-debugger-breakpoint-actions",
+      "tiktok-reverse-letters-in-pairs",
+      "upstart-buffet-day-gains",
+      "replit-compress-editor-actions-to-ot",
+      "microsoft-asteroid-collision",
+      "kickdrum-undo-redo-timeline-state-engine",
+      "akuna-minimize-malware-spread",
+      "get-priorities-after-execution"
+     ],
+     "more": [
+      "tiktok-construct-wdl-string",
+      "rippling-costliest-chocolate",
+      "amazon-linked-list-queue-operations",
+      "visa-grid-walk-with-teleports",
+      "trade-desk-temporal-key-field-database",
+      "tiktok-sort-matrix-borders",
+      "tiktok-leftmost-memory-block-allocator",
+      "tiktok-distribution-center-package-allocation",
+      "susquehanna-sort-matrix-borders",
+      "susquehanna-rotate-matrix-over-diagonals",
+      "susquehanna-leftmost-memory-block-allocator",
+      "stripe-request-routing-system",
+      "stripe-merchant-fraud-risk-scoring",
+      "roblox-leftmost-memory-block-allocator",
+      "roblox-laser-robot-safe-path",
+      "roblox-event-id-check-completion-times",
+      "palantir-stacked-item-category-discounts",
+      "trade-desk-versioned-recipe-system",
+      "stripe-deployment-window-scheduler",
+      "optiver-power-cell-bank"
+     ],
+     "oaShare": 27,
+     "amazonShare": 11,
+     "classics": 2
+    },
+    {
+     "slug": "binary-search",
+     "title": "Binary Search, and on the answer",
+     "week": 6,
+     "chapters": [
+      {
+       "slug": "binary-search",
+       "title": "Binary Search"
+      },
+      {
+       "slug": "binary-search-on-answer",
+       "title": "Binary Search on the Answer"
+      },
+      {
+       "slug": "search-rotated",
+       "title": "Searching Rotated and Shifted Arrays"
+      }
+     ],
+     "tags": [
+      "binary_search"
+     ],
+     "plan": [
+      "tekion-koko-eating-bananas",
+      "amazon-capacity-to-ship-packages-within-d-days",
+      "arista-networks-first-missing-number-in-consecutive-array",
+      "alarm-arrange-coins",
+      "amazon-cinema-shows",
+      "minimum-time-spent",
+      "amazon-how-many-games-did-the-team-win",
+      "amazon-get-min-size",
+      "goldman-get-minimum-value"
+     ],
+     "more": [
+      "uber-bus-time",
+      "salesforce-longest-increasing-subsequence",
+      "microsoft-side-largest-square",
+      "get-max-barrier",
+      "amazon-minimum-processes-to-drop-for-synchronization",
+      "uber-my-calendar-i",
+      "together-ai-time-indexed-key-value-store",
+      "tiktok-get-min-adjustments",
+      "squarepoint-sorted-insertion-snapshots",
+      "snowflake-paint-the-ceiling",
+      "snorkel-ai-snapshot-map-sparse-history",
+      "pinterest-minimize-longest-hike-between-rest-stops",
+      "openai-versioned-followers-and-followees",
+      "openai-delayed-feedback-secret-search",
+      "anthropic-banking-system-part-4",
+      "amazon-minimum-grid-inconvenience",
+      "rippling-find-minimum-time",
+      "microsoft-find-array-uniqueness-median",
+      "wellsfargo-find-maximum-distance",
+      "wellsfargo-fair-distribution"
+     ],
+     "oaShare": 6,
+     "amazonShare": 9,
+     "classics": 2
+    },
+    {
+     "slug": "heap",
+     "title": "Heaps & Priority Queues",
+     "week": 7,
+     "chapters": [
+      {
+       "slug": "heap",
+       "title": "Binary Heaps and Priority Queues"
+      },
+      {
+       "slug": "top-k",
+       "title": "Top-k Selection"
+      },
+      {
+       "slug": "k-way-merge",
+       "title": "k-way Merge"
+      },
+      {
+       "slug": "median-maintenance",
+       "title": "Two Heaps and Running Medians"
+      }
+     ],
+     "tags": [
+      "heap"
+     ],
+     "plan": [
+      "cognizant-kth-largest-element",
+      "factset-last-stone-weight",
+      "max-min",
+      "rippling-build-max-heap",
+      "walmart-minimum-stress-path",
+      "visa-minimum-cost-weighted-grid-path",
+      "visa-dijkstra-weighted-undirected-graph",
+      "snowflake-find-min-weight",
+      "amazon-sum-max-plus-min-after-decrement-operations",
+      "amazon-inventory-allocation",
+      "optiver-multi-level-inventory-storage-system"
+     ],
+     "more": [
+      "waymo-shortest-paths-to-multiple-targets",
+      "tiktok-get-server-index",
+      "the-walt-disney-company-weighted-grid-shortest-path",
+      "snowflake-minimum-station-bus-fleet",
+      "scale-ai-task-processor-dependencies-deadlines",
+      "oracle-authentication-manager",
+      "meta-mutual-friend-recommendations",
+      "lyft-minimum-workers-job-assignments",
+      "jpmorgan-chase-top-k-frequent-values-distributed",
+      "airbnb-workspace-credit-ledger",
+      "airbnb-progressive-banking-system",
+      "amazon-streaming-top-k-frequent-elements",
+      "uber-minimum-refueling-stops",
+      "tekion-ipo",
+      "scale-ai-task-scheduler-with-dependencies",
+      "paytm-lru-cache-with-ttl",
+      "netflix-dynamic-broadcast-times",
+      "netflix-capacity-limited-timed-cache",
+      "microsoft-alien-dictionary",
+      "inmobi-minimum-range-selection"
+     ],
+     "oaShare": 4,
+     "amazonShare": 7,
+     "classics": 2
+    },
+    {
+     "slug": "greedy-intervals",
+     "title": "Greedy II: exchange arguments & intervals",
+     "week": 8,
+     "chapters": [
+      {
+       "slug": "greedy-exchange",
+       "title": "Proving Greedy: Exchange Arguments"
+      },
+      {
+       "slug": "intervals",
+       "title": "Interval Problems"
+      },
+      {
+       "slug": "scheduling",
+       "title": "Scheduling and Deadlines"
+      },
+      {
+       "slug": "sweep-line",
+       "title": "Sweep Line and Event Processing"
+      }
+     ],
+     "tags": [
+      "greedy",
+      "intervals"
+     ],
+     "plan": [
+      "micro1-merge-intervals",
+      "bytedance-meeting-rooms",
+      "tiktok-minimum-operations-for-stepwise-structures",
+      "goldman-sachs-maximum-ones-after-k-operations",
+      "walmart-k-capable-model-costs",
+      "infosys-minimum-cost-group-ones-and-twos",
+      "citadel-maximize-workday-earnings",
+      "bank-of-america-cash-register",
+      "amazon-reverse-binary-string",
+      "quince-minimum-sprinklers-to-cover-an-interval"
+     ],
+     "more": [
+      "drw-largest-number-even-digit-frequencies",
+      "amazon-get-minimum-value",
+      "amazon-get-min-removal",
+      "tiktok-count-skipped-numbers-after-subtractions",
+      "amazon-purchase-servers",
+      "amazon-minimum-reward-points-to-cover-payment",
+      "amazon-maximum-number-of-packages",
+      "amazon-max-batches",
+      "amazon-inventory-processes-survival-possibility",
+      "visa-planning-production",
+      "tiktok-obstacle-placement-queries",
+      "snowflake-generating-login-codes",
+      "salesforce-minimum-no-repeat-segments-after-removal",
+      "airbnb-worker-management-full-shift-grants",
+      "amazon-get-maximum-events",
+      "amazon-find-maximum-calories",
+      "amazon-find-capable-winners",
+      "two-sigma-ipo-share-allocation",
+      "tiktok-viral-content-balancer",
+      "spacex-starlink-beam-planner"
+     ],
+     "oaShare": 19,
+     "amazonShare": 43,
+     "classics": 2
+    },
+    {
+     "slug": "stack",
+     "title": "Stacks & Monotonic Stacks",
+     "week": 9,
+     "chapters": [
+      {
+       "slug": "stack",
+       "title": "Stacks"
+      },
+      {
+       "slug": "monotonic-stack",
+       "title": "Monotonic Stack"
+      }
+     ],
+     "tags": [
+      "stack"
+     ],
+     "plan": [
+      "amazon-valid-parentheses",
+      "shopify-min-stack",
+      "wex-stack-command-output",
+      "anduril-binary-tree-preorder-traversal",
+      "maximum-score-in-balanced-string",
+      "erase-pairs",
+      "count-maximum-profitable-groups",
+      "amazon-next-smaller-ticket-price",
+      "amazon-lowest-common-ancestor-implemented-with-stack",
+      "amazon-get-max-charge"
+     ],
+     "more": [
+      "odoo-html-elements-single-tag-correction",
+      "imc-adding-stack-2-0",
+      "amazon-remove-k-digits",
+      "xai-nested-transaction-key-value-store",
+      "salesforce-surviving-balls-directional-collisions",
+      "retell-ai-stack-language-evaluator",
+      "reddit-billing-log-undo-redo",
+      "nextdoor-in-memory-database-savepoints",
+      "netflix-undo-redo-command-history",
+      "microsoft-subtract-forward-order-linked-lists",
+      "meta-minimum-removal-for-balanced-parentheses",
+      "linkedin-nested-list-weight-sum-ii",
+      "google-filesystem-entity-total-size",
+      "figma-rich-text-parser-part2",
+      "amazon-trapping-rain-water",
+      "intel-linear-expression-modulo",
+      "amazon-maximum-frequency-stack",
+      "stripe-rule-expression-parser",
+      "nuro-trapping-rain-water",
+      "linkedin-max-stack"
+     ],
+     "oaShare": 2,
+     "amazonShare": 3,
+     "classics": 2
+    }
+   ]
+  },
+  {
+   "title": "Interview core",
+   "about": "Rarer in OAs, but the backbone of phone screens and onsites.",
+   "stages": [
+    {
+     "slug": "lists-trees",
+     "title": "Linked Lists & Trees: DFS and BFS",
+     "week": 10,
+     "chapters": [
+      {
+       "slug": "linked-list",
+       "title": "Linked Lists"
+      },
+      {
+       "slug": "trees",
+       "title": "Trees: Vocabulary and Shapes"
+      },
+      {
+       "slug": "tree-traversal",
+       "title": "Tree Traversals"
+      },
+      {
+       "slug": "dfs",
+       "title": "Depth-first Search"
+      },
+      {
+       "slug": "bfs",
+       "title": "Breadth-first Search"
+      }
+     ],
+     "tags": [
+      "linked_list",
+      "tree"
+     ],
+     "plan": [
+      "the-walt-disney-company-reverse-linked-list",
+      "the-walt-disney-company-merge-two-sorted-lists",
+      "the-walt-disney-company-design-linked-list",
+      "inmobi-employee-subordinates",
+      "twosigma-sewer-drainage-partition",
+      "optiver-construct-binary-tree-s-expression",
+      "imc-chain-of-command",
+      "ibm-tree-pythagorean-triples",
+      "drw-count-balanced-tree-nodes",
+      "tower-research-capital-stable-workload-redistribution-trees"
+     ],
+     "more": [
+      "atlassian-leaf-similar-trees",
+      "zs-merge-two-sorted-lists",
+      "nvidia-middle-node-linked-list",
+      "gep-reverse-linked-list",
+      "amazon-cousins-in-binary-tree-ii",
+      "amazon-leaf-to-leaf-binary-tree-diameter",
+      "salesforce-sorted-doubly-linked-list-to-balanced-bst",
+      "oracle-bottom-view-of-binary-tree",
+      "atlassian-binary-tree-level-order-traversal",
+      "linkedin-binary-tree-zigzag-level-order",
+      "stripe-csv-task-tree-renderer",
+      "snowflake-throne-inheritance-without-initial-king",
+      "salesforce-tree-diameter",
+      "salesforce-lru-cache",
+      "pinterest-delete-compact-forest-subtree",
+      "perplexity-ai-in-memory-filesystem-commands",
+      "rippling-prime-tree-labelings",
+      "arcesium-binary-tree-maximum-path-sum",
+      "amazon-lfu-cache",
+      "salesforce-lfu-cache"
+     ],
+     "oaShare": 4,
+     "amazonShare": 1,
+     "classics": 2
+    },
+    {
+     "slug": "trees-2",
+     "title": "Trees II: BST, LCA, tries",
+     "week": 11,
+     "chapters": [
+      {
+       "slug": "bst",
+       "title": "Binary Search Trees"
+      },
+      {
+       "slug": "lca",
+       "title": "Lowest Common Ancestor"
+      },
+      {
+       "slug": "trie",
+       "title": "Tries (Prefix Trees)"
+      },
+      {
+       "slug": "serialize-tree",
+       "title": "Serialising and Rebuilding Trees"
+      }
+     ],
+     "tags": [
+      "tree",
+      "trie"
+     ],
+     "plan": [
+      "atlassian-validate-binary-search-tree",
+      "linkedin-kth-closest-bst",
+      "blackrock-lowest-common-ancestor-parent-tree",
+      "wolverine-trading-decode",
+      "atlassian-lowest-common-ancestor-of-a-binary-tree",
+      "atlassian-binary-search-tree-iterator",
+      "uber-word-pairs",
+      "morgan-stanley-binary-tree-codec",
+      "meta-repeated-bst-range-aggregates",
+      "lyft-reconstruct-bst-from-preorder",
+      "linkedin-n-ary-tree-codec-operations"
+     ],
+     "more": [
+      "charta-bst-inorder-successor",
+      "tokopedia-delete-bst-node",
+      "confluent-serialize-bst-preorder",
+      "apple-canonical-nary-tree-codec",
+      "amazon-vertical-order-traversal-of-binary-tree",
+      "amazon-maximum-move-score",
+      "amazon-domain-weight-calculation",
+      "openai-aggregate-machine-topology",
+      "meta-minimum-sum-root-to-leaf-path",
+      "linkedin-merge-n-ary-trees-by-key",
+      "linkedin-interval-tree-task-scheduling",
+      "linkedin-find-leaves-of-binary-tree",
+      "google-minimum-root-to-leaf-cut-cost",
+      "goldman-sachs-role-permissions",
+      "amazon-word-search-ii",
+      "inmobi-word-squares",
+      "inmobi-maximum-xor-between-two-arrays",
+      "amazon-all-word-decompositions",
+      "google-lowest-common-manager-for-k-employees",
+      "databricks-encrypted-file-count-and-minimum-time"
+     ],
+     "oaShare": 3,
+     "amazonShare": 1,
+     "classics": 2
+    },
+    {
+     "slug": "graphs",
+     "title": "Graphs: BFS/DFS, grids, topological sort",
+     "week": 12,
+     "chapters": [
+      {
+       "slug": "graphs",
+       "title": "Graphs: Representation"
+      },
+      {
+       "slug": "bfs",
+       "title": "Breadth-first Search"
+      },
+      {
+       "slug": "dfs",
+       "title": "Depth-first Search"
+      },
+      {
+       "slug": "topological-sort",
+       "title": "Topological Sort"
+      },
+      {
+       "slug": "flood-fill",
+       "title": "Flood Fill and Connected Components"
+      },
+      {
+       "slug": "grid-bfs",
+       "title": "BFS and DFS on Grids"
+      },
+      {
+       "slug": "multi-source-bfs",
+       "title": "Multi-source BFS"
+      }
+     ],
+     "tags": [
+      "breadth_first_search",
+      "depth_first_search",
+      "graph",
+      "topological_sort"
+     ],
+     "plan": [
+      "goldman-sachs-number-of-islands",
+      "inmobi-course-schedule",
+      "ibm-drawing-edge",
+      "weride-drawing-edge",
+      "lyft-rotten-oranges-grid-bfs",
+      "inmobi-divisor-threshold-components",
+      "ibm-flight-delay-propagation",
+      "hsbc-minimum-cleaning-robot-runs",
+      "inmobi-check-bipartite-graph",
+      "amazon-reconstruct-itinerary"
+     ],
+     "more": [
+      "unity-directed-path-existence",
+      "imc-knight-minimum-moves-fixed-bishop",
+      "arcesium-detect-cycle-in-directed-hate-graph",
+      "google-count-prefix-paths-in-character-graph",
+      "infosys-count-reachable-halving-decrement-states",
+      "postman-minimum-swaps-to-sort",
+      "inmobi-minimum-connection-changes",
+      "imc-perfect-square-forbidden-reaching-points",
+      "doordash-closest-dashmart",
+      "citadel-get-recommended-friends",
+      "capital-one-reconstruct-landmark-journey",
+      "airbnb-get-minimum-moves",
+      "amazon-package-dependency-order",
+      "amazon-currency-conversion-rate",
+      "amazon-amount-of-time-to-infect-binary-tree",
+      "zip-graph-pursuit-survival-time",
+      "wellsfargo-count-operations",
+      "spacex-monster-registry",
+      "rippling-maximum-xor-elimination-score",
+      "waymo-shortest-distance-from-all-buildings"
+     ],
+     "oaShare": 9,
+     "amazonShare": 3,
+     "classics": 2
+    },
+    {
+     "slug": "graphs-2",
+     "title": "Graphs II: union-find & shortest paths",
+     "week": 14,
+     "chapters": [
+      {
+       "slug": "union-find",
+       "title": "Union-Find (Disjoint Set Union)"
+      },
+      {
+       "slug": "shortest-path",
+       "title": "Shortest Paths: the Map"
+      },
+      {
+       "slug": "dijkstra",
+       "title": "Dijkstra's Algorithm"
+      }
+     ],
+     "tags": [
+      "shortest_path",
+      "union_find"
+     ],
+     "plan": [
+      "sambanova-number-of-provinces",
+      "inmobi-cheapest-flights-within-k-stops",
+      "akuna-maximum-difference",
+      "visa-connected-groups",
+      "atlassian-neighboring-house-groups",
+      "atlassian-connected-sum",
+      "inmobi-shared-interest",
+      "visa-minimum-score-path-between-cities",
+      "stripe-factory-cost-skip-one",
+      "atlassian-drop-off-centers"
+     ],
+     "more": [
+      "read-ai-sentence-equivalence-with-synonyms",
+      "oracle-accounts-merge",
+      "nuro-sparse-point-distance-components",
+      "google-shortest-path-node-count-avoiding-broken-nodes",
+      "google-earliest-full-connection",
+      "google-count-connected-point-clusters",
+      "bcg-adjacency-matrix-shortest-distances",
+      "snap-inc-most-stones-removed",
+      "salesforce-path-with-maximum-probability",
+      "openai-count-friend-circles",
+      "google-horse-genetic-relatedness",
+      "databricks-rectangular-k-in-a-row",
+      "atlassian-best-telescope-site",
+      "anyscale-redundant-connection-ii",
+      "superhuman-optimal-transfer",
+      "spacex-number-of-islands-ii",
+      "snowflake-safest-shortest-grid-path",
+      "mercor-shortest-path-in-grid-with-obstacles-elimination",
+      "headlands-disaster-recovery"
+     ],
+     "oaShare": 2,
+     "amazonShare": 3,
+     "classics": 2
+    },
+    {
+     "slug": "dp-1",
+     "title": "Dynamic Programming I: 1-D",
+     "week": 15,
+     "chapters": [
+      {
+       "slug": "dynamic-programming",
+       "title": "Dynamic Programming: the Method"
+      },
+      {
+       "slug": "dp-1d",
+       "title": "One-dimensional DP"
+      },
+      {
+       "slug": "memoization",
+       "title": "Memoisation vs Tabulation"
+      }
+     ],
+     "tags": [
+      "dynamic_programming"
+     ],
+     "plan": [
+      "expedia-climbing-stairs",
+      "google-count-code-with-sum",
+      "find-minimum-inefficiency",
+      "worldquant-count-unordered-coin-combinations",
+      "imc-grid-paths-with-override-passes"
+     ],
+     "more": [
+      "akuna-maximize-ratings",
+      "purestorage-count-different-palindrome-substrings",
+      "amazon-minimum-path-sum",
+      "squadstack-weighted-decode-ways",
+      "weride-unequal-block-structure",
+      "american-express-minimum-moves-spread-stones-grid",
+      "amazon-minimum-preparation-time-for-two-handlers",
+      "amazon-domino-and-tromino-tiling",
+      "amazon-binary-strings-bounded-subset",
+      "amazon-minimum-merge-conflicts",
+      "amazon-is-regex-matching",
+      "palantir-optimize-discount-selection",
+      "intuit-minimum-starting-health-grid",
+      "snowflake-get-maximum-sum",
+      "postman-without-whitespaces",
+      "ibm-get-minimum-increment",
+      "cisco-find-minimum-cost-to-shift-machines",
+      "atlassian-timed-coin-collection",
+      "wayfair-distinct-letter-values-minimum-xor",
+      "uber-grid-robot-charging-priorities"
+     ],
+     "oaShare": 12,
+     "amazonShare": 9,
+     "classics": 1
+    },
+    {
+     "slug": "dp-1b",
+     "title": "Dynamic Programming I: LIS, Kadane, counting",
+     "week": 16,
+     "chapters": [
+      {
+       "slug": "lis",
+       "title": "Longest Increasing Subsequence"
+      },
+      {
+       "slug": "kadane",
+       "title": "Kadane's Algorithm"
+      },
+      {
+       "slug": "counting-dp",
+       "title": "Counting with DP"
+      },
+      {
+       "slug": "dynamic-programming",
+       "title": "Dynamic Programming: the Method"
+      }
+     ],
+     "tags": [
+      "dynamic_programming"
+     ],
+     "plan": [
+      "openai-longest-increasing-price-subsequence",
+      "cisco-maximum-chocolates-from-jars",
+      "tesla-maximum-even-sum-adjacent-pairs",
+      "odoo-maximum-profit-increasing-triplet",
+      "bloomberg-find-longest-chain"
+     ],
+     "more": [
+      "uber-find-robots-by-blocker-distances",
+      "robinhood-service-dependency-load-factors",
+      "oracle-maximize-movie-ratings",
+      "oracle-enumerate-right-down-matrix-paths",
+      "microsoft-stock-profit-at-most-two-transactions",
+      "microsoft-employee-hierarchy-cycle-and-depth",
+      "meta-stock-profit-transaction-limits",
+      "meta-minimum-time-target-courses",
+      "goldman-sachs-maximum-rocks-north-east-path",
+      "tekion-dungeon-game",
+      "rippling-maximum-simple-path-currency-conversion",
+      "phone-calls",
+      "hadrian-process-graph-rule-validation",
+      "google-shortest-round-trip-all-deliveries",
+      "google-minimum-racks-for-server-resources",
+      "google-directed-graph-reachability-queries",
+      "google-balanced-parentheses-left-deletions",
+      "google-alice-shortest-path-avoiding-bob",
+      "goldman-sachs-dungeon-health",
+      "find-max-length"
+     ],
+     "oaShare": 12,
+     "amazonShare": 9,
+     "classics": 1
+    },
+    {
+     "slug": "backtracking",
+     "title": "Backtracking",
+     "week": 17,
+     "chapters": [
+      {
+       "slug": "backtracking",
+       "title": "Backtracking"
+      },
+      {
+       "slug": "subsets",
+       "title": "Subset Enumeration"
+      },
+      {
+       "slug": "permutations",
+       "title": "Permutations and Combinations (generation)"
+      }
+     ],
+     "tags": [
+      "backtracking"
+     ],
+     "plan": [
+      "temu-subsets",
+      "nutanix-find-schedules",
+      "inmobi-generate-balanced-parentheses",
+      "atlassian-permutations",
+      "atlassian-letter-combinations-of-a-phone-number"
+     ],
+     "more": [
+      "pinterest-attribute-cartesian-product",
+      "bytedance-combination-sum-ii-negative-values",
+      "expedia-combination-sum-ii",
+      "tesla-enumerate-character-paths-to-marker",
+      "rippling-numeric-poker-operations",
+      "pinterest-insert-addition-multiplication-operators",
+      "bytedance-restore-addresses-with-k-segments",
+      "pinterest-fixed-length-combination-sum",
+      "pinterest-combination-sum-with-single-use",
+      "pinterest-combination-sum-with-reuse",
+      "microsoft-word-search",
+      "meta-maximum-unique-character-word-subset",
+      "infosys-all-subsequences",
+      "bytedance-binary-tree-target-sum-paths",
+      "pinterest-optimal-account-balancing",
+      "pinterest-expression-add-operators",
+      "bytedance-directed-graph-paths-and-cycles",
+      "virtu-financial-optimal-account-balancing",
+      "oracle-place-k-buildings-minimax-grid-distance",
+      "confluent-sudoku-puzzle-solver"
+     ],
+     "oaShare": 1,
+     "amazonShare": 0,
+     "classics": 1
+    }
+   ]
+  },
+  {
+   "title": "Depth",
+   "about": "The rest, once the core is automatic.",
+   "stages": [
+    {
+     "slug": "dp-2",
+     "title": "Dynamic Programming II: knapsack, grids, strings",
+     "week": 20,
+     "chapters": [
+      {
+       "slug": "knapsack",
+       "title": "Knapsack"
+      },
+      {
+       "slug": "unbounded-knapsack",
+       "title": "Unbounded Knapsack and Coin Change"
+      },
+      {
+       "slug": "dp-strings",
+       "title": "DP on Strings (Edit Distance, LCS)"
+      },
+      {
+       "slug": "dp-2d",
+       "title": "Two-dimensional DP and Grids"
+      }
+     ],
+     "tags": [
+      "dynamic_programming"
+     ],
+     "plan": [
+      "grubhub-coin-change",
+      "snowflake-efficient-cost",
+      "astrotalk-edit-distance",
+      "confluent-positive-subset-sum",
+      "squarepoint-longest-subsequence-from-two-arrays",
+      "wellsfargo-longest-subsequence-substring",
+      "phonepe-substrings-without-target-subsequence",
+      "walmart-distinct-bitwise-or-scores",
+      "google-count-valid-parity-run-subsequences",
+      "ibm-count-increasing-subsequences-length-three"
+     ],
+     "more": [
+      "stanley-get-subsequence-count",
+      "amazon-zero-one-knapsack",
+      "amazon-minimum-insertions",
+      "amazon-convert-to-good-string",
+      "snowflake-find-the-maximum-length-of-a-good-subsequence-i",
+      "service-now-maximum-sum-of-balanced-subsequence",
+      "peoplestrong-unique-paths",
+      "multicoreware-minimum-coin-change",
+      "morgan-stanley-longest-common-subsequence",
+      "microsoft-zero-one-knapsack",
+      "mathwork-maximum-even-sum-subsequence",
+      "jpmorgan-zero-one-knapsack",
+      "amazon-maximum-domino-removals",
+      "wellsfargo-sum-of-compressed-number-for-all-subarrays",
+      "tiktok-max-length",
+      "snowflake-get-max-beautiful-substrings",
+      "scale-ai-distinct-or-increasing-subsequences",
+      "salesforce-closest-subsequence-sum",
+      "microsoft-great-subsequences",
+      "infosys-find-number-of-good-subsequences"
+     ],
+     "oaShare": 12,
+     "amazonShare": 9,
+     "classics": 0
+    },
+    {
+     "slug": "bits-math",
+     "title": "Bits & Maths",
+     "week": 21,
+     "chapters": [
+      {
+       "slug": "bit-manipulation",
+       "title": "Bit Manipulation"
+      },
+      {
+       "slug": "xor-tricks",
+       "title": "XOR Properties"
+      },
+      {
+       "slug": "math",
+       "title": "Maths for Interviews"
+      },
+      {
+       "slug": "number-theory",
+       "title": "Number Theory Basics"
+      },
+      {
+       "slug": "geometry",
+       "title": "Computational Geometry Basics"
+      }
+     ],
+     "tags": [
+      "bit_manipulation",
+      "math"
+     ],
+     "plan": [
+      "jpmorgan-invert-ad-visibility",
+      "nvidia-check-endianness",
+      "oracle-swap-two-integers-without-temporary-variable",
+      "ibm-maximize-consecutive-xor",
+      "warehouse-allocation",
+      "microsoft-count-same-bit-numbers",
+      "barclays-production-ratio-worker-allocation",
+      "ibm-plus-mult-array",
+      "drw-2020-account-balance"
+     ],
+     "more": [
+      "visa-subarray-sum",
+      "optiver-days-between",
+      "millennium-quote-one-request",
+      "millennium-calculate-half-spread",
+      "interactive-brokers-progressive-tax-calculator",
+      "ibm-count-digit-holes",
+      "hrt-product-minus-sum-of-digits",
+      "capital-one-product-minus-sum-of-digits",
+      "capital-one-count-digits-0-2-4",
+      "get-discount-pairs",
+      "visa-count-reverse-digit-pairs",
+      "millennium-risk-limits-and-skew",
+      "millennium-debug-risk-limit-quoter",
+      "capital-one-minimize-expression-value-with-parentheses",
+      "bytedance-minimize-expression-value-with-parentheses",
+      "akuna-vowel-substring-game",
+      "get-average-standing",
+      "amazon-sum-of-all-days-numbers-on-which-the-data-of-the-xth-will-be-dependent",
+      "amazon-find-number-of-ways-to-group-parcels",
+      "amazon-get-data-dependence-sum"
+     ],
+     "oaShare": 18,
+     "amazonShare": 10,
+     "classics": 0
+    },
+    {
+     "slug": "adv-graphs",
+     "title": "Advanced Graphs",
+     "week": 23,
+     "chapters": [
+      {
+       "slug": "shortest-path",
+       "title": "Shortest Paths: the Map"
+      },
+      {
+       "slug": "bridges-articulation",
+       "title": "Bridges and Articulation Points"
+      },
+      {
+       "slug": "minimum-spanning-tree",
+       "title": "Minimum Spanning Trees (Kruskal, Prim)"
+      }
+     ],
+     "tags": [
+      "graph",
+      "shortest_path"
+     ],
+     "plan": [
+      "google-swim-in-rising-water",
+      "databricks-minimize-commute",
+      "microsoft-minimum-fuel-cost",
+      "juspay-dynamic-weighted-tree-distance-sum",
+      "amazon-find-safest-path-in-grid"
+     ],
+     "more": [
+      "persona-escape-haunted-castle",
+      "snowflake-web-crawler-shortest-path",
+      "amazon-maximum-truck-weight",
+      "waymo-deterministic-depth-first-graph-traversal",
+      "snowflake-effective-access-control",
+      "snowflake-acl-with-local-deny",
+      "salesforce-flight-departure-chains",
+      "plaid-evaluation-chain-validity",
+      "cisco-drone-delivery-battery-swaps",
+      "akuna-competitive-foraging",
+      "adobe-minimum-travel-time-periodic-roads",
+      "vanta-group-training-overdue-rollup",
+      "strala-spreadsheet-cell-expressions",
+      "skyscanner-minimum-path-with-discounts",
+      "salesforce-minimum-word-ladder-steps",
+      "rubrik-maximize-stellar-gradient",
+      "pinterest-reconstruct-itinerary-any-start",
+      "pika-spreadsheet-formula-evaluator",
+      "persona-treasure-hunter",
+      "persona-escape-haunted-castle-treasures"
+     ],
+     "oaShare": 7,
+     "amazonShare": 2,
+     "classics": 0
+    },
+    {
+     "slug": "range-queries",
+     "title": "Range Queries: segment tree & Fenwick",
+     "week": 27,
+     "chapters": [
+      {
+       "slug": "segment-tree",
+       "title": "Segment Trees"
+      },
+      {
+       "slug": "fenwick-tree",
+       "title": "Fenwick Tree (BIT)"
+      },
+      {
+       "slug": "sqrt-decomposition",
+       "title": "Sqrt Decomposition and Mo's Algorithm"
+      }
+     ],
+     "tags": [
+      "segment_tree"
+     ],
+     "plan": [
+      "snowflake-find-pod-count",
+      "atlassian-count-bitonic-subsequences",
+      "atlassian-minimum-sorted-erasure-operations",
+      "postman-maximum-laptop-rating",
+      "amazon-employee-ratings-data-structure",
+      "pinterest-subtree-access-overrides",
+      "epic-minimum-adjacent-transpositions",
+      "bnsf-railway-minimum-bridge-turnbacks"
+     ],
+     "more": [
+      "roblox-block-placement-queries",
+      "honda-rd-photo-album",
+      "akuna-rolling-metrics",
+      "optiver-future-pricing",
+      "factset-photo-album",
+      "doordash-adjust-prices",
+      "intuit-dynamic-weighted-range-scores",
+      "intuit-ancestor-product-pairs",
+      "visa-binary-sorting-rounds-after-flips",
+      "chubb-count-valid-divisible-interval-pairs",
+      "amazon-maximize-shipment-order-one-window",
+      "amazon-compute-beauty-of-array-products",
+      "rubrik-salvage-humankind",
+      "inmobi-range-maximum-subarray-sum-queries",
+      "inmobi-maximum-subarray-with-start-end-windows",
+      "walmart-range-module",
+      "uber-build-blocks-and-obstacles",
+      "tiktok-segment-queries",
+      "stackadapt-running-median-percentile",
+      "google-streaming-order-statistics"
+     ],
+     "oaShare": 1,
+     "amazonShare": 1,
+     "classics": 0
+    },
+    {
+     "slug": "dp-3",
+     "title": "Interval, game and bitmask DP",
+     "week": 28,
+     "chapters": [
+      {
+       "slug": "partition-dp",
+       "title": "Partition and Interval DP"
+      },
+      {
+       "slug": "game-dp",
+       "title": "Game Theory DP (Minimax, Nim)"
+      },
+      {
+       "slug": "tree-dp",
+       "title": "Tree DP and Rerooting"
+      },
+      {
+       "slug": "dp-bitmask",
+       "title": "Bitmask DP"
+      }
+     ],
+     "tags": [
+      "dynamic_programming"
+     ],
+     "plan": [
+      "tekion-coin-game-from-ends",
+      "google-merge-stones",
+      "infosys-count-equal-distinct-character-partitions",
+      "meta-partition-deck-into-fifteens",
+      "spotnana-optimal-card-game-score",
+      "google-minimum-tree-value-after-leaf-relocations",
+      "amazon-tallest-billboard",
+      "rubrik-bitonic-partitioning"
+     ],
+     "more": [
+      "cisco-find-largest-sum-of-continuous-sequence",
+      "cisco-find-largest-sum-contiguous-subarray",
+      "amazon-count-substrings",
+      "openai-optimal-first-player-card-score",
+      "rippling-optimal-endpoint-score-difference",
+      "intuit-team-outing",
+      "intuit-maximum-reward",
+      "affirm-normalize-loan-merchants-to-root-business",
+      "amazon-minimum-value-calculation-by-replacing",
+      "amazon-get-minimum-sum-of-distances",
+      "amazon-get-maximum",
+      "amazon-find-partition-cost",
+      "deloitte-maximum-sum-rectangle",
+      "atlassian-perfect-breaks",
+      "atlassian-minimum-monotonic-array-cost",
+      "atlassian-dice-roll-simulation",
+      "atlassian-colorful-increasing-subsequences",
+      "make-array-bitonic-deshaw",
+      "amazon-maximum-possible-charge",
+      "amazon-maximize-subtree-product"
+     ],
+     "oaShare": 12,
+     "amazonShare": 9,
+     "classics": 0
+    },
+    {
+     "slug": "string-algos",
+     "title": "String algorithms: KMP, Z, hashing",
+     "week": 35,
+     "chapters": [
+      {
+       "slug": "string-matching",
+       "title": "String Matching (KMP, Z, Rabin-Karp)"
+      },
+      {
+       "slug": "palindromes",
+       "title": "Palindromes"
+      },
+      {
+       "slug": "manachers",
+       "title": "Manacher's Algorithm"
+      }
+     ],
+     "tags": [
+      "string"
+     ],
+     "plan": [
+      "kotak-first-string-occurrence",
+      "nutanix-count-good-subsequences",
+      "amazon-compute-encoded-product-name",
+      "paypay-palindromic-array-transformation",
+      "ibm-alphabetically-smallest-palindrome",
+      "amazon-find-encrypted-password",
+      "count-palindromes"
+     ],
+     "more": [
+      "amazon-valid-palindrome",
+      "citadel-minimum-changes-palindromic-blocks",
+      "kotak-mahindra-bank-valid-palindrome",
+      "hrt-rightmost-longest-character-run",
+      "capital-one-round-robin-wdl-order",
+      "capital-one-rightmost-longest-character-run",
+      "capital-one-match-consecutive-word-boundaries",
+      "bytedance-match-consecutive-word-boundaries",
+      "apple-palindrome-match-percentage",
+      "amazon-group-anagrams",
+      "tiktok-count-one-swap-number-pairs",
+      "tiktok-count-access-code-pairs",
+      "hrt-count-one-swap-number-pairs",
+      "capital-one-sorted-extended-matrix-diagonals",
+      "atlassian-merging-palindromes",
+      "apple-factorize-string-extremities",
+      "amazon-lexicographically-smallest-palindrome-possible",
+      "amazon-consecutive-website-visit-pattern",
+      "amazon-count-distinct-passwords",
+      "amazon-find-number-of-possible-unique-strings"
+     ],
+     "oaShare": 21,
+     "amazonShare": 11,
+     "classics": 0
+    },
+    {
+     "slug": "design-coding",
+     "title": "Design-style coding: LRU, iterators, rate limiters",
+     "week": 38,
+     "chapters": [
+      {
+       "slug": "design-data-structure",
+       "title": "Designing a Data Structure"
+      },
+      {
+       "slug": "lru-cache",
+       "title": "LRU and LFU Caches"
+      },
+      {
+       "slug": "rate-limiting",
+       "title": "Rate Limiting and Token Buckets"
+      }
+     ],
+     "tags": [
+      "design"
+     ],
+     "plan": [
+      "atlassian-peeking-iterator",
+      "nvidia-flatten-nested-list-iterator",
+      "rippling-corporate-card-rules-engine",
+      "airbnb-in-memory-database",
+      "anthropic-cloud-storage-system",
+      "microsoft-authentication-system"
+     ],
+     "more": [
+      "anthropic-worker-management-level-1",
+      "airbnb-worker-management-level-1",
+      "anthropic-banking-system-part-2",
+      "amazon-latest-timestamp-key-value-store",
+      "anthropic-worker-management-level-2",
+      "anthropic-banking-pending-transfer-acceptance",
+      "airbnb-worker-management-level-2",
+      "amazon-insert-delete-getrandom-o1",
+      "zscaler-rate-limiter-hourly-daily-effort",
+      "coinbase-task-management-system",
+      "airbnb-worker-management-level-4-worker-merge",
+      "airbnb-worker-management-level-3-overtime",
+      "airbnb-in-memory-file-system",
+      "airbnb-cloud-storage-backup-and-restore",
+      "anthropic-worker-management-level-4",
+      "anthropic-worker-management-level-3",
+      "anthropic-task-management-system",
+      "anthropic-in-memory-database-backup-restore",
+      "anthropic-cloud-storage-compression",
+      "airbnb-worker-management-level-3"
+     ],
+     "oaShare": 6,
+     "amazonShare": 0,
+     "classics": 0
+    }
+   ]
+  }
+ ],
+ "sets": [
+  {
+   "week": 13,
+   "ids": [
+    "amazon-minimum-redistribution-cost",
+    "deloitte-lonest-substring-with-even-occurrences",
+    "amazon-calculate-beauty-values",
+    "amazon-maximum-equal-parts-for-prefixes",
+    "amazon-drone-delivery-route",
+    "stripe-financial-account-ledger",
+    "microsoft-equalize-arrays-with-prefix-suffix-increments",
+    "hrt-maximum-rhombic-area-sum"
+   ],
+   "label": "Prefix sums + Greedy"
+  },
+  {
+   "week": 22,
+   "ids": [
+    "imc-maximum-size-square-sub-matrix-with-sum-less-than-threshold",
+    "squadstack-minimum-seats-car-pooling",
+    "amazon-find-minimum-cost",
+    "two-sigma-balanced-split-string-with-wildcards",
+    "capital-one-dynamic-wall-range-query",
+    "google-find-number-of-ways-to-split-array",
+    "amazon-find-security-level",
+    "microsoft-minimum-cost-k-capable-models",
+    "palantir-basic-item-discounts"
+   ],
+   "label": "Prefix sums + Sorting"
+  },
+  {
+   "week": 24,
+   "ids": [
+    "amazon-all-about-rewards",
+    "amazon-minimize-variation",
+    "amazon-find-hash",
+    "amazon-select-least-resource-tasks",
+    "amazon-unfulfilled-bids-after-ranked-round-robin",
+    "max-set-size",
+    "amazon-calculate-median-sum",
+    "amazon-find-minimum-days",
+    "amazon-find-requests-in-queue",
+    "amazon-get-min-time"
+   ],
+   "label": "Greedy + Sorting"
+  },
+  {
+   "week": 25,
+   "ids": [
+    "amazon-calculate-warehouse-efficiency",
+    "amazon-get-min-time-two",
+    "amazon-find-least-possible-vulnerability",
+    "amazon-get-special-string",
+    "amazon-find-minimum-time-required",
+    "check-similar-passwords",
+    "amazon-get-minimum-changes",
+    "amazon-optimize-identifiers",
+    "amazon-make-array-distinct",
+    "amazon-maximize-meory-points"
+   ],
+   "label": "Prefix sums + Greedy"
+  },
+  {
+   "week": 26,
+   "ids": [
+    "ibm-increasing-value-triplets-under-threshold",
+    "tiktok-format-text",
+    "ibm-minimum-disjoint-segments",
+    "salesforce-minimum-removals-to-balance-array",
+    "capital-one-optimal-lamp-coordinate",
+    "general-motors-per-client-sliding-window-rate-limiter",
+    "imc-stack-batch-removal",
+    "jpmorgan-get-min-length",
+    "drw-nested-database-transactions"
+   ],
+   "label": "Two pointers + Sorting"
+  },
+  {
+   "week": 30,
+   "ids": [
+    "google-minimum-swaps-to-sort-ternary-array-after-updates",
+    "google-split-and-sort",
+    "google-minimize-absolute-difference-of-server-loads",
+    "google-power-update-after-kth-largest-insertion",
+    "google-minimum-cars-for-rental-requests",
+    "google-score-points",
+    "google-guess-the-word",
+    "google-reach-the-end-in-time",
+    "google-longest-subarray-sum-at-most-k"
+   ],
+   "label": "Segment tree + Greedy"
+  },
+  {
+   "week": 31,
+   "ids": [
+    "google-min-absolute-sum",
+    "google-minimum-number-of-moves-to-obtain",
+    "google-consolidated-on-call-rotations",
+    "google-drive-folder-hierarchy-sync",
+    "google-assign-locker",
+    "google-maximum-elements-with-a-common-digit",
+    "google-book-reading-evenings",
+    "google-closest-pizza-price",
+    "google-find-min-distance-to-farthest-node"
+   ],
+   "label": "Greedy + Arrays"
+  },
+  {
+   "week": 32,
+   "ids": [
+    "tiktok-build-blocks-from-starting-position",
+    "two-sigma-linear-interpolator",
+    "adobe-alternate-divisible-linked-list-prefix",
+    "imc-rock-jumping",
+    "adobe-group-third-linked-list-nodes",
+    "openai-largest-microorganism",
+    "nvidia-minimize-task-resource-consumption",
+    "the-walt-disney-company-merge-k-sorted-lists",
+    "peoplestrong-reverse-nodes-in-k-groups"
+   ],
+   "label": "Linked list"
+  },
+  {
+   "week": 33,
+   "ids": [
+    "meta-in-memory-database-historical-fields",
+    "mt-cave",
+    "meta-minimum-stepwise-operations",
+    "mt-search-myterious-grid",
+    "meta-count-fully-used-batteries",
+    "mt-enumerating-narrative-sections",
+    "meta-building-blocks",
+    "mt-minimum-obstacles-to-remove-to-allow-figure-fall",
+    "meta-find-all-local-maximums"
+   ],
+   "label": "Binary search + Design"
+  },
+  {
+   "week": 34,
+   "ids": [
+    "meta-count-key-changes",
+    "meta-most-frequent-reduced-digit",
+    "mt-busting-town-buses",
+    "mt-closest-land-mark",
+    "meta-compute-difference",
+    "meta-highest-rating-price-ratio",
+    "mt-count-three-sisters",
+    "mt-find-how-many-subarrays-match-the-pattern",
+    "meta-replace-consonant"
+   ],
+   "label": "Simulation + Strings"
+  },
+  {
+   "week": 36,
+   "ids": [
+    "ethos-life-recoverable-range-sum-elements",
+    "intuit-alien-dictionary",
+    "num-ways",
+    "stripe-evolving-merchant-clusters",
+    "citadel-get-good-value",
+    "cisco-find-sub-string",
+    "adyen-maximize-strength-with-disjoint-swaps"
+   ],
+   "label": "1-D Dynamic Programming"
+  },
+  {
+   "week": 37,
+   "ids": [
+    "uber-balanced-permutation-subarrays",
+    "uber-last-truck-to-leave-the-lane",
+    "uber-count-palindromic-ancestor-paths",
+    "uber-jump-game-prime-3-steps",
+    "uber-minimum-operations-to-reduce-to-zero",
+    "uber-shopkeeper-final-price",
+    "uber-kth-greater-element-indexes",
+    "uber-minimum-euclidean-plate-collection-time",
+    "uber-get-balanced-string"
+   ],
+   "label": "Trees"
+  },
+  {
+   "week": 39,
+   "ids": [
+    "adobe-snapshot-budget",
+    "tower-research-capital-maximum-signal-walk-server-tree",
+    "anthropic-banking-system-part-3",
+    "coinbase-cloud-compute-credits-system",
+    "intuit-find-median-from-data-stream",
+    "point72-initial-public-offering",
+    "adobe-longest-fruit-path",
+    "hudson-river-trading-minimum-fixed-mirror-rotations",
+    "jpmorgan-maximum-game-board-score"
+   ],
+   "label": "Heap + Design"
+  },
+  {
+   "week": 40,
+   "ids": [
+    "amazon-permutation-sorter",
+    "ibm-expiring-authentication-token-manager",
+    "amazon-manual-priority-queue",
+    "ibm-get-maximum-amount",
+    "get-minimum-cost",
+    "amazon-reorganize-string",
+    "airbnb-city-price-medians"
+   ],
+   "label": "Heap / Priority Queue"
+  },
+  {
+   "week": 42,
+   "ids": [
+    "arcesium-reconstruct-root-stream",
+    "stripe-organization-role-tree-renderer",
+    "blackrock-count-levels",
+    "scale-ai-lowest-common-ancestor-general-tree",
+    "intuit-kth-node-in-dfs-subtree",
+    "uber-binary-tree-subtree-sum-maximum-path-and-path-nodes",
+    "nielsen-special-bst-preorder",
+    "adobe-count-parent-nodes-with-target-sum"
+   ],
+   "label": "Trees + DFS"
+  },
+  {
+   "week": 43,
+   "ids": [
+    "microsoft-maximum-data-transfer-time",
+    "rippling-validate-max-heap",
+    "adobe-kth-ancestor-subtree-preorder",
+    "mathworks-minimum-diameter-after-removing-leaves",
+    "jpmorgan-minimum-meeting-rooms",
+    "tiktok-optimize-tiktok-watch-time",
+    "jpmorgan-minimize-cost",
+    "susquehanna-four-by-four-boundary-grid"
+   ],
+   "label": "Trees + Graphs"
+  },
+  {
+   "week": 45,
+   "ids": [
+    "adobe-graph-m-coloring",
+    "goldman-sachs-alternating-parity-permutations",
+    "elevenlabs-next-number-with-disjoint-digits",
+    "the-walt-disney-company-generate-parentheses",
+    "visa-number-of-islands-dfs-and-bfs",
+    "roblox-longest-contiguous-house-segment",
+    "citadel-shortest-path-unweighted-graph"
+   ],
+   "label": "Graphs + BFS"
+  },
+  {
+   "week": 46,
+   "ids": [
+    "intuit-shortest-path-from-encoded-graph",
+    "snowflake-minimum-clicks-between-wiki-pages",
+    "rippling-valid-dfs-order",
+    "superhuman-mutual-friend-recommendations",
+    "openai-cogwheel-rotation-directions",
+    "stripe-risky-fraud-ring",
+    "mathworks-shortest-route-possible-predecessors"
+   ],
+   "label": "Graphs + BFS"
+  },
+  {
+   "week": 47,
+   "ids": [
+    "drw-doctor-appointment-slot-assignment",
+    "stripe-fraud-ring-size",
+    "adobe-maze-reachability",
+    "intuit-safest-grid-path",
+    "capitalone-count-house-segments-after-destruction",
+    "visa-minimum-unreachable-warehouses",
+    "concentric-ai-maximum-profit-under-or-limit"
+   ],
+   "label": "Union-find + Graphs"
+  },
+  {
+   "week": 50,
+   "ids": [
+    "akuna-maximum-remaining-drone-power",
+    "amazon-maximize-protected-city-population",
+    "confluent-count-weight-combinations",
+    "flextrade-best-time-to-buy-and-sell-stock",
+    "microsoft-maximum-score-with-prime-jumps"
+   ],
+   "label": "DP"
+  },
+  {
+   "week": 51,
+   "ids": [
+    "confluent-reach-target-balance",
+    "hrt-count-sawtooth-subarrays",
+    "optiver-count-bounded-share-transactions",
+    "roblox-cat-route-budget-game-adaptation",
+    "shopify-zero-one-knapsack"
+   ],
+   "label": "DP + Arrays"
+  }
+ ],
+ "oaSample": 1380,
+ "amazonSample": 102
+}

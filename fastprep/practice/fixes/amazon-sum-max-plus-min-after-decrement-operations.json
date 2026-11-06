@@ -1,0 +1,17 @@
+{
+ "pattern": "heap",
+ "why": "The naive solution is a priority queue: each request pops the maximum, adds max + min, and pushes max - 1. requests reaches 10^9, so you must batch it: sort once and level the top group of equal maxima in whole rounds with arithmetic series.",
+ "hints": [
+  "Simulate a few steps with a max-heap. What does the top of the array look like after a while? When does the minimum ever change?",
+  "Sort descending. The top k values become one flat level v. A full round of k operations lowers all of them by 1 and adds k*v to the max part. The group grows when v reaches the next value. The minimum stays arr's smallest value until every element has joined the group.",
+  "Walk the distinct values: for each group, do r = min(v - next, left // k) full rounds summed as an arithmetic series, then a final partial round. Handle the 'everyone in the group' case, where the minimum is v for the first operation of a round and v - 1 after it. O(n log n)."
+ ],
+ "pitfalls": [
+  "requests = 0 returns 0.",
+  "Once all elements are equal, the minimum also starts dropping, and it lags the maximum by one within each round.",
+  "Values may go to 0 or below when requests is huge; nothing stops at 0.",
+  "Totals reach about 10^18 or more; use 64-bit or Python ints."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

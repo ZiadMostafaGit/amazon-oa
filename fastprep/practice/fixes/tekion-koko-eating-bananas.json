@@ -1,0 +1,16 @@
+{
+ "pattern": "binary-search-on-answer",
+ "why": "If Koko finishes in time at speed k, she also finishes at any faster speed. That monotone yes/no lets you binary search the smallest working k in [1, max(piles)], with sum(ceil(p / k)) as the check.",
+ "hints": [
+  "If speed k is fast enough, is k + 1 also fast enough?",
+  "Yes, so feasibility is a step from false to true. Binary search for the first true. The check: hours = sum of ceil(pile / k).",
+  "Search lo = 1, hi = max(piles); each check is O(n), giving O(n log max). Use (p + k - 1) // k for the ceiling."
+ ],
+ "pitfalls": [
+  "Speed max(piles) always works since h >= n, so it is a safe upper bound.",
+  "Use integer ceiling, not float division.",
+  "Leftover time in an hour is wasted: a pile of 7 at speed 4 takes 2 hours."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

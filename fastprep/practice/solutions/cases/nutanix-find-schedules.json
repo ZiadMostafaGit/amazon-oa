@@ -1,0 +1,128 @@
+{
+ "problemId": "nutanix-find-schedules",
+ "generatedAt": "2026-11-06T15:50:06",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "work_hours",
+     "type": "int",
+     "rawValue": "25"
+    },
+    {
+     "name": "day_hours",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"08?840\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "work_hours",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "day_hours",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"??2??00\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "work_hours",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "day_hours",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"10\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "work_hours",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "day_hours",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"??2??0\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "work_hours",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "day_hours",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"0??840\""
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "work_hours",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "day_hours",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "pattern",
+     "type": "String",
+     "rawValue": "\"?2??00\""
+    }
+   ],
+   "expectedRaw": "[\"020000\"]"
+  }
+ ]
+}

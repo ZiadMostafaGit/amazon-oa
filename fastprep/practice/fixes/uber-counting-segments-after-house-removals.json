@@ -1,0 +1,16 @@
+{
+ "pattern": "union-find",
+ "why": "Segments are connected components of houses at consecutive positions. Deletions are hard for union-find, so process the queries backwards: start from the houses that are never removed, add houses back one at a time, and union each with position-1 and position+1 if present, tracking the component count.",
+ "hints": [
+  "A segment is a maximal run of houses at positions p, p+1, p+2, ... Removing a house can split a run in two, delete it, or shrink it.",
+  "Union-find cannot split sets, but it can merge them. Reverse time: begin with only the houses no query removes, then add the queried houses back from last query to first.",
+  "Keep a component counter: adding a house is +1, and each successful union with a neighbour at p-1 or p+1 is -1. Record the count before each re-insertion; that is the answer for the query in forward order. With a hash map from position to index, this is O((n + q) α(n)). (Alternatively, count directly: removing p changes the count by +1 if both neighbours are present, 0 if one is, -1 if none.)"
+ ],
+ "pitfalls": [
+  "The published sample outputs contradict their own explanations (for example, the explanation lists three segments [1, 2], [7], [9] but reports 2). Trust the rule, not the sample numbers.",
+  "Adjacency means positions differ by exactly 1, not by 'nearby'.",
+  "Positions can be large and sparse, so use a hash map or set rather than an array indexed by position."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

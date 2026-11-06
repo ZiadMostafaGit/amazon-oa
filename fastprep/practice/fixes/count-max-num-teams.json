@@ -1,0 +1,17 @@
+{
+ "pattern": "sorting",
+ "why": "Only the max - min spread inside a team matters, so sort the skills; then the best team containing the weakest unused developer is the next teamSize developers in sorted order. Greedily form a team whenever that block fits within maxDiff, otherwise drop the weakest.",
+ "hints": [
+  "Order does not matter, only each team's max - min. What does sorting give you?",
+  "After sorting, a team should be teamSize consecutive values. If the block starting at the smallest remaining value fits (last - first <= maxDiff), taking it never hurts; if it doesn't fit, that smallest value can't be in any team.",
+  "Sort, then walk an index i: if s[i+teamSize-1] - s[i] <= maxDiff count a team and jump by teamSize, else step by 1. O(n log n)."
+ ],
+ "pitfalls": [
+  "The limit is inclusive: a spread exactly equal to maxDiff is allowed.",
+  "teamSize = 1: every developer is a team.",
+  "Developers left over at the end are simply unused."
+ ],
+ "constraints": "<ul><li>1 &le; teamSize &le; n &le; 10^5</li><li>1 &le; maxDiff &le; 10^9</li><li>1 &le; skill[i] &le; 10^9</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

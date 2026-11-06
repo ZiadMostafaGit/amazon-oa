@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "Each warehouse has a fixed price in co-worker skips that makes you land the final dispatch, and every warehouse is worth exactly 1 credit. With a shared skip budget, buy the cheapest warehouses first: sort the prices and take them while the budget lasts.",
+ "hints": [
+  "Warehouses are independent apart from the shared skip budget, and each one is worth the same 1 credit.",
+  "One full round removes dispatch1 + dispatch2. Let r = the remainder left for the last round, r = (inventory - 1) mod (d1 + d2) + 1. If r <= d1 you finish it for free; otherwise you need ceil(r / d1) - 1 extra turns of yours, each paid for by one skip.",
+  "Compute that cost per warehouse in O(1), sort the costs, and take the cheapest ones while the budget covers them. O(n log n)."
+ ],
+ "pitfalls": [
+  "Inventory that is an exact multiple of d1 + d2: the remainder is d1 + d2, not 0, so use (v - 1) mod s + 1.",
+  "Skipping is pointless before the last round; only the remainder matters, so never simulate turn by turn (values up to 10^9).",
+  "skips can be up to 10^9 and may cover every warehouse; the answer is then n."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

@@ -1,0 +1,17 @@
+{
+ "pattern": "greedy",
+ "why": "A circle where neighbours differ by at most 1 must walk up from the smallest value to the largest and back down, so it covers a run of consecutive values [lo, hi] in which every interior value appears at least twice (once going up, once coming down) and the ends may appear once. Count each value and scan runs of consecutive values, greedily extending the window and restarting it at any value with count 1.",
+ "hints": [
+  "Order does not matter, so count how many servers have each power. Go around the circle from its smallest value: what must happen before you return to the start?",
+  "The circle climbs from lo to hi and comes back, so it uses every value in between at least twice, and lo and hi at least once. All copies of the chosen values can be added, since equal values can sit next to each other.",
+  "Sort the distinct values and scan maximal runs of consecutive integers. Keep a running sum; a value with count 1 can only be an end, so after adding it, restart the sum from that value. Track the best sum. O(n log n) for sorting."
+ ],
+ "pitfalls": [
+  "A single value (all servers equal) is always valid: any number of equal servers form a circle.",
+  "A gap of 2 or more between consecutive distinct values breaks the run.",
+  "Two distinct values lo and lo+1 work even with one copy each (the circle 1, 2 is fine), so count-1 values are allowed at the ends.",
+  "Despite the note about subsequences, order in the input is irrelevant because the selection may be rearranged."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

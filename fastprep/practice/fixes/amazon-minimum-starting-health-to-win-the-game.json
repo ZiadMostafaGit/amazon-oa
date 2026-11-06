@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "Health only goes down, so it is lowest at the very end: you need total damage minus the armor saving, plus 1. The armor saves min(armor, power[i]), so the greedy choice is the round where that saving is largest, which is the biggest power round.",
+ "hints": [
+  "When during the game is health at its lowest?",
+  "At the end, after all damage. So start = sum(power) - saving + 1, and you want the saving as large as possible.",
+  "One pass: total += p and best = max(best, min(p, armor)). Answer total - best + 1. O(n), O(1)."
+ ],
+ "pitfalls": [
+  "The +1: health must stay strictly above 0.",
+  "Armor saves at most power[i] in that round; it cannot carry leftover protection, so use min(armor, p).",
+  "Sums reach 10^14; fine in Python, needs 64-bit elsewhere."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

@@ -1,0 +1,18 @@
+{
+ "pattern": "greedy",
+ "why": "An operation only ever copies a value that is already in the array, and divisibility is transitive, so each batch can end at the smallest original value that divides it. Greedily replacing every expense by its smallest divisor present in the array minimises each term independently.",
+ "hints": [
+  "After any operation, every value in the array is still one of the original values. Which values can a given expense eventually become?",
+  "If a is divisible by b and b by c, then a is divisible by c, so chains give nothing new: expense x can become exactly the original values that divide x. Each position is independent, so pick the smallest such divisor.",
+  "Sort the distinct values; for each value d ascending, mark its multiples that appear in the array (sieve up to the max) and keep the first d that reaches each one. O(V log V) for max value V, or O(D^2) over D distinct values when that is smaller. Sum the chosen divisors with a 64-bit total."
+ ],
+ "pitfalls": [
+  "Divisibility goes one way: a must be divisible by b. In the example 5 cannot become 2.",
+  "A value always divides itself, so a value with no smaller divisor in the array stays as it is.",
+  "Duplicates are fine; compute the answer per distinct value and multiply by how often it appears.",
+  "The answer can exceed 32 bits (return a long)."
+ ],
+ "constraints": "<ul><li>1 &lt;= p &lt;= 10^5</li><li>1 &lt;= expense[i] &lt;= 10^6</li><li><i>Not stated in the source; reasonable bounds.</i></li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

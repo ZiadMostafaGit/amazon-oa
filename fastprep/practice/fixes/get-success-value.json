@@ -1,0 +1,17 @@
+{
+ "pattern": "prefix-sums",
+ "why": "The top k regions are the first k after sorting descending, so each query is a prefix sum of the sorted array. Sort once, build prefix sums, and every query is a single lookup.",
+ "hints": [
+  "Each query asks for the k largest values. What order makes 'the k largest' a prefix?",
+  "Sorted descending, the answer for k is the sum of the first k elements: a prefix sum.",
+  "Sort descending, build prefix[0..n], answer prefix[k] per query. O(n log n + q), instead of O(n) per query."
+ ],
+ "pitfalls": [
+  "Ties do not matter: with [6,5,5], top 3 is 16.",
+  "Answers reach 10^14; use 64-bit integers.",
+  "Return answers in query order, not sorted order."
+ ],
+ "constraints": "<ul><li>1 &lt;= n &lt;= 10^5</li><li>1 &lt;= q &lt;= 10^5</li><li>1 &lt;= num_viewers[i] &lt;= 10^9</li><li>1 &lt;= queries[i] &lt;= n</li><li>Each success value is at most 10^14 and needs a 64-bit integer.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

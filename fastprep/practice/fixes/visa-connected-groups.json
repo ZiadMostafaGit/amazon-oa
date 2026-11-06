@@ -1,0 +1,17 @@
+{
+ "pattern": "union-find",
+ "why": "Members are nodes and each related[i][j] = 1 is an undirected edge; transitive membership means a group is a connected component. Union-find merges related members, and the group count is N minus the number of successful merges.",
+ "hints": [
+  "'Related through any chain' is the definition of what in a graph?",
+  "Count connected components: start with N singleton groups and merge whenever two related members are in different groups.",
+  "Union-find with path compression over the upper triangle of the matrix: O(N^2 alpha(N)). A DFS or BFS from each unvisited member is equivalent."
+ ],
+ "pitfalls": [
+  "The diagonal related[i][i] is not a relationship with anyone else.",
+  "An isolated member is still one group.",
+  "The matrix is symmetric; visit each pair once."
+ ],
+ "constraints": "<ul><li>Not stated in the source. Assume 1 &le; N &le; 1000, related is N &times; N, symmetric, with entries 0 or 1.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

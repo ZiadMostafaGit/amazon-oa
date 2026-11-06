@@ -1,0 +1,68 @@
+{
+ "problemId": "rippling-build-max-heap",
+ "generatedAt": "2026-11-06T15:50:06",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 4, 3, 19]"
+    }
+   ],
+   "expectedRaw": "[19, 4, 3, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-3, 0, -1]"
+    }
+   ],
+   "expectedRaw": "[0, -3, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-3, -2, -2]"
+    }
+   ],
+   "expectedRaw": "[-2, -3, -2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3, 2, 19, 2, 4, 15, 6, 8]"
+    }
+   ],
+   "expectedRaw": "[19, 8, 15, 2, 4, 3, 6, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[6, 15, 2, 3, 19]"
+    }
+   ],
+   "expectedRaw": "[19, 15, 2, 3, 6]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[8, 19, 6, 3, 4, 2]"
+    }
+   ],
+   "expectedRaw": "[19, 8, 6, 3, 4, 2]"
+  }
+ ]
+}

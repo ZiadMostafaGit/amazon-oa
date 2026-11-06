@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-sum-max-plus-min-after-decrement-operations",
+ "generatedAt": "2026-11-06T15:49:49",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[3, 2]"
+    },
+    {
+     "name": "requests",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1, 0, 3]"
+    },
+    {
+     "name": "requests",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "requests",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "requests",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "requests",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[3, 3, 3, 3]"
+    },
+    {
+     "name": "requests",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "16"
+  }
+ ]
+}

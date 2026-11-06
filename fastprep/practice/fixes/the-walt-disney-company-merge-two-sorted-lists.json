@@ -1,0 +1,16 @@
+{
+ "pattern": "linked-list",
+ "why": "This is the merge step of merge sort done on linked nodes: two pointers walk the two sorted lists, and a tail pointer links whichever head is smaller.",
+ "hints": [
+  "Both lists are sorted. Which node must come first in the merged list?",
+  "Compare the two heads, link the smaller one after a tail pointer, and advance in that list. A dummy head node avoids special-casing the first link.",
+  "Loop while both lists have nodes, then attach whatever list remains in one step. O(n + m) time, O(1) extra space, reusing the existing nodes."
+ ],
+ "pitfalls": [
+  "One or both lists empty.",
+  "On equal values take from list1 first (<=); both copies must stay.",
+  "Attach the leftover tail in one step instead of looping over it."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

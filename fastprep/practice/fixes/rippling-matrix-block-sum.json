@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "Each output cell is the sum of a clipped square around it: a rectangle sum. A 2D prefix-sum table answers every rectangle in O(1) by inclusion-exclusion, instead of re-adding (2r+1)^2 cells per output.",
+ "hints": [
+  "Every output cell asks for the sum of one rectangle of the input, clipped to the borders.",
+  "Build P[i][j] = sum of the top-left i x j block. A rectangle's sum is then P[bottom][right] - P[top][right] - P[bottom][left] + P[top][left].",
+  "Build P in O(mn), then for each cell clamp its row and column bounds to the grid and query. O(mn) total, independent of r."
+ ],
+ "pitfalls": [
+  "Clamp the bounds to the grid before querying; r can be larger than the matrix.",
+  "Use an (m+1) x (n+1) table so the formula needs no special cases at row 0 or column 0.",
+  "The center cell is included in its own sum."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

@@ -1,0 +1,17 @@
+{
+ "pattern": "heap",
+ "why": "Each retrieval repeatedly takes the best nut by (heaviest weight, smallest id) among the reachable levels, and a falling nut is the best by (lightest, smallest id) in the level above. These are priority-queue orderings, wrapped in a careful simulation of level capacities, expiry and the 50% reachability rule.",
+ "hints": [
+  "Write down the two orderings precisely: the selected nut is max by weight then min by id, and the falling nut is min by weight then min by id. Everything else is bookkeeping.",
+  "Keep per location a list of levels (capacities 1, 2, 3, 5, ... like Fibonacci), plus a global map nut_id → location so you can reject duplicate ids. Parse decimals into integer thousandths so expiry checks are exact.",
+  "For each retrieve step: find the uppermost non-empty level, add the level below if the top is strictly less than half full, pick the best nut, remove it (it counts against capacity even if expired), and drop the lightest nut from above into the hole if the pick came from below. Levels are small, so a scan per step is fine, or keep a heap per level."
+ ],
+ "pitfalls": [
+  "Expired means timestamp > hidden_at + ttl; equality is still live.",
+  "An expired nut still uses one unit of the squirrel's capacity and frees its id.",
+  "'Less than 50%' is strict: a level of capacity 2 holding 1 nut is not below half.",
+  "Duplicate ids are checked across every location, not just the target one."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

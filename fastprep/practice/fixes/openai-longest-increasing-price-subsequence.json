@@ -1,0 +1,17 @@
+{
+ "pattern": "lis",
+ "why": "Picking values in chronological order that are strictly increasing, with skips allowed, is exactly the Longest Increasing Subsequence. The financial story (prices or signed monthly profits) changes nothing.",
+ "hints": [
+  "Skipping months is allowed and order must be kept: that is a subsequence, not a subarray.",
+  "This is plain LIS with strict increase. dp[i] = 1 + max dp[j] over j < i with value[j] < value[i] works in O(n^2), which already fits n = 2,500.",
+  "For O(n log n), keep tails[k] = the smallest possible last value of an increasing subsequence of length k+1. For each value, binary-search the first tail >= it (bisect_left) and replace it, or append. The answer is len(tails)."
+ ],
+ "pitfalls": [
+  "Strictly increasing: equal values cannot both be picked, so use bisect_left, not bisect_right.",
+  "Values can be negative or zero; do not seed anything with 0 as a 'minus infinity'.",
+  "tails is not itself a valid subsequence, only its length is meaningful."
+ ],
+ "constraints": "<ul><li>1 &lt;= prices.length &lt;= 2500</li><li>-10^4 &lt;= prices[i] &lt;= 10^4</li><li><i>Practice bounds; the source report discusses a size of about 1,000 and gives no value bounds.</i></li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

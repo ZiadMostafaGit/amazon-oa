@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "Characters you never move keep their relative order and end up at the front, so they must form a prefix of reverse(s) that is also a subsequence of s. Greedy subsequence matching (two pointers) finds the longest such prefix; everything else is moved once.",
+ "hints": [
+  "The characters you never touch stay in their original order. Where do they end up in the final string?",
+  "Untouched characters form the front of the result, so they must equal a prefix of reverse(s) and appear in s as a subsequence. Moved characters can be appended in any order you like to build the rest.",
+  "Two pointers: walk s and greedily match it against reverse(s). If the matched length is j, the answer is n - j. O(n) time, O(n) space for the reversed copy."
+ ],
+ "pitfalls": [
+  "A palindrome needs 0 operations.",
+  "Greedy matching of the leftmost possible character is optimal for subsequence checks; do not try to skip matches.",
+  "Each moved character counts once, and you can choose the order you move them in."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

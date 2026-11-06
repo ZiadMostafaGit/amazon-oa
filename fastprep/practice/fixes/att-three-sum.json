@@ -1,0 +1,16 @@
+{
+ "pattern": "two-pointers",
+ "why": "Sort once, then fix the smallest value a and the rest is Two Sum on a sorted suffix: find b + c = -a with a left and right pointer closing in. Sorting is also what makes duplicates sit side by side so they can be skipped.",
+ "hints": [
+  "Trying all triples is O(n^3) for n = 3000. What would sorting the array let you do with the last two numbers?",
+  "Fix index i as the first value. In the sorted part to its right, a left pointer and a right pointer move inward: sum too small, move left up; too big, move right down.",
+  "Sort (O(n log n)), loop i, two-pointer scan per i: O(n^2) total. Skip i when a[i] equals a[i-1], and after a hit skip repeated left values, so every triplet is emitted once and already in lexicographic order."
+ ],
+ "pitfalls": [
+  "All zeros like [0,0,0,0] must give [[0,0,0]] exactly once.",
+  "Skip duplicate first values with a[i] == a[i-1] (compare to the previous, not the next, or you lose [-1,-1,2]).",
+  "Once a[i] > 0 no triplet can sum to 0, so you can stop early."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

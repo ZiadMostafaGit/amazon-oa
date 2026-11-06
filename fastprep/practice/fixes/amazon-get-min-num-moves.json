@@ -1,0 +1,17 @@
+{
+ "pattern": "greedy",
+ "why": "Only the lightest block's and the heaviest block's positions matter: bubble the minimum to the front (its index swaps) and the maximum to the back (n-1-index swaps). If the minimum starts to the right of the maximum, one swap moves both at once, so subtract 1.",
+ "hints": [
+  "The middle blocks can be in any order. Which two blocks actually need to move?",
+  "Moving the lightest block from index i to the front costs i adjacent swaps; moving the heaviest from index j to the back costs n-1-j.",
+  "Add the two costs, and if i > j subtract 1 because the two blocks cross and one swap serves both. One pass to find i and j: O(n)."
+ ],
+ "pitfalls": [
+  "The crossing case: in [3, 2, 1] the answer is 3, not 4.",
+  "Already good input returns 0.",
+  "Blocks are distinct, so the minimum and maximum are unique."
+ ],
+ "constraints": "<ul><li>2 &lt;= n &lt;= 10^5</li><li>1 &lt;= blocks[i] &lt;= 10^9</li><li>blocks consists of distinct integers.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

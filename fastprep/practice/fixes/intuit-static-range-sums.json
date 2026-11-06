@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "This is the base prefix-sum problem with no story: build pre where pre[i] is the sum of the first i values, and each inclusive query [l, r] is pre[r+1] - pre[l].",
+ "hints": [
+  "Up to 200000 queries over 200000 values: summing each range directly is too slow.",
+  "Precompute running totals once. The sum of nums[l..r] is the total up to r minus the total before l.",
+  "pre has length n+1 with pre[0] = 0; answer pre[r+1] - pre[l] per query. O(n + q)."
+ ],
+ "pitfalls": [
+  "Off by one: use pre[r+1] - pre[l] with a length n+1 array.",
+  "Sums reach 2*10^14, beyond 32 bits.",
+  "Empty queries return an empty list."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

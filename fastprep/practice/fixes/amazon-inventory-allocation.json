@@ -1,0 +1,16 @@
+{
+ "pattern": "heap",
+ "why": "This is priority ordering: requests are served by bid (highest first) and, within a bid, by timestamp. That order is what a priority queue gives, though one sort does the same job here. Inside a bid group the round-robin means the first round alone decides who gets at least one item.",
+ "hints": [
+  "You only need to know who gets zero items, not how many each customer gets. Within one bid group, what happens in the first round-robin round?",
+  "Process bid groups from highest to lowest. If the remaining inventory R is at least the group size, everyone in it gets one item in round 1. Otherwise only the first R customers by timestamp do. Then subtract min(R, sum of quantities).",
+  "Sort by (-bid, timestamp, input index), sweep over groups and mark who received something, then list the unmarked customers in input order. O(n log n)."
+ ],
+ "pitfalls": [
+  "Output in original input order, not in processing order.",
+  "Once inventory hits 0, every remaining lower-bid customer is unfulfilled.",
+  "A group whose total quantity exceeds R uses up all of R; one that fits passes the rest down to the next bid."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

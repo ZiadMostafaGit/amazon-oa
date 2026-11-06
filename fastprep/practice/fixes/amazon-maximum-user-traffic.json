@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "Each user adds +1 to every day of a range [login, logout]. That is a range-add, done with a difference array (+1 at login, -1 after logout) and a prefix sum that gives the traffic of each day; then count the days at the maximum.",
+ "hints": [
+  "Every user adds 1 to a contiguous block of days. Adding to each day one by one is too slow for 10^5 users on 10^5 days.",
+  "Difference array: diff[login] += 1, diff[logout + 1] -= 1. The running prefix sum of diff is the traffic on each day.",
+  "Build diff over the day range, prefix-sum it while tracking the max and how many days reach it. O(n + D), D = number of days."
+ ],
+ "pitfalls": [
+  "The logout day still counts, so subtract at logout + 1 (size the array one larger).",
+  "Day 0 is valid.",
+  "Count days equal to the max, not users or intervals."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

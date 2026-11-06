@@ -1,0 +1,16 @@
+{
+ "pattern": "union-find",
+ "why": "People are nodes and every 1 in the matrix is an undirected edge; a friend circle is a connected component. Union-find merges each friendly pair, and the number of circles is n minus the number of successful merges.",
+ "hints": [
+  "Indirect friendship is transitive: what graph concept is a 'friend circle'?",
+  "Count connected components. Start with n separate groups; each union of two different groups reduces the count by one.",
+  "Union-find with path compression over the upper triangle (j > i) of the matrix: O(n^2 * alpha(n)) for n <= 200. DFS from each unvisited person works equally well."
+ ],
+ "pitfalls": [
+  "The diagonal is always 1; it is not an edge to anyone else.",
+  "The matrix is symmetric, so scanning only j > i avoids double work.",
+  "A person with no friends is still a circle of size 1."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

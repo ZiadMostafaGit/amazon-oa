@@ -1,0 +1,16 @@
+{
+ "pattern": "sliding-window",
+ "why": "A group of size consecutive tiles alternates exactly when all size-1 neighbouring pairs inside it differ. Mark each neighbouring pair on the circle with 1 if they differ, then slide a fixed window of size-1 marks around the circle and count windows that are all 1s.",
+ "hints": [
+  "Instead of checking tiles, look at the edges between neighbours: is tile i different from tile i+1?",
+  "A group starting at i alternates iff the size-1 edges after it are all 'different'. That is a fixed-length window over the circular edge array.",
+  "Build diff[i] = (t[i] != t[(i+1) % n]), keep a running window sum with indexes taken mod n, and count the n start positions where the sum equals size-1. O(n)."
+ ],
+ "pitfalls": [
+  "The circle wraps: the last and first tiles are neighbours, and groups may wrap around.",
+  "size = 1: every tile is a valid group, answer n.",
+  "size = n: the window covers all edges but one; with an odd n a full circle can never alternate."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

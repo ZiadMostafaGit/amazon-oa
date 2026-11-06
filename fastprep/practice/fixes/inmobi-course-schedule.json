@@ -1,0 +1,16 @@
+{
+ "pattern": "topological-sort",
+ "why": "Courses are nodes and each [course, prerequisite] is a directed edge prerequisite -> course. Every course can be finished exactly when this graph has a topological order, that is, when it has no directed cycle.",
+ "hints": [
+  "Draw each prerequisite as an arrow from the course you take first to the course that needs it. What shape makes finishing impossible?",
+  "All courses can be completed iff the directed graph is acyclic. Kahn's algorithm detects this: repeatedly take a course with no unfinished prerequisites.",
+  "Build adjacency lists and in-degrees, queue every in-degree-0 course, pop and decrement its successors. If you pop all numCourses courses, return true. O(V + E)."
+ ],
+ "pitfalls": [
+  "Courses are numbered 1..numCourses, not 0-based.",
+  "The edge direction is prerequisite -> course; reversing it still detects cycles but be consistent.",
+  "Courses with no edges at all still count as completed."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

@@ -1,0 +1,17 @@
+{
+ "pattern": "union-find",
+ "why": "Groups are connected components of houses linked by coordinate difference 1. Deleting a house is the reverse of union-find's add: processed backwards it becomes unions, but on a line it is simpler. A group is counted by its leftmost house, and deleting x changes the count based only on whether x - 1 and x + 1 are still present.",
+ "hints": [
+  "On a line, a group is a run of consecutive coordinates. How can you count runs without storing them?",
+  "Count houses whose left neighbour is absent: one per group. When x is deleted, it splits a group if both x - 1 and x + 1 remain, removes a group if neither remains, and changes nothing otherwise.",
+  "Hash set of present coordinates, initial count in O(n), then O(1) per deletion. (The general pattern: reverse the deletions and add houses with union-find, counting merges.)"
+ ],
+ "pitfalls": [
+  "Coordinates go to 10^9 and may be negative: use a hash set, not an array.",
+  "Houses are given unsorted.",
+  "Deleting an end of a run (one neighbour present) leaves the count unchanged."
+ ],
+ "statement": "<p>Houses stand at distinct integer coordinates on a line, given as <code>houses</code> (in any order). Two houses that are still standing are <b>neighbours</b> when their coordinates differ by exactly 1. A <b>neighbouring group</b> is a maximal set of standing houses connected through neighbours, that is, a run of consecutive coordinates.</p><p>Process <code>instructions</code> in order. Each one names a standing house: delete it, then record the current number of groups. Return the recorded counts.</p><p><b>Example.</b> <code>houses = [2,1,3,4,6,7,9]</code>, so the runs are [1,2,3,4], [6,7], [9]: 3 groups. <code>instructions = [6,3,9]</code>:</p><ol><li>Delete 6: [1,2,3,4], [7], [9] gives <b>3</b>.</li><li>Delete 3: [1,2], [4], [7], [9] gives <b>4</b>.</li><li>Delete 9: [1,2], [4], [7] gives <b>3</b>.</li></ol><p>Answer: <code>[3,4,3]</code>.</p>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

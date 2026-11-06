@@ -1,0 +1,17 @@
+{
+ "pattern": "greedy",
+ "why": "The final array is fixed once you pick its first height b: b, b+1, b+2, ... or b, b-1, .... Heights can only go up, so b must lift every target above its original, and since the cost grows with b, the greedy choice is the smallest feasible b.",
+ "hints": [
+  "Once you choose the first height of the final array, is the rest of it determined?",
+  "Ascending target i is b + i, which needs b ≥ structures[i] - i for every i. Each extra unit of b costs n more, so take the minimum b = max(structures[i] - i). For descending, the target is b - i, so b = max(structures[i] + i).",
+  "Compute both bases in one pass, sum (target - original) for each pattern, and return the smaller sum. O(n) time, O(1) space."
+ ],
+ "pitfalls": [
+  "You can only increase, so the base is forced up by the tightest position, not chosen by a median.",
+  "A single structure needs 0 operations.",
+  "Totals can exceed 32 bits on large inputs."
+ ],
+ "constraints": "<ul><li>1 &lt;= structures.length &lt;= 10^5 (not stated in the source)</li><li>0 &lt;= structures[i] &lt;= 10^9 (not stated in the source)</li><li>The answer can exceed 32 bits; use a 64-bit integer.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

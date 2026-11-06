@@ -1,0 +1,98 @@
+{
+ "problemId": "the-walt-disney-company-merge-two-sorted-lists",
+ "generatedAt": "2026-11-06T15:50:06",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 23,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "list1",
+     "type": "ListNode",
+     "rawValue": "[-4]"
+    },
+    {
+     "name": "list2",
+     "type": "ListNode",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[-4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "list1",
+     "type": "ListNode",
+     "rawValue": "[]"
+    },
+    {
+     "name": "list2",
+     "type": "ListNode",
+     "rawValue": "[0, -3, 1]"
+    }
+   ],
+   "expectedRaw": "[0, -3, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "list1",
+     "type": "ListNode",
+     "rawValue": "[4]"
+    },
+    {
+     "name": "list2",
+     "type": "ListNode",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "list1",
+     "type": "ListNode",
+     "rawValue": "[-1, 0, -2]"
+    },
+    {
+     "name": "list2",
+     "type": "ListNode",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[-1, 0, -2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "list1",
+     "type": "ListNode",
+     "rawValue": "[-7, 7]"
+    },
+    {
+     "name": "list2",
+     "type": "ListNode",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[-7, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "list1",
+     "type": "ListNode",
+     "rawValue": "[0, -4, -6, 5, 3]"
+    },
+    {
+     "name": "list2",
+     "type": "ListNode",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[0, -4, -6, 5, 3]"
+  }
+ ]
+}

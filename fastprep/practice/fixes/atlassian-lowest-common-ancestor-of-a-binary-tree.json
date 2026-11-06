@@ -1,0 +1,17 @@
+{
+ "pattern": "lca",
+ "why": "This is the classic LCA on a plain binary tree with no parent pointers and no BST ordering. One post-order pass reports, for each subtree, whether it contains p or q; the first node where the reports come from both sides (or the node is itself a target with the other below it) is the answer.",
+ "hints": [
+  "Think bottom-up: what does each subtree need to tell its parent so the parent can decide whether it is the LCA?",
+  "Let each call return the target it found in its subtree (or nothing). If the left and right calls both return something, the current node is the LCA; if the current node is p or q, return it immediately, since an ancestor of itself counts.",
+  "Post-order DFS (iterative or recursive with a raised limit), O(n) time, O(h) space. Alternatively, record parents with a BFS and use the climb-and-mark method."
+ ],
+ "pitfalls": [
+  "If p is an ancestor of q, the answer is p itself.",
+  "Compare by value; values are unique.",
+  "A 10,000-node skewed tree needs an iterative approach or a raised recursion limit."
+ ],
+ "statement": "<p>You are given the <code>root</code> of a binary tree (not necessarily a search tree) with unique values, and two values <code>p</code> and <code>q</code> that both occur in the tree.</p><p>Return the <b>value</b> of their lowest common ancestor: the deepest node whose subtree contains both <code>p</code> and <code>q</code>. A node counts as part of its own subtree, so if <code>p</code> is an ancestor of <code>q</code>, the answer is <code>p</code>.</p><p><b>Example.</b> <code>root = [3,5,1,6,2,0,8,null,null,7,4]</code>, <code>p = 5</code>, <code>q = 1</code>.</p><ol><li>Node 5 is the left child of the root 3; node 1 is the right child of 3.</li><li>No node below 3 has both in its subtree: 5's subtree lacks 1, and 1's subtree lacks 5.</li><li>The root 3 contains both, so the answer is <code>3</code>.</li></ol><p>With <code>p = 5, q = 4</code> instead, the answer would be 5, because 4 lies inside 5's subtree.</p>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

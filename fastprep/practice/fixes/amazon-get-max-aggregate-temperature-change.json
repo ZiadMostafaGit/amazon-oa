@@ -1,0 +1,17 @@
+{
+ "pattern": "prefix-sums",
+ "why": "The value on day i is max(prefix sum up to i, suffix sum from i). So the answer is just the largest prefix sum or suffix sum: two running-sum scans, one from each end.",
+ "hints": [
+  "Write the day-i value with sums: one is a prefix sum ending at i, the other a suffix sum starting at i.",
+  "The maximum over days of max(prefix_i, suffix_i) equals max(the largest prefix sum, the largest suffix sum).",
+  "One left-to-right running sum and one right-to-left running sum, tracking the best value seen. O(n) time, O(1) space."
+ ],
+ "pitfalls": [
+  "All values negative: the answer is negative, so don't start the best value at 0.",
+  "Sums reach 10^14; fine in Python, use long in other languages.",
+  "Day i's own change is counted in both sums."
+ ],
+ "constraints": "<ul><li>1 &le; n &le; 10^5</li><li>-10^9 &le; tempChange[i] &le; 10^9</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

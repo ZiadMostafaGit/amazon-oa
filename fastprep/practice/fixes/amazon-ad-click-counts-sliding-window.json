@@ -1,0 +1,16 @@
+{
+ "pattern": "queue",
+ "why": "Timestamps never decrease, so for each ad the clicks inside the last k minutes form a time-based sliding window. A per-ad deque keeps the clicks in order; at COUNT time pop old ones off the front and report the length.",
+ "hints": [
+  "Because time only moves forward, a click that is too old for one query is too old for every later query.",
+  "Keep a hash map from ad id to a deque of click timestamps. New clicks go on the back.",
+  "On COUNT, pop from the front while the timestamp < t - 60*kMinutes + 1, then answer len(deque). Each click is pushed and popped once: O(total operations)."
+ ],
+ "pitfalls": [
+  "The window is inclusive: a click at exactly t - 60*kMinutes + 1 still counts.",
+  "A COUNT for an ad never clicked returns 0.",
+  "Operations with the same timestamp are processed in input order, so a click just before a COUNT at the same second is included."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

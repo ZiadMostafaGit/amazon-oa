@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy-exchange",
+ "why": "Using all min(k, #O) changes is never worse, so the number of workdays is fixed. Earnings then depend only on how many W-runs there are (bonuses = workdays - runs). Each interior O-gap filled entirely merges two runs, so the exchange argument says fill the smallest gaps first.",
+ "hints": [
+  "If you always use every change you can, the number of workdays is fixed. What is the only other thing that changes the total?",
+  "Bonuses = total workdays - number of W-runs. Filling an interior gap of length g completely removes one run for g changes. Filling part of a gap, or an edge gap, removes none. So you want to merge as many gaps as possible with the budget: take the smallest gaps first.",
+  "Collect the lengths of O-runs between two W-runs, sort them, and fill them while the budget lasts. Answer = W*pay + (W - runs)*bonus. Special case: with no W at all, put the m new days in one block. O(n log n)."
+ ],
+ "pitfalls": [
+  "An all-O schedule: m new days in one block give m*pay + (m-1)*bonus, or 0 if m = 0.",
+  "Leading and trailing O-runs are not gaps: filling them adds workdays but merges nothing.",
+  "k may exceed the number of O's; cap it."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

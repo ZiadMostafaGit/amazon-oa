@@ -1,0 +1,17 @@
+{
+ "pattern": "dynamic-programming",
+ "why": "Each adjacent edge with an even sum is a candidate; two candidates sharing an element conflict. That is House Robber over the edges of a circle (House Robber II), and since an even sum means equal parity, the DP collapses to summing floor(len/2) over the maximal same-parity runs of the circle.",
+ "hints": [
+  "When is a + b even? Only when a and b have the same parity. So only edges inside a same-parity stretch can be chosen.",
+  "Think of choosing disjoint adjacent pairs as House Robber on the edges: picking an edge forbids its two neighbours. Around a circle you break the cycle once (House Robber II). For a run of L same-parity elements, the best is floor(L/2).",
+  "Rotate to start at a parity change so no run wraps around, then sum floor(L/2) over the runs. If the whole circle has one parity, it is a single cycle and the answer is floor(n/2). O(n) time, O(1) space."
+ ],
+ "pitfalls": [
+  "The wraparound pair (last, first) is allowed: in [5,7,9,6,3] the run 3,5,7,9 crosses the end of the array.",
+  "When every element has the same parity there is no parity change to rotate to; handle it separately: a cycle of n gives floor(n/2).",
+  "n = 1: an element cannot pair with itself, so the answer is 0.",
+  "Negative numbers: use v & 1 or v % 2 in Python, both give 0/1 correctly."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

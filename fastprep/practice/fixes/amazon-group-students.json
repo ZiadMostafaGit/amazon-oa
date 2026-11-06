@@ -1,0 +1,17 @@
+{
+ "pattern": "greedy",
+ "why": "Sort the levels; then a class is a contiguous run whose max minus min is at most maxSpread. Greedily start a class at the lowest unplaced level and pack everyone within maxSpread of it, which is the classic 'cover points with fixed-length intervals'.",
+ "hints": [
+  "Order does not matter for grouping, so sort the levels. Who should share a class with the weakest trainee?",
+  "The lowest level must be in some class; that class can include everyone up to lowest + maxSpread, and taking all of them never hurts. Then repeat from the next uncovered level.",
+  "Sort, walk once, and open a new class whenever level - anchor > maxSpread, setting anchor to that level. O(n log n) time."
+ ],
+ "pitfalls": [
+  "The condition is max - min <= maxSpread inside a class, so compare with the class's first (smallest) level, not the previous one.",
+  "maxSpread = 0 means only equal levels can share a class.",
+  "Equal levels always fit together."
+ ],
+ "constraints": "<ul><li>1 &lt;= n &lt;= 10^5</li><li>1 &lt;= levels[i] &lt;= 10^9</li><li>0 &lt;= maxSpread &lt;= 10^9</li><li><i>Not stated in the source; reasonable bounds.</i></li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

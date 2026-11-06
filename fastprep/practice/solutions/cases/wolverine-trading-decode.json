@@ -1,0 +1,98 @@
+{
+ "problemId": "wolverine-trading-decode",
+ "generatedAt": "2026-11-06T15:50:06",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 65,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "codes",
+     "type": "String[]",
+     "rawValue": "[\"b\\t100101\", \"a\\t100100\", \"b\\t100101\", \"[newline]\\t111111\"]"
+    },
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"100100111111100101\""
+    }
+   ],
+   "expectedRaw": "\"a\\nb\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "codes",
+     "type": "String[]",
+     "rawValue": "[\"a\\t100100\", \"b\\t100101\", \"b\\t100101\", \"b\\t100101\", \"[newline]\\t111111\"]"
+    },
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"100100111111100101\""
+    }
+   ],
+   "expectedRaw": "\"a\\nb\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "codes",
+     "type": "String[]",
+     "rawValue": "[\"a\\t100100\", \"b\\t100101\", \"a\\t100100\", \"[newline]\\t111111\"]"
+    },
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"1001001111111001011\""
+    }
+   ],
+   "expectedRaw": "\"a\\nb\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "codes",
+     "type": "String[]",
+     "rawValue": "[\"a\\t100100\", \"a\\t100100\", \"b\\t100101\", \"[newline]\\t111111\"]"
+    },
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"100100111111100101\""
+    }
+   ],
+   "expectedRaw": "\"a\\nb\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "codes",
+     "type": "String[]",
+     "rawValue": "[\"a\\t100100\", \"b\\t100101\", \"a\\t100100\", \"[newline]\\t111111\"]"
+    },
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"100100111111100101\""
+    }
+   ],
+   "expectedRaw": "\"a\\nb\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "codes",
+     "type": "String[]",
+     "rawValue": "[\"[newline]\\t111111\", \"a\\t100100\", \"b\\t100101\", \"b\\t100101\"]"
+    },
+    {
+     "name": "encoded",
+     "type": "String",
+     "rawValue": "\"100100111111100101\""
+    }
+   ],
+   "expectedRaw": "\"a\\nb\""
+  }
+ ]
+}

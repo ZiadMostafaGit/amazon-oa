@@ -1,0 +1,98 @@
+{
+ "problemId": "apple-subarray-sum-equals-k",
+ "generatedAt": "2026-11-06T15:49:49",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 1, 0]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 1, 1, 1]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

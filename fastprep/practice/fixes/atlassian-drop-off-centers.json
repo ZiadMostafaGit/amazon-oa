@@ -1,0 +1,19 @@
+{
+ "pattern": "dijkstra",
+ "why": "'At least minDistance apart' is about shortest-road distance, so Dijkstra gives every distance you need. Run a multi-source Dijkstra from each company's centers (at most 10), mark which company pairs and which single companies are too close, then try all 2^10 subsets.",
+ "hints": [
+  "There are at most 10 companies, so once you know which pairs of companies clash, checking all 1,023 non-empty subsets is cheap. The hard part is the distances.",
+  "Run one multi-source Dijkstra per company, starting from all of its centers at distance 0. Any center of another company reached at distance < minDistance makes that pair of companies incompatible. A company can also clash with itself if two of its own centers are too close.",
+  "For the self check, record which source each node was reached from; an edge (u, v, w) whose endpoints came from different sources of the same company gives a candidate distance dist[u] + w + dist[v]. You can stop each Dijkstra once distances reach minDistance. That is about 10 Dijkstras in O(E log V), then 2^k x k^2 for the subsets."
+ ],
+ "pitfalls": [
+  "Two centers owned by the same company must also be at least minDistance apart, or that company can never be contracted.",
+  "Use the shortest path, not the direct road: in the example the road 1-3 has length 5, and the detour 1-2-3 also has length 5.",
+  "Centers that cannot reach each other at all are infinitely far apart, so they never clash.",
+  "The empty subset does not count."
+ ],
+ "statement": "<p>An e-commerce company wants to contract local businesses to use their stores as pick-up and drop-off centers (pdcs). The city is a weighted, undirected graph: nodes <code>1..n</code> are the potential pdcs, and each edge <code>graphFrom[i] - graphTo[i]</code> is a road of length <code>graphWeight[i]</code>.</p><p>Each pdc is owned by one company: node <code>i + 1</code> belongs to company <code>company[i]</code>. Contracting a company means using <b>all</b> of its pdcs.</p><p>A set of companies is valid if every two pdcs it uses (including two pdcs of the same company) are at least <code>minDistance</code> apart, measured by <b>shortest road distance</b>. Pdcs that cannot reach each other are far enough apart.</p><p>Return the number of <b>non-empty</b> valid sets of companies.</p><p><b>Example</b>: <code>n = 3</code>, roads <code>1-2</code> (3), <code>2-3</code> (2), <code>3-1</code> (5), <code>minDistance = 4</code>, <code>company = [1, 2, 3]</code>.</p><ol><li>Shortest distances: d(1,2) = 3, d(2,3) = 2, d(1,3) = min(5, 3 + 2) = 5.</li><li>Only the pair (1, 3) is at least 4 apart, so companies 1 and 2 clash and companies 2 and 3 clash.</li><li>Valid sets: {1}, {2}, {3}, {1, 3}.</li></ol><p>The answer is <code>4</code>.</p>",
+ "constraints": "<ul><li>2 &lt;= n &lt;= 1000 (nodes)</li><li>1 &lt;= number of roads &lt;= min(1000, n(n-1)/2)</li><li>1 &lt;= graphWeight[i] &lt;= 1000</li><li>1 &lt;= minDistance &lt;= 100</li><li>1 &lt;= company[i] &lt;= 10</li><li>No self-loops and at most one road between any two nodes.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

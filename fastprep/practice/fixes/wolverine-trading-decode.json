@@ -1,0 +1,17 @@
+{
+ "pattern": "trie",
+ "why": "A prefix-free code is exactly a binary trie whose leaves are characters: insert each code as a path of 0/1 edges, then decode by walking the trie bit by bit and emitting the character whenever you reach a leaf, then restarting at the root.",
+ "hints": [
+  "Because no code is a prefix of another, as soon as the bits you have read match a code, that match is the only possible one.",
+  "Store the codes in a binary trie (0 goes one way, 1 the other), with each character at the end of its path. Reading the encoded bits is a walk down that trie.",
+  "Build the trie from the mappings (total code length), then scan the encoded string once: step to the child, and on reaching a node that holds a character, append it and jump back to the root. O(|encoded|) time."
+ ],
+ "pitfalls": [
+  "The token [newline] must decode to the real '\\n' character.",
+  "Split each mapping on the tab only once: the character itself may be a space or punctuation.",
+  "Codes have different lengths; do not assume they are all 6 bits."
+ ],
+ "statement": "<p>A Huffman code gives each character a binary code word. The code is <b>prefix-free</b>: no code word is a prefix of another (if <code>a</code> is <code>01</code>, then no other character's code can start with <code>01</code>). Code words can have different lengths.</p><p><b>Input</b></p><ul><li><code>codes</code>: an array of strings, each of the form <code>character + '\\t' + codeword</code> (a tab separates them). The character may be a letter, a space, punctuation, or the literal token <code>[newline]</code>, which stands for the newline character <code>\\n</code>.</li><li><code>encoded</code>: a string of <code>'0'</code> and <code>'1'</code> characters, guaranteed to be a valid concatenation of code words.</li></ul><p><b>Output:</b> the decoded string, with every <code>[newline]</code> written as a real <code>\\n</code>.</p><p><b>Example.</b> <code>codes = [\"a\\t100100\", \"b\\t100101\", \"[newline]\\t111111\"]</code>, <code>encoded = \"100100111111100101\"</code>.</p><ol><li>Read <code>100100</code>: it matches <code>a</code>. Output so far <code>\"a\"</code>.</li><li>Read <code>111111</code>: it matches <code>[newline]</code>. Output <code>\"a\\n\"</code>.</li><li>Read <code>100101</code>: it matches <code>b</code>. Output <code>\"a\\nb\"</code>.</li></ol><p>The answer is <code>\"a\\nb\"</code>.</p>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

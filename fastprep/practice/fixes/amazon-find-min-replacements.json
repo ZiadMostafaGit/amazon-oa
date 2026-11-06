@@ -1,0 +1,18 @@
+{
+ "pattern": "frequency-counting",
+ "why": "Once you pick two drones, every even-indexed package must weigh exactly the first capacity and every odd-indexed one exactly the second. So count values separately on even and odd positions and keep the most frequent value in each group, with the two values forced to differ.",
+ "hints": [
+  "Split the array into the even-index packages and the odd-index packages; each group is served by one drone.",
+  "Inside a group, the packages you keep are the ones already equal to the drone's capacity, so pick the group's most frequent value. The only catch: both drones must be different, so the two chosen values cannot be equal.",
+  "Count each group with a hash map and keep its top two (value, count) pairs. If the two leaders differ, keep both; otherwise try leader+runner-up both ways. Answer = n - kept. O(n) time."
+ ],
+ "pitfalls": [
+  "All packages equal, e.g. [1,1,1,1]: the drones must be different, so one whole group gets replaced (answer 2).",
+  "A group with only one distinct value has no runner-up; treat its count as 0.",
+  "n = 1: the odd group is empty, answer 0."
+ ],
+ "statement": "<p>Amazon has drones of every capacity from 1 to 10^9; drone <code>j</code> has capacity <code>j</code>. You must deliver <code>n</code> packages in order, where package <code>i</code> weighs <code>pack[i]</code>.</p>\n<p>You pick <b>two different drones</b>, and they alternate: the first takes packages 0, 2, 4, &hellip; and the second takes packages 1, 3, 5, &hellip;. A drone can deliver a package only if the package's weight is <b>exactly</b> its capacity (this is what the examples require).</p>\n<p>You may replace any package with a package of any other weight. Choosing the two drones freely, return the <b>minimum number of replacements</b> so that every package can be delivered.</p>\n<p><b>Worked example:</b> <code>pack = [3, 1, 3, 2]</code>.</p>\n<ul><li>Even positions hold [3, 3]; the best capacity for the first drone is 3 (both already match).</li>\n<li>Odd positions hold [1, 2]; pick capacity 1 for the second drone (1 match), different from 3.</li>\n<li>Only the package of weight 2 must be replaced (by weight 1): <code>[3, 1, 3, 1]</code>. Answer: <b>1</b>.</li></ul>\n<p>For <code>pack = [1, 1, 1, 1]</code> the drones cannot both have capacity 1, so one group of two packages is replaced: answer <b>2</b>.</p>",
+ "constraints": "<ul><li>1 &le; n &le; 10^5 (not stated in the source)</li><li>1 &le; pack[i] &le; 10^9</li><li>The two drones must have different capacities.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

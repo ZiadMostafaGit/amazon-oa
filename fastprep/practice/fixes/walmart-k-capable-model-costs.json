@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy-exchange",
+ "why": "Only the cheapest models of each type are ever worth buying (an exchange argument), so for a fixed k you buy t cheap 'A-only' + 'B-only' pairs and k - t cheapest dual models. Cost as a function of t is a sum of convex prefix sums, so you can find its minimum quickly.",
+ "hints": [
+  "Ignore '00' models. If you decide to use exactly t models of type '10', which ones should they be?",
+  "Exchange argument: within each type you always take the cheapest ones. A k-capable set then uses t '10's, t '01's and k - t '11's, so cost(k, t) = prefC[k-t] + prefA[t] + prefB[t].",
+  "Sort each type and build prefix sums. For each k, t ranges over [max(0, k - #11), min(k, #10, #01)]; the cost is convex in t, so binary search on f(t+1) < f(t). O(n log n) total."
+ ],
+ "pitfalls": [
+  "Return -1 when no valid t exists for that k.",
+  "Never buy more singles of one side than the other: the extra one does not help reach k.",
+  "Costs add up to about 10^14; use 64-bit integers."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

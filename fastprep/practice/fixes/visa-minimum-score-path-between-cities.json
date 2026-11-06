@@ -1,0 +1,17 @@
+{
+ "pattern": "union-find",
+ "why": "Because walks may revisit roads, any road in the connected component that holds city 1 (and city n) can be stepped onto. The answer is just the smallest road distance inside that component: union all roads, then take the min over roads whose endpoint has city 1's root.",
+ "hints": [
+  "Revisiting is allowed. What does that let a path do with a cheap road far away from the direct route?",
+  "Any road reachable from city 1 can be walked to and back, and city n is in the same component. So the score is the minimum distance over every road in city 1's component, not a shortest-path problem.",
+  "Union both ends of every road, then scan the roads once and keep the smallest distance whose endpoint shares city 1's root. O((n + m) α(n)) time; a BFS or DFS from city 1 works just as well."
+ ],
+ "pitfalls": [
+  "This is not Dijkstra: the score is a minimum along a walk, not a sum, and revisits are free.",
+  "Roads in other components must be ignored even if they are cheaper.",
+  "Cities are numbered 1..n, so size the parent array n+1."
+ ],
+ "constraints": "<ul><li>2 &lt;= n &lt;= 10^5</li><li>1 &lt;= roads.length &lt;= 10^5</li><li>roads[i] = [a, b, distance], 1 &lt;= a, b &lt;= n, a != b</li><li>1 &lt;= distance &lt;= 10^4</li><li>At most one road between any two cities; at least one path between city 1 and city n exists.</li><li><i>Bounds are not stated in the source; these are the canonical problem's bounds.</i></li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

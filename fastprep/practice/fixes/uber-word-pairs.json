@@ -1,0 +1,18 @@
+{
+ "pattern": "trie",
+ "why": "A pair counts when one word is a prefix of the other, and the prefixes of a word are exactly the nodes on its path in a trie. Insert words one at a time; for each new word, the earlier words that are its prefixes end on its path, and the earlier words it is a prefix of pass through its final node.",
+ "hints": [
+  "Comparing all pairs is O(n^2 * L). Which data structure lays out 'is a prefix of' relationships as paths?",
+  "In a trie, the earlier words that are prefixes of w end at nodes on w's path, and the earlier words that have w as a prefix pass through w's last node. Two counters per node (words ending here, words passing through) answer both questions.",
+  "Process words left to right: walk w's path summing the 'end' counters, add 'pass' minus 'end' at the last node (so equal words are not counted twice), then insert w. O(total length) time."
+ ],
+ "pitfalls": [
+  "Equal words form a pair, but count each such pair once, not once per direction.",
+  "Duplicates: two copies of \"a\" before \"ab\" give two pairs with \"ab\".",
+  "Words that only share a prefix (\"ab\" and \"ac\") are not a pair."
+ ],
+ "statement": "<p>Given an array of strings <code>words</code>, count the pairs of indices <code>(i, j)</code> with <code>0 &lt;= i &lt; j &lt; words.length</code> such that <code>words[i]</code> is a prefix of <code>words[j]</code> <b>or</b> <code>words[j]</code> is a prefix of <code>words[i]</code>. Two equal words count (each is a prefix of the other), but the pair is counted once.</p><p><b>Example.</b> <code>words = [\"abc\",\"a\",\"a\",\"b\",\"ab\",\"ac\"]</code>:</p><ul><li>\"abc\" with each \"a\" (2 pairs) and with \"ab\" (1 pair): 3.</li><li>\"a\" with \"a\": 1.</li><li>each \"a\" with \"ab\" and with \"ac\": 2 x 2 = 4.</li><li>\"b\" pairs with nothing; \"ab\" and \"ac\" are not prefixes of each other.</li></ul><p>Total 3 + 1 + 4 = <code>8</code>.</p>",
+ "constraints": "<ul><li>Not stated in the source (it says N/A). Assume up to about 10^5 words of lowercase letters with total length up to about 10^6, so an O(n^2) pair check is too slow.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

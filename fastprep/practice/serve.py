@@ -38,6 +38,7 @@ import runner
 import solutions as solutions_mod
 import topics as topics_mod
 import match as match_mod
+import path as path_mod
 sys.path.insert(0, os.path.join(HERE, "tools"))
 from gaps import gaps_for
 
@@ -123,6 +124,8 @@ def _problem_payload(detail: dict) -> dict:
     # pattern it is an instance of), and where the KHATT plan schedules it
     detail["fix"] = fixes_mod.get(pid)
     detail["khatt"] = fixes_mod.khatt_for(pid)
+    # where it sits in the DSA path, so the problem can offer "next in path"
+    detail["path"] = path_mod.position(pid, BANK)
     return detail
 
 
@@ -265,6 +268,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, blob, ctype, {
                 "Cache-Control": "public, max-age=604800",
                 "X-Image-Source": "cache" if cached else "fetched"})
+        if path == "/api/path":
+            return self._json(path_mod.listing(BANK, PROGRESS, fixes_mod, solutions_mod))
         if path == "/api/topics":
             return self._json(topics_mod.listing(PROGRESS, BANK))
         if path == "/api/reviews":

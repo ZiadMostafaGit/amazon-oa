@@ -1,0 +1,16 @@
+{
+ "pattern": "heap",
+ "why": "Each day you remove floor(w/2) from one chocolate, and the heaviest chocolate always gives the biggest removal, so the greedy is 'halve the current maximum' d times. A max-heap gives the current maximum each day.",
+ "hints": [
+  "Which chocolate should you eat from today to remove the most weight? Does today's choice ever hurt later days?",
+  "Eating from the heaviest chocolate removes the most today, and halving a lighter one never helps more later (halves of bigger values stay at least as big). So always halve the current maximum.",
+  "Max-heap (negate values in Python): each day pop the top w, subtract w//2 from the total, push back w - w//2. Stop early when the top is 1 (nothing more can be eaten). O((n + d) log n)."
+ ],
+ "pitfalls": [
+  "The eaten part is floor(w/2), so the remaining part is w - w//2 (ceil), not w//2.",
+  "d can be up to 2*10^6, far more than needed; once the heaviest chocolate weighs 1, stop.",
+  "The same chocolate can be picked again on later days, so push it back after halving."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

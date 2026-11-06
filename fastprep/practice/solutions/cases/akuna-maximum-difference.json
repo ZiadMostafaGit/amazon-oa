@@ -1,0 +1,128 @@
+{
+ "problemId": "akuna-maximum-difference",
+ "generatedAt": "2026-11-06T15:49:49",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 12,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[3, 3, 3]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[3, 2, 3, 3]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[4, 1, 2]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[3, 2]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[2, 4, 1]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[2, 0, 6]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[5]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

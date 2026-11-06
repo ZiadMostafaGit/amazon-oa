@@ -1,0 +1,18 @@
+{
+ "pattern": "sliding-window",
+ "why": "After sorting, the boxes you keep should be a contiguous range: the condition depends only on the smallest and largest kept box. Find the longest window with max <= capacity * min using two pointers; unload everything else.",
+ "hints": [
+  "Only the smallest and largest kept boxes matter. If you keep a min and a max, you might as well keep every box between them.",
+  "Sort the sizes. Then you want the longest contiguous window where b[right] <= capacity * b[left].",
+  "Two pointers: for each right, move left forward while the condition fails; answer = n - longest window. O(n log n) for the sort."
+ ],
+ "pitfalls": [
+  "The condition is max <= capacity * min (equality allowed), not max <= capacity.",
+  "Keeping a single box always works, so at most n - 1 boxes are unloaded.",
+  "Duplicate sizes are fine in the same window."
+ ],
+ "statement": "<p>A truck holds <code>n</code> boxes with sizes <code>boxes[i]</code>. You may unload any boxes. The boxes that remain must satisfy</p>\n<pre>max(remaining) &le; capacity &times; min(remaining)</pre>\n<p>Return the <b>minimum number of boxes to unload</b>.</p>\n<p><b>Worked example:</b> <code>boxes = [1, 4, 3, 2]</code>, <code>capacity = 2</code>.</p>\n<ul><li>Keep everything: max = 4, min = 1, and 4 &le; 2 &times; 1 = 2 is false.</li>\n<li>Unload the box of size 1: remaining [4, 3, 2], max = 4, min = 2, and 4 &le; 2 &times; 2 = 4 holds.</li></ul>\n<p>One box is unloaded, so the answer is <b>1</b>.</p>",
+ "constraints": "<ul><li>1 &le; n &le; 10^5</li><li>1 &le; boxes[i] &le; 5 &times; 10^5</li><li>1 &le; capacity &le; 1000</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

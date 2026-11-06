@@ -1,0 +1,17 @@
+{
+ "pattern": "sliding-window",
+ "why": "An alternating substring must match one of two fixed patterns, 0101... or 1010.... Against a fixed pattern each mismatch costs one flip, so this is the longest window with at most k mismatches, run once per pattern.",
+ "hints": [
+  "There are only two alternating strings of any length: one starting with 0 and one starting with 1, aligned to position parity.",
+  "Fix one target pattern. A position needs a flip if music[i] differs from the target at i. Now you want the longest window containing at most k such positions.",
+  "For each of the two targets, slide a window, counting mismatches and shrinking from the left while the count exceeds k. Take the best length. O(n)."
+ ],
+ "pitfalls": [
+  "Try both patterns; the best one may start with either 0 or 1.",
+  "k = 0 still allows the longest alternating run that already exists.",
+  "If k is at least the window's mismatches, the whole string can be the answer."
+ ],
+ "constraints": "<ul><li>1 &le; |music| &le; 10^5 (not stated in the source)</li><li>0 &le; k &le; |music| (not stated in the source)</li><li>music contains only '0' and '1'</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

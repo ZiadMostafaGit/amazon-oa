@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "An operation copies a '1' one step to the left, so a 0 can become 1 only if some '1' lies to its right. One operation on the nearest such 0 always adds exactly one '1', so the greedy answer is ones + min(k, number of zeros with a '1' to their right).",
+ "hints": [
+  "What must be true about a '0' for any sequence of operations to turn it into a '1'?",
+  "A 0 that has a '1' anywhere to its right can be flipped: fill zeros right-to-left starting just left of a '1', and each operation adds exactly one '1'. Zeros after the last '1' can never change.",
+  "Scan from the right, counting ones and the zeros seen after at least one '1'. Return ones + min(k, those zeros). O(n), O(1)."
+ ],
+ "pitfalls": [
+  "Trailing zeros after the last '1' are lost causes.",
+  "An all-zero string stays at 0 whatever k is.",
+  "k = 0 just counts the existing ones."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

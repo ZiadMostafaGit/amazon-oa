@@ -1,0 +1,18 @@
+{
+ "problemId": "the-walt-disney-company-reverse-linked-list",
+ "generatedAt": "2026-11-06T15:50:06",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 31,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "head",
+     "type": "ListNode",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "null"
+  }
+ ]
+}

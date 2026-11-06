@@ -1,0 +1,17 @@
+{
+ "pattern": "heap",
+ "why": "This is the heap's own construction routine: treat the array as a complete binary tree and run Floyd's bottom-up heapify, sifting each internal node down from the last parent to the root. The tie rules only pin down which of several valid heaps you must output.",
+ "hints": [
+  "Leaves (indices n//2 and beyond) are already one-element heaps. Which nodes actually need work, and in what order?",
+  "Go from index n//2 - 1 down to 0. Sift each node down: compare it with its larger child (left wins ties) and swap only if that child is strictly greater, then keep going from the child's position.",
+  "In-place sift-down on the array; bottom-up heapify costs O(n) total (most nodes are near the bottom and sift only a little), O(1) extra space."
+ ],
+ "pitfalls": [
+  "Pick the right child only when it is strictly greater than the left; equal children go left.",
+  "Swap only when the child is strictly greater than the parent; equal values stay put.",
+  "Empty input and a single element return as is.",
+  "Inserting elements one by one (top-down) gives a different valid heap; the expected answer needs bottom-up order."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

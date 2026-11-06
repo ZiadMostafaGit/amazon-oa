@@ -1,0 +1,16 @@
+{
+ "pattern": "linked-list",
+ "why": "This is the base linked-list move with no story: rewire every next pointer to point backwards while walking the list once.",
+ "hints": [
+  "As you walk the list, what do you need to remember so you can point the current node backwards without losing the rest of the list?",
+  "Keep three pointers: prev (the already reversed part), cur, and nxt (saved before you overwrite cur.next). Set cur.next = prev, then advance.",
+  "One loop until cur is None; prev ends as the new head. O(n) time, O(1) extra space. A recursive version works too but uses O(n) stack."
+ ],
+ "pitfalls": [
+  "Empty list: return None.",
+  "Save cur.next before overwriting it, or you lose the rest of the list.",
+  "The old head must end up pointing to None, which starting with prev = None guarantees."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

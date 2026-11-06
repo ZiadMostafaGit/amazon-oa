@@ -1,0 +1,16 @@
+{
+ "pattern": "sliding-window",
+ "why": "One segment flip can turn a whole block of zeros into ones, so a window can become all ones if it contains at most max_flips separate runs of zeros. Find the longest window with at most max_flips zero-runs using two pointers.",
+ "hints": [
+  "How many flips does it take to make a window all 1s? Think about blocks of consecutive zeros, not single zeros.",
+  "Flipping exactly one maximal block of 0s turns it to 1s without touching anything else, and you can't do better than one flip per block. So a window costs its number of zero-runs.",
+  "Slide a window, counting zero-runs inside it (a run starts at a 0 whose left neighbour is a 1 or at the window's left edge); shrink while the count exceeds max_flips. O(n)."
+ ],
+ "pitfalls": [
+  "Count runs of zeros, not zeros: '1001' needs one flip.",
+  "A zero-run cut by the window's left edge still counts as one run.",
+  "If max_flips is at least the number of zero-runs, the answer is n."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

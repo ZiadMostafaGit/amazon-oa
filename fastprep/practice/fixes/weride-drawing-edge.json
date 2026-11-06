@@ -1,0 +1,16 @@
+{
+ "pattern": "combinatorics",
+ "why": "A simple undirected graph on n labeled nodes is just a yes/no choice for each of the C(n, 2) unordered pairs, made independently. So the count is 2^(n(n-1)/2), computed with fast modular exponentiation because n reaches 10^9.",
+ "hints": [
+  "How many possible edges are there on n nodes, and does choosing one affect any other?",
+  "Each of the n(n-1)/2 unordered pairs is independently present or absent, so the answer is 2 raised to that number.",
+  "Compute pairs = n(n-1)/2 exactly (Python integers) and return pow(2, pairs, 10^9+7): O(log pairs) time."
+ ],
+ "pitfalls": [
+  "n = 1 has zero possible edges, so the answer is 1 (the empty graph).",
+  "n(n-1)/2 is about 5*10^17 for n = 10^9: use modular exponentiation, never build 2^pairs.",
+  "Pairs are unordered: do not count n(n-1)."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

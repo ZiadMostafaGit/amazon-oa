@@ -1,0 +1,16 @@
+{
+ "pattern": "matrix-traversal",
+ "why": "Keep four boundaries (top, bottom, left, right) and peel the matrix one ring at a time: walk the top row, the right column, the bottom row backwards, the left column upwards, then shrink all four.",
+ "hints": [
+  "Think in rings: the outer ring first, then the same thing on the smaller inner rectangle.",
+  "Track top, bottom, left, right. After each side you walk, that boundary moves inward by one.",
+  "Loop while top <= bottom and left <= right; only walk the bottom row if top < bottom and the left column if left < right. O(rows * cols)."
+ ],
+ "pitfalls": [
+  "A single row or single column: without the guards you visit cells twice.",
+  "Non-square inputs like 2 x 4 leave no inner ring.",
+  "The left-column walk goes up to top + 1, not top, which is already taken."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

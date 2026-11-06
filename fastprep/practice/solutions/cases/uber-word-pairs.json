@@ -1,0 +1,68 @@
+{
+ "problemId": "uber-word-pairs",
+ "generatedAt": "2026-11-06T15:50:06",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "magics",
+     "type": "String[]",
+     "rawValue": "[\"gammon\", \"backgammon\", \"comeback\", \"door\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "magics",
+     "type": "String[]",
+     "rawValue": "[\"backdoor\", \"back\", \"comeback\", \"come\", \"door\", \"backgammon\", \"come\", \"gammon\"]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "magics",
+     "type": "String[]",
+     "rawValue": "[\"abc\", \"abc\", \"a\", \"b\", \"ab\", \"abc\", \"ac\"]"
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "magics",
+     "type": "String[]",
+     "rawValue": "[\"back\", \"backdoor\", \"gammon\", \"comeback\", \"door\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "magics",
+     "type": "String[]",
+     "rawValue": "[\"come\", \"door\", \"back\", \"comeback\", \"backgammon\", \"gammon\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "magics",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"a\", \"a\", \"b\", \"ab\", \"ac\"]"
+    }
+   ],
+   "expectedRaw": "8"
+  }
+ ]
+}

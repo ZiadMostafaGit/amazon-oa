@@ -1,0 +1,17 @@
+{
+ "pattern": "bst",
+ "why": "Ascending order in a BST is its in-order traversal. The iterator is that traversal paused between steps: keep a stack of the left spine still to visit, pop for next, then push the left spine of the popped node's right child.",
+ "hints": [
+  "The values must come out in ascending order. Which traversal of a BST produces that?",
+  "Do the in-order traversal lazily: a stack holds the nodes whose left side is done but which have not been returned yet. The top of the stack is always the next smallest value.",
+  "Init: push the root and all its left descendants. next: pop, push the left spine of its right child, return the value. hasNext: the stack is nonempty. Amortised O(1) per call, O(h) memory."
+ ],
+ "pitfalls": [
+  "Return every result as a string: values as decimal text, hasNext as \"true\"/\"false\".",
+  "Do not flatten the whole tree up front if you want the intended O(h) memory (it still passes, but misses the point).",
+  "hasNext must not advance the iterator."
+ ],
+ "statement": "<p>You are given the <code>root</code> of a binary search tree with unique values, and a list of <code>operations</code>, each either <code>\"next\"</code> or <code>\"hasNext\"</code>. Simulate one iterator that visits the values in <b>ascending</b> order:</p><ul><li><code>\"next\"</code> returns the next smallest value not yet returned (it is always valid).</li><li><code>\"hasNext\"</code> returns whether any value remains, without moving the iterator.</li></ul><p>Return the results as strings, in operation order: numbers as decimal text, booleans as <code>\"true\"</code> or <code>\"false\"</code>.</p><p><b>Example.</b> <code>root = [7,3,15,null,null,9,20]</code> holds 3, 7, 9, 15, 20 in ascending order. Operations <code>[\"next\",\"next\",\"hasNext\",\"next\",\"hasNext\"]</code>:</p><ol><li>next gives <code>\"3\"</code>.</li><li>next gives <code>\"7\"</code>.</li><li>hasNext: 9, 15 and 20 remain, so <code>\"true\"</code>.</li><li>next gives <code>\"9\"</code>.</li><li>hasNext: 15 and 20 remain, so <code>\"true\"</code>.</li></ol><p>Answer: <code>[\"3\",\"7\",\"true\",\"9\",\"true\"]</code>.</p>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

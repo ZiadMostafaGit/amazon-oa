@@ -1,0 +1,17 @@
+{
+ "pattern": "serialize-tree",
+ "why": "This is tree serialization for N-ary trees: preorder alone is ambiguous, but writing each node with its child count makes it self-delimiting, just like null markers do for binary trees. Deserializing reads a node, then recursively reads exactly childCount subtrees.",
+ "hints": [
+  "In the wire format, how do you know where one node's children end and its next sibling starts?",
+  "The child count tells you exactly how many complete subtrees follow. So decoding is: read value:count, then decode count subtrees in order. Parsing the text form is the same idea with parentheses and commas as the delimiters.",
+  "Use an explicit stack for both directions (a stack of nodes with remaining child slots for the wire format, a stack of open parents for the text form). Each node is handled O(1) times: O(total nodes)."
+ ],
+ "pitfalls": [
+  "A leaf prints without parentheses: 42, not 42().",
+  "Values can have several digits (10, 1000000000), so parse whole numbers, not single characters.",
+  "Child order matters: keep children in the order they appear.",
+  "Trees can be 2,000 deep; recursion needs a raised limit."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

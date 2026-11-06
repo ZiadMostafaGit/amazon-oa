@@ -1,0 +1,16 @@
+{
+ "pattern": "sliding-window",
+ "why": "Valid substrings live inside maximal vowel-only blocks and must contain all five vowels. For each right end, a window that shrinks its left side to the tightest start still holding all five tells you how many starts work.",
+ "hints": [
+  "A consonant can never be in a valid substring, so split the string into blocks of vowels only.",
+  "Inside a block, for each right end r find the largest left l such that s[l..r] still contains all five vowels; every start from the block's beginning up to l works.",
+  "Sliding window with vowel counts: add s[r], move l right while s[l] occurs more than once, and when all five are present add (l - blockStart + 1). O(n)."
+ ],
+ "pitfalls": [
+  "Reset counts at every consonant; windows may not cross one.",
+  "Count substrings by position: equal strings at different positions are counted separately.",
+  "The answer can be about n^2 / 2; fine in Python, use long elsewhere."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

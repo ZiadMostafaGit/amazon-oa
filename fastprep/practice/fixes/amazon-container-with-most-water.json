@@ -1,0 +1,17 @@
+{
+ "pattern": "two-pointers",
+ "why": "Area of lines i < j is min(h[i], h[j]) * (j - i). Start with the widest pair; the shorter line can never do better with a narrower partner, so discard it by moving that pointer inward. That is the opposite-ends two-pointer squeeze.",
+ "hints": [
+  "Checking every pair is O(n^2). Start at the widest container, both ends. Which line limits its area?",
+  "The shorter of the two ends caps the height. Any other container using that short line is narrower and no taller, so that line is finished: move its pointer inward.",
+  "Two pointers i = 0, j = n-1; record the area, move the shorter side, stop when they meet. O(n) time, O(1) space."
+ ],
+ "pitfalls": [
+  "On equal heights, moving either pointer is safe.",
+  "Width is j - i (index distance), not the count of lines.",
+  "Heights can be 0, giving area 0."
+ ],
+ "constraints": "<ul><li>2 &lt;= height.length &lt;= 10^5</li><li>0 &lt;= height[i] &lt;= 10^4</li><li>Bounds not stated in the source; these are the standard ones.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

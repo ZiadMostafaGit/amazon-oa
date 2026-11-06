@@ -1,0 +1,17 @@
+{
+ "pattern": "greedy-exchange",
+ "why": "This is coin change with a canonical US denomination system. For such systems, taking the largest denomination that fits is provably optimal (an exchange argument), so the greedy gives the fewest pieces with no DP needed.",
+ "hints": [
+  "Work in integer cents. With these particular denominations, do you ever need anything smarter than 'take the biggest that fits'?",
+  "The US system is canonical: any solution using, say, five pennies can swap them for a nickel and use fewer pieces, so greedy largest-first is optimal.",
+  "Parse both strings to integer cents. Handle ERROR and ZERO, then use divmod by each denomination from largest to smallest, collect the names, sort them alphabetically and join with commas. O(1) per denomination."
+ ],
+ "pitfalls": [
+  "Never use floats: '0.1' style values must be parsed into exact cents.",
+  "Inputs may have one fractional digit ('5.5' means 550 cents).",
+  "Sort the output alphabetically ('HALF DOLLAR' before 'PENNY'), not by value, and repeat names for multiple pieces.",
+  "Change up to a million dollars means many ONE HUNDRED notes; build the string efficiently."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

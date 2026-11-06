@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "Each order picks every item in a range, so item i is picked as often as the number of ranges covering it: a difference array plus a prefix sum. Then a query asks for the total pick count of items with value < q: sort items by value, prefix-sum their pick counts, and binary search.",
+ "hints": [
+  "Item i contributes once per order whose range covers i. How do you count range coverage quickly?",
+  "Difference array over indices gives each item's pick count. A query then wants the sum of pick counts over items whose value is < q, which no longer depends on position.",
+  "Sort (value, count) pairs, build a prefix sum of counts, and for each query use bisect_left on the values. O((n + m + q) log n)."
+ ],
+ "pitfalls": [
+  "Strictly less than: use bisect_left, so items equal to the query are excluded.",
+  "Items picked by several orders count once per order.",
+  "Answers can exceed 32 bits (10^5 orders x 10^5 items)."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

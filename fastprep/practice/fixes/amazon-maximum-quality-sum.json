@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "A channel's median is at most its largest packet, so the best you can hope for is to give the channels-1 largest packets a channel each (quality = the packet itself) and dump all the rest into one channel, which earns its median. Sort, take that split, and round the total up.",
+ "hints": [
+  "A single-packet channel scores exactly that packet. A multi-packet channel scores its median, which is never more than its largest packet. So who deserves a channel alone?",
+  "Give the channels-1 largest packets their own channels. All remaining packets go to the last channel, whose quality is the median of those remaining packets (sorted, the middle one or the average of the two middle ones).",
+  "Sort descending, sum the first channels-1 values, add the median of the rest. Work in doubled units (2*sum + the two middles) to avoid floats, then ceil-divide by 2. O(n log n)."
+ ],
+ "pitfalls": [
+  "Only the final total is rounded up, and only when it ends in .5; avoid floating point with values up to 10^9.",
+  "channels == n: every packet is alone and the answer is the plain sum.",
+  "channels == 1: the answer is just the (rounded-up) median of all packets."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

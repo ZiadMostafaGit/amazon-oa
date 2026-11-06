@@ -1,0 +1,18 @@
+{
+ "pattern": "sliding-window",
+ "why": "At each minute you need the average of the last precedingMinutes values: a fixed-size window sliding along numCalls. Keep its running sum and compare sum > threshold * window instead of dividing.",
+ "hints": [
+  "Each alert check looks at the same number of consecutive minutes, shifted by one each time.",
+  "A fixed-size sliding window: add the new minute, drop the one that fell out. 'average > threshold' is the same as 'sum > threshold * precedingMinutes'.",
+  "Sum the first window, then slide n - precedingMinutes times, counting windows whose sum exceeds the limit. O(n), no floats."
+ ],
+ "pitfalls": [
+  "The comparison is strict: an average exactly equal to the threshold sends no alert.",
+  "No check happens until a full window exists; precedingMinutes = n gives exactly one check.",
+  "Avoid integer division of the average (10.33 would become 10)."
+ ],
+ "statement": "<p>A compliance system records <code>numCalls[i]</code>, the number of calls in minute <code>i</code>. At every minute where at least <code>precedingMinutes</code> minutes of data exist (including the current one), it averages the calls over the last <code>precedingMinutes</code> minutes. If that average is <b>strictly greater</b> than <code>alertThreshold</code>, an alert is sent.</p>\n<p>Return the total number of alerts sent.</p>\n<p><b>Worked example:</b> <code>precedingMinutes = 3</code>, <code>alertThreshold = 10</code>, <code>numCalls = [0, 11, 10, 10, 7]</code>.</p>\n<ul><li>Minutes 0&ndash;2: (0+11+10)/3 = 7 &rarr; no alert.</li>\n<li>Minutes 1&ndash;3: (11+10+10)/3 &asymp; 10.33 &gt; 10 &rarr; alert.</li>\n<li>Minutes 2&ndash;4: (10+10+7)/3 = 9 &rarr; no alert.</li></ul>\n<p>Answer: <b>1</b>. With <code>alertThreshold = 5</code> all three windows alert and the answer is 3.</p>",
+ "constraints": "<ul><li>1 &le; precedingMinutes &le; n</li><li>1 &le; alertThreshold &le; 10^5</li><li>1 &le; n &le; 10^5</li><li>0 &le; numCalls[i] &le; 10^5</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

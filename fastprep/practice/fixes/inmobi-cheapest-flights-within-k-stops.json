@@ -1,0 +1,16 @@
+{
+ "pattern": "shortest-path",
+ "why": "This is a single-source shortest path with a limit on the number of edges (at most k + 1 flights). Bellman-Ford relaxed exactly k + 1 rounds, each round using only the previous round's prices, gives the cheapest cost using at most that many edges.",
+ "hints": [
+  "Plain Dijkstra finds the cheapest route but may use too many flights. What extra dimension does the state need?",
+  "Bellman-Ford's round i computes the cheapest cost using at most i edges, so stop after k + 1 rounds. Relax from a copy of last round's array so one round cannot chain two flights.",
+  "dist[src] = 0; repeat k + 1 times: new = dist copy, for each flight (u, v, w) set new[v] = min(new[v], dist[u] + w); dist = new. Answer dist[dst] or -1. O(k * E)."
+ ],
+ "pitfalls": [
+  "k counts intermediate stops, so up to k + 1 flights are allowed.",
+  "Relaxing in place lets one round use several flights and breaks the limit.",
+  "Return -1 when dst is unreachable within the limit, even if reachable with more stops."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

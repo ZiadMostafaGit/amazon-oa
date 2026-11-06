@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "Greedily lay the scores out as repeated strictly increasing runs: take one copy of each distinct value in sorted order, then again with what is left, and so on. The number of runs is forced by the most frequent value, so the ascents are n - maxFrequency.",
+ "hints": [
+  "Copies of the same score can never form an ascent with each other. How many 'breaks' are forced?",
+  "Build increasing runs: each run uses each remaining distinct value once, in ascending order. Every run of length L gives L-1 ascents, and you need exactly maxFrequency runs because the most common value must appear once per run.",
+  "Total ascents = n - (number of runs) = n - maxFrequency. Count frequencies with a hash map: O(n)."
+ ],
+ "pitfalls": [
+  "All values equal: the answer is 0.",
+  "All values distinct: the answer is n - 1 (just sort).",
+  "Do not count non-strict steps; scores[i] < scores[i+1] must be strict."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

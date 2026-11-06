@@ -1,0 +1,16 @@
+{
+ "pattern": "sliding-window",
+ "why": "Slide a window one step: s[i..j-1] and s[i+1..j] hold the same letters exactly when s[i] == s[j], since one drops s[i] and the other drops s[j]. So for each letter, its first and last occurrence give a pair of length last - first. The two are unequal unless everything between is that same letter. A longer pair is never possible.",
+ "hints": [
+  "Look at two windows of the same length that are shifted by one position. When do they hold the same multiset of letters?",
+  "Windows [i, j-1] and [i+1, j] are anagrams exactly when s[i] == s[j]. Pick, for each letter, its first and last positions to get length last - first. They are equal strings only if s[i..j] is one repeated letter.",
+  "One pass records first index, last index, and the number of separate runs of each letter. The answer is the max of last - first over letters with at least 2 runs, else -1. O(n)."
+ ],
+ "pitfalls": [
+  "\"aabbcc\": each letter forms one run, so every shifted pair is identical: return -1.",
+  "A letter appearing in two separate runs (like 'b' in \"abcacb\") gives last - first, here 5 - 1 = 4.",
+  "The two substrings are allowed to overlap."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

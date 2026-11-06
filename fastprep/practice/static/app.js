@@ -29,7 +29,7 @@ const state = {
   relno: localStorage.getItem('fp:relno') !== '0',
   fontSize: parseInt(localStorage.getItem('fp:fs') || '14', 10),
   showCaseForm: false,
-  topic: '', studyOpen: false, topics: null, finderOpen: false,
+  topic: '', studyOpen: false, topics: null, finderOpen: false, pathOpen: false,
 };
 
 const remember = (k, v) => { try { localStorage.setItem('fp:' + k, v); } catch (e) {} };
@@ -61,6 +61,7 @@ function pushUrl() {
   /* 'topic' is already a bank-tag filter, so the study space uses its own key */
   if (state.topic) extra.study = state.topic;
   else if (state.studyOpen) extra.study = 'all';
+  else if (state.pathOpen) extra.view = 'path';
   const qs = queryString(extra);
   history.replaceState(null, '', qs ? '?' + qs : location.pathname);
 }
@@ -73,6 +74,7 @@ function readUrl() {
   const study = p.get('study') || '';
   state.wantTopic = study && study !== 'all' ? study : '';
   state.wantTopicList = study === 'all';
+  state.wantPath = p.get('view') === 'path';
   return p.get('id');
 }
 
@@ -758,6 +760,40 @@ const GAP_TEXT = {
   'examples': 'no examples',
 };
 
+/* one line above the title: where this problem sits in the DSA path */
+function pathBar(p) {
+  const bar = el('div', 'pathbar');
+  const where = el('button', 'pb-where');
+  where.append(el('span', 'pb-stage', 'Stage ' + p.number + ' · ' + p.title),
+               el('span', 'pb-pos', p.inPlan ? (p.index + 1) + ' of ' + p.planSize : 'more practice'));
+  where.title = 'Open the path';
+  where.onclick = () => Path.show();
+  bar.append(where);
+  const nav = el('span', 'pb-nav');
+  if (p.prev) { const b = el('button', 'pb-btn', '‹ Prev'); b.title = p.prev.title; b.onclick = () => openProblem(p.prev.id); nav.append(b); }
+  if (p.next) { const b = el('button', 'pb-btn next', 'Next ›'); b.title = p.next.title; b.onclick = () => openProblem(p.next.id); nav.append(b); }
+  bar.append(nav);
+  return bar;
+}
+
+/* what the source lacks, and what its author said about it: useful, but not
+   before the statement */
+function sourceNotes(d) {
+  const gaps = (d.gaps || []).filter(g => GAP_TEXT[g]);
+  if (!gaps.length && !d.sourceNote) return null;
+  const box = el('details', 'srcnotes');
+  box.append(el('summary', null, 'About the source' + (gaps.length ? ' · ' + gaps.length + ' gap' + (gaps.length > 1 ? 's' : '') : '')));
+  if (gaps.length) {
+    const n = el('p');
+    n.innerHTML = '<b>Not in the source:</b> ' + gaps.map(g => esc(GAP_TEXT[g])).join(' · ') +
+      ((d.generatedCases || []).length && gaps.indexOf('only one example') >= 0
+        ? ' — the ' + d.generatedCases.length + ' generated cases in Test cases make up for it.' : '.');
+    box.append(n);
+  }
+  if (d.sourceNote) { const n = el('p'); n.innerHTML = '<b>Source note.</b> ' + esc(d.sourceNote); box.append(n); }
+  return box;
+}
+
 /* "Stuck?": the hints open one rung at a time, and the pattern comes last -
    naming the tool is the skill an assessment tests, so it is not handed out first */
 function stuckLadder(fx) {
@@ -801,35 +837,44 @@ function renderProblem() {
   const host = $('#problem');
   host.textContent = '';
 
-  /* --- sticky head: title, what it is, where you are with it --- */
+  /* --- sticky head: where it sits, what it is, where you are with it --- */
   const head = el('div', 'problem-head');
+  if (d.path) head.append(pathBar(d.path));
   head.append(el('h1', null, d.title || d.id));
   const meta = el('div', 'meta-row');
-  if (d.company) meta.append(el('span', 'tag company', d.company));
   if (d.difficulty) meta.append(el('span', 'tag ' + d.difficulty, d.difficulty));
-  (d.problemTypes || []).forEach(s => meta.append(el('span', 'tag stage', s)));
-  (d.employmentTypes || []).forEach(s => meta.append(el('span', 'tag plain', s)));
-  if (d.assessmentPlatform) meta.append(el('span', 'tag plain', d.assessmentPlatform));
+  if (d.company) meta.append(el('span', 'tag company', d.company));
+  (d.problemTypes || []).slice(0, 1).forEach(s => meta.append(el('span', 'tag stage', s)));
   if (d.practiceFormat === 'tabular') meta.append(el('span', 'tag plain', 'SQL / tabular'));
-  if (d.seenCount) meta.append(el('span', 'tag count', 'seen ' + d.seenCount + '×'));
   if (d.khatt) {
     const k = el('span', 'tag khatt', 'KHATT W' + String(d.khatt.week).padStart(2, '0') + ' · ' + d.khatt.day);
     k.title = 'Scheduled in the KHATT plan: ' + (d.khatt.label || '');
     meta.append(k);
   }
+  if (d.seenCount > 1) meta.append(el('span', 'tag faint', 'seen ' + d.seenCount + '×'));
   head.append(meta);
 
-  /* what this problem is about: each one opens its chapter in the study space */
+  /* the topics name the pattern, which is the very thing an assessment tests:
+     they stay folded until the problem is solved, or until asked for */
   const study = (d.studyTopics || []);
   if (study.length) {
     const row = el('div', 'meta-row topics-row');
-    row.append(el('span', 'rowlabel', 'Topics'));
-    study.forEach(t => {
-      const a = el('button', 'tag topic link', t.title);
-      a.title = 'Study ' + t.title + ' — ' + t.count + ' problems here';
-      a.onclick = () => Study.open(t.slug);
-      row.append(a);
-    });
+    const paintTopics = () => {
+      row.textContent = '';
+      row.append(el('span', 'rowlabel', 'Topics'));
+      study.forEach(t => {
+        const a = el('button', 'tag topic link', t.title);
+        a.title = 'Study ' + t.title + ' — ' + t.count + ' problems here';
+        a.onclick = () => Study.open(t.slug);
+        row.append(a);
+      });
+    };
+    if ((d.progress || {}).status === 'solved') paintTopics();
+    else {
+      const reveal = el('button', 'linkbtn reveal', 'Show topics (names the pattern)');
+      reveal.onclick = paintTopics;
+      row.append(reveal);
+    }
     head.append(row);
   }
 
@@ -878,25 +923,10 @@ function renderProblem() {
     body.append(n);
   }
 
-  body.append(planPane(d));
-
-  const gaps = (d.gaps || []).filter(g => GAP_TEXT[g]);
-  if (gaps.length) {
-    const n = el('div', 'callout');
-    n.innerHTML = '<b>Not in the source:</b> ' + gaps.map(g => esc(GAP_TEXT[g])).join(' · ') +
-      ((d.generatedCases || []).length && gaps.indexOf('only one example') >= 0
-        ? ' — the ' + d.generatedCases.length + ' generated cases below make up for the last one.' : '.');
-    body.append(n);
-  }
   if (d.delistedAt) {
     const n = el('div', 'callout warn');
     n.innerHTML = '<b>No longer listed on FastPrep</b> since ' + esc(d.delistedAt.slice(0, 10)) +
       '. Kept here so your progress, notes and any reference solution stay reachable.';
-    body.append(n);
-  }
-  if (d.sourceNote) {
-    const n = el('div', 'callout info');
-    n.innerHTML = '<b>Source note.</b> ' + esc(d.sourceNote);
     body.append(n);
   }
 
@@ -923,19 +953,6 @@ function renderProblem() {
     st.innerHTML = original;
   }
   body.append(st);
-
-  if (fx.constraints || d.constraints) {
-    body.append(el('h2', 'section', 'Constraints'));
-    const c = el('div', 'prose'); c.innerHTML = fx.constraints || d.constraints; body.append(c);
-    if (fx.constraints && d.constraints) {
-      const o = el('details', 'origc');
-      o.append(el('summary', null, 'Constraints as the source gives them'));
-      const oc = el('div', 'prose'); oc.innerHTML = d.constraints; o.append(oc);
-      body.append(o);
-    }
-  }
-
-  if ((fx.hints || []).length || fx.why) body.append(stuckLadder(fx));
 
   if (d.practiceFormat === 'tabular') {
     const tab = d.tabular || {};
@@ -991,6 +1008,24 @@ function renderProblem() {
     (d.examples || []).forEach((ex, i) => body.append(exampleBlock(ex, i)));
     if (!(d.examples || []).length) body.append(el('div', 'hint', 'No examples recorded.'));
   }
+
+  if (fx.constraints || d.constraints) {
+    body.append(el('h2', 'section', 'Constraints'));
+    const c = el('div', 'prose'); c.innerHTML = fx.constraints || d.constraints; body.append(c);
+    if (fx.constraints && d.constraints) {
+      const o = el('details', 'origc');
+      o.append(el('summary', null, 'Constraints as the source gives them'));
+      const oc = el('div', 'prose'); oc.innerHTML = d.constraints; o.append(oc);
+      body.append(o);
+    }
+  }
+
+
+
+  body.append(planPane(d));
+  if ((fx.hints || []).length || fx.why) body.append(stuckLadder(fx));
+  const notesBox = sourceNotes(d);
+  if (notesBox) body.append(notesBox);
 
   if ((d.images || []).length) {
     body.append(el('h2', 'section', 'Source screenshots'));
@@ -1070,7 +1105,10 @@ function planPane(d) {
   const plan = pr.plan || {};
   const filled = PLAN_FIELDS.filter(([k]) => (plan[k] || '').trim()).length;
   const box = el('details', 'disclosure plan');
-  box.open = filled < PLAN_FIELDS.length;
+  let want = null;
+  try { want = localStorage.getItem('fp:planOpen'); } catch (e) { /* private mode */ }
+  box.open = want === '1';
+  box.addEventListener('toggle', () => { try { localStorage.setItem('fp:planOpen', box.open ? '1' : '0'); } catch (e) { /* private mode */ } });
   const sum = el('summary');
   sum.append(el('span', 'stamp' + (filled === PLAN_FIELDS.length ? '' : ' pending'),
                 filled + '/' + PLAN_FIELDS.length),
@@ -1526,7 +1564,39 @@ function outputPanel(title) {
   return out;
 }
 
+/* how the page looks: theme (system / light / dark) and focus mode, both remembered */
+const Look = {
+  focus: false,
+  wire() {
+    this.focus = document.documentElement.classList.contains('focus');
+    $('#focusBtn').setAttribute('aria-pressed', this.focus ? 'true' : 'false');
+    $('#focusBtn').onclick = () => this.setFocus(!this.focus);
+    $('#themeBtn').onclick = () => this.cycleTheme();
+    this.paintTheme();
+  },
+  setFocus(on) {
+    this.focus = on;
+    document.documentElement.classList.toggle('focus', on);
+    $('#focusBtn').setAttribute('aria-pressed', on ? 'true' : 'false');
+    try { localStorage.setItem('fp:focus', on ? '1' : '0'); } catch (e) { /* private mode */ }
+    if (state.editor && state.editor.refresh) setTimeout(() => state.editor.refresh(), 0);
+  },
+  cycleTheme() {
+    const cur = document.documentElement.dataset.theme || 'system';
+    const nxt = { system: 'light', light: 'dark', dark: 'system' }[cur];
+    if (nxt === 'system') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = nxt;
+    try { localStorage.setItem('fp:theme', nxt); } catch (e) { /* private mode */ }
+    this.paintTheme();
+  },
+  paintTheme() {
+    const cur = document.documentElement.dataset.theme || 'system';
+    $('#themeBtn').title = 'Theme: ' + cur + ' (click to change)';
+  },
+};
+
 async function openProblem(id) {
+  if (state.pathOpen) Path.close();
   await saver.flush();               // never carry pending edits onto the next problem
   state.buffers = {};                // ...and never carry the buffers either
   const d = await api('api/problems/' + encodeURIComponent(id));
@@ -2036,7 +2106,7 @@ async function boot() {
     openProblem(wanted).catch(() => {});
   } else {
     renderPosition();
-    if (!state.wantTopic && !state.wantTopicList) openDrawer();
+    if (!state.wantTopic && !state.wantTopicList && !state.wantFind) state.wantPath = true;
   }
 
   Sync.poll();
@@ -2044,8 +2114,10 @@ async function boot() {
   Study.wire();
   Finder.wire();
   Timer.wire();
+  Look.wire();
   if (state.wantTopic) Study.open(state.wantTopic);
   else if (state.wantTopicList) Study.openIndex();
+  else if (state.wantPath) Path.show();
   if (state.wantFind) { closeDrawer(); Finder.open(); $('#findText').value = state.wantFind; Finder.find(); }
 
   let t = null;
@@ -2059,6 +2131,7 @@ async function boot() {
   $('#sort').onchange = (e) => { state.sort = e.target.value; state.dir = ''; paintDirButton(); reload(); };
   $('#dir').onclick = () => { flipDirection(); reload(); };
   $('#menuBtn').onclick = () => (drawerOpen() ? closeDrawer() : openDrawer());
+  $('#pathBtn').onclick = () => Path.toggle();
   $('#studyBtn').onclick = () => (state.studyOpen ? Study.close() : Study.openIndex());
   $('#drawerClose').onclick = closeDrawer;
   $('#scrim').onclick = closeDrawer;
@@ -2101,7 +2174,9 @@ async function boot() {
       if (!$('#lightbox').hidden) { $('#lightbox').hidden = true; return; }
       if (drawerOpen()) { closeDrawer(); return; }
       if (state.finderOpen) { Finder.close(); return; }
-      if (state.studyOpen) Study.close();
+      if (state.studyOpen) { Study.close(); return; }
+      if (state.pathOpen && state.current) { Path.close(); return; }
+      if (Look.focus) Look.setFocus(false);
       return;
     }
     const typing = e.target.matches('input,textarea,select') ||
@@ -2109,6 +2184,8 @@ async function boot() {
     if (e.key === '/' && !typing) { e.preventDefault(); openDrawer(); return; }
     if (typing) return;
     if (e.key === 's') { state.studyOpen ? Study.close() : Study.openIndex(); return; }
+    if (e.key === 'p') { Path.toggle(); return; }
+    if (e.key === 'z') { Look.setFocus(!Look.focus); return; }
     if (e.key === 'f') { e.preventDefault(); Finder.toggle(); return; }
     if (e.key === 't') { Timer.toggle(); return; }
     if (e.key === 'j') step(1);

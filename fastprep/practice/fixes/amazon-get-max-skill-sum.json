@@ -1,0 +1,17 @@
+{
+ "pattern": "prefix-sums",
+ "why": "Score developers +1 and marketers -1; a team is balanced exactly when two prefix balances are equal. For each balance remember the smallest skill prefix seen with it, so the best team ending here is current skill prefix minus that minimum.",
+ "hints": [
+  "Turn 'equal numbers of 0s and 1s' into a sum: count +1 for a developer and -1 for a marketer. The team is balanced when that sum over it is 0.",
+  "Subarray (i, j] is balanced iff balance[i] == balance[j]. Its skill is skillPrefix[j] - skillPrefix[i], so for each balance value you want the smallest skillPrefix seen so far.",
+  "One pass with a hash map balance -> min skill prefix, seeded with {0: 0}. Update the answer, then the minimum. Start the answer at 0 (empty team). O(n)."
+ ],
+ "pitfalls": [
+  "The empty team is allowed, so the answer is never below 0.",
+  "Store the minimum skill prefix per balance, not the first one, in case skills can be negative or zero.",
+  "Seed balance 0 with skill prefix 0 so teams that start at index 0 are counted."
+ ],
+ "constraints": "<ul><li>1 &le; n &le; 10^5 (not stated in the source)</li><li>expertise[i] is 0 or 1</li><li>1 &le; skill[i] &le; 10^9 (not stated in the source)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

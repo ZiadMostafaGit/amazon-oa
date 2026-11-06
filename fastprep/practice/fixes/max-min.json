@@ -1,0 +1,17 @@
+{
+ "pattern": "heap",
+ "why": "The set is a multiset that gains and loses arbitrary values, and after every query you need its current minimum and maximum. That is two priority queues (a min-heap and a max-heap) over the same values, with lazy deletion because a heap cannot remove an arbitrary element.",
+ "hints": [
+  "After each query you only need two numbers: the smallest and the largest value still present. Which structure gives you an extreme in O(log n)?",
+  "Keep a min-heap and a max-heap of every pushed value, plus a count map of how many copies are really alive. A pop just decrements the count; the stale copy stays in the heaps for now.",
+  "Before reading a heap's top, pop entries whose live count is 0 (lazy deletion). Each value is pushed and popped at most once per heap, so the total is O(n log n)."
+ ],
+ "pitfalls": [
+  "Values can repeat: popping one copy of 5 must leave the other copies alive, so count copies instead of using a plain set.",
+  "Products reach 10^18; fine in Python but needs a 64-bit type elsewhere.",
+  "Clean both heaps lazily: a popped value may still sit at the top of either one."
+ ],
+ "statement": "<p>Start with an empty multiset <code>elements</code> (values may repeat). You are given two arrays of length <code>n</code>: <code>operations</code> and <code>x</code>. Query <code>i</code> is:</p>\n<ul>\n<li><code>push x[i]</code>: insert one copy of <code>x[i]</code> into <code>elements</code>.</li>\n<li><code>pop x[i]</code>: remove one copy of <code>x[i]</code> from <code>elements</code> (it is guaranteed to be there).</li>\n</ul>\n<p>After <b>each</b> query, record <code>min(elements) × max(elements)</code>. Return the <code>n</code> recorded products in order.</p>\n<p><b>Worked example.</b> <code>operations = [push, push, push, pop]</code>, <code>x = [1, 2, 3, 1]</code>:</p>\n<ol>\n<li>push 1 → {1}: min 1, max 1, product 1.</li>\n<li>push 2 → {1, 2}: min 1, max 2, product 2.</li>\n<li>push 3 → {1, 2, 3}: min 1, max 3, product 3.</li>\n<li>pop 1 → {2, 3}: min 2, max 3, product 6.</li>\n</ol>\n<p>Answer: <code>[1, 2, 3, 6]</code>.</p>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

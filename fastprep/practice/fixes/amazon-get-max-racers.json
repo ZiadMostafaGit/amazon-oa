@@ -1,0 +1,16 @@
+{
+ "pattern": "sliding-window",
+ "why": "To group racers of speed v you remove the others between them. For each speed, take the list of positions where it occurs; a window of those positions from l to r costs (pos[r] - pos[l] + 1) - (r - l + 1) removals, so slide a window over each list while the cost stays <= k.",
+ "hints": [
+  "Fix the speed you will send. Which racers have to be removed to join a set of its occurrences?",
+  "For occurrences at positions p[l..r], the racers to remove are the other speeds in between: (p[r] - p[l] + 1) - (r - l + 1). That cost only grows as the window widens, so two pointers work.",
+  "Group positions by speed with a hash map, run a sliding window on each list, and track the longest window with cost <= k. The lists total n positions, so O(n)."
+ ],
+ "pitfalls": [
+  "Only racers between the chosen occurrences need removing; racers outside the segment stay.",
+  "Removing fewer than k racers is fine (at most k).",
+  "Each speed's list is handled separately; don't mix positions of different speeds."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

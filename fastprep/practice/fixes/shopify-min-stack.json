@@ -1,0 +1,16 @@
+{
+ "pattern": "stack",
+ "why": "This is a stack where every entry also remembers the minimum of everything at or below it. Because a stack only changes at the top, that saved minimum stays valid until the entry is popped, which gives O(1) getMin.",
+ "hints": [
+  "When you pop, the minimum might change. What information would let you know the new minimum right away?",
+  "Store pairs (value, min so far) on the stack. The min-so-far of a new entry is min(value, min-so-far of the entry below).",
+  "Push the pair, pop the pair, top = pair[0], getMin = pair[1]. Every operation is O(1); space O(n)."
+ ],
+ "pitfalls": [
+  "Duplicate minimums: popping one copy of 4 must keep 4 as the minimum if another copy remains, which per-entry minimums handle automatically.",
+  "Only top and getMin produce output; push and pop add nothing.",
+  "Values can be negative."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

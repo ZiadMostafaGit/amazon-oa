@@ -63,6 +63,18 @@ under it; when it runs out the page beeps, flashes the tab title and says so.
 The deadline is what is stored, not a counter, so sleeping, a background tab or
 a reload cannot quietly hand you more time.
 
+**A path through it.** The app opens on **Path**: the DSA topics in the order to learn them
+and the problems in the order to solve them. Phase A is what online assessments actually ask,
+measured on this bank (greedy and sorting are 41% and 33% of recent Amazon OA problems; trees and
+graphs about 1% each), so it comes first; Phase B is the interview core (trees, graphs, DP,
+backtracking); Phase C the rest. Each stage: read its chapter, solve one or two classic forms, then
+the OA forms easy to hard, then "more practice" on the same pattern. Every problem shows where it
+sits ("Stage 3 · 4 of 10") with Prev and Next. `python3 tools/path.py` rebuilds the path.
+
+**Built to focus.** The statement comes first; the topics, which name the pattern, stay folded
+until the problem is solved; the planning pane and the source's notes fold away. **Focus** (`z`)
+hides everything but the problem and the editor. A light theme follows the system, or pick one.
+
 **Repaired where the source is thin.** A lot of the bank is a two-line paraphrase of a
 screenshot with one example and "be efficient" for constraints. A repair lives beside the
 problem in `fixes/<id>.json`, never in the bank (every sync rewrites the bank): a clarified
@@ -73,8 +85,8 @@ comes last on purpose: in an OA, naming the tool is the skill. `python3 tools/fi
 what still needs work, most urgent first; `tools/fix.py stats` says how much is done.
 
 **The KHATT plan's DSA runs here.** The year plan's 367 daily problems are this bank's problems,
-not LeetCode's: per pattern week, the chapter first, then the classic form of the pattern, then
-the story-wrapped forms companies actually ask; company weeks use that company's most-reported
+not LeetCode's, and its DSA weeks follow the path above: per pattern week, the chapter first, then
+the classic form of the pattern, then the story-wrapped forms companies actually ask; company weeks use that company's most-reported
 OA problems. `fixes/khatt.json` records each one's week and day, and the problem shows it as a
 **KHATT W20 · Sun** tag.
 
@@ -108,6 +120,7 @@ fastprep/
   all_problems.json  the same bank as one JSON file, rewritten after every sync that changes it
   practice/          the app: serve.py, fpdb.py, parsing.py, runner.py, static/, tools/, tests/
   practice/solutions/ reference solutions, one file per problem id
+  practice/path/      PATH.json: the DSA path (tools/path.py builds it)
   practice/fixes/     repairs laid over thin problems (clearer statement, hints, pattern), khatt.json
 docs/                write-ups that are not in the bank and not reproducible:
                      a frame-by-frame post-mortem of a real 60-minute attempt, five debugging

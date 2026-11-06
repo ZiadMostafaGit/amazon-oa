@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "You never need the exact route, only the farthest index you can reach so far. Sweep left to right and extend that reach with i + nums[i]; if you ever stand past the reach, you are stuck at a zero.",
+ "hints": [
+  "Instead of trying routes, ask: from the indices reachable so far, how far can I get?",
+  "Keep one number, reach = the farthest index reachable. Every index up to reach is reachable, so each one can push reach to i + nums[i].",
+  "One pass: if i > reach return false, else reach = max(reach, i + nums[i]). Return true at the end. O(n) time, O(1) space."
+ ],
+ "pitfalls": [
+  "A single element [0] is already at the end: true.",
+  "A zero is only a trap if reach cannot get past it, as in [3,2,1,0,4].",
+  "You can stop early once reach >= n - 1."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

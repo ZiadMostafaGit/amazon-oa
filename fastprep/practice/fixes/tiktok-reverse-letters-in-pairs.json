@@ -1,0 +1,16 @@
+{
+ "pattern": "strings",
+ "why": "Pure careful string handling: step through the indices two at a time and swap each pair, leaving a trailing odd letter alone.",
+ "hints": [
+  "Strings are immutable in Python. What would you work on instead?",
+  "Convert to a list and step i = 0, 2, 4, ... swapping positions i and i+1.",
+  "Stop the loop at len - 1 so an odd final letter is untouched, then join. O(n)."
+ ],
+ "pitfalls": [
+  "Odd length: the last letter stays put.",
+  "Length 1 returns the same string.",
+  "Looping to len instead of len - 1 indexes past the end."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

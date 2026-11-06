@@ -1,0 +1,17 @@
+{
+ "pattern": "combinatorics",
+ "why": "A tree is bipartite, and a distance-2 move always stays inside one colour class of that 2-colouring, while every two machines in the same class are joined by a chain of distance-2 steps. So a tree is stable exactly when each colour class holds as many units as it has machines; the answer counts bipartitions with that property, times the number of spanning trees that realise each one (a^(b-1)*b^(a-1)).",
+ "hints": [
+  "Colour the tree in two colours (it is bipartite). Where can a unit go with one distance-2 move, in colour terms?",
+  "Units never leave their colour class, and inside a class any redistribution is possible, so stability depends only on the 2-colouring: each side's total workload must equal its size. The number of labeled trees whose bipartition is a given (A, B) with |A| = a, |B| = b is a^(b-1) * b^(a-1).",
+  "Shift each workload by -1 and run a subset DP over (subset size, shifted sum) to count sides of size a whose shifted sum is 0. Sum count * a^(b-1) * b^(a-1) over a, then halve because each tree is counted once per side. O(n^3) states, fine for n <= 120."
+ ],
+ "pitfalls": [
+  "Each unordered bipartition is seen twice (as A and as B), so divide by 2 with a modular inverse.",
+  "n = 1: the single-node tree is stable only if workloads[0] = 1 (guaranteed by the sum rule).",
+  "Both sides must be nonempty when n >= 2; skip a = 0 and a = n.",
+  "The shifted sums can be negative; offset the DP index."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

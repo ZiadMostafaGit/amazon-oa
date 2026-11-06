@@ -1,0 +1,17 @@
+{
+ "pattern": "stack",
+ "why": "Removing a middle system merges its two neighbours, which are two positions apart, so only systems of the same index parity ever combine. This sits in the stack stage as a 'collapse neighbours' process, but the solution is an invariant: the final system is any nonempty set of same-parity positions, so take the positive values of one parity, or the single largest value if none is positive.",
+ "hints": [
+  "Track original indices. When you remove the system at position p and its neighbours merge, which original indices end up together?",
+  "Merges always join indices of the same parity, and removing an end system deletes it outright. So you can delete anything you like, and any nonempty set of same-parity indices can be merged into the final system.",
+  "Sum the positive values at even indices and at odd indices separately. The answer is the max of those two sums and max(charge), which covers the case where everything is negative. O(n), O(1)."
+ ],
+ "pitfalls": [
+  "All values negative or zero: the answer is the single largest value, not 0.",
+  "n = 1: the only system remains.",
+  "Sums reach about 10^14; use 64-bit integers."
+ ],
+ "statement": "<p>You are given an array <code>charge</code> of <code>n</code> systems in a row. Charges may be positive, negative or zero.</p>\n<p>One operation: choose a system and remove it.</p>\n<ul>\n<li>If it had a neighbour on both sides with charges <code>x</code> (left) and <code>y</code> (right), those two neighbours merge into one system with charge <code>x + y</code>, in their place.</li>\n<li>If it was the leftmost or rightmost system, it is simply removed and nothing merges.</li>\n</ul>\n<p>Keep performing operations until <b>exactly one system remains</b>. Return the maximum possible charge of that last system.</p>\n<p><b>Rule example.</b> <code>[-3, 1, 4, -1, 5, -9]</code>: removing index 3 (charge -1) merges 4 and 5, giving <code>[-3, 1, 9, -9]</code>. Removing the first system then gives <code>[1, 9, -9]</code>.</p>\n<p><b>Worked example.</b> <code>charge = [-2, 4, 9, 1, -1]</code>:</p>\n<ol>\n<li>Remove the leftmost -2 → <code>[4, 9, 1, -1]</code>.</li>\n<li>Remove the leftmost 4 → <code>[9, 1, -1]</code>.</li>\n<li>Remove the rightmost -1 → <code>[9, 1]</code>.</li>\n<li>Remove the rightmost 1 → <code>[9]</code>.</li>\n</ol>\n<p>The answer is <code>9</code>. Merging can never do better here: 9 can only merge with positions 0 and 4, which hold -2 and -1.</p>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

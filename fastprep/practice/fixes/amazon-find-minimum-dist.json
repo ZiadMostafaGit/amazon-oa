@@ -1,0 +1,18 @@
+{
+ "pattern": "greedy",
+ "why": "Matching n points to n points on a line to minimise total |a - b| is the classic sorted matching: sort both lists and pair the i-th smallest center with the i-th smallest server. Any crossing pair can be uncrossed without increasing the cost.",
+ "hints": [
+  "Picture both sets as points on one number line. Would you ever connect pairs whose lines cross?",
+  "Exchange argument: if a1 <= a2 but a1 is paired with a larger server than a2, swapping the two partners never increases the total distance. So in an optimal answer, sorted order is matched to sorted order.",
+  "Sort both arrays, sum |center[i] - destination[i]|. O(n log n) time; use a 64-bit total."
+ ],
+ "pitfalls": [
+  "The inputs are not sorted; pairing by original index gives the wrong answer (example 2 would give more than 5).",
+  "The total can reach about 10^14, beyond 32-bit integers.",
+  "Duplicate positions are fine; sorting handles them."
+ ],
+ "statement": "<p>There are <code>n</code> data centers and <code>n</code> servers on a one-dimensional line. Data center <code>i</code> is at coordinate <code>center[i]</code> and server <code>j</code> is at coordinate <code>destination[j]</code>.</p><p>Each data center must be connected to <b>exactly one</b> server, and each server to exactly one data center. The lag of a connection is the absolute distance between the two coordinates.</p><p>Return the minimum possible <b>total lag</b> over all connections.</p><p><b>Example</b>: <code>center = [1, 2, 2]</code>, <code>destination = [5, 2, 4]</code>.</p><ol><li>Sort both: centers <code>[1, 2, 2]</code>, servers <code>[2, 4, 5]</code>.</li><li>Connect center 1 to server 2 (lag 1), center 2 to server 4 (lag 2), the other center 2 to server 5 (lag 3).</li><li>Total lag = 1 + 2 + 3 = 6, and no assignment does better.</li></ol><p>The answer is <code>6</code>.</p>",
+ "constraints": "<ul><li>1 &lt;= n &lt;= 10^5</li><li>center.length == destination.length == n</li><li>1 &lt;= center[i], destination[i] &lt;= 10^9</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

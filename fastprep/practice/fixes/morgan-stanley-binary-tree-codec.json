@@ -1,0 +1,16 @@
+{
+ "pattern": "serialize-tree",
+ "why": "Both rows are the serialize/deserialize pair for a binary tree: writing a null marker for every missing child makes a preorder list unambiguous, so it can be read back with a cursor that rebuilds the left subtree, then the right. Row 1 is just a BFS of the rebuilt tree.",
+ "hints": [
+  "Plain preorder values cannot be decoded uniquely. What do the -1 markers add?",
+  "With a marker for every missing child, the preorder list is self-delimiting: read a token; if it is -1 the subtree is empty, else it is a node whose left subtree, then right subtree, follow immediately.",
+  "Serialize with a stack-based preorder. Deserialize with one cursor over encoded (recursion or a stack of nodes waiting for a child), then BFS for the level order and strip trailing -1s. O(n) each."
+ ],
+ "pitfalls": [
+  "The empty tree serializes to [-1], and an empty reconstructed tree gives an empty row 1.",
+  "Strip only trailing -1 markers in the level order, not interior ones.",
+  "Duplicate values are allowed, so rebuild by position, never by value lookup."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

@@ -1,0 +1,17 @@
+{
+ "pattern": "union-find",
+ "why": "The score depends only on the size of each connected component. Union-find with size tracking merges the endpoints of every edge, then each root contributes ceil(sqrt(size)).",
+ "hints": [
+  "The answer only needs component sizes, not the components themselves.",
+  "Union-find by size: every edge merges two components and adds their sizes at the new root.",
+  "Union all edges, then for each node that is its own root add ceil(sqrt(size)), computed exactly as isqrt(size - 1) + 1. O((n + m) alpha(n))."
+ ],
+ "pitfalls": [
+  "Isolated nodes are components of size 1 and contribute 1 each.",
+  "Floating-point sqrt can misround for perfect squares; use integer isqrt.",
+  "Nodes are 1-based; edges may repeat or close cycles, so skip unions within one component."
+ ],
+ "statement": "<p>An undirected graph has nodes <code>1</code> to <code>n</code>. Its edges are given as two equal-length arrays: edge <code>i</code> joins <code>graphFrom[i]</code> and <code>graphTo[i]</code>.</p><p>Find every connected component (a node with no edges is a component of size 1). For each component of size <code>s</code>, take <code>ceil(sqrt(s))</code>, and return the sum over all components.</p><p><b>Example.</b> <code>n = 6</code>, <code>graphFrom = [1,2,4]</code>, <code>graphTo = [2,3,5]</code>.</p><ol><li>Edges 1-2 and 2-3 form {1,2,3}, size 3: ceil(sqrt(3)) = 2.</li><li>Edge 4-5 forms {4,5}, size 2: ceil(sqrt(2)) = 2.</li><li>Node 6 alone, size 1: ceil(sqrt(1)) = 1.</li></ol><p>Sum: 2 + 2 + 1 = <code>5</code>.</p>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

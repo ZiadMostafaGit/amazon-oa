@@ -1,0 +1,16 @@
+{
+ "pattern": "intervals",
+ "why": "One person can attend all meetings exactly when no two intervals overlap. After sorting by start, only neighbours in that order can clash, so it is a single interval-overlap check.",
+ "hints": [
+  "If you sort the meetings by start time, which pairs do you actually need to compare?",
+  "In start order, a clash exists if and only if some meeting starts before the previous one ends.",
+  "Sort by start, then scan adjacent pairs checking start[i] < end[i-1]. O(n log n) time, O(1) extra."
+ ],
+ "pitfalls": [
+  "End times are exclusive: [1,4] and [4,7] do not clash, so use strict <.",
+  "A single meeting is always attendable.",
+  "Sort first; the input order is arbitrary."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

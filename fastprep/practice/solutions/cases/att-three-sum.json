@@ -1,0 +1,68 @@
+{
+ "problemId": "att-three-sum",
+ "generatedAt": "2026-11-06T15:49:49",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 2, -1]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, -4, 1, -1, -1, -4, 0]"
+    }
+   ],
+   "expectedRaw": "[[-1, -1, 2], [-1, 0, 1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "[[0, 0, 0]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 1, 2, 2, -1]"
+    }
+   ],
+   "expectedRaw": "[[-1, -1, 2], [-1, 0, 1]]"
+  }
+ ]
+}

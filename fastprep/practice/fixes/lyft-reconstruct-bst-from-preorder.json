@@ -1,0 +1,16 @@
+{
+ "pattern": "bst",
+ "why": "In a BST preorder, the root comes first, then all keys smaller than it (its left subtree), then all larger keys (its right subtree). Rebuilding is a recursive split by that boundary, or one pass that gives each subtree an allowed value range.",
+ "hints": [
+  "The first value is the root. Which of the following values belong to its left subtree?",
+  "Everything smaller than the root, up to the first larger value, is the left subtree; the rest is the right subtree. Recursing with an (low, high) bound lets you consume the array in one left-to-right pass.",
+  "Walk preorder with an index: build a node if the next value fits the current bounds, recurse left with (low, val) and right with (val, high). O(n) time. Then serialize in preorder with # for empty children."
+ ],
+ "pitfalls": [
+  "Every missing child prints #, including both children of a leaf.",
+  "A fully skewed input (strictly decreasing) is 1,000 levels deep: raise the recursion limit or use an iterative stack.",
+  "Values can be negative, so do not use 0 or -1 as sentinels."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

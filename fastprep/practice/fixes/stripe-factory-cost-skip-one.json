@@ -1,0 +1,16 @@
+{
+ "pattern": "shortest-path",
+ "why": "Draw one node per factory and an edge from every stage-i factory to every stage-(i+1) factory weighted |x-y| plus the next production cost. The answer is the cheapest path through this layered graph, a DAG, so you relax it stage by stage in order instead of running Dijkstra.",
+ "hints": [
+  "Think of each factory as a node. What would an edge from a stage-0 factory to a stage-1 factory cost?",
+  "The graph has layers and no cycles, so the shortest path to each factory in a layer only needs the shortest paths to the previous layer: best[j] = cost[j] + min over i of (best[i] + |pos[i]-pos[j]|).",
+  "That's O(k^2) per pair of layers, enough for small inputs. To go faster, sort the previous layer by position: |x-y| splits into (best[i]-pos[i]) + pos[j] to the left and (best[i]+pos[i]) - pos[j] to the right, so prefix and suffix minima give O(k log k)."
+ ],
+ "pitfalls": [
+  "Forgetting the production cost of the first stage's factory: it has no transit cost, but it is still paid.",
+  "Taking the cheapest factory in each stage greedily: a cheap factory far away can lose to a dearer one nearby (example 1).",
+  "Positions can be equal or unordered: use absolute distance, not a signed difference."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

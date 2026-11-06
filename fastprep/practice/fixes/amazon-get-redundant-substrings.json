@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "V + C = aV + bC rearranges to (a-1)V + (b-1)C = 0. Give each vowel the weight a-1 and each consonant b-1; a substring is redundant exactly when its weighted sum is 0, i.e. two equal prefix sums, counted with a hash map.",
+ "hints": [
+  "Move everything to one side: the condition is (a-1)*V + (b-1)*C = 0.",
+  "That is a sum over the substring's characters with weight a-1 per vowel and b-1 per consonant. Zero-sum substrings correspond to pairs of equal prefix sums.",
+  "Running prefix sum plus a hash map of how many times each value has appeared (seeded with 0 -> 1); add the count to the answer at each step. O(n)."
+ ],
+ "pitfalls": [
+  "Seed the map with prefix 0 so substrings starting at index 0 are counted.",
+  "a = 1 and b = 1 make every weight 0: every one of the n(n+1)/2 substrings is redundant.",
+  "a and b can be negative; the weights are just integers, no special casing needed."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

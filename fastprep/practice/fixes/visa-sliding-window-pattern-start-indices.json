@@ -1,0 +1,16 @@
+{
+ "pattern": "string-matching",
+ "why": "Comparing every length-m window of sequence with pattern is the sliding window, but with lengths up to 2*10^5 a direct compare per window is O(n*m). KMP (or a rolling hash) slides the window in linear time.",
+ "hints": [
+  "Every candidate is a window of length len(pattern); naive comparison of each window can be quadratic, for example on 'aaaa...a'.",
+  "Use KMP: precompute for the pattern the longest proper prefix that is also a suffix, so after a mismatch or a full match you never re-read text characters.",
+  "Build the failure table in O(m), scan the text in O(n), and on a full match record i - m + 1 and fall back via the table so overlapping matches are found."
+ ],
+ "pitfalls": [
+  "Overlapping matches count: 'aa' in 'aaaa' gives [0, 1, 2].",
+  "Pattern longer than sequence, or an empty sequence: return [].",
+  "Indices are zero-based starts, in ascending order."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

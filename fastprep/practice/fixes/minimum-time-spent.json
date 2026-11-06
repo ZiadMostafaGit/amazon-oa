@@ -1,0 +1,17 @@
+{
+ "pattern": "greedy",
+ "why": "It sits in the binary-search stage, but no search is needed. Whichever category you watch first, finishing it earlier can only help the second movie, so take the earliest finish r + d in that category. Then pick the second movie minimising max(t, r) + d. Try both category orders.",
+ "hints": [
+  "You watch exactly two movies, one per category, one after the other. Try fixing which category goes first.",
+  "The second movie's finish max(t, release) + duration never gets worse when t gets smaller, so the first movie should be the one with the smallest release + duration.",
+  "For each order: t = min(r + d) over the first category, then min(max(t, r) + d) over the second. Answer is the better of the two orders. O(n + m)."
+ ],
+ "pitfalls": [
+  "Try both orders; comedy-first is not always best.",
+  "The second movie may start later than t if it has not been released yet: use max(t, r).",
+  "A movie can start exactly when the previous one ends."
+ ],
+ "constraints": "<ul><li>1 &lt;= n, m &lt;= 10^5</li><li>1 &lt;= comedyReleaseTime[i], comedyDuration[i], dramaReleaseTime[i], dramaDuration[i] &lt;= 10^6</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

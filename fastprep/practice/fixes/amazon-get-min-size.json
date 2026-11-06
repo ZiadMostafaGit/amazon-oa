@@ -1,0 +1,16 @@
+{
+ "pattern": "binary-search-on-answer",
+ "why": "Capacity C works if the games fit on k drives with at most 2 each, and a bigger C always works too, so you can binary search C. The check, and in fact the answer itself, comes from sorting: n - k drives must hold two games, the largest 2k - n games ride alone, and the 2(n - k) smallest pair smallest-with-largest.",
+ "hints": [
+  "With k drives, at most 2 games each and no drive empty, how many drives must hold two games?",
+  "Exactly n - k drives hold pairs. Leave the biggest games alone, and pair the 2(n - k) smallest by matching smallest with largest, which keeps the biggest pair sum as small as possible.",
+  "Sort. Answer = max(largest game, max over i of a[i] + a[2(n-k)-1-i]). That is O(n log n). Or binary search C and use the same pairing as an O(n) feasibility check."
+ ],
+ "pitfalls": [
+  "The largest game alone sets a floor even when no pair is needed (n == k).",
+  "Every child needs at least one game, so you cannot put all games on fewer drives.",
+  "Pair inside the smallest 2(n-k) games only, not across the whole array."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

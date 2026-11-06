@@ -1,0 +1,16 @@
+{
+ "pattern": "bst",
+ "why": "An in-order walk of the BST lists the keys in sorted order, and in a sorted list the values closest to target form a contiguous window around target's insertion point. Taking the kth closest is then a two-pointer expansion outward from that point, choosing the nearer side each step.",
+ "hints": [
+  "What order do the keys come out in if you walk the BST in order? Where in that order are the closest values to target?",
+  "The closest values sit right around target's insertion position: grow a window from there, one value at a time, always taking whichever neighbour (left or right) is nearer.",
+  "In-order traversal into a sorted list (O(n)), bisect for the insertion point, then k steps of two pointers comparing target - vals[i] with vals[j] - target. O(n) time, O(n) space."
+ ],
+ "pitfalls": [
+  "On a distance tie the smaller value wins, so the left pointer takes ties.",
+  "When one pointer runs off the end, keep taking from the other side.",
+  "target may equal a key (distance 0) or lie outside all keys."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

@@ -1,0 +1,17 @@
+{
+ "pattern": "greedy",
+ "why": "Each subject costs max(0, needed[i] - answered[i]) extra questions to pass, and every pass is worth the same 1. To pass the most subjects with budget q, buy the cheapest ones first: sort costs and take them while the budget lasts.",
+ "hints": [
+  "Turn each subject into one number: how many more questions it still needs.",
+  "Every passed subject counts 1 no matter its cost, so swapping an expensive pass for a cheaper one never hurts. Take the cheapest costs first.",
+  "Compute costs (clamped at 0), sort ascending, subtract from q until the next cost is larger than what is left. O(n log n)."
+ ],
+ "pitfalls": [
+  "If answered[i] >= needed[i], the cost is 0, not negative: such subjects pass for free.",
+  "Stop at the first cost you cannot afford; later costs are even bigger.",
+  "q can be up to 10^9 and the sum of costs larger; Python ints are fine."
+ ],
+ "statement": "<p>A student is preparing for <code>n</code> certification subjects. For subject <code>i</code>, they have already answered <code>answered[i]</code> questions, and they need at least <code>needed[i]</code> answered questions to pass it.</p><p>The student can answer <code>q</code> more questions in total, split across the subjects however they like. Return the <b>maximum number of subjects</b> they can pass.</p><p><b>Worked example.</b> <code>answered = [24, 27, 0]</code>, <code>needed = [51, 52, 100]</code>, <code>q = 100</code>.</p><ol><li>Extra questions each subject still needs: <code>51-24 = 27</code>, <code>52-27 = 25</code>, <code>100-0 = 100</code>.</li><li>Cheapest first: pass subject 2 for 25 (75 left), then subject 1 for 27 (48 left).</li><li>Subject 3 needs 100 &gt; 48, so stop. Answer: <b>2</b>.</li></ol><p>With <code>q = 200</code> all three costs (25 + 27 + 100 = 152) fit, so the answer is 3. A subject where <code>answered[i] &gt;= needed[i]</code> is already passed and costs nothing.</p>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "intervals",
+ "why": "Each sprinkler is an interval [i - r, i + r] clipped to [0, n], and you need the fewest intervals covering [0, n]. That is greedy interval covering, which is the jump-game greedy once you record the farthest reach from each left end.",
+ "hints": [
+  "Turn each sprinkler into the interval it waters. What is the question now?",
+  "Minimum intervals to cover a segment: from the covered frontier, among all intervals starting at or before it, choose the one reaching farthest. far[left] = the best right end among intervals starting at left.",
+  "Build far[] in O(n), then sweep like Jump Game II. Each layer extends the frontier to the farthest reach seen; if it cannot move, return -1. O(n) time and space."
+ ],
+ "pitfalls": [
+  "Coverage is of a continuous segment: [0,1] and [2,3] leave the gap (1,2), so the next interval must start at or before the current end.",
+  "Clip intervals to [0, n] before indexing.",
+  "Return -1 if the frontier stalls before n."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

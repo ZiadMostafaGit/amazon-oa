@@ -7,6 +7,7 @@
 const Finder = {
   open() {
     if (state.studyOpen) Study.close();
+    if (state.pathOpen) Path.close();
     state.finderOpen = true;
     $('#finder').hidden = false;
     $('#workspace').hidden = true;

@@ -1,0 +1,17 @@
+{
+ "pattern": "greedy",
+ "why": "Every primary needs a backup at least as large, so after sorting descending the best pairing is adjacent: (1st, 2nd), (3rd, 4th), ... with the smaller of each pair as primary. The answer is the sum of the elements at odd positions of the descending order.",
+ "hints": [
+  "The largest server can never be a primary that earns its full value unless something at least as large backs it. Who should back whom?",
+  "Sort descending. Pair the 1st with the 2nd, the 3rd with the 4th, and so on; the 2nd, 4th, 6th... are primaries. An exchange argument shows no other pairing gives a bigger primary sum.",
+  "Sort once and sum every second element starting at index 1. O(n log n) time; with an odd n the smallest server is left unused."
+ ],
+ "pitfalls": [
+  "Use 64-bit-safe sums (Python is fine): the total can exceed 2^31.",
+  "With an odd number of servers, the smallest one is left out, not the largest.",
+  "Equal capacities are allowed as primary and backup (>= not >)."
+ ],
+ "constraints": "<ul><li>1 &lt;= n &lt;= 2 * 10^5</li><li>1 &lt;= memory[i] &lt;= 10^9</li><li><i>Not stated in the source; reasonable bounds.</i></li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

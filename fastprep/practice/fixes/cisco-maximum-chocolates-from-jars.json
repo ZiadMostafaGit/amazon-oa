@@ -1,0 +1,16 @@
+{
+ "pattern": "dynamic-programming",
+ "why": "Choosing jars with no two neighbours is House Robber: at each jar you either skip it (keep the best so far) or take it plus the best answer ending two jars back.",
+ "hints": [
+  "Look at the last jar. Either Andrew takes it or he doesn't. What does each choice say about the jar before it?",
+  "Let best[i] be the most chocolates using jars 0..i. Then best[i] = max(best[i-1], best[i-2] + jars[i]).",
+  "Only the last two values are needed, so roll two variables through the array: O(n) time, O(1) space."
+ ],
+ "pitfalls": [
+  "Taking every other jar starting at index 0 or 1 is not always optimal; in the example the best picks are jars 1, 3 and 6 (gaps of 2 and 3).",
+  "A single jar: the answer is its count.",
+  "Empty jars (0) are fine; never pick a negative baseline."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

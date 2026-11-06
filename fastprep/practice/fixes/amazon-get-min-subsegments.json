@@ -1,0 +1,17 @@
+{
+ "pattern": "greedy",
+ "why": "If every segment has even length, every segment boundary falls at an even index, so the string is really a sequence of pairs. A mixed pair ('01'/'10') costs exactly one flip and can take either colour; a pure pair costs nothing and fixes a colour. The minimum flips is the number of mixed pairs, and greedily giving each mixed pair a neighbour's colour leaves segments = colour changes among pure pairs + 1.",
+ "hints": [
+  "Every segment has even length, so where can boundaries be? Try cutting the string into consecutive pairs.",
+  "Each pair must end up uniform. A mixed pair needs exactly 1 flip; a pure pair needs 0 (flipping it to the other colour costs 2, which is never minimal). So B = number of mixed pairs, and pure pairs keep their colour.",
+  "Mixed pairs can join whichever neighbour they like, so skip them. Walk the pure pairs and count how many times their colour changes; segments = changes + 1, or 1 if there are no pure pairs. One pass: O(n)."
+ ],
+ "pitfalls": [
+  "Minimise flips first: do not recolour a pure pair just to merge segments.",
+  "If every pair is mixed, the answer is 1 (make them all the same colour).",
+  "A flip changes a single character, not a whole frame range."
+ ],
+ "statement": "<p>A video has <code>n</code> frames (<code>n</code> is even), given as a binary string <code>frames</code>. In one <b>flip</b> you change a single character: <code>0</code> becomes <code>1</code> or <code>1</code> becomes <code>0</code>.</p><p>After flipping, the string must be split into contiguous subsegments such that:</p><ul><li>each subsegment contains only one character (all <code>0</code>s or all <code>1</code>s), and</li><li>each subsegment has <b>even</b> length.</li></ul><p>First use the minimum possible number of flips <code>B</code>. Among all ways that use exactly <code>B</code> flips, return the <b>minimum number of subsegments</b>.</p><p><b>Example</b>: <code>frames = \"1110011000\"</code>.</p><ol><li>Even-length segments mean every boundary sits at an even index, so look at pairs: <code>11 | 10 | 01 | 10 | 00</code>.</li><li>The three mixed pairs each need one flip, so <code>B = 3</code>. The pure pairs <code>11</code> and <code>00</code> need none.</li><li>Turn every mixed pair into <code>11</code>: <code>\"1111111100\"</code>.</li><li>This splits into <code>11111111</code> and <code>00</code>, both even, so 2 subsegments.</li></ol><p>The answer is <code>2</code>.</p>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

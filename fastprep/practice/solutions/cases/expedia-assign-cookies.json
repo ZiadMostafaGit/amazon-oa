@@ -1,0 +1,98 @@
+{
+ "problemId": "expedia-assign-cookies",
+ "generatedAt": "2026-11-06T15:49:57",
+ "from": "reference solution, verified 2026-11-06T15:49:26",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "greed",
+     "type": "int[]",
+     "rawValue": "[3, 2]"
+    },
+    {
+     "name": "cookies",
+     "type": "int[]",
+     "rawValue": "[-2, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "greed",
+     "type": "int[]",
+     "rawValue": "[-4, 3]"
+    },
+    {
+     "name": "cookies",
+     "type": "int[]",
+     "rawValue": "[-4, 2, 0, 1, -5]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "greed",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "cookies",
+     "type": "int[]",
+     "rawValue": "[3]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "greed",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "cookies",
+     "type": "int[]",
+     "rawValue": "[2, 1, 2]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "greed",
+     "type": "int[]",
+     "rawValue": "[0, 5]"
+    },
+    {
+     "name": "cookies",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "greed",
+     "type": "int[]",
+     "rawValue": "[1, 2]"
+    },
+    {
+     "name": "cookies",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

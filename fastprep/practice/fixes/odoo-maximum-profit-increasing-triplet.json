@@ -1,0 +1,17 @@
+{
+ "pattern": "lis",
+ "why": "An increasing price triplet is an increasing subsequence of length 3, and we maximise the profit sum instead of the length: a weighted LIS capped at 3. Fix the middle day j, and you need the best profit to its left with a smaller price and the best to its right with a larger price.",
+ "hints": [
+  "Fix the middle day j. What do you need from the days before it and the days after it?",
+  "For each j: left[j] = max profit[i] over i < j with price[i] < price[j], right[j] = max profit[k] over k > j with price[k] > price[j]. The answer is the max of left[j] + profit[j] + right[j].",
+  "Compute left with a prefix-max Fenwick tree over compressed prices (query ranks strictly below, then insert), and right with a second one scanning from the end over mirrored ranks. O(n log n) time; an O(n^2) double loop also works for small n."
+ ],
+ "pitfalls": [
+  "Strictly increasing prices: equal prices cannot be used together, so query ranks strictly less (or greater).",
+  "If no triplet exists, return -1, and do not let a missing left or right side be treated as 0.",
+  "Use a true minus-infinity sentinel if profits may be negative."
+ ],
+ "constraints": "<ul><li>1 &lt;= n &lt;= 10^5, price.length == profit.length == n</li><li>1 &lt;= price[i], profit[i] &lt;= 10^9</li><li><i>Not stated in the source; reasonable bounds for an O(n log n) solution.</i></li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

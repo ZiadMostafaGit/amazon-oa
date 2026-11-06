@@ -1,0 +1,16 @@
+{
+ "pattern": "simulation",
+ "why": "Follow the scheduler's rules exactly, but make each step fast: you repeatedly need the largest priority held by 2 or more live processes, and the two smallest indices at that priority. A max-heap of duplicated priorities and a min-heap of indices per priority do this in O(log n) per step.",
+ "hints": [
+  "A naive scan per step is O(n) and there can be n steps. Which two lookups does each step need?",
+  "Each step needs (1) the largest priority with count >= 2 and (2) the two lowest indices with that priority. Then one process disappears and the other moves to priority p // 2.",
+  "Keep counts per priority, a min-heap of indices per priority, and a lazy max-heap of priorities whose count >= 2 (skip stale tops). Each step removes a process, so there are at most n-1 steps: O(n log n)."
+ ],
+ "pitfalls": [
+  "Priority 0 never triggers a step, even when shared.",
+  "The demoted process keeps its queue position; output survivors in original index order.",
+  "Demotion can create a new duplicate at p // 2 that may be larger than other pending ones, so push it back on the heap."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

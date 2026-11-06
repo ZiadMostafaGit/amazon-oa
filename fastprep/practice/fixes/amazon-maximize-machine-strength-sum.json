@@ -1,0 +1,17 @@
+{
+ "pattern": "greedy",
+ "why": "Each machine may give away exactly one unit, and its best gift is its own minimum, which lifts its strength to its second minimum. All those minimums must land somewhere, so one sink machine ends up holding the global minimum; greedily choose as sink the machine whose second minimum is smallest, since it loses the least.",
+ "hints": [
+  "A machine's strength is its minimum. If a machine can move exactly one unit out, which unit should it move?",
+  "Moving out the minimum raises a machine's strength to its second-smallest value. If every machine does this, all the minimums pile into one receiving machine, whose strength drops to the global minimum.",
+  "So the answer is sum of all second minimums, minus the sink's second minimum, plus the global minimum; choose the sink with the smallest second minimum. One pass tracking the min and second min of each machine: O(total units)."
+ ],
+ "pitfalls": [
+  "The sink also counts: its strength becomes the global minimum, not its second minimum.",
+  "With a single machine there is nowhere to send a unit, so the answer is its own minimum (the formula gives exactly that).",
+  "Duplicates matter: a machine [2, 2, 5] has second minimum 2, not 5.",
+  "Use a 64-bit sum."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

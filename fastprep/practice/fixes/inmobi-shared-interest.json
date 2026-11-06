@@ -1,0 +1,17 @@
+{
+ "pattern": "union-find",
+ "why": "Each interest label defines its own graph; 'shares the interest' means 'in the same connected component of that label's graph'. Run one union-find per distinct label, and every pair inside a component gets +1 for that label.",
+ "hints": [
+  "Sharing is transitive per label, so for one fixed label the friends split into connected components. Edges with different labels never mix.",
+  "Group the edges by label. For each label, build a fresh union-find over the friends and union its edges; then every pair of friends with the same root shares that label.",
+  "Keep an n x n count table. For each label, add 1 to every pair inside each component of size 2 or more; finally scan all pairs for the largest count, breaking ties by the largest product i*j. That is at most 100 labels x 4,950 pairs, which is fast."
+ ],
+ "pitfalls": [
+  "The same label may appear on several edges, even on the same pair. Group by label first so each label counts at most once per pair.",
+  "Pairs that share zero interests are still pairs, but at least one edge exists, so the best count is always at least 1.",
+  "Ties: among the pairs with the maximum count, return the largest product, not the first pair found.",
+  "Friends are numbered from 1, so size the parent array n+1."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

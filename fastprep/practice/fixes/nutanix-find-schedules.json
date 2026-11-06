@@ -1,0 +1,17 @@
+{
+ "pattern": "backtracking",
+ "why": "Fill each '?' day with an hour count from 0 to day_hours so the total hits work_hours exactly: a bounded-composition generator. Backtrack day by day, trying digits in increasing order so results come out already sorted.",
+ "hints": [
+  "Subtract the fixed digits from work_hours first: you need to spread the remaining hours over the '?' days, each between 0 and day_hours.",
+  "Recurse over the '?' positions left to right, trying 0, 1, ..., day_hours. Because the positions are fixed and digits are tried in ascending order, the finished strings are produced in lexicographic order.",
+  "Prune: stop if the hours left go negative or exceed (days left) x day_hours. With at most 7 slots and 9 digits the search is tiny."
+ ],
+ "pitfalls": [
+  "Only the '?' days are limited by day_hours; the given digits are kept as they are, even if larger.",
+  "Remaining hours can be 0: then every '?' becomes 0 and there is exactly one schedule.",
+  "Return the strings in ascending order; build each by replacing only the '?' positions."
+ ],
+ "constraints": "<ul><li>1 &lt;= work_hours &lt;= 56</li><li>1 &lt;= day_hours &lt;= 8</li><li>|pattern| = 7</li><li>Each character of pattern is a digit 0..8 or '?'.</li><li>There is at least one correct schedule.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

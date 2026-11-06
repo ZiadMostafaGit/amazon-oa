@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "Sort children by greed and cookies by size, then give each cookie, smallest first, to the least greedy child still waiting if it is big enough. A small cookie that cannot satisfy the least greedy child satisfies no one, so wasting it is free.",
+ "hints": [
+  "Order does not matter in the input. What happens if you sort both arrays?",
+  "The least greedy child is the easiest to please, so give them the smallest cookie that fits. Using a bigger cookie on them could only rob a greedier child.",
+  "Sort both, walk the cookies with a pointer into the children: if cookie >= greed[i], i += 1. The answer is i. O(n log n + m log m)."
+ ],
+ "pitfalls": [
+  "cookies can be empty: the answer is 0.",
+  "Giving the biggest cookie to the smallest child fails example 2.",
+  "Do not let the child pointer run past the end of greed when cookies outnumber children."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

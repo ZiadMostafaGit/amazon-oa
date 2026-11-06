@@ -1,0 +1,16 @@
+{
+ "pattern": "matrix-traversal",
+ "why": "A clockwise quarter turn sends (r, c) to (c, n-1-r). That equals a transpose (swap (r, c) with (c, r)) followed by reversing every row, and both can be done in place.",
+ "hints": [
+  "Write where cell (r, c) goes after a clockwise rotation.",
+  "(r, c) -> (c, n-1-r) splits into two easy in-place moves: transpose, then mirror each row left to right.",
+  "Swap matrix[i][j] with matrix[j][i] for j > i only, then reverse each row. O(n^2) time, O(1) extra space."
+ ],
+ "pitfalls": [
+  "Transposing over all (i, j) instead of j > i swaps each pair twice and undoes itself.",
+  "Reversing the row order instead of each row gives a counter-clockwise turn.",
+  "n = 1 is unchanged."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

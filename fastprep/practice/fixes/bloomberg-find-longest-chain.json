@@ -1,0 +1,19 @@
+{
+ "pattern": "lis",
+ "why": "A chain is an increasing sequence by word length in which each word is the previous one with one letter deleted: LIS where 'can follow' means 'is a one-deletion predecessor'. Sort by length and let best[w] = 1 + max best[w with one letter removed].",
+ "hints": [
+  "Each step removes exactly one letter, so word lengths in a chain go down by exactly 1. Process short words first.",
+  "best[w] = length of the longest chain ending at w (read from short to long). For each w, try deleting each of its letters; if that shorter word is in the dictionary, best[w] can be best[shorter] + 1.",
+  "Sort the words by length, store best in a hash map, and try all len(w) deletions per word. O(N * L^2) time for N words of length up to L; the answer is the largest best value."
+ ],
+ "pitfalls": [
+  "A single word with no valid predecessor still forms a chain of length 1.",
+  "Deleting different letters can give the same word (e.g. 'aab'); that is fine, just take the max.",
+  "Duplicate words in the input should not lengthen a chain.",
+  "Only words in the dictionary count; 'bads' -> 'bad' fails because 'bad' is not in the list."
+ ],
+ "statement": "<p>You are given a dictionary <code>words</code>. Starting from any word, you may repeatedly delete <b>exactly one letter</b>, but every word you produce must also be in the dictionary. The words visited form a chain.</p><p>Return the length (number of words) of the longest chain that can be formed.</p><p><b>Example</b>: <code>words = [\"bac\", \"ac\", \"a\", \"c\", \"bads\"]</code>.</p><ol><li>Start from <code>\"bac\"</code> and delete <code>b</code>: <code>\"ac\"</code> is in the dictionary.</li><li>Delete <code>c</code> from <code>\"ac\"</code>: <code>\"a\"</code> is in the dictionary.</li><li><code>\"a\"</code> cannot shrink further, so the chain <code>bac -&gt; ac -&gt; a</code> has 3 words.</li><li><code>\"bads\"</code> cannot start a chain longer than 1: none of <code>ads, bds, bas, bad</code> is in the dictionary.</li></ol><p>The answer is <code>3</code>.</p>",
+ "constraints": "<ul><li>1 &lt;= words.length &lt;= 10^4</li><li>1 &lt;= words[i].length &lt;= 16</li><li>words[i] consists of lowercase English letters.</li><li><i>Not stated in the source; reasonable bounds.</i></li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

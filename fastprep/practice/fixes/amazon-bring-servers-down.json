@@ -1,0 +1,18 @@
+{
+ "pattern": "greedy-exchange",
+ "why": "Server i needs t_i = ceil(health[i] / k) virus-seconds and costs request[i] requests for every second it is still up, so the total is the sum of request[i] times the second it dies: weighted completion-time scheduling. The exchange argument (Smith's rule) says kill servers in increasing t_i / request[i].",
+ "hints": [
+  "Every second you pay the sum of the requests of the servers still alive. So a server's cost is request[i] times the second it goes down.",
+  "Put all viruses on one server until it dies (splitting only delays everyone). Swap two adjacent servers in the kill order and compare: A should go before B when t_A * req_B < t_B * req_A.",
+  "Compute t_i = ceil(health[i]/k), sort by that ratio using cross-multiplication (no floats), accumulate elapsed time and add request[i] * elapsed. Add 1 for the final request. O(n log n)."
+ ],
+ "pitfalls": [
+  "Do not forget the one extra request after all servers are down.",
+  "Compare ratios with cross-multiplication; floating division can mis-order ties.",
+  "Kill time is a ceiling: health 4 with k = 3 takes 2 seconds."
+ ],
+ "statement": "<p>There are <code>n</code> servers. Server <code>i</code> serves <code>request[i]</code> requests per second and has health <code>health[i]</code>.</p>\n<p>Every second the developers send as many requests as all servers that are still up can serve (the sum of <code>request[i]</code> over the live servers). Along with them they send one virus to a server of their choice, reducing its health by <code>k</code>. A server is down once its health is &le; 0.</p>\n<p>After all servers are down, one more request is sent to conclude the failure. Return the <b>minimum total number of requests</b> sent.</p>\n<p><b>Worked example:</b> <code>request = [3, 4]</code>, <code>health = [4, 6]</code>, <code>k = 3</code>. Server 0 needs ceil(4/3) = 2 viruses, server 1 needs ceil(6/3) = 2.</p>\n<ol><li>Seconds 1 and 2: both servers up, 3 + 4 = 7 requests each; viruses hit server 1, which goes down. Total 14.</li>\n<li>Seconds 3 and 4: only server 0 up, 3 requests each; viruses hit server 0, which goes down. Total 14 + 6 = 20.</li>\n<li>One final request: <b>21</b>. (Killing server 0 first would give 7+7+4+4+1 = 23.)</li></ol>",
+ "constraints": "<ul><li>n == request.length == health.length</li><li>1 &le; n &le; 10^5 (not stated in the source)</li><li>1 &le; request[i], health[i], k &le; 10^9 (not stated in the source)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

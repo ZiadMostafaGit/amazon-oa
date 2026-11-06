@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy-exchange",
+ "why": "Zeros move for free, so drop them. Every paid adjacent swap exchanges one (1,2) pair and fixes exactly one inversion, so the cost to sort into one block order is that order's number of inversions. The answer is the smaller of the two counts.",
+ "hints": [
+  "Zeros are free to move. What is left once you ignore them, and what does one paid swap change?",
+  "A paid swap exchanges one adjacent 1 and 2, fixing exactly one out-of-order (2 before 1) pair. So the minimum cost for 'ones first' is the number of (2, later 1) pairs, and for 'twos first' it is the number of (1, later 2) pairs.",
+  "One pass with running counts of ones and twos seen so far: each 1 adds the twos seen, each 2 adds the ones seen. Return the min of the two totals. O(n), O(1)."
+ ],
+ "pitfalls": [
+  "Either block may come first; compute both orders.",
+  "Inversion counts reach about 2.5*10^9; use 64-bit integers.",
+  "An array of only zeros, or only one kind of value, costs 0."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

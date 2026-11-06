@@ -1,0 +1,17 @@
+{
+ "pattern": "union-find",
+ "why": "The graph's connected components are what matter, and for each one you only need its smallest and largest label. Union-find merges components edge by edge and keeps a running min and max at each root, so the answer is the largest max - min over the roots.",
+ "hints": [
+  "You never need a component's full list of nodes. What two numbers per component are enough?",
+  "Keep min and max at each union-find root; when two roots merge, the new root takes the smaller min and the larger max.",
+  "Initialise min = max = label for nodes 1..g_nodes, union every edge, then scan the roots for the largest max - min. O((n + m) alpha(n))."
+ ],
+ "pitfalls": [
+  "Isolated nodes are components with difference 0; the answer is at least 0.",
+  "Nodes are labeled 1..g_nodes, so size arrays g_nodes + 1.",
+  "Use iterative find: 10^5 nodes in a chain would overflow recursion."
+ ],
+ "constraints": "<ul><li>1 &le; g_nodes &le; 10<sup>5</sup></li><li>1 &le; g_edges &le; min(10<sup>5</sup>, g_nodes &times; (g_nodes &minus; 1) / 2)</li><li>1 &le; g_from[i], g_to[i] &le; g_nodes</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

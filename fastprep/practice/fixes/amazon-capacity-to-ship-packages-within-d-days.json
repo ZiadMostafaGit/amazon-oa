@@ -1,0 +1,18 @@
+{
+ "pattern": "binary-search-on-answer",
+ "why": "A bigger ship never needs more days, so 'can capacity C ship everything in days?' is monotone. Binary search C between max(weights) and sum(weights), checking each candidate with a greedy fill-the-day count.",
+ "hints": [
+  "If capacity C works, does C + 1 work too?",
+  "Yes, so binary search the smallest working C. To check C, load packages in order and start a new day whenever the next one would overflow.",
+  "lo = max(weights) (the heaviest must fit), hi = sum(weights) (one day). Greedy check O(n): O(n log sum) total."
+ ],
+ "pitfalls": [
+  "The lower bound is max(weights), not 1: a package cannot be split.",
+  "Packages keep their order; you cannot sort them.",
+  "Count days starting at 1, and start a new day when cur + w > C."
+ ],
+ "statement": "<p>A conveyor belt has packages that must be shipped from one port to another within <code>days</code> days. Package <code>i</code> weighs <code>weights[i]</code>.</p><p>Each day you load packages <b>in the given order</b> (no reordering, no splitting a package) as long as the day's total weight does not exceed the ship's capacity, then ship them. Return the <b>least capacity</b> that ships every package within <code>days</code> days.</p><p><b>Worked example.</b> <code>weights = [1,2,3,4,5,6,7,8,9,10]</code>, <code>days = 5</code>.</p><ol><li>Capacity 15: day 1 takes 1+2+3+4+5 = 15, day 2 takes 6+7 = 13, then 8, 9, 10 on days 3-5. That is 5 days, so it works.</li><li>Capacity 14: 1..4 (10), 5+6 (11), 7, 8, 9, 10 is 6 days, too many.</li><li>Answer: <b>15</b>.</li></ol>",
+ "constraints": "<ul><li>1 &lt;= days &lt;= weights.length &lt;= 5 * 10^4</li><li>1 &lt;= weights[i] &lt;= 500</li><li>Bounds not stated in the source; these are the standard ones.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-07"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "lca",
+ "why": "With parent pointers, the ancestors of a node form a single path to the root, so the LCA is the first node where p's root path and q's root path meet. Mark p's path, then climb from q until you land on a marked node.",
+ "hints": [
+  "From any node, following parent[] gives exactly one path to the root. What are the common ancestors of p and q in terms of those two paths?",
+  "The common ancestors are the shared tail of the two root paths; the lowest one is the first shared node you reach climbing from q.",
+  "Put every node on p's root path into a set, then walk q upward until it is in the set. O(depth) time and space, at most O(n)."
+ ],
+ "pitfalls": [
+  "A node is its own ancestor: if p is an ancestor of q, the answer is p.",
+  "p may equal q.",
+  "Use iteration, not recursion: a chain of 100,000 nodes is possible."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}

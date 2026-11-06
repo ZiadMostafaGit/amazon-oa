@@ -1,0 +1,16 @@
+{
+ "pattern": "intervals",
+ "why": "This is the classic interval merge: once intervals are sorted by start, any overlap can only be with the interval you are currently building, so one left-to-right sweep merges everything.",
+ "hints": [
+  "If the intervals were sorted by start, which earlier intervals could the next one overlap?",
+  "After sorting, the next interval overlaps the running merged interval exactly when its start is at most the running end (closed intervals). Then extend the end to max(end, new end); otherwise close it and start a new one.",
+  "Sort by start (O(n log n)), then a single sweep holding the current merged interval; output is built in order."
+ ],
+ "pitfalls": [
+  "Touching endpoints like [1,4] and [4,5] count as overlapping because the intervals are closed.",
+  "A contained interval like [1,10] then [2,3] must not shrink the end: use max.",
+  "The input is not sorted."
+ ],
+ "by": "claude",
+ "at": "2026-11-07"
+}
