@@ -1,0 +1,68 @@
+{
+ "problemId": "intuit-boolean-parenthesization",
+ "generatedAt": "2026-11-06T16:49:31",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"T^^F|F\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"T^FF\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"T&F|TT\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"T^F||F\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "expression",
+     "type": "String",
+     "rawValue": "\"T^FF|F\""
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

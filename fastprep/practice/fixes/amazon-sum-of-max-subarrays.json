@@ -1,0 +1,17 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "The contribution technique with a weight: arr[i] is the maximum of every subarray between its previous greater-or-equal and next greater element, so it contributes arr[i] times the total length of those subarrays, which has a closed form in the number of left and right choices.",
+  "hints": [
+    "For a fixed arr[i], which subarrays have it as their maximum?",
+    "Those starting after L (previous index with value >= arr[i]) and ending before R (next index with value > arr[i]). With a = i - L left choices and b = R - i right choices there are a * b of them.",
+    "Their lengths sum to sum over p < a, q < b of (p + q + 1) = a*b + b*a*(a-1)/2 + a*b*(b-1)/2. Find L and R with a monotonic stack and add arr[i] times that. O(n)."
+  ],
+  "pitfalls": [
+    "Use >= on one side and > on the other so subarrays with a tied maximum are counted once.",
+    "You need the sum of lengths, not the count of subarrays."
+  ],
+  "statement": "<p>Given an integer array <code>arr</code>, consider every non-empty contiguous subarray. For each one, multiply its maximum value by its length. Return the sum of these products over all subarrays.</p><p>The intended solution runs in O(n).</p><p><b>Worked example:</b> <code>arr = [4, 2, 1, 2]</code></p><ul><li>Subarrays starting at index 0: [4], [4,2], [4,2,1], [4,2,1,2] have maximum 4 and lengths 1..4: 4 + 8 + 12 + 16 = 40</li><li>Starting at index 1: [2], [2,1], [2,1,2]: 2 + 4 + 6 = 12</li><li>Starting at index 2: [1], [1,2]: 1 + 4 = 5</li><li>Starting at index 3: [2]: 2</li></ul><p>Answer: 40 + 12 + 5 + 2 = <code>59</code>. For <code>[3]</code> the answer is <code>3</code>; for <code>[1, 2]</code> it is 1 + 2 + 2*2 = <code>7</code>.</p>",
+  "constraints": "<ul><li>1 &lt;= arr.length &lt;= 10^5</li><li>1 &lt;= arr[i] &lt;= 10^4</li><li>The answer fits in a signed 64-bit integer.</li><li>The source gives no bounds; these are practice assumptions that rule out the O(n^2) enumeration.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

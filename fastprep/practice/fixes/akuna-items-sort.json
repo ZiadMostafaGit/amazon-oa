@@ -1,0 +1,16 @@
+{
+ "pattern": "custom-comparators",
+ "why": "Sort by a tuple key: count each value's frequency, then sort the items by (frequency, value), so the primary order is frequency and ties fall back to the value itself.",
+ "hints": [
+  "You need two things per item: its frequency and its value. Where does the frequency come from?",
+  "Count with a hash map first. Then the order you want is 'by frequency, then by value': a two-part key.",
+  "sorted(items, key=lambda x: (freq[x], x)). Every copy of a value has the same key, so copies stay together. O(n log n)."
+ ],
+ "pitfalls": [
+  "Return all copies, not just the distinct values.",
+  "Ties on frequency are broken by the smaller value, not by first appearance."
+ ],
+ "constraints": "<ul><li>1 &lt;= n &lt;= 2 * 10^5</li><li>1 &lt;= items[i] &lt;= 10^6</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

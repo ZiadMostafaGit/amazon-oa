@@ -1,0 +1,15 @@
+{
+  "pattern": "linked-list",
+  "why": "Without the length, keep two pointers exactly n nodes apart: when the leading one reaches the last node, the trailing one is just before the node to remove. Starting both at a dummy node makes removing the head work too. It teaches the gap-of-k two-pointer technique.",
+  "hints": [
+    "Can you find the nth node from the end in one pass, without counting the length first?",
+    "Move a lead pointer n steps ahead of a trail pointer, then move both together; the gap stays n.",
+    "Start both at a dummy before the head. Advance lead n times, then advance both until lead.next is None. trail.next is the target: trail.next = trail.next.next; return dummy.next."
+  ],
+  "pitfalls": [
+    "Removing the head (n equals the length) needs the dummy node.",
+    "Stop when lead is the last node (lead.next is None), so trail stops one before the target."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

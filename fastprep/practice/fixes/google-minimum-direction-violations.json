@@ -1,0 +1,15 @@
+{
+ "pattern": "shortest-path",
+ "why": "The textbook 0-1 BFS: every move costs either 0 (along an arrow) or 1 (against it). A deque replaces Dijkstra's heap: 0-cost neighbours go to the front and 1-cost neighbours to the back, so vertices still come out in order of distance, in O(V + E).",
+ "hints": [
+  "Turn each directed edge u -> v into two undirected moves with costs. What costs, and what kind of shortest-path problem is that?",
+  "u -> v costs 0 and v -> u costs 1. With weights only 0 and 1, you can use a deque instead of a heap.",
+  "dist = inf, dist[start] = 0, deque [start]; pop left, relax neighbours; on improvement push to the left if the edge costs 0, to the right if it costs 1. Return dist[end]. O(V + E)."
+ ],
+ "pitfalls": [
+  "Plain BFS (counting edges) is wrong: a longer path can have fewer violations (example 3).",
+  "A vertex may be pushed more than once; relax only on a strict improvement."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

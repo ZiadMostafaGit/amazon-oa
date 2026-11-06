@@ -1,0 +1,16 @@
+{
+  "pattern": "simulation",
+  "why": "Process events in time order with two FIFO queues and a priority rule that depends on what happened in the previous second. Each second, admit arrivals, pick a queue by the rules, serve one person; when both queues are empty, jump time to the next arrival and forget the last direction.",
+  "hints": [
+    "What state decides who goes next? The two queues and the direction used in the previous second (or 'idle').",
+    "Loop over seconds: push everyone with arrival <= t, then choose: the only nonempty queue; else the previous direction if the last second was busy; else direction 1.",
+    "If both queues are empty, set t to the next arrival and mark the previous second idle, so time never steps through gaps one by one. O(n)."
+  ],
+  "pitfalls": [
+    "After an idle gap, priority resets to direction 1, even if the last person served went the other way.",
+    "Arrivals at second t can be served at second t.",
+    "Do not step t one second at a time across gaps of up to 10^9."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

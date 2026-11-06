@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search",
+  "why": "A matrix whose rows continue one another is one sorted array laid out in rows: binary search the cell number k in [0, rows*cols) and read matrix[k // cols][k % cols].",
+  "hints": [
+    "Read the matrix row by row. Is the sequence you get sorted?",
+    "Yes, so search it as a single array of rows*cols values. You only need to turn a flat index into (row, column).",
+    "lo, hi = 0, rows*cols - 1; v = matrix[mid // cols][mid % cols]; usual three-way compare. O(log(rows*cols)). (Two searches, first the row then the column, also work.)"
+  ],
+  "pitfalls": [
+    "Empty matrix: return false before computing cols.",
+    "Use the column count for both // and %, not the row count."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

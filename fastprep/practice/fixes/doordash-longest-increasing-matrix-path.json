@@ -1,0 +1,15 @@
+{
+ "pattern": "topological-sort",
+ "why": "Point an edge from each cell to every strictly larger neighbour: the grid becomes a DAG (values only go up), and the longest increasing path is the longest path in that DAG. Peeling it layer by layer with Kahn's algorithm, the number of layers is the answer.",
+ "hints": [
+  "Can a strictly increasing path ever come back to a cell it has visited? What kind of graph do the 'move to a larger neighbour' edges form?",
+  "It is a DAG, so the longest path is computable: start from cells with no smaller neighbour (in-degree 0) and peel layer by layer, or use DFS with memo.",
+  "In-degree = number of strictly smaller neighbours. BFS by layers from in-degree-0 cells; when a cell's in-degree drops to 0 it joins the next layer. Count the layers. O(rows * cols)."
+ ],
+ "pitfalls": [
+  "Equal neighbours are not an edge in either direction.",
+  "Recursive DFS on a 100 x 100 grid can recurse 10^4 deep; raise the limit or use the layered version."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

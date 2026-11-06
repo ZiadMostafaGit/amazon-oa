@@ -1,0 +1,96 @@
+{
+  "node": "binary-search",
+  "ladder": [
+    {
+      "id": "meta-first-bad-version-array",
+      "teaches": "the first index where a monotone condition becomes true",
+      "why": "The bare template: a false/false/true/true array and the first true, with nothing else in the way.",
+      "level": "core"
+    },
+    {
+      "id": "grammarly-first-target-index",
+      "teaches": "the first index where a monotone condition becomes true",
+      "why": "The first occurrence of a value is the first index with nums[i] >= target (lower bound), plus one equality check.",
+      "level": "core"
+    },
+    {
+      "id": "swiggy-first-and-last-occurrence",
+      "teaches": "count elements <= x with bisect",
+      "why": "bisect_left and bisect_right bound the block of equal values, so their difference counts copies of x.",
+      "level": "core"
+    },
+    {
+      "id": "arista-networks-first-missing-number-in-consecutive-array",
+      "teaches": "the first index where a monotone condition becomes true",
+      "why": "The predicate can be derived (nums[i] > nums[0] + i): binary search works whenever something flips exactly once, not only on raw values.",
+      "level": "core"
+    },
+    {
+      "id": "goldman-sachs-minimum-in-rotated-sorted-array",
+      "teaches": "search a rotated sorted array",
+      "why": "Comparing with the last element splits a rotated array into a false run and a true run, so its minimum is a first-true search.",
+      "level": "core"
+    },
+    {
+      "id": "amazon-search-rotated-sorted-array",
+      "teaches": "search a rotated sorted array",
+      "why": "At every mid one half is sorted; testing whether the target lies in that half decides which half to keep.",
+      "level": "core"
+    },
+    {
+      "id": "amazon-search-row-major-sorted-matrix",
+      "teaches": "search a sorted 2-D matrix",
+      "why": "Rows that continue one another form one sorted array; index k maps to matrix[k // cols][k % cols].",
+      "level": "core"
+    },
+    {
+      "id": "goldman-sachs-staircase-search",
+      "teaches": "search a sorted 2-D matrix",
+      "why": "When only rows and columns are sorted, the top-right corner discards a whole row or column per comparison.",
+      "level": "core"
+    },
+    {
+      "id": "tiktok-debugger-breakpoint-actions",
+      "teaches": "count elements <= x with bisect",
+      "why": "An OA story whose 'continue' is just bisect_right on the sorted breakpoints: the first value strictly greater than x.",
+      "level": "practice"
+    },
+    {
+      "id": "tiktok-next-shuttle-wait-time",
+      "teaches": "count elements <= x with bisect",
+      "why": "Convert times to minutes, then bisect_left finds the first departure at or after now; the >= versus > choice is the whole edge case.",
+      "level": "practice"
+    },
+    {
+      "id": "amazon-find-sum-of-beauties",
+      "teaches": "count elements <= x with bisect",
+      "why": "Amazon OA: build a list, sort it once, then answer many 'how many are smaller than x' questions with bisect_left.",
+      "level": "practice"
+    },
+    {
+      "id": "atlassian-time-based-key-value-store",
+      "teaches": "count elements <= x with bisect",
+      "why": "Per-key timestamp lists stay sorted for free; each get is the predecessor search bisect_right(ts, t) - 1.",
+      "level": "practice"
+    },
+    {
+      "id": "two-sigma-linear-interpolator",
+      "teaches": "count elements <= x with bisect",
+      "why": "Locating the segment that brackets x is a bisect on the sorted knots, wrapped in interpolation and tie rules.",
+      "level": "practice"
+    },
+    {
+      "id": "atlassian-single-element-in-a-sorted-array",
+      "teaches": "the first index where a monotone condition becomes true",
+      "why": "Pair parity (pairs start at even indices before the single value, odd after) is a hidden monotone predicate.",
+      "level": "stretch"
+    },
+    {
+      "id": "blinkit-find-peak-element",
+      "teaches": "the first index where a monotone condition becomes true",
+      "why": "An unsorted array still has a monotone question, 'am I past the peak?' (nums[i] > nums[i+1]), so binary search applies.",
+      "level": "stretch"
+    }
+  ],
+  "notes": "Moved amazon-capacity-to-ship-packages-within-d-days, imc-rock-jumping, peoplestrong-aggressive-cows, amazon-woodcut-saw-height, google-cut-ribbons-equal-length, microsoft-minimum-nonadjacent-capability, microsoft-maximize-pipeline-throughput-under-budget, microsoft-maximum-alloy-production and rippling-find-minimum-time to bs-answer, where they belong. Dropped bytedance-search-in-rotated-sorted-array-with-duplicates (lowest-index rule with duplicates is a muddy teacher) and google-closest-pizza-price (n, m <= 10: brute force, not binary search). Two 2-D techniques: row-major flatten (true binary search) and staircase search (the sorted-rows-and-columns variant)."
+}

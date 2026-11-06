@@ -1,6 +1,6 @@
 {
-  "pattern": "dp-1d",
-  "why": "Cell i can only be reached from i - 1 or from i - p for a prime p ending in 3, so best[i] = cell[i] + max(best[i-1], best[i-p]): a 1-D DP over the row, with a sieve to list the allowed jumps.",
+  "pattern": "number-theory",
+  "why": "A sieve lists the allowed jumps (primes ending in 3), and then cell i is reached only from i - 1 or i - p, so best[i] = cell[i] + max(best[i-1], best[i-p]): primes plus a 1-D DP over the row.",
   "hints": [
     "Think backwards: what are the possible last moves into cell i?",
     "From i - 1, or from i - p where p is a prime with last digit 3 (3, 13, 23, 43, ...). Take the best score of those sources plus cell[i].",

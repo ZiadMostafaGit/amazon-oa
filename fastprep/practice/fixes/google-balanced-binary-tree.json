@@ -1,0 +1,16 @@
+{
+ "pattern": "tree-dp",
+ "why": "Post-order combine of two facts at once: each subtree reports its height, and the node checks that its children's heights differ by at most one. Checking heights top-down instead recomputes them and costs O(n^2).",
+ "hints": [
+  "Being balanced is a condition at every node. What does a node need from its two children to check it?",
+  "Compute heights bottom-up; at each node, if |hl - hr| > 1 the tree is unbalanced. Return the height upward so the parent does not recompute it.",
+  "Return -1 as an 'already unbalanced' signal so the whole recursion stops early, or use an explicit post-order stack. O(n) time."
+ ],
+ "pitfalls": [
+  "Checking only the root's two subtrees is not enough; every node must satisfy the rule.",
+  "An empty tree is balanced.",
+  "Calling a separate height() function at every node is O(n^2) on a chain."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

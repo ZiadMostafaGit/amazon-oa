@@ -1,0 +1,15 @@
+{
+  "pattern": "stack",
+  "why": "Nested k[...] groups are decoded with a stack of saved contexts: '[' pushes (text so far, repeat count) and starts fresh, ']' pops it and appends the inner text repeated. It is matching pairs where each stack entry carries extra data (the count and the outer text), the parsing form of a stack.",
+  "hints": [
+    "When you reach ']', what do you need to know to finish this group?",
+    "The text decoded inside the group, the repeat count written before its '[', and the text that came before that count. The innermost open group is the one closing, so keep them on a stack.",
+    "Scan once: accumulate digits into num; on '[' push (current text, num) and reset both; on ']' pop (prev, k) and set current = prev + current * k; letters append to current."
+  ],
+  "pitfalls": [
+    "Repeat counts can have several digits (\"12[a]\"): build the number digit by digit.",
+    "Plain letters after a group (\"2[ab]cd\") belong to the outer text, not to the group."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

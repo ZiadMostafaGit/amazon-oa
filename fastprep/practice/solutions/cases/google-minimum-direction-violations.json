@@ -1,0 +1,158 @@
+{
+ "problemId": "google-minimum-direction-violations",
+ "generatedAt": "2026-11-06T16:49:23",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 23,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[2, 1], [2, 3], [4, 3]]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [2, 3], [0, 1]]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [2, 1]]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 1]]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [2, 1]]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [2, 3], [1, 2], [2, 3]]"
+    },
+    {
+     "name": "start",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "end",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

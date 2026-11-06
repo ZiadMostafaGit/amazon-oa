@@ -1,0 +1,16 @@
+{
+ "pattern": "topological-sort",
+ "why": "Scheduling with durations and unlimited workers is the longest path in a DAG: a job starts at the latest finish among its prerequisites. Process jobs in topological order so every prerequisite's finish time is known first.",
+ "hints": [
+  "When can job v start, at the earliest, if you know when each of its prerequisites finishes?",
+  "start[v] = max over prerequisites u of start[u] + durations[u]. Compute it in topological order so each u is final before v.",
+  "Kahn's algorithm with in-degrees; when popping u, push its finish time into start[v] = max(start[v], start[u] + durations[u]). Output start and start + duration per job. O(N + E)."
+ ],
+ "pitfalls": [
+  "The edge is [before, after]: before -> after.",
+  "Return pairs in job-index order, not in processing order.",
+  "N = 0 returns an empty array."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

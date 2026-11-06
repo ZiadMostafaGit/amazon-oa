@@ -1,0 +1,15 @@
+{
+ "pattern": "dp-2d",
+ "why": "A grid DP where the state is a shape, not a path: side[r][c] = the largest all-ones square whose bottom-right corner is (r, c), which is 1 + the minimum of the three neighbours above, left and diagonal. It also equals the number of squares ending at that corner.",
+ "hints": [
+  "Fix the bottom-right corner of a square. How many all-ones squares end there?",
+  "If (r, c) is 1, side[r][c] = 1 + min(side[r-1][c], side[r][c-1], side[r-1][c-1]); the squares ending there have sides 1..side[r][c].",
+  "Sum side[r][c] over all cells, keeping one previous row. O(rows * cols)."
+ ],
+ "pitfalls": [
+  "The answer is a count of squares, not the largest area.",
+  "Cells that are 0 have side 0 and break every square through them."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "tree-dp",
+ "why": "Tree DP meets knapsack: choosing a node requires its parent, so in preorder each node is either taken (continue into its subtree) or skipped (its whole subtree is skipped). dp[i][c] over preorder positions gives an O(n * capacity) tree knapsack.",
+ "hints": [
+  "A valid selection is a connected set containing the root. What does skipping a node forbid?",
+  "List nodes in preorder; a subtree is a contiguous range [i, i + size). At position i: take node i and move to i+1 with budget c - cost, or skip and jump to i + size.",
+  "dp[i][c] = max(dp[i + size][c], value + dp[i+1][c - cost]) filled from the end of the preorder; answer dp[0][capacity]. (Merging child knapsacks also works, in O(n * capacity^2).)"
+ ],
+ "pitfalls": [
+  "Selecting nothing is allowed: the answer is at least 0 even if the root is unaffordable.",
+  "Costs can be 0.",
+  "Compute subtree sizes iteratively; recursion can be 200 deep, which is fine, but be careful in general."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+ "pattern": "prefix-sums",
+ "why": "Prefix and suffix arrays: the product of everything except index i is (product of everything left of i) times (product of everything right of i). One left-to-right pass builds the prefix products, one right-to-left pass multiplies in the suffix products, with no division.",
+ "hints": [
+  "Without division, split 'everything except i' into two parts you can precompute.",
+  "left[i] = product of nums[0..i-1], right[i] = product of nums[i+1..n-1]; answer[i] = left[i] * right[i].",
+  "Fill answer with prefix products in one pass, then sweep from the right with a running suffix product, multiplying it in. O(n) time, O(1) extra besides the output."
+ ],
+ "pitfalls": [
+  "Zeros break the division trick, which is exactly why the task forbids it.",
+  "The first prefix and the last suffix are the empty product, 1."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

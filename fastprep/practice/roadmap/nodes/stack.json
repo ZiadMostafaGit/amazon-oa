@@ -1,0 +1,96 @@
+{
+  "node": "stack",
+  "ladder": [
+    {
+      "id": "amazon-valid-parentheses",
+      "teaches": "match pairs (parentheses)",
+      "why": "The defining stack problem: the most recent unmatched opener must be the first one closed, which is exactly last-in first-out.",
+      "level": "core"
+    },
+    {
+      "id": "shopify-min-stack",
+      "teaches": "a stack augmented with extra data (min stack)",
+      "why": "Storing the running minimum beside each entry shows how a stack can carry extra data that stays valid until that entry is popped.",
+      "level": "core"
+    },
+    {
+      "id": "atlassian-evaluate-reverse-polish-notation",
+      "teaches": "evaluate an expression (RPN, a calculator)",
+      "why": "An operand stack evaluates postfix in one pass: each operator pops its two operands (right first) and pushes the result.",
+      "level": "core"
+    },
+    {
+      "id": "microsoft-asteroid-collision",
+      "teaches": "simulate with undo or collapse (asteroids, removing pairs)",
+      "why": "Survivors wait on a stack and each incoming left-mover collapses the top in a while loop, the template for every collision simulation.",
+      "level": "core"
+    },
+    {
+      "id": "attentive-remove-adjacent-duplicates-ii",
+      "teaches": "a stack of (value, count)",
+      "why": "Cascading removals of k equal neighbours become O(n) once each stack entry is a (character, run length) pair.",
+      "level": "core"
+    },
+    {
+      "id": "meta-minimum-removal-for-balanced-parentheses",
+      "teaches": "match pairs (parentheses)",
+      "why": "Matching with a stack of indices tells you which brackets are unmatched, not just whether the string is valid.",
+      "level": "core"
+    },
+    {
+      "id": "abridge-decode-string",
+      "teaches": "evaluate an expression (RPN, a calculator)",
+      "why": "Nested k[...] groups are parsed by pushing the outer context (text so far, repeat count) at '[' and restoring it at ']'.",
+      "level": "core"
+    },
+    {
+      "id": "netflix-undo-redo-command-history",
+      "teaches": "simulate with undo or collapse (asteroids, removing pairs)",
+      "why": "Undo and redo are two stacks moving commands back and forth, with a new command clearing the redo stack.",
+      "level": "core"
+    },
+    {
+      "id": "mathwork-cars-left",
+      "teaches": "simulate with undo or collapse (asteroids, removing pairs)",
+      "why": "Asteroid Collision in an OA story with directions, strengths and indices: you must recognise the collapse-on-a-stack simulation.",
+      "level": "practice"
+    },
+    {
+      "id": "wellsfargo-minimum-remaining-length",
+      "teaches": "simulate with undo or collapse (asteroids, removing pairs)",
+      "why": "Deleting AB or BB means every B cancels the character before it; a stack (or just its size) handles deletions that expose new pairs.",
+      "level": "practice"
+    },
+    {
+      "id": "headlands-exclusive-function-execution-times",
+      "teaches": "match pairs (parentheses)",
+      "why": "Start/end logs are matched pairs on a call stack, and the top of the stack owns the time between events.",
+      "level": "practice"
+    },
+    {
+      "id": "drw-nested-database-transactions",
+      "teaches": "a stack augmented with extra data (min stack)",
+      "why": "BEGIN/ROLLBACK/COMMIT is a stack of dictionaries, each layer holding the writes of one open transaction.",
+      "level": "practice"
+    },
+    {
+      "id": "imc-adding-stack-2-0",
+      "teaches": "a stack augmented with extra data (min stack)",
+      "why": "'Add v to the bottom i elements' in O(1) needs a lazy increment stored on the stack and handed down on pop.",
+      "level": "practice"
+    },
+    {
+      "id": "amazon-basic-calculator",
+      "teaches": "evaluate an expression (RPN, a calculator)",
+      "why": "Parentheses with + and - need the stack to save the running result and sign at each '(' and combine them at ')'.",
+      "level": "stretch"
+    },
+    {
+      "id": "mathworks-longest-valid-parentheses",
+      "teaches": "match pairs (parentheses)",
+      "why": "A stack of indices with the last unmatched ')' as its floor turns matching into the length of the longest valid run.",
+      "level": "stretch"
+    }
+  ],
+  "notes": "Many problems in the stack pool are monotonic-stack problems (daily temperatures, remove k digits, shopkeeper final price, next smaller, predict answer, maximum profitable groups, erase pairs, sum of max subarrays, maximum sum of heights, largest square); they were moved to the monotonic-stack ladder. 'Evaluate an expression' is taught by RPN (Atlassian, outside the pools), Decode String and Basic Calculator (Amazon, outside the pools; its source statement was cut off and was restored from the canonical LC 224 in its fix)."
+}

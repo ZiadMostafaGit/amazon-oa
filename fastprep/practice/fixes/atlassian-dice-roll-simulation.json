@@ -1,0 +1,15 @@
+{
+  "pattern": "counting-dp",
+  "why": "Count the ways with extra state: dp over rolls where the state is the face of the last roll and how long its current run is, and a new roll either continues the run (if under rollMax) or starts a new run with another face.",
+  "hints": [
+    "To know whether the next roll is legal you need the last face and how many times in a row it has appeared. Is that enough?",
+    "dp[f][k] = number of sequences ending with exactly k consecutive f. Rolling f again moves to dp[f][k+1] (only if k+1 <= rollMax[f]); rolling g != f moves to dp[g][1].",
+    "Per roll, dp'[g][1] = total - sum_k dp[g][k], and dp'[f][k+1] = dp[f][k]. Keep totals modulo 10^9+7. O(n * 6 * 50)."
+  ],
+  "pitfalls": [
+    "Take the modulo after every addition and when subtracting add MOD back.",
+    "Start with dp[f][1] = 1 for every face after the first roll."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

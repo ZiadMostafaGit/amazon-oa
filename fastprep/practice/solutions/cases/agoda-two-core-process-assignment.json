@@ -1,0 +1,68 @@
+{
+ "problemId": "agoda-two-core-process-assignment",
+ "generatedAt": "2026-11-06T16:49:14",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "int[]",
+     "rawValue": "[10, 10]"
+    }
+   ],
+   "expectedRaw": "[10, 10]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "int[]",
+     "rawValue": "[21, 21, 10, 10, 10, 10]"
+    }
+   ],
+   "expectedRaw": "[41, 41]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "int[]",
+     "rawValue": "[21, 10, 21, 10]"
+    }
+   ],
+   "expectedRaw": "[31, 31]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "int[]",
+     "rawValue": "[10, 10, 18]"
+    }
+   ],
+   "expectedRaw": "[20, 18]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "int[]",
+     "rawValue": "[10, 10, 21, 10, 10]"
+    }
+   ],
+   "expectedRaw": "[31, 30]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "time",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  }
+ ]
+}

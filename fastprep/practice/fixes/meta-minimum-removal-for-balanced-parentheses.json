@@ -1,0 +1,15 @@
+{
+  "pattern": "stack",
+  "why": "Matching pairs again, but now you must report which brackets are unmatched: a stack of the indices of open '(' finds every ')' with no partner during the scan, and whatever indices are left on the stack at the end are the unmatched '('. It teaches matching pairs with positions.",
+  "hints": [
+    "Which ')' can never be matched, no matter what you remove later?",
+    "One that arrives when no '(' is waiting. Keep a stack of indices of unmatched '('; a ')' pops one, or is marked for removal if the stack is empty.",
+    "After the scan, every index still on the stack is an unmatched '('. Drop all marked indices and join the rest. O(n)."
+  ],
+  "pitfalls": [
+    "Letters and digits are always kept; only parentheses are ever removed.",
+    "Remove leftover '(' by index; deleting characters from a string one at a time is O(n^2)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

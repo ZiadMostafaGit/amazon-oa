@@ -1,0 +1,15 @@
+{
+  "pattern": "subsets",
+  "why": "Subsets with pruning: each word is included or excluded, and a branch is cut as soon as adding a word would repeat a character. A 26-bit mask per word makes the 'no overlap' test one AND.",
+  "hints": [
+    "With at most 16 words there are 2^16 subsets. What is the cheapest way to test that two words share no character?",
+    "Turn each word into a bitmask; drop words that repeat a letter internally. dfs(i, mask): skip word i, or take it if (mask & m[i]) == 0.",
+    "Track the best popcount of mask over all leaves. Pruning on overlap keeps the search well below 2^16."
+  ],
+  "pitfalls": [
+    "A word like 'aa' can never be used.",
+    "An empty input returns 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

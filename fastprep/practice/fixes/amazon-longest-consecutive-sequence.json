@@ -1,0 +1,17 @@
+{
+ "pattern": "hash-tables",
+ "why": "A set to remember what exists: put every value in a set, start counting only at values v whose v-1 is absent (the start of a run), and extend v+1, v+2, ... by lookups. Each value is touched a constant number of times, so O(n) without sorting.",
+ "hints": [
+  "Sorting gives O(n log n). What question about a value could you answer in O(1) with a set?",
+  "A run of consecutive values has exactly one start: the value v with v-1 missing. Only start counting from such values.",
+  "seen = set(nums); for v in seen: if v-1 not in seen: walk while v+len in seen. Track the best length. Every value is visited by at most one walk, so O(n)."
+ ],
+ "pitfalls": [
+  "Duplicates count once; iterate over the set, not the original array, to avoid repeated walks.",
+  "Without the 'v-1 not in seen' check the algorithm degrades to O(n^2) on a long run.",
+  "An empty array (if given) has answer 0."
+ ],
+ "constraints": "<ul><li>0 &lt;= nums.length &lt;= 10^5</li><li>-10^9 &lt;= nums[i] &lt;= 10^9</li><li>Bounds are not stated in the source; these are the standard LeetCode 128 bounds. Aim for O(n).</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

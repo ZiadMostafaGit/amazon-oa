@@ -1,0 +1,15 @@
+{
+  "pattern": "lru-cache",
+  "why": "Counting LRU page faults is an LRU cache in disguise: a hash map from page to node and a doubly linked list in recency order give O(1) hit checks, move-to-most-recent and eviction of the least recent page. The OA story only changes what you report (the faults).",
+  "hints": [
+    "For each access you must know: is the page cached, and which cached page was used longest ago?",
+    "A hash map answers the first in O(1). A doubly linked list ordered by recency answers the second: the least recent page is at one end, and a hit moves its node to the other end in O(1).",
+    "On a hit, unlink the node and append it at the most-recent end. On a miss, count a fault; if full, remove the least-recent node and its map entry; then append the new page."
+  ],
+  "pitfalls": [
+    "Capacity 0 stores nothing: every access is a fault.",
+    "A hit must refresh the page's recency, not only count as a hit."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

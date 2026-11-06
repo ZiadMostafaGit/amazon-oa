@@ -1,0 +1,98 @@
+{
+ "problemId": "google-dynamic-prefix-query-counts",
+ "generatedAt": "2026-11-06T16:49:23",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert\", \"count\", \"delete\", \"count\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"app\", \"apple\", \"app\", \"app\", \"app\", \"app\", \"apple\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"abc\", \"cat\", \"blue\", \"abc\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"x\", \"ab\", \"0\", \"dog\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"delete\", \"insert\", \"count\", \"insert\", \"count\", \"insert\", \"insert\", \"count\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"app\", \"app\", \"app\", \"delete\", \"app\", \"app\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"dog\", \"blue\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"ab\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"count\", \"count\", \"count\", \"delete\", \"insert\", \"insert\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"insert\", \"apple\", \"app\", \"app\", \"app\", \"app\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[0, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert\", \"insert\", \"insert\", \"count\", \"delete\", \"count\", \"\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"\", \"app\", \"app\", \"app\", \"\"]"
+    }
+   ],
+   "expectedRaw": "[2]"
+  }
+ ]
+}

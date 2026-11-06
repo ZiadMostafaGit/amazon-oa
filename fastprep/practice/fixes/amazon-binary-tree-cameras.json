@@ -1,0 +1,18 @@
+{
+ "pattern": "tree-dp",
+ "why": "Tree DP with three states per node (has a camera, covered by a child, not yet covered), filled bottom-up: a node's state is forced by its children, which also yields the greedy 'put the camera on the parent of an uncovered leaf'.",
+ "hints": [
+  "Leaves should never hold a camera: a camera on the leaf's parent covers strictly more. Start reasoning from the bottom.",
+  "Return one of three states from each subtree: 0 = this node is not covered yet, 1 = covered without a camera, 2 = has a camera. A null child counts as covered.",
+  "If any child is 0, place a camera here (return 2); else if any child is 2, return 1; else return 0. Add one more camera if the root ends at 0. O(n)."
+ ],
+ "pitfalls": [
+  "The root may be left uncovered at the end; it needs its own camera.",
+  "Treat missing children as covered, otherwise you put cameras on leaves.",
+  "A single node needs 1 camera."
+ ],
+ "statement": "<p>You are given the root of a binary tree. You may install cameras on its nodes. A camera at a node monitors that node, its parent (if any) and its immediate children.</p><p>Return the <b>minimum number of cameras</b> needed so that every node of the tree is monitored.</p><p><b>Example:</b> <code>root = [0,0,null,0,0]</code> (a root with one left child, which has two children). One camera on the left child monitors the root, itself and both of its children, so the answer is <code>1</code>.</p><p>For a path of 5 nodes, cameras on the 2nd and 4th nodes cover everything, so the answer is <code>2</code>.</p>",
+ "constraints": "<ul><li>The tree has between 1 and 1000 nodes.</li><li>Every node value is 0.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

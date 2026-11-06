@@ -1,0 +1,98 @@
+{
+ "problemId": "tiktok-next-shuttle-wait-time",
+ "generatedAt": "2026-11-06T16:49:33",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "shuttle_times",
+     "type": "String[]",
+     "rawValue": "[\"19:55\", \"19:55\"]"
+    },
+    {
+     "name": "current_time",
+     "type": "String",
+     "rawValue": "\"19:55\""
+    }
+   ],
+   "expectedRaw": "\"00:00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "shuttle_times",
+     "type": "String[]",
+     "rawValue": "[\"12:30\", \"14:00\", \"19:55\", \"14:00\"]"
+    },
+    {
+     "name": "current_time",
+     "type": "String",
+     "rawValue": "\"14:00\""
+    }
+   ],
+   "expectedRaw": "\"00:00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "shuttle_times",
+     "type": "String[]",
+     "rawValue": "[\"14:00\", \"19:55\", \"14:00\", \"12:30\"]"
+    },
+    {
+     "name": "current_time",
+     "type": "String",
+     "rawValue": "\"19:55\""
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "shuttle_times",
+     "type": "String[]",
+     "rawValue": "[\"19:55\", \"14:00\", \"12:30\"]"
+    },
+    {
+     "name": "current_time",
+     "type": "String",
+     "rawValue": "\"12:30\""
+    }
+   ],
+   "expectedRaw": "\"07:25\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "shuttle_times",
+     "type": "String[]",
+     "rawValue": "[\"12:30\", \"19:55\", \"19:55\"]"
+    },
+    {
+     "name": "current_time",
+     "type": "String",
+     "rawValue": "\"12:30\""
+    }
+   ],
+   "expectedRaw": "\"00:00\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "shuttle_times",
+     "type": "String[]",
+     "rawValue": "[\"19:55\", \"20:00\", \"14:00\"]"
+    },
+    {
+     "name": "current_time",
+     "type": "String",
+     "rawValue": "\"14:00\""
+    }
+   ],
+   "expectedRaw": "\"05:55\""
+  }
+ ]
+}

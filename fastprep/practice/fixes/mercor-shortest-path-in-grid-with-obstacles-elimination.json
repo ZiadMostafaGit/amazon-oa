@@ -1,0 +1,15 @@
+{
+ "pattern": "graph-modelling",
+ "why": "A cell alone is not enough to describe where you are, because how many eliminations you have left changes what you can do next. Make the node (row, col, removals left) and BFS over those states: the first time you reach the corner is the fewest steps.",
+ "hints": [
+  "Two visits to the same cell can be different: one may have more eliminations left. What should a BFS node remember?",
+  "Use the state (r, c, k_left). Stepping onto a 1 uses one elimination; stepping onto a 0 does not. Each step costs 1, so plain BFS works over states.",
+  "Track best[r][c] = the most eliminations left with which you reached the cell, and skip a state that is no better. If k >= rows + cols - 2 the answer is simply rows + cols - 2."
+ ],
+ "pitfalls": [
+  "A visited set keyed only on (r, c) gives wrong answers: a later visit with more eliminations can still win.",
+  "A 1x1 grid needs 0 steps."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

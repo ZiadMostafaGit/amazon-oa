@@ -1,0 +1,15 @@
+{
+  "pattern": "dp-1d",
+  "why": "Take or skip in disguise: taking value x earns x times its count but forbids x-1 and x+1, which is house robber over the values 1..max, where house v holds v * count(v).",
+  "hints": [
+    "If you take one 4, should you take all the 4s? What does taking 4 forbid?",
+    "Taking value v (all copies) forbids v-1 and v+1: neighbours on the number line. Build points[v] = v * count(v).",
+    "Run house robber over points[1..max]: best = max(skip, take); take = skip + points[v]. O(n + max value)."
+  ],
+  "pitfalls": [
+    "Empty input scores 0.",
+    "Do not run house robber on the input order; adjacency is by value, not by position."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

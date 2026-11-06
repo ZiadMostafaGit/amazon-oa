@@ -1,6 +1,6 @@
 {
-  "pattern": "frequency-counting",
-  "why": "Every server with id replaced[j] changes at once, so individual servers do not matter, only how many servers carry each id. Keep a count per id plus a running total; each day moves a whole bucket from the old id to the new id in O(1).",
+  "pattern": "simulation",
+  "why": "Simulate the days, but keep the right bookkeeping: every server with id replaced[j] changes at once, so only how many servers carry each id matters. Keep a count per id plus a running total; each day moves a whole bucket from the old id to the new id in O(1).",
   "hints": [
     "All servers with the same id are replaced together. Do you ever need to tell two servers with the same id apart?",
     "No: keep count[id] and total = sum(id * count[id]). A replacement moves count[old] servers to new, changing total by (new - old) * count[old].",

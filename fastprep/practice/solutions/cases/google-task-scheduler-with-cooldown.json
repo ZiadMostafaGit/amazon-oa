@@ -1,0 +1,98 @@
+{
+ "problemId": "google-task-scheduler-with-cooldown",
+ "generatedAt": "2026-11-06T16:49:24",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "int[]",
+     "rawValue": "[1, 2]"
+    },
+    {
+     "name": "cooldown",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "int[]",
+     "rawValue": "[7, 10, 7]"
+    },
+    {
+     "name": "cooldown",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    },
+    {
+     "name": "cooldown",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "int[]",
+     "rawValue": "[2, 1, 2, 1, 1, 1]"
+    },
+    {
+     "name": "cooldown",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "int[]",
+     "rawValue": "[1, 1, 2, 1]"
+    },
+    {
+     "name": "cooldown",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tasks",
+     "type": "int[]",
+     "rawValue": "[1, 2, 1, 1]"
+    },
+    {
+     "name": "cooldown",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

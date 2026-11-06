@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "Every box costs the same one slot, so the only thing that matters is units per box: sort, then take the locally best. Fill slots from the richest type down until the truck is full.",
+ "hints": [
+  "Every box uses exactly one slot no matter what it holds. So which box would you always rather load first?",
+  "Sort the types by unitsPerBox, descending. Swapping any loaded box for a richer unloaded one can only help, so the greedy fill is optimal.",
+  "Walk the sorted types; take min(boxes, remaining capacity) of each, add take * units, stop when capacity hits 0. O(n log n)."
+ ],
+ "pitfalls": [
+  "capacity = 0 or an empty list: the answer is 0.",
+  "Types with 0 boxes or 0 units just contribute nothing; do not crash on them.",
+  "Do not mutate the input arrays: sort a zipped copy."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

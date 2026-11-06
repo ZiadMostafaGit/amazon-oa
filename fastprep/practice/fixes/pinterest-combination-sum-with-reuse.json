@@ -1,0 +1,15 @@
+{
+  "pattern": "backtracking",
+  "why": "Combination Sum: backtracking with a start index. Passing the current index (not i + 1) to the recursive call lets a value be reused, and never going back to earlier indices makes every combination nondecreasing, so no duplicate orderings appear.",
+  "hints": [
+    "[2,2,3] and [2,3,2] and [3,2,2] are the same combination. What rule on the order you pick values makes each combination appear exactly once?",
+    "Only pick candidates at index >= the index of the last pick. Recurse with the same index to allow reuse, and stop when the remaining target hits 0 or goes negative.",
+    "Sort candidates; dfs(start, remain, path): if remain == 0 record a copy; for i from start, break if candidates[i] > remain, else push, dfs(i, remain - candidates[i]), pop. Sorted order gives lexicographic output."
+  ],
+  "pitfalls": [
+    "Recursing with i + 1 forbids reuse and misses [2,2,3].",
+    "Starting each level from 0 produces permutations of the same combination."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "sorting",
+ "why": "Sort, then compare neighbours: after sorting, the closest pair of values is always adjacent, so one pass over neighbouring differences finds the minimum gap and every pair that achieves it, already in ascending order.",
+ "hints": [
+  "Checking every pair is O(n^2). After sorting, can the closest pair ever be two elements that are not next to each other?",
+  "No: if a < b < c then c - a > b - a. So only adjacent pairs of the sorted array are candidates.",
+  "Sort, compute the minimum of a[i+1] - a[i], then collect every [a[i], a[i+1]] with that difference. The output is sorted for free. O(n log n)."
+ ],
+ "pitfalls": [
+  "Each pair is written smaller first, and the list is in ascending order: both come free from the sorted array.",
+  "Values are distinct, so the minimum difference is at least 1.",
+  "Use two passes (find min, then collect) or reset the list whenever a smaller gap appears."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+  "pattern": "stack",
+  "why": "Both deletable pairs end in 'B', so a 'B' can always delete whatever character is just before it. Scanning with a stack of kept characters, each 'B' pops the top if there is one; the stack size at the end is the minimum length. It is the 'collapse adjacent pairs' simulation, where a deletion can expose a new pair.",
+  "hints": [
+    "Look at the two deletable substrings. What do they have in common?",
+    "Both end in 'B', and any character followed by 'B' is deletable. So a 'B' cancels the character immediately before it, whatever that is.",
+    "Scan left to right with a stack (or just its size): a 'B' with a non-empty stack pops; otherwise push. Return the final size. O(n)."
+  ],
+  "pitfalls": [
+    "A deletion joins the parts around it, which can create a new deletable pair; a single left-to-right count of \"AB\" substrings misses these.",
+    "A leading 'B' (empty stack) cannot be deleted by itself and stays."
+  ],
+  "constraints": "<ul><li>1 &lt;= seq.length &lt;= 10^5</li><li>seq contains only the characters 'A' and 'B'.</li><li>Bounds are not shown in the source screenshot; these are practice assumptions.</li></ul>",
+  "statement": "<p>You are given a string <code>seq</code> made up only of the characters <code>'A'</code> and <code>'B'</code>.</p><p>You may repeatedly delete any occurrence of the substring <code>\"AB\"</code> or <code>\"BB\"</code>. After a deletion the remaining parts are joined, which may create a new deletable substring.</p><p>Return the minimum possible length of the string after any number of deletions.</p><p><b>Worked example:</b> <code>seq = \"BABBA\"</code></p><ul><li>Delete <code>\"AB\"</code> at positions 1-2: <code>\"BBA\"</code></li><li>Delete <code>\"BB\"</code>: <code>\"A\"</code></li></ul><p>No deletion applies to <code>\"A\"</code>, so the answer is <code>1</code>. For <code>\"AABBBB\"</code> the answer is <code>0</code>, and for <code>\"BAA\"</code> it is <code>3</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

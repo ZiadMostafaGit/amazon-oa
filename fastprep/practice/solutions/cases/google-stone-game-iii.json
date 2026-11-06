@@ -1,0 +1,68 @@
+{
+ "problemId": "google-stone-game-iii",
+ "generatedAt": "2026-11-06T16:49:24",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "stoneValue",
+     "type": "int[]",
+     "rawValue": "[3]"
+    }
+   ],
+   "expectedRaw": "\"Alice\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "stoneValue",
+     "type": "int[]",
+     "rawValue": "[2, 1]"
+    }
+   ],
+   "expectedRaw": "\"Alice\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "stoneValue",
+     "type": "int[]",
+     "rawValue": "[-1, 0, 4, -3, -4, 1]"
+    }
+   ],
+   "expectedRaw": "\"Alice\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "stoneValue",
+     "type": "int[]",
+     "rawValue": "[2, 3, 6, 2]"
+    }
+   ],
+   "expectedRaw": "\"Alice\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "stoneValue",
+     "type": "int[]",
+     "rawValue": "[2, 7, 3, 7]"
+    }
+   ],
+   "expectedRaw": "\"Alice\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "stoneValue",
+     "type": "int[]",
+     "rawValue": "[1, 2, 7]"
+    }
+   ],
+   "expectedRaw": "\"Alice\""
+  }
+ ]
+}

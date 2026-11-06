@@ -1,0 +1,18 @@
+{
+ "pattern": "frequency-counting",
+ "why": "Counting with a frequency map: a transaction changes every copy of oldValue at once, so only its count matters. Keep value -> count and a running sum; each transaction adds (new - old) * count[old] and moves that count to new.",
+ "hints": [
+  "Rewriting the array per transaction is O(n) each, O(n*q) total. Do you need to know where the copies of oldValue are, or only how many there are?",
+  "Keep count[value] and total. Replacing old by new changes the sum by (new - old) * count[old].",
+  "Then count[new] += count[old] and delete count[old]. Record total after every transaction. O(n + q)."
+ ],
+ "pitfalls": [
+  "oldValue may be absent: the sum does not change.",
+  "oldValue == newValue: do not delete the count after adding it back.",
+  "Sums can exceed 32 bits (fine in Python, use long elsewhere).",
+  "Merged values stay merged: after 1->4 then 4->2, the former 1s are 2s too."
+ ],
+ "constraints": "<ul><li>1 &lt;= entries.length &lt;= 10^5</li><li>1 &lt;= transactions.length &lt;= 10^5</li><li>1 &lt;= entries[i], oldValue, newValue &lt;= 10^9</li><li>The source gives no bounds; these are a reasonable assumption that rules out rewriting the array per transaction.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

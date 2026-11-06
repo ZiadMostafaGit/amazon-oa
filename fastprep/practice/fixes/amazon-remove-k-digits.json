@@ -1,0 +1,15 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "A smaller number wants smaller digits as early as possible, so while the last kept digit is larger than the incoming one and deletions remain, delete it. The kept digits form a non-decreasing stack. It is the canonical 'lexicographically smallest result' monotonic stack.",
+  "hints": [
+    "Comparing two results of the same length, which position decides which one is smaller?",
+    "The first position where they differ. So if a kept digit is followed by a smaller one, deleting the larger one is always better.",
+    "Stack of kept digits: for each digit, pop while k > 0 and top > digit (k -= 1), then push. If k remains, drop it from the end. Strip leading zeros; return \"0\" if nothing is left. O(n)."
+  ],
+  "pitfalls": [
+    "If the digits are non-decreasing (\"12345\"), no pop happens; remove the remaining k from the end.",
+    "Strip leading zeros, and return \"0\" (not \"\") for an empty result."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

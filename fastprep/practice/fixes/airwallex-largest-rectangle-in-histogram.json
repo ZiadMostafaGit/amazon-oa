@@ -1,0 +1,15 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "For each bar, the widest rectangle of its height reaches from just after the previous smaller bar to just before the next smaller bar. A stack of increasing heights finds both at the moment a bar is popped, so the whole histogram is solved in one pass.",
+  "hints": [
+    "Suppose the rectangle's height is exactly heights[i]. How far left and right can it stretch?",
+    "Until the nearest strictly lower bar on each side: previous smaller and next smaller element.",
+    "Keep a stack of indices with increasing heights and append a 0-height sentinel. When height[i] < height[top], pop top: its right limit is i, its left limit is the new top + 1; area = height * (i - left). O(n)."
+  ],
+  "pitfalls": [
+    "Without a final 0 sentinel, bars still on the stack at the end are never measured.",
+    "When the stack becomes empty after a pop, the rectangle extends to index 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

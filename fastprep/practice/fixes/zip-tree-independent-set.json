@@ -1,0 +1,16 @@
+{
+ "pattern": "tree-dp",
+ "why": "DP on a tree with a choose-or-skip state: for each node keep take[v] (v chosen, so children skipped) and skip[v] (v not chosen, each child free), combined bottom-up from the children.",
+ "hints": [
+  "If you know the best answers for each child's subtree, what else must you know about each child to decide about its parent?",
+  "Two numbers per node: take[v] = value[v] + sum skip[child]; skip[v] = sum max(take[child], skip[child]).",
+  "Parents appear before children, so scanning i from n-1 down to 1 and pushing into parent[i] is a post-order with no recursion. Answer max(take[0], skip[0]). O(n)."
+ ],
+ "pitfalls": [
+  "Greedy by levels (all even depths vs all odd) fails: example 1 mixes depths.",
+  "Recursion depth can hit 10000 on a path; use the reverse scan.",
+  "Skipping a node does not force its children to be chosen."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

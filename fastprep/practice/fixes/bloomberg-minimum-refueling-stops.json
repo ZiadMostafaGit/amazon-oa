@@ -1,0 +1,16 @@
+{
+ "pattern": "heap",
+ "why": "Greedy with a heap of the best so far: drive as far as the fuel allows, pushing every station you pass into a max-heap. When you cannot reach further, pretend you stopped at the biggest station passed. Each pop is one stop, and taking the largest is never worse.",
+ "hints": [
+  "You do not need to decide at a station whether to stop. What if you could decide later, once you know you are stuck?",
+  "All stations within reach are 'available'. When the fuel runs out before the target, the best single stop to have made is the available station with the most fuel. Take it, extend your reach, repeat.",
+  "Sort stations by position; while fuel < target: push every station with position <= fuel into a max-heap; if the heap is empty return -1; fuel += pop; stops += 1. O(n log n)."
+ ],
+ "pitfalls": [
+  "Stations may be given unsorted: sort them first.",
+  "No stations at all: the answer is 0 if startFuel >= target, else -1.",
+  "A DP over 'max distance with k stops' is O(n^2): too slow for 2*10^5 stations."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

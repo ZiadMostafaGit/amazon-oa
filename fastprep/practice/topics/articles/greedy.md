@@ -1,762 +1,1190 @@
 # Greedy Algorithms
 
-> A greedy algorithm is not "grab the biggest thing". It is a claim — that one
-> particular choice can never be the reason you lose — and the algorithm is only
-> as good as the proof of that claim.
+> A greedy algorithm is a recursion in which one branch provably always wins, so you take that branch and never explore the others; the whole skill is finding the choice you can prove you will never regret.
 
-## When you reach for it
+## The problem it solves
 
-Seven hundred and forty-three problems in this bank are solved greedily, which
-makes it the sixth most common topic of a hundred and fifty. Read that number
-not as "greedy is a technique" but as: *most optimisation problems that fit in an
-interview have a cheap optimal strategy, and the work is finding which one.*
+You are given a list of meetings, each with a start and an end time, and one room.
+Some meetings overlap. You must cancel some so that no two of the survivors
+overlap; a meeting that ends at 3 and one that starts at 3 do not overlap. What is
+the fewest you can cancel? That is
+[[p:bytedance-minimum-interval-removals|Minimum Interval Removals]] as this bank
+states it, with up to 100,000 intervals.
 
-The shape that makes greedy right has three parts, and all three have to hold.
+Cancelling the fewest is the same as keeping the most, so the real question is:
+**what is the largest set of intervals that pairwise do not overlap?** Take these
+six:
 
-1. **You are asked for an optimum.** A minimum number of operations, a maximum
-   number of items, the smallest cost. The bank's titles say it out loud:
-   *Minimum Removals for Non-Overlapping Intervals*, *Connect N Ropes With
-   Minimum Cost*, *Optimizing Box Weights*.
-2. **The decisions can be put in an order, and after you commit to one the rest
-   of the problem has the same shape.** Keep an interval, and what remains is
-   "schedule the intervals that start after this one ends" — the same problem on
-   a smaller input. This is *optimal substructure*.
-3. **At the front of that order there is a choice that is never wrong.** Not
-   "usually good", not "good on the samples": never wrong, in the sense that some
-   optimal solution makes it. This is the *greedy choice property*, and it is the
-   one you have to prove.
+| name | start | end |
+|---|---|---|
+| p | 1 | 4 |
+| q | 2 | 3 |
+| r | 3 | 5 |
+| s | 0 | 6 |
+| t | 5 | 7 |
+| u | 4 | 8 |
 
-Part 3 is where greedy problems are won and lost. Writing the code takes four
-lines. Knowing whether those four lines are correct takes an argument, and the
-argument almost always has the same form: take any optimal solution, find the
-first place it disagrees with you, and show you can bend it to agree without
-making it worse.
+The best you can keep is three, q (2,3), r (3,5) and t (5,7), so the answer is
+"cancel three".
 
-The trigger to look for in a statement is therefore an **asymmetry between
-candidates that survives into the future**. Among intervals, the one that ends
-earliest leaves strictly the most room for everything after it; there is no way
-that being early can hurt you later. Among ropes, the two shortest are the pair
-you will pay for the most times, so you want them merged while they are cheap.
-When you can name that asymmetry in one sentence, you have a greedy. When you
-cannot, you probably have a [[dynamic-programming|DP]].
+The first solution anyone writes is to try every subset. Six intervals have
+2^6 = 64 subsets. Check each for overlaps, keep the largest legal one. Correct, and
+for six intervals fine. For 100,000 intervals it is 2^100000 subsets, a number with
+about 30,000 digits.
 
-The anti-trigger is just as concrete: **greedy dies when a choice can be paid
-back later, and it dies when there are two resources to trade off against each
-other**. A knapsack has a weight budget *and* a value to maximise; the item with
-the best value-per-kilo is not always in the optimal set, because taking it can
-strand capacity ([[knapsack]]). *Calculate Change* makes change from a fixed list
-of bills and coins, and take-the-largest is correct there — but only because that
-denomination system is built so that it is. On coins `[1, 3, 4]` the same code is
-wrong for the amount 6, and we will watch it be wrong later.
+The second solution anyone writes is a rule: "sort by something, then take each
+interval if it still fits". That is a greedy algorithm, and it can be exactly
+right, in O(n log n), or plausibly wrong, depending entirely on the "something".
+Sort by start time and take what fits: you take s (0,6) first, the room is busy
+until 6, and no other interval starts at 6 or later. You keep one interval. Sort by length and take what fits: q (length 1), then r (2), then t (2),
+which happens to give three here, and we will break it with three intervals in a
+moment. Sort by **end** time and take what fits: always optimal, and this chapter
+derives why rather than asserting it.
 
-One more limit. A greedy proves the *value* of the optimum, not the identity of
-it. If the question is "the lexicographically smallest optimal set", you need a
-tie-break rule too, and that rule needs its own argument.
+Greedy is the sixth most common topic in this bank: 1,089 problems use it. Most of
+them are short to code and the difficulty is all in choosing the rule and knowing it
+is right. That is what the chapter is about.
 
-## The idea
+### When it is the wrong tool
 
-Here is the whole subject in one picture. Line up your greedy solution and some
-optimal solution side by side, in the order the decisions were made. Walk right
-until they first disagree. **Reach into the optimal solution and replace its
-choice with yours.** If you can always do that without breaking feasibility and
-without making the solution worse, then you can repeat it until the optimal
-solution *is* your solution — so yours was optimal all along.
+- **The items carry values or weights, and there is a budget.** Give each meeting a
+  profit and maximise the total profit: now three cheap meetings can lose to one
+  valuable one, and no sort order fixes that. That is weighted interval scheduling,
+  a [[dp-1d|DP]]. Knapsack is the same story ([[knapsack]]).
+- **The coins, costs or rules are arbitrary.** "Fewest coins to make an amount" is
+  greedy for real currency and wrong for coins `[1, 3, 4]` and amount 6 (greedy pays
+  4 + 1 + 1, the best is 3 + 3).
+  [[p:amd-minimum-coin-change|Minimum Coin Change]] gives you arbitrary coins, so it
+  is a DP.
+- **You must count the ways.** Greedy finds one best answer; counting is
+  [[counting-dp]] or [[combinatorics]].
+- **A choice now changes what later choices are worth, in a way one number cannot
+  describe.** Then the state of the problem is bigger than a greedy can carry, and
+  you need [[dynamic-programming]].
 
-<svg viewBox="0 0 660 210" role="img" aria-label="two rows of choices, optimal and greedy, agreeing on a prefix and swapped at the first disagreement">
-  <g>
-    <text x="10" y="32">OPT</text>
-    <rect class="fill" x="70" y="14" width="60" height="30" rx="4"/>
-    <rect class="fill" x="140" y="14" width="60" height="30" rx="4"/>
-    <rect x="210" y="14" width="60" height="30" rx="4"/>
-    <rect x="280" y="14" width="60" height="30" rx="4"/>
-    <rect x="350" y="14" width="60" height="30" rx="4"/>
-    <text x="90" y="35">a</text>
-    <text x="160" y="35">b</text>
-    <text x="232" y="35">o</text>
-    <text x="300" y="35">x</text>
-    <text x="370" y="35">y</text>
-    <text x="10" y="92">GREEDY</text>
-    <rect class="fill" x="70" y="74" width="60" height="30" rx="4"/>
-    <rect class="fill" x="140" y="74" width="60" height="30" rx="4"/>
-    <rect class="fill" x="210" y="74" width="60" height="30" rx="4"/>
-    <text x="90" y="95">a</text>
-    <text x="160" y="95">b</text>
-    <text x="232" y="95">g</text>
-    <text x="150" y="130">agree here</text>
-    <line x1="210" y1="8" x2="210" y2="112"/>
-    <text x="285" y="130">first disagreement</text>
-    <line x1="240" y1="52" x2="240" y2="68"/>
-    <text x="10" y="172">OPT'</text>
-    <rect class="fill" x="70" y="154" width="60" height="30" rx="4"/>
-    <rect class="fill" x="140" y="154" width="60" height="30" rx="4"/>
-    <rect class="fill" x="210" y="154" width="60" height="30" rx="4"/>
-    <rect x="280" y="154" width="60" height="30" rx="4"/>
-    <rect x="350" y="154" width="60" height="30" rx="4"/>
-    <text x="90" y="175">a</text>
-    <text x="160" y="175">b</text>
-    <text x="232" y="175">g</text>
-    <text x="300" y="175">x</text>
-    <text x="370" y="175">y</text>
-    <text x="430" y="175">same size, still legal</text>
-    <text x="430" y="95">swap o for g</text>
-  </g>
-</svg>
+## Build it from the brute force
 
-That picture has a name — the **exchange argument** — and it has a twin called
-**greedy stays ahead**, which says the same thing by induction on the prefix
-instead of by surgery on the suffix: after `j` decisions, the greedy's state is
-at least as good as any optimal solution's state after *its* first `j`
-decisions, so the greedy can never run out first.
+We will start from the slowest correct program, make it faster the way the
+[[knapsack]] chapter did, and then notice something knapsack does not have: one of
+the branches always wins. The greedy is what is left when you delete the branches
+that never win.
 
-Everything else is bookkeeping: sort the items by the key that makes the
-asymmetry visible, sweep once, and keep a single number describing what you have
-committed to so far. If that single number is not enough to decide whether the
-next item is legal, you do not have a greedy — you have a DP with a state you
-have not written down yet.
+### Step 1: one decision at a time
+
+Sort the intervals by start time, so a kept set is always listed left to right.
+Then a set is legal exactly when each kept interval starts at or after the end of
+the previous kept one. Walk the list and decide, for each interval, keep or skip.
+
+> f(i, last) = the most intervals I can still keep from intervals i..n-1, if the
+> room is busy until time `last`.
+
+```
+f(i, last) = f(i+1, last)                         skip interval i
+f(i, last) = max(that, 1 + f(i+1, end_i))         keep it, only if start_i >= last
+f(n, last) = 0                                    no intervals left
+```
+
+This is the same take-or-skip recursion as knapsack. Each call makes up to two
+calls, so it is up to 2^n calls, the subsets again.
+
+### Step 2: remember answers
+
+The state is (i, last), and `last` is always either "nothing yet" or the end of
+some interval, so there are at most n(n+1) distinct states. Memoise them and the
+cost drops from 2^n to about n^2. For n = 100,000 that is 10^10, still too slow,
+but the memo has taught us what the state is: **one number, the time the room
+becomes free.** Nothing else about the past matters. Which intervals you kept, how
+many, in what order: the future does not care. It cares when the room is free.
+
+### Step 3: ask the question a different way
+
+Instead of "keep or skip interval i", ask "which interval do I keep *first*?" Let
+
+> g(T) = the most intervals I can keep, using only intervals that start at or after
+> time T.
+
+The first kept interval x must start at or after T, and after it the room is free
+from `end_x`, so
+
+```
+g(T) = max over every x with start_x >= T of  1 + g(end_x)
+g(T) = 0 if no interval starts at or after T
+```
+
+This recursion has one branch per candidate, which looks worse than two. But look at
+what the branches compare. Every branch adds 1 and then asks g of an end time. The
+branches differ only in **which end time** they pass to g.
+
+### Step 4: notice that one branch always wins
+
+Here is the observation the whole chapter rests on. **g never gets bigger when T
+gets bigger.** If the room is free from time 5, every plan that works from time 7
+also works from time 5: the same intervals still start late enough. So having the
+room free earlier can never hurt you: g(5) >= g(7).
+
+Now go back to the max. Among the candidates x with `start_x >= T`, let m be the
+one with the smallest end. For every other candidate y, `end_m <= end_y`, so
+`g(end_m) >= g(end_y)`, so `1 + g(end_m) >= 1 + g(end_y)`. The branch through m is
+at least as good as every other branch. You do not need to compute the others.
+
+That is the greedy: **at each step, keep the interval that ends first among those
+that still fit.** The max over n branches has collapsed to one branch, and the
+recursion has become a loop.
+
+### The question that unlocks it
+
+The knapsack chapter's question was "what is the least the future needs to know
+about the past?" Greedy asks that first (here: when the room is free), and then a
+second, sharper question:
+
+**Which choice can I prove I will never regret?**
+
+"Never regret" has a precise meaning: there is an optimal solution that makes this
+choice. If you can prove that, you can make the choice, shrink the problem, and ask
+again. For interval selection the answer is "the interval that ends first", and the
+proof is the four lines of Step 4: ending first leaves the room free earliest, and
+free earlier is never worse.
+
+Say it a second way. A DP explores every branch because it cannot tell which one
+wins. A greedy is a DP where you *can* tell, in advance and for every state, which
+branch wins. The proof that tells you is the algorithm. The code is a formality.
+
+### You might think: "Take the shortest interval first. It wastes the least time."
+
+Three intervals: (0,5), (4,6), (5,10). The shortest is (4,6), length 2. Take it, and
+both others overlap it: you keep one. The best is (0,5) and (5,10): two.
+
+Short is not what matters. What matters is how early the room becomes free, and a
+short interval that starts late frees the room late. Length is a property of the
+interval; "free from when" is the property of the **state**. A good greedy key is
+made of the quantity the state is made of.
+
+### You might think: "Take the one that starts first. Get going early."
+
+Four intervals: (0,10), (1,2), (3,4), (5,6). The earliest start is (0,10). Take it,
+and every other interval overlaps it: you keep one. The best is the other three.
+
+Starting early is no use if you also end late. The rule looks at the wrong end of
+the interval.
+
+### You might think: "Take the one that conflicts with the fewest others."
+
+This one is clever and survives many hand examples. It is still wrong. Eleven
+intervals:
+
+| interval | (0,3) | (0,4) | (1,2) | (1,3) | (2,6) | (4,8) | (7,10) | (8,11) | (9,11) | (10,13) | (10,14) |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| conflicts | 4 | 4 | 3 | 4 | 4 | **2** | 3 | 4 | 4 | 3 | 3 |
+
+(4,8) has the fewest conflicts, two: it overlaps only (2,6) and (7,10). So the rule
+takes it, and that removes exactly the two "bridges" that a good solution needs. The
+best is four: (1,2), (2,6), (7,10), (10,13). The fewest-conflicts rule keeps three,
+however it breaks ties (the program in the Traps section checks every tie-break).
+
+The lesson is not "this rule is bad". It is that **a rule that sounds reasonable
+and passes small examples is the default outcome in this topic, and it is often
+wrong.** The only defences are a proof like Step 4, or a brute-force comparison on
+hundreds of small random inputs. Preferably both.
+
+### You might think: "Greedy means: at each step, take the best-looking thing."
+
+That is a description of every greedy, right and wrong ones alike. "Best-looking"
+is not a rule until you say *best by what measure*, and the measure is the entire
+algorithm. Shortest, earliest start, fewest conflicts and earliest end are all "the
+best-looking thing" by some measure, and only one of them is correct. The question
+is never "is this a greedy problem?" It is "is *this rule* never regretted?"
+
+### The technique in one sentence
+
+**A greedy algorithm finds a choice that some optimal solution always makes, proves
+it (usually by showing the chosen option leaves the remaining problem no harder than
+any other option would), makes it, and repeats on the smaller problem, so a
+recursion with many branches becomes one pass with a single number of state.**
+
+And the question: **which choice can I prove I will never regret?**
 
 ## Worked by hand
 
-Take *Minimum Removals for Non-Overlapping Intervals* as stated in this bank:
-given intervals, remove the fewest so that no two of the survivors overlap, and
-note that intervals which merely touch — one ends exactly where the next begins —
-are compatible. Removing the fewest is the same as keeping the most, so we are
-picking the largest set of pairwise compatible intervals.
+### Trace 1: earliest end on the six intervals
 
-The greedy: **sort by right endpoint and keep an interval whenever it starts at
-or after the last kept interval's end.** Here are six intervals, already sorted
-by end.
+Sort by end: q (2,3), p (1,4), r (3,5), s (0,6), t (5,7), u (4,8). Keep an interval
+when its start is at or after `last_end`, the time the room becomes free.
 
-| step | interval | `last_end` before | `start >= last_end`? | action | kept |
-| --- | --- | --- | --- | --- | --- |
-| 1 | (2, 3) | −∞ | yes | keep, `last_end = 3` | 1 |
-| 2 | (1, 4) | 3 | 1 < 3, no | drop | 1 |
-| 3 | (3, 5) | 3 | 3 >= 3, yes | keep, `last_end = 5` | 2 |
-| 4 | (0, 6) | 5 | 0 < 5, no | drop | 2 |
-| 5 | (5, 7) | 5 | 5 >= 5, yes | keep, `last_end = 7` | 3 |
-| 6 | (4, 8) | 7 | 4 < 7, no | drop | 3 |
+| step | interval | last_end before | start >= last_end? | action | kept |
+|---|---|---|---|---|---|
+| 1 | q (2,3) | none | yes | keep, last_end = 3 | 1 |
+| 2 | p (1,4) | 3 | 1 < 3, no | skip | 1 |
+| 3 | r (3,5) | 3 | 3 >= 3, yes | keep, last_end = 5 | 2 |
+| 4 | s (0,6) | 5 | 0 < 5, no | skip | 2 |
+| 5 | t (5,7) | 5 | 5 >= 5, yes | keep, last_end = 7 | 3 |
+| 6 | u (4,8) | 7 | 4 < 7, no | skip | 3 |
 
-Three kept out of six, so the answer to the stated question is three removals.
+Three kept, so three cancelled.
 
-<svg viewBox="0 0 660 190" role="img" aria-label="six intervals drawn on a timeline, with the three kept by the earliest-end greedy marked">
+<svg viewBox="0 0 660 190" role="img" aria-label="six intervals drawn on a timeline from 0 to 8; the three kept by the earliest-end greedy, (2,3), (3,5) and (5,7), are shaded, and (1,4), (0,6) and (4,8) overlap them">
   <g>
     <line x1="40" y1="165" x2="620" y2="165"/>
     <text x="40" y="185">0</text>
     <text x="330" y="185">4</text>
     <text x="610" y="185">8</text>
     <rect class="fill" x="185" y="14" width="72" height="16" rx="6"/>
-    <text x="270" y="27">(2,3) kept</text>
+    <text x="270" y="27">q (2,3) kept</text>
     <rect x="113" y="42" width="217" height="16" rx="6"/>
-    <text x="345" y="55">(1,4) overlaps</text>
+    <text x="345" y="55">p (1,4) overlaps q</text>
     <rect class="fill" x="257" y="70" width="145" height="16" rx="6"/>
-    <text x="415" y="83">(3,5) kept</text>
+    <text x="415" y="83">r (3,5) kept</text>
     <rect x="40" y="98" width="362" height="16" rx="6"/>
-    <text x="415" y="111">(0,6) overlaps</text>
+    <text x="415" y="111">s (0,6) overlaps</text>
     <rect class="fill" x="402" y="126" width="145" height="16" rx="6"/>
-    <text x="560" y="139">(5,7) kept</text>
-    <line x1="185" y1="8" x2="185" y2="170"/>
+    <text x="560" y="139">t (5,7) kept</text>
+    <line x1="257" y1="8" x2="257" y2="170"/>
     <line x1="402" y1="64" x2="402" y2="170"/>
   </g>
 </svg>
 
-Four things in that trace are worth pausing on, and none of them is visible in
-the code.
+The story of step 3 in words: "The room is free from 3. The next interval in end
+order is r, which starts at 3. Touching is allowed, so it fits. Every interval I
+have not looked at yet ends at 5 or later, so none of them could free the room
+sooner than r does. Keeping r leaves the room free from 5, which is the earliest any
+choice could leave it."
+
+Three things this trace shows that the code does not.
 
 **The state is one number.** `last_end` is the entire memory of the algorithm.
-Everything about the first five decisions that could possibly matter to the
-sixth is compressed into "the timeline is free from 7 onwards". That compression
-is what makes a greedy possible; when a problem needs two numbers to describe
-the commitment, you are usually looking at a DP table with two indices.
+Everything about steps 1 to 5 that could matter to step 6 is "the room is free from
+7". When you cannot squeeze the past into one number like this, you probably do not
+have a greedy.
 
-**Step 3 shows what "best" really means.** At step 3 the candidates still
-untouched are (3,5), (0,6), (5,7) and (4,8). The greedy takes (3,5), which is
-neither the longest, nor the earliest starting, nor the one with the most slack
-before it. It is the one that finishes soonest, because the only currency that
-matters is *how much timeline is left afterwards*.
+**Skipping is never a decision.** At step 2, p is skipped because it does not fit,
+not because it was judged worse. Every interval that fits is taken. All the
+judgement is in the sort; the loop is mechanical.
 
-**Step 4 shows the cost of sorting by the wrong key.** (0,6) starts before every
-interval we kept except the first. A greedy sorted by start time would have
-taken it at step 1 and then been unable to take (2,3) or (3,5) — one interval
-instead of three. The key is not a detail of the implementation; the key *is*
-the algorithm.
+**The proof is about the number kept, not the set.** Many optimal sets can exist;
+which one comes back depends on how ties in the sort were broken. If a problem asks
+for one specific optimal set (the lexicographically smallest, say), that needs a
+separate argument.
 
-**What is proved is the number, not the set.** In general many optimal sets
-exist, and which one comes back is decided by how the sort broke ties. The proof
-below shows only that no feasible set is larger than the greedy's. A problem that
-asks for a *specific* optimal set — the lexicographically smallest, say — needs a
-second argument on top.
+### Trace 2: bending an optimal solution into the greedy one
+
+The first trace showed the greedy working. This one shows *why*, on real numbers,
+by taking a different optimal solution and turning it into the greedy's, one swap at
+a time, without ever making it worse.
+
+Six intervals: A (1,3), B (2,4), C (3,6), D (4,7), E (6,9), F (7,10). The greedy by
+end keeps A (free from 3), skips B (starts 2), keeps C (starts 3, free from 6), skips
+D (starts 4), keeps E (starts 6, free from 9), skips F (starts 7). Greedy: {A, C, E}.
+
+Another optimal solution exists: {B, D, F}. B ends at 4, D starts at 4; D ends at 7,
+F starts at 7. Also three. Line the two up, in end order, and repair the optimal one
+from the left.
+
+<svg viewBox="0 0 660 220" role="img" aria-label="three rows of three boxes: the optimal solution B D F, the greedy solution A C E, and after the first swap A D F; the first position where they differ is marked, and swapping B for A keeps the set legal and the same size">
+  <g>
+    <text x="10" y="35">OPT</text>
+    <rect x="90" y="15" width="80" height="30" rx="4"/>
+    <rect x="190" y="15" width="80" height="30" rx="4"/>
+    <rect x="290" y="15" width="80" height="30" rx="4"/>
+    <text x="130" y="35" text-anchor="middle">B (2,4)</text>
+    <text x="230" y="35" text-anchor="middle">D (4,7)</text>
+    <text x="330" y="35" text-anchor="middle">F (7,10)</text>
+    <text x="10" y="95">GREEDY</text>
+    <rect class="fill" x="90" y="75" width="80" height="30" rx="4"/>
+    <rect class="fill" x="190" y="75" width="80" height="30" rx="4"/>
+    <rect class="fill" x="290" y="75" width="80" height="30" rx="4"/>
+    <text x="130" y="95" text-anchor="middle">A (1,3)</text>
+    <text x="230" y="95" text-anchor="middle">C (3,6)</text>
+    <text x="330" y="95" text-anchor="middle">E (6,9)</text>
+    <line x1="130" y1="48" x2="130" y2="72"/>
+    <text x="390" y="62">first difference: B vs A</text>
+    <text x="390" y="80">A ends at 3, B at 4: A ends no later</text>
+    <text x="10" y="175">OPT'</text>
+    <rect class="fill" x="90" y="155" width="80" height="30" rx="4"/>
+    <rect x="190" y="155" width="80" height="30" rx="4"/>
+    <rect x="290" y="155" width="80" height="30" rx="4"/>
+    <text x="130" y="175" text-anchor="middle">A (1,3)</text>
+    <text x="230" y="175" text-anchor="middle">D (4,7)</text>
+    <text x="330" y="175" text-anchor="middle">F (7,10)</text>
+    <text x="390" y="168">D starts at 4 >= 3: still legal</text>
+    <text x="390" y="186">still three intervals</text>
+  </g>
+</svg>
+
+| round | current optimal set | first position that differs | greedy's choice there | why the swap is legal | after the swap |
+|---|---|---|---|---|---|
+| 1 | B, D, F | 1: B (2,4) | A (1,3) | A ends at 3 <= 4, and D starts at 4 >= 3 | A, D, F |
+| 2 | A, D, F | 2: D (4,7) | C (3,6) | C starts at 3 >= 3 (after A), ends at 6 <= 7, F starts at 7 >= 6 | A, C, F |
+| 3 | A, C, F | 3: F (7,10) | E (6,9) | E starts at 6 >= 6, ends at 9 <= 10, nothing after it | A, C, E |
+
+After three swaps the optimal set *is* the greedy set, and it never lost an interval.
+So the greedy set is optimal.
+
+Read round 1 in words: "The optimal set's first interval is B, ending at 4. Mine is
+A, ending at 3. Replace B by A. Does anything break? Everything after B in the
+optimal set started at 4 or later, because it had to fit after B. A ends at 3, which
+is earlier, so all of those still fit. The size is unchanged." That sentence works
+for any input, not just this one, because it uses only one fact: the greedy's choice
+ends no later than the choice it replaces. That is the **exchange argument**, and it
+is the general tool for proving a greedy.
+
+The same table read by columns gives the other proof style, **greedy stays ahead**:
+after j picks, the greedy's room is free no later than the optimal solution's. Here:
+3 <= 4, 6 <= 7, 9 <= 10. If the greedy is always at least as far ahead, it can never
+run out of room before the other one does.
+
+## From the idea to the code
+
+### The derivation as code: brute force, memo, "first kept", greedy
+
+This block runs every stage of the derivation on the same inputs, counts the work,
+and checks Step 4's claim directly: in g(T), the branch through the earliest-ending
+candidate is always a best branch.
+
+```python run
+import random
+from functools import lru_cache
+
+def brute(iv):                                   # Step 1: keep or skip, 2^n calls
+    iv = sorted(iv)                              # by start
+    calls = 0
+    def f(i, last):
+        nonlocal calls
+        calls += 1
+        if i == len(iv):
+            return 0
+        best = f(i + 1, last)                    # skip interval i
+        s, e = iv[i]
+        if last is None or s >= last:            # keep it, if it fits
+            best = max(best, 1 + f(i + 1, e))
+        return best
+    return f(0, None), calls
+
+def first_kept(iv):                              # Step 3: g(T), one branch per candidate
+    ends = sorted(set(e for _, e in iv))
+    @lru_cache(maxsize=None)
+    def g(T):
+        cands = [(s, e) for s, e in iv if T is None or s >= T]
+        if not cands:
+            return 0
+        values = {c: 1 + g(c[1]) for c in cands}
+        earliest = min(cands, key=lambda c: c[1])
+        assert values[earliest] == max(values.values())   # Step 4: it always wins
+        return max(values.values())
+    return g(None)
+
+def greedy(iv):                                  # Step 4 as a loop
+    kept, last_end = 0, None
+    for s, e in sorted(iv, key=lambda c: c[1]):  # by END
+        if last_end is None or s >= last_end:
+            kept += 1
+            last_end = e
+    return kept
+
+six = [(1, 4), (2, 3), (3, 5), (0, 6), (5, 7), (4, 8)]
+print("six intervals:", "brute (best, calls) =", brute(six),
+      " first_kept =", first_kept(six), " greedy =", greedy(six))
+assert brute(six)[0] == first_kept(six) == greedy(six) == 3
+
+random.seed(5)
+for _ in range(300):
+    n = random.randint(0, 9)
+    iv = []
+    for _ in range(n):
+        s = random.randrange(0, 15)
+        iv.append((s, s + random.randint(1, 5)))
+    assert brute(iv)[0] == first_kept(iv) == greedy(iv), iv
+big = [(s, s + random.randint(1, 5)) for s in (random.randrange(0, 40) for _ in range(18))]
+print("18 intervals: brute calls =", brute(big)[1], " greedy steps =", len(big))
+print("300 random cases: all three agree, and the earliest end always wins in g(T)")
+```
+
+On six intervals the brute force already makes dozens of calls; on eighteen it makes
+thousands; the greedy looks at each interval once. And the `assert` inside g is Step
+4 checked on three hundred inputs: in every state, the earliest-ending candidate's
+branch is the maximum.
+
+### Each line, and which part of the recursion it is
+
+| line in `greedy` | in words | which part of the derivation |
+|---|---|---|
+| `sorted(iv, key=lambda c: c[1])` | look at intervals in order of end | puts the winning branch of g(T) first, every time |
+| `if last_end is None or s >= last_end` | does it fit after the room is free? | the "start_x >= T" condition of g |
+| `kept += 1` | count it | the "1 +" of g |
+| `last_end = e` | the room is free from e | the recursive call g(end_x) |
+| (no else branch) | an interval that does not fit is passed over | candidates that are not legal for this T |
+
+Two confusions, settled.
+
+**Why is there no "skip" branch?** In the keep-or-skip recursion, skipping an
+interval that fits was a real option. In the greedy, every interval that fits is
+kept. That is safe because the intervals arrive in end order: when an interval fits,
+it is the earliest-ending legal candidate, which is the branch Step 4 proved best.
+Skipping it could only mean choosing a later-ending interval instead, which is never
+better.
+
+**Why does sorting by end make the scan find the right candidate?** g(T) wants the
+smallest end among intervals starting at or after T. In end order, the first interval
+you meet that starts at or after T is exactly that. Intervals passed over earlier are
+gone for good, and correctly so: they started before some earlier `last_end`, and
+`last_end` only grows, so they will never fit.
+
+### The subtle line, both ways
+
+The one line that decides everything is the sort key. Here is the same loop with
+`c[1]` (end) and with `c[0]` (start), on the four intervals from the "starts first"
+counterexample, with the state after every step.
+
+```python run
+def run(iv, key, label):
+    print(label)
+    kept, last_end = [], None
+    for s, e in sorted(iv, key=key):
+        fits = last_end is None or s >= last_end
+        if fits:
+            kept.append((s, e))
+            last_end = e
+        print("   (%d,%2d)  fits=%-5s  last_end=%s  kept=%s" % (s, e, fits, last_end, kept))
+    return kept
+
+iv = [(0, 10), (1, 2), (3, 4), (5, 6)]
+right = run(iv, lambda c: c[1], "sorted by END (right)")
+wrong = run(iv, lambda c: c[0], "sorted by START (wrong)")
+assert len(right) == 3 and len(wrong) == 1
+
+# the comparison is the other subtle line: >= (touching allowed) vs > (touching conflicts)
+def count(iv, strict):
+    k, last = 0, None
+    for s, e in sorted(iv, key=lambda c: c[1]):
+        if last is None or (s > last if strict else s >= last):
+            k += 1
+            last = e
+    return k
+
+chain = [(1, 2), (2, 3), (3, 4), (4, 5)]
+print("touching chain:", chain, " >= keeps", count(chain, False), "  > keeps", count(chain, True))
+assert count(chain, False) == 4 and count(chain, True) == 2
+
+# what '>' really computes: the answer for closed intervals [s, e], where touching overlaps
+from itertools import combinations
+def closed_best(iv):
+    for k in range(len(iv), -1, -1):
+        for c in combinations(sorted(iv), k):
+            if all(b[0] > a[1] for a, b in zip(c, c[1:])):
+                return k
+assert count(chain, True) == closed_best(chain)
+print("'>' is not wrong, it answers the closed-interval question")
+```
+
+Read the wrong trace. Its first step takes (0,10), because 0 is the smallest start,
+and sets `last_end = 10`. That cell is where it goes wrong: the room is now busy
+until 10, and every remaining interval starts before 10. The right trace's first step
+takes (1,2) and sets `last_end = 2`, the earliest the room could possibly be free.
+
+What the wrong version accidentally computes is nothing useful. That is the danger:
+it runs, it terminates, it returns a legal set, and nothing inside the loop can tell
+you it is wrong. Only the proof, or a brute-force comparison, catches it.
+
+The second subtle line is the comparison. `s >= last_end` says "an interval may
+start exactly when the previous ends". `s > last_end` says it may not. On the chain
+(1,2), (2,3), (3,4), (4,5) the first keeps four and the second keeps two. Neither is
+a bug in itself: `>` is the correct answer for **closed** intervals, where a meeting
+from 1 to 2 and one from 2 to 3 share the moment 2. The statement decides which one
+you need. Minimum Interval Removals says touching intervals are compatible, so it is
+`>=`. Read that sentence before you type the comparison.
 
 ## Why it is correct
 
-The temptation is to argue "at each step I make the best move, so the result is
-best". That is not an argument, it is a restatement, and it is false in general
-— it is exactly what fails on coins `[1, 3, 4]`. Here is the real thing.
+:::proof Keeping the earliest-ending interval that fits is optimal
+**Setup.** Intervals (s, e) with s < e. Two intervals are compatible when one starts
+at or after the other ends. A feasible set is a set of pairwise compatible
+intervals; list any feasible set in increasing order of end. The greedy scans the
+intervals in increasing order of end and keeps one exactly when its start is at or
+after the end of the last kept one. Call its picks g_1, ..., g_k, in order.
 
-:::proof Earliest finishing time is optimal for interval selection
-**Setup.** Intervals `I = {(s₁, e₁), …, (sₙ, eₙ)}` with `sᵢ < eᵢ`. Two intervals
-are *compatible* if one's start is at least the other's end. A *feasible* set is
-one whose members are pairwise compatible; write any feasible set in increasing
-order of end time. The greedy scans `I` sorted by end time, keeping an interval
-iff its start is at least the end of the last kept one; call its output
-`g₁, …, g_k` in the order chosen — which is also increasing in end time.
+**Claim (greedy stays ahead).** Let o_1, ..., o_m be any feasible set, in order of
+end. Then for every j from 1 to m, the greedy made at least j picks, and
+end(g_j) <= end(o_j).
 
-**Claim (greedy stays ahead).** Let `o₁, …, o_m` be *any* feasible set, written
-in increasing order of end time. Then for every `j` with `1 <= j <= m`, the
-greedy has selected at least `j` intervals, and `end(g_j) <= end(o_j)`.
+**Base case, j = 1.** The greedy's first pick is the first interval in end order,
+which has the smallest end of all intervals. o_1 is one of the intervals, so
+end(g_1) <= end(o_1).
 
-**Base case, `j = 1`.** The greedy's first kept interval is the first one it
-meets, which is the interval of `I` with the globally smallest end time. Since
-`o₁ ∈ I`, `end(g₁) <= end(o₁)`. And `k >= 1` because `I` is non-empty.
+**Inductive step.** Suppose the greedy made at least j picks and end(g_j) <= end(o_j),
+and suppose o_{j+1} exists. Since o_j and o_{j+1} are compatible and o_{j+1} ends
+later, start(o_{j+1}) >= end(o_j) >= end(g_j). So o_{j+1} fits after g_j. It also
+ends after g_j does (it ends after it starts, which is at or after end(g_j)), so the
+scan has not yet reached it when it picks g_j. Therefore the scan, continuing after
+g_j, meets at least one interval that fits, namely o_{j+1}, and picks the first one
+that fits. That pick is g_{j+1}, it exists, and because the scan meets intervals in
+order of end and o_{j+1} would have been taken if nothing earlier fitted,
+end(g_{j+1}) <= end(o_{j+1}).
 
-**Inductive step.** Assume `k >= j` and `end(g_j) <= end(o_j)`, and assume
-`m >= j + 1`, so `o_{j+1}` exists. Since `o_j` and `o_{j+1}` are compatible,
-`start(o_{j+1}) >= end(o_j) >= end(g_j)`, and since intervals are non-empty,
-`end(o_{j+1}) > start(o_{j+1}) >= end(g_j)`. Two facts follow.
+**Conclusion.** Suppose some feasible set had m > k intervals. Apply the claim at
+j = k: the greedy is at or ahead after k picks. Since o_{k+1} exists, the inductive
+step says the greedy makes a (k+1)-th pick, but it made only k. Contradiction. So no
+feasible set is larger than the greedy's, and the greedy is optimal.
 
-`o_{j+1}` strictly follows `g_j` in end order, so when the greedy commits to
-`g_j` the interval `o_{j+1}` is still ahead of the scan; and it is *legal*, since
-its start is at or after `last_end = end(g_j)`. Therefore the greedy does not
-stop with `j` intervals — at worst it reaches `o_{j+1}` and takes it — so
-`k >= j + 1`. And because the greedy keeps the *first* legal interval it meets
-while candidates arrive in increasing end order, `end(g_{j+1}) <= end(o_{j+1})`.
-The invariant is restored.
-
-**Termination.** The scan visits each of the `n` intervals exactly once and each
-visit is a constant amount of work, so the algorithm halts after `n` steps.
-
-**Conclusion.** Suppose some feasible set had `m > k`. Apply the claim with
-`j = k`: it says the greedy selected at least `k` intervals and stayed ahead. Now
-apply the inductive step once more with `j = k`, which is legal because
-`m >= k + 1`: it concludes `k >= k + 1`, a contradiction. So no feasible set is
-larger than `k`, and the greedy output is optimal. ∎
+**Termination.** The scan visits each interval once and does constant work per
+visit. ∎
 :::
 
-:::note The same proof, said as an exchange
-If you prefer surgery to induction: let `O` be an optimal set, and let `g₁` be
-the interval with the smallest end time. Let `o₁` be the earliest-ending member
-of `O`. Then `end(g₁) <= end(o₁)`, so `O' = (O \ {o₁}) ∪ {g₁}` is still feasible —
-every other member of `O` starts at or after `end(o₁) >= end(g₁)` — and has the
-same size. So *some* optimal solution makes the greedy's first choice. Delete
-`g₁` and everything overlapping it, and repeat on the remainder. That is the
-[[greedy-exchange|exchange argument]] in its general form, and it is the tool you
-reach for when "stays ahead" has no natural quantity to compare.
+:::note The same proof as an exchange
+Let O be any optimal set, and g_1 the interval with the smallest end overall. Let
+o_1 be the earliest-ending member of O. Then end(g_1) <= end(o_1), and every other
+member of O starts at or after end(o_1) >= end(g_1), so replacing o_1 by g_1 gives a
+set that is still feasible and has the same size. So some optimal solution starts
+with the greedy's choice. Remove g_1 and everything that overlaps it, and the rest is
+the same problem, smaller. Repeat. This is the form you use when there is no natural
+"ahead" to measure: find the first place an optimal solution disagrees with you, and
+show the swap does no harm. See [[greedy-exchange]].
 :::
 
-Now name what the proof leaned on, because that list is where the bugs live.
+In plain words: being free earlier is never worse, so ending first is never wrong;
+and if the greedy is always free at least as early as any other plan after the same
+number of picks, no other plan can fit more.
 
-- **Feasibility depends only on `last_end`.** The step "so `o_{j+1}` is still
-  legal for the greedy" used nothing about which intervals the greedy had kept,
-  only where it had got to. Add a rule like "at most three intervals per hour"
-  and this collapses instantly.
-- **Every interval is worth exactly one.** The conclusion compared *sizes*. Give
-  intervals values and the argument gives you nothing: swapping `o₁` for `g₁`
-  preserves the count but can lower the total value. Weighted interval scheduling
-  is a genuine DP, and this is the single most common way a correct greedy becomes
-  a wrong one.
-- **Sorting by end time is a total order on the candidates.** Ties can be broken
-  any way at all — the proof only ever used `<=` — which is why you do not need a
-  tie-break rule here. In other greedies you do, and then the tie-break needs its
-  own exchange argument.
-- **Nothing is compulsory.** No interval is forced into the answer. A constraint
-  like "interval 4 must be kept" breaks the base case, because the greedy's first
-  pick may be incompatible with it.
-- **The comparison is `>=`, matching "touching is compatible".** If the problem
-  said touching intervals conflict, every `>=` becomes `>` and the proof goes
-  through unchanged with the modified definition — but the *answers* change.
+The assumptions it used, and what breaks without each:
+
+- **Whether an interval fits depends only on when the room is free.** Add "at most
+  three meetings per morning" and the state is no longer one number; the step "o_{j+1}
+  fits after g_j" fails.
+- **Every interval is worth the same, one.** The conclusion compared counts. With
+  profits, swapping o_1 for g_1 keeps the count but can lower the total. This is the
+  most common way a correct greedy becomes a wrong one.
+- **Ties do not matter.** The proof only used <=, so any tie-break works. In other
+  greedies ties do matter, and then the tie-break needs its own argument.
+- **Nothing is forced.** "Interval 4 must be kept" breaks the base case.
+- **The compatibility rule matches the comparison.** Touching allowed means >=;
+  touching forbidden means >. The proof goes through either way with the matching
+  definition, but the answers differ.
 
 ## What it costs
 
-Derive it rather than quoting it. The algorithm is a sort followed by a single
-pass, and the pass does a constant amount of work per item:
+**Sort, then one pass.** The pass does constant work per interval, so
 
-    T(n) = sort(n) + n · O(1) = Θ(n log n) + Θ(n) = Θ(n log n)
+    T(n) = sort + n · O(1) = Θ(n log n) + Θ(n) = Θ(n log n).
 
-so the sort dominates, and it dominates by a full logarithmic factor. Two
-immediate consequences. If the input arrives already sorted — by deadline, by
-arrival time, by index — the greedy is **Θ(n)**, and you should say so rather
-than reflexively claiming `n log n`. And if you are tempted to replace the sort
-with something cleverer, do not bother unless you can also remove it: an `O(n)`
-counting sort over small integer keys ([[counting-sort]]) is the only thing that
-actually changes the exponent here, and it needs a bounded key range.
+The sort is the whole cost. If the input already arrives in the right order (by
+time, by position, by index), the greedy is Θ(n), and you should say so.
 
-Space is `O(1)` beyond the sort if you are allowed to sort in place and only
-need the count, or `O(k)` if you must return the kept items.
+**Compare with what it replaced.** Brute force 2^n; keep-or-skip with a memo, about
+n^2 states. The greedy is not a faster way to fill the memo. It is the observation
+that only one state per step is ever on the optimal path, so you never compute the
+others.
 
-**A heap greedy costs differently, and the derivation is worth doing.** In
-*Connect N Ropes With Minimum Cost* you repeatedly merge the two shortest ropes
-and pay their sum. Each merge pops two and pushes one, so the heap shrinks by one
-per merge and there are exactly `n − 1` merges. Merge number `i` operates on a
-heap of size at most `n`, so it costs `3 log n` comparisons at worst:
+**Space.** O(1) beyond the sort if you only count; O(k) to return the kept items.
 
-    T(n) = Σ_{i=1}^{n-1} O(log n) = Θ(n log n)
+**Heap greedies cost differently.** When the "best so far" changes as you go (the
+furthest-building and refuelling variations below), the best is kept in a [[heap]].
+Each element is pushed once and popped at most once, each at O(log n), so Θ(n log n)
+again, with Θ(n) space. The hidden log is in the heap, not a sort.
 
-with `Θ(n)` space for the heap.
+**Scan greedies can cost Θ(n).** Jump Game II and Gas Station sort nothing: the
+order is the array. One pass, O(1) per element.
 
-**A scan greedy can have no sort at all.** *Jump Game II* asks for the fewest
-jumps to the end of an array where `nums[i]` is how far you may move from `i`.
-The greedy keeps two numbers: the end of the range reachable with the current
-number of jumps, and the farthest index reachable with one more. Each index is
-touched exactly once and updates both numbers in `O(1)`, so by a counting
-argument the total is **Θ(n)** with `O(1)` space. The order is given by the
-problem, so there is nothing to sort — a useful reminder that "greedy" and
-"sorting" are correlated, not synonymous.
+**The cost people forget.**
 
-**The cost people forget** is the key, not the loop. Three versions of it:
+- *The comparator.* Sorting with a key computed inside a comparison function
+  computes it O(n log n) times; compute it once into a tuple ([[custom-comparators]]).
+  A comparator over strings, as in Largest Number, costs the string length per
+  comparison.
+- *An outer search.* When the greedy is the feasibility check inside a
+  [[binary-search-on-answer]], it runs once per candidate answer: O(n log R) in
+  total, not O(n).
+- *The verification.* Not runtime, but the cost you should pay anyway: a brute force
+  on inputs of size eight and a few hundred random comparisons. Fifteen lines, and the
+  only thing between a plausible greedy and a wrong submission.
 
-- *Comparator cost.* Sorting by a key you compute inside the comparator computes
-  it `O(n log n)` times. Compute it once into a tuple. See
-  [[custom-comparators]].
-- *The feasibility check.* When the greedy is used as the inner check of a
-  [[binary-search-on-answer]] — *Aggressive Cows* is the standard example: binary
-  search the minimum spacing, and greedily place each cow at the first stall far
-  enough along — the total is `O(n log(range))` because the `O(n)` greedy runs
-  once per candidate answer. People quote the greedy's cost and forget the outer
-  loop multiplies it.
-- *Verification.* Not runtime, but the cost you should pay anyway: a brute-force
-  cross-check on tiny inputs, fifteen lines, and the only thing standing between
-  a plausible greedy and a wrong submission.
+## How to think about it
 
-## The implementation
+Ask these on every optimisation problem that might be greedy.
+
+1. **What is one decision?** Keep this interval; put this box on the truck; jump from
+   here; start the trip at this station; pair these two people.
+2. **After a decision, what does the future need to know?** If it is one number
+   (when the room is free, how far I can reach, how much fuel I have, how many slots
+   are left), a greedy is possible. If it is a set or two numbers that trade off,
+   think [[dynamic-programming]] first.
+3. **List the candidate rules, and try to break each one with two or three items.**
+   Smallest, largest, earliest start, earliest end, best ratio, most frequent. Most
+   wrong rules die on an example of size three. The rule that survives is the one to
+   prove.
+4. **Prove it with one of two arguments.** *Exchange*: take an optimal solution that
+   disagrees with your first choice and swap your choice in; show it stays legal and
+   no worse. *Stays ahead*: show that after j steps your state is at least as good as
+   any other plan's after j steps. If one will not go through, try the other before
+   giving up.
+5. **For an ordering problem, swap two neighbours.** If two adjacent items i, j in an
+   order contribute differently depending on which comes first, write both totals and
+   subtract. The condition for "i before j" is your sort key. Largest Number, Two City
+   and Smith's rule all come out of this.
+6. **Does a past choice ever need to be revised?** If the best decision at step i
+   depends on what you will see later, but only through "what was the biggest one so
+   far", keep the past choices in a heap and revise the worst one when you learn more
+   (the furthest-building and refuelling pattern).
+7. **Before trusting it, run it against a brute force** on a few hundred random inputs
+   of size up to eight.
+
+### Telling it from its neighbours
+
+- **DP** explores all branches; greedy proves one branch wins. If you cannot write the
+  feasibility test against one number of state, you probably need the DP.
+- **Binary search on the answer** often wraps a greedy: the greedy answers "is
+  this value achievable?" and the search finds the best value
+  ([[binary-search-on-answer]]).
+- **Two pointers** ([[two-pointers]]) is often a greedy in disguise: "move the pointer
+  at the shorter wall" is "discard the option that can never be part of a better
+  answer".
+- **Sorting** ([[sorting]]) is the greedy's usual first line, but the sort is
+  not the algorithm. The key is.
+
+## Variations
+
+Every variation below is the same move, find the never-regretted choice, with a
+different reason it is never regretted. Each names the technique, what changes, why,
+a small example, and a bank problem.
+
+### A. Sort, then take the locally best
+
+The simplest case: the items are interchangeable except for one number, and each one
+uses the same amount of the shared resource. Then the best k items are just the k
+largest. [[p:roblox-maximum-units-on-truck|Maximum Units on a Truck]]: every box
+takes one slot, so fill the truck with the boxes holding the most units. Box types
+(count, units) = (1, 3), (2, 2), (3, 1), capacity 4: take one box of 3, two of 2, one
+of 1, total 8.
+
+Why it is never regretted: if the truck holds a box with fewer units while a box with
+more is left behind, swap them. Same slots, more units. That is an exchange argument
+in one sentence. [[p:amazon-get-maximum-sum|Get Maximum Sum]] is the same thing behind
+a step that first adds up totals per type in a hash map, then takes the k largest.
+
+The moment items use *different* amounts of the resource, this breaks: that is the
+knapsack, and value-per-weight is not safe unless items can be cut (fractional
+knapsack is greedy; 0/1 knapsack is not).
+
+### B. Track the furthest reach so far
+
+Nothing is sorted. The array is the order, and the state is "how far can I get".
+
+[[p:navi-jump-game-ii|Jump Game II]]: `nums[i]` is how far you may jump from i; find
+the fewest jumps to the end. Think of it as levels: the indices reachable with one
+jump, then with two, and so on. You do not need to know *which* index of the current
+level to jump from; you only need the furthest index any of them reaches. That one
+number is the next level's end.
+
+Trace `[2, 3, 1, 1, 4]`: jumps = 0, level end = 0, furthest = 0.
+
+| i | nums[i] | furthest = max(furthest, i + nums[i]) | i == level end? | jumps | level end |
+|---|---|---|---|---|---|
+| 0 | 2 | 2 | yes | 1 | 2 |
+| 1 | 3 | 4 | no | 1 | 2 |
+| 2 | 1 | 4 | yes | 2 | 4 |
+| 3 | 1 | 4 | no (the loop stops before the last index) | 2 | 4 |
+
+Two jumps (0 to 1, 1 to 4). Why never regretted: after j jumps, the greedy's reach is
+at least as far as any plan's reach after j jumps (stays ahead).
+
+[[p:bloomberg-partition-labels|Partition Labels]] is the same in a string. Cut the
+string into as many parts as possible so that each letter is in one part only. The
+current part must extend to the last occurrence of every letter in it, so carry
+"furthest last occurrence seen so far" and cut when the index reaches it.
+`"ababcbacadefegdehijhklij"` gives parts of length 9, 7, 8.
+
+### C. A running balance that resets
+
+[[p:ebay-gas-station|Gas Station]]: stations on a circle, `gas[i]` fuel at each, and
+`cost[i]` to drive to the next. Find the station from which you can go all the way
+round. Brute force tries every start and drives: O(n^2).
+
+The greedy: drive from station 0 with a running balance of `gas - cost`. When the
+balance goes negative at station j, start over from j + 1 with balance 0.
+
+Why it is never regretted, which is the interesting part: suppose you started at s
+and ran dry at j. Could any start between s and j work? No. You arrived at each of
+those stations with a balance of at least 0, because you had not run dry yet.
+Starting there with 0 instead is no better than arriving with something, so you would
+also run dry by j. One failure rules out a whole block of starts at once. And a valid
+start exists exactly when the total of `gas - cost` is at least 0.
+
+Trace gas `[1, 2, 3, 4, 5]`, cost `[3, 4, 5, 1, 2]`: differences -2, -2, -2, 3, 3,
+total 0, so a start exists. Balance: -2 (reset, start 1), -2 (reset, start 2), -2
+(reset, start 3), 3, 6. The answer is station 3.
+
+This is the same reset as [[kadane]]: a running sum that is thrown away the moment it
+goes negative, because a negative head never helps whatever follows.
+
+### D. Pair the extremes
+
+Sort, then pair the smallest with the largest.
+[[p:expedia-efficient-teams|Efficient Teams]]: split everyone into teams of two with
+equal total skill. After sorting, the smallest person must go with someone, and the
+total is fixed, so their partner must be the largest. Repeat from both ends. `[3, 2,
+5, 1, 3, 4]` sorts to `[1, 2, 3, 3, 4, 5]`, pairs (1,5), (2,4), (3,3), all summing to
+6; the sum of products is 5 + 8 + 9 = 22. If any pair has a different sum, it is
+impossible (-1).
+
+Why never regretted: the smallest and the largest are the two items with the fewest
+options. Settling them first cannot block anything, because any other partner would
+leave a pair that is worse or impossible. The classic "boats with two people and a
+weight limit" is the same: the heaviest person either fits with the lightest, or with
+nobody.
+
+[[p:amazon-maximum-capacity|Maximum Capacity]] pairs neighbours instead: sort memory
+in decreasing order and pair positions (0,1), (2,3), ..., each pair's smaller value
+being a primary. `[1, 2, 1, 2]` sorts to `[2, 2, 1, 1]`, primaries 2 and 1, total 3.
+Pairing the extremes would waste the large values as backups.
+
+### E. Prove the order with an exchange argument
+
+When the answer is an **order** of the items, compare two neighbours. Only their
+relative order changes when you swap them; everything before and after is untouched.
+So "i before j is better" is a condition on i and j alone, and that condition is the
+sort comparator.
+
+[[p:linkedin-largest-number|Largest Number]]: arrange numbers so that their
+concatenation is the largest. For neighbours a and b, a before b gives the string
+a + b, b before a gives b + a, and the rest of the string is the same. So a goes first
+when a + b > b + a as strings. `[3, 30, 34, 5, 9]` gives "9534330". Notice that the
+obvious key, "sort as strings, descending", puts 30 before 3 and gives "...303...",
+which is smaller than "...330...". The pairwise test is the key.
+
+[[p:infosys-two-city-candidate-assignment-cost|Two City Candidate Assignment Cost]]:
+send half the people to city A and half to B, minimising total cost. Swap two people
+across cities: the change in cost is (a_i - b_i) - (a_j - b_j). So the people with the
+smallest `a - b` (who save the most by going to A) go to A. Costs `[[10,20], [30,200],
+[400,50], [30,20]]`: differences -10, -170, 350, 10; sorted -170, -10, 10, 350; the
+first two go to A (30 + 10), the rest to B (20 + 50); total 110.
+
+[[p:amazon-bring-servers-down|Bring Servers Down]] (stretch) is the same argument after
+a translation: turn the story into "each server costs its request rate for every
+second it stays alive", compare two adjacent servers in the kill order, and the swap
+condition is a ratio rule (Smith's rule, derived in the last-but-one check below).
+The hard part is the translation, not the exchange.
+
+### F. Greedy with a counter, or a heap of the best so far
+
+Two different shapes share this heading.
+
+**A counter, when only frequencies matter.**
+[[p:google-task-scheduler-with-cooldown|Task Scheduler with Cooldown]]: tasks of some
+types, one per time unit, and two tasks of the same type need `cooldown` units
+between them. The most frequent type, appearing f times, forces a skeleton of f - 1
+blocks of length cooldown + 1, plus a last block holding every type that also appears
+f times. So the answer is `max(len(tasks), (f - 1) * (cooldown + 1) + count_of_types_with_f)`.
+Tasks `[1, 1, 1, 2, 2, 2]`, cooldown 2: f = 3, two types reach it, (3 - 1) · 3 + 2 = 8:
+`1 2 _ 1 2 _ 1 2`.
+
+The same "the most frequent thing decides" appears in
+[[p:amazon-min-operation|Min Operation]] (ship pairs of different locations: the answer
+is the larger of the top frequency and half of n, rounded up) and
+[[p:amazon-get-max-increments|Get Max Increments]] (the most common value forces the
+number of increasing runs, giving n minus the top frequency).
+
+**A heap, when you must revise an earlier choice.**
+[[p:bloomberg-furthest-building-you-can-reach|Furthest Building You Can Reach]]:
+walk along buildings; each climb costs its height in sandbags, or one rope covers any
+climb. How far can you go? You do not know at a climb whether it is big enough to
+deserve a rope, because the bigger climbs may come later. So do not decide. Give every
+climb a rope tentatively, keeping the climbs that have ropes in a min-heap. When you
+have used more ropes than you own, take the *smallest* roped climb back and pay for it
+in sandbags. Ropes always sit on the biggest climbs so far, which is exactly where
+they should be.
+
+Trace heights `[4, 2, 7, 6, 9, 14, 12]`, 5 sandbags, 1 rope. Climbs: 2 to 7 (5), 6 to
+9 (3), 9 to 14 (5). Climb 5: heap [5], ropes used 1, fine. Climb 3: heap [3, 5], two
+ropes but only one: pop 3, pay 3 sandbags, 2 left. Climb 5: heap [5, 5], pop 5, pay 5
+sandbags, but only 2 left: stop. You reach index 4.
+
+[[p:bloomberg-minimum-refueling-stops|Minimum Refueling Stops]] (stretch) is the same
+idea: drive past stations without deciding, push their fuel onto a max-heap, and when
+the tank runs dry, retroactively "stop" at the biggest station you passed. Target 100,
+start fuel 10, stations (10, 60), (20, 30), (30, 30), (60, 40): run dry at 10, take
+60 (now at 70 of range), run dry at 70, take the biggest left, 40 (from the station at
+60), reach 110: two stops. [[p:amazon-make-array-distinct|Make Array Distinct]] uses a
+heap the same way: sweep values upward, and at each value the most expensive waiting
+item stays while the cheaper ones move on.
+
+### G. Smaller variations worth knowing
+
+- **Merge the two smallest, repeatedly.** Connecting ropes or building a Huffman code:
+  the two smallest are the ones you will pay for most often, so merge them while they
+  are cheap ([[huffman]], with a [[heap]]).
+- **Greedy as the check inside a binary search.** "Minimise the largest" or "maximise
+  the smallest" statements: the greedy checks whether a candidate value is achievable
+  ([[binary-search-on-answer]]).
+- **Lexicographic greedy.** "Smallest string after removing k characters": fix the
+  leftmost position first, because an improvement there outweighs anything after it.
+  A [[monotonic-stack]] makes "the best character I can still afford here" cheap.
+- **Interval families.** Merging, fewest arrows to burst balloons, fewest rooms: the
+  sort-by-end and sweep ideas of this chapter, developed in [[intervals]],
+  [[sweep-line]] and [[scheduling]].
+
+Several of these, each checked against an exhaustive answer:
 
 ```python run
-from itertools import combinations
-import random
+import heapq, random
+from itertools import permutations, combinations
 
+def jump(nums):                                  # B: furthest reach, level by level
+    jumps = end = far = 0
+    for i in range(len(nums) - 1):
+        far = max(far, i + nums[i])
+        if i == end:
+            jumps, end = jumps + 1, far
+    return jumps
 
-def keep_max_compatible(intervals):
-    """Largest set of pairwise non-overlapping intervals; touching is allowed."""
-    kept, last_end = [], None
-    for s, e in sorted(intervals, key=lambda iv: iv[1]):     # the key IS the algorithm
-        if last_end is None or s >= last_end:                # legal given one number
-            kept.append((s, e))
-            last_end = e                                     # the whole state update
-    return kept
+def gas_station(gas, cost):                      # C: a balance that resets
+    if sum(gas) < sum(cost):
+        return -1
+    start = tank = 0
+    for i in range(len(gas)):
+        tank += gas[i] - cost[i]
+        if tank < 0:
+            start, tank = i + 1, 0
+    return start
 
+def largest(nums):                               # E: the pairwise key a+b vs b+a
+    from functools import cmp_to_key
+    s = sorted(map(str, nums), key=cmp_to_key(lambda a, b: (b + a > a + b) - (b + a < a + b)))
+    return "0" if s[0] == "0" else "".join(s)
 
-def min_removals(intervals):
-    return len(intervals) - len(keep_max_compatible(intervals))
+def two_city(costs):                             # E: sort by a - b
+    c = sorted(costs, key=lambda x: x[0] - x[1])
+    h = len(c) // 2
+    return sum(x[0] for x in c[:h]) + sum(x[1] for x in c[h:])
 
+def furthest(h, bags, ropes):                    # F: heap of roped climbs
+    heap = []
+    for i in range(len(h) - 1):
+        d = h[i + 1] - h[i]
+        if d > 0:
+            heapq.heappush(heap, d)
+            if len(heap) > ropes:
+                bags -= heapq.heappop(heap)      # the smallest climb pays in sandbags
+                if bags < 0:
+                    return i
+    return len(h) - 1
 
-def brute_force_best(intervals):
-    """Exponential ground truth: the largest feasible subset, by inspection."""
-    for k in range(len(intervals), -1, -1):
-        for combo in combinations(intervals, k):
-            ordered = sorted(combo, key=lambda iv: iv[0])
-            if all(b[0] >= a[1] for a, b in zip(ordered, ordered[1:])):
-                return k
-    return 0
+assert jump([2, 3, 1, 1, 4]) == 2
+assert gas_station([1, 2, 3, 4, 5], [3, 4, 5, 1, 2]) == 3
+assert largest([3, 30, 34, 5, 9]) == "9534330"
+assert two_city([[10, 20], [30, 200], [400, 50], [30, 20]]) == 110
+assert furthest([4, 2, 7, 6, 9, 14, 12], 5, 1) == 4
+print("examples: jump 2, gas 3, largest 9534330, two city 110, furthest 4")
 
-
-demo = [(1, 4), (2, 3), (3, 5), (0, 6), (5, 7), (4, 8)]
-kept = keep_max_compatible(demo)
-print("intervals :", demo)
-print("kept      :", kept)
-print("removals  :", min_removals(demo))
-assert kept == [(2, 3), (3, 5), (5, 7)]
-assert min_removals(demo) == 3
-
-rng = random.Random(4)
-for _ in range(400):                       # the habit: prove it against brute force
-    n = rng.randint(0, 8)
-    ivs = []
-    for _ in range(n):
-        s = rng.randrange(0, 12)
-        ivs.append((s, s + rng.randint(1, 5)))
-    assert len(keep_max_compatible(ivs)) == brute_force_best(ivs), ivs
-print("400 random instances (n <= 8) match the exhaustive optimum")
-```
-
-Three lines carry the chapter.
-
-`sorted(intervals, key=lambda iv: iv[1])` is the entire design decision. Change
-`iv[1]` to `iv[0]` and the code still runs, still terminates, still returns a
-feasible set, and is wrong. There is no assertion you can add inside the loop
-that will catch it; the only defence is the proof or the brute-force check.
-
-`if last_end is None or s >= last_end` is the feasibility test, and it is a test
-against **one number**. When you are deciding whether a problem is greedy, try
-writing this line first. If you cannot write it without referring to more of the
-history, stop and reach for [[dynamic-programming]].
-
-The `assert ... == brute_force_best(ivs)` loop is not about intervals at all.
-Four hundred random instances of size at most eight refute essentially every
-wrong greedy you can invent, in under a second. It is the difference between "I
-think this is greedy" and "this is greedy".
-
-## Variants you will meet
-
-**Sort, then sweep with one state variable.** The form above. The family is
-enormous; what changes is the sort key. By end time for interval selection
-([[intervals]]); by deadline for scheduling ([[scheduling]]); by size for
-*Optimizing Box Weights*, where you sort descending and take items until your
-subset outweighs the rest — correct because the `k` heaviest items maximise the
-sum of any `k`-subset, so if any subset of size `k` can win, that one does.
-
-**Longest run after sorting.** *An Evening of Movies* wants the longest sequence
-of distinct movies where each runtime equals the previous or is exactly one
-minute longer. Sort the runtimes and take the longest block whose consecutive
-differences are all 0 or 1: the sort plus a linear sweep.
-
-**Heap greedy — repeatedly take the two extremes.** *Connect N Ropes With
-Minimum Cost*. The exchange argument here is about depth: a rope's length is paid
-once per merge it participates in, so the longest ropes must sit at the shallowest
-depth, which is exactly what merging the two smallest first achieves. This is
-[[huffman]] coding wearing work clothes, and it needs a [[heap]].
-
-**Stay-ahead greedy on a given order.** *Jump Game II*; also the classic
-"gas station" shape. Nothing is sorted; the invariant is "after `j` jumps I can
-reach at least as far as any other strategy can after `j` jumps", proved by
-induction on `j`.
-
-**Two-pointer greedy.** *Container With Most Water*: move the pointer at the
-shorter wall, because that wall caps every pair it belongs to, so discarding it
-cannot discard the optimum. Same exchange argument, different clothes —
-[[two-pointers]].
-
-**Counting greedy with a closed form.** *Task Scheduler* — schedule tasks with a
-cooldown of `n` between equal labels. Lay out the most frequent task first,
-`maxFreq − 1` blocks of width `n + 1`, then fit everything else into the gaps.
-The answer is `max(total_tasks, (maxFreq − 1) · (n + 1) + how_many_tasks_hit_maxFreq)`:
-the first term because you can never take fewer intervals than you have tasks,
-the second because the skeleton of the most frequent task is forced.
-
-**Sweep-line greedy.** *Minimum Number of Chairs* wants the peak number of guests
-present at once: turn each guest into `+1` at arrival and `−1` at departure, sort
-the events, take the running maximum. See [[sweep-line]].
-
-**Greedy as the predicate of a binary search.** *Aggressive Cows*, and every
-"minimise the maximum" statement. The greedy answers *is this candidate
-feasible?*, the binary search finds the boundary: [[binary-search-on-answer]].
-
-**Lexicographic greedy.** *Biggest Number From Digits*, *Get Alphabetically
-Smallest String*: fix the leftmost position first, because any improvement at an
-earlier position outweighs everything after it. These frequently need a
-[[monotonic-stack]] to make "the best feasible character here" cheap.
-
-```python run
-import heapq
-from functools import lru_cache
-import random
-
-
-def connect_cost(ropes):
-    """Merge the two shortest ropes repeatedly; pay the sum each time."""
-    heap = list(ropes)
-    heapq.heapify(heap)
-    total = 0
-    while len(heap) > 1:
-        a = heapq.heappop(heap)
-        b = heapq.heappop(heap)
-        total += a + b
-        heapq.heappush(heap, a + b)
-    return total
-
-
-@lru_cache(maxsize=None)
-def best_cost(state):
-    """Ground truth: try every possible pair to merge, at every stage."""
-    if len(state) <= 1:
-        return 0
-    best = None
-    for i in range(len(state)):
-        for j in range(i + 1, len(state)):
-            rest = list(state[:i]) + list(state[i + 1:j]) + list(state[j + 1:])
-            merged = state[i] + state[j]
-            cost = merged + best_cost(tuple(sorted(rest + [merged])))
-            best = cost if best is None else min(best, cost)
-    return best
-
-
-demo = (1, 2, 5, 10, 35, 89)
-print("ropes            :", demo)
-print("greedy total cost:", connect_cost(demo))
-print("exhaustive best  :", best_cost(tuple(sorted(demo))))
-assert connect_cost(demo) == best_cost(tuple(sorted(demo)))
-
-# the cost is sum(length * number of merges it survives), which is why the
-# shortest ropes must be merged first: they are the ones paid for most often
-rng = random.Random(9)
-for _ in range(60):
+rng = random.Random(2)
+for _ in range(200):
     n = rng.randint(1, 6)
-    ropes = tuple(rng.randint(1, 30) for _ in range(n))
-    assert connect_cost(ropes) == best_cost(tuple(sorted(ropes))), ropes
-print("60 random rope sets: always-merge-the-two-smallest is exactly optimal")
+    nums = [rng.randint(1, 3) for _ in range(n)]
+    best = {0: 0}; frontier = [0]                # BFS: the exhaustive fewest jumps
+    while frontier:
+        nxt = []
+        for i in frontier:
+            for j in range(i + 1, min(n, i + nums[i] + 1)):
+                if j not in best:
+                    best[j] = best[i] + 1; nxt.append(j)
+        frontier = nxt
+    assert jump(nums) == best[n - 1]
+    g = [rng.randint(0, 5) for _ in range(n)]; c = [rng.randint(0, 5) for _ in range(n)]
+    def ok(s):
+        t = 0
+        for k in range(n):
+            t += g[(s + k) % n] - c[(s + k) % n]
+            if t < 0: return False
+        return True
+    starts = [s for s in range(n) if ok(s)]
+    assert (gas_station(g, c) in starts) if starts else gas_station(g, c) == -1
+    xs = [rng.randint(0, 120) for _ in range(min(n, 5))]
+    assert largest(xs) == str(int(max("".join(map(str, p)) for p in permutations(xs))))
+    m = 2 * rng.randint(1, 3); cs = [[rng.randint(0, 9), rng.randint(0, 9)] for _ in range(m)]
+    assert two_city(cs) == min(sum(cs[i][0] if i in A else cs[i][1] for i in range(m))
+                               for A in map(set, combinations(range(m), m // 2)))
+print("200 random cases: each greedy matches the exhaustive answer")
 ```
 
 ## Recognising it in a statement
 
-Ordered by how much you should trust them.
+Ordered by how much you can trust the signal.
 
-1. **"Minimum number of operations / moves / removals / swaps" with independent
-   operations.** More than a hundred titles in this bank start with *Minimum* or
-   *Maximize*. When each operation's effect does not depend on which other
-   operations you chose, there is almost certainly a local rule.
-2. **The statement hands you a natural order and a single running quantity.**
-   Times, deadlines, positions along a line, sorted weights — plus one thing you
-   are tracking (the last end, the current reach, the remaining budget).
-3. **"The tasks may be done in any order."** An explicit licence to sort. Without
-   it, check whether the order is part of the problem.
-4. **Divisible or interchangeable items.** Fractions make greedy work where
-   integrality breaks it; this is the whole difference between fractional and
-   0/1 knapsack.
-5. **`n` up to 10⁵ or 2·10⁵ with an optimisation objective.** Exponential search
-   and an `O(n²)` DP are both out, so the intended solution is `O(n log n)` — the
-   shape of sort-then-sweep. Weak on its own, since [[binary-search-on-answer]]
-   has the same shape, but it narrows the field fast.
+1. **"Minimum number of operations / removals / moves" or "maximum number of
+   items", where every item counts the same.** Counting objectives with
+   interchangeable items are greedy's home ground.
+2. **"In any order" or "you may rearrange".** An explicit licence to sort. Then ask
+   which key.
+3. **A natural order (time, position, index) and one running quantity (the time you
+   are free, the furthest reach, the fuel in the tank).** A scan greedy.
+4. **The answer is an arrangement or an order.** Compare two neighbours and get a
+   comparator.
+5. **"Pair up", "teams of two", "each with exactly one partner".** Sort and pair from
+   the ends, or neighbours.
+6. **"Use at most k of something powerful" (ropes, ladders, free passes) while walking
+   forward.** A heap of the k best uses so far.
+7. **n up to 10^5 or 2·10^5 with an optimisation objective.** Exhaustive search and an
+   O(n^2) DP are both out, so the intended solution is probably O(n log n): a sort and
+   a sweep, a heap, or a binary search on the answer. Weak on its own.
 
-The anti-signals, which are more valuable than the signals:
+### Disguised forms
 
-- **A second budget.** "At most `k` removals", "within capacity `W`", "using at
-  most `m` machines" alongside a value to optimise. Two dimensions is the
-  signature of a DP table.
-- **Items carry weights or values.** Interval selection is greedy; interval
-  selection with profits is DP. The moment the objective stops being "how many",
-  re-derive from scratch.
-- **"Count the number of ways."** Greedy answers "what is the best"; counting is
-  [[counting-dp]] or [[combinatorics]].
-- **Decisions that can be revisited.** If the statement lets you undo, or if the
-  effect of a choice depends on a later choice, the exchange argument has nothing
-  to exchange.
-- **Custom, arbitrary denominations or costs.** *Calculate Change* is greedy
-  because real currency is designed to be; a made-up coin system is a DP.
+- **"Minimum removals so that nothing overlaps"** is "maximum kept", interval selection.
+- **"Fewest platforms / rooms / chairs"** is the maximum overlap, a sweep
+  ([[sweep-line]]).
+- **"Make the array strictly increasing with fewest increments"** is a left-to-right
+  greedy: each element becomes the smallest value it is allowed to be, because a
+  smaller value never constrains the future more.
+- **A story about killing servers, serving customers, or finishing jobs with
+  penalties** is often a weighted completion time, and the order comes from a
+  two-neighbour swap.
+
+### Anti-signals: looks greedy, is not
+
+- **Values together with a budget.** "Maximise profit with capacity W", "at most k
+  removals while maximising a value". Two quantities that trade off are the signature
+  of a DP table.
+- **Arbitrary denominations or costs.** Custom coin systems are DP.
+- **"Count the number of ways".**
+- **Your feasibility test needs more than one number of history.** If you cannot
+  write `if fits(state, item)` with a single-number state, stop.
+- **A small example breaks every rule you try.** That is the problem telling you it
+  is a DP.
 
 ## Traps
 
-**Sorting by the intuitive key instead of the provable one.** Shortest-first and
-earliest-start-first both feel reasonable for interval selection and both are
-wrong. Symptom: correct on the samples, wrong when one long interval swallows
-several short ones.
+**Sorting by the intuitive key instead of the provable one.** Symptom: correct on the
+samples, wrong when one long interval swallows several short ones.
 
-**Trusting the samples.** Three examples are three points of an infinite space,
-and greedy failures are usually rare rather than obvious. Symptom: a confident
-submission, a wrong answer on test 47. Cure: the brute-force loop above.
+**Trusting the samples.** Greedy failures are usually uncommon, not obvious; the
+fewest-conflicts rule needs eleven intervals to fail. Symptom: a confident
+submission, a wrong answer on a hidden test. Cure: the brute-force loop.
 
-**Applying a greedy that is only correct for a special input class.** Largest
-coin first is optimal for *canonical* coin systems and nothing else. Symptom: the
-answer is off by one coin on a handful of amounts.
+**A greedy that is right only for special inputs.** Largest coin first is right for
+real currency and wrong for `[1, 3, 4]`. Symptom: off by one coin on a few amounts.
 
-**Tie-breaks that change the answer.** If two orderings of equal-key items give
-different results, your proof has a hole: a correct greedy either ignores ties or
-has an argument for the rule it uses.
+**The wrong comparison at the boundary.** `>=` versus `>`. Symptom: wrong only on
+inputs where an interval starts exactly when another ends.
 
-**Half-open versus closed comparisons.** `s >= last_end` and `s > last_end` are
-different algorithms. *Minimum Removals for Non-Overlapping Intervals* says
-touching intervals are compatible, and *Minimum Number of Chairs* says a guest
-leaving at `t` frees a chair for one arriving at `t` — the same convention in
-sweep-line form. Read the sentence; do not guess.
+**Ties broken in a way that matters.** If two orders of equal-key items give different
+answers, the proof has a hole. A correct greedy either ignores ties or has an argument
+for its tie-break.
 
-**Floating point in a greedy over money.** *Calculate Change* deals in values
-like `0.05`; comparisons and subtractions in binary floating point will drift.
-Work in integer cents. See [[numerical-stability]].
+**Comparing strings as numbers, or numbers as strings.** In Largest Number, sorting
+the strings descending puts "30" before "3". Symptom: "303" where "330" belongs.
 
-**Committing when you meant to simulate.** A greedy never backtracks. If your
-code says "try this, and if it fails go back", it is [[backtracking]] and its
-cost is not `O(n log n)`.
+**Money in floating point.** Work in integer cents ([[numerical-stability]]).
+
+**Backtracking by accident.** "Try this, and if it fails go back" is
+[[backtracking]], and its cost is not n log n.
+
+Here are the coin trap and the fewest-conflicts trap, run:
 
 ```python run
-def greedy_intervals(intervals, key):
-    kept, last_end = [], None
-    for s, e in sorted(intervals, key=key):
-        if last_end is None or s >= last_end:
-            kept.append((s, e))
-            last_end = e
-    return kept
-
-
-by_end = lambda iv: iv[1]
-by_start = lambda iv: iv[0]
-by_length = lambda iv: iv[1] - iv[0]
-
-trap_a = [(0, 10), (1, 2), (3, 4), (5, 6)]
-print("intervals       :", trap_a)
-print("by end (correct):", greedy_intervals(trap_a, by_end))
-print("by start (wrong):", greedy_intervals(trap_a, by_start), "one greedy interval eats three")
-assert len(greedy_intervals(trap_a, by_end)) == 3
-assert len(greedy_intervals(trap_a, by_start)) == 1
-
-trap_b = [(0, 5), (4, 6), (5, 10)]
-print()
-print("intervals        :", trap_b)
-print("by end (correct) :", greedy_intervals(trap_b, by_end))
-print("by length (wrong):", greedy_intervals(trap_b, by_length), "the short one blocks both others")
-assert len(greedy_intervals(trap_b, by_end)) == 2
-assert len(greedy_intervals(trap_b, by_length)) == 1
-
-
 def coins_greedy(coins, amount):
     n = 0
     for c in sorted(coins, reverse=True):
-        take = amount // c
-        n += take
-        amount -= take * c
+        n += amount // c
+        amount %= c
     return n if amount == 0 else None
 
-
-def coins_dp(coins, amount):
+def coins_dp(coins, amount):                     # the exhaustive answer, as a DP
     INF = float("inf")
     best = [0] + [INF] * amount
     for a in range(1, amount + 1):
         for c in coins:
-            if c <= a and best[a - c] + 1 < best[a]:
-                best[a] = best[a - c] + 1
+            if c <= a:
+                best[a] = min(best[a], best[a - c] + 1)
     return None if best[amount] == INF else best[amount]
 
-
-print()
-print("coins [1,3,4], amount 6 -> greedy:", coins_greedy([1, 3, 4], 6),
-      "coins, optimal:", coins_dp([1, 3, 4], 6), "coins (3+3)")
-print("coins [1,5,10,25], amount 30 -> greedy:", coins_greedy([1, 5, 10, 25], 30),
-      "coins, optimal:", coins_dp([1, 5, 10, 25], 30), "coins (25+5)")
+print("[1,3,4], 6: greedy", coins_greedy([1, 3, 4], 6), " best", coins_dp([1, 3, 4], 6))
 assert coins_greedy([1, 3, 4], 6) == 3 and coins_dp([1, 3, 4], 6) == 2
-assert coins_greedy([1, 5, 10, 25], 30) == coins_dp([1, 5, 10, 25], 30) == 2
-for amount in range(0, 200):          # canonical system: greedy is optimal everywhere
-    assert coins_greedy([1, 5, 10, 25], amount) == coins_dp([1, 5, 10, 25], amount)
-print("same code, same shape: correct on one coin system, wrong on the other")
+assert all(coins_greedy([1, 5, 10, 25], a) == coins_dp([1, 5, 10, 25], a) for a in range(300))
+print("[1,5,10,25]: greedy is optimal for every amount below 300")
+
+from functools import lru_cache
+def overlap(a, b):
+    return a[0] < b[1] and b[0] < a[1]
+
+def fewest_conflicts_best_tiebreak(iv):          # the BEST this rule can do, any tie-break
+    @lru_cache(maxsize=None)
+    def go(left):
+        if not left:
+            return 0
+        conf = {x: sum(overlap(x, y) for y in left if y != x) for x in left}
+        low = min(conf.values())
+        return max(1 + go(tuple(y for y in left if y != x and not overlap(x, y)))
+                   for x in left if conf[x] == low)
+    return go(tuple(sorted(iv)))
+
+def earliest_end(iv):
+    k, last = 0, None
+    for s, e in sorted(iv, key=lambda c: c[1]):
+        if last is None or s >= last:
+            k, last = k + 1, e
+    return k
+
+eleven = [(0, 3), (0, 4), (1, 2), (1, 3), (2, 6), (4, 8),
+          (7, 10), (8, 11), (9, 11), (10, 13), (10, 14)]
+print("eleven intervals: fewest-conflicts keeps", fewest_conflicts_best_tiebreak(eleven),
+      " earliest-end keeps", earliest_end(eleven))
+assert fewest_conflicts_best_tiebreak(eleven) == 3 and earliest_end(eleven) == 4
 ```
+
+The coin block shows the same code being right on one input family and wrong on
+another. Nothing in the code tells you which family you are in. Only the statement
+does: real currency is designed so that largest-first works; a made-up list of coins
+is not, and [[p:amd-minimum-coin-change|Minimum Coin Change]] is a DP.
 
 ## What to memorise
 
-Not a solution. A shape, a sentence and a habit.
-
-**The shape**, which should come out of your fingers:
+A shape, a sentence, a habit.
 
 ```python
-items.sort(key=...)          # the key is the whole design decision
-state = initial
-result = 0
+items.sort(key=...)              # the key is the whole algorithm
+state = initial                  # ONE number: free-from time, reach, fuel, slots left
 for it in items:
-    if feasible(state, it):  # a test against ONE number, or it is not greedy
-        result += 1
+    if fits(state, it):          # a test against that one number
+        take(it)
         state = update(state, it)
 ```
 
-**The sentence** that turns a problem into it: *"If I take this item now, can I
-bend any optimal solution to agree with me — swap its choice for mine — without
-making it worse or illegal?"* If yes, you have a greedy and you have just written
-its proof. If you cannot say it, you do not have one yet.
+For a revisable choice, the same loop with a heap of the choices made so far, popping
+the worst one when you are over budget.
 
-**The habit**: write the brute force first, on inputs of size eight, and run a
-few hundred random cases against your greedy before you trust it. This is the one
-family where a plausible wrong answer is the default outcome.
+**The sentence:** which choice can I prove I will never regret? Prove it by swapping
+it into any optimal solution (exchange), or by showing that after every step my state
+is at least as good as any other plan's (stays ahead).
 
-Three things worth carrying. Sort-then-sweep is `Θ(n log n)` and the sort is the
-whole cost, so an already-ordered input makes it linear. A second budget in the
-statement — a capacity, a count limit, a value alongside a count — means DP until
-proven otherwise. And the two proof templates, *stays ahead* and *exchange*, are
-interchangeable: if one refuses to go through, try the other before concluding
-the greedy is wrong.
+**The habit:** write the brute force first, on inputs of size up to eight, and compare
+a few hundred random cases before you trust the greedy. In this topic a plausible
+wrong rule is the default.
+
+Worth carrying: sort plus sweep is Θ(n log n) and the sort is the whole cost. A second
+quantity that trades off with the first (a budget and a value) means DP until proven
+otherwise. For an ordering, swap two neighbours and read off the comparator.
 
 ## Check yourself
 
 :::check
-For interval selection, why does sorting by *earliest end* work when sorting by
-*shortest length* does not? Answer in terms of the invariant, not in terms of
-examples.
+Trace by hand. Intervals (5,9), (1,3), (2,5), (8,10), (3,6), (6,8), (0,2), touching
+allowed. Sort by end, run the greedy with `last_end`, and give the number kept. Then
+run "sort by start" and say at which step it first takes something the right greedy
+does not.
 --
-Because the state of the algorithm is a single number, `last_end`, and the only
-thing a choice does to the future is push that number forward. Among all legal
-candidates at a given moment, the one with the smallest end pushes `last_end` the
-least, so the set of intervals legal afterwards is a superset of what any other
-choice leaves. That is exactly the inductive step of the proof: `end(g_j)` stays
-at or below `end(o_j)` for every `j`.
+By end: (0,2), (1,3), (2,5), (3,6), (6,8), (5,9), (8,10).
 
-Shortest length optimises a quantity that never appears in the state. A short
-interval that starts late — `(9, 10)` when the alternative is `(0, 3)` — pushes
-`last_end` to 10 and destroys more of the future than a longer, earlier one. The
-rule for choosing a greedy key: it must be the quantity the *state* is made of,
-not the quantity the items are made of.
+| interval | last_end before | fits? | last_end after |
+|---|---|---|---|
+| (0,2) | none | yes | 2 |
+| (1,3) | 2 | 1 < 2, no | 2 |
+| (2,5) | 2 | yes | 5 |
+| (3,6) | 5 | no | 5 |
+| (6,8) | 5 | yes | 8 |
+| (5,9) | 8 | no | 8 |
+| (8,10) | 8 | yes | 10 |
+
+Four kept: (0,2), (2,5), (6,8), (8,10).
+
+By start: (0,2), (1,3), (2,5), (3,6), (5,9), (6,8), (8,10). It keeps (0,2), skips
+(1,3), keeps (2,5), skips (3,6), then takes **(5,9)**, which the right greedy never
+takes, setting last_end = 9. Now (6,8) and (8,10) do not fit. It keeps three. The
+mistake is the step where it took an interval ending at 9 when one ending at 8 was
+available.
 :::
 
 :::check
-Someone says: "My greedy is right — it passes every sample, it is `O(n log n)`
-which matches the constraint `n <= 2·10^5`, and the problem is clearly a greedy
-problem." Where are they wrong?
+Trace by hand. Jump Game II on `[3, 1, 4, 1, 1, 1, 2, 1]`. Write `furthest`, the level
+end and the jump count after each index, and give the answer.
 --
-In three places, and the third is the interesting one.
+| i | nums[i] | furthest | i == level end? | jumps | level end |
+|---|---|---|---|---|---|
+| 0 | 3 | 3 | yes | 1 | 3 |
+| 1 | 1 | 3 | no | 1 | 3 |
+| 2 | 4 | 6 | no | 1 | 3 |
+| 3 | 1 | 6 | yes | 2 | 6 |
+| 4 | 1 | 6 | no | 2 | 6 |
+| 5 | 1 | 6 | no | 2 | 6 |
+| 6 | 2 | 8 | yes | 3 | 8 |
 
-Passing the samples is evidence about three inputs. Greedy failures are usually
-not adversarial but merely uncommon; the coin block above shows that `[1,5,10,25]`
-agrees with the optimum on every amount while `[1,3,4]` disagrees at 6. You
-cannot sample your way to a proof.
-
-Matching the complexity bound is a signal about the *intended* solution's shape,
-not about this code's correctness: a sort plus a [[two-pointers]] sweep, a
-[[binary-search-on-answer]] and a heap sweep all cost `O(n log n)` too.
-
-And "clearly a greedy problem" is the real error: greedy is not a property of a
-problem, it is a property of a *problem together with a specific rule*. Interval
-selection is greedy by earliest end and not greedy by earliest start. The claim
-that needs support is never "this is greedy" but "*this rule* is optimal", which
-is one exchange argument.
+The loop stops before the last index (7). Answer 3: 0 to 2, 2 to 6, 6 to 7. Note that
+the greedy did not decide at index 0 *where* to jump; it only learned that one jump
+reaches up to 3, and the second jump's level was the furthest any of 1, 2, 3 reaches.
 :::
 
 :::check
-Attach a profit to each interval and ask for the maximum total profit from a
-compatible set. Point at the exact line of the proof that fails, and say what
-replaces the algorithm.
+Why does sorting by earliest end work when sorting by shortest length does not? Answer
+in terms of the state, not with an example.
 --
-The conclusion. Everything up to and including "greedy stays ahead" survives:
-`end(g_j) <= end(o_j)` is still true, because it is a statement about end times
-and the greedy still picks the earliest-ending legal interval. What breaks is the
-final step, which converted "the greedy selected at least as many intervals" into
-"the greedy is optimal". With profits, `k >= m` says nothing — three intervals
-worth 1 each lose to one interval worth 100.
-
-The exchange phrasing fails at the same point: swapping `o₁` for `g₁` keeps the
-set feasible and keeps its *size*, but can lower its *value*.
-
-What replaces it is weighted interval scheduling: sort by end, and for each
-interval `i` let `p(i)` be the last interval that ends at or before `i` starts
-(found by [[binary-search|binary search]]). Then
-`best[i] = max(best[i-1], profit[i] + best[p(i)])` — every optimal solution either
-uses interval `i` or does not, and both branches are covered. `O(n log n)`, and it
-is [[dp-1d]], not greedy.
+The state of the algorithm is one number, the time the room becomes free, and the only
+effect of a choice on the future is to set that number. The future can do at least as
+much from an earlier free time as from a later one (anything that fits after a later
+time fits after an earlier one). So the choice that sets the smallest free time is
+never worse than any other: that is the whole proof. The earliest end *is* the smallest
+free time. Length is a property of the interval that does not appear in the state at
+all: a short interval that starts late sets a late free time. A good greedy key is made
+of the quantity the state is made of.
 :::
 
 :::check
-*Aggressive Cows* is solved by a binary search whose feasibility check is itself
-a greedy. Is that circular — using an unproven greedy inside a search? Explain
-why the two arguments are independent, and give the complexity.
+Someone says: "Gas Station is O(n^2): you have to try every start, because a start
+that fails tells you nothing about the others." Where are they wrong?
 --
-It is not circular, because the greedy inside proves a *different* statement from
-the one the search needs.
-
-The inner greedy answers: given a required minimum spacing `d`, can all the cows
-be placed? Walk the stalls in sorted order and place a cow at the first stall at
-least `d` beyond the last placed cow. The exchange argument is local: if some
-feasible placement puts its `i`-th cow further right than the greedy does, sliding
-that cow left to the greedy's stall keeps every later gap at least as large, so
-feasibility is preserved. Hence the greedy places the maximum possible number of
-cows for that `d`, and "greedy places them all" is equivalent to "a placement
-exists".
-
-The outer binary search needs only that feasibility is *monotone* in `d`: if
-spacing `d` is achievable then so is any smaller spacing, since the same placement
-works. That is an argument about the problem, not about the greedy.
-
-Cost: the check is `O(n)` after one `O(n log n)` sort, and it runs `O(log R)`
-times for a position range `R`, giving `O(n log n + n log R)`.
+A failure tells you a lot. If you start at s and the balance first goes negative at j,
+then you reached every station k between s and j with a balance of at least 0. Starting
+at k with balance 0 is no better than arriving at k with a non-negative balance, so a
+trip starting at k also fails by j. One failed drive rules out every start from s to j,
+so the next candidate is j + 1, and the whole scan is one pass: O(n). Together with
+"a start exists exactly when the total of gas - cost is at least 0", this gives the
+answer without ever retrying a start.
 :::
 
 :::check
-You have written a greedy and a brute force, and on one random input of size six
-they disagree. Before you change the greedy, what are the two other things that
-could be wrong, and how do you tell them apart?
+Attach a profit to each interval and ask for the maximum total profit of a compatible
+set. Point at the exact step of the proof that fails, and give a three-interval
+counterexample.
 --
-First, the brute force. It is the thing you are treating as ground truth, so a
-bug in it is a bug in your definition of the answer — and brute forces get
-feasibility checks wrong all the time (the `>=` versus `>` question is the usual
-culprit, and it bites both programs in different places). Check it by hand on the
-failing input: six items is small enough to enumerate on paper.
+"Greedy stays ahead" still holds: the greedy's j-th pick still ends no later than any
+other plan's j-th pick, because that is a statement about end times. What fails is the
+conclusion, which turned "at least as many picks" into "optimal". With profits, more
+picks can be worth less. The exchange version fails at the swap: replacing o_1 by g_1
+keeps the set legal and the same size, but can lower its profit.
 
-Second, the problem statement. If the greedy and the brute force encode different
-readings of the rules — one treating touching intervals as compatible and the
-other not, or one allowing an item to be reused — they will disagree on exactly
-the inputs that distinguish the readings. The signature is that the failing input
-is *minimal and structured* (it contains a tie, a touch, a zero, an empty set)
-rather than random-looking.
+Counterexample: (0,1) profit 1, (1,2) profit 1, (0,2) profit 10. Earliest end keeps the
+first two, profit 2; the best is the third alone, profit 10. The replacement is a DP:
+sort by end, and for each interval either skip it or take it plus the best up to the
+last interval that ends by its start (found by [[binary-search]]).
+:::
 
-Only when both survive is the greedy itself wrong, and then the failing input is
-a gift: it is a counterexample to the exchange argument you thought you had, and
-looking at where the two solutions first diverge tells you which choice was not
-safe.
+:::check
+Derive the sort key for this ordering problem by swapping two neighbours. Jobs have a
+processing time t and a weight w; jobs run one after another, and a job finishing at
+time C costs w · C. Minimise the total cost. Then order the jobs (t, w) = (3, 1),
+(1, 2), (2, 2).
+--
+Take two neighbours i then j, starting at time S. Everything before and after them is
+unaffected by their order. i first costs w_i(S + t_i) + w_j(S + t_i + t_j); j first
+costs w_j(S + t_j) + w_i(S + t_j + t_i). Subtract: i first minus j first =
+w_j·t_i - w_i·t_j. So i should go first when w_j·t_i < w_i·t_j, that is, when
+t_i / w_i < t_j / w_j. Sort by t / w, smallest first (Smith's rule).
+
+Ratios: (3,1) is 3, (1,2) is 0.5, (2,2) is 1. Order (1,2), (2,2), (3,1). Completion
+times 1, 3, 6; cost 2·1 + 2·3 + 1·6 = 14. The order (3,1), (1,2), (2,2) would cost
+1·3 + 2·4 + 2·6 = 23. This is the shape of [[p:amazon-bring-servers-down|Bring Servers Down]]
+once its story is translated.
+:::
+
+:::check
+Reduce this disguised problem. "You walk a road and can refuel at any station you
+pass, taking all its fuel. Minimise the number of stops." Why is "stop whenever the next
+station is out of reach" wrong, and what replaces it?
+--
+"Stop when forced" means: at each station, stop only if you cannot reach the next
+point without fuel from here. It commits to the *nearest* station at the moment of
+need, when the station you want is the *biggest* one you have passed. Start fuel 10,
+stations (5, 30) and (10, 1), target 40. At 5 you can still reach 10, so you do not
+stop. At 10 you are empty and must stop, taking 1 unit: you reach 11, and are stuck.
+Stopping at 5 instead gives 30 units, reaching 40 with one stop.
+
+The fix is the revisable greedy: drive as far as the fuel allows, pushing every station
+you pass onto a max-heap without stopping. When you cannot reach the next point, pop
+the biggest station you passed and count one stop, as if you had stopped there. Each
+stop is the one that adds the most range, and a stop at a station you have already
+passed is legal because the order of refuelling does not matter, only which stations
+you used. That is variation F, [[p:bloomberg-minimum-refueling-stops|Minimum Refueling Stops]].
 :::

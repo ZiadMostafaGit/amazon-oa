@@ -1,0 +1,16 @@
+{
+ "pattern": "palindromes",
+ "why": "Compare from both ends, and use the first mismatch as the decision point: one of the two mismatched characters must be the deleted one, so check whether skipping the left one or skipping the right one leaves a palindrome on the remaining middle. Everything outside already matched.",
+ "hints": [
+  "Run the normal two-pointer palindrome check. Nothing interesting happens until the first mismatch.",
+  "At the first mismatch s[i] != s[j], the deleted character must be s[i] or s[j]. The outer part already matches, so only s[i+1..j] or s[i..j-1] needs checking.",
+  "Helper is_pal(i, j). Main loop: on mismatch return is_pal(i+1, j) or is_pal(i, j-1). O(n)."
+ ],
+ "pitfalls": [
+  "Already a palindrome: true, with no deletion.",
+  "Try BOTH options at the mismatch: 'abca' only works by deleting one of the middle two, and sometimes only one side works.",
+  "Do not try deleting every index: that is O(n^2)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

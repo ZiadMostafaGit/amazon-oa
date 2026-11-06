@@ -1,0 +1,128 @@
+{
+ "problemId": "bloomberg-find-all-possible-recipes-from-given-supplies",
+ "generatedAt": "2026-11-06T16:49:15",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "recipes",
+     "type": "String[]",
+     "rawValue": "[\"yeast\", \"bread\"]"
+    },
+    {
+     "name": "ingredients",
+     "type": "String[][]",
+     "rawValue": "[[\"flour\", \"corn\", \"flour\"]]"
+    },
+    {
+     "name": "supplies",
+     "type": "String[]",
+     "rawValue": "[\"flour\", \"yeast\", \"flour\", \"corn\"]"
+    }
+   ],
+   "expectedRaw": "[\"yeast\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recipes",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"cat\", \"dog\", \"b\"]"
+    },
+    {
+     "name": "ingredients",
+     "type": "String[][]",
+     "rawValue": "[[], [\"abc\", \"b\"], [\"abc\", \"0\", \"1\", \"cat\", \"red\"]]"
+    },
+    {
+     "name": "supplies",
+     "type": "String[]",
+     "rawValue": "[\"dog\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recipes",
+     "type": "String[]",
+     "rawValue": "[\"bread\", \"bread\"]"
+    },
+    {
+     "name": "ingredients",
+     "type": "String[][]",
+     "rawValue": "[[\"flour\", \"yeast\", \"flour\"]]"
+    },
+    {
+     "name": "supplies",
+     "type": "String[]",
+     "rawValue": "[\"corn\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recipes",
+     "type": "String[]",
+     "rawValue": "[\"sandwich\", \"bread\", \"bread\"]"
+    },
+    {
+     "name": "ingredients",
+     "type": "String[][]",
+     "rawValue": "[[\"bread\", \"meat\"]]"
+    },
+    {
+     "name": "supplies",
+     "type": "String[]",
+     "rawValue": "[\"meat\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recipes",
+     "type": "String[]",
+     "rawValue": "[\"bread\"]"
+    },
+    {
+     "name": "ingredients",
+     "type": "String[][]",
+     "rawValue": "[[\"yeast\", \"flour\"], [\"yeast\", \"flour\"]]"
+    },
+    {
+     "name": "supplies",
+     "type": "String[]",
+     "rawValue": "[\"flour\", \"bread\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recipes",
+     "type": "String[]",
+     "rawValue": "[\"1\", \"cat\", \"b\"]"
+    },
+    {
+     "name": "ingredients",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\"], [\"ab\", \"10\"]]"
+    },
+    {
+     "name": "supplies",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"1\"]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

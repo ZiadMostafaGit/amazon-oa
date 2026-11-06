@@ -1,0 +1,15 @@
+{
+  "pattern": "number-theory",
+  "why": "Euclid's algorithm: any common divisor of a and b also divides a mod b, so gcd(a, b) = gcd(b, a mod b), shrinking to gcd(g, 0) = g in O(log) steps.",
+  "hints": [
+    "Trying every divisor up to min(a, b) is too slow at 10^9. What does a common divisor of a and b also divide?",
+    "It divides a - b, and therefore a mod b. So gcd(a, b) = gcd(b, a mod b).",
+    "while b: a, b = b, a % b; return a. O(log min(a, b)). lcm(a, b) = a // gcd(a, b) * b follows."
+  ],
+  "pitfalls": [
+    "gcd(0, x) = x and gcd(0, 0) = 0: the loop above handles both.",
+    "Order does not matter: if a < b, the first step swaps them."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

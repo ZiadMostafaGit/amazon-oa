@@ -1,0 +1,17 @@
+{
+ "pattern": "dp-2d",
+ "why": "Grid path costs with an extra state: which grid you are on. best[g][r][c] is the cheapest arrival at (r, c) on grid g; after entering a cell you may switch layers once for switchCost.",
+ "hints": [
+  "The usual min-path DP forgets which grid you are on. Add that as a third index.",
+  "Arriving at (r, c) on grid k costs grid_k[r][c] + min(best[k] above, best[k] left). Then allow a switch at the cell: best[0] = min(best[0], best[1] + switchCost) and vice versa.",
+  "Process cells row by row with two rolling rows (one per grid). Answer min(best[0], best[1]) at the bottom-right. O(rows * cols)."
+ ],
+ "pitfalls": [
+  "Switching does not add the cell value again.",
+  "You may start on either grid (or switch at the start cell).",
+  "Do the switch relaxation after computing both arrivals for the cell."
+ ],
+ "constraints": "<ul><li><code>1 &lt;= rows, cols &lt;= 200</code></li><li><code>0 &lt;= grid1[r][c], grid2[r][c] &lt;= 10^4</code></li><li><code>0 &lt;= switchCost &lt;= 10^4</code></li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

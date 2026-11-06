@@ -1,0 +1,15 @@
+{
+ "pattern": "palindromes",
+ "why": "The palindrome DP over one string: dp[i][j] = longest palindromic subsequence inside s[i..j]. Equal ends wrap the inside answer with 2 characters; otherwise drop one end.",
+ "hints": [
+  "A palindrome is decided by its two ends. What happens when s[i] == s[j]?",
+  "dp[i][j] = dp[i+1][j-1] + 2 if s[i] == s[j], else max(dp[i+1][j], dp[i][j-1]); dp[i][i] = 1.",
+  "Fill by increasing length, or i from n-1 down to 0 and j from i+1 up, so the inner states are ready. O(n^2). (Equivalently: LCS of s and its reverse.)"
+ ],
+ "pitfalls": [
+  "dp[i][j] for i > j is 0, which makes two equal adjacent characters give 2.",
+  "Subsequence, not substring: on a mismatch take the max of dropping either end, do not reset."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

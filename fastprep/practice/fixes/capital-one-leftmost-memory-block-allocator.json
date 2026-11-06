@@ -1,0 +1,16 @@
+{
+  "pattern": "simulation",
+  "why": "A small state machine over an array: keep the memory array plus a map from allocation id to (start, length), and apply each query exactly as described, including the rules for failed allocations and unknown ids.",
+  "hints": [
+    "What state has to survive between queries?",
+    "The memory array, the next allocation id, and id -> (start, length) for live allocations. Initially occupied units belong to no id.",
+    "Allocate: scan left to right for the first run of x zeros, mark it, record it, output start and bump the id. Erase: pop the id if present, zero its units, output its length. O(n) per query is fine at 2000 x 2000."
+  ],
+  "pitfalls": [
+    "A failed allocation outputs -1 and does not consume an id.",
+    "Erasing an id twice, or one that never existed, outputs -1.",
+    "When a run is broken by a 1, reset the run length to 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

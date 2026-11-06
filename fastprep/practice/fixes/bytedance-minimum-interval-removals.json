@@ -1,0 +1,15 @@
+{
+ "pattern": "intervals",
+ "why": "The most non-overlapping intervals: removing the fewest is keeping the most, and the classic greedy keeps the interval that ends earliest, since it leaves the most room for the rest. Sort by end, keep each interval that starts at or after the last kept end.",
+ "hints": [
+  "Flip it: removing the fewest intervals means keeping as many non-overlapping ones as possible. Which interval is the safest to keep first?",
+  "The one that ends earliest. Any optimal answer can swap its first interval for the earliest-ending one without losing anything, so take it and repeat on what remains.",
+  "Sort by end; lastEnd = -inf; for each interval, if start >= lastEnd keep it and set lastEnd = end, else count a removal. O(n log n)."
+ ],
+ "pitfalls": [
+  "Touching intervals ([1,2] and [2,3]) are compatible: use >=, not >.",
+  "Sorting by start instead of end gives wrong answers when a long interval starts first."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

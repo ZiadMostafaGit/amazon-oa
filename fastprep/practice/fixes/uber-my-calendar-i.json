@@ -1,0 +1,15 @@
+{
+ "pattern": "intervals",
+ "why": "Insert an interval and test overlap: each booking [s, e) is accepted only if it overlaps no accepted booking, and half-open intervals overlap exactly when s < otherEnd and otherStart < e. Keep accepted bookings sorted so only the neighbours need checking.",
+ "hints": [
+  "Write the overlap test for two half-open intervals [s1, e1) and [s2, e2). What changes because the end is exclusive?",
+  "They overlap iff s1 < e2 and s2 < e1. If you keep accepted bookings sorted by start, the new one can only collide with the booking just before it or just after it.",
+  "Keep a sorted list of starts (and ends); bisect for the insertion point, check the previous booking's end <= s and the next booking's start >= e, then insert. O(n log n) with a balanced structure, O(n^2) worst with a list insert, which is fine here."
+ ],
+ "pitfalls": [
+  "Touching bookings ([10,20) then [20,30)) are both accepted.",
+  "A rejected booking must not be stored."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

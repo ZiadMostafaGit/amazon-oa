@@ -1,0 +1,14 @@
+{
+  "pattern": "kadane",
+  "why": "Kadane: the best subarray ending at i either extends the best one ending at i-1 or starts fresh at i, so end[i] = max(nums[i], end[i-1] + nums[i]); the answer is the best end[i] seen.",
+  "hints": [
+    "Fix where the subarray ends. What is the best subarray that ends exactly at index i?",
+    "It is nums[i] alone or nums[i] added to the best subarray ending at i-1, whichever is larger: a negative running sum is worth dropping.",
+    "Scan once with cur = max(x, cur + x) and best = max(best, cur). Start both at nums[0] so an all-negative array returns its largest element."
+  ],
+  "pitfalls": [
+    "Starting best at 0 returns 0 for all-negative input, but the subarray must be non-empty."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

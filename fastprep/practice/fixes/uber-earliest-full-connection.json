@@ -1,0 +1,16 @@
+{
+ "constraints": "<ul><li>2 &lt;= users.length &lt;= 10^4, and user names are distinct.</li><li>0 &lt;= logs.length &lt;= 10^5</li><li>Each log entry has the format \"timestamp userA userB\" with 0 &lt;= timestamp &lt;= 10^9, and both users appear in users.</li><li>Logs may be given out of timestamp order.</li></ul>",
+ "pattern": "union-find",
+ "why": "Process edges in sorted order: sort the ride logs by timestamp and union the two riders of each. Keep a component count that drops on every real merge; the timestamp at which it reaches 1 is the answer.",
+ "hints": [
+  "Connections only ever join groups, never split them. What order should you replay the logs in?",
+  "Sort by timestamp and union-find the users. How do you know, without scanning everyone, that all users are in one group?",
+  "Start with components = len(users); every union that merges two different roots decrements it; return the timestamp when it hits 1, else -1. O(L log L)."
+ ],
+ "pitfalls": [
+  "Logs arrive out of order; sorting first is required.",
+  "Parse the timestamp as an integer, not a string (\"10\" < \"5\" as strings)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

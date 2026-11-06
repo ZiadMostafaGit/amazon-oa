@@ -1,0 +1,90 @@
+{
+ "node": "intervals",
+ "ladder": [
+  {
+   "id": "micro1-merge-intervals",
+   "teaches": "sort by start and merge overlaps",
+   "why": "Once sorted by start, the next interval can only overlap the one you are building, so a single pass merges everything.",
+   "level": "core"
+  },
+  {
+   "id": "bytedance-meeting-rooms",
+   "teaches": "insert an interval and test overlap",
+   "why": "The overlap test in its simplest form: after sorting, only neighbours can clash, and touching half-open meetings do not.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-insert-interval",
+   "teaches": "insert an interval and test overlap",
+   "why": "With a sorted disjoint list, inserting splits it into before / overlapping / after, and the overlap condition decides each run.",
+   "level": "core"
+  },
+  {
+   "id": "bytedance-minimum-interval-removals",
+   "teaches": "the most non-overlapping intervals (sort by end)",
+   "why": "Keeping the interval that ends earliest leaves the most room, so sort by end and count the ones you must drop.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-meeting-rooms-ii",
+   "teaches": "the fewest rooms: a sweep or a heap of end times",
+   "why": "The rooms needed equal the peak overlap; a min-heap of end times shows when a room frees up for reuse.",
+   "level": "core"
+  },
+  {
+   "id": "morgan-stanley-maximum-concurrent-processes",
+   "teaches": "a line sweep with +1 / -1 events",
+   "why": "Turn each interval into a +1 at its start and a -1 just after its end, then the peak running sum is the answer.",
+   "level": "core"
+  },
+  {
+   "id": "bytedance-interval-list-intersections",
+   "teaches": "insert an interval and test overlap",
+   "why": "Intersection is [max starts, min ends]; advancing the pointer that ends first is the overlap test applied to two sorted lists.",
+   "level": "core"
+  },
+  {
+   "id": "roblox-track-received-byte-ranges",
+   "teaches": "sort by start and merge overlaps",
+   "why": "Merge after every arrival with the extra rule that adjacent ranges also join: merge intervals inside an upload story.",
+   "level": "practice"
+  },
+  {
+   "id": "uber-my-calendar-i",
+   "teaches": "insert an interval and test overlap",
+   "why": "Online booking: test each half-open request against its sorted neighbours before accepting it.",
+   "level": "practice"
+  },
+  {
+   "id": "jpmorgan-get-min-machines",
+   "teaches": "the fewest rooms: a sweep or a heap of end times",
+   "why": "Machines are rooms and tasks are meetings, with inclusive ends changing the tie rule.",
+   "level": "practice"
+  },
+  {
+   "id": "google-minimum-cars-for-rental-requests",
+   "teaches": "the fewest rooms: a sweep or a heap of end times",
+   "why": "Meeting Rooms II with names: a heap of busy cars by return time and a heap of free car ids give the actual assignment.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-minimum-processes-to-drop-for-synchronization",
+   "teaches": "insert an interval and test overlap",
+   "why": "For each candidate centre, the processes to drop are exactly the disjoint ones, counted fast with bisect on sorted ends and starts.",
+   "level": "practice"
+  },
+  {
+   "id": "smallest-set-covering-intervals",
+   "teaches": "the most non-overlapping intervals (sort by end)",
+   "why": "The sort-by-end greedy with two points per interval: place points as far right as possible and remember only the two largest.",
+   "level": "stretch"
+  },
+  {
+   "id": "quince-minimum-sprinklers-to-cover-an-interval",
+   "teaches": "sort by start and merge overlaps",
+   "why": "Turn sprinklers into intervals, then cover [0, n] with the fewest by always extending to the furthest reach among intervals that start inside the covered part.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "amazon-insert-interval came from outside every pool and got a solution and repair. amazon-cinema-shows (weighted non-overlapping shows) was left out: it is weighted interval scheduling, which is mostly DP plus binary search. google-minimum-points-hit-intervals was skipped because its statement dictates the greedy. Several pool problems are rate limiters or hit counters (sliding window, not intervals) and were not used. The stretch quince sprinklers is an interval-cover greedy (furthest reach); 'teaches' points at merge-by-start because the node list has no interval-cover entry."
+}

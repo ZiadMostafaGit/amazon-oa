@@ -1,0 +1,16 @@
+{
+ "pattern": "fenwick-tree",
+ "why": "A Fenwick tree used to find the k-th free slot: processed in reverse, the last insertion's index is final, and each earlier photo takes the (index+1)-th slot still free. Binary descent on a Fenwick tree of free slots finds it in O(log n).",
+ "hints": [
+  "Inserting into a Python list is O(n) per insert, O(n^2) total. Which photo's final position do you know for sure?",
+  "The last photo's index is its final position. Going backwards, photo i ends up in the (index[i] + 1)-th slot not yet taken by a later photo.",
+  "Keep a Fenwick tree of free slots (all 1). For each photo from last to first, find the k-th one by binary descent, place the photo there and set the slot to 0. O(n log n)."
+ ],
+ "pitfalls": [
+  "Repeated IDs are separate photos; work with positions, not IDs.",
+  "index[i] is zero-based, so look for the (index[i] + 1)-th free slot.",
+  "Build the all-ones Fenwick tree in O(n), or with n updates."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+ "pattern": "two-pointers",
+ "why": "Fix one element, two-pointer the rest: sort, fix index i, and run converging pointers on the suffix, moving the left pointer up when the sum is below target and the right pointer down when above, while tracking the sum with the smallest distance to target.",
+ "hints": [
+  "This is 3Sum without needing an exact hit. After sorting, what does a sum below the target tell you about which pointer to move?",
+  "Fix i. With lo = i+1 and hi = n-1, a sum below target can only get closer if it grows (lo += 1); above target, if it shrinks (hi -= 1). Track |sum - target|.",
+  "Sort, loop i, two-pointer scan per i, return early on an exact match. O(n^2) time, O(1) extra."
+ ],
+ "pitfalls": [
+  "Return the SUM, not the indices or the distance.",
+  "Initialise best with the first three values, not with infinity, so a value is always returned.",
+  "An exact match is the best possible: return it immediately."
+ ],
+ "constraints": "<ul><li>3 &le; nums.length &le; 1000</li><li>-1000 &le; nums[i] &le; 1000</li><li>-10<sup>4</sup> &le; target &le; 10<sup>4</sup></li><li>(Standard bounds for this exercise; the source gives none.)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "partition-dp",
+ "why": "The classic split-point interval DP: the last operator applied splits operands i..j into a left and a right block, and T[i][j] / F[i][j] (ways to be true / false) combine from the two sides for every possible split.",
+ "hints": [
+  "In any full parenthesization, one operator is applied last. What does it split the expression into?",
+  "Keep two tables: T[i][j] and F[i][j] = number of ways operands i..j evaluate to true / false. For a split at operator k, combine T and F of both sides according to &, | or ^.",
+  "Fill by increasing length: for each (i, j) loop k from i to j-1 and add the combinations. O(n^3) with n <= 19 operands."
+ ],
+ "pitfalls": [
+  "You need the false counts too: x ^ y is true when one side is false.",
+  "For |, true = all pairs - (false, false); for &, only (true, true).",
+  "A single operand is 1 way to its own value and 0 to the other."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

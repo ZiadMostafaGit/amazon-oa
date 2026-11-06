@@ -1,17 +1,17 @@
 {
-  "pattern": "union-find",
-  "why": "Minimising the maximum edge on a path (a bottleneck path) is solved by adding edges in increasing weight until source and destination join: the weight of the edge that connects them is the answer. That is Kruskal-style union-find; a Dijkstra variant with max instead of sum also works.",
-  "hints": [
-    "The cost of a path is its single worst edge, not the sum. If you were only allowed edges of weight <= W, could you still get from source to destination?",
-    "Sort edges by weight and union them one by one. The first moment source and destination are in the same set, the edge just added is the minimum possible stress.",
-    "Union-find with path compression; O(E log E) for sorting. Alternatives: Dijkstra where a path's value is max(current, w), or binary search on W with a BFS check."
-  ],
-  "pitfalls": [
-    "source == destination returns 0 even with no edges.",
-    "Return -1 if they never connect.",
-    "Shortest (sum) path is the wrong objective: 1-4-3 wins in example 1 because of its max edge, not its length.",
-    "Edges are undirected despite the from/to names."
-  ],
-  "by": "claude",
-  "at": "2026-11-06"
+ "pattern": "dijkstra",
+ "why": "A minimax path: a path's cost is its largest edge, not the sum. Dijkstra still works if the distance of extending a path by edge w is max(current, w), because that never decreases along a path. (Adding edges in increasing weight with union-find until source and destination join gives the same answer.)",
+ "hints": [
+  "The stress of a path is its single worst edge. If you change Dijkstra's 'dist + w' to something else, which operation describes this cost?",
+  "Use max(dist[u], w). It never decreases as a path grows, so the node with the smallest stress on the frontier is final, as in ordinary Dijkstra.",
+  "Heap of (stress, node) from (0, source); pop, skip stale, relax max(stress, w); return stress when destination pops, -1 if never. O(E log V). Alternative: sort edges and union-find until source and destination connect."
+ ],
+ "pitfalls": [
+  "source == destination returns 0 even with no edges.",
+  "Return -1 if they never connect.",
+  "Shortest (sum) path is the wrong objective: 1-4-3 wins in example 1 because of its max edge, not its length.",
+  "Edges are undirected despite the from/to names."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
 }

@@ -1,0 +1,17 @@
+{
+ "pattern": "two-pointers",
+ "why": "This is pair sum <= capacity on two lists: sort foreground apps by memory ascending and background apps descending, then the two pointers converge. If the pair overflows, the background app is too big for this and every larger foreground app, so drop it; otherwise record the pair and try the next foreground app. Ties on the best sum mean collecting every equal-memory partner.",
+ "hints": [
+  "Trying all pairs is O(F*B). Sort both lists by memory. What does an overflowing pair tell you about the background app?",
+  "Pointer i on foreground (smallest first), j on background (largest first). If fg[i] + bg[j] > capacity, bg[j] fails for fg[i] and for every bigger fg too: j -= 1. Otherwise fg[i] + bg[j] is the best partner for fg[i]: compare with the best so far, then i += 1.",
+  "Keep the best sum and its list of pairs (reset when a bigger sum appears). When the sum ties the best, add every background app with the same memory as bg[j]. Sort the pairs at the end; return [[]] if none fit. O(F log F + B log B + pairs)."
+ ],
+ "pitfalls": [
+  "If no pair fits, return a list containing one empty pair, [[]], not [].",
+  "Several apps can have the same memory: all of them form optimal pairs.",
+  "Return the pairs in ascending order of foreground ID, then background ID."
+ ],
+ "constraints": "<ul><li>1 &le; deviceCapacity &le; 10<sup>9</sup></li><li>1 &le; foregroundAppList.length, backgroundAppList.length &le; 10<sup>4</sup></li><li>Each entry is [id, memory] with unique ids within its list and 1 &le; memory &le; 10<sup>9</sup></li><li>Output pairs sorted by foreground id, then background id. (Bounds are practice choices; the source gives none.)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

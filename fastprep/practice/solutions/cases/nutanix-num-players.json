@@ -1,0 +1,98 @@
+{
+ "problemId": "nutanix-num-players",
+ "generatedAt": "2026-11-06T16:49:33",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[50, 50, 25]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "100"
+    },
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[20, 40, 60, 60, 100]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[20, 100, 40, 60, 80, 100]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[4, 3, 5, 2, 2, 3]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[100, 100, 25]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "scores",
+     "type": "int[]",
+     "rawValue": "[100, 50, 25, 50]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

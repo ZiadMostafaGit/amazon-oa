@@ -1,0 +1,16 @@
+{
+ "constraints": "<ul><li>1 &lt;= n &lt;= 10^5</li><li>0 &lt;= edges.length &lt;= 2 * 10^5</li><li>edges[i] = [u, v] with 0 &lt;= u, v &lt; n</li><li>The graph is undirected; repeated edges and cycles may appear.</li></ul>",
+ "pattern": "graphs",
+ "why": "The first graph skill: count connected components. Start a DFS or BFS from every node not yet visited; each start is a new component, and the traversal marks the whole component so it is never counted twice.",
+ "hints": [
+  "Pick any node and visit everything reachable from it. What have you just found?",
+  "Every node belongs to exactly one component. Loop over the nodes; when you meet an unvisited one, increase the count and flood its whole component with DFS or BFS.",
+  "Build an adjacency list (add both directions), keep a visited array, and use an explicit stack so deep graphs do not hit Python's recursion limit. O(n + edges)."
+ ],
+ "pitfalls": [
+  "Isolated nodes with no edges are components too; loop over all n nodes, not over the edges.",
+  "Mark a node visited when you push it, not when you pop it, or it can be pushed many times."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

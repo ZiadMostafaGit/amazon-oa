@@ -1,0 +1,16 @@
+{
+ "pattern": "two-pointers",
+ "why": "Converging pointers on a sorted array, in its purest form: put one pointer at each end. If the pair sum is too small only moving the left pointer up can raise it; if too big only moving the right pointer down can lower it. Each step throws away one value for good, so the scan is O(n) with O(1) space.",
+ "hints": [
+  "The array is sorted. Look at the smallest and the largest value together: what does their sum tell you if it is below the target?",
+  "If nums[lo] + nums[hi] < target, nums[lo] cannot pair with anything (hi is already the biggest partner), so lo += 1. If the sum is above target, nums[hi] is useless, so hi -= 1.",
+  "lo = 0, hi = n-1; loop while lo < hi, compare, move one pointer. Return [lo+1, hi+1] on a hit (one-based)."
+ ],
+ "pitfalls": [
+  "Answers are one-based positions, not zero-based indices.",
+  "Equal values like [3,3] are fine: the two pointers are different positions.",
+  "A hash map also solves it, but uses O(n) space; the sorted order is what makes O(1) possible."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

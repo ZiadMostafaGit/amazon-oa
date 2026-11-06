@@ -1,0 +1,15 @@
+{
+  "pattern": "dp-1d",
+  "why": "Decode ways with min instead of +: the last chunk is one or two digits, so best[i] = min(best[i-1] + cost of one-digit letter, best[i-2] + cost of two-digit letter), with infinity for impossible prefixes.",
+  "hints": [
+    "This is Decode Ways, but instead of counting decodings you want the cheapest one. What changes in the recurrence?",
+    "best[0] = 0. If s[i-1] is 1..9, try best[i-1] + letterCosts[d-1]; if s[i-2:i] is 10..26, try best[i-2] + letterCosts[v-1]. Take the min.",
+    "Use infinity for unreachable prefixes and return -1 if best[n] stays infinite. Use 64-bit totals: costs reach 10^9 and n reaches 10^5."
+  ],
+  "pitfalls": [
+    "'0' and chunks like '06' are invalid.",
+    "The total can exceed 32 bits."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

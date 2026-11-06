@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search",
+  "why": "The purest form of binary search: the predicate bad[i] is false on a prefix and true afterwards, and you want the first index where it becomes true.",
+  "hints": [
+    "You do not need to look at every version. If bad[mid] is true, what do you know about everything to its right?",
+    "Keep an interval [lo, hi] that must contain the first true. If bad[mid] is true, the answer is mid or to its left; otherwise it is strictly to the right.",
+    "Loop while lo < hi with hi = len(bad): mid true -> hi = mid, else lo = mid + 1. At the end lo is the first true, or len(bad) meaning none (return -1). O(log n)."
+  ],
+  "pitfalls": [
+    "All false: the search ends at len(bad); return -1, do not index past the end.",
+    "Using hi = mid - 1 after a true throws away the answer itself unless you record it first."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

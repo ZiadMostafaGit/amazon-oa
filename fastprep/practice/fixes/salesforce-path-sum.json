@@ -1,0 +1,16 @@
+{
+ "pattern": "dfs",
+ "why": "The model for passing state DOWN a tree: carry the target still to reach (or the sum so far) into each child, and check it only when you arrive at a leaf.",
+ "hints": [
+  "Going from a node to a child, how does the remaining target change?",
+  "Pass remaining = targetSum - node.val to both children. At a leaf, the path works exactly when remaining equals the leaf's value.",
+  "DFS returning hasPath(left, rem) or hasPath(right, rem), or a stack of (node, sumSoFar). O(n) time, O(h) space."
+ ],
+ "pitfalls": [
+  "The path must end at a leaf: a node with one child is not a leaf, so do not stop there.",
+  "An empty tree is false even for targetSum = 0.",
+  "Values can be negative, so you cannot prune when the running sum passes the target."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -108,7 +108,7 @@ BAD_TITLE = re.compile(r"scratch|classifier|neural|regression|gradient|transform
 DIFF = {"easy": 0, "medium": 1, "hard": 2}
 # problems whose published examples contradict their own source: never scheduled
 EXCLUDE = {"amazon-count-special-substrs", "amazon-find-first-index-where-prefix-sum-becomes-non-positive",
-           "uber-counting-segments-after-house-removals"}
+           "uber-counting-segments-after-house-removals", "tiktok-get-server-index"}
 
 
 def norm(t):

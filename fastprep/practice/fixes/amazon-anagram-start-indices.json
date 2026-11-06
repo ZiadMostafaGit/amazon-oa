@@ -1,0 +1,17 @@
+{
+ "pattern": "anagrams",
+ "why": "Window with a frequency map: an anagram of p is any length-|p| window with the same letter counts. Slide a fixed window of size |p| over s, updating 26 counts as one letter enters and one leaves, and record the start whenever the counts equal p's.",
+ "hints": [
+  "Sorting every window is O(n * m log m). What fixed-size summary of a window decides whether it is an anagram of p?",
+  "Its letter counts. When the window slides by one, only two counts change: the entering letter +1, the leaving letter -1.",
+  "Keep count arrays for p and for the window (or one difference array and a counter of mismatched letters). Compare after each slide; record start = i - m + 1 on a match. O(26 n) or O(n)."
+ ],
+ "pitfalls": [
+  "If p is longer than s, there are no answers.",
+  "Windows overlap, so one letter can belong to several matches.",
+  "Return starts in increasing order."
+ ],
+ "constraints": "<ul><li>1 &le; s.length, p.length &le; 3 &times; 10<sup>4</sup></li><li>s and p contain only lowercase English letters</li><li>(Standard bounds for this exercise; the source gives none.)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,90 @@
+{
+ "node": "arrays-hashing",
+ "ladder": [
+  {
+   "id": "capgemini-contains-duplicate",
+   "teaches": "a set to remember what you have seen",
+   "why": "The smallest possible hashing problem: one pass, one set, 'have I seen this before?' answered in O(1).",
+   "level": "core"
+  },
+  {
+   "id": "vanguard-two-sum",
+   "teaches": "a map from value to index (look up the complement)",
+   "why": "Turns 'find a pair' into 'look up the complement': store value -> index for what is behind you and ask for target - x.",
+   "level": "core"
+  },
+  {
+   "id": "motive-valid-anagram",
+   "teaches": "counting with a frequency map",
+   "why": "Order disappears once you count: two strings match when their letter counts match.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-group-anagrams",
+   "teaches": "a canonical key to group things (sorted string, count signature)",
+   "why": "A count signature is the same for every anagram, so it can be a dictionary key that groups them.",
+   "level": "core"
+  },
+  {
+   "id": "bloomberg-top-k-frequent-elements",
+   "teaches": "buckets indexed by frequency or value",
+   "why": "Frequencies are bounded by n, so an array of buckets indexed by count replaces a full sort.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-longest-consecutive-sequence",
+   "teaches": "a set to remember what you have seen",
+   "why": "A set gives O(1) membership; only starting runs at values with no predecessor keeps the whole scan O(n).",
+   "level": "core"
+  },
+  {
+   "id": "spacex-duplicate-number",
+   "teaches": "the array index as the hash (in-place marking)",
+   "why": "When values lie in 1..n the array can be its own set: the sign of nums[v] records 'seen v'.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-count-pairs",
+   "teaches": "a map from value to index (look up the complement)",
+   "why": "Complement lookup in an Amazon OA story, with duplicates and k = 0 to handle by thinking in distinct values.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-replace-values-and-return-sums",
+   "teaches": "counting with a frequency map",
+   "why": "Only how many copies of a value exist matters, so a count map plus a running sum answers each update in O(1).",
+   "level": "practice"
+  },
+  {
+   "id": "google-maximum-elements-with-a-common-digit",
+   "teaches": "counting with a frequency map",
+   "why": "Recognise that fixing the shared digit turns the question into ten simple counts.",
+   "level": "practice"
+  },
+  {
+   "id": "hrt-count-one-swap-number-pairs",
+   "teaches": "a map from value to index (look up the complement)",
+   "why": "Instead of comparing all pairs, generate each number's few neighbours and look them up in a frequency map.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-maximum-equal-parts-for-prefixes",
+   "teaches": "a canonical key to group things (sorted string, count signature)",
+   "why": "A prefix's count vector divided by its gcd is a canonical key that finds the earlier prefixes where cuts can go.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-count-distinct-passwords",
+   "teaches": "counting with a frequency map",
+   "why": "A counting insight: distinct reversals correspond to pairs of different letters, computed from 26 frequencies.",
+   "level": "stretch"
+  },
+  {
+   "id": "amazon-first-missing-positive",
+   "teaches": "the array index as the hash (in-place marking)",
+   "why": "Index-as-hash under an O(1)-space rule: cyclic swaps put each v at index v-1, then the first gap is the answer.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "Every technique covered. vanguard-two-sum moved here from the sorting pool (canonical Two Sum with a unique pair, so the one-pass map is exactly right; amazon-two-sum's lexicographic tie rule defeats the one-pass map). akuna-items-sort moved to sorting. Several core classics (Contains Duplicate, Valid Anagram, Top K Frequent, Longest Consecutive, Find the Duplicate, First Missing Positive) were in no pool and were taken in. amazon-most-common-product-pair skipped: the statement does not say what to return when no pair exists. The bank has no clean 'find all disappeared numbers' easy for index marking, so spacex-duplicate-number carries it."
+}

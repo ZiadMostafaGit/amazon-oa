@@ -1,0 +1,17 @@
+{
+ "statement": "<p>Given the root of a binary tree, consider every subtree (a node together with all its descendants) that is a valid binary search tree: every value in a node's left subtree is strictly smaller than the node, and every value in its right subtree is strictly larger. Return the maximum sum of node values over all such subtrees.</p><p>The empty tree counts as a BST with sum 0, so if every BST subtree has a negative sum, return 0.</p><p>Example: for <code>[1,4,3,2,4,2,5,null,null,null,null,null,null,4,6]</code> the subtree rooted at 3 (values 3, 2, 5, 4, 6) is a BST with sum 20, the largest possible, so the answer is 20.</p>",
+ "pattern": "bst",
+ "why": "Validate-with-bounds turned bottom-up: each subtree reports whether it is a BST together with its min, max and sum, so a parent can tell in O(1) whether it extends a BST.",
+ "hints": [
+  "Checking every subtree separately is O(n^2). What could each subtree report to its parent instead?",
+  "Return (isBST, min, max, sum). A node is the root of a BST when both children are BSTs and left.max < node.val < right.min; then its sum is left.sum + right.sum + val.",
+  "One post-order pass; an empty child reports (True, +inf, -inf, 0). Keep the best sum seen, starting at 0 for the empty BST. O(n)."
+ ],
+ "pitfalls": [
+  "The best BST is often deep inside an invalid tree.",
+  "If every BST subtree has a negative sum, the answer is 0 (the empty tree).",
+  "Strict ordering: equal values break the BST."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

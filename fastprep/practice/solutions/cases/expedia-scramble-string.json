@@ -1,0 +1,98 @@
+{
+ "problemId": "expedia-scramble-string",
+ "generatedAt": "2026-11-06T16:49:23",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "String",
+     "rawValue": "\"great\""
+    },
+    {
+     "name": "second",
+     "type": "String",
+     "rawValue": "\"great\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "String",
+     "rawValue": "\"rgeat\""
+    },
+    {
+     "name": "second",
+     "type": "String",
+     "rawValue": "\"rgeat\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "String",
+     "rawValue": "\"1\""
+    },
+    {
+     "name": "second",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "second",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "String",
+     "rawValue": "\"rgeat\""
+    },
+    {
+     "name": "second",
+     "type": "String",
+     "rawValue": "\"great\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "first",
+     "type": "String",
+     "rawValue": "\"abcde\""
+    },
+    {
+     "name": "second",
+     "type": "String",
+     "rawValue": "\"abcde\""
+    }
+   ],
+   "expectedRaw": "true"
+  }
+ ]
+}

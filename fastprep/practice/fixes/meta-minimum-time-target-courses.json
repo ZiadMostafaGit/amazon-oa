@@ -1,0 +1,15 @@
+{
+ "pattern": "topological-sort",
+ "why": "With unlimited parallelism, a course finishes at its own duration plus the latest finish among its prerequisites: the longest weighted path in a DAG. Only the targets' prerequisite closure matters, and the answer is the largest finish time among the targets.",
+ "hints": [
+  "If courses can run in parallel, what is the only thing that delays a course from starting?",
+  "finish[c] = durations[c] + max(finish[p]) over its prerequisites p. Compute it in topological order (or DFS with memo).",
+  "Collect the closure of the targets by walking prerequisites, run Kahn's algorithm on it computing finish times, and return the max over targets. Use integer arithmetic; sums reach 10^14. O(V + E)."
+ ],
+ "pitfalls": [
+  "Courses outside the targets' closure must not affect the answer.",
+  "The pair is [course, prerequisite]."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

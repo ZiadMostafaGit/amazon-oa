@@ -1,0 +1,15 @@
+{
+ "pattern": "union-find",
+ "why": "The smallest complete union-find: union the two ends of every edge, then source and destination are connected exactly when find gives the same root. With 2 * 10^5 vertices and edges, union by rank (or size) and path compression keep every operation nearly O(1).",
+ "hints": [
+  "You only need to know whether two vertices end up in the same group, not the path between them.",
+  "Union-find: parent[v] starts as v; find follows parents to the root; union links one root under the other.",
+  "Add union by rank so trees stay shallow and path compression (point nodes at their grandparent or root during find). Union every edge, then compare find(source) and find(destination). O((n + E) alpha(n))."
+ ],
+ "pitfalls": [
+  "source == destination is true even for an isolated vertex.",
+  "Without rank and compression, a chain of 2 * 10^5 unions makes find linear and the whole run quadratic."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

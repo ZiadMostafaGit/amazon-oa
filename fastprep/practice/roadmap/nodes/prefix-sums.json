@@ -1,0 +1,90 @@
+{
+ "node": "prefix-sums",
+ "ladder": [
+  {
+   "id": "intuit-static-range-sums",
+   "teaches": "range sum in O(1) from a prefix array",
+   "why": "The base case with no story: build pre once, then every inclusive range [l, r] is pre[r+1] - pre[l].",
+   "level": "core"
+  },
+  {
+   "id": "expedia-equilibrium-index",
+   "teaches": "range sum in O(1) from a prefix array",
+   "why": "With a running prefix and the total, the left and right sums of every index are O(1), so one pass finds the balance point.",
+   "level": "core"
+  },
+  {
+   "id": "apple-subarray-sum-equals-k",
+   "teaches": "prefix sum + hash map to count subarrays with sum k",
+   "why": "A subarray ending here sums to k when an earlier prefix equals current - k, so count earlier prefixes in a hash map; negatives are why a window fails.",
+   "level": "core"
+  },
+  {
+   "id": "inmobi-count-subarrays-sum-divisible-by-k",
+   "teaches": "prefix of a parity, a mod or a balance",
+   "why": "Divisible by k means two prefixes with the same remainder, so the hash map counts remainders instead of sums.",
+   "level": "core"
+  },
+  {
+   "id": "google-range-booking-totals",
+   "teaches": "difference array for range updates",
+   "why": "A range add is +u at start and -u after end; one prefix sum over the difference array gives every slot's total.",
+   "level": "core"
+  },
+  {
+   "id": "freshworks-product-of-array-except-self",
+   "teaches": "prefix and suffix arrays (product except self, best left and right)",
+   "why": "Everything except i is everything left of i times everything right of i: one prefix pass and one suffix pass, no division.",
+   "level": "core"
+  },
+  {
+   "id": "rippling-matrix-block-sum",
+   "teaches": "2-D prefix sums",
+   "why": "Each output cell is a clipped rectangle sum, answered in O(1) from a 2-D prefix table by inclusion-exclusion.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-get-max-skill-sum",
+   "teaches": "prefix of a parity, a mod or a balance",
+   "why": "Amazon OA: score the two roles +1 and -1 so 'equal counts' becomes equal prefix balances, and keep the smallest skill prefix per balance.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-maximum-user-traffic",
+   "teaches": "difference array for range updates",
+   "why": "Amazon OA: each user is a range +1 over days, so a difference array and one prefix sum give daily traffic.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-get-max-aggregate-temperature-change",
+   "teaches": "prefix and suffix arrays (product except self, best left and right)",
+   "why": "Amazon OA: the value of a day is max(prefix sum, suffix sum), so the answer is the best of two running-sum scans.",
+   "level": "practice"
+  },
+  {
+   "id": "inmobi-count-subarrays-with-given-xor",
+   "teaches": "prefix sum + hash map to count subarrays with sum k",
+   "why": "The prefix + hash map count with XOR in place of addition, since XOR undoes itself.",
+   "level": "practice"
+  },
+  {
+   "id": "hrt-maximum-rhombic-area-sum",
+   "teaches": "range sum in O(1) from a prefix array",
+   "why": "A rhombus is a stack of row segments, so row prefix sums turn each segment into one subtraction.",
+   "level": "practice"
+  },
+  {
+   "id": "imc-maximum-size-square-sub-matrix-with-sum-less-than-threshold",
+   "teaches": "2-D prefix sums",
+   "why": "2-D prefix sums make every k x k square O(1), and positive values make the valid k monotone so k can be searched.",
+   "level": "stretch"
+  },
+  {
+   "id": "amazon-find-security-level",
+   "teaches": "prefix of a parity, a mod or a balance",
+   "why": "Amazon OA: remainder equals length forces length < k and turns into equal keys (P[i] - i) mod k, counted in a hash map over a sliding range of prefixes.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "No clean 'Contiguous Array' (equal 0s and 1s) exists; amazon-get-max-skill-sum teaches the balance idea in an OA story instead, and ibm-longest-balanced-binary-subarray adds a prefix constraint that makes it a stack problem. amazon-num-of-suitable-places was left out: it is mainly a binary-search problem. The parity technique is covered by mod (inmobi divisible-by-k) and XOR; atlassian-beautiful-subarrays (prefix parity) went to sliding-window."
+}

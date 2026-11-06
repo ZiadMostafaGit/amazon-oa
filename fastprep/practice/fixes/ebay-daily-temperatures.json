@@ -1,0 +1,15 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "Next greater element, but the answer is a distance, so the stack holds indices: days still waiting for a warmer day. When a warmer day arrives it resolves every waiting colder day on top of the stack, and the answer is the difference of indices.",
+  "hints": [
+    "Which earlier days does today's temperature answer?",
+    "Every still-waiting day that is colder than today. The waiting days have non-increasing temperatures from bottom to top, so the colder ones are all on top.",
+    "Scan left to right with a stack of indices: while temps[top] < temps[i], pop j and set answer[j] = i - j; then push i. Days left on the stack get 0. O(n)."
+  ],
+  "pitfalls": [
+    "Store indices, not temperatures, so you can compute the distance.",
+    "Strictly warmer: an equal temperature does not resolve a waiting day."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

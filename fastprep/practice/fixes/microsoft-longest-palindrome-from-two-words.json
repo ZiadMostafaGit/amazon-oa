@@ -1,0 +1,15 @@
+{
+ "pattern": "palindromes",
+ "why": "The palindrome (i, j) DP on the concatenation word1 + word2, with one twist in what you read from the table: only an outermost matched pair with i in word1 and j in word2 guarantees both words contribute.",
+ "hints": [
+  "Any chosen subsequences concatenated form a subsequence of word1 + word2. So start from the longest palindromic subsequence of the concatenation.",
+  "The danger is a palindrome taken from one word only. Its outermost pair decides it: if the outer s[i] == s[j] has i in word1 and j in word2, both words are used.",
+  "Run dp[i][j] = LPS of s[i..j] on s = word1 + word2, and take the maximum of dp[i+1][j-1] + 2 over pairs with s[i] == s[j], i < len(word1) <= j. O((n+m)^2)."
+ ],
+ "pitfalls": [
+  "Returning plain LPS of the concatenation fails example 2 ('abcdef' would give 1).",
+  "The inside of the palindrome may come entirely from one word; only the outer pair must straddle."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

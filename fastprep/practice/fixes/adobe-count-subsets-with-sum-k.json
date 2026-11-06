@@ -1,0 +1,16 @@
+{
+ "pattern": "knapsack",
+ "why": "Counting subsets with sum exactly k is the same take-or-skip table as 0/1 knapsack, but the initial values change the meaning: ways[0] = 1 (the empty subset) and every other sum starts at 0, so only exact totals are ever counted. Contrast 'at most W', where every cell starts at 0 value.",
+ "hints": [
+  "For each element you either include it or not, so ways after an element = ways without it + ways that reach s - v.",
+  "ways[s] = number of subsets of the elements seen so far with sum exactly s. Initialise ways[0] = 1 and the rest 0; that initial row is what says 'exactly'.",
+  "For each v, loop s from k down to v and add ways[s - v] into ways[s]. Answer ways[k]. O(n * k)."
+ ],
+ "pitfalls": [
+  "Zeros double the count: [2,0,2] with k=2 has 4 subsets. With v = 0 the loop adds ways[s] to itself, doubling every count, which is exactly right.",
+  "k = 0 always counts the empty subset.",
+  "Initialising every ways[s] to 1 would count 'sum at most s' style nonsense; only ways[0] is 1."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

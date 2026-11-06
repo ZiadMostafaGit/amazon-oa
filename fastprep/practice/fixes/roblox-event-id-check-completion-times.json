@@ -1,0 +1,16 @@
+{
+  "pattern": "simulation",
+  "why": "Process events in time order with one server and a bounded waiting line: before admitting each arrival, finish every check that completes at or before that time, then apply the capacity rule. The tie rule (completions before arrivals at the same second) is the whole difficulty.",
+  "hints": [
+    "Keep two things: the waiting queue and the time the station becomes free.",
+    "At each arrival t, first pop people whose checks start because the station freed up at or before t (completion before arrival on ties). Then the newcomer leaves if more than 10 are waiting.",
+    "After the last arrival, drain the queue. Each person's finish time is start + 300 where start = max(free time, arrival). O(n)."
+  ],
+  "pitfalls": [
+    "The queue size excludes the person currently being checked.",
+    "Exactly 10 waiting means the newcomer joins; only more than 10 turns them away.",
+    "If the station is idle, the next check starts at the arrival time, not at the old free time."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

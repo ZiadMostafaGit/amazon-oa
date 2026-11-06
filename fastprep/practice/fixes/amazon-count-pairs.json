@@ -1,0 +1,16 @@
+{
+ "pattern": "hash-tables",
+ "why": "A set plus a complement lookup: pairs are counted by distinct values, so deduplicate into a set and, for each value a, ask whether its partner a + k is also present.",
+ "hints": [
+  "Duplicates never create extra pairs. What data structure throws them away for you?",
+  "For a value a, the only partner that works is b = a + k. Is b in the set?",
+  "values = set(numbers); count the a in values with a + k in values. k = 0 counts every distinct value once (a pairs with itself). O(n)."
+ ],
+ "pitfalls": [
+  "Count each value pair once: only look forward (a + k), not both a + k and a - k.",
+  "k = 0: one occurrence of x is enough for the pair (x, x).",
+  "Counting index pairs instead of value pairs overcounts with duplicates (example 1 answers 1, not 3)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

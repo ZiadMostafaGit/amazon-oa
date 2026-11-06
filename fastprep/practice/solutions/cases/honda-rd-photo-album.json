@@ -1,0 +1,98 @@
+{
+ "problemId": "honda-rd-photo-album",
+ "generatedAt": "2026-11-06T16:49:24",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 15,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "index",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "identity",
+     "type": "int[]",
+     "rawValue": "[0, 7, 2, 9]"
+    }
+   ],
+   "expectedRaw": "[7, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "index",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 0]"
+    },
+    {
+     "name": "identity",
+     "type": "int[]",
+     "rawValue": "[20, 30, 1, 10]"
+    }
+   ],
+   "expectedRaw": "[10, 30, 1, 20]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "index",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "identity",
+     "type": "int[]",
+     "rawValue": "[0, -1, -3]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "index",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    },
+    {
+     "name": "identity",
+     "type": "int[]",
+     "rawValue": "[7, 8, 2, 9]"
+    }
+   ],
+   "expectedRaw": "[2, 8, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "index",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1, -2]"
+    },
+    {
+     "name": "identity",
+     "type": "int[]",
+     "rawValue": "[40, 20, 10, 28]"
+    }
+   ],
+   "expectedRaw": "[28, 40, 10, 20]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "index",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "identity",
+     "type": "int[]",
+     "rawValue": "[7, 7, 7, 0, 9]"
+    }
+   ],
+   "expectedRaw": "[7]"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "fenwick-tree",
+ "why": "Count triplets by fixing the middle: (earlier values greater) x (later values smaller). Both counts are prefix counts over compressed value ranks, done with two Fenwick passes.",
+ "hints": [
+  "Fix j as the middle element. How many choices for i and for k does it have?",
+  "left[j] = earlier values > nums[j], right[j] = later values < nums[j]; the answer is sum left[j] * right[j].",
+  "Compress values to ranks; one Fenwick pass left to right (seen - count of ranks <= r) and one right to left (count of ranks < r). O(n log n)."
+ ],
+ "pitfalls": [
+  "Strict inequalities: equal values count on neither side.",
+  "Fewer than 3 elements gives 0.",
+  "The total needs 64-bit integers."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

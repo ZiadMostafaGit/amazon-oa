@@ -1,0 +1,68 @@
+{
+ "problemId": "goldman-sachs-squares-of-a-sorted-array",
+ "generatedAt": "2026-11-06T16:49:23",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[0, 10]"
+    }
+   ],
+   "expectedRaw": "[0, 100]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3, -1, 0, 10, -4, 10]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 9, 100, 16, 100]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-3, 2, 3, 11]"
+    }
+   ],
+   "expectedRaw": "[4, 9, 9, 121]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-7, 2, 0]"
+    }
+   ],
+   "expectedRaw": "[0, 4, 49]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-7, 2, 3, -7, 11]"
+    }
+   ],
+   "expectedRaw": "[4, 9, 49, 49, 121]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

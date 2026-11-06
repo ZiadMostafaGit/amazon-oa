@@ -1,0 +1,16 @@
+{
+ "pattern": "trie",
+ "why": "Counting words with a prefix: store at each trie node how many stored words pass through it. A count query walks to the prefix's node and reads that number; insert and delete adjust the counts along one path.",
+ "hints": [
+  "Walking to the prefix's node is easy. How can that node already know how many words lie below it?",
+  "Keep pass[node] = number of stored occurrences whose path goes through node, and end[node] for exact words. Insert adds 1 along the path; count reads pass at the prefix's node (the root for the empty prefix).",
+  "Delete only if the exact word is stored (end > 0), then subtract 1 along its path. Every operation is O(length)."
+ ],
+ "pitfalls": [
+  "Duplicates count separately, so use counters, not booleans.",
+  "Deleting an absent word, or a word that exists only as a prefix of others, must change nothing.",
+  "The empty prefix matches everything: answer the root's counter."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

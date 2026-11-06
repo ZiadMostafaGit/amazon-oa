@@ -1,0 +1,16 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "This is the canonical next-greater-element query. Scanning from the right, keep a stack of candidate values that strictly decreases from bottom to top: anything <= the current value can never be anyone's answer again, so pop it; the top that remains is the answer.",
+  "hints": [
+    "The brute force checks every later element. When can a later value never be the next greater element of anything to its left?",
+    "When a larger-or-equal value stands before it: from the left, that earlier value blocks it. So the candidates seen from position i always form a decreasing sequence.",
+    "Scan from right to left with a stack: pop while top <= nums[i]; answer is the top or -1; push nums[i]. Each value is pushed and popped once, O(n)."
+  ],
+  "pitfalls": [
+    "Equal values do not count as greater: pop on <=, not <.",
+    "The answer is the value, not the index or the distance.",
+    "An empty array returns an empty array."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

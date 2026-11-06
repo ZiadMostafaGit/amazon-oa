@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "Maximise the minimum: if cows can be d apart they can also be d - 1 apart, so 'can k cows be placed with every gap >= d?' is true then false, and the answer is the last true d. The check is greedy: sort, put a cow in the first stall, then in every stall at least d past the previous cow.",
+  "hints": [
+    "Guess the minimum distance d. How would you test whether k cows fit with all gaps at least d?",
+    "Sort the stalls and place cows left to right, each in the first stall at least d after the previous cow. Placing as early as possible is never worse. Feasibility is monotone in d.",
+    "Binary search d in [1, max - min] for the largest feasible value (use mid = (lo + hi + 1) // 2 when moving lo = mid). O(n log n + n log range)."
+  ],
+  "pitfalls": [
+    "Stalls arrive unsorted: sort first.",
+    "Searching for the last true needs the upper mid, or the loop never ends when hi = lo + 1."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

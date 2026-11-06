@@ -1,0 +1,15 @@
+{
+ "pattern": "topological-sort",
+ "why": "Kahn's algorithm run backwards and layer by layer: use out-degree instead of in-degree, peel every current leaf at once, and the parents whose last child was removed form the next layer. Nodes that never peel off sit on a cycle.",
+ "hints": [
+  "Kahn's algorithm removes nodes with no incoming edges. What changes if you remove nodes with no outgoing edges instead?",
+  "Track each node's out-degree and its parents. Removing a leaf decrements the out-degree of each parent.",
+  "Layer = sorted nodes with out-degree 0; emit it, then build the next layer from parents that dropped to 0 and sort it. If fewer than n nodes were emitted, return []. O((n + E) log n)."
+ ],
+ "pitfalls": [
+  "Emit whole layers in ascending order; do not interleave a newly freed parent with the current layer.",
+  "A cycle anywhere means the whole answer is []."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

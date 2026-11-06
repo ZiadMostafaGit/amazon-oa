@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "Maximise a length: a longer piece never yields more pieces, so 'do the ribbons give at least k pieces of length L?' is true then false, and the answer is the last true L.",
+  "hints": [
+    "How many pieces of length L does one ribbon of length r give? And all of them?",
+    "pieces(L) = sum(r // L) only goes down as L grows. Binary search the largest L in [1, max(ribbons)] with pieces(L) >= k.",
+    "Upper mid for 'last true'. O(n log max). Follow-up: with fractional lengths, loop a fixed number of times on real bounds instead of until lo == hi."
+  ],
+  "pitfalls": [
+    "L = 0 would divide by zero: start the search at 1 (guaranteed feasible).",
+    "Pieces from different ribbons cannot be joined, so it is r // L per ribbon, not sum(r) // L."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "unbounded-knapsack",
+ "why": "Bundles can be bought any number of times under a budget: unbounded knapsack where cost is the weight and books are the value. 'Without spending more than n' is the at-most version, so best[b] starts at 0 for every budget.",
+ "hints": [
+  "Greedy by books-per-dollar fails (example 1: two 20-book bundles beat the cheaper ratio). Think of the budget as a knapsack capacity.",
+  "best[b] = most books with spending at most b. Buying one more bundle i on top of best[b - cost_i] gives best[b - cost_i] + quantity_i.",
+  "best = [0] * (n + 1); for each bundle, for b from cost up to n (upward, so it can be bought again): best[b] = max(best[b], best[b - cost] + qty). Answer best[n]."
+ ],
+ "pitfalls": [
+  "Starting with -infinity except best[0] would demand spending exactly b; here leftover money is fine.",
+  "A bundle costlier than the budget is never bought; the answer may be 0.",
+  "The sweep must go upward to allow repeats."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

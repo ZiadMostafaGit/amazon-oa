@@ -1,0 +1,16 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "Minimise the maximum group range: after sorting, groups can be taken as contiguous runs, and 'can three groups of range <= D cover everything?' is checked greedily, each group starting at the smallest uncovered value and taking everything within D. Binary search the smallest D that needs at most three groups.",
+  "hints": [
+    "The order of A does not matter. Sort it: what shape do the groups of an optimal answer take?",
+    "Fix D. Open a group at the smallest uncovered value v and put everything <= v + D in it; repeat. If at most 3 groups are needed, D works (split a group further if you need exactly three, since n >= 3). Larger D needs no more groups.",
+    "Binary search D in [0, max - min]; each check is three bisect_right jumps (or one O(n) scan). O(n log n)."
+  ],
+  "pitfalls": [
+    "Groups must be non-empty, but fewer than three greedy groups are still fine: splitting never raises a range.",
+    "Do not try every pair of cut points in O(n^2) when N is large."
+  ],
+  "constraints": "<ul><li>3 &lt;= N &lt;= 10<sup>5</sup></li><li>-10<sup>9</sup> &lt;= A[i] &lt;= 10<sup>9</sup></li><li>The screenshot shows no bounds; these are practice assumptions.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

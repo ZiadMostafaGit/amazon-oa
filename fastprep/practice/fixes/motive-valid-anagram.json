@@ -1,0 +1,15 @@
+{
+ "pattern": "anagrams",
+ "why": "Counting with a frequency map: two strings are anagrams exactly when every letter occurs the same number of times, so count one string up and the other down and check every count is back to zero.",
+ "hints": [
+  "Order does not matter, only how many times each letter appears. What summary of a string captures that?",
+  "If the lengths differ, answer false. Otherwise keep 26 counters: +1 for each letter of s, -1 for each letter of t.",
+  "If any counter goes negative while processing t, t has a letter s lacks: return false. O(n) time, O(1) space (26 counters). Sorting both strings also works in O(n log n)."
+ ],
+ "pitfalls": [
+  "Check lengths first; otherwise 'ab' vs 'a' needs extra handling.",
+  "Two empty strings are anagrams."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "palindromes",
+ "why": "Compare from both ends inside each block: a block of length k is a palindrome when position i matches position k-1-i, and each mismatched mirror pair costs exactly one change. So walk two pointers inward through each block and count mismatches.",
+ "hints": [
+  "Blocks are independent. For one block, which pairs of positions must be equal?",
+  "Mirror pairs (i, k-1-i). A pair that differs needs exactly one change (set either side to the other); a matching pair needs none.",
+  "For each block start b, walk lo = b, hi = b+k-1 inward and count s[lo] != s[hi]. O(n) total."
+ ],
+ "pitfalls": [
+  "k = 1: every block is already a palindrome, answer 0.",
+  "The middle character of an odd block never needs a change.",
+  "Count pairs, not characters: one change fixes a mismatched pair."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

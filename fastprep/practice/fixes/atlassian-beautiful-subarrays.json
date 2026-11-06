@@ -1,0 +1,16 @@
+{
+ "pattern": "sliding-window",
+ "why": "Exactly k = at most k minus at most k-1: counting windows with exactly k odd numbers directly is awkward because a window can be shrunk past even numbers without changing its count. Counting windows with AT MOST k odd numbers is a plain sliding window (each right end adds right - left + 1), so subtract the two counts.",
+ "hints": [
+  "Counting subarrays with at most k odd values is easier than exactly k. Why?",
+  "For at most k, each right end has a single smallest valid left, and every start from left to right works: add right - left + 1.",
+  "exactly(k) = atMost(k) - atMost(k - 1), with atMost(-1) = 0. Each atMost is one O(n) pass. (Prefix counts of odd numbers plus a hash map give the same answer.)"
+ ],
+ "pitfalls": [
+  "Negative numbers can be odd: use x % 2 != 0 (Python) or x & 1, not x % 2 == 1 in languages where -3 % 2 is -1.",
+  "k = 0 counts subarrays of only even numbers.",
+  "The answer can exceed 32 bits."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

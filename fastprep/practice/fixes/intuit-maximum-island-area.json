@@ -1,0 +1,15 @@
+{
+ "pattern": "flood-fill",
+ "why": "Islands are connected components of a grid graph, as in Number of Islands, but now each flood fill also counts the cells it visits. The answer is the largest such count.",
+ "hints": [
+  "This is Number of Islands with one extra number per island. Which number?",
+  "Flood-fill each unvisited land cell with DFS or BFS over the four direction offsets and count the cells the fill touches.",
+  "Visited grid plus a stack; for each start cell count pops, then update the best. O(rows * cols)."
+ ],
+ "pitfalls": [
+  "Diagonal neighbours do not join islands; use only the four orthogonal directions.",
+  "No land at all returns 0."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

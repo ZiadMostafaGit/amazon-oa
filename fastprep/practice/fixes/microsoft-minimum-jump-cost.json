@@ -1,0 +1,15 @@
+{
+  "pattern": "dp-1d",
+  "why": "The minimum cost to reach a target with a jump window: dp[i] = cost[i] + min(dp[i-k..i-1]) with dp[0] = 0, and the window minimum is kept in a monotonic deque so the DP is O(n), not O(nk).",
+  "hints": [
+    "The cheapest way to stop at point i comes from the cheapest of the k points before it. Write that recurrence first.",
+    "dp[0] = 0 (start at x = 0); dp[i] = cost[i] + min(dp[j]) for i-k <= j < i. The answer is dp[n]. Directly this is O(nk), too slow for 3*10^5.",
+    "Keep a deque of indices with increasing dp values: drop the front when it leaves the window, drop the back while its dp >= the new dp. The front is always the window minimum."
+  ],
+  "pitfalls": [
+    "You must stop at point n and pay its cost.",
+    "Totals exceed 32 bits (cost up to 10^9)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

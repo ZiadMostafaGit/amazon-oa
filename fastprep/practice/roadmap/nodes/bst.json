@@ -1,0 +1,96 @@
+{
+ "node": "bst",
+ "ladder": [
+  {
+   "id": "meta-range-sum-of-bst",
+   "teaches": "search and insert by the ordering",
+   "why": "The ordering tells you which subtrees cannot contain an answer, so whole branches are skipped.",
+   "level": "core"
+  },
+  {
+   "id": "atlassian-validate-binary-search-tree",
+   "teaches": "validate with lower and upper bounds",
+   "why": "Checking each node against its children is not enough; carry an (low, high) interval down, or check that inorder is strictly increasing.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-kth-smallest-element-in-bst",
+   "teaches": "k-th smallest",
+   "why": "Inorder visits keys in ascending order, so the k-th smallest is the k-th node an iterative inorder walk pops.",
+   "level": "core"
+  },
+  {
+   "id": "peoplestrong-lowest-common-ancestor-bst",
+   "teaches": "lowest common ancestor",
+   "why": "With an ordering, the LCA is the first node on the way down that lies between p and q: no recursion, O(h).",
+   "level": "core"
+  },
+  {
+   "id": "citadel-binary-search-tree-operations",
+   "teaches": "search and insert by the ordering",
+   "why": "Insert, search and delete written from scratch: each walks one path chosen by comparisons, and delete handles the two-child case with the successor.",
+   "level": "core"
+  },
+  {
+   "id": "atlassian-binary-search-tree-iterator",
+   "teaches": "inorder traversal is sorted",
+   "why": "Inorder traversal paused between steps: a stack of the left spine gives next() in amortised O(1).",
+   "level": "core"
+  },
+  {
+   "id": "charta-bst-inorder-successor",
+   "teaches": "search and insert by the ordering",
+   "why": "Walking down by the ordering and remembering the last node where you turned left finds the next larger key.",
+   "level": "core"
+  },
+  {
+   "id": "atlassian-lowest-common-ancestor-of-a-binary-tree",
+   "teaches": "lowest common ancestor",
+   "why": "Without an ordering, LCA is a post-order question: the first node whose two sides each report a target.",
+   "level": "core"
+  },
+  {
+   "id": "blackrock-lowest-common-ancestor-parent-tree",
+   "teaches": "lowest common ancestor",
+   "why": "With parent pointers the LCA is where two root paths meet: mark one path, climb the other.",
+   "level": "practice"
+  },
+  {
+   "id": "lyft-reconstruct-bst-from-preorder",
+   "teaches": "validate with lower and upper bounds",
+   "why": "Rebuilding from preorder in O(n) by giving each subtree its allowed (low, high) range.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-bst-lowest-common-ancestor",
+   "teaches": "lowest common ancestor",
+   "why": "Insertion order plus the split-point idea: the LCA is the first inserted value between p and q, which avoids building a degenerate chain.",
+   "level": "practice"
+  },
+  {
+   "id": "linkedin-kth-closest-bst",
+   "teaches": "inorder traversal is sorted",
+   "why": "Flatten by inorder into a sorted list, then expand two pointers outward from target's insertion point.",
+   "level": "practice"
+  },
+  {
+   "id": "meta-repeated-bst-range-aggregates",
+   "teaches": "inorder traversal is sorted",
+   "why": "Inorder makes every key range a contiguous slice, so prefix sums and binary search answer many queries fast.",
+   "level": "practice"
+  },
+  {
+   "id": "globalization-partners-recover-binary-search-tree",
+   "teaches": "inorder traversal is sorted",
+   "why": "Sortedness as a diagnostic: the one or two descents in the inorder sequence name the two swapped nodes.",
+   "level": "stretch"
+  },
+  {
+   "id": "amazon-maximum-sum-bst",
+   "teaches": "validate with lower and upper bounds",
+   "why": "Bounds checking done bottom-up: each subtree reports (isBST, min, max, sum) so the parent decides in O(1).",
+   "level": "stretch"
+  }
+ ],
+ "notes": "Only one BST-flavoured problem in the bank comes from an OA (blackrock LCA); the practice rungs are mostly interview problems. Half the pool is unrelated 'rotation' problems (arrays, matrices, strings) matched by the word 'rotate'; they were ignored. The LCA rungs mix BST, plain-binary-tree and parent-pointer versions on purpose."
+}

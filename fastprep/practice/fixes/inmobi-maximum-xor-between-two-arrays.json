@@ -1,0 +1,15 @@
+{
+ "pattern": "trie",
+ "why": "The bitwise trie: store numbers as fixed-width bit strings from the highest bit down, then for each query number walk greedily toward the opposite bit at every level, because one higher bit outweighs all lower bits together.",
+ "hints": [
+  "XOR is largest when the highest possible bit is 1. For a given A, which bit of B do you want at the top position?",
+  "Insert every number of arr2 into a binary trie, highest bit first (31 levels covers 10^9). For each A in arr1, at each level take the child with the opposite bit if it exists, else the same bit; the bits where you got the opposite form the XOR.",
+  "O((n + m) * 31) instead of comparing all n * m pairs."
+ ],
+ "pitfalls": [
+  "Use the same fixed bit width for every number, including small ones and 0.",
+  "Pairs must cross the arrays: build the trie from one array and query with the other."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

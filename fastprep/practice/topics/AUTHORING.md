@@ -138,3 +138,119 @@ The verifier checks the outline, the lede, the word count, the proof block, the
 diagram, the self-checks, that every `[[link]]` names a real topic, and that
 every runnable block actually runs and prints. Fix what it reports and run it
 again. A chapter is not done until it passes.
+
+---
+
+# Version 2: the tutor chapter
+
+Every chapter that is the main chapter of a roadmap node is written this way. The
+model is a real tutoring conversation about 0/1 knapsack that a learner said
+finally made it click (summarised below). The reader is the same person as
+above, with one addition: **they want to be able to derive the technique on a
+blank page, not recognise it.** A chapter has failed if, after reading it, they can
+type the template but cannot say why each line is there.
+
+## What made the model work, and what each chapter owes the reader
+
+1. **It is derived, never handed down.** Start from the brute force a beginner
+   would actually write. Show where it is slow (count it), notice the waste (draw
+   it), and only then name the technique as the cure for that waste. The final
+   template must appear as the *last* step of a derivation the reader watched,
+   e.g. recursion, then memo, then table, then the compressed array.
+2. **It names the question that unlocks it.** Knapsack: "what is the least the
+   future needs to know about the past?" Answer: (items left, capacity left), so
+   the state is (i, c). Each chapter has such a question; state it in bold, early,
+   and come back to it.
+3. **It corrects the wrong first instincts out loud.** Write "You might think X"
+   for the two or three wrong ideas a learner really has, and kill each one
+   with a tiny concrete counterexample. From the model: "the answer for limit 5 is
+   the answer for limit 4 plus something" (no, you forget which items you used);
+   "take it whenever it fits" (limit 10, items (6,13),(5,10),(5,10): greedy gets
+   13, best is 20). These are the most valuable paragraphs in the chapter.
+4. **Every trace uses real numbers, and every step says why.** Not "the
+   algorithm proceeds": a table whose every cell can be checked with a pen, plus
+   the story of at least one cell in words ("bag of size 5, item B (w=3,v=4)
+   allowed: if I put B in, 2 units are left; the best for 2 units with the
+   earlier items is already in the row above, column 2; add 4."). Show the
+   recursion tree with the repeated subproblem circled, so the reader sees where
+   the speed comes from.
+5. **Abstract pictures are followed by concrete ones.** The model's first arrow
+   diagram confused the reader, and the version that worked pointed at actual
+   columns with actual values. If you draw a schematic, follow it immediately with
+   the same thing on real numbers.
+6. **Code is mapped back to the idea, line by line.** After the code, a short
+   table or list: each line, in plain words, and which branch of the recursion it
+   is ("line 3 is the skip branch; lines 4-5 are the take branch"). Settle the
+   boring confusions explicitly, such as 0-based input vs a 1-based dp row, why
+   row 0 exists, and what a cell does and does not store.
+7. **The subtle line gets its own demonstration.** For knapsack it is the loop
+   direction in the 1-D version. Show the right way and the wrong way on the same
+   tiny input, with the array after every step and a `*` on overwritten cells,
+   and point at the exact cell where the wrong one goes wrong. Then say what the
+   wrong version accidentally computes (here: unbounded knapsack). Every
+   technique has one or two lines like this. Find them.
+8. **It gives a thinking checklist.** A short numbered list of questions to ask
+   on every new problem of this family (what are the items, what is the shared
+   resource, max/min/count/feasible, 0/1 or unbounded or k copies, does order
+   matter, *which quantity is small*). The checklist is the transferable part.
+9. **It covers the family, not just the textbook case.** Every variation an
+   interview or OA can ask, each with: what changes in the state or loop, *why*,
+   a three-line example, and a bank problem that teaches it as a `[[p:id|Title]]`
+   link (only ids you saw in the brief). Say which variations are rare.
+10. **It ends with exercises the reader does by hand.** At least two `:::check`
+    blocks are traces ("fill this 4x6 table; then do the 1-D version both ways
+    and find the cell where an item is used twice"), with the full answer
+    after `--`.
+
+## The outline (exact headings, this order)
+
+```
+# <the canon title, exactly>
+
+> One sentence: the insight, not a definition.
+
+## The problem it solves
+## Build it from the brute force
+## Worked by hand
+## From the idea to the code
+## Why it is correct
+## What it costs
+## How to think about it
+## Variations
+## Recognising it in a statement
+## Traps
+## What to memorise
+## Check yourself
+```
+
+- **The problem it solves**: one concrete motivating problem, the naive
+  solution and why it is too slow or wrong, and when this is the wrong tool.
+- **Build it from the brute force**: points 1-3 above. Ends with the technique
+  stated in one sentence and the unlocking question in bold.
+- **Worked by hand**: points 4-5. One full trace, plus a second trace on a case
+  that shows something the first did not (a skip that beats a take, an
+  overwrite, a tie).
+- **From the idea to the code**: the derivation's last steps as code
+  (```python run blocks with asserts): the direct version first, then the
+  optimised one. Points 6-7 live here.
+- **Why it is correct**: a `:::proof` block, written so a reader who has never
+  seen a proof can follow it, and then the assumptions it used in plain words.
+- **What it costs**: derived. Name the trap, such as pseudo-polynomial or the
+  hidden log.
+- **How to think about it**: point 8, the checklist, plus how to tell
+  this technique from its neighbours.
+- **Variations**: point 9.
+- **Recognising it in a statement**: phrases and constraints, ordered by
+  reliability, plus disguised forms (the algebra that turns "+/- signs to reach
+  T" into subset sum), plus anti-signals.
+- **Traps**: each with its symptom, at least one wrong-vs-right run block.
+- **What to memorise**: short. The template, the one sentence, the one habit.
+- **Check yourself**: 5-8 `:::check` blocks: hand traces, a "why",
+  "someone claims X: where are they wrong", and a disguised problem to reduce.
+
+Length: 4,500-13,000 words of prose. At least three ```python run blocks, at
+least one inline `<svg>`. The voice is unchanged: direct, concrete, no filler.
+The model is a patient tutor at a whiteboard, not a reference manual. Short
+sentences. When a point is hard, say it twice, in two different ways.
+`tools/verify_topic.py` recognises this outline by its second heading and
+holds it to these rules.

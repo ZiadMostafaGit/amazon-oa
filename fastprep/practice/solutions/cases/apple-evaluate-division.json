@@ -1,0 +1,128 @@
+{
+ "problemId": "apple-evaluate-division",
+ "generatedAt": "2026-11-06T16:49:14",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 9,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"b\"], [\"b\", \"c\"], [\"c\", \"a\"]]"
+    },
+    {
+     "name": "values",
+     "type": "double[]",
+     "rawValue": "[2.0, 4.0, 0.0]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"c\", \"b\"], [\"a\", \"c\"], [\"b\", \"a\"], [\"b\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[0.25, 8.0, 0.5, 0.5]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"b\"], [\"b\", \"c\"]]"
+    },
+    {
+     "name": "values",
+     "type": "double[]",
+     "rawValue": "[2.0]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"b\", \"a\"], [\"a\", \"a\"], [\"c\", \"a\"], [\"a\", \"e\"], [\"x\", \"x\"]]"
+    }
+   ],
+   "expectedRaw": "[0.5, 1.0, -1.0, -1.0, -1.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[][]",
+     "rawValue": "[[\"c\", \"a\"], [\"a\", \"b\"], [\"b\", \"c\"], [\"c\", \"a\"]]"
+    },
+    {
+     "name": "values",
+     "type": "double[]",
+     "rawValue": "[4.0, 0.125]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"c\", \"b\"], [\"a\", \"c\"], [\"c\", \"b\"], [\"b\", \"a\"]]"
+    }
+   ],
+   "expectedRaw": "[0.5, 0.25, 0.5, 8.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[][]",
+     "rawValue": "[[\"x1\", \"x2\"], [\"x1\", \"x2\"]]"
+    },
+    {
+     "name": "values",
+     "type": "double[]",
+     "rawValue": "[0.4]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"x1\", \"y1\"], [\"y2\", \"y2\"]]"
+    }
+   ],
+   "expectedRaw": "[-1.0, -1.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[][]",
+     "rawValue": "[[\"a\", \"b\"]]"
+    },
+    {
+     "name": "values",
+     "type": "double[]",
+     "rawValue": "[3.0, 3.0, 2.0]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"x\", \"x\"], [\"b\", \"a\"], [\"b\", \"a\"], [\"a\", \"e\"]]"
+    }
+   ],
+   "expectedRaw": "[-1.0, 0.3333333333333333, 0.3333333333333333, -1.0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "equations",
+     "type": "String[][]",
+     "rawValue": "[[\"x2\", \"x1\"], [\"y1\", \"y2\"]]"
+    },
+    {
+     "name": "values",
+     "type": "double[]",
+     "rawValue": "[2.5, 2.5]"
+    },
+    {
+     "name": "queries",
+     "type": "String[][]",
+     "rawValue": "[[\"x2\", \"x1\"], [\"y2\", \"y1\"], [\"y2\", \"y1\"], [\"y2\", \"y2\"]]"
+    }
+   ],
+   "expectedRaw": "[2.5, 0.4, 0.4, 1.0]"
+  }
+ ]
+}

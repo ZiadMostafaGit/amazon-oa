@@ -1,0 +1,15 @@
+{
+ "pattern": "shortest-path",
+ "why": "A 0-1 BFS with the weight on the node instead of the edge: leaving a broken country costs one repair day, leaving a working one costs 0. Front-push 0-cost moves and back-push 1-cost moves on a deque.",
+ "hints": [
+  "Teleporting is free, but some departures cost a day. Put that cost on each edge: what is the weight of a -> b?",
+  "Weight(a -> b) = 1 if a is broken, else 0. Edge weights 0 and 1 mean 0-1 BFS.",
+  "Deque from source with dist 0; when relaxing edges out of u use w = broken[u]; appendleft on w = 0, append on w = 1. Return dist[destination] or -1; source == destination is 0."
+ ],
+ "pitfalls": [
+  "Arriving at a broken country is free; only departing from it costs.",
+  "Duplicate entries in broken or repeated edges change nothing; a boolean array handles both."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

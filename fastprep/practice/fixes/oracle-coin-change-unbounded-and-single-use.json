@@ -1,0 +1,16 @@
+{
+ "pattern": "unbounded-knapsack",
+ "why": "One table, two meanings: the fewest coins for an exact amount, where mode 0 reuses denominations (unbounded, sweep amounts upward) and mode 1 uses each physical coin once (0/1, sweep downward). It isolates the loop-direction rule.",
+ "hints": [
+  "What is the only difference between 'reuse a coin' and 'use a coin once' in a one-row DP?",
+  "best[a] = fewest coins for exactly a; best[0] = 0, others infinity. Taking coin c: best[a] = min(best[a], best[a - c] + 1).",
+  "Upward over a lets best[a - c] already include coin c (reuse); downward keeps it from the previous coins only (single use). Return -1 if best[amount] is infinite."
+ ],
+ "pitfalls": [
+  "Example 2: [1,4,6] cannot make 8 when 4 is single-use.",
+  "Amount 0 needs 0 coins even with an empty array.",
+  "Initialise unreachable amounts to infinity, not 0, because this is an exact total."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+  "pattern": "stack",
+  "why": "'Add v to the bottom i elements' would be O(i) if applied directly. Instead each stack slot stores a pending increment that applies to itself and everything below it; on pop the increment is passed down to the new top. It teaches a stack augmented with extra data, like Min Stack, plus a running sum.",
+  "hints": [
+    "Applying inc to i elements one by one is too slow. Where can you record the increment so that it is applied lazily?",
+    "Store it at index i-1 (the highest affected slot): it applies to that slot and every slot below. When that slot is popped, it is still owed to the slots below, so hand it down.",
+    "Keep vals, inc and a running total. push: append, total += v. inc i v: inc[i-1] += v, total += i*v. pop: total -= vals[top] + inc[top], pass inc[top] to the new top. Each step O(1)."
+  ],
+  "pitfalls": [
+    "When popping, subtract the popped element's real value, which includes its pending increment.",
+    "The reported sum after inc grows by i * v at once; do not loop over the i elements to update it."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

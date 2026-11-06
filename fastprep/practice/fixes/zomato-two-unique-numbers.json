@@ -1,0 +1,16 @@
+{
+  "pattern": "xor-tricks",
+  "why": "XOR of the whole array cancels all pairs and leaves a ^ b. Any set bit of a ^ b (take the lowest, x & -x) is a bit where a and b differ, so splitting the array by that bit puts a and b in different halves, and XOR-ing each half recovers them.",
+  "hints": [
+    "XOR everything. What do you get, and why is it not zero?",
+    "You get a ^ b, which is nonzero because a != b. A 1-bit in it is a position where a and b differ.",
+    "low = x & -x; XOR together all v with v & low; that is a; b = x ^ a. Return them sorted. O(n), O(1) space."
+  ],
+  "pitfalls": [
+    "Return the two values in ascending order.",
+    "In fixed-width languages x & -x overflows for the minimum integer; Python is fine.",
+    "Negative numbers work because XOR acts on two's-complement bits."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

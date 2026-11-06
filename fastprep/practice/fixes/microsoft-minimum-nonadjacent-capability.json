@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "Minimise the maximum chosen value: if a capability c allows count non-adjacent picks, any larger c does too. The feasibility check is a greedy scan, take every value <= c whose left neighbour was not taken, which is what makes this a binary search on the answer and not a DP.",
+  "hints": [
+    "Fix a capability c: only values <= c may be picked. Can you then pick count of them with no two adjacent?",
+    "Greedy: scan left to right and take a position whenever its value is <= c and the previous position was not taken; taking the earliest allowed position never blocks more than skipping it would. More allowed values can only help, so feasibility is monotone in c.",
+    "Binary search c over [min(values), max(values)] (or over the sorted distinct values) for the smallest feasible one. O(n log max)."
+  ],
+  "pitfalls": [
+    "After taking position i, jump to i + 2.",
+    "A max-of-chosen DP per candidate is unnecessary; the greedy is exact."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

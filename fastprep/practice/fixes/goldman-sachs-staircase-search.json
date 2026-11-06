@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search",
+  "why": "When rows and columns are sorted but rows do not continue one another, start at the top-right corner: every comparison throws away a whole row or a whole column, an O(rows + cols) staircase walk that is the 2-D cousin of binary search's 'discard half'.",
+  "hints": [
+    "Flattening does not work here: the end of one row can be bigger than the start of the next. Which cell lets one comparison rule out a whole line?",
+    "At the top-right cell, everything to its left is smaller and everything below is bigger. If it is bigger than target, that column is useless; if smaller, that row is useless.",
+    "r, c = 0, cols - 1; while r < rows and c >= 0: equal -> true; bigger -> c -= 1; smaller -> r += 1. Return false. O(rows + cols)."
+  ],
+  "pitfalls": [
+    "Starting at the top-left gives no information: both moves increase the value.",
+    "Binary searching every row is O(rows log cols), fine here but not the idea."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

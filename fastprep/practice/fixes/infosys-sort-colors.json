@@ -1,0 +1,15 @@
+{
+ "pattern": "counting-sort",
+ "why": "Counting sort when values are small: with only the values 0, 1 and 2, count how many of each there are, then overwrite the array with that many 0s, 1s and 2s. Two linear passes, no comparisons.",
+ "hints": [
+  "A comparison sort is O(n log n). How many different values can appear?",
+  "Only three. If you know how many 0s, 1s and 2s there are, you know the sorted array.",
+  "Count in one pass, then write count[0] zeros, count[1] ones, count[2] twos back into nums. O(n), O(1) extra. The one-pass follow-up is the Dutch national flag (three pointers)."
+ ],
+ "pitfalls": [
+  "Rearrange in place and return the same array.",
+  "No library sort is allowed."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

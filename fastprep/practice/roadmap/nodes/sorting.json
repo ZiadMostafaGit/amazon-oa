@@ -1,0 +1,90 @@
+{
+ "node": "sorting",
+ "ladder": [
+  {
+   "id": "akuna-minimum-absolute-difference-pairs",
+   "teaches": "sort, then compare neighbours",
+   "why": "After sorting, the closest pair is always adjacent, so one pass over neighbours finds every minimum-gap pair.",
+   "level": "core"
+  },
+  {
+   "id": "akuna-items-sort",
+   "teaches": "sort by a key, a tuple or a custom comparator",
+   "why": "A tuple key (frequency, value) expresses a two-level order in one sort.",
+   "level": "core"
+  },
+  {
+   "id": "linkedin-largest-number",
+   "teaches": "sort by a key, a tuple or a custom comparator",
+   "why": "Some orders are only definable pairwise: a before b when a+b > b+a, which needs a custom comparator.",
+   "level": "core"
+  },
+  {
+   "id": "meta-kth-largest-original-index",
+   "teaches": "sort indices to keep original positions",
+   "why": "Sorting the indices by (-value, index) keeps where each element came from and encodes the tie rule.",
+   "level": "core"
+  },
+  {
+   "id": "infosys-sort-colors",
+   "teaches": "counting sort when values are small",
+   "why": "With three possible values, counting and rewriting beats any comparison sort.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-group-students",
+   "teaches": "sort first so a greedy or two-pointer scan becomes valid",
+   "why": "Once sorted, the lowest remaining trainee anchors a class and the greedy pack is provably optimal.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-find-unique-values",
+   "teaches": "sort first so a greedy or two-pointer scan becomes valid",
+   "why": "'Pair the highest with the lowest' becomes a two-pointer walk over the sorted array.",
+   "level": "core"
+  },
+  {
+   "id": "vanguard-picking-tickets",
+   "teaches": "sort, then compare neighbours",
+   "why": "A selection rule about sorted neighbours becomes a longest-run scan after sorting.",
+   "level": "practice"
+  },
+  {
+   "id": "capital-one-rank-football-teams",
+   "teaches": "sort indices to keep original positions",
+   "why": "Parallel arrays and a four-level tie-break: sort indices with a tuple key.",
+   "level": "practice"
+  },
+  {
+   "id": "nutanix-num-players",
+   "teaches": "counting sort when values are small",
+   "why": "Scores 0..100 with competition ranking: buckets give every score's rank in one walk.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-find-encrypted-password",
+   "teaches": "counting sort when values are small",
+   "why": "Counting sort over 26 letters builds the smallest palindrome half directly.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-maximum-rating-threshold-count",
+   "teaches": "counting sort when values are small",
+   "why": "Huge values can be capped at n, which makes counting sort possible (the h-index in disguise).",
+   "level": "practice"
+  },
+  {
+   "id": "google-min-amplitude",
+   "teaches": "sort first so a greedy or two-pointer scan becomes valid",
+   "why": "After sorting, 'change 3 elements' means trimming the ends, and only four splits need checking.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-stable-robot-configurations",
+   "teaches": "sort first so a greedy or two-pointer scan becomes valid",
+   "why": "Fixing the operating count k forces the configuration; sorted thresholds make each k an O(1) check.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "Every technique covered. 'sort first so a greedy/two-pointer scan becomes valid' overlaps greedy and two-pointers; the rungs chosen keep the sort as the key step. infosys-sort-colors and linkedin-largest-number and meta-kth-largest-original-index were in no pool. Skipped amazon-all-about-rewards (it is a max/top-two scan, not sorting) and count-spikes (needs a Fenwick tree)."
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "graph-modelling",
+ "why": "Nothing here looks like a graph until you model it as one: every gene string is a node, and one mutation that lands in the bank is an unweighted edge. The fewest mutations is then a BFS shortest path, with neighbours generated on the fly.",
+ "hints": [
+  "Write each valid gene as a dot and draw a line when two genes differ in exactly one character. What is the question in that picture?",
+  "It asks for the fewest edges from startGene to endGene: BFS. You never build the graph; from a gene, generate its 8 * 3 one-letter changes and keep those in the bank.",
+  "Bank as a set, queue of (gene, steps), visited set. Return steps + 1 when endGene is generated, -1 when the queue empties."
+ ],
+ "pitfalls": [
+  "startGene need not be in the bank, but endGene must be; if it is not, the answer is -1.",
+  "startGene == endGene needs 0 mutations.",
+  "Mark genes visited when you enqueue them."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

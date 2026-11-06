@@ -1,0 +1,128 @@
+{
+ "problemId": "optiver-future-pricing",
+ "generatedAt": "2026-11-06T16:49:33",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 13,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "stockPrice",
+     "type": "long",
+     "rawValue": "1001"
+    },
+    {
+     "name": "dividends",
+     "type": "long[][]",
+     "rawValue": "[[50, 100]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PRICE 99\", \"PRICE 99\", \"PRICE 100\"]"
+    }
+   ],
+   "expectedRaw": "[1001, 1001, 951]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stockPrice",
+     "type": "long",
+     "rawValue": "1000"
+    },
+    {
+     "name": "dividends",
+     "type": "long[][]",
+     "rawValue": "[[100, 10], [50, 100]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PRICE 1\", \"PRICE 10\", \"PRICE 99\", \"PRICE 10\"]"
+    }
+   ],
+   "expectedRaw": "[1000, 900, 900, 900]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stockPrice",
+     "type": "long",
+     "rawValue": "500"
+    },
+    {
+     "name": "dividends",
+     "type": "long[][]",
+     "rawValue": "[[5, 20], [30, 10]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PRICE 12\", \"PRICE 10\", \"PRICE 2\", \"PRICE 3\", \"UPDATE 2 5 3\", \"PRICE 10\"]"
+    }
+   ],
+   "expectedRaw": "[470, 470, 500, 500, 495]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stockPrice",
+     "type": "long",
+     "rawValue": "0"
+    },
+    {
+     "name": "dividends",
+     "type": "long[][]",
+     "rawValue": "[[100, 10]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PRICE 99\", \"PRICE 10\", \"PRICE 99\", \"PRICE 100\"]"
+    }
+   ],
+   "expectedRaw": "[-100, -100, -100, -100]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stockPrice",
+     "type": "long",
+     "rawValue": "1003"
+    },
+    {
+     "name": "dividends",
+     "type": "long[][]",
+     "rawValue": "[[50, 100], [100, 10]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PRICE 1\", \"PRICE 10\"]"
+    }
+   ],
+   "expectedRaw": "[1003, 903]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "stockPrice",
+     "type": "long",
+     "rawValue": "500"
+    },
+    {
+     "name": "dividends",
+     "type": "long[][]",
+     "rawValue": "[[20, 5], [20, 5]]"
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"PRICE 3\", \"PRICE 12\", \"PRICE 10\", \"PRICE 12\", \"PRICE 12\", \"PRICE 10\", \"PRICE 2\", \"UPDATE 1 40 12\"]"
+    }
+   ],
+   "expectedRaw": "[500, 460, 460, 460, 460, 460, 500]"
+  }
+ ]
+}

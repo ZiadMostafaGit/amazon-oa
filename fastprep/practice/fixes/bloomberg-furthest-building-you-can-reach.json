@@ -1,0 +1,15 @@
+{
+ "pattern": "heap",
+ "why": "Greedy with a heap of the best so far: ropes should cover the biggest climbs seen so far. Keep a min-heap of the climbs currently assigned a rope; when there are more climbs than ropes, the smallest one is paid with sandbags instead.",
+ "hints": [
+  "A rope is worth the most on a big climb, sandbags are best spent on small ones. But you only see climbs as you go: how can you keep your options open?",
+  "Tentatively give every climb a rope. When you have used one more rope than you own, take back the rope from the smallest climb so far and pay that climb with sandbags.",
+  "Min-heap of climbs; push each positive d; if len(heap) > ropes, sandbags -= heappop(heap); if sandbags < 0, return i. Otherwise return n-1. O(n log ropes)."
+ ],
+ "pitfalls": [
+  "Downhill or flat moves are free and must not enter the heap.",
+  "Return the index you are standing on (i), not i+1, when you cannot pay for the move to i+1."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

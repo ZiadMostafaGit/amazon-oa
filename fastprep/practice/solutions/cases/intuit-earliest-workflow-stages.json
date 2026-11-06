@@ -1,0 +1,68 @@
+{
+ "problemId": "intuit-earliest-workflow-stages",
+ "generatedAt": "2026-11-06T16:49:31",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "precursorSteps",
+     "type": "String[][]",
+     "rawValue": "[[\"build\", \"link\"], [\"link\", \"binary\"], [\"clean\", \"metadata\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"build\", \"clean\"], [\"link\", \"metadata\"], [\"binary\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "precursorSteps",
+     "type": "String[][]",
+     "rawValue": "[[\"link\", \"binary\"], [\"build\", \"resources\"], [\"build\", \"link\"], [\"clean\", \"metadata\"], [\"clean\", \"build\"], [\"build\", \"resources\"], [\"metadata\", \"binary\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"clean\"], [\"build\", \"metadata\"], [\"link\", \"resources\"], [\"binary\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "precursorSteps",
+     "type": "String[][]",
+     "rawValue": "[[\"chop\", \"boil\"], [\"stir\", \"boil\"], [\"set table\", \"serve\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"chop\", \"set table\", \"stir\"], [\"boil\", \"serve\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "precursorSteps",
+     "type": "String[][]",
+     "rawValue": "[[\"set table\", \"serve\"], [\"stir\", \"boil\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"set table\", \"stir\"], [\"boil\", \"serve\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "precursorSteps",
+     "type": "String[][]",
+     "rawValue": "[[\"clean\", \"build\"], [\"build\", \"link\"], [\"link\", \"build\"], [\"clean\", \"metadata\"], [\"build\", \"resources\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"clean\"], [\"metadata\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "precursorSteps",
+     "type": "String[][]",
+     "rawValue": "[[\"stir\", \"boil\"], [\"set table\", \"serve\"], [\"chop\", \"boil\"], [\"boil\", \"serve\"]]"
+    }
+   ],
+   "expectedRaw": "[[\"chop\", \"set table\", \"stir\"], [\"boil\"], [\"serve\"]]"
+  }
+ ]
+}

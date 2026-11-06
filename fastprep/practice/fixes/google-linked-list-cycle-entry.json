@@ -1,0 +1,15 @@
+{
+  "pattern": "fast-slow-pointers",
+  "why": "Floyd's algorithm, second phase: after slow and fast meet inside the cycle, a pointer restarted at the head and one left at the meeting point, both moving one step, meet exactly at the cycle entry. It takes fast/slow pointers plus the distance argument behind it.",
+  "hints": [
+    "First, how do you know there is a cycle at all, and where can you get a point inside it in O(1) space?",
+    "Run fast/slow until they meet. If the head is a steps before the entry and they meet b steps into a cycle of length c, then 2(a + b) = a + b + kc, so a = kc - b: walking a steps from the meeting point lands on the entry.",
+    "After the meeting, set p = head, q = meeting node; advance both one step at a time until p == q; that node is the entry. Return -1 if fast reached the end."
+  ],
+  "pitfalls": [
+    "If the head itself is in the cycle (\"[0]\" or \"[1,0]\"), the entry is node 0.",
+    "A set of visited nodes also works but uses O(n) space; the point here is O(1)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

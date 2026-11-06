@@ -1,0 +1,98 @@
+{
+ "problemId": "uber-earliest-full-connection",
+ "generatedAt": "2026-11-06T16:49:33",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 20,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"B\", \"C\", \"B\", \"B\"]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"1 A B\", \"3 B C\"]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"blue\"]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"3 B C\", \"B\", \"C\", \"A\"]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"1 A B\", \"3 B C\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"B\", \"C\", \"C\"]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"2 A B\", \"2 A B\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"ab\", \"red\"]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "users",
+     "type": "String[]",
+     "rawValue": "[\"A\", \"B\", \"C\"]"
+    },
+    {
+     "name": "logs",
+     "type": "String[]",
+     "rawValue": "[\"2 A B\", \"2 A B\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

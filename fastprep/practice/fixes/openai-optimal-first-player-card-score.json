@@ -1,0 +1,15 @@
+{
+ "pattern": "game-dp",
+ "why": "An OA wrapper around the score-difference game: compute d = best (first - second) with the interval DP, then the first player's score is (total + d) / 2.",
+ "hints": [
+  "You are asked for a score, not a difference. If you knew first - second and first + second, could you get first?",
+  "d[i][j] = max(cards[i] - d[i+1][j], cards[j] - d[i][j-1]) over the remaining block.",
+  "Return (sum(cards) + d[0][n-1]) / 2. O(n^2) with n <= 2000, one array updated in place."
+ ],
+ "pitfalls": [
+  "Taking the larger end greedily fails on [1,9,10,5,6,4].",
+  "Values reach 10^9 and sums 2*10^12: use 64-bit in other languages."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

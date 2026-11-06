@@ -1,0 +1,128 @@
+{
+ "problemId": "benchling-minimum-genetic-mutation",
+ "generatedAt": "2026-11-06T16:49:14",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "startGene",
+     "type": "String",
+     "rawValue": "\"AACCGGTA\""
+    },
+    {
+     "name": "endGene",
+     "type": "String",
+     "rawValue": "\"AACCGGTA\""
+    },
+    {
+     "name": "bank",
+     "type": "String[]",
+     "rawValue": "[\"AACCGGTA\", \"AACCGGTA\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startGene",
+     "type": "String",
+     "rawValue": "\"AACCGGTT\""
+    },
+    {
+     "name": "endGene",
+     "type": "String",
+     "rawValue": "\"AACCGGTA\""
+    },
+    {
+     "name": "bank",
+     "type": "String[]",
+     "rawValue": "[\"AACCGGTT\", \"AACCGGTT\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startGene",
+     "type": "String",
+     "rawValue": "\"AAACGGTA\""
+    },
+    {
+     "name": "endGene",
+     "type": "String",
+     "rawValue": "\"AACCGGTT\""
+    },
+    {
+     "name": "bank",
+     "type": "String[]",
+     "rawValue": "[\"AACCGGTA\", \"AACCGCTA\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startGene",
+     "type": "String",
+     "rawValue": "\"AACCGCTA\""
+    },
+    {
+     "name": "endGene",
+     "type": "String",
+     "rawValue": "\"AACCGCTA\""
+    },
+    {
+     "name": "bank",
+     "type": "String[]",
+     "rawValue": "[\"AACCGCTA\", \"AAACGGTA\"]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startGene",
+     "type": "String",
+     "rawValue": "\"AAACGGTA\""
+    },
+    {
+     "name": "endGene",
+     "type": "String",
+     "rawValue": "\"AACCGGTT\""
+    },
+    {
+     "name": "bank",
+     "type": "String[]",
+     "rawValue": "[\"AACCGGTA\", \"AAACGGTA\", \"AAACGGTA\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startGene",
+     "type": "String",
+     "rawValue": "\"AACCGGTA\""
+    },
+    {
+     "name": "endGene",
+     "type": "String",
+     "rawValue": "\"AACCGGTT\""
+    },
+    {
+     "name": "bank",
+     "type": "String[]",
+     "rawValue": "[\"AACCGGTT\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

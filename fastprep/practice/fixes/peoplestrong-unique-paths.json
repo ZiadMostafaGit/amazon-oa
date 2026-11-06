@@ -1,0 +1,15 @@
+{
+ "pattern": "dp-2d",
+ "why": "The simplest grid DP: a cell can only be entered from above or from the left, so the number of paths to it is the sum of the paths to those two cells.",
+ "hints": [
+  "Think about the last move into the bottom-right cell. Where could you have been just before?",
+  "ways[r][c] = ways[r-1][c] + ways[r][c-1], with every cell of the first row and first column equal to 1.",
+  "Keep one row of length n and update it left to right m - 1 times: row[c] += row[c-1]. O(m * n). (The closed form C(m+n-2, m-1) also works.)"
+ ],
+ "pitfalls": [
+  "A single row or a single column has exactly one path.",
+  "The answer can exceed 32 bits for 20 x 20 grids in other languages."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

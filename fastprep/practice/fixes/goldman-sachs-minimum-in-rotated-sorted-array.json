@@ -1,0 +1,15 @@
+{
+  "pattern": "search-rotated",
+  "why": "The cleanest rotated-array search: 'values[i] <= values[-1]' is false on the left (higher) run and true on the right (lower) run, so the minimum is the first index where that predicate turns true.",
+  "hints": [
+    "Draw the rotated array as two increasing runs. Where is the minimum relative to them?",
+    "Compare values[mid] with the last element: if values[mid] > values[-1], mid is in the left run and the minimum is to the right; otherwise mid is in the right run and the minimum is at mid or to its left.",
+    "lo, hi = 0, n - 1; while lo < hi: if values[mid] > values[hi]: lo = mid + 1 else hi = mid. Return values[lo]. O(log n)."
+  ],
+  "pitfalls": [
+    "An unrotated array: the predicate is true everywhere and the answer is index 0; make sure your loop handles it.",
+    "Comparing with values[lo] instead of values[hi] breaks on unrotated input."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

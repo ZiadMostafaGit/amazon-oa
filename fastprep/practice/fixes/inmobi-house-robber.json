@@ -1,0 +1,15 @@
+{
+  "pattern": "dp-1d",
+  "why": "Take or skip on a line: for each house you either rob it (and add the best up to two houses back) or skip it (and keep the best up to the previous house), so best[i] = max(best[i-1], best[i-2] + nums[i]).",
+  "hints": [
+    "Look at the last house. Either you rob it or you do not. What does each choice leave you with?",
+    "best[i] = max(best[i-1], best[i-2] + nums[i]): skip house i, or take it and fall back to the best answer two houses earlier.",
+    "Only the last two values matter, so keep two variables and roll them. O(n) time, O(1) space."
+  ],
+  "pitfalls": [
+    "Greedily taking every other house (even or odd positions) is wrong: [2,1,1,9] wants houses 0 and 3.",
+    "A single house is its own answer."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

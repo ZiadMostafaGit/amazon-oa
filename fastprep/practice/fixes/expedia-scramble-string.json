@@ -1,0 +1,15 @@
+{
+ "pattern": "partition-dp",
+ "why": "An interval DP with a split point on two strings at once: a block of first matches a block of second if some split works either kept (left with left) or swapped (left with right). The state is (start in first, start in second, length).",
+ "hints": [
+  "The top-level operation splits first into two parts. Where can those parts appear in second?",
+  "go(i, j, n): first[i:i+n] scrambles to second[j:j+n] if for some k, either go(i, j, k) and go(i+k, j+k, n-k), or go(i, j+n-k, k) and go(i+k, j, n-k).",
+  "Memoise over (i, j, n) and prune when the two blocks have different letter counts. O(n^4) states x splits, fine for n <= 30."
+ ],
+ "pitfalls": [
+  "Check the swapped case with the right offsets: the left part of first maps to the END of the second block.",
+  "Equal blocks return true immediately; different letter multisets return false immediately."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

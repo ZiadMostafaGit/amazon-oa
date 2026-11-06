@@ -1,0 +1,68 @@
+{
+ "problemId": "shopify-paint-house",
+ "generatedAt": "2026-11-06T16:49:33",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[][]",
+     "rawValue": "[[14, 3, 19], [14, 3, 19]]"
+    }
+   ],
+   "expectedRaw": "17"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[][]",
+     "rawValue": "[[17, 2, 17], [14, 3, 19], [17, 2, 17], [16, 16, 5]]"
+    }
+   ],
+   "expectedRaw": "23"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[][]",
+     "rawValue": "[[16, 16, 5], [16, 16, 5], [14, 3, 19]]"
+    }
+   ],
+   "expectedRaw": "24"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[][]",
+     "rawValue": "[[17, 17, 17], [16, 16, 5], [14, 3, 19], [17, 2, 17]]"
+    }
+   ],
+   "expectedRaw": "38"
+  },
+  {
+   "inputs": [
+    {
+     "name": "costs",
+     "type": "int[][]",
+     "rawValue": "[[7, 6, 2], [7, 6, 2]]"
+    }
+   ],
+   "expectedRaw": "8"
+  }
+ ]
+}

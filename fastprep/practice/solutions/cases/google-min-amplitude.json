@@ -1,0 +1,68 @@
+{
+ "problemId": "google-min-amplitude",
+ "generatedAt": "2026-11-06T16:49:23",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[-1, 8, 5]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[8, 4, -1, 5, -1, 4, 3]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[10, 3, 4, 10]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[10, 3, 1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[10, 3, 4, 10, 10]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

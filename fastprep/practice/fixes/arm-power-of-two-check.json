@@ -1,0 +1,15 @@
+{
+  "pattern": "bit-manipulation",
+  "why": "A power of two has exactly one set bit, and n & (n - 1) clears the lowest set bit, so a positive n is a power of two exactly when n & (n - 1) == 0.",
+  "hints": [
+    "Write 8, 16 and 12 in binary. What do the powers of two have in common?",
+    "Exactly one 1-bit. What does n - 1 look like in binary when n has a single 1-bit?",
+    "Return n > 0 and (n & (n - 1)) == 0. O(1)."
+  ],
+  "pitfalls": [
+    "0 and negative numbers are never powers of two; check n > 0 first.",
+    "1 = 2^0 counts as a power of two."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

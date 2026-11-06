@@ -1,0 +1,102 @@
+{
+ "node": "greedy",
+ "ladder": [
+  {
+   "id": "roblox-maximum-units-on-truck",
+   "teaches": "sort, then take the locally best",
+   "why": "Every box costs one slot, so sorting by units per box and filling from the top is obviously optimal: the purest form of sort-then-take.",
+   "level": "core"
+  },
+  {
+   "id": "expedia-efficient-teams",
+   "teaches": "pair the extremes",
+   "why": "After sorting, the smallest can only pair with the largest if all pair sums are equal, so pairing from both ends is forced.",
+   "level": "core"
+  },
+  {
+   "id": "navi-jump-game-ii",
+   "teaches": "track the furthest reach so far",
+   "why": "Reachable indices form windows; keeping the furthest reach of the current window turns a BFS into one O(n) scan.",
+   "level": "core"
+  },
+  {
+   "id": "ebay-gas-station",
+   "teaches": "a running balance that resets (gas station)",
+   "why": "When the tank goes negative, every start so far is ruled out at once, so reset the balance and move the start past it.",
+   "level": "core"
+  },
+  {
+   "id": "linkedin-largest-number",
+   "teaches": "prove the order with an exchange argument",
+   "why": "Comparing a+b with b+a for neighbours is an exchange argument that becomes a sort comparator.",
+   "level": "core"
+  },
+  {
+   "id": "infosys-two-city-candidate-assignment-cost",
+   "teaches": "prove the order with an exchange argument",
+   "why": "Swapping two candidates across cities shows the order must be by costA - costB, the classic exchange proof behind a sort key.",
+   "level": "core"
+  },
+  {
+   "id": "google-task-scheduler-with-cooldown",
+   "teaches": "greedy with a counter or a heap of the best so far",
+   "why": "Only frequencies matter: the most frequent type fixes the frame count and a counter gives a closed-form answer.",
+   "level": "core"
+  },
+  {
+   "id": "bloomberg-furthest-building-you-can-reach",
+   "teaches": "greedy with a counter or a heap of the best so far",
+   "why": "A min-heap of the climbs given ropes lets you revise earlier choices, so the ropes always sit on the biggest climbs so far.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-get-maximum-sum",
+   "teaches": "sort, then take the locally best",
+   "why": "Collapse servers into per-type totals, then take the k largest: sort-then-take hidden behind a hash map.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-maximum-capacity",
+   "teaches": "pair the extremes",
+   "why": "Sort descending and pair neighbours as (backup, primary): a pairing greedy wrapped in an Amazon server story.",
+   "level": "practice"
+  },
+  {
+   "id": "bloomberg-partition-labels",
+   "teaches": "track the furthest reach so far",
+   "why": "Extending the current part to the furthest last occurrence of its letters is furthest-reach in a string.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-get-max-increments",
+   "teaches": "greedy with a counter or a heap of the best so far",
+   "why": "Counting frequencies shows the most common score forces the number of increasing runs: answer n - maxFrequency.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-min-operation",
+   "teaches": "greedy with a counter or a heap of the best so far",
+   "why": "Pairing different locations is limited only by the most frequent one, so a frequency counter gives max(f, ceil(n/2)).",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-make-array-distinct",
+   "teaches": "greedy with a counter or a heap of the best so far",
+   "why": "Sweep values upward with a max-heap of waiting costs: the most expensive item stays, the cheap ones move up.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-bring-servers-down",
+   "teaches": "prove the order with an exchange argument",
+   "why": "Comparing two adjacent servers in the kill order yields Smith's rule; the insight is turning the story into weighted completion time.",
+   "level": "stretch"
+  },
+  {
+   "id": "bloomberg-minimum-refueling-stops",
+   "teaches": "greedy with a counter or a heap of the best so far",
+   "why": "Pass stations without deciding, then retroactively take the biggest one from a max-heap when you run dry.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "The pool lacked the canonical classics (Jump Game II, Gas Station, Partition Labels, Two City, Task Scheduler, Furthest Building, Refueling Stops, Largest Number, Units on a Truck, Efficient Teams); all were taken from outside any pool and given solutions and repairs. amazon-find-minimum-time-required is the same task as google-task-scheduler-with-cooldown, so it was left out. 'Pair the extremes' has no Boats-to-Save-People problem in the bank; expedia-efficient-teams is the cleanest two-ends pairing."
+}

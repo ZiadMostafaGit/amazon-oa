@@ -1,0 +1,102 @@
+{
+  "node": "simulation",
+  "ladder": [
+    {
+      "id": "amazon-return-records",
+      "teaches": "step a state machine exactly as described",
+      "why": "Two pieces of state (registered users, logged-in set) and one branch per verb: the purest form of applying rules in order.",
+      "level": "core"
+    },
+    {
+      "id": "shopify-mars-rover-robot-controller",
+      "teaches": "walk a matrix with direction arrays (spiral, rotate)",
+      "why": "A heading stored as an index into clockwise dx/dy arrays turns L and R into +-1 mod 4, the trick every grid walk reuses.",
+      "level": "core"
+    },
+    {
+      "id": "nike-spiral-matrix",
+      "teaches": "walk a matrix with direction arrays (spiral, rotate)",
+      "why": "Four shrinking boundaries walk a matrix ring by ring, with guards so a single row or column is not walked twice.",
+      "level": "core"
+    },
+    {
+      "id": "visa-rotate-square-matrix-clockwise",
+      "teaches": "walk a matrix with direction arrays (spiral, rotate)",
+      "why": "Rotation is an index mapping (out[r][c] = m[n-1-c][r], or transpose then reverse rows), not a step-by-step move.",
+      "level": "core"
+    },
+    {
+      "id": "postman-validate-ip-address",
+      "teaches": "parse and tokenise a string",
+      "why": "Split on a separator and check every token against exact rules: count, length, character set, range, leading zeros.",
+      "level": "core"
+    },
+    {
+      "id": "capital-one-rightmost-longest-character-run",
+      "teaches": "keep the bookkeeping straight: off-by-one, empty input, ties",
+      "why": "A run-length scan where >= versus > decides ties and the last run must be closed after the loop.",
+      "level": "core"
+    },
+    {
+      "id": "temporal-game-of-life",
+      "teaches": "step a state machine exactly as described",
+      "why": "One simultaneous generation: eight neighbour offsets, and every new state computed from the old grid, never the half-updated one.",
+      "level": "core"
+    },
+    {
+      "id": "amazon-find-requests-in-queue",
+      "teaches": "process events in time order",
+      "why": "Second-by-second FIFO serving with expiries, made linear by bucketing requests by the second they expire.",
+      "level": "core"
+    },
+    {
+      "id": "roblox-event-id-check-completion-times",
+      "teaches": "process events in time order",
+      "why": "A single server with a bounded line, where finishing checks before admitting a same-second arrival is the rule that matters.",
+      "level": "core"
+    },
+    {
+      "id": "amazon-get-total-requests",
+      "teaches": "keep the bookkeeping straight: off-by-one, empty input, ties",
+      "why": "Rewriting the array every day is too slow; tracking a count per id and a running total gives the same answer in O(1) per day.",
+      "level": "practice"
+    },
+    {
+      "id": "amazon-unfulfilled-bids-after-ranked-round-robin",
+      "teaches": "step a state machine exactly as described",
+      "why": "Sort into priority groups, then round-robin one unit at a time with a queue until stock or demand runs out.",
+      "level": "practice"
+    },
+    {
+      "id": "epic-first-mingo-line",
+      "teaches": "keep the bookkeeping straight: off-by-one, empty input, ties",
+      "why": "Row, column and diagonal counters updated per call find the first completed line without rescanning the board.",
+      "level": "practice"
+    },
+    {
+      "id": "capital-one-leftmost-memory-block-allocator",
+      "teaches": "step a state machine exactly as described",
+      "why": "An array plus an id-to-block map, with exact rules for failed allocations and unknown erases.",
+      "level": "practice"
+    },
+    {
+      "id": "tiktok-sort-matrix-borders",
+      "teaches": "walk a matrix with direction arrays (spiral, rotate)",
+      "why": "The spiral walk reused as a path function: read a layer clockwise, sort, write back along the same path.",
+      "level": "practice"
+    },
+    {
+      "id": "citadel-busy-intersection",
+      "teaches": "process events in time order",
+      "why": "Two queues whose priority depends on the previous second, plus jumping time across idle gaps.",
+      "level": "stretch"
+    },
+    {
+      "id": "stripe-financial-account-ledger",
+      "teaches": "parse and tokenise a string",
+      "why": "Parse a command stream with two timestamp formats and apply calendar, cutoff and limit rules; the skill is splitting it into small pure helpers.",
+      "level": "stretch"
+    }
+  ],
+  "notes": "Took shopify-mars-rover-robot-controller and temporal-game-of-life from outside all pools (both unpooled) and wrote their solutions. The cleaner, simpler events problem capital-one-queue-check-in-simulation was skipped because it uses a raw stdin/stdout adapter. amazon-get-total-requests and epic-first-mingo-line count as bookkeeping practice, but they are really counter and hash tricks inside a simulation. The bank has many duplicate variants (sort-matrix-borders x5, leftmost-memory-block-allocator x5, robot-final-direction x3) for extra drill."
+}

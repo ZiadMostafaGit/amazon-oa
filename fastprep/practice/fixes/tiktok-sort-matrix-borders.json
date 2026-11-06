@@ -1,0 +1,16 @@
+{
+  "pattern": "matrix-traversal",
+  "why": "Walk each concentric layer clockwise with four boundaries (the spiral walk), collect its values, sort, and write them back along the same path. The single-row and single-column layers are the bookkeeping trap.",
+  "hints": [
+    "Write a function that returns the list of (r, c) cells of layer k in clockwise order.",
+    "Layer k spans rows top..bottom and columns left..right. Walk top row, right column, then the bottom row only if top < bottom, and the left column only if left < right.",
+    "For each layer: cells = path(k); vals = sorted(matrix[r][c] for r, c in cells); write vals back along cells. O(R*C log(R*C))."
+  ],
+  "pitfalls": [
+    "A one-row or one-column layer must not visit a cell twice.",
+    "The number of layers is (min(rows, cols) + 1) // 2.",
+    "Write back along the same clockwise path you read from."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

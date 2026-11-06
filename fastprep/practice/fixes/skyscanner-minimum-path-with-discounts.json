@@ -1,0 +1,15 @@
+{
+ "pattern": "dijkstra",
+ "why": "Dijkstra over states: the node alone does not say what you may still do, so the state is (node, discounts used). Each edge leads to (v, used) at full price or to (v, used + 1) at half price, and Dijkstra on this layered graph gives the minimum cost.",
+ "hints": [
+  "Reaching node v having spent all your discounts is not the same as reaching it with some left. What should a Dijkstra state remember?",
+  "State (node, used), at most n * (discounts + 1) of them. From (u, j) an edge of weight w goes to (v, j) for w and, if j < discounts, to (v, j + 1) for w // 2.",
+  "dist[node][j], heap of (cost, node, j); pop, skip stale, relax both options; the answer is the min over j of dist[n - 1][j] (or stop at the first pop of node n - 1). O(n k log(n k) + E k log)."
+ ],
+ "pitfalls": [
+  "floor(weight / 2), not rounding.",
+  "Unreachable destination returns -1."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

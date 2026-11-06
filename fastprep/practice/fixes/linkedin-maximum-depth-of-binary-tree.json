@@ -1,0 +1,16 @@
+{
+ "pattern": "trees",
+ "why": "The first recursive tree function: a node's depth is 1 + the larger depth of its two subtrees, and an empty tree has depth 0. Every DFS that returns a value from the children is this shape.",
+ "hints": [
+  "Suppose someone hands you the depths of the left and right subtrees. What is the depth of the whole tree?",
+  "depth(None) = 0; depth(node) = 1 + max(depth(node.left), depth(node.right)). The recursion visits every node once.",
+  "Write it recursively first. For a 100000-node chain, switch to an explicit stack of (node, depth) pairs and keep the largest depth seen. O(n) time."
+ ],
+ "pitfalls": [
+  "Depth counts nodes, not edges: a single node has depth 1.",
+  "An empty tree returns 0.",
+  "A skewed tree of 100000 nodes overflows Python's recursion limit; use a stack or raise the limit."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

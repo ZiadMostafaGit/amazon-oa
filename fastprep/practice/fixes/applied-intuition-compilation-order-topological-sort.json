@@ -1,0 +1,15 @@
+{
+ "pattern": "topological-sort",
+ "why": "Modules are nodes and [a, b] is an edge b -> a (b compiles first). Kahn's algorithm with a min-heap of ready module names gives the deterministic order; if some modules never become ready, the dependencies contain a cycle.",
+ "hints": [
+  "Which modules can compile right away, and what changes after one of them compiles?",
+  "Kahn's algorithm: in-degree = number of uncompiled prerequisites. The tie rule (smallest name first) means the ready set should be a min-heap of strings.",
+  "Map each name to its successors and in-degree; heap all in-degree-0 names; pop, append, decrement successors. If fewer than len(modules) come out, return ['IMPOSSIBLE']. O((V + E) log V)."
+ ],
+ "pitfalls": [
+  "[a, b] means a depends on b, so the edge points b -> a.",
+  "Modules with no dependencies at all still belong in the order."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

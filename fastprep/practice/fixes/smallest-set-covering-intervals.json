@@ -1,0 +1,15 @@
+{
+ "pattern": "intervals",
+ "why": "The most non-overlapping idea, sorted by end, with a twist: each interval needs two chosen points. Process intervals by right end and place new points as far right as possible, so they help as many later intervals as they can; remember only the two largest points chosen.",
+ "hints": [
+  "Ask the one-point version first: with one point per interval, why do you sort by the right end and put the point at that end?",
+  "With two points per interval, sort by end (ties: larger start first) and track the two largest chosen points a < b. If an interval already contains both, skip; if it contains only b, add its right end; if it contains neither, add its last two integers.",
+  "Sort by (end, -start); a = b = -inf; for [l, r]: if l > b add r-1 and r (count += 2, a, b = r-1, r); elif l > a add r (count += 1, a, b = b, r); else nothing. O(n log n)."
+ ],
+ "pitfalls": [
+  "Ties on the right end: process the interval with the larger start first, or you may add a point that a narrower interval cannot use.",
+  "An interval of length one ([x, x+1]) needs both of its integers."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

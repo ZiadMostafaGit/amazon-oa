@@ -1,0 +1,16 @@
+{
+ "pattern": "trie",
+ "why": "A maximum-XOR problem in disguise. Appending a suffix XOR never creates a new prefix-XOR value, so every value that can appear is the XOR of two prefix XORs, and the answer is the maximum XOR pair among prefix XORs: a bitwise trie.",
+ "hints": [
+  "Write P[i] for the XOR of the first i elements. The appended value is P[n] xor P[i]; what is the new total XOR after appending it?",
+  "The new total is P[i], a value already in the set, so the prefix-XOR set never grows. Every value ever in the array is P[a] xor P[b], and any such pair can be produced by two appends.",
+  "Insert P[0] = 0, then for each prefix XOR query a 30-level binary trie for its best XOR partner and insert it. O(30 n)."
+ ],
+ "pitfalls": [
+  "Include P[0] = 0, so whole prefixes (and single values) count.",
+  "Brute force over pairs is O(n^2) at n = 10^5: too slow.",
+  "Values are below 2^30, so 30 bit levels are enough."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

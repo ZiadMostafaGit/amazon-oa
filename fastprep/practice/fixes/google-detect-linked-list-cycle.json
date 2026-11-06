@@ -1,0 +1,16 @@
+{
+  "pattern": "fast-slow-pointers",
+  "why": "Floyd's tortoise and hare: a pointer moving two steps and one moving one step must meet if the list loops, and the fast one falls off the end otherwise. It detects a cycle in O(1) extra space; here the list is given as an index array, but the pointer moves are the same.",
+  "hints": [
+    "A visited set works in O(n) space. Can two pointers moving at different speeds tell you instead?",
+    "If there is a cycle, the fast pointer enters it and gains one step per move on the slow pointer, so it must eventually land on it.",
+    "slow = fast = 0; while fast and next[fast] are not -1: slow = next[slow], fast = next[next[fast]]; if they are equal return true. Return false when fast reaches -1."
+  ],
+  "pitfalls": [
+    "Check both fast and next[fast] before taking two steps.",
+    "An empty array is an empty list: no cycle.",
+    "A node pointing to itself ([0]) is a cycle."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

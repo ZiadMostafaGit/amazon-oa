@@ -1,0 +1,16 @@
+{
+ "pattern": "tree-dp",
+ "why": "Post-order combine where the path must end at real leaves: each node returns its best path down to a leaf, and a node with two children joins its two best downward paths. Unlike max path sum, a negative branch cannot be dropped.",
+ "hints": [
+  "Every leaf-to-leaf path has a highest node with two children. What does it take from each side?",
+  "down(leaf) = val; a node with one child must continue into it: down = val + down(child); a node with two children offers val + max(down(l), down(r)) upward and scores down(l) + down(r) + val.",
+  "One iterative post-order pass, keeping the best score over nodes with two children. O(n) time, 64-bit sums are fine in Python."
+ ],
+ "pitfalls": [
+  "A node with one child is not a leaf; it cannot end the path and cannot skip its only child.",
+  "Do not clamp negative branches to 0 as in Binary Tree Maximum Path Sum; both endpoints must be leaves.",
+  "Only nodes with two children can be the bend of a leaf-to-leaf path."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

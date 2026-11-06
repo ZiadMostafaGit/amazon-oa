@@ -1,0 +1,98 @@
+{
+ "problemId": "bloomberg-implement-trie",
+ "generatedAt": "2026-11-06T16:49:15",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"search\", \"startsWith\", \"insert\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"do\", \"dog\", \"search\", \"do\", \"dog\", \"do\"]"
+    }
+   ],
+   "expectedRaw": "[false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"abc\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"blue\", \"abc\", \"10\"]"
+    }
+   ],
+   "expectedRaw": "[false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"search\", \"search\", \"insert\", \"search\", \"startsWith\", \"insert\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"dog\", \"do\", \"dog\", \"do\", \"do\", \"do\", \"do\"]"
+    }
+   ],
+   "expectedRaw": "[false, false, false, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert\", \"search\", \"search\", \"insert\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"startsWith\", \"do\", \"do\", \"dog\", \"do\", \"do\"]"
+    }
+   ],
+   "expectedRaw": "[false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert\", \"startsWith\", \"insert\", \"search\", \"startsWith\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"cat\", \"cat\", \"ca\"]"
+    }
+   ],
+   "expectedRaw": "[true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"insert\", \"insert\", \"search\", \"ca\"]"
+    },
+    {
+     "name": "values",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"startsWith\", \"cat\", \"ca\"]"
+    }
+   ],
+   "expectedRaw": "[true, true]"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "binary-search",
+  "why": "Two boundary searches on the same sorted array: the first index with value >= target (bisect_left) and the first index with value > target (bisect_right). The block between them is every copy, and its size is the count of target.",
+  "hints": [
+    "One binary search finds one boundary. How many boundaries does a block of equal values have?",
+    "first = first index with nums[i] >= target; last = (first index with nums[i] > target) - 1.",
+    "Write one helper 'first index where pred becomes true' and call it with two predicates, or use bisect_left / bisect_right. If first == n or nums[first] != target, return [-1, -1]. O(log n)."
+  ],
+  "pitfalls": [
+    "Empty array and a target bigger than every value both leave first == n.",
+    "A linear scan out from one found copy is O(n) when the whole array is the target."
+  ],
+  "constraints": "<ul><li>0 &lt;= nums.length &lt;= 10<sup>5</sup></li><li>-10<sup>9</sup> &lt;= nums[i], target &lt;= 10<sup>9</sup></li><li>nums is sorted in non-decreasing order.</li><li>Aim for O(log n) time.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

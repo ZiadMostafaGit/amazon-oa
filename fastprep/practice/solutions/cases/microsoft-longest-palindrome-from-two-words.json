@@ -1,0 +1,98 @@
+{
+ "problemId": "microsoft-longest-palindrome-from-two-words",
+ "generatedAt": "2026-11-06T16:49:32",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "word1",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "word2",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word1",
+     "type": "String",
+     "rawValue": "\"ba\""
+    },
+    {
+     "name": "word2",
+     "type": "String",
+     "rawValue": "\"ba\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word1",
+     "type": "String",
+     "rawValue": "\"ba\""
+    },
+    {
+     "name": "word2",
+     "type": "String",
+     "rawValue": "\"ab\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word1",
+     "type": "String",
+     "rawValue": "\"def\""
+    },
+    {
+     "name": "word2",
+     "type": "String",
+     "rawValue": "\"def\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word1",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "word2",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "word1",
+     "type": "String",
+     "rawValue": "\"def\""
+    },
+    {
+     "name": "word2",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

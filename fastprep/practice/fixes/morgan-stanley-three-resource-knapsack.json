@@ -1,0 +1,16 @@
+{
+ "pattern": "knapsack",
+ "why": "Same take-or-skip choice as 0/1 knapsack, but each item consumes several resources at once (like Ones and Zeroes with zeros and ones). The capacity becomes a tuple, so the table gets one dimension per resource: best[a][b][c].",
+ "hints": [
+  "One capacity gives best[c]. What if an item must fit under three limits at the same time?",
+  "Make the state every remaining capacity: best[a][b][c] = max value using at most a, b and c of the three resources.",
+  "For each item, loop a, b and c all downward and set best[a][b][c] = max(best[a][b][c], best[a-x][b-y][c-z] + v). With limits 40 that is 41^3 cells per item."
+ ],
+ "pitfalls": [
+  "All three loops must go downward or an item is reused.",
+  "Items with zero cost in every resource are still taken at most once; they just always fit.",
+  "Skip an item that exceeds any one capacity."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

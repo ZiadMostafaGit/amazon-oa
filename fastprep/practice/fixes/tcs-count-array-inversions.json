@@ -1,0 +1,16 @@
+{
+ "pattern": "fenwick-tree",
+ "why": "Counting pairs by value needs an index per value, but values span 2^32: coordinate compression maps them to ranks 1..m first, and then a Fenwick tree counts, for each element scanned from the right, how many smaller values are already to its right.",
+ "hints": [
+  "An inversion is a later smaller value. Scanning from the right, what do you need to know about the values already seen?",
+  "You need 'how many seen values are smaller than v', a prefix count over values. Values are huge, so replace each by its rank among the sorted distinct values.",
+  "Scan right to left: add the Fenwick prefix count of ranks below rank(v), then insert rank(v). O(n log n). (Merge sort counting also works.)"
+ ],
+ "pitfalls": [
+  "Equal values are not inversions: count strictly smaller ranks.",
+  "The answer reaches about 2*10^10: 64-bit.",
+  "Do not index an array by raw values up to 2^31."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

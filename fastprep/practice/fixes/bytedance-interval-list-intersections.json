@@ -1,0 +1,15 @@
+{
+ "pattern": "intervals",
+ "why": "Test overlap on two sorted lists: the overlap of [a1,b1] and [a2,b2] is [max(a1,a2), min(b1,b2)] when that is nonempty. Walk both lists with two pointers and advance the one that ends first, since it cannot meet anything else.",
+ "hints": [
+  "Given just two closed intervals, how do you write their intersection in one line?",
+  "Intersection = [max of starts, min of ends], nonempty when lo <= hi. After comparing the current pair, the interval with the smaller end is finished: no later interval of the other list can reach back to it.",
+  "i = j = 0; while both in range: lo = max starts, hi = min ends; if lo <= hi append; advance whichever has the smaller end. O(n + m)."
+ ],
+ "pitfalls": [
+  "Shared endpoints count: [5,5] is a valid one-point intersection.",
+  "Either list may be empty."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

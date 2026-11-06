@@ -1,0 +1,16 @@
+{
+ "pattern": "palindromes",
+ "why": "Compare from both ends: a palindrome check is two pointers walking toward each other, here with a twist that each pointer first skips characters that are not letters or digits, and the comparison ignores case.",
+ "hints": [
+  "You could build the filtered, lower-cased string and compare it with its reverse. Can you do it without building anything?",
+  "Put i at the start and j at the end. Advance i past non-alphanumeric characters, retreat j likewise, then compare s[i] and s[j] case-insensitively.",
+  "Loop while i < j: skip, compare, move both inward. Any mismatch returns false; meeting in the middle returns true. O(n) time, O(1) space."
+ ],
+ "pitfalls": [
+  "Digits count: '0P' is not a palindrome.",
+  "A string with no letters or digits (or an empty string) is a palindrome.",
+  "Keep the skip loops bounded by i < j so they cannot run off the string."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

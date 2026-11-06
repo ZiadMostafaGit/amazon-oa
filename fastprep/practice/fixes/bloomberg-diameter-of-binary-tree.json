@@ -1,0 +1,16 @@
+{
+ "pattern": "tree-dp",
+ "why": "The textbook post-order combine: each node returns its height to its parent, and while it has both children's heights it also scores the longest path that bends at it (left height + right height).",
+ "hints": [
+  "The longest path bends at some highest node. If you knew the heights of that node's two subtrees, how long would the path be?",
+  "Post-order: height(node) = 1 + max(hl, hr), and the path through node has hl + hr edges. Return the height, but keep the best hl + hr in an outer variable.",
+  "One DFS, every node visited once: O(n). Use an explicit post-order stack (or a raised recursion limit) for a 100000-node chain."
+ ],
+ "pitfalls": [
+  "The answer counts edges, not nodes: [1,2] has diameter 1.",
+  "The best path need not pass through the root.",
+  "What the function returns (height) and what you are asked for (diameter) are different values; do not mix them up."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

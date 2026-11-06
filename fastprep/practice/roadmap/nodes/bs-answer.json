@@ -1,0 +1,84 @@
+{
+  "node": "bs-answer",
+  "ladder": [
+    {
+      "id": "amazon-koko-eating-bananas",
+      "teaches": "minimise the maximum (capacity, speed)",
+      "why": "The canonical first rung: the answer (a speed) is searched, and hours(k) only goes down as k goes up.",
+      "level": "core"
+    },
+    {
+      "id": "amazon-capacity-to-ship-packages-within-d-days",
+      "teaches": "a greedy feasibility check inside the search",
+      "why": "The feasibility check becomes a greedy day-filling scan, and the search range is [max(w), sum(w)].",
+      "level": "core"
+    },
+    {
+      "id": "peoplestrong-aggressive-cows",
+      "teaches": "maximise the minimum (distance, gap)",
+      "why": "Maximise the minimum gap: search the last feasible distance, checking it by placing cows as early as possible.",
+      "level": "core"
+    },
+    {
+      "id": "amazon-woodcut-saw-height",
+      "teaches": "binary search over real numbers or huge ranges",
+      "why": "Search the last height that still yields enough wood over a range up to 10^9, not over the poles.",
+      "level": "core"
+    },
+    {
+      "id": "google-cut-ribbons-equal-length",
+      "teaches": "maximise the minimum (distance, gap)",
+      "why": "Maximise a piece length with sum(r // L) >= k; the follow-up shows how the loop changes for fractional answers.",
+      "level": "core"
+    },
+    {
+      "id": "microsoft-minimum-nonadjacent-capability",
+      "teaches": "a greedy feasibility check inside the search",
+      "why": "A check that looks like it needs DP is actually a greedy scan, which is what lets you binary search the capability.",
+      "level": "core"
+    },
+    {
+      "id": "citadel-square-root",
+      "teaches": "binary search over real numbers or huge ranges",
+      "why": "Bisection over the reals: bracket the root, halve a fixed number of times, and learn why 'while hi - lo > eps' is risky.",
+      "level": "core"
+    },
+    {
+      "id": "microsoft-maximize-pipeline-throughput-under-budget",
+      "teaches": "maximise the minimum (distance, gap)",
+      "why": "Microsoft OA: maximise the minimum capacity, where the cost of a target T is a sum of independent per-service costs.",
+      "level": "practice"
+    },
+    {
+      "id": "imc-rock-jumping",
+      "teaches": "maximise the minimum (distance, gap)",
+      "why": "Rising water only removes rocks, so the maximum safe height is a last-true search with a one-pass greedy crossing check.",
+      "level": "practice"
+    },
+    {
+      "id": "drw-minimize-maximum-group-difference",
+      "teaches": "minimise the maximum (capacity, speed)",
+      "why": "Sort, then 'three groups of range <= D?' is a greedy cover; the story hides that the groups are runs of the sorted array.",
+      "level": "practice"
+    },
+    {
+      "id": "microsoft-maximum-alloy-production",
+      "teaches": "binary search over real numbers or huge ranges",
+      "why": "The answer can reach 10^18; about 60 halvings with an early-exit cost sum replace any attempt to count units up.",
+      "level": "practice"
+    },
+    {
+      "id": "rippling-find-minimum-time",
+      "teaches": "a greedy feasibility check inside the search",
+      "why": "Rephrase time as processes per processor (time = 2k - 1), then check k greedily: biggest processes to the biggest processors.",
+      "level": "stretch"
+    },
+    {
+      "id": "doordash-minimum-multi-rider-processing-speed",
+      "teaches": "a greedy feasibility check inside the search",
+      "why": "Search the speed and inside it pack consecutive orders per rider: a search wrapped around a capacity-to-ship style check.",
+      "level": "stretch"
+    }
+  ],
+  "notes": "amazon-koko-eating-bananas and citadel-square-root were in no pool; several rungs moved here from the binary-search pool. Real-number search is taught only by citadel-square-root (a pure bisection); no OA problem in the bank needs real-valued binary search on the answer cleanly (intuit-integer-house-heaters has a closed-form half-integer answer). amazon-package-delivery-system moved to heap (it is a max-heap simulation). amazon-minimize-variation, goldman-get-minimum-value and concentric-ai-maximum-profit-under-or-limit are not binary search on the answer."
+}

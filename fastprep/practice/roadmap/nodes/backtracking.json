@@ -1,0 +1,96 @@
+{
+  "node": "backtracking",
+  "ladder": [
+    {
+      "id": "atlassian-letter-combinations-of-a-phone-number",
+      "teaches": "choose, explore, un-choose",
+      "why": "The purest decision tree: one level per digit, one branch per letter, and a path you extend and shrink as you go.",
+      "level": "core"
+    },
+    {
+      "id": "temu-subsets",
+      "teaches": "subsets (include or exclude)",
+      "why": "Each element is in or out, so the leaves of a two-way recursion are exactly the 2^n subsets.",
+      "level": "core"
+    },
+    {
+      "id": "atlassian-permutations",
+      "teaches": "permutations with a used array",
+      "why": "Every slot picks any value not yet placed, so you need a used array that you set before recursing and clear after.",
+      "level": "core"
+    },
+    {
+      "id": "pinterest-combination-sum-with-reuse",
+      "teaches": "combinations with a start index, skipping duplicates",
+      "why": "Recursing from the current index (never an earlier one) is what turns orderings into combinations, and staying on the same index allows reuse.",
+      "level": "core"
+    },
+    {
+      "id": "expedia-combination-sum-ii",
+      "teaches": "combinations with a start index, skipping duplicates",
+      "why": "Sorting and skipping an equal value at the same depth removes duplicate combinations without a set.",
+      "level": "core"
+    },
+    {
+      "id": "microsoft-word-search",
+      "teaches": "search a grid for a word",
+      "why": "Mark a cell on the way in and unmark it on the way out, so one path cannot reuse a cell but another path can.",
+      "level": "core"
+    },
+    {
+      "id": "the-walt-disney-company-generate-parentheses",
+      "teaches": "prune early",
+      "why": "Only extend prefixes that can still become valid (opens <= n, closes <= opens) and the search never visits a dead string.",
+      "level": "core"
+    },
+    {
+      "id": "intuit-n-queens",
+      "teaches": "prune early",
+      "why": "Rejecting a column the moment it clashes with an earlier queen cuts whole subtrees, which is what makes backtracking feasible.",
+      "level": "core"
+    },
+    {
+      "id": "microsoft-enumerate-valid-clock-times",
+      "teaches": "permutations with a used array",
+      "why": "A small OA wrapper: permute four digits with a used array, skip equal digits at the same depth, and filter valid times.",
+      "level": "practice"
+    },
+    {
+      "id": "goldman-sachs-alternating-parity-permutations",
+      "teaches": "permutations with a used array",
+      "why": "Permutations with a neighbour rule checked at placement, so bad branches are never grown.",
+      "level": "practice"
+    },
+    {
+      "id": "expedia-palindrome-partitions",
+      "teaches": "choose, explore, un-choose",
+      "why": "The choice is where the next piece ends; choose a palindromic piece, recurse on the rest, un-choose and try a longer one.",
+      "level": "practice"
+    },
+    {
+      "id": "adobe-graph-m-coloring",
+      "teaches": "prune early",
+      "why": "Assign colors vertex by vertex and abandon a color as soon as a neighbour already has it.",
+      "level": "practice"
+    },
+    {
+      "id": "adobe-longest-fruit-path",
+      "teaches": "search a grid for a word",
+      "why": "Word Search without a word: DFS over simple grid paths with mark and unmark, keeping the best length.",
+      "level": "practice"
+    },
+    {
+      "id": "meta-maximum-unique-character-word-subset",
+      "teaches": "subsets (include or exclude)",
+      "why": "Include or exclude each word, pruning a branch the moment two words share a letter (a bitmask AND).",
+      "level": "practice"
+    },
+    {
+      "id": "confluent-sudoku-puzzle-solver",
+      "teaches": "prune early",
+      "why": "Fill cells with legal digits only, undo on failure, and pick the most constrained cell first to keep the tree small.",
+      "level": "stretch"
+    }
+  ],
+  "notes": "All six techniques are covered by clean classics. intuit-n-queens and expedia-palindrome-partitions were in no pool and were added with new solutions. The bank's other Sudoku, Word Break II and account-balancing problems are good extra stretch material. No Amazon OA problem in the pool is genuinely backtracking (the Amazon-tagged candidates are mostly sorting or greedy), so the practice rungs come from other companies' OAs."
+}

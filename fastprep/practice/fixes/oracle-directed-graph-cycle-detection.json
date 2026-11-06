@@ -1,0 +1,16 @@
+{
+ "pattern": "cycle-detection-graph",
+ "why": "Detect a cycle in a directed graph with DFS three-colour marking: a node is white (unseen), grey (on the current DFS path) or black (finished). Reaching a grey node means an edge points back into the current path, which is a cycle.",
+ "hints": [
+  "In an undirected graph, meeting any visited node hints at a cycle. Why is that not enough when edges have a direction? Think of two paths that merge at the same node.",
+  "Only an edge back to a node that is still on the current DFS path closes a cycle. Keep three states: unvisited, on the path, finished.",
+  "Run DFS from every unvisited node with an explicit stack of (node, next-edge index). Mark grey on entry and black on exit; an edge to a grey node returns true. O(n + edges)."
+ ],
+ "pitfalls": [
+  "A self-loop [v, v] is a cycle; the grey check catches it because v is grey when its own edge is scanned.",
+  "Recursive DFS overflows at 10^5 nodes in Python; use an explicit stack.",
+  "Two paths that meet at a finished (black) node are not a cycle (example 2)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

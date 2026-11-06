@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "Greedy with a counter: only the frequencies matter. The most frequent type (maxf copies) forces maxf-1 frames of length cooldown+1, plus one slot for each type tied at maxf; other tasks fill idle slots, and if they overflow there is no idle at all.",
+ "hints": [
+  "Task IDs do not matter, only how many of each. Which type constrains the schedule the most?",
+  "Lay out the most frequent type A: A _ _ A _ _ A with cooldown gaps. That is (maxf-1) blocks of size cooldown+1, then a final slot for each type that also has maxf copies. Everything else fits into the gaps.",
+  "Count with a Counter, compute maxf and ties = number of types with count maxf, return max(len(tasks), (maxf-1)*(cooldown+1) + ties). O(n)."
+ ],
+ "pitfalls": [
+  "When there are more tasks than gap slots, the answer is just len(tasks): no idle needed.",
+  "Do not count idle time after the last task: that is why the last block is only 'ties' long.",
+  "cooldown = 0 means the answer is len(tasks)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

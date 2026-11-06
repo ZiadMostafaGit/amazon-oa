@@ -796,13 +796,17 @@ function sourceNotes(d) {
 
 /* "Stuck?": the hints open one rung at a time, and the pattern comes last -
    naming the tool is the skill an assessment tests, so it is not handed out first */
-function stuckLadder(fx) {
+function stuckLadder(fx, where) {
   const box = el('section', 'stuck');
   box.append(el('h2', 'section', 'Stuck?'));
   const rungs = [];
   (fx.hints || []).forEach((h, i) => rungs.push(['Hint ' + (i + 1), () => { const p = el('div', 'prose'); p.textContent = h; return p; }]));
-  if (fx.why || fx.pattern) rungs.push(['Which pattern is this?', () => {
+  if (fx.why || fx.pattern || (where && where.teaches)) rungs.push(['Which pattern is this?', () => {
     const p = el('div', 'prose');
+    if (where && where.teaches) {
+      const t = el('p'); t.append(el('b', null, 'On the roadmap: '), document.createTextNode(where.title + ' — this problem teaches ' + where.teaches + '.'));
+      p.append(t);
+    }
     if (fx.why) p.append(el('p', null, fx.why));
     if (fx.pattern) {
       const b = el('button', 'btn small', 'Open the chapter: ' + fx.pattern);
@@ -1023,7 +1027,7 @@ function renderProblem() {
 
 
   body.append(planPane(d));
-  if ((fx.hints || []).length || fx.why) body.append(stuckLadder(fx));
+  if ((fx.hints || []).length || fx.why || (d.path && d.path.teaches)) body.append(stuckLadder(fx, d.path));
   const notesBox = sourceNotes(d);
   if (notesBox) body.append(notesBox);
 

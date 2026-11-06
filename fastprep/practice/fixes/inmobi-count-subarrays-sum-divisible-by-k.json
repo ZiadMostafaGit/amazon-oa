@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "Prefix of a mod: a subarray sum is divisible by k exactly when the two prefix sums around it have the same remainder mod k. Count remainders in a hash map (or an array of size k) as you sweep; each earlier prefix with the same remainder is one more subarray.",
+ "hints": [
+  "Write the subarray sum as P[j] - P[i]. When is that divisible by k?",
+  "When P[j] mod k == P[i] mod k. So you are counting pairs of prefixes with equal remainders.",
+  "count[0] = 1; s = 0; for each x: s = (s + x) mod k (non-negative), answer += count[s], count[s] += 1. O(n + k)."
+ ],
+ "pitfalls": [
+  "Negative values: normalise the remainder to [0, k) (Python's % already does).",
+  "Seed count[0] = 1 for subarrays that start at index 0.",
+  "The count can exceed 32 bits."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

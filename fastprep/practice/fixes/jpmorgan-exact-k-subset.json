@@ -1,0 +1,16 @@
+{
+ "pattern": "knapsack",
+ "why": "Two resources at once: the chosen positions are limited both by their count (exactly k) and by their sum (exactly target), so the subset-sum state gains a count dimension, reach[j] = sums reachable with exactly j positions.",
+ "hints": [
+  "Plain subset sum ignores how many elements you used. Which extra number must the state remember?",
+  "reach[j] = the set of sums made by exactly j chosen positions. Taking v moves every sum in reach[j - 1] to reach[j] shifted by v.",
+  "Start with reach[0] = {0}; for each value, update j from k down to 1 so a value is used once. Answer: target in reach[k]."
+ ],
+ "pitfalls": [
+  "Values can be negative, so use a set or an offset array, not a 0..target array.",
+  "Exactly k positions: in example 2 all three sum to 6, but k is 2.",
+  "k = 0 is true only for target 0."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

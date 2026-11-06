@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "Track the furthest reach so far: the indices reachable with j jumps form a window, and the next window ends at the furthest index any position in the current window can reach. Each time you pass the end of a window you spend one jump.",
+ "hints": [
+  "Think of BFS: which indices can you reach with 0 jumps, with 1 jump, with 2 jumps? What shape do those sets have?",
+  "They are contiguous windows. While scanning the current window, keep far = max(i + nums[i]); when i reaches the window's end, you must jump, and the new window ends at far.",
+  "One pass over i in [0, n-2]: update far; if i == end then jumps += 1 and end = far. Return jumps. O(n), O(1) space."
+ ],
+ "pitfalls": [
+  "A single element needs 0 jumps.",
+  "Loop only to n-2: being on the last index never requires another jump.",
+  "A DP over all jump targets is O(n * max(nums)); it passes here but misses the point."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

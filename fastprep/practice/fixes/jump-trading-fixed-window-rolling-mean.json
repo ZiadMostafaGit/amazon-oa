@@ -1,0 +1,15 @@
+{
+ "pattern": "sliding-window",
+ "why": "Fixed-size window in its purest form: keep the sum of the current k values, and when the window slides one step add the value entering on the right and subtract the value leaving on the left. Each mean is then O(1) instead of re-summing k values.",
+ "hints": [
+  "Re-summing every window is O(n*k). Two neighbouring windows share k-1 values: what changes?",
+  "Moving from window [i-k, i-1] to [i-k+1, i] adds nums[i] and removes nums[i-k].",
+  "Sum the first k values, emit sum/k, then for i from k to n-1 update sum += nums[i] - nums[i-k] and emit. O(n)."
+ ],
+ "pitfalls": [
+  "There are exactly n - k + 1 windows; windowSize = n gives one mean.",
+  "Return floating-point means (divide, do not integer-divide)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

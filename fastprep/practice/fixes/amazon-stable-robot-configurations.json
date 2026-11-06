@@ -1,0 +1,16 @@
+{
+ "pattern": "sorting",
+ "why": "Sort first so a scan becomes valid: for k operating robots, every robot with threshold < k must operate and every robot with threshold > k must stand by, and none may have threshold exactly k. After sorting, k is valid exactly when the k smallest thresholds are all < k and the rest are all > k.",
+ "hints": [
+  "Fix k, the number of operating robots. For a robot with threshold t, which state is forced? What if t == k?",
+  "Operating robots see k-1 others, so they need t <= k-1; standby robots need t > k. So the operating set is forced: all robots with t < k, and that set must have size exactly k with no t == k.",
+  "Sort the thresholds. For each k in 0..n, k is valid when (k == 0 or t[k-1] < k) and (k == n or t[k] > k). Count the valid k. O(n log n)."
+ ],
+ "pitfalls": [
+  "k = 0 (everyone standby) and k = n (everyone operating) are candidates too.",
+  "A robot with threshold exactly k breaks configuration k in both states.",
+  "Each valid k gives exactly one configuration, since the operating set is forced."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

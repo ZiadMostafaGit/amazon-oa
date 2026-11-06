@@ -1,0 +1,15 @@
+{
+ "pattern": "sorting",
+ "why": "Sort first so a scan becomes valid: changing up to 3 values is best spent on the extremes, so after sorting, the answer is the smallest range left after dropping i values from the bottom and 3 - i from the top, for i = 0..3.",
+ "hints": [
+  "Which elements are worth changing? Changing a middle element never shrinks the range.",
+  "Change only extremes, and set them equal to something inside the remaining range. After sorting, you drop some of the 3 smallest and the rest from the 3 largest.",
+  "If n <= 4 the answer is 0. Otherwise sort and return min(a[n-4+i] - a[i] for i in 0..3). O(n log n), or O(n) by finding the 4 smallest and 4 largest."
+ ],
+ "pitfalls": [
+  "n <= 4: change up to 3 elements to match the last one, so 0.",
+  "Try all four splits, not just 'drop the 3 largest' or 'drop the 3 smallest'."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

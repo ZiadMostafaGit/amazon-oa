@@ -1,0 +1,15 @@
+{
+ "pattern": "prefix-sums",
+ "why": "Prefix sum + hash map, with XOR instead of addition: the XOR of arr[i..j] is P[j+1] ^ P[i], so a subarray ending at j has XOR x exactly when an earlier prefix equals P[j+1] ^ x. Count earlier prefix XORs in a hash map as you sweep.",
+ "hints": [
+  "XOR is its own inverse: a ^ b ^ b = a. How does that let you get the XOR of any subarray from two prefix XORs?",
+  "xor(i..j) = P[j+1] ^ P[i]. You need P[i] = P[j+1] ^ x for some earlier i.",
+  "map {0: 1}; p = 0; for each v: p ^= v, answer += map[p ^ x], map[p] += 1. O(n)."
+ ],
+ "pitfalls": [
+  "Seed the map with prefix 0 so subarrays starting at index 0 count.",
+  "A sliding window does not work: XOR is not monotone as the window grows."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

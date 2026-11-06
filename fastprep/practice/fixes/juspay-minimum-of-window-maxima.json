@@ -1,0 +1,15 @@
+{
+ "pattern": "monotonic-deque",
+ "why": "A story-free wrapper around window maximum with a monotonic deque: compute the maximum of every length-k window in O(n) with a decreasing deque of indices, then take the smallest of those maxima.",
+ "hints": [
+  "What would you need if you knew the maximum of every window? How do you get all of them in O(n)?",
+  "Sliding window maximum: a deque of indices whose values decrease; its front is the current window's maximum.",
+  "Run the deque scan and, instead of storing the maxima, keep their running minimum. O(n) time, O(k) space."
+ ],
+ "pitfalls": [
+  "k = 1: the answer is the minimum element.",
+  "k = n: the answer is the maximum element."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

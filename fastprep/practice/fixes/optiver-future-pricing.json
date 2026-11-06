@@ -1,0 +1,16 @@
+{
+ "pattern": "fenwick-tree",
+ "why": "Point updates (move a dividend) mixed with prefix-sum queries (all dividends paid by day d) over a fixed day range: a Fenwick tree indexed by day gives both in O(log D).",
+ "hints": [
+  "A price query subtracts every dividend paid on or before the day. That is a prefix sum over days. What makes a plain prefix array fail?",
+  "Updates change the array between queries. Keep a Fenwick tree indexed by day where position day holds the total dividend paid that day.",
+  "UPDATE: add -old_amount at old_day, then +new_amount at new_day. PRICE d: stockPrice - prefix(d). O(log 10^6) each."
+ ],
+ "pitfalls": [
+  "Remember each dividend's current (amount, day) so an update can remove the old one.",
+  "Several dividends may share a day; the tree stores their sum.",
+  "Indices in UPDATE are one-based."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+ "pattern": "dp-strings",
+ "why": "Designing the state for two sequences: ways[j] = number of ways the first j pattern characters appear as a subsequence of the text read so far. Each text character can extend every slot where it matches.",
+ "hints": [
+  "Brute force over triples of positions is O(n^3). Read s2 once and remember partial matches instead.",
+  "Keep ways[0..3]: ways[0] = 1, ways[j] = number of ways to have matched s1[:j]. A character equal to s1[j-1] adds ways[j-1] to ways[j].",
+  "Update j from high to low for each character so one character does not fill two slots at once. Answer ways[3]. O(|s2| * |s1|)."
+ ],
+ "pitfalls": [
+  "Updating j upward lets one character play two roles when s1 has repeated letters (e.g. 'AAB').",
+  "The count can be about 10^16 for |s2| = 5*10^5, so it needs 64-bit integers."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

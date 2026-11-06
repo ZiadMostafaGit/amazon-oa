@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "Minimise a speed: a faster k never needs more hours, so 'can speed k finish in h hours?' is false then true as k grows, and the answer is the first k where it becomes true. You binary search the answer, not an array.",
+  "hints": [
+    "Pick a speed and count the hours it needs. What happens to that count if you eat faster?",
+    "hours(k) = sum(ceil(p / k)) only goes down as k goes up. Binary search the smallest k with hours(k) <= h.",
+    "k lies in [1, max(piles)] (speed max(piles) needs exactly one hour per pile). Each check is O(n), so O(n log max) in total."
+  ],
+  "pitfalls": [
+    "ceil(p / k) as (p + k - 1) // k; floating-point division can round wrongly for large values.",
+    "The upper bound is max(piles), not sum(piles): speeds above the largest pile change nothing."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

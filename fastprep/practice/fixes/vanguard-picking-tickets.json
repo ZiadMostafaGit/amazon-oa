@@ -1,0 +1,15 @@
+{
+ "pattern": "sorting",
+ "why": "Sort, then compare neighbours: once sorted, a valid selection is a contiguous run where each value differs from the previous by at most 1, so the answer is the longest such run found in one pass.",
+ "hints": [
+  "The condition is about neighbours in sorted order. What does the input look like after you sort it?",
+  "In the sorted array, a valid chain can always be taken as a contiguous run: skipping a value in the middle never helps.",
+  "Sort, then walk: extend the run while t[i] - t[i-1] <= 1, otherwise restart at 1. Track the longest run. O(n log n)."
+ ],
+ "pitfalls": [
+  "Duplicates are separate tickets and differ by 0, so they extend the run.",
+  "A single ticket is always a valid selection (answer >= 1)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

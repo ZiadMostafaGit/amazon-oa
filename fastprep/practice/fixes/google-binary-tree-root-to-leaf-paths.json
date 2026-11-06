@@ -1,0 +1,16 @@
+{
+ "pattern": "dfs",
+ "why": "DFS that passes state down: each child receives the path string built so far, and a leaf emits it. It also shows the backtracking view: the path grows on the way down and shrinks on the way back.",
+ "hints": [
+  "What does a node need to know from above to write its full root-to-leaf path?",
+  "Pass the path so far into each child (path + '->' + child value). When you reach a node with no children, add the path to the answer.",
+  "Recursive DFS, or for a 100000-deep tree a stack of (node, path) pairs; push the right child before the left so the left subtree is finished first."
+ ],
+ "pitfalls": [
+  "A single node is itself a leaf: return [\"1\"].",
+  "Negative values keep their minus sign: \"-1->-2\".",
+  "With an explicit stack, pushing left before right reverses the required left-to-right order."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

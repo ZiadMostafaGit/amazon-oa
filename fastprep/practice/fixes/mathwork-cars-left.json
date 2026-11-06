@@ -1,0 +1,16 @@
+{
+  "pattern": "stack",
+  "why": "This is Asteroid Collision told with cars and indices: right-moving cars wait on a stack, and each left-moving car fights the nearest waiting right-mover, popping the weaker ones until it dies or nothing is left to hit. Recognising the collapse-on-a-stack simulation is the whole problem.",
+  "hints": [
+    "Which pairs of cars can ever collide, and which car does a left-moving car hit first?",
+    "Only a right-mover to the left of a left-mover. The left-mover meets the nearest surviving right-mover: the top of a stack of survivors.",
+    "Push right-movers' indices. For a left-mover, while the top is a right-mover: pop it if weaker and continue, pop it and die if equal, die if stronger. If it survives, push it. The stack holds the answer in order."
+  ],
+  "pitfalls": [
+    "Store indices, not strengths: the answer is a list of indices.",
+    "Left-movers already on the stack are survivors; a new left-mover never fights them.",
+    "Equal strengths destroy both cars."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

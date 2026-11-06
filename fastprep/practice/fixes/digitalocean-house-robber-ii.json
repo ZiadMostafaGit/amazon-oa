@@ -1,0 +1,15 @@
+{
+  "pattern": "dp-1d",
+  "why": "Take or skip on a circle: the first and last houses cannot both be taken, so the answer is the better of house robber on nums[0..n-2] and on nums[1..n-1].",
+  "hints": [
+    "The only new rule versus a line is that house 0 and house n-1 are neighbours. Can both be taken?",
+    "Not both. So either house 0 is excluded or house n-1 is excluded. Each case is an ordinary line of houses.",
+    "Run the two-variable house robber on nums[1:] and on nums[:-1] and take the max; with one house return nums[0]."
+  ],
+  "pitfalls": [
+    "n = 1: both slices are empty, so handle it separately.",
+    "Do not just drop the smaller end house; check both cases."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "vanguard-two-sum",
+ "generatedAt": "2026-11-06T16:49:34",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[7]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3, 10]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[7, 1, 4, 6]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "[2, 3]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[7, 4]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[5, 5]"
+    },
+    {
+     "name": "target",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "Binary search over a huge answer range: the money needed for u units, sum(max(0, u*composition - stock) * cost), only grows with u, and u can reach about 10^18, far too many to try one by one but only about 60 halvings.",
+  "hints": [
+    "Guess u units. How much must you buy of each metal, and what does it cost?",
+    "spend(u) = sum over metals of max(0, u * comp[i] - stock[i]) * cost[i], non-decreasing in u. Find the largest u with spend(u) <= budget.",
+    "A safe upper bound is min over metals of (stock[i] + budget // cost[i]) // comp[i]. Binary search [0, that], stopping each sum early once it exceeds the budget. O(n log answer)."
+  ],
+  "pitfalls": [
+    "Products reach 10^27: in fixed-width languages stop the sum as soon as it passes the budget.",
+    "The answer can be 0 (and is not -1) when even one unit is unaffordable."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

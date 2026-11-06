@@ -1,6 +1,6 @@
 {
  "pattern": "knapsack",
- "why": "Each rod goes to the left support, the right support, or is left out: a three-way knapsack choice. The week's interval/bitmask label fits loosely; the clean state is the height difference between the two sides, which is at most the total length (5000), and the value stored is the tallest shorter side for that difference.",
+ "why": "Each rod gets a sign: + (left support), - (right support) or 0 (unused), and the two supports balance when the signed sum is 0. That is the +/- disguise of subset sum with a third option; the clean state is the signed difference (at most the total, 5000), storing the tallest shorter side for each difference.",
  "hints": [
   "2^20 subsets per side is too many, but the total length is only 5000. What single number describes how far the two sides are from balanced?",
   "Keep dp[diff] = the largest height of the shorter side among all ways to place the rods seen so far with that difference. Each rod either is skipped, joins the taller side (diff grows), or joins the shorter side (diff shrinks, or flips if the rod is longer than diff).",

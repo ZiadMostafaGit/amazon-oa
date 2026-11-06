@@ -1,0 +1,15 @@
+{
+ "pattern": "union-find",
+ "why": "A wire is redundant when union-find reports that its two ends are already in the same component. Each redundant wire can be moved to join two components, so with c components you need c - 1 moves, possible only when there are at least c - 1 redundant wires (equivalently, at least n - 1 wires).",
+ "hints": [
+  "Which wires can you unplug without disconnecting anything that is currently connected?",
+  "Process wires with union-find: if find(a) == find(b) the wire is redundant; otherwise it merges two components and the component count drops by one.",
+  "If connections.length < n - 1 return -1; otherwise answer = components - 1. O((n + m) alpha(n))."
+ ],
+ "pitfalls": [
+  "Computers are numbered 1 through n.",
+  "Count isolated computers as components."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

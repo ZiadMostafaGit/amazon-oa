@@ -1,0 +1,16 @@
+{
+  "pattern": "xor-tricks",
+  "why": "XOR cancels pairs again: XOR every number 1..n together with every array element, and each present value appears twice and cancels, leaving the missing one (the sum formula works too, but XOR cannot overflow).",
+  "hints": [
+    "If you XOR 1..n and also XOR the array, how many times does each present value appear?",
+    "Twice, so it cancels. The missing value appears only once, in 1..n.",
+    "acc = 0; for i in 1..n: acc ^= i; for v in nums: acc ^= v. n = len(nums) + 1. O(n), O(1) space."
+  ],
+  "pitfalls": [
+    "n is len(nums) + 1, not len(nums).",
+    "n = 1 gives an empty array and the answer 1.",
+    "The sum formula n(n+1)/2 can overflow 32-bit integers in other languages."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

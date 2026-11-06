@@ -1,0 +1,15 @@
+{
+ "pattern": "topological-sort",
+ "why": "The longest path is hard in general graphs but easy in a DAG: process nodes in topological order, and when you reach a node every path into it is already known, so longest[v] = max(longest[u] + 1) over its predecessors u.",
+ "hints": [
+  "If you knew the longest path ending at each predecessor of v, what would the longest path ending at v be?",
+  "That only works if predecessors are done before v: process in topological order (Kahn's queue).",
+  "Kahn's algorithm; when popping u, set longest[v] = max(longest[v], longest[u] + 1) for each edge u -> v. The answer is max(longest). O(n + edges)."
+ ],
+ "pitfalls": [
+  "Count edges, not nodes: a lone node has length 0.",
+  "DFS with memo also works but recursion depth can reach 10^5."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

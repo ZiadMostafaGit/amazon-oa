@@ -1,0 +1,16 @@
+{
+ "pattern": "counting-sort",
+ "why": "Counting sort when values are small, with a twist: ratings can be huge, but any rating >= n behaves like n for this question, so cap each rating at n, bucket-count them, and scan k from n downward with a running count of ratings >= k.",
+ "hints": [
+  "Sorting descending and finding the last position i with sorted[i] >= i+1 works in O(n log n). Can you avoid the sort?",
+  "The answer is at most n, so a rating of 10^9 is no more useful than a rating of n. Cap ratings at n and count them in buckets 0..n.",
+  "Walk k from n down to 1, adding bucket[k] to a running total of ratings >= k; return the first k with total >= k, else 0. O(n)."
+ ],
+ "pitfalls": [
+  "All zeros: the answer is 0.",
+  "The answer can never exceed n.",
+  "This is the h-index problem in disguise."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

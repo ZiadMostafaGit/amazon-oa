@@ -1,0 +1,15 @@
+{
+ "pattern": "bst",
+ "why": "The first use of the BST ordering to steer a search: a node below low can only have useful values in its right subtree, one above high only in its left, so whole subtrees are skipped.",
+ "hints": [
+  "If node.val < low, can anything in its left subtree be in range?",
+  "Below low: go right only. Above high: go left only. In range: add the value and visit both children.",
+  "DFS with a stack; the work is proportional to the nodes in range plus the two boundary paths, O(n) in the worst case."
+ ],
+ "pitfalls": [
+  "Do not stop at an out-of-range node: its other subtree can still hold values in range.",
+  "The range is inclusive at both ends."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

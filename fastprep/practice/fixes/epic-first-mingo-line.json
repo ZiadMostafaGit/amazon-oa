@@ -1,0 +1,16 @@
+{
+  "pattern": "simulation",
+  "why": "Simulate the calls with counters instead of re-scanning the board: map each value to its cell, keep a count of marked cells per row, per column and on the main diagonal, and stop the first time a counter reaches n.",
+  "hints": [
+    "Rechecking every line after every call is O(n^2) per call. What changes when one cell is marked?",
+    "Only that cell's row, column and (if r == c) the diagonal can become complete. Keep rows[r], cols[c], diag counters.",
+    "Build value -> (r, c), then for call k: skip unknown or already-marked values, bump the counters, return [1, k] when one hits n. Otherwise [0, len(called)]. O(n^2 + calls)."
+  ],
+  "pitfalls": [
+    "A repeated value must not be counted twice: keep a marked set.",
+    "Values not on the board still count as calls (k is the 1-based call index).",
+    "Only the main diagonal counts, not the anti-diagonal."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

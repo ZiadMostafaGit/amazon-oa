@@ -1,0 +1,96 @@
+{
+ "node": "knapsack",
+ "ladder": [
+  {
+   "id": "amazon-zero-one-knapsack",
+   "teaches": "0/1 knapsack: take or skip under a capacity",
+   "why": "The plain form: one capacity, take or skip each item, and why the one-row table is swept from high capacity to low.",
+   "level": "core"
+  },
+  {
+   "id": "confluent-positive-subset-sum",
+   "teaches": "subset sum: can I make exactly T",
+   "why": "Drop the values and keep only feasibility: the same table answers 'which sums can I make exactly'.",
+   "level": "core"
+  },
+  {
+   "id": "adobe-count-subsets-with-sum-k",
+   "teaches": "exactly W versus at most W (the initial values)",
+   "why": "Counting exact sums shows that ways[0] = 1 and zeros elsewhere is what means 'exactly k', unlike knapsack's all-zero 'at most' start.",
+   "level": "core"
+  },
+  {
+   "id": "grubhub-coin-change",
+   "teaches": "unbounded: each item any number of times (fewest coins)",
+   "why": "Reusable denominations flip the sweep to low-to-high, and the objective becomes the fewest items for an exact total.",
+   "level": "core"
+  },
+  {
+   "id": "apple-coin-change-ii",
+   "teaches": "count combinations versus orderings (loop order)",
+   "why": "Putting coins in the outer loop counts each multiset once; swapping the loops would count orderings.",
+   "level": "core"
+  },
+  {
+   "id": "expedia-partition-equal-subset-sum",
+   "teaches": "a disguise: +/- signs to reach T becomes subset sum",
+   "why": "Giving one group + and the other - and asking for 0 turns the split into subset sum with target total/2.",
+   "level": "core"
+  },
+  {
+   "id": "intuit-minimum-subset-sum-difference",
+   "teaches": "partition into two sets with the smallest difference",
+   "why": "Build every reachable sum once, then the best split is the reachable sum nearest total/2.",
+   "level": "core"
+  },
+  {
+   "id": "morgan-stanley-three-resource-knapsack",
+   "teaches": "two resources at once (ones and zeroes)",
+   "why": "When each item spends several resources, the capacity becomes a tuple and the table gets one dimension per resource.",
+   "level": "core"
+  },
+  {
+   "id": "google-unit-weight-knapsack",
+   "teaches": "bounded copies, or swap the DP dimension when the capacity is huge",
+   "why": "With capacity and copies up to 10^9 no table fits; unit weights make taking the best values first optimal.",
+   "level": "core"
+  },
+  {
+   "id": "indeed-budget-shopping-most-books",
+   "teaches": "unbounded: each item any number of times (fewest coins)",
+   "why": "An OA story (bundles under a budget) that is unbounded knapsack in the at-most form, where greedy by ratio fails.",
+   "level": "practice"
+  },
+  {
+   "id": "oracle-coin-change-unbounded-and-single-use",
+   "teaches": "count combinations versus orderings (loop order)",
+   "why": "The same fewest-coins table run in both directions side by side: upward reuses a coin, downward uses it once.",
+   "level": "practice"
+  },
+  {
+   "id": "agoda-two-core-process-assignment",
+   "teaches": "partition into two sets with the smallest difference",
+   "why": "An OA scheduling story whose real question is the subset sum nearest half the total.",
+   "level": "practice"
+  },
+  {
+   "id": "jpmorgan-exact-k-subset",
+   "teaches": "two resources at once (ones and zeroes)",
+   "why": "A count limit is a second resource: the state becomes (how many taken, which sums), with negative values ruling out a plain array.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-tallest-billboard",
+   "teaches": "a disguise: +/- signs to reach T becomes subset sum",
+   "why": "Each rod gets +, - or 0; tracking the signed difference instead of both heights is the +/- disguise with an extra option.",
+   "level": "stretch"
+  },
+  {
+   "id": "salesforce-closest-subsequence-sum",
+   "teaches": "bounded copies, or swap the DP dimension when the capacity is huge",
+   "why": "Values up to 10^7 make the sum table impossible, so split the 40 items into halves and combine 2^20 sums with binary search.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "The bank has no literal Target Sum (+/- signs) problem; Partition Equal Subset Sum is used as its T = 0 case, and Tallest Billboard as the stretch with signs. The literal Ones and Zeroes (amazon-binary-strings-bounded-subset) sits in the backtracking pool, so a three-resource 0/1 knapsack teaches 'two resources'. No clean bounded-copies DP (binary splitting) exists outside other pools; google-unit-weight-knapsack shows the huge-capacity case and salesforce-closest-subsequence-sum the 'capacity too big, enumerate halves' case. No free 'count orderings' problem exists (Combination Sum IV variants are in dp-1d/backtracking pools), so the orderings side is taught by contrast inside Coin Change II. Taken from outside the pool (in no other pool): adobe-count-subsets-with-sum-k, morgan-stanley-three-resource-knapsack, indeed-budget-shopping-most-books, oracle-coin-change-unbounded-and-single-use, agoda-two-core-process-assignment, jpmorgan-exact-k-subset; moved from my own pools: expedia-partition-equal-subset-sum and amazon-tallest-billboard (interval-dp), salesforce-closest-subsequence-sum (dp-2d)."
+}

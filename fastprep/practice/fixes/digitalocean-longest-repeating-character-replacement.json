@@ -1,0 +1,15 @@
+{
+ "pattern": "sliding-window",
+ "why": "Longest valid window with a frequency map: a window can be made one repeated letter when its length minus the count of its most common letter is at most k. Grow right, keep letter counts and the best count, and shrink left while the window needs more than k replacements.",
+ "hints": [
+  "Which letter should a window be turned into, and how many replacements does that cost?",
+  "Turn it into its most frequent letter: cost = window length - maxCount. The window is valid while that is <= k.",
+  "Counts for 26 letters, maxCount updated as letters enter; while (right - left + 1) - maxCount > k, remove s[left]. Track the best length. O(26 n) or O(n)."
+ ],
+ "pitfalls": [
+  "maxCount does not need to be decreased when shrinking: a stale max never produces a too-large answer, because the window only grows when a real larger count appears.",
+  "Empty string returns 0."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

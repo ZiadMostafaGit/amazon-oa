@@ -1,0 +1,16 @@
+{
+ "pattern": "bfs",
+ "why": "Level-order BFS with a twist: process the queue one level at a time and keep the last node of each level. (A DFS that visits right before left and records the first node at each new depth also works.)",
+ "hints": [
+  "Which node is visible from the right at depth d? Think about all nodes at that depth in left-to-right order.",
+  "BFS level by level: at the start of a round the queue holds exactly one level; the last node you pop in that round is the visible one.",
+  "Loop: n = len(queue); pop n nodes, pushing left then right children; append the value of the n-th popped node. O(n) time, O(width) space."
+ ],
+ "pitfalls": [
+  "The visible node is not always a right child: in [1,2,3,4] the deepest visible node is 4, a left child.",
+  "An empty tree returns [].",
+  "Fix the level size before popping, or children added during the round get mixed into the current level."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

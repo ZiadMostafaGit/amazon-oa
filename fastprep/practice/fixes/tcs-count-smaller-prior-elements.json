@@ -1,0 +1,16 @@
+{
+ "pattern": "fenwick-tree",
+ "why": "The Fenwick tree's home ground: scan left to right, keep a count per value rank, and each answer is a prefix sum (how many earlier values have a smaller rank) followed by a point update.",
+ "hints": [
+  "For each position you need 'how many of the values seen so far are smaller'. Which structure answers prefix counts while you keep inserting?",
+  "Rank the values (sorted distinct values -> 1..m). Before inserting nums[i], the answer is the prefix sum of counts over ranks 1..rank-1.",
+  "Fenwick tree: query by i -= i & -i, update by i += i & -i. Query, append, then add 1 at the rank. O(n log n)."
+ ],
+ "pitfalls": [
+  "Equal earlier values do not count: query rank - 1, not rank.",
+  "Values reach 10^9 and can be negative; compress them to ranks first.",
+  "A sorted list with insort is O(n^2) in the worst case."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

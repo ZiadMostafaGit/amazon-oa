@@ -1,0 +1,16 @@
+{
+ "pattern": "knapsack",
+ "why": "A bounded-copies knapsack where the capacity and the copy counts reach 10^9, so a capacity-indexed table is impossible. Recognising the special structure (every item weighs 1, so any item can replace any other) is what replaces the DP: take the most valuable types first.",
+ "hints": [
+  "The usual knapsack table has capacity + 1 cells. How many is that here?",
+  "When every item weighs the same, swapping a cheap chosen item for a more valuable unchosen one never hurts. So which items should fill the knapsack?",
+  "Sort types by value descending and take min(quantity, remaining capacity) of each until the capacity runs out. O(n log n), with 64-bit totals."
+ ],
+ "pitfalls": [
+  "Totals reach about 10^18; Python is fine, but in other languages use 64-bit.",
+  "Quantities can be 0 and capacity can be 0.",
+  "Do not expand copies one by one: 10^9 copies must be taken in one step."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

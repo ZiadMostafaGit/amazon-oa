@@ -1,0 +1,96 @@
+{
+ "node": "trees",
+ "ladder": [
+  {
+   "id": "linkedin-maximum-depth-of-binary-tree",
+   "teaches": "recursive DFS that returns a value (depth, size)",
+   "why": "A node's answer is built from its children's answers: depth = 1 + max(left, right), with 0 for an empty tree.",
+   "level": "core"
+  },
+  {
+   "id": "salesforce-path-sum",
+   "teaches": "DFS that passes state down (path sums)",
+   "why": "Information can flow down instead of up: carry the remaining target into each child and check it only at a leaf.",
+   "level": "core"
+  },
+  {
+   "id": "atlassian-binary-tree-level-order-traversal",
+   "teaches": "level-order BFS",
+   "why": "BFS with a queue, processed one whole level per round by fixing the queue's length first.",
+   "level": "core"
+  },
+  {
+   "id": "bloomberg-diameter-of-binary-tree",
+   "teaches": "post-order: combine the children's answers (diameter, balanced)",
+   "why": "Return one thing (height) to the parent while scoring another (left height + right height) at every node.",
+   "level": "core"
+  },
+  {
+   "id": "google-balanced-binary-tree",
+   "teaches": "post-order: combine the children's answers (diameter, balanced)",
+   "why": "Compute heights bottom-up once and check each node on the way, instead of recomputing heights top-down in O(n^2).",
+   "level": "core"
+  },
+  {
+   "id": "bloomberg-binary-tree-right-side-view",
+   "teaches": "level-order BFS",
+   "why": "Level-order BFS where you keep only the last node of each level.",
+   "level": "core"
+  },
+  {
+   "id": "google-binary-tree-root-to-leaf-paths",
+   "teaches": "DFS that passes state down (path sums)",
+   "why": "Pass the whole path down to each child and emit it at a leaf, recursively or with an explicit stack that keeps left-to-right order.",
+   "level": "core"
+  },
+  {
+   "id": "ebay-construct-tree-preorder-inorder",
+   "teaches": "build a tree from traversals",
+   "why": "Preorder names the root, inorder splits the rest into left and right subtrees; an index map makes the rebuild O(n).",
+   "level": "core"
+  },
+  {
+   "id": "inmobi-employee-subordinates",
+   "teaches": "recursive DFS that returns a value (depth, size)",
+   "why": "An OA story that is really subtree size: each boss's count is the sum of their reports' subtree sizes.",
+   "level": "practice"
+  },
+  {
+   "id": "drw-count-balanced-tree-nodes",
+   "teaches": "post-order: combine the children's answers (diameter, balanced)",
+   "why": "Subtree sizes computed post-order on an n-ary adjacency list, then a check at each node using its children's sizes.",
+   "level": "practice"
+  },
+  {
+   "id": "atlassian-leaf-similar-trees",
+   "teaches": "recursive DFS that returns a value (depth, size)",
+   "why": "A left-before-right DFS emits the leaves in order; collect them for two trees and compare.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-cousins-in-binary-tree-ii",
+   "teaches": "level-order BFS",
+   "why": "BFS levels give each level's total; each node's cousins are the level total minus its sibling group.",
+   "level": "practice"
+  },
+  {
+   "id": "imc-chain-of-command",
+   "teaches": "recursive DFS that returns a value (depth, size)",
+   "why": "The propagation order is a preorder DFS, and each subtree is a contiguous block of it of length size[v].",
+   "level": "practice"
+  },
+  {
+   "id": "arcesium-binary-tree-maximum-path-sum",
+   "teaches": "post-order: combine the children's answers (diameter, balanced)",
+   "why": "The diameter pattern with weights: offer the parent max(0, best downward gain) and score the bend using both sides.",
+   "level": "stretch"
+  },
+  {
+   "id": "google-maximum-leaf-to-leaf-path-sum",
+   "teaches": "post-order: combine the children's answers (diameter, balanced)",
+   "why": "Same post-order shape, but both ends must be real leaves, so negative branches cannot be dropped and only two-child nodes can bend the path.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "Most classic binary-tree problems were in no pool and were taken from the free bank (max depth, diameter, balanced, right side view, root-to-leaf paths, build from preorder+inorder, leaf-to-leaf sum). 'Build a tree from traversals' has one rung; morgan-stanley-binary-tree-codec (serialize/deserialize) would be a natural extra. amazon-amount-of-time-to-infect-binary-tree was left out: it is a general edge-list tree and teaches graph BFS more than tree DFS."
+}

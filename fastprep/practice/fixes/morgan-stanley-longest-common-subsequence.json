@@ -1,0 +1,16 @@
+{
+ "pattern": "dp-strings",
+ "why": "The textbook two-string DP: dp[i][j] = LCS of the first i characters of text1 and the first j of text2. A match extends the diagonal; otherwise one of the two last characters is dropped.",
+ "hints": [
+  "Compare only the last characters of the two prefixes. If they are equal, can they both be part of the answer?",
+  "dp[i][j] = dp[i-1][j-1] + 1 if text1[i-1] == text2[j-1], else max(dp[i-1][j], dp[i][j-1]). Row 0 and column 0 are 0.",
+  "Fill the (n+1) x (m+1) table row by row, or keep just the previous row. O(n * m)."
+ ],
+ "pitfalls": [
+  "A subsequence need not be contiguous: do not reset to 0 on a mismatch (that is longest common substring).",
+  "Empty strings give 0.",
+  "Index the strings at i-1 and j-1 when the table has an extra empty row and column."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

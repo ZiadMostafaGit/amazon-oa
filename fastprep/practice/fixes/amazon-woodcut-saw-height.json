@@ -1,0 +1,17 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "Wood collected only shrinks as the saw rises, so the best height is the last h where wood(h) >= requiredWood: binary search over the height range (up to 10^9), not over the poles.",
+  "hints": [
+    "Try a few saw heights on the example. As h goes up, what happens to the wood you collect?",
+    "wood(h) = sum(max(0, x - h)) is non-increasing in h. Binary search the largest h in [0, max(heights)] with wood(h) >= requiredWood.",
+    "Each check is O(n), so O(n log max(heights)). If even h = 0 is not enough, return -1."
+  ],
+  "pitfalls": [
+    "Searching for the last true needs the upper mid or a 'best' variable.",
+    "The total wood can exceed 32 bits; fine in Python, use 64-bit elsewhere."
+  ],
+  "statement": "<p>You have vertical wooden poles with integer heights <code>heights</code>. You set a saw to a non-negative integer height <code>h</code>: every pole taller than <code>h</code> is cut down to <code>h</code> and you keep the cut-off part, <code>height - h</code> units of wood. Poles of height at most <code>h</code> give nothing.</p><p>You need at least <code>requiredWood</code> units of wood, and you want to cut as little as possible from the poles, so you want the saw as <b>high</b> as possible. Return the largest integer <code>h</code> for which the collected wood is at least <code>requiredWood</code>. If even <code>h = 0</code> does not give enough wood, return <code>-1</code>.</p><p><b>Example.</b> heights = [20, 15, 10, 17], requiredWood = 7. At h = 15 you collect 5 + 0 + 0 + 2 = 7, which is enough. At h = 16 you collect 4 + 0 + 0 + 1 = 5, which is not. The answer is 15.</p>",
+  "constraints": "<ul><li>1 &lt;= heights.length &lt;= 10<sup>5</sup></li><li>0 &lt;= heights[i] &lt;= 10<sup>9</sup></li><li>0 &lt;= requiredWood &lt;= 10<sup>14</sup></li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

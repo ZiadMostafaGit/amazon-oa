@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-optimal-utilization",
+ "generatedAt": "2026-11-06T16:49:14",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "deviceCapacity",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "foregroundAppList",
+     "type": "int[][]",
+     "rawValue": "[[2, 4], [3, 6]]"
+    },
+    {
+     "name": "backgroundAppList",
+     "type": "int[][]",
+     "rawValue": "[[1, 4], [1, 4]]"
+    }
+   ],
+   "expectedRaw": "[[2, 1], [2, 1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "deviceCapacity",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "foregroundAppList",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "backgroundAppList",
+     "type": "int[][]",
+     "rawValue": "[[1, -5], [3, -5], [-2, 0, 3]]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "deviceCapacity",
+     "type": "int",
+     "rawValue": "16"
+    },
+    {
+     "name": "foregroundAppList",
+     "type": "int[][]",
+     "rawValue": "[[14, 14]]"
+    },
+    {
+     "name": "backgroundAppList",
+     "type": "int[][]",
+     "rawValue": "[[2, 10], [3, 14], [2, 10]]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "deviceCapacity",
+     "type": "int",
+     "rawValue": "16"
+    },
+    {
+     "name": "foregroundAppList",
+     "type": "int[][]",
+     "rawValue": "[[2, 7]]"
+    },
+    {
+     "name": "backgroundAppList",
+     "type": "int[][]",
+     "rawValue": "[[2, 10]]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "deviceCapacity",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "foregroundAppList",
+     "type": "int[][]",
+     "rawValue": "[[2, 4], [3, 6], [1, 2]]"
+    },
+    {
+     "name": "backgroundAppList",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [1, 2]]"
+    }
+   ],
+   "expectedRaw": "[[2, 1], [2, 1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "deviceCapacity",
+     "type": "int",
+     "rawValue": "-16"
+    },
+    {
+     "name": "foregroundAppList",
+     "type": "int[][]",
+     "rawValue": "[[2, 7]]"
+    },
+    {
+     "name": "backgroundAppList",
+     "type": "int[][]",
+     "rawValue": "[[2, 10], [3, 14], [3, 14]]"
+    }
+   ],
+   "expectedRaw": "[[]]"
+  }
+ ]
+}

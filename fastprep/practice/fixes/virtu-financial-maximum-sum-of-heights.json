@@ -1,0 +1,15 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "For a fixed peak, the left side is capped by a running minimum, and a monotonic stack finds where the cap changes: best[i] = best[j] + maxHeights[i] * (i - j) where j is the previous smaller cap. Doing this from both sides gives every peak in O(n). It needs the stack plus a DP-on-the-stack insight.",
+  "hints": [
+    "Fix the peak p. What is the best height at each index to its left?",
+    "min(maxHeights[j..p]): a running minimum walking away from the peak. The sum of those minimums is what you need for every p.",
+    "left[i] = left[j] + maxHeights[i] * (i - j), where j is the previous index with a smaller cap (monotonic stack, pop while cap > maxHeights[i]). Do the same from the right; answer = max(left[i] + right[i] - maxHeights[i])."
+  ],
+  "pitfalls": [
+    "The peak is counted in both the left and right sums; subtract it once.",
+    "Trying every peak with an O(n) walk is O(n^2), too slow for 10^5."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

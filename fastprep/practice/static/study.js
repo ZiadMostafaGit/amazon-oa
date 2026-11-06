@@ -732,6 +732,15 @@ const Study = {
       };
     });
 
+    /* [[p:id]] links open the problem in the editor */
+    root.querySelectorAll('a.plink').forEach(a => {
+      a.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const id = (a.getAttribute('href') || '').replace(/^\?id=/, '');
+        if (id) { Study.close(); await openProblem(id); }
+      });
+    });
+
     /* [[topic]] links render as ?topic=slug; keep them inside the app */
     root.querySelectorAll('a.tlink').forEach(a => {
       a.addEventListener('click', (e) => {

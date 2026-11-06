@@ -1,0 +1,102 @@
+{
+  "node": "monotonic-stack",
+  "ladder": [
+    {
+      "id": "amazon-next-greater-element-to-right",
+      "teaches": "the next greater or smaller element",
+      "why": "The canonical query: scanning from the right, values <= the current one can never answer anyone again, so the stack of candidates stays decreasing.",
+      "level": "core"
+    },
+    {
+      "id": "amazon-next-smaller-ticket-price",
+      "teaches": "the next greater or smaller element",
+      "why": "The mirror image, next smaller to the right, shows the same stack with the comparison flipped.",
+      "level": "core"
+    },
+    {
+      "id": "ebay-daily-temperatures",
+      "teaches": "a span or the distance to the next warmer day",
+      "why": "Storing indices instead of values turns 'next warmer day' into a distance, resolved when a warmer day pops the waiting colder days.",
+      "level": "core"
+    },
+    {
+      "id": "tokopedia-stock-span",
+      "teaches": "a span or the distance to the next warmer day",
+      "why": "The span looks backwards to the previous greater price; a stack of (price, span) merges smaller days into today's entry, online.",
+      "level": "core"
+    },
+    {
+      "id": "amazon-next-greater-element-ii",
+      "teaches": "the next greater or smaller element",
+      "why": "A circular array is handled by walking the indices twice and pushing only on the first lap.",
+      "level": "core"
+    },
+    {
+      "id": "airwallex-largest-rectangle-in-histogram",
+      "teaches": "the largest rectangle in a histogram",
+      "why": "Each bar's widest rectangle runs between its previous and next smaller bars, both found the moment the bar is popped from an increasing stack.",
+      "level": "core"
+    },
+    {
+      "id": "nvidia-sum-of-subarray-minimums",
+      "teaches": "the contribution of each element (sum of subarray minimums)",
+      "why": "Counting the subarrays where each element is the minimum, (i - prev smaller) * (next smaller - i), replaces enumerating subarrays.",
+      "level": "core"
+    },
+    {
+      "id": "amazon-remove-k-digits",
+      "teaches": "the lexicographically smallest result (remove k digits)",
+      "why": "Popping a larger previous digit while deletions remain keeps a non-decreasing stack, the template for lexicographically smallest results.",
+      "level": "core"
+    },
+    {
+      "id": "uber-shopkeeper-final-price",
+      "teaches": "the next greater or smaller element",
+      "why": "An OA discount story whose discount is the next smaller-or-equal price to the right.",
+      "level": "practice"
+    },
+    {
+      "id": "amazon-predict-answer",
+      "teaches": "the next greater or smaller element",
+      "why": "An Amazon OA query game that needs both the previous and the next smaller element, then picks the nearer one.",
+      "level": "practice"
+    },
+    {
+      "id": "count-maximum-profitable-groups",
+      "teaches": "the contribution of each element (sum of subarray minimums)",
+      "why": "Counting subarrays whose maximum sits at an end reduces to next/previous greater distances per element, contribution counting in an OA story.",
+      "level": "practice"
+    },
+    {
+      "id": "amazon-sum-of-max-subarrays",
+      "teaches": "the contribution of each element (sum of subarray minimums)",
+      "why": "Contribution with a weight: each maximum contributes its value times the total length of the subarrays it dominates.",
+      "level": "practice"
+    },
+    {
+      "id": "erase-pairs",
+      "teaches": "the lexicographically smallest result (remove k digits)",
+      "why": "Erasing equal pairs anywhere leaves one copy of each odd-count letter, and choosing which copies is the lexicographically smallest stack.",
+      "level": "practice"
+    },
+    {
+      "id": "visa-largest-square-area-in-cityscape",
+      "teaches": "the largest rectangle in a histogram",
+      "why": "A skyline story hiding the histogram: each maximal rectangle holds a square of side min(height, width).",
+      "level": "practice"
+    },
+    {
+      "id": "google-maximal-rectangle-in-binary-matrix",
+      "teaches": "the largest rectangle in a histogram",
+      "why": "Each matrix row becomes a histogram of consecutive 1s, so the 2-D problem is the histogram stack run once per row.",
+      "level": "stretch"
+    },
+    {
+      "id": "virtu-financial-maximum-sum-of-heights",
+      "teaches": "the contribution of each element (sum of subarray minimums)",
+      "why": "The best mountain for every peak comes from a stack-driven recurrence best[i] = best[j] + h[i] * (i - j), from both sides.",
+      "level": "stretch"
+    }
+  ],
+  "notes": "The original monotonic-stack pool was mostly duplicate next-greater variants and next-permutation problems that are not monotonic-stack (next greater element III, perfect string, numerically balanced). Most of this ladder was moved over from the stack pool; nvidia-sum-of-subarray-minimums and google-maximal-rectangle-in-binary-matrix were outside every pool."
+}

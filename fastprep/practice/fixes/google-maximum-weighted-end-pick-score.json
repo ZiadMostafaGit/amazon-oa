@@ -1,0 +1,16 @@
+{
+ "pattern": "partition-dp",
+ "why": "An end-picking interval DP where the interval is implied: after step i with l picks from the left, the right end is n-1-(i-l), so the state shrinks from (left, right) to (step, left picks) and fits in O(m^2) even though nums is huge.",
+ "hints": [
+  "The remaining numbers always form a block. But n is 10^5; which smaller pair of numbers also pins the block down?",
+  "If i numbers are taken and l of them from the left, the next left is nums[l] and the next right is nums[n-1-(i-l)]. Let dp[i][l] = best score from step i on.",
+  "dp[i][l] = max(mult[i]*nums[l] + dp[i+1][l+1], mult[i]*nums[r] + dp[i+1][l]); fill i from m-1 down. O(m^2)."
+ ],
+ "pitfalls": [
+  "Every multiplier must be used, even when all totals are negative.",
+  "Greedy by the larger product fails.",
+  "An n x n table is far too big; only m <= 200 steps matter."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

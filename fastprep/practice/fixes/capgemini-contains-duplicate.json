@@ -1,0 +1,15 @@
+{
+ "pattern": "hash-tables",
+ "why": "The simplest use of a set to remember what you have seen: walk the array once and ask 'have I met this value before?' in O(1). The first yes is the duplicate.",
+ "hints": [
+  "The brute force compares every pair, O(n^2). What would you need to remember to answer 'seen it before?' instantly?",
+  "Keep a set of the values visited so far. Before adding x, check whether x is already in it.",
+  "One pass: if x in seen return True, else seen.add(x). Return False at the end. O(n) time, O(n) space (sorting and comparing neighbours is the O(1)-space alternative)."
+ ],
+ "pitfalls": [
+  "Return as soon as a duplicate is found; there is no need to finish the scan.",
+  "Values can be negative and up to 10^9, so a boolean array indexed by value is not an option; use a set."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

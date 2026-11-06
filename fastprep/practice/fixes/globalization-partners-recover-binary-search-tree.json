@@ -1,0 +1,15 @@
+{
+ "pattern": "bst",
+ "why": "Use 'inorder is sorted' as a diagnostic: swapping two values creates one descent (adjacent swap) or two descents in the inorder sequence, and those descents name the two nodes to swap back.",
+ "hints": [
+  "What does the inorder sequence of a valid BST look like? What does swapping two values do to it?",
+  "Walk inorder keeping the previous node. At the first descent (prev > cur) the first wrong node is prev; at the last descent the second wrong node is cur. If there is only one descent, both come from it.",
+  "Iterative inorder with a stack, then swap the two nodes' values. O(n) time, O(h) space (Morris traversal gives O(1))."
+ ],
+ "pitfalls": [
+  "Adjacent swapped values produce only one descent; take both nodes from it.",
+  "Swap values, not nodes; the structure must not change."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

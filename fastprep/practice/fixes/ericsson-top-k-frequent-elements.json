@@ -1,0 +1,15 @@
+{
+  "pattern": "top-k",
+  "why": "Top k by a key: count frequencies, then keep a min-heap of size k keyed by (frequency, tie-break). The heap root is the weakest of the current top k, so each new candidate either replaces it or is discarded.",
+  "hints": [
+    "First turn the array into (value, frequency) pairs. Now it is 'the k best pairs'.",
+    "Keep only k pairs in a min-heap ordered so the root is the worst of them: (frequency, -value) makes lower frequency, then larger value, the worst. Replace the root whenever a better pair comes.",
+    "Counter, then heappush / heapreplace: O(d log k) for d distinct values. Sort the k survivors best first for the output. (Bucket sort by frequency is the O(n) alternative.)"
+  ],
+  "pitfalls": [
+    "The tie rule (smaller value first) must be built into the heap key, not patched afterwards.",
+    "Sorting all distinct values is O(d log d); fine here, but the point is the size-k heap."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

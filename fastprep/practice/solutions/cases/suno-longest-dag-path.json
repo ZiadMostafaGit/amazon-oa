@@ -1,0 +1,98 @@
+{
+ "problemId": "suno-longest-dag-path",
+ "generatedAt": "2026-11-06T16:49:33",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 10,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 2], [1, 3], [2, 3], [3, 4]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 3], [2, 3], [2, 3], [3, 4]]"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

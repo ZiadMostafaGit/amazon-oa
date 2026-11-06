@@ -1,0 +1,68 @@
+{
+ "problemId": "uber-streaming-interval-peak-concurrency",
+ "generatedAt": "2026-11-06T16:49:33",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[5, 7]]"
+    }
+   ],
+   "expectedRaw": "[1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[3, 0], [1, 5], [2, 4], [3, 0], [2, 4], [3, 6]]"
+    }
+   ],
+   "expectedRaw": "[0, 1, 2, 2, 3, 4]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[0, 10], [10, 20], [0, 10], [20, 30]]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[5, 7], [2, 4], [5, 7], [6, 6]]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 2, 2]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "intervals",
+     "type": "int[][]",
+     "rawValue": "[[2, 4], [5, 7], [3, 6], [3, 6]]"
+    }
+   ],
+   "expectedRaw": "[1, 1, 2, 3]"
+  }
+ ]
+}

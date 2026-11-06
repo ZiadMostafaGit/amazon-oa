@@ -1,0 +1,16 @@
+{
+  "pattern": "number-theory",
+  "why": "The sieve of Eratosthenes: instead of testing each number, cross out the multiples of every prime p starting at p*p; whatever stays uncrossed is prime, in O(n log log n).",
+  "hints": [
+    "Testing each number by trial division is about O(n sqrt n). Can you mark composites instead?",
+    "Every composite has a prime factor <= its square root. For each prime p with p*p < n, mark p*p, p*p+p, ... as composite.",
+    "Boolean array of size n, 0 and 1 not prime, loop p while p*p < n, then collect the unmarked indices. O(n log log n) time, O(n) memory."
+  ],
+  "pitfalls": [
+    "Primes strictly less than n: n itself is excluded, and n = 0, 1, 2 return [].",
+    "Start crossing out at p*p, not 2p (smaller multiples were crossed by smaller primes).",
+    "n is up to 5*10^6: use a compact boolean array (bytearray in Python)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

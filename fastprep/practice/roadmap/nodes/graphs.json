@@ -1,0 +1,78 @@
+{
+ "node": "graphs",
+ "ladder": [
+  {
+   "id": "amazon-count-connected-components",
+   "teaches": "count connected components (islands)",
+   "why": "The bare skill on an explicit edge list: every DFS started from an unvisited node is one new component.",
+   "level": "core"
+  },
+  {
+   "id": "goldman-sachs-number-of-islands",
+   "teaches": "a grid as a graph with direction arrays",
+   "why": "The same component count, but the graph is a grid: cells are nodes and four direction offsets are the edges.",
+   "level": "core"
+  },
+  {
+   "id": "citadel-shortest-path-unweighted-graph",
+   "teaches": "the fewest steps in an unweighted graph (BFS)",
+   "why": "Why BFS and not DFS: when every edge costs 1, the layer a node is first reached at is its distance.",
+   "level": "core"
+  },
+  {
+   "id": "lyft-rotten-oranges-grid-bfs",
+   "teaches": "multi-source BFS (rotting oranges)",
+   "why": "Seeding the queue with every source at once turns many simultaneous spreads into one BFS.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-find-minimum-city-hops",
+   "teaches": "model the problem as a graph: states as nodes",
+   "why": "A list of strings is secretly a graph: 'differ in one letter' is an edge you generate on the fly, then BFS.",
+   "level": "core"
+  },
+  {
+   "id": "oracle-directed-graph-cycle-detection",
+   "teaches": "detect a cycle",
+   "why": "Directed cycles need three colours: only an edge back to a node still on the DFS path closes a cycle.",
+   "level": "core"
+  },
+  {
+   "id": "intuit-maximum-island-area",
+   "teaches": "count connected components (islands)",
+   "why": "Flood fill that also measures: each component reports its size, and you keep the largest.",
+   "level": "practice"
+  },
+  {
+   "id": "rippling-distributed-system-recovery",
+   "teaches": "the fewest steps in an unweighted graph (BFS)",
+   "why": "BFS level order with a tie rule: process each hop-distance layer as a sorted batch.",
+   "level": "practice"
+  },
+  {
+   "id": "benchling-minimum-genetic-mutation",
+   "teaches": "model the problem as a graph: states as nodes",
+   "why": "Gene strings as nodes and single mutations as edges: recognise Word Ladder in a new story.",
+   "level": "practice"
+  },
+  {
+   "id": "doordash-closest-dashmart",
+   "teaches": "multi-source BFS (rotting oranges)",
+   "why": "Many 'nearest X' queries become lookups after one BFS grown from all X cells together.",
+   "level": "practice"
+  },
+  {
+   "id": "mercor-shortest-path-in-grid-with-obstacles-elimination",
+   "teaches": "model the problem as a graph: states as nodes",
+   "why": "When a cell alone does not describe your situation, the BFS node becomes (row, col, eliminations left).",
+   "level": "stretch"
+  },
+  {
+   "id": "belvedere-trading-distances-to-cycles",
+   "teaches": "detect a cycle",
+   "why": "Find the cycle vertices by peeling leaves, then a multi-source BFS from the whole cycle gives every distance.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "Undirected cycle detection has no clean standalone problem in these pools; it is covered inside belvedere (leaf peeling). akuna-maximum-difference moved to union-find. Directed cycle detection is taught here with DFS colours and again in topological-sort with Kahn's count (arcesium)."
+}

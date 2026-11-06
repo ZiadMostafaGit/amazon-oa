@@ -1,0 +1,15 @@
+{
+ "pattern": "trie",
+ "why": "The trie itself: one node per prefix, children keyed by the next character, and an end-of-word flag. search and startsWith walk the same path and differ only in whether they require that flag at the end.",
+ "hints": [
+  "Many words share prefixes. How could you store them so a shared prefix is stored once?",
+  "Each node is a map from character to child plus an end flag. insert walks and creates nodes; search walks and checks the flag; startsWith walks and only checks that the path exists.",
+  "Nested dicts or a small Node class. Every operation costs O(length of the word), independent of how many words are stored."
+ ],
+ "pitfalls": [
+  "search(\"do\") is false after inserting only \"dog\": a prefix path is not a word without the end flag.",
+  "Inserting the same word twice changes nothing."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

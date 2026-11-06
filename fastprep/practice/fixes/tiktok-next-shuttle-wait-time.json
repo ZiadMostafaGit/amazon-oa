@@ -1,0 +1,16 @@
+{
+  "pattern": "binary-search",
+  "why": "Find the first departure at or after now in a sorted timetable: after converting HH:MM to minutes, that is bisect_left, the 'first value >= x' search.",
+  "hints": [
+    "Work in minutes since midnight so times compare as numbers.",
+    "The next shuttle is the first time t with t >= now. In a sorted list that is index bisect_left(times, now).",
+    "If that index is len(times), return \"-1\"; otherwise format times[i] - now as two-digit HH:MM. O(log n) after the O(n) conversion."
+  ],
+  "pitfalls": [
+    "A departure exactly at the current time counts (wait 00:00): bisect_left, not bisect_right.",
+    "Empty timetable returns \"-1\".",
+    "Pad both hours and minutes to two digits."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

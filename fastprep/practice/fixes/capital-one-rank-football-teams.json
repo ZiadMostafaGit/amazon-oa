@@ -1,0 +1,16 @@
+{
+ "pattern": "custom-comparators",
+ "why": "Sort indices by a tuple key: the teams live in parallel arrays, so sort the indices 0..n-1 by (-points, -goal difference, -scored, index) and read off the first two, keeping each team's original position.",
+ "hints": [
+  "The answer is indices, and the data is spread across four arrays. What should you sort?",
+  "Sort the indices. Build the key from the tie-breaking rules in order; negate the 'larger is better' fields so an ascending sort works.",
+  "key = (-(3*w + d), -(s - c), -s, i). Take the first two indices. A single pass keeping the best two is the O(n) alternative."
+ ],
+ "pitfalls": [
+  "The final tie-break is the smaller index, so i goes in the key un-negated.",
+  "Goal difference can be negative.",
+  "Points can reach 4 * 10^9: use 64-bit integers outside Python."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

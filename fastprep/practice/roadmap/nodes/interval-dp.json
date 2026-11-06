@@ -1,0 +1,78 @@
+{
+ "node": "interval-dp",
+ "ladder": [
+  {
+   "id": "intuit-boolean-parenthesization",
+   "teaches": "DP over an interval (i, j) with a split point",
+   "why": "The operator applied last splits the block, so true/false counts for (i, j) combine from every split point.",
+   "level": "core"
+  },
+  {
+   "id": "tekion-coin-game-from-ends",
+   "teaches": "a two-player game: best score difference",
+   "why": "Taking from either end always leaves a contiguous block, so the game state is (i, j).",
+   "level": "core"
+  },
+  {
+   "id": "rippling-optimal-endpoint-score-difference",
+   "teaches": "a two-player game: best score difference",
+   "why": "Storing mover-minus-opponent turns the two-player recursion into one table: d[i][j] = max(end - d[rest]).",
+   "level": "core"
+  },
+  {
+   "id": "zip-tree-independent-set",
+   "teaches": "DP on a tree (choose or skip a node)",
+   "why": "Two numbers per node (taken, skipped), combined from the children bottom-up.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-binary-tree-cameras",
+   "teaches": "DP on a tree (choose or skip a node)",
+   "why": "An Amazon OA tree DP with three states per node, where the children decide the parent's state.",
+   "level": "core"
+  },
+  {
+   "id": "medianet-minimum-length-after-arithmetic-triple-removals",
+   "teaches": "merge stones / burst balloons style",
+   "why": "Removals make far elements adjacent, so you reason about the last triple in a block, as in burst balloons / merge stones.",
+   "level": "core"
+  },
+  {
+   "id": "openai-optimal-first-player-card-score",
+   "teaches": "a two-player game: best score difference",
+   "why": "An OA wrapper: run the difference DP, then recover the first player's score as (total + diff) / 2.",
+   "level": "practice"
+  },
+  {
+   "id": "twosigma-sewer-drainage-partition",
+   "teaches": "DP on a tree (choose or skip a node)",
+   "why": "An OA tree story where one bottom-up pass of subtree sums answers every possible cut.",
+   "level": "practice"
+  },
+  {
+   "id": "google-stone-game-iii",
+   "teaches": "a two-player game: best score difference",
+   "why": "The score-difference idea on a suffix state instead of an interval, with negative values.",
+   "level": "practice"
+  },
+  {
+   "id": "google-maximum-weighted-end-pick-score",
+   "teaches": "DP over an interval (i, j) with a split point",
+   "why": "End picks with n = 10^5: (step, left picks) pins the interval down, shrinking the table to m^2.",
+   "level": "practice"
+  },
+  {
+   "id": "expedia-scramble-string",
+   "teaches": "DP over an interval (i, j) with a split point",
+   "why": "A split point on two strings at once, tried both kept and swapped.",
+   "level": "practice"
+  },
+  {
+   "id": "google-tree-dependent-knapsack",
+   "teaches": "DP on a tree (choose or skip a node)",
+   "why": "Tree DP meets knapsack: in preorder, skipping a node skips its whole subtree range.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "The bank has no Burst Balloons, Matrix Chain or Minimum Cost to Cut a Stick; the only Merge Stones (google-merge-stones) is in the dp-1d pool. medianet-minimum-length-after-arithmetic-triple-removals stands in for the 'merge stones / burst balloons' technique (reason about the last removal in a block); it is a hard phone-screen problem, so the technique has no easy rung. Taken from outside the pools (in no other pool): intuit-boolean-parenthesization, zip-tree-independent-set, amazon-binary-tree-cameras, medianet-minimum-length-after-arithmetic-triple-removals, google-stone-game-iii, google-maximum-weighted-end-pick-score, expedia-scramble-string. Moved from my knapsack pool: google-tree-dependent-knapsack. Moved out of this pool to knapsack: expedia-partition-equal-subset-sum, amazon-tallest-billboard. Most of this pool's candidates are 'partition'-titled problems unrelated to interval DP."
+}

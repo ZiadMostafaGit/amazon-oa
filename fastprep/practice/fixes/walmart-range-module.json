@@ -1,0 +1,16 @@
+{
+ "pattern": "lazy-propagation",
+ "why": "Range assignment (track / untrack a whole range) with range queries (is everything tracked?): a segment tree with lazy assignment over compressed endpoints, querying the minimum of a range.",
+ "hints": [
+  "Each operation touches a whole range. What should a node remember so it does not update every point?",
+  "Collect every endpoint offline and compress; elementary segments [x_i, x_{i+1}) become leaves. A query is true iff the minimum over its segments is 1.",
+  "Lazy assignment: a fully covered node takes the value and remembers it; push the pending value to children before descending. O(log n) per operation. (A sorted list of disjoint intervals is the other classic solution.)"
+ ],
+ "pitfalls": [
+  "Half-open ranges: right maps to the segment just before it.",
+  "An assignment overrides any pending assignment below it; push before partial updates.",
+  "A query on never-touched points is false."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

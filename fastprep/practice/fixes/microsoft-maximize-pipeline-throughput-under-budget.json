@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "Maximise the minimum capacity under a budget: the cost of lifting every service to at least T, sum((ceil(T / t) - 1) * c), only grows with T, so binary search the largest T whose cost fits. Each service's cost is independent once T is fixed.",
+  "hints": [
+    "Guess a target throughput T. What does each service need to reach it, and what does it cost?",
+    "Service i needs x = ceil(T / t_i) - 1 scalings (0 if t_i >= T), costing x * c_i. The total is monotone in T.",
+    "Binary search T from min(throughput) (free) up to a safe bound such as min(t_i * (budget // c_i + 1)). Stop summing early once the cost exceeds the budget. O(n log answer)."
+  ],
+  "pitfalls": [
+    "Capacity is t * (x + 1), so the step count is ceil(T / t) - 1, not ceil(T / t).",
+    "Intermediate costs can overflow 64 bits in other languages; break as soon as the running total passes the budget."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

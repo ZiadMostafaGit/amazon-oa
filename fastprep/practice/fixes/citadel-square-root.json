@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "Binary search over real numbers: mid*mid < x is true below the root and false above, so halving a bracket [0, max(1, x)] a fixed number of times pins the root to any precision.",
+  "hints": [
+    "Squaring is monotone on non-negative numbers. If mid*mid < x, which side of mid is the root on?",
+    "Bracket the root: it lies in [0, max(1, x)] (for x < 1 the root is larger than x). Halve the bracket, keeping the half whose ends straddle the root.",
+    "Run a fixed number of iterations (60-100) rather than 'while hi - lo > eps': doubles have about 52 bits of precision, so a fixed count always terminates. Return the midpoint. Newton's method is the faster alternative."
+  ],
+  "pitfalls": [
+    "hi = x fails for x < 1 (sqrt(0.25) = 0.5 > 0.25).",
+    "An absolute epsilon loop can spin forever on huge x where adjacent doubles are further apart than eps."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

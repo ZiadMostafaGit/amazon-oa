@@ -1,0 +1,16 @@
+{
+ "pattern": "fenwick-tree",
+ "why": "Point update and range query, where the query is not a plain sum: the weighted sum splits into sum p*a[p] - (l-1)*sum a[p], so two Fenwick trees (one over a[p], one over p*a[p]) answer it.",
+ "hints": [
+  "The weight of position p in query [l, r] is p - l + 1. Can you split that into a part that depends only on p and a part that depends only on l?",
+  "sum (p - l + 1) * a[p] = sum p*a[p] - (l - 1) * sum a[p] over p in [l, r]. Both sums are range sums of arrays that change only at single points.",
+  "Keep two Fenwick trees, for a[p] and p*a[p]. An update adds (v - old) and p*(v - old); a query takes the two range sums and combines them. O(log n) each."
+ ],
+ "pitfalls": [
+  "An update replaces the value: add the difference, not the new value.",
+  "Indices are one-based.",
+  "Totals reach about 10^16: 64-bit."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

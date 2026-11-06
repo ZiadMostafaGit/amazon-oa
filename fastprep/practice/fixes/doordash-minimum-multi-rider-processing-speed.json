@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "Two levels of the same idea: binary search the speed k, and inside, a greedy feasibility check that packs consecutive orders into each rider's hour budget and counts riders. Faster speeds never need more riders, so the search is valid.",
+  "hints": [
+    "At a fixed speed k every order becomes a whole number of hours. What is left is a packing question.",
+    "Greedy: give the current rider orders in sequence while their hours fit in hoursPerRider, then start a new rider. If some single order needs more than hoursPerRider hours, k fails outright. Riders needed is non-increasing in k.",
+    "Binary search the smallest k in [1, max(workloads)] with ridersNeeded(k) <= riders. O(n log max)."
+  ],
+  "pitfalls": [
+    "An order that alone exceeds hoursPerRider makes k infeasible no matter how riders are used.",
+    "This is the capacity-to-ship check with ceil(w / k) as the weights; reuse that structure."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

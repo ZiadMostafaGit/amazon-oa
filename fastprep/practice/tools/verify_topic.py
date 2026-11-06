@@ -53,6 +53,37 @@ REQUIRED = [
     "Check yourself",
 ]
 MIN_WORDS, MAX_WORDS = 2500, 7000
+# The tutor outline (topics/AUTHORING.md, "Version 2"): built up from the brute
+# force, every table filled by hand. A chapter that has its second heading is
+# held to this outline instead, and to a longer range.
+REQUIRED_V2 = [
+    "The problem it solves",
+    "Build it from the brute force",
+    "Worked by hand",
+    "From the idea to the code",
+    "Why it is correct",
+    "What it costs",
+    "How to think about it",
+    "Variations",
+    "Recognising it in a statement",
+    "Traps",
+    "What to memorise",
+    "Check yourself",
+]
+MIN_WORDS_V2, MAX_WORDS_V2 = 4500, 13000
+
+
+def _bank_ids():
+    try:
+        import sqlite3
+        db = os.path.join(os.path.dirname(ROOT), "fastprep.db")
+        c = sqlite3.connect("file:%s?mode=ro" % db, uri=True)
+        return {r[0] for r in c.execute("SELECT id FROM problems")}
+    except Exception:
+        return None
+
+
+BANK_IDS = _bank_ids()
 PLACEHOLDER = re.compile(r"\b(TODO|TBD|FIXME|lorem ipsum|XXX)\b", re.I)
 
 
@@ -79,11 +110,14 @@ def check(slug: str, run_code: bool = True) -> dict:
     src = open(path, encoding="utf-8").read()
 
     heads = [m.group(1).strip() for m in re.finditer(r"(?m)^##\s+(.*)$", src)]
-    missing = [h for h in REQUIRED if h not in heads]
+    v2 = REQUIRED_V2[1] in heads
+    outline = REQUIRED_V2 if v2 else REQUIRED
+    lo, hi = (MIN_WORDS_V2, MAX_WORDS_V2) if v2 else (MIN_WORDS, MAX_WORDS)
+    missing = [h for h in outline if h not in heads]
     if missing:
         problems.append("missing sections: " + ", ".join(missing))
     else:
-        order = [heads.index(h) for h in REQUIRED]
+        order = [heads.index(h) for h in outline]
         if order != sorted(order):
             problems.append("sections are out of order")
 
@@ -96,9 +130,9 @@ def check(slug: str, run_code: bool = True) -> dict:
         problems.append("no one-line lede (a '> ...' line under the title)")
 
     n = words(src)
-    if n < MIN_WORDS:
-        problems.append("only %d words (chapter depth starts at %d)" % (n, MIN_WORDS))
-    if n > MAX_WORDS:
+    if n < lo:
+        problems.append("only %d words (chapter depth starts at %d)" % (n, lo))
+    if n > hi:
         notes.append("%d words is long" % n)
 
     if ":::proof" not in src:
@@ -114,6 +148,11 @@ def check(slug: str, run_code: bool = True) -> dict:
     for m in re.finditer(r"\[\[([a-z0-9-]+)(\|[^\]]+)?\]\]", src):
         if m.group(1) not in SLUGS:
             problems.append("[[%s]] is not a topic" % m.group(1))
+    for m in re.finditer(r"\[\[p:([a-z0-9-]+)(\|[^\]]+)?\]\]", src):
+        if BANK_IDS is not None and m.group(1) not in BANK_IDS:
+            problems.append("[[p:%s]] is not a problem in the bank" % m.group(1))
+    if v2 and src.count("```python run") < 3:
+        problems.append("a tutor chapter needs at least 3 runnable blocks")
 
     for m in re.finditer(r"(?s)<svg\b(.*?)>", src):
         if "viewBox" not in m.group(1):

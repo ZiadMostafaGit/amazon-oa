@@ -1,0 +1,15 @@
+{
+ "pattern": "greedy",
+ "why": "A running balance that resets: if the tank goes negative after station i, no start between the current start and i can work, so restart at i+1 with an empty tank. The total gas minus total cost decides whether any start exists.",
+ "hints": [
+  "If sum(gas) < sum(cost), can any start succeed? And if it is >= 0, does some start always exist?",
+  "Simulate from a candidate start. If the tank first goes negative at station i, every station between the start and i reached i with at least as little fuel, so none of them can be the start either. Jump the candidate to i+1.",
+  "One pass: tank += gas[i] - cost[i]; if tank < 0 set start = i+1 and tank = 0. Return start if the overall total >= 0, else -1. O(n)."
+ ],
+ "pitfalls": [
+  "Trying every start and simulating is O(n^2) and too slow for n = 10^5.",
+  "The final check uses the total over all stations, not the reset tank."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

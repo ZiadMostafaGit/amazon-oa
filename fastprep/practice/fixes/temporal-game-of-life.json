@@ -1,0 +1,16 @@
+{
+  "pattern": "matrix-traversal",
+  "why": "One step of a cellular state machine: walk the eight neighbours with a direction-offset table, and compute every new state from the ORIGINAL grid, so updates must go into a separate grid (or be encoded so the old value survives).",
+  "hints": [
+    "Why can't you overwrite cells as you go?",
+    "Each cell's next state depends on neighbours' current states. Count neighbours with a list of the eight (dr, dc) offsets, skipping those outside the grid.",
+    "Fill a fresh grid: live stays live with 2 or 3 neighbours, dead becomes live with exactly 3. O(rows * cols * 8). (In-place: encode old and new in two bits.)"
+  ],
+  "pitfalls": [
+    "Updating in place without encoding makes later cells see already-updated neighbours.",
+    "Do not count the cell itself among its neighbours.",
+    "Edge and corner cells have fewer neighbours; bounds-check every offset."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,84 @@
+{
+ "node": "segment-tree",
+ "ladder": [
+  {
+   "id": "capital-one-dynamic-wall-range-query",
+   "teaches": "point update and range query",
+   "why": "Builds between queries break static prefix sums, so you need a tree with O(log n) point update and range query.",
+   "level": "core"
+  },
+  {
+   "id": "tcs-count-smaller-prior-elements",
+   "teaches": "a Fenwick tree for prefix sums",
+   "why": "The Fenwick loop at its simplest: query the prefix of smaller ranks, then add 1 at your own rank.",
+   "level": "core"
+  },
+  {
+   "id": "optiver-future-pricing",
+   "teaches": "a Fenwick tree for prefix sums",
+   "why": "Moving a dividend is two point updates and a price is a prefix sum over days, in an OA story.",
+   "level": "core"
+  },
+  {
+   "id": "tcs-count-array-inversions",
+   "teaches": "coordinate compression before counting",
+   "why": "Values up to 2^31 cannot index an array, so you rank them first and then count with a Fenwick tree.",
+   "level": "core"
+  },
+  {
+   "id": "airbnb-count-decreasing-triplets",
+   "teaches": "coordinate compression before counting",
+   "why": "Fix the middle element, then multiply two compressed Fenwick counts (greater before, smaller after).",
+   "level": "core"
+  },
+  {
+   "id": "uber-streaming-interval-peak-concurrency",
+   "teaches": "range update with lazy propagation",
+   "why": "Each arrival is a +1 on a range and the answer is the global max, the canonical lazy segment tree over compressed endpoints.",
+   "level": "core"
+  },
+  {
+   "id": "intuit-dynamic-weighted-range-scores",
+   "teaches": "point update and range query",
+   "why": "Rewriting a weighted range query as a combination of two plain range sums, each kept in its own Fenwick tree under point updates.",
+   "level": "practice"
+  },
+  {
+   "id": "epic-minimum-adjacent-transpositions",
+   "teaches": "a Fenwick tree for prefix sums",
+   "why": "An OA string story that is an inversion count once each character is mapped to its target position.",
+   "level": "practice"
+  },
+  {
+   "id": "honda-rd-photo-album",
+   "teaches": "a Fenwick tree for prefix sums",
+   "why": "Run the inserts in reverse and use the Fenwick tree to find the k-th free slot by binary descent.",
+   "level": "practice"
+  },
+  {
+   "id": "odoo-maximum-profit-increasing-triplet",
+   "teaches": "coordinate compression before counting",
+   "why": "The fixed-middle idea with max instead of count: prefix-max Fenwick trees over compressed prices.",
+   "level": "practice"
+  },
+  {
+   "id": "postman-maximum-laptop-rating",
+   "teaches": "point update and range query",
+   "why": "Sorting by price turns each price interval into an index range for a range-max query, with no updates (sparse table or segment tree).",
+   "level": "practice"
+  },
+  {
+   "id": "walmart-range-module",
+   "teaches": "range update with lazy propagation",
+   "why": "Lazy range assignment with range-min queries over compressed half-open ranges.",
+   "level": "stretch"
+  },
+  {
+   "id": "amazon-longest-increasing-subsequence-bounded-difference",
+   "teaches": "point update and range query",
+   "why": "An LIS whose transition is a max over a value window: a max segment tree over value ranks, point-raised as you scan.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "No plain 'Range Sum Query - Mutable' exists in the bank, so the first rung is the wall-building query (point update, range count). Lazy propagation has only onsite/phone-screen problems (Uber, Walmart); there is no OA lazy problem. Taken from outside the pools (in no other pool): tcs-count-smaller-prior-elements, tcs-count-array-inversions, amazon-longest-increasing-subsequence-bounded-difference (its bank statement is truncated before the rules; the repair restores them from the example and the solution)."
+}

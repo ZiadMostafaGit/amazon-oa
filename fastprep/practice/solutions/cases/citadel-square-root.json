@@ -1,0 +1,68 @@
+{
+ "problemId": "citadel-square-root",
+ "generatedAt": "2026-11-06T16:49:16",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double",
+     "rawValue": "1.005"
+    }
+   ],
+   "expectedRaw": "1.0024968827881708"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double",
+     "rawValue": "0.0"
+    }
+   ],
+   "expectedRaw": "0.0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double",
+     "rawValue": "2.151"
+    }
+   ],
+   "expectedRaw": "1.466628787389638"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double",
+     "rawValue": "2.244"
+    }
+   ],
+   "expectedRaw": "1.4979986648859205"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double",
+     "rawValue": "-3.351"
+    }
+   ],
+   "expectedRaw": "3.944304526105059e-31"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "double",
+     "rawValue": "-1.207"
+    }
+   ],
+   "expectedRaw": "3.944304526105059e-31"
+  }
+ ]
+}

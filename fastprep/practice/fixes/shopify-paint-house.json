@@ -1,0 +1,15 @@
+{
+  "pattern": "dp-1d",
+  "why": "The minimum cost to reach the end with a small state: keep the cheapest total so far ending in each of the three colors; each house adds its color cost to the cheaper of the other two colors.",
+  "hints": [
+    "After painting house i, what do you need to remember to decide house i+1? Only the color of house i matters.",
+    "best[c] for house i = costs[i][c] + min(best of the other two colors for house i-1).",
+    "Keep three variables and roll them; the answer is the min of the three after the last house. O(n)."
+  ],
+  "pitfalls": [
+    "Picking the cheapest color per house greedily can force an expensive neighbour.",
+    "One house: return its cheapest color."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

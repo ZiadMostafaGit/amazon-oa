@@ -1,0 +1,128 @@
+{
+ "problemId": "amazon-bst-lowest-common-ancestor",
+ "generatedAt": "2026-11-06T16:49:14",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "insertionOrder",
+     "type": "int[]",
+     "rawValue": "[6, 8, 4, 9, 3, 5]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "insertionOrder",
+     "type": "int[]",
+     "rawValue": "[8, 8]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "insertionOrder",
+     "type": "int[]",
+     "rawValue": "[6, 9, 5, 3, 0, 8, 7, 4, 2]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "8"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "insertionOrder",
+     "type": "int[]",
+     "rawValue": "[5]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "insertionOrder",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "insertionOrder",
+     "type": "int[]",
+     "rawValue": "[5]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "5"
+    }
+   ],
+   "expectedRaw": "5"
+  }
+ ]
+}

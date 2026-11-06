@@ -1,0 +1,15 @@
+{
+  "pattern": "linked-list",
+  "why": "Deleting the head is a special case unless a dummy node sits in front of it. With a dummy, every deletion is the same move: from the predecessor, skip the next node. It teaches the dummy head for deletions.",
+  "hints": [
+    "To delete a node from a singly linked list, which node's pointer do you change?",
+    "Its predecessor's next. The head has no predecessor, which is why it is awkward; give it one with a dummy node.",
+    "prev = dummy (dummy.next = head). While prev.next exists: if its value matches, prev.next = prev.next.next; otherwise advance prev. Return dummy.next. O(n)."
+  ],
+  "pitfalls": [
+    "Do not advance prev right after deleting: the new prev.next may also need deleting (\"7,7,7\").",
+    "Every node may be removed; the answer is then an empty list (dummy.next is None)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

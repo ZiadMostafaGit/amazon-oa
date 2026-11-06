@@ -1,0 +1,16 @@
+{
+  "pattern": "backtracking",
+  "why": "Search a grid for a word: DFS from every cell that matches word[0], step to a neighbour only if it matches the next letter, mark the cell as used on the way in and unmark it on the way out, so other paths may still use it.",
+  "hints": [
+    "A path cannot reuse a cell, but a different path may. When should a cell be marked as used, and when should the mark be removed?",
+    "dfs(r, c, k): cell (r, c) must equal word[k]; if k is the last index, succeed. Otherwise mark it, try the four neighbours with k + 1, then unmark before returning.",
+    "Try dfs from every cell; return true on the first success. Prune early: if some letter of word occurs more often than in the board, return false at once. O(cells * 3^len)."
+  ],
+  "pitfalls": [
+    "Forgetting to unmark the cell makes later paths fail wrongly.",
+    "Letters are case-sensitive.",
+    "A one-cell board with a one-letter word is a match."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

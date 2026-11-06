@@ -1,0 +1,16 @@
+{
+ "pattern": "knapsack",
+ "why": "Partitioning into two groups with the smallest difference is subset sum over all targets at once: build the set of reachable subset sums, then the best split takes the reachable sum closest to total/2 from below, giving total - 2s.",
+ "hints": [
+  "If one group sums to s, the other sums to total - s. What does the difference look like in terms of s?",
+  "The difference is total - 2s for s <= total/2, so you want the largest reachable subset sum not above total/2.",
+  "Compute reachability for sums 0..total/2 with the 0/1 subset-sum table (or a bitset), then scan down from total/2 to the first reachable sum. O(n * total)."
+ ],
+ "pitfalls": [
+  "Every element must be in a group; it is a partition, not a free choice of two subsets.",
+  "Repeated values are separate elements.",
+  "Only sums up to total/2 matter; the other half is the mirror image."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

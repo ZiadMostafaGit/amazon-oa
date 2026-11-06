@@ -1,10 +1,10 @@
 {
   "pattern": "subsets",
-  "why": "Every element is in or out, so there are 2^n subsets; the only work is listing them in the required order (by size, then by index positions), which is exactly combinations of each size k in index order.",
+  "why": "Subsets by include or exclude: every element is in or out, so a depth-first walk that decides element 0, then 1, and so on reaches all 2^n subsets at its leaves; the required order (by size, then by index positions) is a sort afterwards, or the same backtracking run once per size k.",
   "hints": [
     "How many choices does each element have, and so how many subsets are there in total?",
-    "The ordering asks for all subsets of size 0, then size 1, and so on, with same-size subsets ordered by their index positions. That is 'all combinations of k indices in lexicographic order' for k = 0..n.",
-    "For k in 0..n, generate combinations of size k by backtracking (choose the next index greater than the last) or itertools.combinations, keeping nums' order. O(n * 2^n)."
+    "dfs(i, path): if i == n record a copy of path; otherwise recurse once without nums[i] and once with it (append, recurse, pop).",
+    "Sort the recorded index lists by (length, indices), or for k in 0..n backtrack choosing the next index greater than the last until k are chosen. O(n * 2^n)."
   ],
   "pitfalls": [
     "Include the empty subset first.",

@@ -1,0 +1,68 @@
+{
+ "problemId": "capgemini-contains-duplicate",
+ "generatedAt": "2026-11-06T16:49:16",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-1, 1]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 3, 1, 1, 3]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3, 2, 3, 2]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

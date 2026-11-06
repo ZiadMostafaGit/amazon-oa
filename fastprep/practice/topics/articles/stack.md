@@ -1,160 +1,249 @@
 # Stacks
 
-> A stack is not a box you keep things in. It is the answer to one question —
-> *which unfinished thing must I deal with first?* — and the answer is always:
-> the most recent one.
+> A stack works because, at every moment, the next thing you read can only settle with the most recent thing that is still unsettled; keep the unsettled things in the order they arrived, and the one that matters is always on top.
 
-## When you reach for it
+## The problem it solves
 
-You reach for a stack when the problem has **deferred obligations that must be
-settled in reverse order of when they arose**. You open a bracket, and you owe a
-closing one; if you open another before paying that debt, the second debt must be
-paid first. That is the whole shape. Nesting, undo, recursion, and "cancel with
-the thing immediately before me" are all the same shape wearing different words.
+Here are two strings of brackets:
 
-162 problems in this bank use a stack, which puts it at #26 of 150. They fall
-into six families, and it is worth learning the families rather than the
-problems:
-
-- **Matching and nesting.** *Valid Parentheses* (five companies ask it here),
-  *Balancing Parentheses*, *Rich Text Parser Part 1 (Validate Tokens)*,
-  *Minimum Parenthesis Removals and Their Indices*.
-- **Cancellation that cascades.** *Backspace String Compare*, *Compare Character
-  Arrays with Backspaces*, *Eliminate Substring* and *Get Final String* — remove
-  every occurrence of `AWS` until none remain.
-- **Undo.** *Command Undo Data Structure*, *Simple Text Editor*. The history of
-  what you did is a stack by definition.
-- **Recursion made explicit.** *Find File Paths in a Directory Tree* and
-  *Lowest Common Ancestor Implemented with Stack* both say, in the statement,
-  to use a stack instead of recursion. *Binary Tree Preorder Traversal* is the
-  same conversion.
-- **Evaluation.** *Stack Language Evaluator*, *Stack Command Output*,
-  *Flatten Nested Map Paths with a Stack* — a machine whose only memory is a
-  stack is enough to evaluate postfix and to track nesting context.
-- **Nearest smaller / greater.** *Final Price Discount*, *The Prom*. This family
-  is large enough to have its own chapter: [[monotonic-stack]].
-
-The tool is wrong when the obligation you must settle next is the **oldest**
-one, not the newest — "serve customers in arrival order", "process the request
-queue" — that is a [[queue]]. It is wrong when you need to reach into the middle
-by value or by rank: "the smallest element currently present" under arbitrary
-removals is a [[heap]] or an [[ordered-set]]. And it is wrong when the intervals
-you are matching **cross** rather than nest; crossing structure is what
-[[sweep-line]] is for, and no stack discipline can express it.
-
-One honest anti-signal. If the statement has exactly one kind of bracket, a
-single integer counter does the job, because a stack whose elements are all
-identical carries no information beyond its height. *Balancing Parentheses* is
-that problem. Reach for the real stack when the elements differ — bracket kinds,
-indices, contexts, values.
-
-## The idea
-
-**Keep only the part of what you have read that is still unresolved, and keep it
-in the order you opened it.**
-
-That sentence is the chapter. The stack is not a copy of the input; it is the
-*residue* of the input — the prefix you have read, with everything already
-settled deleted from it. Whatever is still open sits in the stack, and the thing
-you opened most recently sits on top, which is precisely where the next
-character can reach.
-
-Physically it is an array plus one index. `top` names the last occupied slot;
-push writes at `top + 1` and increments; pop reads at `top` and decrements.
-Nothing else moves. That is the entire reason both operations are O(1): every
-other element keeps the index it already had.
-
-<svg viewBox="0 0 660 190" role="img" aria-label="an array of six slots, four occupied, with a top index; push writes one slot right and pop reads at top">
-  <g>
-    <rect class="fill" x="40" y="60" width="70" height="46" rx="4"/>
-    <rect class="fill" x="110" y="60" width="70" height="46" rx="4"/>
-    <rect class="fill" x="180" y="60" width="70" height="46" rx="4"/>
-    <rect class="fill" x="250" y="60" width="70" height="46" rx="4"/>
-    <rect x="320" y="60" width="70" height="46" rx="4"/>
-    <rect x="390" y="60" width="70" height="46" rx="4"/>
-    <text x="75" y="88" text-anchor="middle">(</text>
-    <text x="145" y="88" text-anchor="middle">[</text>
-    <text x="215" y="88" text-anchor="middle">{</text>
-    <text x="285" y="88" text-anchor="middle">(</text>
-    <text x="40" y="40">bottom: opened first</text>
-    <line x1="285" y1="128" x2="285" y2="110"/>
-    <text x="285" y="146" text-anchor="middle">top</text>
-    <line x1="355" y1="128" x2="355" y2="110"/>
-    <text x="355" y="146" text-anchor="middle">push writes here</text>
-    <text x="490" y="78">pop: read a[top], top -= 1</text>
-    <text x="490" y="100">push: a[top+1] = x, top += 1</text>
-    <text x="40" y="176">no other element ever moves — that is why both are O(1)</text>
-  </g>
-</svg>
-
-The algorithmic move that follows from this picture is what I will call the
-**scan-and-reduce loop**, and almost every stack problem in the bank is an
-instance of it:
-
-```python
-stack = []
-for c in s:
-    if stack and cancels(stack[-1], c):
-        stack.pop()          # the debt is settled; both characters disappear
-    else:
-        stack.append(c)      # a new debt
+```text
+{[()()]}        ([)]
 ```
 
-Read it as a rewriting machine. You have a rule — "`(` followed by `)` deletes
-itself", "a letter followed by `#` deletes itself", "the three characters `AWS`
-delete themselves" — and you apply it the instant it becomes applicable. The
-stack always holds a string to which no rule applies.
+The first is valid: every bracket is closed by its own kind, and they close in the
+reverse order of opening. The second is not. Each opener does have a closer of its
+kind somewhere after it, but the `(` is opened before the `[` and closed before
+it too. The pairs cross instead of nesting. That is
+[[p:amazon-valid-parentheses|Valid Parentheses]], the defining stack problem, and
+it appears under several companies in this bank.
 
-That is a strong claim, and it is the one worth proving properly, because it
-explains what the code does not: why a *single left-to-right pass* suffices even
-when a deletion creates a brand-new match between characters that were far apart
-in the input.
+The definition of "valid" contains its own brute force. A matched pair that sits
+side by side, like `()` or `[]`, can be deleted without changing whether the
+string is valid. So delete one, then look again, and keep going. If you end with
+the empty string, it was valid. If you get stuck with something left, it was not.
+
+```text
+{[()()]}  ->  {[()]}  ->  {[]}  ->  {}  ->  (empty)      valid
+([)]      ->  no adjacent matched pair anywhere           stuck: invalid
+```
+
+That is correct, and on short strings it is fine. On long ones it is slow. One pass
+over the string finds and deletes the adjacent pairs, but deleting a pair can bring
+two brackets together that were far apart, and you only notice on the next pass.
+The worst input is deep nesting, `((((...))))` with n/2 of each. Every pass can
+delete only the one pair in the middle, so there are n/2 passes, and each reads
+the whole string. That is about n^2/4 character reads. At n = 10^5 that is
+2.5 x 10^9.
+
+What this chapter builds reads each character once and does at most one push or
+one pop for it: 10^5 steps instead of 2.5 x 10^9. The tool is a stack, a list
+where you only ever add at the end and remove from the end.
+
+The shape to remember: **things open and must be closed, and whatever was opened
+most recently must be closed first.** Brackets, nested function calls, undo,
+"this character cancels the one right before it", expressions with parentheses,
+nested `k[...]` groups. 346 problems in this bank use a stack, and most of them
+are that shape in different words.
+
+### When it is the wrong tool
+
+- **The next thing to handle is the oldest, not the newest.** "Serve in arrival
+  order", "process requests as they came", breadth-first search. That is a
+  [[queue]].
+- **You need the smallest or largest of what is present, after arbitrary
+  removals.** That is a [[heap]] or an [[ordered-set]]. (A stack can carry the
+  minimum of everything below each entry, but only because removals happen at the
+  top. See variation D.)
+- **There is only one kind of bracket and only a yes/no or a count.** Then every
+  stack element is the same symbol, so the stack carries no information beyond its
+  height, and an integer counter is enough.
+  [[p:oracle-balance-parentheses|Balancing Parentheses]] is that problem.
+- **Each element looks for the next bigger or smaller one.** That is still a
+  stack, but a specific discipline with its own chapter: [[monotonic-stack]].
+- **The things you match cross instead of nest.** Overlapping intervals are not
+  brackets. That is [[sweep-line]] or [[intervals]].
+
+## Build it from the brute force
+
+We start from the repeated-deletion program, count it, find exactly where it
+wastes work, and let the stack fall out as the cure.
+
+### Step 1: the brute force, as code
+
+```text
+while some adjacent matched pair exists in s:
+    delete it
+valid if s is now empty
+```
+
+In Python, one pass is `s.replace("()", "").replace("[]", "").replace("{}", "")`,
+and you repeat until the string stops changing. The first block in "From the idea
+to the code" runs it next to the stack version (built in the next steps) and
+counts how many characters each one reads.
+
+### Step 2: count it
+
+On `((((...))))` with n characters, each pass removes exactly one pair, the one in
+the middle, because that is the only place a `(` touches a `)`. Then the next
+innermost pair becomes adjacent, but this pass has already gone past it. So there
+are n/2 passes, and the k-th pass reads n - 2k characters. The total is about
+n^2/4.
+
+### Step 3: notice the waste
+
+Watch one pass on `(((())))`. It reads `(((`, finds nothing to delete, reaches the
+middle `()`, deletes it. The string is now `((()))`. The next pass reads `((`
+again from the start, finds nothing again, deletes the middle again.
+
+The three `(` on the left were read in every single pass, and every time the
+answer about them was the same: "nothing to delete here yet". They are waiting.
+They can only ever be deleted by a `)` that arrives on their right. Rereading
+them teaches you nothing.
+
+Now look at what a deletion actually changes. Deleting a pair at positions j and
+j+1 makes exactly one new pair of neighbours: the character just left of j and the
+character just right of j+1. Nothing else in the string is newly adjacent. So
+after a deletion, the only place a new match can appear is right there, at the
+seam.
+
+Put those two facts together. Read left to right, and keep the part you have
+already read in its **reduced** form, with every possible deletion done. That
+reduced part contains no adjacent matched pair; it is "stuck". When the next
+character arrives, the only new neighbour pair it creates is (last character of
+the reduced part, new character). Check that one pair. If it matches, delete both,
+and the reduced part is stuck again. If it does not, append the new character.
+Nothing else needs to be looked at, ever.
+
+### The question that unlocks it
+
+That is the question to ask on every problem in this family:
+
+**When the next item arrives, which earlier item can it possibly interact with?**
+
+For brackets, the answer is: only the most recent one that is still unresolved.
+Everything older is either already resolved (deleted) or buried behind something
+newer that is also unresolved. A `)` cannot reach past an unclosed `[` to close an
+older `(`, because that would make the pairs cross.
+
+So you keep the unresolved items in the order they arrived, and you only ever
+touch the newest one. A list where you only touch the end is a stack: `append` to
+add, `pop` to remove, `stack[-1]` to look.
+
+Say it a second way. The reduced prefix is a pile of debts. Each opener is a debt:
+"someone owes me a closer of my kind". Debts must be paid in the reverse order
+they were taken on, because a closer for an old debt cannot arrive while a newer
+debt is still open. So the only debt that the next closer can pay is the newest.
+It is on top of the pile.
+
+### You might think: "A counter is enough. +1 for an opener, -1 for a closer."
+
+For one kind of bracket, that is right, and it is the best solution. For several
+kinds, it is wrong. Take `([)]`. The counter goes 1, 2, 1, 0, never negative, ends
+at zero, and says "valid". But the `)` arrives while the `[` is the most recent
+open bracket, and a `)` cannot close a `[`.
+
+The counter knows how many debts are open, but not **which** ones. When there is
+only one kind, "how many" is all there is to know, which is why it works there.
+
+### You might think: "Then keep one counter per kind."
+
+Three counters, one each for `(`, `[`, `{`. On `([)]`: open `(`, open `[`, the `)`
+finds an open `(` and closes it, the `]` finds an open `[` and closes it. All
+counters end at zero. "Valid." Still wrong.
+
+This is the subtler instinct, and it is the important one. The per-kind counters
+check that each closer has **some** earlier opener of its kind. The real rule is
+that each closer must match the **most recent** unresolved opener of any kind.
+The `)` in `([)]` has an earlier `(`, but the most recent unresolved opener is the
+`[`, and that is what it must close. The order between different kinds is exactly
+the information the counters throw away, and it is exactly what the stack keeps.
+
+### You might think: "After a deletion I have to look back to see if a new pair formed."
+
+You do look, but you do not go back. After a match, you pop, and the new top is the
+character that is now next to whatever comes next. That is the "seam" from step 3,
+and it is always at the top. The next character will be compared with it
+automatically. There is no backward scan, and no rereading.
+
+A good test case for this: the string `AAWSWS` and the rule "delete every `AWS`
+until none remain" ([[p:jpmorgan-get-final-string|Eliminate Substring]]). One
+`str.replace` pass leaves `AWS`, because the second `AWS` only forms after the
+first one is gone. The stack scan, traced in the next section, gets the empty
+string in one pass.
+
+### Step 4: what goes on the stack
+
+The bracket scan pushes characters. Other problems push other things, and the
+choice is the whole design:
+
+- **the character**, when the question is "valid or not" or "what is left";
+- **its index**, when the answer is about positions: which brackets to delete,
+  the length of the longest valid run;
+- **a context**, when an opener starts a new scope and the closer must restore the
+  old one: the text built so far before a `k[`, the running sum before a `(`;
+- **a (value, count) pair**, when equal neighbours merge into runs;
+- **a (value, summary) pair**, when you must answer "the minimum of everything in
+  the stack" in O(1): store, with each entry, the minimum of it and everything
+  below it.
+
+In every case the rule is the same: the stack holds what is still unresolved,
+oldest at the bottom, newest on top, and the next item only interacts with the top.
+
+### The technique in one sentence
+
+**Scan left to right, keeping the unresolved part of what you have read on a
+stack, oldest at the bottom; each new item is compared only with the top, which
+either resolves it (pop, and the item below becomes the new top) or is left alone
+(push the new item); at the end, the stack holds exactly what never got
+resolved.**
+
+And the question that produced it: **when the next item arrives, which earlier
+item can it possibly interact with?** If the answer is "the most recent one still
+open", it is a stack.
 
 ## Worked by hand
 
-Take *Eliminate Substring*: remove every occurrence of `AWS` from a string, and
-keep going until none remain, since a removal can bring new letters together.
-Input `AAWSWS`.
+Get a pen. Here is the scan on `{[()()]}`, with the stack after every character.
+The stack is written bottom to top, left to right, so the top is the last
+character.
 
-The scan pushes each character and, after each push, checks whether the top three
-characters spell `AWS`.
+| step | char | it is | compared with top | action | stack after |
+|---|---|---|---|---|---|
+| 1 | `{` | opener | | push | `{` |
+| 2 | `[` | opener | | push | `{[` |
+| 3 | `(` | opener | | push | `{[(` |
+| 4 | `)` | closer | top `(` matches | pop | `{[` |
+| 5 | `(` | opener | | push | `{[(` |
+| 6 | `)` | closer | top `(` matches | pop | `{[` |
+| 7 | `]` | closer | top `[` matches | pop | `{` |
+| 8 | `}` | closer | top `{` matches | pop | (empty) |
 
-| step | char | stack before | top 3 spell `AWS`? | stack after |
-| --- | --- | --- | --- | --- |
-| 1 | `A` | `` | no (too short) | `A` |
-| 2 | `A` | `A` | no (`AA`) | `AA` |
-| 3 | `W` | `AA` | no (`AAW`) | `AAW` |
-| 4 | `S` | `AAW` | **yes** (`AWS`) | `A` |
-| 5 | `W` | `A` | no (`AW`) | `AW` |
-| 6 | `S` | `AW` | **yes** (`AWS`) | `` |
+The stack ends empty: valid.
 
-The stack ends empty, so the answer is the empty string — which this problem asks
-you to report as `"-1"`.
+Tell step 7 in words, the way you would at a whiteboard. "I read `]`. It is a
+closer, so it needs a `[`. Which open bracket can it close? Only the most recent
+one that is still open, which is the top of the stack. The top is `[`. It
+matches, so I pop it: that debt is paid. The stack is now just `{`, which is the
+one bracket still open, and it is on top, ready for whatever comes next."
 
-Three things in that trace are invisible in the code.
+Now `([)]`:
 
-**The cascade is free.** Step 6 deleted an `AWS` whose `A` is at input position 0
-and whose `S` is at input position 5 — three characters apart in the original
-string, brought together by the deletion in step 4. The scan never went back to
-look. It did not have to, because after step 4 the correct context for the next
-comparison was already sitting at the top of the stack. A `str.replace` pass does
-not have this property: one pass over `AAWSWS` produces `AWS`, not the empty
-string, and you would have to loop until the string stops changing, which is
-O(n²) on inputs built to make it so.
+| step | char | compared with top | action | stack after |
+|---|---|---|---|---|
+| 1 | `(` | | push | `(` |
+| 2 | `[` | | push | `([` |
+| 3 | `)` | top is `[`, needs `(` | **reject** | |
 
-**At most one deletion fires per character.** Look at step 4: after removing the
-three characters the stack is `A`, and we do *not* have to re-check. That is not
-luck — the stack held no match before the push, so deleting a suffix leaves a
-prefix of something already clean. The inner "keep reducing" loop that everybody
-writes is, for a single pattern, never entered twice.
+Tell step 3 in words. "I read `)`. The most recent open bracket is `[`. A `)`
+cannot close a `[`. Could it close the older `(` underneath? No: that would mean
+the `[` is closed after the `)`, which is the crossing the rule forbids. So the
+string is invalid, and I can stop right here. Nothing that comes later can fix
+it."
 
-**The stack is a string, not a set.** Order is the information: a multiset of
-pending characters could not tell `AW` from `WA` at step 6.
+Look at the stack heights over time, because the picture shows the two ways to
+fail.
 
-The same trace for brackets is worth drawing rather than tabulating, because the
-picture explains the two ways a bracket string can fail:
-
-<svg viewBox="0 0 660 230" role="img" aria-label="running balance of two bracket strings, one returning to zero and one dipping below zero">
+<svg viewBox="0 0 660 230" role="img" aria-label="the stack height while scanning two bracket strings: the first rises and falls back to zero without going below it, so it is valid; the second dips below zero at its second closer and ends above zero">
   <g>
     <line x1="30" y1="140" x2="630" y2="140"/>
     <text x="30" y="36">stack height while scanning</text>
@@ -177,633 +266,1119 @@ picture explains the two ways a bracket string can fail:
   </g>
 </svg>
 
-A string is valid when the curve never dips below the axis **and** finishes on
-it. Dipping below is a `)` with nothing to close; finishing above is a `(` never
-closed. Two different failures, two different checks, and forgetting the second
-one is the single most common bug in this topic.
+The left curve is `(()())`. It rises with each opener, falls with each closer,
+never goes below the axis, and finishes on it. The right curve is `())(`. At the
+third character it would go below zero: a `)` with nothing open, the shaded dot.
+And even if you ignored that, it finishes above zero: a `(` that is never closed.
 
-## Why it is correct
+So there are **two separate checks**, and they catch different strings:
 
-The informal argument — "the stack holds the unmatched brackets" — is a
-restatement, not a proof. Here is the real statement, general enough to cover
-brackets, backspaces and substring elimination at once.
+- **during the scan**: a closer arrives and the stack is empty, or the top is the
+  wrong kind. Reject.
+- **at the end**: the stack is not empty. Some opener was never closed. Reject.
 
-:::proof The stack is always the fully reduced form of the prefix read so far
-**Setup.** Fix an alphabet Σ and a finite set `R` of non-empty *patterns* over
-Σ. To *reduce* a string, delete one occurrence of a pattern; the two remaining
-halves concatenate. A string is *irreducible* if no pattern occurs in it as a
-factor. Assume:
+Forgetting the second check is the single most common bug in this topic. It
+passes every balanced test, and only `((`-like inputs expose it. It gets its own
+demonstration in the code section.
 
-- **(A1)** no non-empty proper suffix of a pattern is a prefix of a pattern
-  (patterns cannot partially overlap each other or themselves);
-- **(A2)** no pattern occurs as a factor of another pattern.
+### A second trace: a cascade, where a deletion creates a new match
 
-Consider the algorithm: `S := ε`; for each character `c` of the input, append
-`c` to `S`, then, if some pattern is a suffix of `S`, delete it.
+Now [[p:jpmorgan-get-final-string|Eliminate Substring]]: delete every `AWS`, and
+keep going, because a deletion can bring new letters together. Input `AAWSWS`.
+After each push, check whether the top three characters spell `AWS`.
 
-**Uniqueness of normal forms.** Every rule shortens the string, so no infinite
-reduction exists; the system terminates. If two distinct pattern occurrences
-exist in one string, (A1) forbids a partial overlap and (A2) forbids one being
-contained in the other, so they are disjoint; deleting either leaves the other
-intact, and the two orders reach the same string. The system is therefore
-locally confluent, and by Newman's lemma (terminating plus locally confluent
-implies confluent) every string `w` has a *unique* irreducible form, written
-`NF(w)`.
+| step | char | stack before | top three spell `AWS`? | stack after |
+|---|---|---|---|---|
+| 1 | `A` | (empty) | no, too short | `A` |
+| 2 | `A` | `A` | no, `AA` | `AA` |
+| 3 | `W` | `AA` | no, `AAW` | `AAW` |
+| 4 | `S` | `AAW` | **yes**: `AWS` | `A` |
+| 5 | `W` | `A` | no, `AW` | `AW` |
+| 6 | `S` | `AW` | **yes**: `AWS` | (empty) |
 
-**Invariant.** After the algorithm has consumed `s[0..i)`, the stack — read
-bottom to top as a string — equals `NF(s[0..i))`.
+The stack ends empty, so the answer is the empty string, which this problem asks
+you to report as `"-1"`.
 
-**Base case.** `i = 0`. The stack is `ε`, which is irreducible, and `NF(ε) = ε`.
+This trace shows something the first did not. In step 6, the `AWS` that was deleted
+is made of the `A` from input position 0 and the `W` and `S` from positions 4 and
+5. In the original string those letters were not next to each other. The deletion
+in step 4 brought them together. And the scan never went back to look: after step
+4 the `A` from position 0 was simply on top, which is exactly where the next
+comparison happens.
 
-**Inductive step.** Assume the stack holds `S = NF(s[0..i))` and let `c = s[i]`.
-The algorithm forms `S·c` and looks for a pattern suffix. Two lemmas.
+Tell step 4 in words. "I push `S`. The top three are `A`, `W`, `S`, from input
+positions 1, 2 and 3. That is the pattern, so I delete all three. The stack is now
+`A`, the one from position 0. It is on top. It does not know it was ever buried;
+it is just the newest unresolved letter, waiting for the next one."
 
-*Lemma 1 — only the top can fire.* Any occurrence of a pattern in `S·c` must
-contain the final character: an occurrence avoiding it lies entirely inside `S`,
-contradicting that `S` is irreducible. An occurrence containing the final
-character of `S·c` is a suffix of it. So testing suffixes finds every applicable
-rule, and by (A2) at most one pattern can be a suffix (two suffixes of the same
-string are nested, and the shorter would be a factor of the longer). There is
-never a choice to get wrong.
+Compare with `str.replace`: one pass over `AAWSWS` finds the `AWS` at positions 1
+to 3, removes it, and moves on past it, giving `AWS`. You would have to loop until
+the string stops changing, which is the quadratic brute force again.
 
-*Lemma 2 — one deletion is enough.* If pattern `p` is a suffix of `S·c`,
-deleting it leaves a string that is a prefix of `S`. Every factor of a prefix of
-`S` is a factor of `S`, and `S` is irreducible, so the result is irreducible. If
-no pattern is a suffix, then by Lemma 1 `S·c` is already irreducible.
+### A third trace: positions instead of characters
 
-Either way the new stack `T` is irreducible, and it was obtained from `S·c` by
-legal reductions. Since `S` was itself obtained from `s[0..i)` by legal
-reductions, `T` is reachable from `s[0..i+1)`; being irreducible and reachable,
-and normal forms being unique, `T = NF(s[0..i+1))`. The invariant is restored.
+[[p:doordash-minimum-parenthesis-removal-indices|Minimum Parenthesis Removals and Their Indices]]
+asks for the **indices** of the brackets that cannot be matched. Push indices, not
+characters. Input `())(()`:
 
-**Termination.** Each input character is pushed exactly once, and each deletion
-removes characters that were pushed earlier and never returns them. So the number
-of pops is at most the number of pushes, the outer loop runs exactly `n` times,
-and the algorithm performs at most `2n` stack operations before halting.
+| i | char | stack of indices before | action | stack after | orphans |
+|---|---|---|---|---|---|
+| 0 | `(` | | push 0 | 0 | |
+| 1 | `)` | 0 | pop: 1 closes 0 | | |
+| 2 | `)` | (empty) | nothing to close: orphan | | 2 |
+| 3 | `(` | | push 3 | 3 | 2 |
+| 4 | `(` | 3 | push 4 | 3, 4 | 2 |
+| 5 | `)` | 3, 4 | pop: 5 closes 4 | 3 | 2 |
 
-**Conclusion.** At `i = n` the stack is `NF(s)`.
+At the end, index 3 is still open. The unmatched indices are the orphan closer 2
+and the leftover opener 3: answer [2, 3]. Delete those two and `()()` remains,
+which is valid. The stack of characters could have said "invalid", but not
+**where**.
 
-*For brackets*, take `R = {"()", "[]", "{}"}`, which satisfies (A1) and (A2). A
-string is well-formed exactly when `NF(s) = ε`: every well-formed string contains
-an innermost adjacent pair whose deletion leaves a well-formed string (induction
-on length), and conversely a string reducible to `ε` is built from `ε` by
-inserting matched pairs, which is well-formed. So "the stack is empty at the end"
-is the correct and complete test. *For backspaces*, take
-`R = {x# : x ∈ letters}`; the extra convention that a `#` against an empty text
-disappears is the `if stack:` guard, and it too deletes a suffix (the empty one),
-so the induction is unchanged. ∎
-:::
+## From the idea to the code
 
-Now name what the proof leaned on, because that list is where the bugs live.
-
-- **(A1) and (A2) are real conditions, not boilerplate.** The pattern `aba`
-  violates (A1), and on `ababa` the two deletion orders give `ba` and `ab`: two
-  normal forms, so the task itself is ambiguous and the scan silently returns
-  one of them. `AWS` has no such self-overlap, which is why *Eliminate Substring*
-  is well posed.
-- **Only suffixes are tested.** Lemma 1 is what licenses looking at the top and
-  nowhere else. If your rule can fire in the middle of the residue — "delete any
-  two adjacent equal letters *anywhere*, but only if the string is shorter than
-  ten" — the induction collapses.
-- **Reading strictly left to right, with no lookahead.** The invariant is about a
-  prefix; a rule that depends on characters not yet read has no prefix to be an
-  invariant about.
-- **The stack is the whole state.** Nothing is remembered outside it. If you
-  maintain a side counter — a running sum, a minimum, a depth — you have added a
-  second invariant, and now every push and every pop must restore both. That is
-  where min-stacks and *Adding Stack 2.0* go wrong.
-- **Nothing in the proof mentioned speed.** Correctness does not depend on the
-  array being amortised, on avoiding `pop(0)`, or on the pattern check being
-  O(1). If the answer is wrong, those lines are not the suspect.
-
-:::note Why "the most recent unmatched opener" is also the *minimum* removal
-*Minimum Parenthesis Removals and Their Indices* asks for the indices the scan
-leaves behind, and promises that their count is the minimum possible number of
-deletions. That is a separate claim, and it is an exchange argument.
-
-Deleting characters to make a bracket string valid is the same as choosing a set
-of non-crossing matched pairs to keep, so minimum deletions equals
-`n − 2·(maximum matching)`. Suppose an optimal solution matches a `)` at index
-`j` with an opener at index `i′`, while the greedy would match it with the most
-recent unmatched opener `i > i′`. If `i` is unmatched in the optimal solution,
-replace `(i′, j)` by `(i, j)`: still `i < j`, same count. If `i` is matched in
-the optimal solution to some `j″`, then `j″ > j` (because `i` is the most recent
-unmatched opener before `j`, so everything the optimal solution paired with
-`i` lies later), and we may swap to `(i, j)` and `(i′, j″)`, which is valid since
-`i′ < i < j < j″`. Either way the count is unchanged and the solution agrees with
-the greedy on one more position. Induct: the greedy attains the maximum.
-:::
-
-## What it costs
-
-**The scan.** Each character of the input is pushed exactly once. Each pop
-destroys an element that was pushed earlier and is never restored, so over the
-whole run
-
-```
-pops ≤ pushes = n
-```
-
-and the total number of stack operations is at most `2n`. This is a counting
-argument, not an amortised one — no potential function is needed, because the
-bound is on the entire run, not on any individual step. With a pattern of length
-`k`, each step also compares up to `k` characters, giving **Θ(nk)** time, which
-is Θ(n) for the constant-length patterns every one of these problems uses.
-
-**Space is Θ(n), and that is not negligible.** The worst case for
-*Valid Parentheses* is `((((((…`, where nothing cancels and the stack holds the
-entire input. If a statement demands O(1) extra space the stack formulation is
-out: *Backspace String Compare* has a [[two-pointers|two-pointer]] alternative
-that walks both strings from the right, counting pending deletions in an integer.
-
-**The array underneath.** `list.append` is not literally O(1); it is amortised
-O(1), and the derivation is worth carrying. A doubling array holding `n` elements
-has been resized at sizes `1, 2, 4, …, 2^k ≤ n`, and each resize copies that many
-elements, so the total copying is
-
-```
-1 + 2 + 4 + … + 2^k < 2^(k+1) ≤ 2n
-```
-
-Add the `n` writes and `n` pushes cost less than `3n` steps, i.e. at most 3 per
-push. The same result with a potential function: let `Φ = 2·size − capacity`
-(non-negative once the array is at least half full). An ordinary push has actual
-cost 1 and raises `Φ` by 2, so its amortised cost is 3. A resizing push copies
-`size` elements, actual cost `size + 1`, while `Φ` falls from `size` to 2, so its
-amortised cost is `size + 1 + 2 − size = 3`. Constant either way. See
-[[amortized-analysis]]. Shrinking must use hysteresis — halve the capacity only
-when the array falls to a *quarter* full — or an alternating push/pop pair at the
-boundary pays Θ(n) every time.
-
-**The costs people forget**, in the order they cost people time:
-
-- *Building the answer with `+=`.* `out = out + c` inside the loop copies the
-  whole string each time: Θ(n²), a comfortable timeout at the `10^5` bound that
-  *Eliminate Substring* and *The Prom* both carry. Collect into the list and call
-  `''.join(stack)` once, which is Θ(n).
-- *Using `pop(0)` or `insert(0, x)`.* Each is Θ(n) because every other element
-  shifts; a stack must grow at the end. Something that needs both ends wants a
-  [[deque]].
-- *The recursion you avoided.* An explicit stack of integers costs a machine word
-  each; a recursive call costs a frame — hundreds of bytes — and Python stops at
-  about 1000 of them. That is precisely why *Find File Paths in a Directory Tree*
-  specifies an explicit stack at 20000 paths. A per-character dictionary lookup
-  is expected O(1) ([[hash-tables]]) but not free either.
-
-## The implementation
+First the brute force and the two wrong instincts, run against the stack on the
+same strings, with the work counted. Then the clean implementation.
 
 ```python run
 import random
 
+PAIRS = ["()", "[]", "{}"]
 
-def valid_parentheses(s):
-    """True iff every bracket is closed by its own kind, in order."""
-    opener = {')': '(', ']': '[', '}': '{'}
-    stack = []
+def valid_by_deletion(s):
+    """The definition, run literally: delete adjacent pairs until none are left."""
+    work = 0
+    while True:
+        work += len(s)                         # one pass reads the whole string
+        t = s
+        for p in PAIRS:
+            t = t.replace(p, "")
+        if t == s:
+            return s == "", work
+        s = t
+
+def valid_by_counter(s):                       # wrong instinct 1: only the depth
+    depth = 0
     for c in s:
-        if c in opener:
-            if not stack or stack.pop() != opener[c]:
-                return False          # a ')' with nothing (or the wrong thing) under it
+        depth += 1 if c in "([{" else -1
+        if depth < 0:
+            return False
+    return depth == 0
+
+def valid_by_same_kind(s):                     # wrong instinct 2: one counter per kind
+    open_count = {"(": 0, "[": 0, "{": 0}
+    match = {")": "(", "]": "[", "}": "{"}
+    for c in s:
+        if c in open_count:
+            open_count[c] += 1
+        else:
+            if open_count[match[c]] == 0:
+                return False
+            open_count[match[c]] -= 1
+    return all(v == 0 for v in open_count.values())
+
+def valid_by_stack(s):
+    match, stack, work = {")": "(", "]": "[", "}": "{"}, [], 0
+    for c in s:
+        work += 1
+        if c in match:
+            if not stack or stack.pop() != match[c]:
+                return False, work
         else:
             stack.append(c)
-    return not stack                  # leftovers are openers that were never closed
+    return not stack, work
 
+for t in ["([{}])", "([)]", "(("]:
+    print("%-8s deletion %-5s counter %-5s per-kind %-5s stack %s" % (t, valid_by_deletion(t)[0],
+          valid_by_counter(t), valid_by_same_kind(t), valid_by_stack(t)[0]))
+assert valid_by_counter("([)]") and valid_by_same_kind("([)]")       # both fooled
+assert not valid_by_deletion("([)]")[0] and not valid_by_stack("([)]")[0]
 
-def unmatched_indices(s):
+for n in (1000, 2000, 4000):
+    nested = "(" * (n // 2) + ")" * (n // 2)   # one deletion per pass: the worst case
+    (a, w1), (b, w2) = valid_by_deletion(nested), valid_by_stack(nested)
+    assert a and b
+    print("n=%5d  deletion reads %9d chars, stack reads %5d" % (n, w1, w2))
+    assert w1 > n * n / 8 and w2 == n
+
+rng = random.Random(1)
+for _ in range(3000):
+    t = "".join(rng.choice("()[]{}") for _ in range(rng.randint(0, 10)))
+    assert valid_by_deletion(t)[0] == valid_by_stack(t)[0], t
+print("3000 random strings: the one-pass stack agrees with repeated deletion")
+```
+
+Look at the first table: the counter and the per-kind counters both accept `([)]`.
+The repeated deletion and the stack both reject it. Then the work: on nested
+strings the deletion reads about n^2/4 characters, and the stack reads exactly n.
+
+Here is the scan written properly, with the hand trace asserted, plus the two
+other traces from the previous section.
+
+```python run
+import random
+
+def is_valid(s, log=None):
+    match = {")": "(", "]": "[", "}": "{"}    # closer -> the opener it needs
+    stack = []                                 # openers not yet closed, oldest first
+    for c in s:
+        if c in match:                         # a closer: it can only meet the top
+            if not stack or stack.pop() != match[c]:
+                return False                   # nothing open, or the wrong kind open
+        else:
+            stack.append(c)                    # an opener: a new debt
+        if log is not None:
+            log.append("".join(stack))
+    return not stack                           # debts never paid make it invalid
+
+log = []
+print("{[()()]}", is_valid("{[()()]}", log), log)
+assert log == ["{", "{[", "{[(", "{[", "{[(", "{[", "{", ""]
+
+def unmatched(s):
     """Indices left over when each ')' takes the most recent unmatched '('."""
     stack, orphans = [], []
     for i, c in enumerate(s):
-        if c == '(':
-            stack.append(i)
-        elif stack:
-            stack.pop()
-        else:
-            orphans.append(i)
-    return sorted(orphans + stack)
-
-
-def eliminate(s, pattern):
-    """Delete every occurrence of `pattern`, cascading, in one pass."""
-    k, stack = len(pattern), []
-    for c in s:
-        stack.append(c)
-        if len(stack) >= k and ''.join(stack[-k:]) == pattern:
-            del stack[-k:]
-    return ''.join(stack)
-
-
-def backspace(s):
-    stack = []
-    for c in s:
-        if c == '#':
+        if c == "(":
+            stack.append(i)                    # push WHERE, not what
+        elif c == ")":
             if stack:
                 stack.pop()
-        else:
-            stack.append(c)
-    return ''.join(stack)
+            else:
+                orphans.append(i)              # a closer with nothing to close
+    return sorted(orphans + stack)             # plus openers never closed
 
+print("unmatched in '())(()' :", unmatched("())(()"))
+assert unmatched("())(()") == [2, 3]
 
-for t in ["()[]{}", "([{}])", "([)]", "((", ")(", ""]:
-    print("  valid(%-8r) = %s" % (t, valid_parentheses(t)))
-assert valid_parentheses("([{}])") and valid_parentheses("")
-assert not valid_parentheses("([)]") and not valid_parentheses("((")
+def eliminate(s, pat="AWS"):
+    stack, k = [], len(pat)
+    for c in s:
+        stack.append(c)
+        if len(stack) >= k and "".join(stack[-k:]) == pat:
+            del stack[-k:]                     # the cascade needs no look-back
+    return "".join(stack)
 
-print("unmatched indices of '())(()' :", unmatched_indices("())(()"))
-assert unmatched_indices("())(()") == [2, 3]
-
-print("str.replace once on 'AAWSWS' :", repr("AAWSWS".replace("AWS", "")))
-print("the stack scan on  'AAWSWS'  :", repr(eliminate("AAWSWS", "AWS")))
-assert eliminate("AAWSWS", "AWS") == ""
-
-
-def by_repeated_deletion(s, p):       # the O(n^2) definition, as a reference
-    while p in s:
-        s = s.replace(p, "", 1)
+def by_repeated_deletion(s, pat="AWS"):
+    while pat in s:
+        s = s.replace(pat, "", 1)
     return s
 
-
+print("one replace pass on AAWSWS:", repr("AAWSWS".replace("AWS", "")),
+      "  stack:", repr(eliminate("AAWSWS")))
+assert eliminate("AAWSWS") == "" and "AAWSWS".replace("AWS", "") == "AWS"
 rng = random.Random(5)
 for _ in range(2000):
     t = "".join(rng.choice("AWS") for _ in range(rng.randint(0, 14)))
-    assert eliminate(t, "AWS") == by_repeated_deletion(t, "AWS"), t
-print("2000 random strings: one pass agrees with repeated deletion")
-
-print("backspace('ab#c') =", repr(backspace("ab#c")), " backspace('###a') =", repr(backspace("###a")))
-assert backspace("ab#c") == "ac" and backspace("###a") == "a"
-assert backspace("a#c") == backspace("b#c")
+    assert eliminate(t) == by_repeated_deletion(t), t
+print("2000 random strings: one pass equals deleting until nothing is left")
 ```
 
-Three lines are carrying the weight.
+### Each line, and which part of the idea it is
 
-`if not stack or stack.pop() != opener[c]` does two jobs in one expression, and
-the order matters. `not stack` is tested first, so `stack.pop()` never runs on an
-empty list — Python's `or` short-circuits. Write the guard the other way round
-and you get an `IndexError` on the input `")"`. Popping inside the condition is
-safe here only because a mismatch returns immediately; if you had to continue,
-you would peek with `stack[-1]` and pop separately.
+| line | in words | which step of the derivation |
+|---|---|---|
+| `match = {")": "(", ...}` | for each closer, the opener it needs | the matching rule |
+| `stack = []` | the reduced prefix: openers not yet closed, oldest first | step 3 |
+| `if c in match:` | a closer arrived: it can only settle with the top | the unlocking question |
+| `if not stack` | nothing is open: this closer has no partner (the curve dips below zero) | failure 1 |
+| `or stack.pop() != match[c]` | pop the newest open bracket; if it is the wrong kind, the pairs cross | failure 1, wrong kind |
+| `stack.append(c)` | an opener: a new debt, now the newest | push |
+| `return not stack` | anything left was opened and never closed | failure 2 |
+| `stack.append(i)` in `unmatched` | push where, not what | step 4: positions |
+| `del stack[-k:]` in `eliminate` | the pattern is on top: remove it, and the seam is the new top | the cascade |
 
-`return not stack` is the second failure mode from the balance diagram. Delete
-it and replace it with `return True` and every test with balanced prefixes still
-passes; only `"(("` and its friends break. Half the wrong submissions to
-*Valid Parentheses* are exactly this line.
+Settle three boring confusions now.
 
-`''.join(stack)` at the end, rather than a string accumulated in the loop, is the
-difference between Θ(n) and Θ(n²) at the `10^5` bound.
+**Why is `not stack` tested before `stack.pop()`?** Because Python's `or` stops
+at the first true operand. If the stack is empty, `not stack` is true, the
+condition is decided, and `pop()` is never called. Written the other way round,
+`stack.pop() != match[c] or not stack`, the pop runs first and crashes with
+`IndexError` on the input `)`.
 
-## Variants you will meet
+**Is popping inside the condition safe?** Here, yes, because a mismatch returns
+immediately and the popped value is never needed again. If the loop had to
+continue after a mismatch (say, to count errors), you would peek with `stack[-1]`
+first and pop separately.
 
-**Monotonic stack.** Maintain the stack in sorted order by popping everything
-that the incoming element dominates. Each element enters and leaves once, so the
-scan is still Θ(n), and what you get is "the nearest smaller element to the
-right" for free. *Final Price Discount* asks for exactly that; *The Prom* pairs
-each boy with the nearest unpaired girl ahead of him, which is the same scan with
-the roles renamed. Full treatment in [[monotonic-stack]].
+**Does `eliminate` re-check after a deletion?** It does not need to. Before the
+push, the stack contained no `AWS` anywhere (that is the invariant). Deleting the
+top three leaves a prefix of that clean stack, which is still clean. So at most one
+deletion can happen per character, and the `if` is enough. For some rules, like
+the asteroids in variation C, one arrival can resolve several items in a row, and
+then you need a `while`.
 
-**Stack with an O(1) aggregate.** Push a pair — the value, and the running
-minimum (or maximum, or sum) of everything at or below this position. Pop
-discards both, so nothing is ever recomputed. *Stack with Constant-Time Middle
-Queries* is the same trick with a different summary, and *Adding Stack 2.0* is
-the cleverest member: `inc i v` cannot touch `i` elements in O(1), so it records
-a lazy increment at depth `i` and pushes the debt down only on a pop.
+### The subtle line, both ways
 
-**A queue from two stacks.** Arrivals go on one stack, departures come off the
-other, and the outbox is refilled only when it runs dry — which reverses the
-order exactly once. *Implement a Queue Using Two Stacks* appears twice in this
-bank. The block below measures the amortised claim rather than asserting it. See
-[[queue]] and [[amortized-analysis]].
+The one line that carries the bracket scan is `return not stack`. The common wrong
+version is `return True`: "I got to the end without rejecting, so it is valid". It
+looks reasonable, it passes every balanced test, and it is wrong. The block also
+shows the guard order from above.
+
+Same inputs for both: `(()` and `(())`.
+
+Right ending (`return not stack`):
+
+- `(()`: `(` push, stack `(`. `(` push, stack `((`. `)` pops a `(`, stack `(`. End.
+  The stack holds `(`: one opener never closed. **Invalid.**
+- `(())`: same three steps, then `)` pops the last `(`. Stack empty. **Valid.**
+
+Wrong ending (`return True`):
+
+- `(()`: exactly the same three steps, stack `(` at the end. **This is the point
+  where it goes wrong**: the leftover `(` is on the stack, and nobody looks at it.
+  Returns **valid**.
+- `(())`: valid, correct.
+
+So the wrong version is right on every string whose stack happens to end empty,
+which includes every valid string. The only inputs that catch it are the ones with
+an unclosed opener at the end. In the height picture, it checks "never below zero"
+but not "finishes on zero". What it actually computes is "is this a **prefix** of
+some valid string?", a real and different question: `(()` is a fine beginning of
+`(())`.
 
 ```python run
-import random
-from collections import deque
+MATCH = {")": "(", "]": "[", "}": "{"}
 
+def scan(s, ending, guard_first=True):
+    stack, steps = [], []
+    for c in s:
+        if c in MATCH:
+            if guard_first:
+                bad = not stack or stack.pop() != MATCH[c]      # empty is tested first
+            else:
+                bad = stack.pop() != MATCH[c] or not stack      # pops before it looks
+            if bad:
+                steps.append("%s: reject" % c)
+                return False, steps
+        else:
+            stack.append(c)
+        steps.append("%s: [%s]" % (c, "".join(stack)))
+    return (not stack if ending == "right" else True), steps
 
-class QueueFromTwoStacks:
-    """FIFO out of two LIFOs. `inbox` takes arrivals, `outbox` serves them."""
+for s in ["(()", "(())"]:
+    for ending in ("right", "wrong"):
+        ok, steps = scan(s, ending)
+        print("%-5s %-6s ending -> %-5s   %s" % (s, ending, ok, "  ".join(steps)))
+assert scan("(()", "right")[0] is False
+assert scan("(()", "wrong")[0] is True          # the leftover '(' was never looked at
+assert scan("(())", "right")[0] is scan("(())", "wrong")[0] is True   # balanced tests pass
 
-    def __init__(self):
-        self.inbox, self.outbox, self.moves = [], [], 0
-
-    def push(self, x):
-        self.inbox.append(x)
-
-    def _expose_front(self):
-        if not self.outbox:                       # only when the outbox is dry
-            while self.inbox:
-                self.outbox.append(self.inbox.pop())
-                self.moves += 1
-
-    def pop(self):
-        self._expose_front()
-        return self.outbox.pop()
-
-    def peek(self):
-        self._expose_front()
-        return self.outbox[-1]
-
-    def empty(self):
-        return not self.inbox and not self.outbox
-
-
-q = QueueFromTwoStacks()
-for v in (1, 2, 3):
-    q.push(v)
-print("push 1,2,3 -> pop", q.pop(), "| peek", q.peek(), "| pop", q.pop())
-assert q.peek() == 3 and not q.empty()
-
-q, ref, pushes = QueueFromTwoStacks(), deque(), 0
-rng = random.Random(4)
-for _ in range(20000):
-    if not ref or rng.random() < 0.5:
-        v = rng.randrange(1000)
-        q.push(v)
-        ref.append(v)
-        pushes += 1
-    elif rng.random() < 0.5:
-        assert q.pop() == ref.popleft()
-    else:
-        assert q.peek() == ref[0]
-    assert q.empty() == (not ref)
-print("20000 random operations agree with collections.deque")
-print("pushes:", pushes, " transfers between the stacks:", q.moves,
-      "-> at most one move per element")
-assert q.moves <= pushes
+crashed = False
+try:
+    scan(")", "right", guard_first=False)
+except IndexError as e:
+    crashed = True
+    print("guard second on ')':  IndexError:", e)
+assert crashed
+print("guard first on ')':  ", scan(")", "right")[0])
+assert scan(")", "right")[0] is False
 ```
 
-**Undo, and undo with redo.** One stack of applied commands; `UNDO` pops and
-inverts. *Command Undo Data Structure* multiplies and adds an integer, so store
-the previous state rather than the operation — cheaper than inverting a
-multiplication by zero. Redo is a second stack, and *Simple Text Editor* states
-the rule that makes it one: typing after an undo clears the redo history.
+Notice that the stacks printed for `(()` are identical in both versions, step by
+step. The scan is the same; only the last line differs. That is why reading the
+loop carefully does not find this bug. You find it by asking what the stack holds
+at the end, and what that means.
 
-**An explicit stack in place of recursion.** Push the work items you have not
-done yet; pop, do a constant amount, push the successors. *Find File Paths in a
-Directory Tree* and *Lowest Common Ancestor Implemented with Stack* require this
-in the statement. Two things change versus recursion: you choose the order by
-choosing the push order (for preorder over a binary tree, push the right child
-first so the left is popped first), and local variables you relied on must become
-part of the pushed item. See [[recursion]], [[dfs]] and [[tree-traversal]].
+## Why it is correct
 
-**Parsing with a stack of contexts.** Each opener pushes a context and each
-closer pops it, and the stack read bottom-to-top *is* the path from the root.
-*Flatten Nested Map Paths with a Stack* joins that path with dots to form
-`parent.child.key=value`; *Convert Stack Samples to Trace Events* compares two
-consecutive stacks, where the longest common prefix is exactly the set of calls
-that stayed open. See [[parsing]], and [[recursive-descent]] when the grammar has
-precedence rather than pure nesting.
+The informal argument, "the stack holds the unmatched openers", is a restatement,
+not a proof. Here is a real one. It needs a precise definition of valid.
 
-**Postfix evaluation.** Operands push, operators pop their arity and push the
-result. *Stack Language Evaluator* adds `dup`, `swap` and `drop`; *Stack Command
-Output* is the two-instruction version. The pop order is the trap: the first
-value popped is the **right** operand.
+**Definition.** Deleting an adjacent matched pair (`()`, `[]` or `{}` sitting side
+by side) is a *reduction*. A string is **valid** if some sequence of reductions
+turns it into the empty string.
 
-**Greedy with a stack.** *Lexicographically Minimum Stack Encryption* lets you
-push the next input character or pop the top to the output, and asks for the
-smallest possible output: pop while the top is at most the minimum of the unread
-suffix. Precompute suffix minima, then one pass. The difficulty is entirely in
-the [[greedy-exchange|exchange argument]] that justifies the rule.
+This matches "closed by the same kind, in reverse order". A non-empty valid string
+always has an innermost pair, an opener immediately followed by its own closer, and
+deleting it leaves a valid string. Conversely, inserting a matched pair side by
+side into a valid string keeps it valid. So the two definitions describe the same
+strings.
 
-**Batch deletion by predicate.** *Stack Batch Removal* drops every element below
-or above a threshold. Each element is destroyed at most once, so the work is
-amortised linear — but the elements removed need not be at the top, so this is no
-longer a pure stack.
+:::proof The scan accepts exactly the valid strings
+**Fact 1: the end result of reducing does not depend on the order.** Two different
+adjacent pairs in a string never share a character: a pair is an opener followed
+by a closer, so for two pairs to overlap one character would have to be the closer
+of the first pair and the opener of the second. So deleting one pair leaves the
+other intact, and the two deletions can be done in either order with the same
+result. Every reduction makes the string shorter, so reducing always stops. A
+string that can be reduced in two different ways can therefore always be brought
+back to a common result, and every string has exactly one fully reduced form.
+Call it NF(s). Then s is valid exactly when NF(s) is empty.
+
+**The invariant.** After the scan has read a prefix P without rejecting, the stack,
+read bottom to top, is NF(P), and it contains only openers.
+
+**Base case.** P is empty, the stack is empty, and NF of the empty string is empty.
+
+**Step, opener.** The next character c is an opener. NF(P) followed by c is
+openers only, so no pair can be deleted: it is fully reduced. That is NF(P + c),
+and the scan pushes c. The invariant holds.
+
+**Step, matching closer.** c is a closer and the top of the stack is its opener.
+NF(P) + c ends with an adjacent matched pair. Delete it: what is left is NF(P)
+without its top, a string of openers only, which is fully reduced. So it is
+NF(P + c), and the scan pops. The invariant holds.
+
+**Step, reject.** c is a closer and the stack is empty, or its top is an opener of
+the wrong kind. Then NF(P) + c is fully reduced (openers only, then a closer that
+does not match its left neighbour), so it is NF(P + c), and it contains the closer
+c. We show that no continuation can ever remove c, so the scan is right to stop.
+In any further reduction, c can only be deleted together with the character
+directly to its left at that moment. If there is no character to its left, it can
+never be deleted. If there is one, it is the opener x that does not match c. And x,
+being an opener, can only be deleted together with the character directly to its
+**right**, which is c, which does not match. Neither can go first, so neither ever
+goes. Every extension of P + c has a non-empty reduced form, so it is invalid, and
+in particular s is invalid.
+
+**End.** If the scan reads all of s without rejecting, the stack is NF(s). It is
+empty exactly when s is valid, which is what `return not stack` reports.
+
+**Termination and count.** Each character is pushed at most once and popped at
+most once, so the scan does at most 2n stack operations.
+:::
+
+The same proof covers more than brackets. Any rule of the form "delete this
+pattern when it appears, until it no longer appears" works with the one-pass stack,
+provided two occurrences of the pattern can never overlap. `AWS` cannot overlap
+itself (no ending of `AWS` is also a beginning of it), and neither can `xy` for
+two different characters. The pattern `aba` can overlap itself: in `ababa` the
+occurrences at positions 0 to 2 and 2 to 4 share the middle `a`. Deleting the
+first leaves `ba`, deleting the second leaves `ab`. Two different end results, so
+"delete until none remain" does not even define a single answer, and Fact 1 is
+exactly the step that fails.
+
+Now say plainly what the proof leaned on, because that list is where bugs come
+from.
+
+- **Only the top can interact.** The proof used that a new character can only form
+  a pair with its left neighbour in the reduced string. If a rule can fire in the
+  middle of what you have kept (not at the seam), the stack is the wrong
+  structure.
+- **Patterns do not overlap.** That is Fact 1. Check it before trusting a one-pass
+  cancellation.
+- **The two failure checks.** The reject step and the end step are separate parts
+  of the proof. Each one corresponds to a line of code, and dropping either one
+  breaks a different set of inputs.
+- **The stack is the whole state.** Nothing is remembered outside it. If you add a
+  side variable (a running sum, a depth, a minimum), you have a second invariant,
+  and every push and every pop must keep it true. That is where min stacks and
+  calculators go wrong.
+- **Nothing was said about speed.** If the answer is wrong, `pop(0)` and string
+  concatenation are not the suspects. If it is slow, they are.
+
+## What it costs
+
+**Time.** Each character is pushed at most once. Each pop removes something that
+was pushed earlier and is never pushed again. So over the whole run
+
+```text
+pops <= pushes <= n,   so stack operations <= 2n.
+```
+
+That is a counting argument over the whole run, which is why it holds even when a
+single character causes many pops (an asteroid that destroys ten others in a
+`while` loop). The ten pops are paid for by the ten earlier pushes. The scan is
+O(n), and with a pattern of length k checked at every step, O(nk), which is O(n)
+for the short patterns these problems use.
+
+**Space.** O(n) in the worst case, and it really happens: on `((((...` nothing
+cancels and the stack holds the whole input. If a problem demands O(1) extra
+space, look for a counter (one bracket kind) or a two-pointer scan from the right
+([[p:compare-strings|Backspace String Compare]] can be solved by walking both
+strings backwards, counting pending backspaces in an integer).
+
+**The list underneath.** `list.append` is O(1) **amortised**: the list
+occasionally doubles its capacity and copies everything, but n appends copy fewer
+than 2n elements in total (1 + 2 + 4 + ... + n < 2n), so the average stays
+constant. See [[amortized-analysis]]. `list.pop()` from the end is O(1).
+
+**The costs people forget.**
+
+- **`pop(0)` or `insert(0, x)`.** Each is O(n), because every other element shifts.
+  A stack grows and shrinks at the end. If you need both ends, use a [[deque]].
+- **Building the answer with `out += c` inside the loop.** For strings this can
+  copy the whole string each time, O(n^2) in the worst case. Keep a list and
+  `"".join(stack)` once at the end.
+- **`"".join(stack[-k:])` at every step** is O(k) per character. Fine for `AWS`.
+  For a long pattern, compare characters one at a time from the top, or keep a
+  matching state (as in [[string-matching]]).
+- **Recursion you replaced.** Python's default recursion limit is about 1000
+  frames. A tree or a nesting depth of 10^5 needs the explicit stack, which is why
+  [[p:uber-find-file-paths-in-directory-tree|Find File Paths in a Directory Tree]]
+  asks for one in the statement.
+- **Repeated strings in an expression evaluator.** In Decode String, `cur * times`
+  builds a new string of the decoded length. The total work is the size of the
+  output, which the problem bounds (10^5 there).
+
+## How to think about it
+
+Before writing any code, answer these, in order.
+
+1. **After reading a prefix, what is still unresolved?** Open brackets, letters
+   that might still be cancelled, asteroids that might still be hit, numbers
+   waiting for an operator, an outer context waiting for its `]`. Say it in words.
+2. **Does the next item interact only with the most recent unresolved one?** If
+   yes, it is a stack. If it interacts with the oldest, it is a queue. If with the
+   smallest or largest, a heap. If with "the nearest one bigger than it", a
+   monotonic stack.
+3. **What exactly do I push?** The item, its index, a context tuple, a
+   (value, count) pair, or a (value, running summary) pair. Decide by what the
+   answer needs: positions need indices, a restore needs a context.
+4. **What does a pop mean, in one sentence?** "This debt is paid", "this asteroid
+   died", "this group is closed: glue it onto the outer text".
+5. **Can one arrival resolve several items?** Then the comparison is a `while`,
+   not an `if`. Asteroids: yes. Brackets: no. Removing `k` equal neighbours: one
+   pop per run, but the run below may grow.
+6. **What is left at the end, and what does it mean?** Unclosed brackets (invalid),
+   survivors (the answer), the final value (the result). Never forget to look.
+7. **Is it a yes/no over one kind of item?** Then the stack is only a height, and a
+   counter does it in O(1) space.
+
+### Telling it from its neighbours
+
+- **Counter.** A stack whose elements are all identical. Use it when there is one
+  kind; never when there are several.
+- **Queue.** The other end. "First in, first out." If the next item to handle is
+  the oldest, it is a queue.
+- **Monotonic stack.** A stack with a rule about what may stay: before pushing,
+  pop everything that the new item beats. It answers "the next greater element" for
+  every position in O(n). Same data structure, different invariant
+  ([[monotonic-stack]]).
+- **Recursion.** Every recursive function uses the call stack. A nested structure
+  (brackets, `k[...]`, parenthesised arithmetic) can be handled by a recursive
+  function that calls itself at each opener and returns at each closer, or by an
+  explicit stack that pushes at the opener and pops at the closer. They are the
+  same algorithm. [[recursive-descent]] is the recursive form for real grammars.
+- **Deque.** If you need to add or remove at both ends ([[deque]]).
+
+## Variations
+
+These are all the stack shapes that interviews and OAs ask, each with what changes,
+why, a short example, and a problem from the bank.
+
+### A. Match pairs (parentheses)
+
+**What changes.** What you push (characters or indices) and what you do with
+the leftovers.
+
+**Why.** A closer can only close the most recent unresolved opener. The leftovers
+at the end, plus the closers that found nothing, are exactly the unmatched
+brackets.
+
+**Example.** `(a)b)` with letters ignored: `(` push 0, `)` pops it, `)` at index 4
+finds nothing: orphan. Remove index 4: `(a)b`.
+
+**In the bank.**
+
+- [[p:amazon-valid-parentheses|Valid Parentheses]]: the yes/no version, three
+  kinds, so a real stack.
+- [[p:meta-minimum-removal-for-balanced-parentheses|Minimum Removal for Balanced Parentheses]]:
+  push indices; drop the orphan closers during the scan and the leftover openers at
+  the end. Letters and digits are kept and skipped by the stack.
+- [[p:doordash-minimum-parenthesis-removal-indices|Minimum Parenthesis Removals and Their Indices]]:
+  the third trace above.
+- [[p:headlands-exclusive-function-execution-times|Exclusive Function Execution Times]]:
+  `start` and `end` logs are matched pairs on a call stack. The function on top owns
+  the time between consecutive events. When a new function starts, charge the time
+  so far to the old top; when one ends, charge it (the end second is inclusive)
+  and pop.
+- [[p:mathworks-longest-valid-parentheses|Longest Valid Parentheses]] (stretch):
+  push indices, and keep at the bottom the index of the last unmatched `)` as a
+  floor. After each pop, the current valid run is `i - stack[-1]`.
+- [[p:oracle-balance-parentheses|Balancing Parentheses]]: one kind, so two
+  counters: closers that found nothing, plus openers left at the end.
+
+### B. Evaluate an expression (RPN, a calculator, nested groups)
+
+**What changes.** The stack holds values, or saved contexts, instead of brackets.
+
+**Reverse Polish notation.** Numbers are pushed. An operator pops its two operands
+and pushes the result. The first value popped is the **right** operand.
+`["4", "13", "5", "/", "+"]`: push 4, 13, 5; `/` pops 5 then 13, pushes
+13 / 5 = 2; `+` pops 2 then 4, pushes 6. Answer 6.
+[[p:atlassian-evaluate-reverse-polish-notation|Evaluate Reverse Polish Notation]];
+[[p:retell-ai-stack-language-evaluator|Stack Language Evaluator]] adds `dup`,
+`swap` and `drop`. Division "truncates toward zero" means `int(a / b)`, not
+`a // b`: in Python, `-7 // 2` is -4, but the problem wants -3.
+
+**Nested groups: push the outer context.** At an opener, the current work is
+interrupted, so save it and start fresh. At the closer, the inner work is done, so
+restore the outer work and combine. Decode String, `3[a2[c]]`:
+
+| char | action | stack | cur | k |
+|---|---|---|---|---|
+| `3` | digit | | | 3 |
+| `[` | push (cur, k) = ("", 3), reset | ("", 3) | | 0 |
+| `a` | letter | ("", 3) | a | 0 |
+| `2` | digit | ("", 3) | a | 2 |
+| `[` | push ("a", 2), reset | ("", 3), ("a", 2) | | 0 |
+| `c` | letter | same | c | 0 |
+| `]` | pop ("a", 2): cur = "a" + "c" x 2 | ("", 3) | acc | |
+| `]` | pop ("", 3): cur = "" + "acc" x 3 | | accaccacc | |
+
+[[p:abridge-decode-string|Decode String]] is exactly this.
+
+**Parentheses with + and -.** Same idea, with numbers. Keep a running `result`
+and the `sign` of the next number. At `(`, push (result, sign) and start a fresh
+result. At `)`, finish the inner result, pop (outer, outer_sign), and set
+result = outer + outer_sign * inner. `1-(2-(3-4))`: at the inner `)`, the inner
+result is 3 - 4 = -1, and the popped context is (2, -1), so 2 + (-1)(-1) = 3; at
+the outer `)`, the popped context is (1, -1), so 1 - 3 = -2.
+[[p:amazon-basic-calculator|Basic Calculator]] (stretch). With `*` and `/` and
+precedence, you either use two stacks (values and operators) or write a
+[[recursive-descent]] parser; see [[parsing]].
+
+### C. Simulate with undo or collapse (asteroids, removing pairs)
+
+**What changes.** An arrival may destroy several items on the stack in a row, so
+the comparison is a `while` loop. Or the "stack" is a history that you move items
+off and back on.
+
+**Asteroid collision.** Survivors so far wait on the stack. Only a right-mover
+followed by a left-mover can meet. A new left-mover fights the top while the top is
+a right-mover: if the top is smaller, it dies (pop) and the fight continues with
+the next one; if equal, both die; if bigger, the newcomer dies.
+`[10, 2, -5]`: push 10, push 2; `-5` beats 2 (pop), then meets 10 and dies. Answer
+`[10]`. [[p:microsoft-asteroid-collision|Asteroid Collision]];
+[[p:mathwork-cars-left|Collision]] is the same with cars, directions, strengths,
+and the answer as indices (so push indices).
+
+**Cancellation rules.** [[p:wellsfargo-minimum-remaining-length|Minimum Remaining Length]]
+deletes `AB` or `BB`: in both, a `B` cancels whatever is right before it. So a `B`
+pops if the stack is non-empty, and everything else is pushed. Only the size
+matters, so the stack can even be a counter. [[p:google-repeated-adjacent-pair-deletion|Repeated Adjacent Pair Deletion]]:
+pop when the top equals the new character. [[p:compare-strings|Backspace String Compare]]:
+`#` pops if it can. [[p:ibm-get-final-string|Get Final String]] and
+[[p:jpmorgan-get-final-string|Eliminate Substring]]: a fixed pattern on top.
+
+**Undo and redo.** [[p:netflix-undo-redo-command-history|Undo and Redo Command History]]
+keeps two stacks: the active history and the undone commands. UNDO moves the top of
+history to the redo stack; REDO moves it back; a new EXECUTE clears the redo
+stack, because the undone future no longer follows from the present.
+[[p:netflix-command-undo-data-structure|Command Undo Data Structure]] multiplies and
+adds an integer, so store the previous state on the stack rather than trying to
+invert a multiplication (by zero, say).
+
+### D. A stack augmented with extra data (min stack)
+
+**What changes.** Each entry carries, next to its value, a summary of itself and
+everything below it.
+
+**Why it works.** Entries only leave from the top. So the summary stored with an
+entry stays correct for exactly as long as that entry is in the stack: nothing
+below it can change while it is there. When it is popped, the entry below it
+becomes the top, and its own summary is already correct.
+
+**Example.** Push 5, 3, 7, 3, 1: entries (5,5), (3,3), (7,3), (3,3), (1,1). The
+minimum is 1. Pop: top (3,3), minimum 3. Pop: (7,3), minimum 3. Pop: (3,3), 3.
+Pop: (5,5), 5. Duplicates of the minimum are kept as separate entries, which is
+why the second 3 matters.
+
+**In the bank.** [[p:shopify-min-stack|Min Stack]] and
+[[p:linkedin-minimum-stack-operations|Constant-Time Minimum Stack]].
+[[p:drw-nested-database-transactions|Nested In-Memory Database Transactions]] is a
+stack of dictionaries: BEGIN pushes an empty layer, SET writes into the top layer,
+GET searches from the top down, ROLLBACK pops one layer, COMMIT applies them
+oldest to newest. [[p:imc-adding-stack-2-0|Adding Stack 2.0]] has "add v to the
+bottom i elements" in O(1): store a lazy increment at depth i, keep a running sum,
+and when an entry is popped, pass its pending increment down to the entry below
+it. It is the hardest member of this family, and it is the same principle: the
+extra data is kept where the pops will find it.
+
+### E. A stack of (value, count)
+
+**What changes.** Instead of one entry per character, one entry per run of equal
+characters: `[character, run length]`.
+
+**Why.** "Remove k equal neighbours, repeatedly" with one entry per character
+would need to look k deep at every step and recount after every removal. With
+runs, the top entry already knows how long the current run is. When it reaches k,
+pop it, and the run below becomes the top, ready to be extended by the next
+character.
+
+**Example.** `deeedbbcccbdaa`, k = 3:
+
+| char | stack after |
+|---|---|
+| d | d1 |
+| e | d1 e1 |
+| e | d1 e2 |
+| e | e3 removed: d1 |
+| d | d2 |
+| b | d2 b1 |
+| b | d2 b2 |
+| c | d2 b2 c1 |
+| c | d2 b2 c2 |
+| c | c3 removed: d2 b2 |
+| b | b3 removed: d2 |
+| d | d3 removed: (empty) |
+| a | a1 |
+| a | a2 |
+
+Answer `aa`. Notice the cascade: removing `ccc` let the `b` runs on either side
+join, and removing `bbb` let the `d` runs join.
+[[p:attentive-remove-adjacent-duplicates-ii|Remove Adjacent Duplicates in String II]].
+
+### F. A queue from two stacks (common in interviews, simple)
+
+An inbox stack takes arrivals. An outbox stack serves departures. When the outbox
+is empty and someone wants the front, pour the whole inbox into the outbox, which
+reverses it, so the oldest is on top. Each element is moved at most once, so the
+total cost is O(1) amortised per operation, though a single operation can cost
+O(n). [[p:amazon-queue-using-two-stacks|Implement a Queue Using Two Stacks]].
+
+### G. An explicit stack instead of recursion
+
+Push the work you have not done yet; pop, do one piece, push its successors. For a
+preorder traversal of a binary tree, pop a node, visit it, push its **right** child
+and then its left child, so the left is popped first. The order you want to visit
+is the reverse of the order you push.
+[[p:uber-find-file-paths-in-directory-tree|Find File Paths in a Directory Tree]]
+requires an explicit stack in the statement;
+[[p:anduril-binary-tree-preorder-traversal|Binary Tree Preorder Traversal]] is the
+smallest place to practise it. See [[tree-traversal]] and [[dfs]].
+
+### H. Monotonic stack (own chapter)
+
+Before pushing, pop everything the new item beats. Each item enters and leaves
+once, so the scan is O(n), and each pop tells the popped item "this is your next
+greater element". Daily temperatures, stock spans, the largest rectangle in a
+histogram. This is common enough that it has its own chapter:
+[[monotonic-stack]].
+
+The block below runs variations B, C, D and E on the examples above.
+
+```python run
+def rpn(tokens):
+    st = []
+    for t in tokens:
+        if t in "+-*/" and len(t) == 1:
+            b = st.pop()                       # popped FIRST: the RIGHT operand
+            a = st.pop()
+            if t == "+": st.append(a + b)
+            elif t == "-": st.append(a - b)
+            elif t == "*": st.append(a * b)
+            else: st.append(int(a / b))        # truncate toward zero, as the problem says
+        else:
+            st.append(int(t))
+    return st[-1]
+
+def decode(s):
+    st, cur, k = [], "", 0                     # cur: text of the group we are inside
+    for c in s:
+        if c.isdigit():
+            k = k * 10 + int(c)                # counts can have several digits
+        elif c == "[":
+            st.append((cur, k))                # save the OUTER context, start fresh
+            cur, k = "", 0
+        elif c == "]":
+            outer, times = st.pop()            # restore it, glue the repeated group on
+            cur = outer + cur * times
+        else:
+            cur += c
+    return cur
+
+def calculate(s):                              # + - and parentheses (Basic Calculator)
+    st, result, sign, num = [], 0, 1, 0
+    for c in s + "+":                          # a sentinel '+' flushes the last number
+        if c.isdigit():
+            num = num * 10 + int(c)
+        elif c in "+-":
+            result += sign * num
+            num, sign = 0, (1 if c == "+" else -1)
+        elif c == "(":
+            st.append((result, sign))          # save what was outside, start fresh
+            result, sign = 0, 1
+        elif c == ")":
+            result += sign * num
+            num = 0
+            outer, outer_sign = st.pop()
+            result, sign = outer + outer_sign * result, 1
+    return result
+
+print("rpn 2 1 + 3 *        =", rpn(["2", "1", "+", "3", "*"]))
+print("rpn 4 13 5 / +       =", rpn(["4", "13", "5", "/", "+"]))
+print("rpn 6 -132 /         =", rpn(["6", "-132", "/"]))
+assert rpn(["2", "1", "+", "3", "*"]) == 9 and rpn(["4", "13", "5", "/", "+"]) == 6
+assert rpn(["6", "-132", "/"]) == 0            # -0.04 truncates to 0, not -1
+print("decode 3[a2[c]]      =", decode("3[a2[c]]"))
+assert decode("3[a2[c]]") == "accaccacc" and decode("2[ab]10[x]") == "abab" + "x" * 10
+print("calc (1+(4+5+2)-3)+(6+8) =", calculate("(1+(4+5+2)-3)+(6+8)"))
+assert calculate("(1+(4+5+2)-3)+(6+8)") == 23 and calculate("1-(2-(3-4))") == -2
+for e in ["1-(2-(3-4))", "10-(3+4)-(1-(2))", "7", "(((5)))-5"]:
+    assert calculate(e) == eval(e), e
+print("calculator agrees with eval on nested minus signs")
+```
+
+```python run
+def asteroids(row):
+    st = []                                    # survivors so far, left to right
+    for a in row:
+        alive = True
+        while alive and a < 0 and st and st[-1] > 0:   # only right-mover then left-mover meet
+            if st[-1] < -a:
+                st.pop()                       # the top dies; a keeps going: loop again
+            elif st[-1] == -a:
+                st.pop()
+                alive = False                  # both die
+            else:
+                alive = False                  # a dies
+        if alive:
+            st.append(a)
+    return st
+
+def remove_k_dupes(s, k):
+    st = []                                    # (character, length of its run)
+    for c in s:
+        if st and st[-1][0] == c:
+            st[-1][1] += 1
+            if st[-1][1] == k:
+                st.pop()                       # the run vanishes; its neighbours meet
+        else:
+            st.append([c, 1])
+    return "".join(c * n for c, n in st)
+
+class MinStack:
+    def __init__(self):
+        self.st = []                           # (value, minimum of this entry and below)
+    def push(self, x):
+        self.st.append((x, min(x, self.st[-1][1]) if self.st else x))
+    def pop(self):
+        self.st.pop()
+    def top(self):
+        return self.st[-1][0]
+    def get_min(self):
+        return self.st[-1][1]
+
+print("asteroids [5, 10, -5]   ->", asteroids([5, 10, -5]))
+print("asteroids [10, 2, -5]   ->", asteroids([10, 2, -5]))
+print("asteroids [8, -8]       ->", asteroids([8, -8]))
+print("asteroids [-2, -1, 1, 2] ->", asteroids([-2, -1, 1, 2]))
+assert asteroids([5, 10, -5]) == [5, 10] and asteroids([10, 2, -5]) == [10]
+assert asteroids([8, -8]) == [] and asteroids([-2, -1, 1, 2]) == [-2, -1, 1, 2]
+assert asteroids([1, 2, 3, -10]) == [-10]      # one left-mover eats three in a while loop
+
+print("deeedbbcccbdaa, k=3     ->", remove_k_dupes("deeedbbcccbdaa", 3))
+assert remove_k_dupes("deeedbbcccbdaa", 3) == "aa"
+
+m, seen = MinStack(), []
+for x in [5, 3, 7, 3, 1]:
+    m.push(x)
+    seen.append(m.get_min())
+for _ in range(4):
+    m.pop()
+    seen.append(m.get_min())
+print("min after pushes 5 3 7 3 1, then 4 pops:", seen)
+assert seen == [5, 3, 3, 3, 1, 3, 3, 3, 5]
+```
 
 ## Recognising it in a statement
 
 Ordered by how much you should trust the signal.
 
-1. **Explicit nesting.** Brackets, tags, nested maps, directory trees, a
-   structure that "can itself contain more groups" — the phrase
-   *Rich Text Parser Part 1* uses. Nesting is a stack; there is no second answer.
-2. **"The most recent" / "the last unmatched".** *Minimum Parenthesis Removals*
+1. **Explicit nesting.** Brackets, tags, `k[...]`, nested maps, directory trees, a
+   group that "can itself contain more groups". Nesting is a stack.
+2. **"The most recent", "the last unmatched", "the previous".** When the statement
    says "match each closing parenthesis with the most recent unmatched opening
-   parenthesis" in the statement. That is the definition of a stack.
-3. **Undo, or "revert exactly one previously executed command".**
-4. **The statement tells you to use one.** "Traverse the tree with an explicit
-   stack rather than recursion" — *Find File Paths in a Directory Tree* and
-   *Lowest Common Ancestor Implemented with Stack* both do this, and the hidden
-   requirement is the input size, which would blow a recursion limit.
-5. **Cancellation between adjacent items, repeated until stable.** Backspaces,
-   `AWS` removal, "remove adjacent duplicates". The words *until no more remain*
-   are the tell, and the stack turns that repetition into one pass.
-6. **"Nearest smaller/greater to the left/right"**, or a price/height/temperature
-   array where each element looks for the next one that beats it —
-   [[monotonic-stack]].
-7. **Postfix or prefix expressions, or a tiny instruction set with `push`/`pop`.**
-8. **A `10^5` bound on a process described as "repeat until nothing changes".**
+   parenthesis", it has described a stack.
+3. **Undo, revert, rollback, "go back".** The history of what you did is a stack by
+   definition.
+4. **Cancellation between neighbours, "until no more remain".** Backspaces,
+   removing a substring, adjacent duplicates, colliding asteroids. The words *until
+   no more remain* are the tell, and the stack turns that repetition into one pass.
+5. **An expression, or a tiny instruction set with push and pop.** Postfix, a
+   calculator with parentheses, a stack machine.
+6. **"Use an explicit stack rather than recursion",** or a depth of 10^5 that would
+   blow the recursion limit.
+7. **Each element looks for the next bigger or smaller one.** Monotonic stack.
 
-The anti-signals:
+### Disguises
 
-- **Arrival order.** "First come, first served", "in the order received",
-  BFS level order — [[queue]], not a stack. If you cannot decide, ask which end
-  the next item comes from.
-- **Access by rank or value.** "The k-th largest so far", "the minimum after
-  arbitrary removals" — [[heap]] or [[ordered-set]].
-- **One bracket kind and only a yes/no answer.** A counter is enough, and it uses
-  O(1) space. *Balancing Parentheses* asks for the number of insertions, which is
-  two counters: unmatched closers seen, plus openers left over.
-- **Crossing rather than nesting.** Overlapping intervals, tags that interleave —
-  [[sweep-line]] or [[intervals]].
+- **Logs with start and end events.** Function calls, transactions, spans. They nest,
+  so they are brackets with names.
+- **"Each X destroys the Y right before it."** `AB`/`BB` deletion is "every B
+  cancels its left neighbour".
+- **A string with counts and groups.** `3[a2[c]]`, chemical formulas like
+  `Mg(OH)2`: each `(` or `[` saves a context.
+- **A path to normalise.** `/a/./b/../../c` is a stack of directory names: `..`
+  pops, `.` does nothing, a name pushes.
+
+### Anti-signals: looks like a stack, is not
+
+- **Arrival order.** "First come, first served", "in the order received", level
+  order in a tree. [[queue]].
+- **The smallest or largest after arbitrary removals.** [[heap]] or [[ordered-set]].
+- **One bracket kind and a yes/no or a count.** A counter, O(1) space.
+- **Crossing intervals.** "Do any two meetings overlap?" is about crossings, not
+  nesting. [[intervals]].
+- **"Remove the element in the middle."** A stack only touches one end.
 
 ## Traps
 
-**Peeking or popping without checking for empty.** Symptom: `IndexError` on the
-first input that starts with a closer. The guard is always `if stack and …`.
+**Peeking or popping an empty stack.** Symptom: `IndexError` on the first input that
+starts with a closer, or the first asteroid that moves left. The guard is always
+`if stack and ...` before `stack[-1]`, written as one motion.
 
-**Forgetting the final emptiness check.** Symptom: `"(("` is reported valid,
-while every balanced test passes. Demonstrated below.
+**Forgetting the final emptiness check.** Symptom: `((` is reported valid while
+every balanced test passes. Demonstrated above.
 
-**A counter instead of a stack with several bracket kinds.** Symptom: `"([)]"` is
-accepted. The counter knows the depth and not the kind. Demonstrated below.
+**A counter where there are several kinds.** Symptom: `([)]` is accepted.
+Demonstrated in the first block.
 
-**Building the output string inside the loop, or `pop(0)` where you meant
-`pop()`.** Symptom for both: correct answers, quadratic time, timeout at `10^5`.
+**Popping the operands in the wrong order.** In RPN, the first value popped is the
+**right** operand. `10 4 -` means 10 - 4 = 6; pop them the wrong way round and you
+compute 4 - 10 = -6. Symptom: subtraction and division are wrong, addition and
+multiplication are right, so a test with only `+` and `*` passes.
 
-**Pushing children in the wrong order in an explicit DFS.** Symptom: the preorder
+**`//` where the problem says "truncate toward zero".** Python's `//` rounds toward
+minus infinity. Symptom: wrong answers only when exactly one operand is negative.
+
+**Pushing children in the wrong order in an explicit DFS.** Symptom: the traversal
 comes out mirrored. A stack reverses what you put in, so push right before left.
 
-**Storing values when the answer wants positions.** *Minimum Parenthesis
-Removals and Their Indices* asks for indices; a stack of characters cannot
-produce them. Push `i`, not `s[i]`, whenever the output is about *where*.
+**Storing values when the answer wants positions.** Symptom: you know the string is
+invalid but cannot say which brackets to delete. Push `i`, not `s[i]`, whenever the
+output is about where.
 
-**Keeping a reference to a popped element.** *Generic Stack Operation Sequence*
-states it outright: a popped element must not stay readable through retained
-internal storage. Implement `pop` as "read `a[size-1]`, then `size -= 1`" over a
-fixed-capacity array without clearing the slot and the value is still there.
+**`if` where a `while` is needed.** Asteroid `-10` against `[1, 2, 3]` must destroy
+all three. An `if` destroys only the 3. Symptom: survivors that should be dead.
 
-**Assuming a self-overlapping pattern behaves.** Removing `aba` from `ababa` has
-two different answers. Check that the pattern has no proper border before
-trusting the one-pass scan.
+**Building the output with `+=` or using `pop(0)`.** Symptom: correct answers,
+quadratic time, timeout at 10^5.
+
+The block below demonstrates the operand order and the push order.
 
 ```python run
-def by_counter(s):
-    """Wrong once there is more than one kind: depth forgets the kind."""
-    depth = 0
-    for c in s:
-        if c in "([{":
-            depth += 1
-        elif c in ")]}":
-            depth -= 1
-            if depth < 0:
-                return False
-    return depth == 0
-
-
-def forgets_the_end(s):
-    opener = {')': '(', ']': '[', '}': '{'}
+def rpn(tokens, right_first=True, show=True):
     st = []
-    for c in s:
-        if c in opener:
-            if not st or st.pop() != opener[c]:
-                return False
+    for t in tokens:
+        if t in ("+", "-", "*", "/"):
+            if right_first:
+                b = st.pop()
+                a = st.pop()                   # a was pushed earlier: the LEFT operand
+            else:
+                a = st.pop()                   # wrong: treats the top as the left one
+                b = st.pop()
+            st.append({"+": a + b, "-": a - b, "*": a * b, "/": int(a / b) if b else 0}[t])
         else:
-            st.append(c)
-    return True                       # bug: openers left on the stack are ignored
+            st.append(int(t))
+        if show:
+            print("   %-3s -> %s" % (t, st))
+    return st[-1]
 
+print("tokens 10 4 -  (means 10 - 4), right operand popped first:")
+good = rpn(["10", "4", "-"])
+print("same tokens, left operand popped first:")
+bad = rpn(["10", "4", "-"], right_first=False)
+assert good == 6 and bad == -6
+x, y = rpn(["2", "3", "*"], True, False), rpn(["2", "3", "*"], False, False)
+print("2 3 * both ways:", x, y, "- a test made only of + and * cannot catch the bug")
+assert x == y == 6
 
-def right(s):
-    opener = {')': '(', ']': '[', '}': '{'}
-    st = []
-    for c in s:
-        if c in opener:
-            if not st or st.pop() != opener[c]:
-                return False
-        else:
-            st.append(c)
-    return not st
+tree = {"A": ("B", "C"), "B": ("D", None), "C": (None, None), "D": (None, None)}
 
+def preorder(root, right_pushed_first):
+    st, out = [root], []
+    while st:
+        node = st.pop()
+        out.append(node)
+        left, right = tree[node]
+        first, second = (right, left) if right_pushed_first else (left, right)
+        for child in (first, second):
+            if child:
+                st.append(child)
+    return out
 
-print("%-10s %9s %9s %9s" % ("input", "counter", "no-end", "correct"))
-for t in ["()[]{}", "([{}])", "([)]", "((", "(()", ")(", ""]:
-    print("%-10r %9s %9s %9s" % (t, by_counter(t), forgets_the_end(t), right(t)))
-
-assert by_counter("([)]") and not right("([)]")
-assert forgets_the_end("((") and not right("((")
-assert all(by_counter(t) == right(t) for t in ["()[]{}", "((", ")(", ""])
-print()
-print("counter accepts '([)]': the depth is right, the kinds are not")
-print("no-end  accepts '((' : underflow is checked, leftovers are not")
-print("the two bugs fail on different inputs, so one test case catches neither")
+print("preorder, push right then left:", preorder("A", True))
+print("preorder, push left then right:", preorder("A", False))
+assert preorder("A", True) == ["A", "B", "D", "C"]
+assert preorder("A", False) == ["A", "C", "B", "D"]       # mirrored
 ```
 
 ## What to memorise
 
-Almost nothing. One loop, one sentence, one habit.
+One loop, one sentence, one habit.
 
-**The loop**, which should come out of your fingers without thought:
-
-```python
+```text
 stack = []
-for c in s:
-    if stack and cancels(stack[-1], c):
-        stack.pop()
-    else:
-        stack.append(c)
-# stack now holds exactly what never got resolved, in order
+for x in items:
+    while stack and resolves(stack[-1], x):    # 'if' when one arrival settles at most one
+        stack.pop()                            # that debt is paid
+    if x still needs to wait:
+        stack.append(x)                        # a new debt, now the newest
+# at the end, the stack is exactly what never got resolved; always look at it
 ```
 
-**The sentence** that turns a problem into it: *"Is the next thing I have to
-settle always the most recent thing I have not settled?"* If yes, the stack is
-the structure and the only remaining question is what to push — a character, an
-index, a context, or a pair of (value, running aggregate).
+**The sentence** that turns a problem into a stack: *"Is the next thing I must
+settle always the most recent thing I have not settled?"* If yes, the only design
+question left is what to push: the item, its index, a context, a (value, count), or
+a (value, summary).
 
-**The habit**: before writing the loop, say in one sentence what the stack
-*contains*. Not "the characters" — the actual claim: "the opening brackets that
-are still unclosed, oldest at the bottom". Every bug in this topic is that
-sentence being false at some moment: a guard missing, a final check missing, an
-index pushed where a value was needed. And write `if stack and …` before you write
-`stack[-1]`, every time, as one motion.
+**The habit.** Before writing the loop, say in one sentence what the stack
+contains, as a claim: "the opening brackets that are still unclosed, oldest at the
+bottom". Every bug in this topic is that sentence being false at some moment: a
+missing guard, a missing final check, an index pushed where a value was needed, a
+context not restored. And write `if stack and` before every `stack[-1]`.
 
-Numbers worth carrying: a scan does at most `2n` stack operations, because pops
-are bounded by pushes; `n` pushes into a doubling array copy fewer than `2n`
-elements, so `append` is amortised O(1) with a constant near 3; Python's
-recursion limit is about 1000, so any tree or graph with `10^5` nodes needs the
-explicit stack; and `pop()` is O(1) while `pop(0)` is O(n).
+Numbers: at most 2n stack operations for n items, because pops cannot outnumber
+pushes. `append` and `pop()` are O(1); `pop(0)` is O(n). Python's recursion limit
+is about 1000, so nesting of 10^5 needs the explicit stack.
 
 ## Check yourself
 
 :::check
-`"AAWSWS"` becomes the empty string after all `AWS` removals, but a single pass
-of `str.replace` leaves `"AWS"`. Why does the one-pass stack scan get the right
-answer without ever looking backwards?
+Hand trace. Run the bracket scan on `{[]()}(` and on `[(])`, writing the stack after
+every character. Which check rejects each string, the one during the scan or the
+one at the end?
 --
-Because the stack is not the input — it is the input with everything already
-deleted removed. After a deletion, the characters that have become adjacent in
-the *reduced* string are adjacent on the stack too, so the very next comparison
-sees them.
+`{[]()}(`:
 
-Formally, that is Lemma 1 of the proof: the stack always holds an irreducible
-string, so a new occurrence of the pattern can only be created at the boundary
-where the new character lands. Checking the top is checking everywhere. A
-`str.replace` pass works on the original string, where the surviving `A` at
-position 0 and the `S` at position 5 are still three characters apart.
+| char | action | stack |
+|---|---|---|
+| `{` | push | `{` |
+| `[` | push | `{[` |
+| `]` | top `[` matches: pop | `{` |
+| `(` | push | `{(` |
+| `)` | top `(` matches: pop | `{` |
+| `}` | top `{` matches: pop | (empty) |
+| `(` | push | `(` |
+
+No rejection during the scan. At the end the stack holds `(`, so the **end check**
+rejects it. A version with `return True` would accept it.
+
+`[(])`:
+
+| char | action | stack |
+|---|---|---|
+| `[` | push | `[` |
+| `(` | push | `[(` |
+| `]` | top is `(`, needs `[`: reject | |
+
+Rejected **during the scan**, at the third character. A per-kind counter would
+accept it, because each closer has an earlier opener of its own kind.
 :::
 
 :::check
-Someone says: "*Valid Parentheses* does not need a stack — just count openers and
-closers, and check the counter never goes negative and ends at zero." Where are
-they wrong, and when are they right?
+Hand trace. Remove every `AWS` until none remain from `AWAWSSG`, using the stack
+scan. Write the stack after every character. Then say what one `str.replace("AWS",
+"")` pass gives and why it differs.
 --
-They are wrong as soon as there is more than one kind of bracket. The counter
-records the depth and discards the kind, so `"([)]"` gives the balance sequence
-1, 2, 1, 0 and is accepted, although no valid matching exists. The runnable trap
-block above shows exactly this.
+| char | stack before | top three `AWS`? | stack after |
+|---|---|---|---|
+| A | | no | A |
+| W | A | no | AW |
+| A | AW | no | AWA |
+| W | AWA | no | AWAW |
+| S | AWAW | **yes** (positions 2, 3, 4) | AW |
+| S | AW | **yes** (positions 0, 1, 5) | (empty) |
+| G | | no | G |
 
-They are right when there is exactly one kind. Then every stack element is the
-same symbol, so the stack carries no information beyond its height, and an
-integer is a faithful — and O(1)-space — encoding of it. *Balancing Parentheses*
-is that problem: the answer is (unmatched closers seen along the way) + (openers
-left at the end), which is two counters and no stack at all.
+Answer `G`. One `str.replace` pass finds only the `AWS` at positions 2 to 4 and
+gives `AWSG`, because the second `AWS` is made of the `A` and `W` at positions 0
+and 1 and the `S` at position 5, which only become adjacent after the first
+deletion. The stack sees it because, after the deletion, `AW` is simply on top.
 :::
 
 :::check
-A colleague objects to the two-stack queue: "a single `pop` can move `n`
-elements, so this is not an O(1) queue." Where are they wrong, and where are they
-right?
+Hand trace. Asteroids `[3, 5, -6, 2, -1, 4]` (positive moves right, negative moves
+left, the smaller one is destroyed, equal sizes both die). Write the stack after
+each asteroid, and say how many pops the `-6` causes and why the total work is
+still O(n).
 --
-Wrong about the total. Each element is transferred from the inbox to the outbox
-at most once in its lifetime — the transfer only happens when the outbox is
-empty, and an element never goes back. So over `m` operations the transfers total
-at most the number of pushes, and the amortised cost per operation is O(1). The
-runnable block measures this: transfers never exceed pushes.
+| asteroid | what happens | stack |
+|---|---|---|
+| 3 | push | 3 |
+| 5 | push | 3, 5 |
+| -6 | meets 5: 5 < 6, pop. Meets 3: 3 < 6, pop. Stack empty: push | -6 |
+| 2 | moving right, cannot meet a left-mover on its left: push | -6, 2 |
+| -1 | meets 2: 2 > 1, the -1 dies | -6, 2 |
+| 4 | push | -6, 2, 4 |
 
-Right about the individual operation. The worst case for one `pop` really is
-Θ(n), and that matters whenever you care about the tail and not the average: a
-latency budget per request, a real-time system, or an immutable/persistent
-version of the structure where the expensive step could be forced repeatedly and
-the amortised argument — which assumes each state is used once — stops being
-valid.
+Answer `[-6, 2, 4]`. The `-6` causes two pops, in a `while` loop. The total is
+still O(n) because every pop removes an asteroid that was pushed once, earlier, and
+will never be pushed again: over the whole run there are at most n pops. The `-6`
+"spent" the pushes of 3 and 5.
 :::
 
 :::check
-The correctness proof assumed (A1): no non-empty proper suffix of a pattern is a
-prefix of a pattern. Construct an input that breaks the algorithm when (A1)
-fails, and say what exactly goes wrong.
+Hand trace. Evaluate the RPN expression `["5", "1", "2", "+", "4", "*", "+", "3",
+"-"]`, writing the stack after every token, and decode `2[a3[b]]c` with the
+context stack.
 --
-Pattern `aba`, input `ababa`. Its suffix `a` is also its prefix, so (A1) fails.
-Deleting the occurrence at positions 0–2 leaves `ba`; deleting the one at 2–4
-leaves `ab`. Both results are irreducible, so the normal form is not unique and
-"remove every occurrence until none remain" does not specify a single answer.
+| token | stack |
+|---|---|
+| 5 | 5 |
+| 1 | 5, 1 |
+| 2 | 5, 1, 2 |
+| + | pop 2 (right), pop 1 (left): 5, 3 |
+| 4 | 5, 3, 4 |
+| * | pop 4, pop 3: 5, 12 |
+| + | pop 12, pop 5: 17 |
+| 3 | 17, 3 |
+| - | pop 3 (right), pop 17 (left): 17 - 3 = 14 |
 
-The stack scan picks whichever occurrence completes first while reading left to
-right — here, positions 0–2, leaving `ba`. It is not wrong so much as arbitrary:
-the specification is ambiguous, and Newman's lemma no longer applies because
-local confluence has failed. The practical lesson is to check that the pattern
-has no proper border (as `AWS` does not) before trusting a one-pass reduction.
+Answer 14. Popping in the wrong order would give 3 - 17 = -14 at the last step.
+
+`2[a3[b]]c`: `2` sets k = 2. `[` pushes ("", 2). `a` makes cur = "a". `3` sets
+k = 3. `[` pushes ("a", 3), cur = "". `b` makes cur = "b". `]` pops ("a", 3):
+cur = "a" + "bbb" = "abbb". `]` pops ("", 2): cur = "" + "abbbabbb". `c` appends:
+**"abbbabbbc"**.
 :::
 
 :::check
-You are converting a recursive preorder traversal to an explicit stack, and the
-output comes out as root, right subtree, left subtree. What did you do, and why
-does the fix look backwards?
+Why does the min stack store the minimum next to **every** entry, instead of
+keeping one variable `current_min`? Give a sequence of operations that breaks the
+one-variable version.
 --
-You pushed the left child before the right child. A stack returns what you pushed
-in reverse order, so the last one pushed — the right child — is popped first.
+Because after a pop, the one variable has no way to know the new minimum. Push 3,
+push 1: current_min = 1. Pop: the 1 is gone, so the minimum should be 3, but the
+variable still says 1, and recomputing it means scanning the whole stack, O(n).
 
-The fix is to push the right child first and the left child second, which reads
-backwards but is right: the correct rule is that **the order you want to visit is
-the reverse of the order you push**. This is the general shape of the
-recursion-to-stack conversion. Recursion visits its calls in source order because
-each call completes before the next begins; a stack has no such sequencing, so
-you must reverse the pushes yourself. *Binary Tree Preorder Traversal* is the
-smallest place to get this wrong.
+Storing (value, minimum of this entry and everything below) works because entries
+leave only from the top. While an entry is in the stack, nothing below it can
+change, so its stored minimum stays true. When the top is popped, the entry below
+it becomes the top, and its stored minimum is already the right answer. Each
+operation is O(1).
+:::
+
+:::check
+Someone says: "Valid Parentheses does not need a stack: keep three counters, one
+per bracket kind, and check that none goes negative and all end at zero." Where are
+they wrong, and when is a counter genuinely enough?
+--
+They are wrong because the rule is not "each closer has some earlier opener of its
+kind" but "each closer matches the most recent unresolved opener of any kind". On
+`([)]` the three counters never go negative and all end at zero, so they accept it.
+But the `)` arrives while `[` is the most recent open bracket, and the pairs cross.
+The counters forget the order between different kinds, and the order is the whole
+point.
+
+A counter is genuinely enough when there is exactly one kind of bracket. Then every
+stack element is the same symbol, so the stack's contents are determined by its
+height, and the height is the counter. [[p:oracle-balance-parentheses|Balancing Parentheses]]
+is that case: the answer is (closers that found nothing) + (openers left at the
+end).
+:::
+
+:::check
+Disguised problem. A string of `A` and `B`; you may repeatedly delete any `AB` or
+`BB`. Return the shortest possible length. Reduce it to a stack scan, explain why
+one pass is enough, and trace `BABBA`.
+--
+In both patterns, the second letter is `B`, and the first letter can be anything.
+So the rule is really "a `B` may cancel whatever letter is directly before it".
+Scan left to right: if the letter is `B` and the stack is non-empty, pop (cancel the
+letter before it); otherwise push. The answer is the stack's size at the end. Since
+only the size matters, an integer works as the stack.
+
+One pass is enough by the same argument as the proof: after each step the stack has
+no `AB` or `BB` in it (there is no `B` above anything at all, except possibly a `B`
+at the very bottom), so a new deletion can only happen at the top, with the letter
+that just arrived.
+
+`BABBA`: `B` with an empty stack: push, [B]. `A`: push, [B, A]. `B`: pop the `A`
+(that was an `AB`), [B]. `B`: pop the `B` (a `BB`), []. `A`: push, [A]. Length
+**1**. This is [[p:wellsfargo-minimum-remaining-length|Minimum Remaining Length]].
 :::

@@ -1,0 +1,15 @@
+{
+  "pattern": "heap",
+  "why": "A heap of end times, one per station: process trips by departure, and at the trip's origin reuse the bus that became free earliest if it is free by the departure time, otherwise add a bus. The earliest finisher is the only one worth checking, which is exactly what a min-heap gives.",
+  "hints": [
+    "This is meeting rooms with a twist: a bus is only reusable at the station where its last trip ended.",
+    "Sort trips by departure. For each station keep a min-heap of times when idle buses arrived there. At a trip's origin, if the smallest time <= departure, pop it (reuse); otherwise count a new bus. Push the trip's arrival time onto the destination's heap.",
+    "O(T log T) for T trips. Times arrive as strings: convert with int()."
+  ],
+  "pitfalls": [
+    "Compare times as integers, not strings (\"10\" < \"9\" as strings).",
+    "A bus that arrives exactly at the departure time can take the trip (<=)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "trie",
+ "why": "Trie plus DFS to search many words at once: put all the words in a trie and run one grid DFS from each cell that walks the trie alongside the board, so a path is abandoned the moment no word has it as a prefix.",
+ "hints": [
+  "Running single-word search once per word repeats the same grid work for every shared prefix. How can one DFS look for all the words together?",
+  "Build a trie of the words. DFS from each cell carrying the current trie node; step only to a neighbour whose letter is a child of that node. When you reach a node that ends a word, record it.",
+  "Mark cells as visited during the DFS and restore them on the way back. Clear a word's end flag once found (and prune empty trie branches) so it is reported once and the search speeds up."
+ ],
+ "pitfalls": [
+  "A cell may not be reused within one word: restore it after backtracking.",
+  "The same word can be found along several paths; report it once.",
+  "Without pruning found words and dead trie branches, boards full of one letter make the search blow up."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "topological-sort",
+ "why": "Kahn's algorithm run layer by layer: the steps with in-degree 0 form stage 0, removing them exposes stage 1, and so on. Each step lands in the earliest stage its prerequisites allow, which is its longest-path depth in the DAG.",
+ "hints": [
+  "Which steps can run at the very start? Once they are all done, which steps become free?",
+  "Process Kahn's algorithm one whole frontier at a time instead of one node at a time. Each frontier is a stage.",
+  "Map names to successor sets (deduplicating repeated pairs) and in-degrees; frontier = sorted names with in-degree 0; build the next frontier from successors that drop to 0; sort each stage. O((V + E) log V)."
+ ],
+ "pitfalls": [
+  "Repeated identical pairs must count once, or in-degrees never reach 0.",
+  "Names can contain spaces and mixed case; sort by plain string order.",
+  "Empty input returns []."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

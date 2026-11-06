@@ -1,0 +1,15 @@
+{
+  "pattern": "simulation",
+  "why": "A state machine with two pieces of state, position and heading: store the four headings in clockwise order with matching (dx, dy) arrays, so L and R are just index -1 / +1 mod 4 and M adds the current direction vector.",
+  "hints": [
+    "What is the rover's complete state after any prefix of the commands? Two things.",
+    "Put N, E, S, W in clockwise order with dx = [0,1,0,-1], dy = [1,0,-1,0]. Turning right is d = (d+1) % 4, turning left is d = (d+3) % 4.",
+    "Start with d = 'NESW'.index(direction), loop over commands updating d or (x, y), then format x, y and 'NESW'[d]. O(len(commands))."
+  ],
+  "pitfalls": [
+    "Turning left must wrap from N back to W: use (d + 3) % 4, not d - 1 without a modulo in languages where -1 % 4 is negative.",
+    "North increases y (example 1 ends at y = 2), so the dy table must match that convention."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

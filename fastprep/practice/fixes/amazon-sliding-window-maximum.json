@@ -1,0 +1,17 @@
+{
+ "pattern": "monotonic-deque",
+ "why": "Window maximum with a monotonic deque: keep the indices of the window in a deque whose values decrease from front to back. A new value pops every smaller value from the back (they can never be a maximum again while it is in the window), the front drops out when its index leaves the window, and the front is always the window's maximum.",
+ "hints": [
+  "A heap gives O(n log k). Which values in the current window can never be the maximum of any future window?",
+  "Any value with a larger value to its right inside the window: the larger one outlives it. Remove such values for good.",
+  "Deque of indices with decreasing values: pop back while nums[back] <= nums[i]; push i; pop front if it is i - k; once i >= k-1, append nums[front]. Each index is pushed and popped once: O(n)."
+ ],
+ "pitfalls": [
+  "Store indices, not values, so you know when the front has left the window.",
+  "Use <= when popping from the back (or <; both work, but be consistent with duplicates).",
+  "Only start emitting once the first full window is formed."
+ ],
+ "constraints": "<ul><li>1 &le; nums.length &le; 10<sup>5</sup></li><li>-10<sup>4</sup> &le; nums[i] &le; 10<sup>4</sup></li><li>1 &le; k &le; nums.length</li><li>(Standard bounds for this exercise; the source gives none.)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

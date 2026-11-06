@@ -1,0 +1,16 @@
+{
+ "pattern": "intervals",
+ "why": "Test overlap at scale: keeping a set synchronized around process i means keeping exactly the intervals that overlap i, so drop the ones that end before it starts or start after it ends. Count those two groups with binary search on sorted ends and starts and take the best centre.",
+ "hints": [
+  "Suppose you already knew which process will be the one that overlaps everybody. Which processes would you have to drop?",
+  "Exactly those that do not overlap it. Closed intervals [a, b] and [s, e] are disjoint only when e < a or s > b, and those two cases never happen together, so you can count them separately.",
+  "Sort all ends and all starts once; for each i, drop = bisect_left(ends, a) + (n - bisect_right(starts, b)); return the minimum. O(n log n)."
+ ],
+ "pitfalls": [
+  "Shared endpoints overlap: use strict < and > for 'disjoint'.",
+  "Checking every pair is O(n^2); sorted arrays and bisect make each centre O(log n)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06",
+ "constraints": "<ul><li>1 &le; n = starts.length = ends.length &le; 10^5</li><li>0 &le; starts[i] &le; ends[i] &le; 10^9</li></ul>"
+}

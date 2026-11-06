@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "A range sum from a running prefix: the left sum of index i is the prefix before i, and the right sum is total - left - values[i]. One pass with a running prefix answers each index in O(1) instead of re-adding both sides.",
+ "hints": [
+  "Computing the left and right sums from scratch for every index is O(n^2). What single number makes the right sum free once you know the left sum?",
+  "The total. Right sum = total - leftSum - values[i].",
+  "total = sum(values); left = 0; for each i check left == total - left - values[i], then left += values[i]. Return the first hit, else -1. O(n)."
+ ],
+ "pitfalls": [
+  "The value at i belongs to neither side.",
+  "Index 0 has left sum 0; the last index has right sum 0.",
+  "Return the LEFTMOST index; return -1 for an empty array."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

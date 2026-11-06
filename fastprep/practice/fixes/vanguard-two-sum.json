@@ -1,0 +1,16 @@
+{
+ "pattern": "hash-tables",
+ "why": "The canonical value-to-index map: for each nums[j], the partner it needs is target - nums[j], and a map of earlier values to their indices answers 'is the complement here, and where?' in O(1).",
+ "hints": [
+  "For a fixed j, which single value would complete the pair? Can you find it without scanning?",
+  "Store value -> index for everything to the left of j. Look up target - nums[j] before inserting nums[j] itself, so an element is never paired with itself.",
+  "One pass: i = seen.get(target - x); if found return [i, j]; else seen[x] = j. The earlier index is found first, so the answer is already in ascending order. O(n)."
+ ],
+ "pitfalls": [
+  "Insert after the lookup, or [5] with target 10 would pair index 0 with itself.",
+  "Equal values at different indices are a valid pair ([5,5], target 10).",
+  "Return the indices, not the values; sorting the array would lose the original positions."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

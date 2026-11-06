@@ -1,0 +1,17 @@
+{
+ "pattern": "trie",
+ "why": "Starts-with search as a live system: the current query is one trie node that moves one child per typed character, a DFS below it collects every sentence with that prefix, and '#' inserts or bumps a sentence's frequency.",
+ "hints": [
+  "Each typed character only extends the previous query. How can you avoid restarting the prefix search from the root every time?",
+  "Keep a pointer to the trie node of the current query and step to the child for each new character (once it falls off the trie it stays off until '#'). Collect the sentences below that node and rank them by (-frequency, sentence).",
+  "Store the frequency at each sentence's end node. On '#', insert the query with +1 (or add 1 if it exists), reset the query and the pointer to the root. With at most a few hundred sentences, a DFS per character is fast enough; caching the top three per node is the follow-up."
+ ],
+ "pitfalls": [
+  "Spaces are ordinary characters of the sentence.",
+  "Ties in frequency are broken by ascending lexicographic order.",
+  "A committed query becomes a sentence immediately and can be suggested on the very next keystrokes.",
+  "'#' outputs an empty list."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

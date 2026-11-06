@@ -63,7 +63,17 @@ under it; when it runs out the page beeps, flashes the tab title and says so.
 The deadline is what is stored, not a counter, so sleeping, a background tab or
 a reload cannot quietly hand you more time.
 
-**A path through it.** The app opens on **Path**: the DSA topics in the order to learn them
+**A roadmap, like a tree.** The app opens on the **roadmap**: 28 topics drawn as a tree, each
+under the topics it needs, numbered in the order to learn them. Each topic lists the techniques
+you must own and, for each technique, the problem picked (by reading the problems, not by tags) to
+teach it, with one line on what it makes you understand; then practice problems in OA dress, then a
+stretch. All 395 roadmap problems have a verified reference and hints. Every topic's main chapter
+is written as a tutor would teach it (`topics/AUTHORING.md`, Version 2): derived from the brute
+force, wrong instincts killed by counterexamples, every table filled by hand, the code mapped back
+to the idea line by line. `tools/roadmap.py` builds it from `roadmap/nodes/*.json` and schedules
+the KHATT plan's weeks from the head of each ladder.
+
+**A path through it.** Before the roadmap, the app opened on **Path**: the DSA topics in the order to learn them
 and the problems in the order to solve them. Phase A is what online assessments actually ask,
 measured on this bank (greedy and sorting are 41% and 33% of recent Amazon OA problems; trees and
 graphs about 1% each), so it comes first; Phase B is the interview core (trees, graphs, DP,
@@ -120,7 +130,8 @@ fastprep/
   all_problems.json  the same bank as one JSON file, rewritten after every sync that changes it
   practice/          the app: serve.py, fpdb.py, parsing.py, runner.py, static/, tools/, tests/
   practice/solutions/ reference solutions, one file per problem id
-  practice/path/      PATH.json: the DSA path (tools/path.py builds it)
+  practice/roadmap/   the topic tree: nodes/<topic>.json ladders, ROADMAP.json (tools/roadmap.py)
+  practice/path/      PATH.json: the earlier stage list, kept as a fallback
   practice/fixes/     repairs laid over thin problems (clearer statement, hints, pattern), khatt.json
 docs/                write-ups that are not in the bank and not reproducible:
                      a frame-by-frame post-mortem of a real 60-minute attempt, five debugging

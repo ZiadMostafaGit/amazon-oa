@@ -1,0 +1,15 @@
+{
+ "pattern": "bst",
+ "why": "Search by the ordering, remembering the last place you turned left: the successor is either the leftmost node of the target's right subtree or, if there is none, the lowest ancestor whose left subtree holds the target.",
+ "hints": [
+  "The successor is the smallest value larger than the target. Where can such a value live relative to the target?",
+  "Walk from the root: when node.val > target, it is a candidate; record it and go left. When node.val <= target, go right. The last candidate recorded is the answer.",
+  "One loop down the tree, O(h) time, O(1) space. Return -1 if no candidate was recorded."
+ ],
+ "pitfalls": [
+  "The successor can be an ancestor, not only a node in the right subtree.",
+  "The largest value has no successor: return -1."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

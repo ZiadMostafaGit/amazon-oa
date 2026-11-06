@@ -1,0 +1,16 @@
+{
+ "pattern": "two-pointers",
+ "why": "Walk two sorted sequences together: sort both arrays, then let each frontend value, smallest first, take the smallest backend value it still beats. A frontend that cannot beat the smallest free backend can beat nothing, and spending a small frontend on a small backend leaves the big ones for the rest.",
+ "hints": [
+  "Order does not matter, only which values pair up. Sort both arrays.",
+  "Scan frontends from small to large with a pointer j on the smallest unused backend. If frontend > backend[j], pair them and move j; otherwise this frontend is useless, skip it.",
+  "One pass over the sorted frontends: count += 1 and j += 1 whenever f > b[j]. O(n log n) for the sorts."
+ ],
+ "pitfalls": [
+  "The comparison is strict: equal values do not pair.",
+  "Do not pair the largest frontend with the largest backend first; that can waste it."
+ ],
+ "constraints": "<ul><li>1 &le; n &le; 10<sup>5</sup>; frontend and backend both have length n</li><li>1 &le; frontend[i], backend[i] &le; 10<sup>9</sup></li><li>(Practice bounds; the source gives none.)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

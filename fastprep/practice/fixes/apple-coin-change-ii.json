@@ -1,0 +1,16 @@
+{
+ "pattern": "unbounded-knapsack",
+ "why": "Counting coin combinations teaches that loop order decides what is counted: with coins in the outer loop each multiset is built in one fixed coin order, so it counts combinations; with amounts in the outer loop every ordering is counted separately.",
+ "hints": [
+  "Why does ways[a] = sum of ways[a - c] over all coins give the wrong answer here? Count [1,2] and [2,1] for amount 3.",
+  "Fix the coin order: first decide how many 1s, then how many 2s, and so on. Putting the coin loop outside does exactly that.",
+  "ways[0] = 1; for each coin c, for a from c up to amount: ways[a] += ways[a - c]. The upward sweep allows reuse. O(coins * amount)."
+ ],
+ "pitfalls": [
+  "Swapping the loops counts permutations (Combination Sum IV), not combinations.",
+  "Amount 0 has exactly one combination, even when no coin fits.",
+  "Looping a downward would allow each coin at most once."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

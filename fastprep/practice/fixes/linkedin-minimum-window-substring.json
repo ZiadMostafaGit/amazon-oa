@@ -1,0 +1,16 @@
+{
+ "pattern": "sliding-window",
+ "why": "The hardest form of the shortest valid window with a frequency map: a window is valid when it covers every character of t with multiplicity. Grow right until valid, then shrink left as far as the window stays valid, recording the shortest; track validity with a counter of characters whose need is met so each step is O(1).",
+ "hints": [
+  "Brute force checks every substring. For a fixed right end, if a window is valid, is a longer one ending there valid too?",
+  "Yes, so keep need[c] counts from t and a 'missing' counter. Expand right, decreasing need; when missing hits 0, shrink left while the window stays valid.",
+  "Record (length, start) while valid and before removing s[left]; prefer the earlier start on ties by only replacing on strictly shorter. O(|s| + |t|)."
+ ],
+ "pitfalls": [
+  "Multiplicity matters: t = 'aa' needs two a's.",
+  "Return '' when no window exists.",
+  "Ties: the earliest start wins, so update only when strictly shorter."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

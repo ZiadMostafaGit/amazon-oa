@@ -1,0 +1,17 @@
+{
+ "constraints": "<ul><li>0 &lt;= dependencies.length &lt;= 10^5</li><li>Each pair is [package, dependency], two non-empty names.</li><li>target is a non-empty name; if it appears in no pair it has no dependencies and the answer is [target].</li><li>Dependencies of a package are explored in the order their pairs appear in the input.</li></ul>",
+ "pattern": "topological-sort",
+ "why": "This is topological sort by DFS post-order: a package can be emitted only after all of its dependencies are finished, which is exactly the moment DFS finishes it. Starting the DFS from the target visits only what the target needs, and meeting a package still on the DFS path means a cycle.",
+ "hints": [
+  "You must install a package's dependencies before it. When, during a DFS from the target, have all of a package's dependencies been handled?",
+  "When DFS returns from a package, every dependency below it has already returned. Appending packages as they finish (post-order) gives a valid install order.",
+  "Map package -> dependencies in input order. Iterative DFS from target with states visiting/done; append on finish; reaching a 'visiting' package means a cycle, return []."
+ ],
+ "pitfalls": [
+  "Only the target's transitive dependencies belong in the answer (H, I, J in the example are not).",
+  "A shared dependency (F, needed by B and C) must appear once; skip packages already done.",
+  "Use an explicit stack: chains of 10^5 packages overflow recursion."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

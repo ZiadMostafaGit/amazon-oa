@@ -1,0 +1,128 @@
+{
+ "problemId": "peoplestrong-lowest-common-ancestor-bst",
+ "generatedAt": "2026-11-06T16:49:33",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[10, 5, 15, 2, 7, 12, 20]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[10, 5, 15, 2, 7, 12, 20]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[10, 5, 15, 2, 7, 12, 20]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "10"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[10, 5, 15, 2, 7, 12, 20]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[10, 5, 15, 2, 7, 12, 20]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[10, 5, 15, 2, 7, 12, 20]"
+    },
+    {
+     "name": "p",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "q",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "5"
+  }
+ ]
+}

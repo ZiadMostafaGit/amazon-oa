@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search",
+  "why": "Before the single value, every pair starts at an even index; after it, pairs start at odd indices. So 'nums[i] != nums[i ^ 1]' (with i even) flips from false to true exactly at the single element, a first-true search on a derived predicate.",
+  "hints": [
+    "Look at the indices of the pairs to the left of the single value, then to the right. What changes?",
+    "For an even index i, nums[i] == nums[i + 1] holds left of the single value and fails from it onwards. Binary search only even indices for the first failure.",
+    "lo, hi = 0, n - 1; mid -= mid % 2; if nums[mid] == nums[mid + 1]: lo = mid + 2 else hi = mid. Return nums[lo]. O(log n)."
+  ],
+  "pitfalls": [
+    "Keep mid even, otherwise the pair test compares the wrong neighbours.",
+    "XOR of all values gives the answer in O(n) but ignores the logarithmic requirement."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

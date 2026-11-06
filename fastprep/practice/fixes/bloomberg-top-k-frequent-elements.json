@@ -1,0 +1,16 @@
+{
+ "pattern": "frequency-counting",
+ "why": "Count with a frequency map, then use buckets indexed by frequency: a frequency is between 1 and n, so bucket[f] lists the values seen f times and reading buckets from n downward yields the most frequent values without sorting all of them.",
+ "hints": [
+  "First, how many times does each value appear? Then the question is only about those counts.",
+  "Counts are integers in 1..n. Instead of sorting values by count, make an array of n+1 lists and drop each value into bucket[count].",
+  "Walk f from n down to 1, appending bucket[f] (smaller values first, as the tie rule asks) until you have k values. O(n) plus sorting inside buckets for the tie order; a size-k heap is the O(n log k) alternative."
+ ],
+ "pitfalls": [
+  "Return distinct values, not repeated occurrences.",
+  "Ties: equal-frequency values are listed smallest first.",
+  "The bucket array needs n+1 slots because a value can appear n times."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

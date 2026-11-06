@@ -1,0 +1,16 @@
+{
+ "pattern": "trie",
+ "why": "Backtracking guided by a trie: once k rows are placed, column k already fixes the next row's prefix, and a prefix trie (each node listing the words below it) hands you only the words that can still fit.",
+ "hints": [
+  "After placing rows 0..k-1, what do you already know about row k?",
+  "Row k must start with the k-th letters of rows 0..k-1. Build a trie in which every node stores the words with that prefix, and try only those as row k.",
+  "Backtrack: for each first word, repeatedly read the required prefix from column k, look it up in the trie, and recurse on each candidate. Sort the words first so squares come out in lexicographic order."
+ ],
+ "pitfalls": [
+  "The same word may be used in several rows.",
+  "Return squares in lexicographic order of their row sequences.",
+  "Words of length 1 make every word a square by itself."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

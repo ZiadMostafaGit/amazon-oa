@@ -1,0 +1,3119 @@
+{
+ "phases": {
+  "A": {
+   "title": "OA core",
+   "about": "What online assessments ask most. Learn these first."
+  },
+  "B": {
+   "title": "Interview core",
+   "about": "Rarer in OAs, but the backbone of phone screens and onsites."
+  },
+  "C": {
+   "title": "Depth",
+   "about": "Once the core is automatic."
+  }
+ },
+ "nodes": [
+  {
+   "id": "arrays-hashing",
+   "title": "Arrays & Hashing",
+   "parents": [],
+   "phase": "A",
+   "order": 1,
+   "weeks": [
+    1
+   ],
+   "chapters": [
+    "hash-tables",
+    "arrays",
+    "frequency-counting",
+    "anagrams"
+   ],
+   "techniques": [
+    "a set to remember what you have seen",
+    "a map from value to index (look up the complement)",
+    "counting with a frequency map",
+    "a canonical key to group things (sorted string, count signature)",
+    "buckets indexed by frequency or value",
+    "the array index as the hash (in-place marking)"
+   ],
+   "ladder": [
+    {
+     "id": "capgemini-contains-duplicate",
+     "teaches": "a set to remember what you have seen",
+     "why": "The smallest possible hashing problem: one pass, one set, 'have I seen this before?' answered in O(1).",
+     "level": "core"
+    },
+    {
+     "id": "vanguard-two-sum",
+     "teaches": "a map from value to index (look up the complement)",
+     "why": "Turns 'find a pair' into 'look up the complement': store value -> index for what is behind you and ask for target - x.",
+     "level": "core"
+    },
+    {
+     "id": "motive-valid-anagram",
+     "teaches": "counting with a frequency map",
+     "why": "Order disappears once you count: two strings match when their letter counts match.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-group-anagrams",
+     "teaches": "a canonical key to group things (sorted string, count signature)",
+     "why": "A count signature is the same for every anagram, so it can be a dictionary key that groups them.",
+     "level": "core"
+    },
+    {
+     "id": "bloomberg-top-k-frequent-elements",
+     "teaches": "buckets indexed by frequency or value",
+     "why": "Frequencies are bounded by n, so an array of buckets indexed by count replaces a full sort.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-longest-consecutive-sequence",
+     "teaches": "a set to remember what you have seen",
+     "why": "A set gives O(1) membership; only starting runs at values with no predecessor keeps the whole scan O(n).",
+     "level": "core"
+    },
+    {
+     "id": "spacex-duplicate-number",
+     "teaches": "the array index as the hash (in-place marking)",
+     "why": "When values lie in 1..n the array can be its own set: the sign of nums[v] records 'seen v'.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-count-pairs",
+     "teaches": "a map from value to index (look up the complement)",
+     "why": "Complement lookup in an Amazon OA story, with duplicates and k = 0 to handle by thinking in distinct values.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-replace-values-and-return-sums",
+     "teaches": "counting with a frequency map",
+     "why": "Only how many copies of a value exist matters, so a count map plus a running sum answers each update in O(1).",
+     "level": "practice"
+    },
+    {
+     "id": "google-maximum-elements-with-a-common-digit",
+     "teaches": "counting with a frequency map",
+     "why": "Recognise that fixing the shared digit turns the question into ten simple counts.",
+     "level": "practice"
+    },
+    {
+     "id": "hrt-count-one-swap-number-pairs",
+     "teaches": "a map from value to index (look up the complement)",
+     "why": "Instead of comparing all pairs, generate each number's few neighbours and look them up in a frequency map.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-maximum-equal-parts-for-prefixes",
+     "teaches": "a canonical key to group things (sorted string, count signature)",
+     "why": "A prefix's count vector divided by its gcd is a canonical key that finds the earlier prefixes where cuts can go.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-count-distinct-passwords",
+     "teaches": "counting with a frequency map",
+     "why": "A counting insight: distinct reversals correspond to pairs of different letters, computed from 26 frequencies.",
+     "level": "stretch"
+    },
+    {
+     "id": "amazon-first-missing-positive",
+     "teaches": "the array index as the hash (in-place marking)",
+     "why": "Index-as-hash under an O(1)-space rule: cyclic swaps put each v at index v-1, then the first gap is the answer.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "sorting",
+   "title": "Sorting & Custom Order",
+   "parents": [
+    "arrays-hashing"
+   ],
+   "phase": "A",
+   "order": 2,
+   "weeks": [
+    2
+   ],
+   "chapters": [
+    "sorting",
+    "custom-comparators"
+   ],
+   "techniques": [
+    "sort, then compare neighbours",
+    "sort by a key, a tuple or a custom comparator",
+    "sort indices to keep original positions",
+    "counting sort when values are small",
+    "sort first so a greedy or two-pointer scan becomes valid"
+   ],
+   "ladder": [
+    {
+     "id": "akuna-minimum-absolute-difference-pairs",
+     "teaches": "sort, then compare neighbours",
+     "why": "After sorting, the closest pair is always adjacent, so one pass over neighbours finds every minimum-gap pair.",
+     "level": "core"
+    },
+    {
+     "id": "akuna-items-sort",
+     "teaches": "sort by a key, a tuple or a custom comparator",
+     "why": "A tuple key (frequency, value) expresses a two-level order in one sort.",
+     "level": "core"
+    },
+    {
+     "id": "linkedin-largest-number",
+     "teaches": "sort by a key, a tuple or a custom comparator",
+     "why": "Some orders are only definable pairwise: a before b when a+b > b+a, which needs a custom comparator.",
+     "level": "core"
+    },
+    {
+     "id": "meta-kth-largest-original-index",
+     "teaches": "sort indices to keep original positions",
+     "why": "Sorting the indices by (-value, index) keeps where each element came from and encodes the tie rule.",
+     "level": "core"
+    },
+    {
+     "id": "infosys-sort-colors",
+     "teaches": "counting sort when values are small",
+     "why": "With three possible values, counting and rewriting beats any comparison sort.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-group-students",
+     "teaches": "sort first so a greedy or two-pointer scan becomes valid",
+     "why": "Once sorted, the lowest remaining trainee anchors a class and the greedy pack is provably optimal.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-find-unique-values",
+     "teaches": "sort first so a greedy or two-pointer scan becomes valid",
+     "why": "'Pair the highest with the lowest' becomes a two-pointer walk over the sorted array.",
+     "level": "core"
+    },
+    {
+     "id": "vanguard-picking-tickets",
+     "teaches": "sort, then compare neighbours",
+     "why": "A selection rule about sorted neighbours becomes a longest-run scan after sorting.",
+     "level": "practice"
+    },
+    {
+     "id": "capital-one-rank-football-teams",
+     "teaches": "sort indices to keep original positions",
+     "why": "Parallel arrays and a four-level tie-break: sort indices with a tuple key.",
+     "level": "practice"
+    },
+    {
+     "id": "nutanix-num-players",
+     "teaches": "counting sort when values are small",
+     "why": "Scores 0..100 with competition ranking: buckets give every score's rank in one walk.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-find-encrypted-password",
+     "teaches": "counting sort when values are small",
+     "why": "Counting sort over 26 letters builds the smallest palindrome half directly.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-maximum-rating-threshold-count",
+     "teaches": "counting sort when values are small",
+     "why": "Huge values can be capped at n, which makes counting sort possible (the h-index in disguise).",
+     "level": "practice"
+    },
+    {
+     "id": "google-min-amplitude",
+     "teaches": "sort first so a greedy or two-pointer scan becomes valid",
+     "why": "After sorting, 'change 3 elements' means trimming the ends, and only four splits need checking.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-stable-robot-configurations",
+     "teaches": "sort first so a greedy or two-pointer scan becomes valid",
+     "why": "Fixing the operating count k forces the configuration; sorted thresholds make each k an O(1) check.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "two-pointers",
+   "title": "Two Pointers",
+   "parents": [
+    "sorting"
+   ],
+   "phase": "A",
+   "order": 3,
+   "weeks": [
+    2
+   ],
+   "chapters": [
+    "two-pointers",
+    "in-place-rearrangement"
+   ],
+   "techniques": [
+    "converging pointers on a sorted array (pair sum)",
+    "fix one element, two-pointer the rest, skip duplicates (3Sum)",
+    "reader and writer pointers (compact in place)",
+    "walk two sequences together (merge)",
+    "move the side that cannot improve (container)",
+    "compare from both ends (palindromes)"
+   ],
+   "ladder": [
+    {
+     "id": "london-stock-exchange-two-sum-sorted",
+     "teaches": "converging pointers on a sorted array (pair sum)",
+     "why": "The canonical first rung: on a sorted array, a sum that is too small can only be fixed by moving the left pointer, too big only by moving the right one.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-valid-palindrome",
+     "teaches": "compare from both ends (palindromes)",
+     "why": "Two pointers walking inward compare mirror characters, with skipping of non-alphanumerics showing how each pointer can move on its own rule.",
+     "level": "core"
+    },
+    {
+     "id": "gep-deduplicate-sorted-array-in-place",
+     "teaches": "reader and writer pointers (compact in place)",
+     "why": "A reader scans everything while a writer marks the end of the kept prefix: the template for every in-place compaction.",
+     "level": "core"
+    },
+    {
+     "id": "atlassian-merge-sorted-array",
+     "teaches": "walk two sequences together (merge)",
+     "why": "Merging two sorted runs with one pointer each, and filling from the back so the in-place merge never overwrites unread values.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-container-with-most-water",
+     "teaches": "move the side that cannot improve (container)",
+     "why": "Why discarding the shorter line is safe: it can never do better with a narrower partner, the argument behind every opposite-ends squeeze.",
+     "level": "core"
+    },
+    {
+     "id": "att-three-sum",
+     "teaches": "fix one element, two-pointer the rest, skip duplicates (3Sum)",
+     "why": "Sorting turns 3Sum into n runs of sorted Two Sum, and duplicate-skipping on both the fixed index and the left pointer gives each triplet once.",
+     "level": "core"
+    },
+    {
+     "id": "goldman-sachs-squares-of-a-sorted-array",
+     "teaches": "walk two sequences together (merge)",
+     "why": "The two ends of a sorted array with negatives are two sorted sequences of squares; comparing the ends and writing from the back is an O(n) merge.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-optimal-utilization",
+     "teaches": "converging pointers on a sorted array (pair sum)",
+     "why": "Amazon OA: pair sum at most a capacity across two lists, where an overflowing background app is useless for every larger foreground app, plus collecting ties.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-get-max-pairs",
+     "teaches": "walk two sequences together (merge)",
+     "why": "Amazon OA: after sorting both arrays, each frontend takes the smallest backend it beats, a greedy that is really two sequences walked together.",
+     "level": "practice"
+    },
+    {
+     "id": "ibm-increasing-value-triplets-under-threshold",
+     "teaches": "fix one element, two-pointer the rest, skip duplicates (3Sum)",
+     "why": "Counting instead of listing: once a[lo] + a[hi] fits the budget, every hi' between lo and hi fits too, so add hi - lo in one step.",
+     "level": "practice"
+    },
+    {
+     "id": "citadel-minimum-changes-palindromic-blocks",
+     "teaches": "compare from both ends (palindromes)",
+     "why": "Mirror-pair comparison applied block by block, where each mismatched pair costs exactly one change.",
+     "level": "practice"
+    },
+    {
+     "id": "bloomberg-valid-palindrome-ii",
+     "teaches": "compare from both ends (palindromes)",
+     "why": "The first mismatch is the only decision point: one of the two characters must go, so check both remaining middles.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-three-sum-closest",
+     "teaches": "fix one element, two-pointer the rest, skip duplicates (3Sum)",
+     "why": "The 3Sum scan without an exact target: the same pointer moves now chase the smallest distance to target.",
+     "level": "practice"
+    },
+    {
+     "id": "zolostays-trapping-rain-water",
+     "teaches": "move the side that cannot improve (container)",
+     "why": "The side with the smaller running max already knows its water level, so settle it and move it: the container argument with an insight.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "greedy",
+   "title": "Greedy",
+   "parents": [
+    "sorting"
+   ],
+   "phase": "A",
+   "order": 4,
+   "weeks": [
+    3
+   ],
+   "chapters": [
+    "greedy",
+    "greedy-exchange"
+   ],
+   "techniques": [
+    "sort, then take the locally best",
+    "track the furthest reach so far",
+    "a running balance that resets (gas station)",
+    "pair the extremes",
+    "prove the order with an exchange argument",
+    "greedy with a counter or a heap of the best so far"
+   ],
+   "ladder": [
+    {
+     "id": "roblox-maximum-units-on-truck",
+     "teaches": "sort, then take the locally best",
+     "why": "Every box costs one slot, so sorting by units per box and filling from the top is obviously optimal: the purest form of sort-then-take.",
+     "level": "core"
+    },
+    {
+     "id": "expedia-efficient-teams",
+     "teaches": "pair the extremes",
+     "why": "After sorting, the smallest can only pair with the largest if all pair sums are equal, so pairing from both ends is forced.",
+     "level": "core"
+    },
+    {
+     "id": "navi-jump-game-ii",
+     "teaches": "track the furthest reach so far",
+     "why": "Reachable indices form windows; keeping the furthest reach of the current window turns a BFS into one O(n) scan.",
+     "level": "core"
+    },
+    {
+     "id": "ebay-gas-station",
+     "teaches": "a running balance that resets (gas station)",
+     "why": "When the tank goes negative, every start so far is ruled out at once, so reset the balance and move the start past it.",
+     "level": "core"
+    },
+    {
+     "id": "infosys-two-city-candidate-assignment-cost",
+     "teaches": "prove the order with an exchange argument",
+     "why": "Swapping two candidates across cities shows the order must be by costA - costB, the classic exchange proof behind a sort key.",
+     "level": "core"
+    },
+    {
+     "id": "google-task-scheduler-with-cooldown",
+     "teaches": "greedy with a counter or a heap of the best so far",
+     "why": "Only frequencies matter: the most frequent type fixes the frame count and a counter gives a closed-form answer.",
+     "level": "core"
+    },
+    {
+     "id": "bloomberg-furthest-building-you-can-reach",
+     "teaches": "greedy with a counter or a heap of the best so far",
+     "why": "A min-heap of the climbs given ropes lets you revise earlier choices, so the ropes always sit on the biggest climbs so far.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-get-maximum-sum",
+     "teaches": "sort, then take the locally best",
+     "why": "Collapse servers into per-type totals, then take the k largest: sort-then-take hidden behind a hash map.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-maximum-capacity",
+     "teaches": "pair the extremes",
+     "why": "Sort descending and pair neighbours as (backup, primary): a pairing greedy wrapped in an Amazon server story.",
+     "level": "practice"
+    },
+    {
+     "id": "bloomberg-partition-labels",
+     "teaches": "track the furthest reach so far",
+     "why": "Extending the current part to the furthest last occurrence of its letters is furthest-reach in a string.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-get-max-increments",
+     "teaches": "greedy with a counter or a heap of the best so far",
+     "why": "Counting frequencies shows the most common score forces the number of increasing runs: answer n - maxFrequency.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-min-operation",
+     "teaches": "greedy with a counter or a heap of the best so far",
+     "why": "Pairing different locations is limited only by the most frequent one, so a frequency counter gives max(f, ceil(n/2)).",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-make-array-distinct",
+     "teaches": "greedy with a counter or a heap of the best so far",
+     "why": "Sweep values upward with a max-heap of waiting costs: the most expensive item stays, the cheap ones move up.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-bring-servers-down",
+     "teaches": "prove the order with an exchange argument",
+     "why": "Comparing two adjacent servers in the kill order yields Smith's rule; the insight is turning the story into weighted completion time.",
+     "level": "stretch"
+    },
+    {
+     "id": "bloomberg-minimum-refueling-stops",
+     "teaches": "greedy with a counter or a heap of the best so far",
+     "why": "Pass stations without deciding, then retroactively take the biggest one from a max-heap when you run dry.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "prefix-sums",
+   "title": "Prefix Sums",
+   "parents": [
+    "arrays-hashing"
+   ],
+   "phase": "A",
+   "order": 5,
+   "weeks": [
+    4
+   ],
+   "chapters": [
+    "prefix-sums"
+   ],
+   "techniques": [
+    "range sum in O(1) from a prefix array",
+    "prefix sum + hash map to count subarrays with sum k",
+    "prefix of a parity, a mod or a balance",
+    "difference array for range updates",
+    "prefix and suffix arrays (product except self, best left and right)",
+    "2-D prefix sums"
+   ],
+   "ladder": [
+    {
+     "id": "intuit-static-range-sums",
+     "teaches": "range sum in O(1) from a prefix array",
+     "why": "The base case with no story: build pre once, then every inclusive range [l, r] is pre[r+1] - pre[l].",
+     "level": "core"
+    },
+    {
+     "id": "expedia-equilibrium-index",
+     "teaches": "range sum in O(1) from a prefix array",
+     "why": "With a running prefix and the total, the left and right sums of every index are O(1), so one pass finds the balance point.",
+     "level": "core"
+    },
+    {
+     "id": "apple-subarray-sum-equals-k",
+     "teaches": "prefix sum + hash map to count subarrays with sum k",
+     "why": "A subarray ending here sums to k when an earlier prefix equals current - k, so count earlier prefixes in a hash map; negatives are why a window fails.",
+     "level": "core"
+    },
+    {
+     "id": "inmobi-count-subarrays-sum-divisible-by-k",
+     "teaches": "prefix of a parity, a mod or a balance",
+     "why": "Divisible by k means two prefixes with the same remainder, so the hash map counts remainders instead of sums.",
+     "level": "core"
+    },
+    {
+     "id": "google-range-booking-totals",
+     "teaches": "difference array for range updates",
+     "why": "A range add is +u at start and -u after end; one prefix sum over the difference array gives every slot's total.",
+     "level": "core"
+    },
+    {
+     "id": "freshworks-product-of-array-except-self",
+     "teaches": "prefix and suffix arrays (product except self, best left and right)",
+     "why": "Everything except i is everything left of i times everything right of i: one prefix pass and one suffix pass, no division.",
+     "level": "core"
+    },
+    {
+     "id": "rippling-matrix-block-sum",
+     "teaches": "2-D prefix sums",
+     "why": "Each output cell is a clipped rectangle sum, answered in O(1) from a 2-D prefix table by inclusion-exclusion.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-get-max-skill-sum",
+     "teaches": "prefix of a parity, a mod or a balance",
+     "why": "Amazon OA: score the two roles +1 and -1 so 'equal counts' becomes equal prefix balances, and keep the smallest skill prefix per balance.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-maximum-user-traffic",
+     "teaches": "difference array for range updates",
+     "why": "Amazon OA: each user is a range +1 over days, so a difference array and one prefix sum give daily traffic.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-get-max-aggregate-temperature-change",
+     "teaches": "prefix and suffix arrays (product except self, best left and right)",
+     "why": "Amazon OA: the value of a day is max(prefix sum, suffix sum), so the answer is the best of two running-sum scans.",
+     "level": "practice"
+    },
+    {
+     "id": "inmobi-count-subarrays-with-given-xor",
+     "teaches": "prefix sum + hash map to count subarrays with sum k",
+     "why": "The prefix + hash map count with XOR in place of addition, since XOR undoes itself.",
+     "level": "practice"
+    },
+    {
+     "id": "hrt-maximum-rhombic-area-sum",
+     "teaches": "range sum in O(1) from a prefix array",
+     "why": "A rhombus is a stack of row segments, so row prefix sums turn each segment into one subtraction.",
+     "level": "practice"
+    },
+    {
+     "id": "imc-maximum-size-square-sub-matrix-with-sum-less-than-threshold",
+     "teaches": "2-D prefix sums",
+     "why": "2-D prefix sums make every k x k square O(1), and positive values make the valid k monotone so k can be searched.",
+     "level": "stretch"
+    },
+    {
+     "id": "amazon-find-security-level",
+     "teaches": "prefix of a parity, a mod or a balance",
+     "why": "Amazon OA: remainder equals length forces length < k and turns into equal keys (P[i] - i) mod k, counted in a hash map over a sliding range of prefixes.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "sliding-window",
+   "title": "Sliding Window",
+   "parents": [
+    "two-pointers"
+   ],
+   "phase": "A",
+   "order": 6,
+   "weeks": [
+    4
+   ],
+   "chapters": [
+    "sliding-window"
+   ],
+   "techniques": [
+    "fixed-size window",
+    "variable window: the longest valid (shrink while invalid)",
+    "variable window: the shortest valid (shrink while valid)",
+    "window with a frequency map (distinct counts, anagrams)",
+    "exactly k = at most k minus at most k-1",
+    "window maximum with a monotonic deque"
+   ],
+   "ladder": [
+    {
+     "id": "jump-trading-fixed-window-rolling-mean",
+     "teaches": "fixed-size window",
+     "why": "Add the entering value, subtract the leaving one: a window of size k slides in O(1) per step.",
+     "level": "core"
+    },
+    {
+     "id": "akuna-longest-substring-without-repeating-characters",
+     "teaches": "variable window: the longest valid (shrink while invalid)",
+     "why": "The classic longest valid window: grow right, and when a repeat appears move left just past its previous occurrence.",
+     "level": "core"
+    },
+    {
+     "id": "inmobi-max-consecutive-ones-iii",
+     "teaches": "variable window: the longest valid (shrink while invalid)",
+     "why": "Rephrasing 'flip at most k zeros' as 'longest window with at most k zeros' and shrinking only while the window is invalid.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-anagram-start-indices",
+     "teaches": "window with a frequency map (distinct counts, anagrams)",
+     "why": "A fixed window carrying 26 letter counts: only two counts change per slide, and a match means an anagram.",
+     "level": "core"
+    },
+    {
+     "id": "microsoft-minimum-length-good-subarray",
+     "teaches": "variable window: the shortest valid (shrink while valid)",
+     "why": "The mirror template: record the length while the window is valid, then shrink to look for something shorter.",
+     "level": "core"
+    },
+    {
+     "id": "digitalocean-longest-repeating-character-replacement",
+     "teaches": "window with a frequency map (distinct counts, anagrams)",
+     "why": "Validity read from the frequency map: window length minus the most frequent count is the number of replacements needed.",
+     "level": "core"
+    },
+    {
+     "id": "atlassian-beautiful-subarrays",
+     "teaches": "exactly k = at most k minus at most k-1",
+     "why": "Exactly k odd numbers is awkward to slide, at most k is easy (each right end adds right - left + 1), so subtract atMost(k-1) from atMost(k).",
+     "level": "core"
+    },
+    {
+     "id": "amazon-sliding-window-maximum",
+     "teaches": "window maximum with a monotonic deque",
+     "why": "Values smaller than a newer value can never be a window maximum again, so a decreasing deque of indices gives every maximum in O(n).",
+     "level": "core"
+    },
+    {
+     "id": "salesforce-maximum-requests-in-window",
+     "teaches": "variable window: the longest valid (shrink while invalid)",
+     "why": "Sorting timestamps turns 'requests within one time window' into the longest window with last - first under a limit.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-get-minimum-boxes",
+     "teaches": "variable window: the longest valid (shrink while invalid)",
+     "why": "Amazon OA: sort, then the kept boxes are a contiguous run, so find the longest window with max <= capacity * min.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-get-max-alternating-music",
+     "teaches": "variable window: the longest valid (shrink while invalid)",
+     "why": "Amazon OA: fix each of the two alternating patterns and find the longest window with at most k mismatches.",
+     "level": "practice"
+    },
+    {
+     "id": "snowflake-vowel-substring",
+     "teaches": "window with a frequency map (distinct counts, anagrams)",
+     "why": "Counting windows with vowel counts: for each right end, shrink to the tightest start that still holds all five vowels and count the starts before it.",
+     "level": "practice"
+    },
+    {
+     "id": "juspay-minimum-of-window-maxima",
+     "teaches": "window maximum with a monotonic deque",
+     "why": "Recognising sliding window maximum inside a min-of-max question and folding the maxima into a running minimum.",
+     "level": "practice"
+    },
+    {
+     "id": "linkedin-minimum-window-substring",
+     "teaches": "variable window: the shortest valid (shrink while valid)",
+     "why": "The hardest shortest-valid window: a need map and a missing counter make validity O(1) while left shrinks.",
+     "level": "stretch"
+    },
+    {
+     "id": "amazon-get-max-consecutive-on",
+     "teaches": "variable window: the longest valid (shrink while invalid)",
+     "why": "Amazon OA: one segment flip clears a whole run of zeros, so the window budget counts zero-runs, not zeros.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "simulation",
+   "title": "Simulation & Implementation",
+   "parents": [
+    "arrays-hashing"
+   ],
+   "phase": "A",
+   "order": 7,
+   "weeks": [
+    5
+   ],
+   "chapters": [
+    "simulation",
+    "matrix-traversal",
+    "parsing",
+    "strings"
+   ],
+   "techniques": [
+    "step a state machine exactly as described",
+    "walk a matrix with direction arrays (spiral, rotate)",
+    "parse and tokenise a string",
+    "process events in time order",
+    "keep the bookkeeping straight: off-by-one, empty input, ties"
+   ],
+   "ladder": [
+    {
+     "id": "amazon-return-records",
+     "teaches": "step a state machine exactly as described",
+     "why": "Two pieces of state (registered users, logged-in set) and one branch per verb: the purest form of applying rules in order.",
+     "level": "core"
+    },
+    {
+     "id": "shopify-mars-rover-robot-controller",
+     "teaches": "walk a matrix with direction arrays (spiral, rotate)",
+     "why": "A heading stored as an index into clockwise dx/dy arrays turns L and R into +-1 mod 4, the trick every grid walk reuses.",
+     "level": "core"
+    },
+    {
+     "id": "nike-spiral-matrix",
+     "teaches": "walk a matrix with direction arrays (spiral, rotate)",
+     "why": "Four shrinking boundaries walk a matrix ring by ring, with guards so a single row or column is not walked twice.",
+     "level": "core"
+    },
+    {
+     "id": "visa-rotate-square-matrix-clockwise",
+     "teaches": "walk a matrix with direction arrays (spiral, rotate)",
+     "why": "Rotation is an index mapping (out[r][c] = m[n-1-c][r], or transpose then reverse rows), not a step-by-step move.",
+     "level": "core"
+    },
+    {
+     "id": "postman-validate-ip-address",
+     "teaches": "parse and tokenise a string",
+     "why": "Split on a separator and check every token against exact rules: count, length, character set, range, leading zeros.",
+     "level": "core"
+    },
+    {
+     "id": "capital-one-rightmost-longest-character-run",
+     "teaches": "keep the bookkeeping straight: off-by-one, empty input, ties",
+     "why": "A run-length scan where >= versus > decides ties and the last run must be closed after the loop.",
+     "level": "core"
+    },
+    {
+     "id": "temporal-game-of-life",
+     "teaches": "step a state machine exactly as described",
+     "why": "One simultaneous generation: eight neighbour offsets, and every new state computed from the old grid, never the half-updated one.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-find-requests-in-queue",
+     "teaches": "process events in time order",
+     "why": "Second-by-second FIFO serving with expiries, made linear by bucketing requests by the second they expire.",
+     "level": "core"
+    },
+    {
+     "id": "roblox-event-id-check-completion-times",
+     "teaches": "process events in time order",
+     "why": "A single server with a bounded line, where finishing checks before admitting a same-second arrival is the rule that matters.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-get-total-requests",
+     "teaches": "keep the bookkeeping straight: off-by-one, empty input, ties",
+     "why": "Rewriting the array every day is too slow; tracking a count per id and a running total gives the same answer in O(1) per day.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-unfulfilled-bids-after-ranked-round-robin",
+     "teaches": "step a state machine exactly as described",
+     "why": "Sort into priority groups, then round-robin one unit at a time with a queue until stock or demand runs out.",
+     "level": "practice"
+    },
+    {
+     "id": "epic-first-mingo-line",
+     "teaches": "keep the bookkeeping straight: off-by-one, empty input, ties",
+     "why": "Row, column and diagonal counters updated per call find the first completed line without rescanning the board.",
+     "level": "practice"
+    },
+    {
+     "id": "capital-one-leftmost-memory-block-allocator",
+     "teaches": "step a state machine exactly as described",
+     "why": "An array plus an id-to-block map, with exact rules for failed allocations and unknown erases.",
+     "level": "practice"
+    },
+    {
+     "id": "tiktok-sort-matrix-borders",
+     "teaches": "walk a matrix with direction arrays (spiral, rotate)",
+     "why": "The spiral walk reused as a path function: read a layer clockwise, sort, write back along the same path.",
+     "level": "practice"
+    },
+    {
+     "id": "citadel-busy-intersection",
+     "teaches": "process events in time order",
+     "why": "Two queues whose priority depends on the previous second, plus jumping time across idle gaps.",
+     "level": "stretch"
+    },
+    {
+     "id": "stripe-financial-account-ledger",
+     "teaches": "parse and tokenise a string",
+     "why": "Parse a command stream with two timestamp formats and apply calendar, cutoff and limit rules; the skill is splitting it into small pure helpers.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "binary-search",
+   "title": "Binary Search",
+   "parents": [
+    "sorting"
+   ],
+   "phase": "A",
+   "order": 8,
+   "weeks": [
+    6
+   ],
+   "chapters": [
+    "binary-search",
+    "search-rotated"
+   ],
+   "techniques": [
+    "the first index where a monotone condition becomes true",
+    "count elements <= x with bisect",
+    "search a rotated sorted array",
+    "search a sorted 2-D matrix"
+   ],
+   "ladder": [
+    {
+     "id": "meta-first-bad-version-array",
+     "teaches": "the first index where a monotone condition becomes true",
+     "why": "The bare template: a false/false/true/true array and the first true, with nothing else in the way.",
+     "level": "core"
+    },
+    {
+     "id": "grammarly-first-target-index",
+     "teaches": "the first index where a monotone condition becomes true",
+     "why": "The first occurrence of a value is the first index with nums[i] >= target (lower bound), plus one equality check.",
+     "level": "core"
+    },
+    {
+     "id": "swiggy-first-and-last-occurrence",
+     "teaches": "count elements <= x with bisect",
+     "why": "bisect_left and bisect_right bound the block of equal values, so their difference counts copies of x.",
+     "level": "core"
+    },
+    {
+     "id": "arista-networks-first-missing-number-in-consecutive-array",
+     "teaches": "the first index where a monotone condition becomes true",
+     "why": "The predicate can be derived (nums[i] > nums[0] + i): binary search works whenever something flips exactly once, not only on raw values.",
+     "level": "core"
+    },
+    {
+     "id": "goldman-sachs-minimum-in-rotated-sorted-array",
+     "teaches": "search a rotated sorted array",
+     "why": "Comparing with the last element splits a rotated array into a false run and a true run, so its minimum is a first-true search.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-search-rotated-sorted-array",
+     "teaches": "search a rotated sorted array",
+     "why": "At every mid one half is sorted; testing whether the target lies in that half decides which half to keep.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-search-row-major-sorted-matrix",
+     "teaches": "search a sorted 2-D matrix",
+     "why": "Rows that continue one another form one sorted array; index k maps to matrix[k // cols][k % cols].",
+     "level": "core"
+    },
+    {
+     "id": "goldman-sachs-staircase-search",
+     "teaches": "search a sorted 2-D matrix",
+     "why": "When only rows and columns are sorted, the top-right corner discards a whole row or column per comparison.",
+     "level": "core"
+    },
+    {
+     "id": "tiktok-debugger-breakpoint-actions",
+     "teaches": "count elements <= x with bisect",
+     "why": "An OA story whose 'continue' is just bisect_right on the sorted breakpoints: the first value strictly greater than x.",
+     "level": "practice"
+    },
+    {
+     "id": "tiktok-next-shuttle-wait-time",
+     "teaches": "count elements <= x with bisect",
+     "why": "Convert times to minutes, then bisect_left finds the first departure at or after now; the >= versus > choice is the whole edge case.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-find-sum-of-beauties",
+     "teaches": "count elements <= x with bisect",
+     "why": "Amazon OA: build a list, sort it once, then answer many 'how many are smaller than x' questions with bisect_left.",
+     "level": "practice"
+    },
+    {
+     "id": "atlassian-time-based-key-value-store",
+     "teaches": "count elements <= x with bisect",
+     "why": "Per-key timestamp lists stay sorted for free; each get is the predecessor search bisect_right(ts, t) - 1.",
+     "level": "practice"
+    },
+    {
+     "id": "two-sigma-linear-interpolator",
+     "teaches": "count elements <= x with bisect",
+     "why": "Locating the segment that brackets x is a bisect on the sorted knots, wrapped in interpolation and tie rules.",
+     "level": "practice"
+    },
+    {
+     "id": "atlassian-single-element-in-a-sorted-array",
+     "teaches": "the first index where a monotone condition becomes true",
+     "why": "Pair parity (pairs start at even indices before the single value, odd after) is a hidden monotone predicate.",
+     "level": "stretch"
+    },
+    {
+     "id": "blinkit-find-peak-element",
+     "teaches": "the first index where a monotone condition becomes true",
+     "why": "An unsorted array still has a monotone question, 'am I past the peak?' (nums[i] > nums[i+1]), so binary search applies.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "bs-answer",
+   "title": "Binary Search on the Answer",
+   "parents": [
+    "binary-search",
+    "greedy"
+   ],
+   "phase": "A",
+   "order": 9,
+   "weeks": [
+    6
+   ],
+   "chapters": [
+    "binary-search-on-answer"
+   ],
+   "techniques": [
+    "minimise the maximum (capacity, speed)",
+    "maximise the minimum (distance, gap)",
+    "a greedy feasibility check inside the search",
+    "binary search over real numbers or huge ranges"
+   ],
+   "ladder": [
+    {
+     "id": "amazon-koko-eating-bananas",
+     "teaches": "minimise the maximum (capacity, speed)",
+     "why": "The canonical first rung: the answer (a speed) is searched, and hours(k) only goes down as k goes up.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-capacity-to-ship-packages-within-d-days",
+     "teaches": "a greedy feasibility check inside the search",
+     "why": "The feasibility check becomes a greedy day-filling scan, and the search range is [max(w), sum(w)].",
+     "level": "core"
+    },
+    {
+     "id": "peoplestrong-aggressive-cows",
+     "teaches": "maximise the minimum (distance, gap)",
+     "why": "Maximise the minimum gap: search the last feasible distance, checking it by placing cows as early as possible.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-woodcut-saw-height",
+     "teaches": "binary search over real numbers or huge ranges",
+     "why": "Search the last height that still yields enough wood over a range up to 10^9, not over the poles.",
+     "level": "core"
+    },
+    {
+     "id": "google-cut-ribbons-equal-length",
+     "teaches": "maximise the minimum (distance, gap)",
+     "why": "Maximise a piece length with sum(r // L) >= k; the follow-up shows how the loop changes for fractional answers.",
+     "level": "core"
+    },
+    {
+     "id": "microsoft-minimum-nonadjacent-capability",
+     "teaches": "a greedy feasibility check inside the search",
+     "why": "A check that looks like it needs DP is actually a greedy scan, which is what lets you binary search the capability.",
+     "level": "core"
+    },
+    {
+     "id": "citadel-square-root",
+     "teaches": "binary search over real numbers or huge ranges",
+     "why": "Bisection over the reals: bracket the root, halve a fixed number of times, and learn why 'while hi - lo > eps' is risky.",
+     "level": "core"
+    },
+    {
+     "id": "microsoft-maximize-pipeline-throughput-under-budget",
+     "teaches": "maximise the minimum (distance, gap)",
+     "why": "Microsoft OA: maximise the minimum capacity, where the cost of a target T is a sum of independent per-service costs.",
+     "level": "practice"
+    },
+    {
+     "id": "imc-rock-jumping",
+     "teaches": "maximise the minimum (distance, gap)",
+     "why": "Rising water only removes rocks, so the maximum safe height is a last-true search with a one-pass greedy crossing check.",
+     "level": "practice"
+    },
+    {
+     "id": "drw-minimize-maximum-group-difference",
+     "teaches": "minimise the maximum (capacity, speed)",
+     "why": "Sort, then 'three groups of range <= D?' is a greedy cover; the story hides that the groups are runs of the sorted array.",
+     "level": "practice"
+    },
+    {
+     "id": "microsoft-maximum-alloy-production",
+     "teaches": "binary search over real numbers or huge ranges",
+     "why": "The answer can reach 10^18; about 60 halvings with an early-exit cost sum replace any attempt to count units up.",
+     "level": "practice"
+    },
+    {
+     "id": "rippling-find-minimum-time",
+     "teaches": "a greedy feasibility check inside the search",
+     "why": "Rephrase time as processes per processor (time = 2k - 1), then check k greedily: biggest processes to the biggest processors.",
+     "level": "stretch"
+    },
+    {
+     "id": "doordash-minimum-multi-rider-processing-speed",
+     "teaches": "a greedy feasibility check inside the search",
+     "why": "Search the speed and inside it pack consecutive orders per rider: a search wrapped around a capacity-to-ship style check.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "heap",
+   "title": "Heaps & Priority Queues",
+   "parents": [
+    "sorting"
+   ],
+   "phase": "A",
+   "order": 10,
+   "weeks": [
+    7
+   ],
+   "chapters": [
+    "heap",
+    "top-k",
+    "k-way-merge",
+    "median-maintenance"
+   ],
+   "techniques": [
+    "top k with a heap of size k",
+    "repeatedly take the best and push back the rest (simulate)",
+    "merge k sorted lists",
+    "two heaps for a running median",
+    "a heap of events or end times (scheduling)"
+   ],
+   "ladder": [
+    {
+     "id": "cognizant-kth-largest-element",
+     "teaches": "top k with a heap of size k",
+     "why": "A min-heap of the k largest so far keeps the kth largest at its root, in O(n log k).",
+     "level": "core"
+    },
+    {
+     "id": "ericsson-top-k-frequent-elements",
+     "teaches": "top k with a heap of size k",
+     "why": "Top k by a key: count first, then a size-k heap whose ordering includes the tie-break rule.",
+     "level": "core"
+    },
+    {
+     "id": "inmobi-connect-n-ropes-minimum-cost",
+     "teaches": "repeatedly take the best and push back the rest (simulate)",
+     "why": "Pop the two smallest, push their sum: the merged item must re-enter the order, which is why a heap and not one sort.",
+     "level": "core"
+    },
+    {
+     "id": "the-walt-disney-company-merge-k-sorted-lists",
+     "teaches": "merge k sorted lists",
+     "why": "The next output is the smallest of k heads, so a heap of heads gives each step in O(log k).",
+     "level": "core"
+    },
+    {
+     "id": "intuit-find-median-from-data-stream",
+     "teaches": "two heaps for a running median",
+     "why": "A max-heap of the lower half and a min-heap of the upper half put the median at the tops after every add.",
+     "level": "core"
+    },
+    {
+     "id": "snowflake-minimum-station-bus-fleet",
+     "teaches": "a heap of events or end times (scheduling)",
+     "why": "Process trips by departure and reuse the earliest-free bus at the origin: a min-heap of end times (per station).",
+     "level": "core"
+    },
+    {
+     "id": "get-minimum-cost",
+     "teaches": "repeatedly take the best and push back the rest (simulate)",
+     "why": "Amazon OA: buy the globally cheapest next unit m times, popping a type and pushing back its next price.",
+     "level": "practice"
+    },
+    {
+     "id": "ibm-get-maximum-amount",
+     "teaches": "repeatedly take the best and push back the rest (simulate)",
+     "why": "Each sale takes the type with the most stock and pushes it back with one less: a max-heap simulation in a story.",
+     "level": "practice"
+    },
+    {
+     "id": "snowflake-find-min-weight",
+     "teaches": "repeatedly take the best and push back the rest (simulate)",
+     "why": "Halve the current heaviest each day: the greedy choice is obvious once you see a max-heap gives it.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-package-delivery-system",
+     "teaches": "repeatedly take the best and push back the rest (simulate)",
+     "why": "Amazon OA: the heaviest package goes to the truck with most capacity, whose halved capacity goes back into the heap.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-reorganize-string",
+     "teaches": "repeatedly take the best and push back the rest (simulate)",
+     "why": "Most frequent letter first, holding the last letter out for one step: a heap with a cooldown.",
+     "level": "practice"
+    },
+    {
+     "id": "uber-minimum-refueling-stops",
+     "teaches": "repeatedly take the best and push back the rest (simulate)",
+     "why": "Decide late: keep passed stations in a max-heap and refuel from the best only when stuck.",
+     "level": "stretch"
+    },
+    {
+     "id": "amazon-sum-max-plus-min-after-decrement-operations",
+     "teaches": "repeatedly take the best and push back the rest (simulate)",
+     "why": "Starts as a pop-max/push-max-1 heap loop, but 10^9 requests force batching the simulation with arithmetic.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "intervals",
+   "title": "Intervals",
+   "parents": [
+    "sorting",
+    "greedy"
+   ],
+   "phase": "A",
+   "order": 11,
+   "weeks": [
+    8
+   ],
+   "chapters": [
+    "intervals",
+    "sweep-line",
+    "scheduling"
+   ],
+   "techniques": [
+    "sort by start and merge overlaps",
+    "insert an interval and test overlap",
+    "the most non-overlapping intervals (sort by end)",
+    "the fewest rooms: a sweep or a heap of end times",
+    "a line sweep with +1 / -1 events"
+   ],
+   "ladder": [
+    {
+     "id": "micro1-merge-intervals",
+     "teaches": "sort by start and merge overlaps",
+     "why": "Once sorted by start, the next interval can only overlap the one you are building, so a single pass merges everything.",
+     "level": "core"
+    },
+    {
+     "id": "bytedance-meeting-rooms",
+     "teaches": "insert an interval and test overlap",
+     "why": "The overlap test in its simplest form: after sorting, only neighbours can clash, and touching half-open meetings do not.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-insert-interval",
+     "teaches": "insert an interval and test overlap",
+     "why": "With a sorted disjoint list, inserting splits it into before / overlapping / after, and the overlap condition decides each run.",
+     "level": "core"
+    },
+    {
+     "id": "bytedance-minimum-interval-removals",
+     "teaches": "the most non-overlapping intervals (sort by end)",
+     "why": "Keeping the interval that ends earliest leaves the most room, so sort by end and count the ones you must drop.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-meeting-rooms-ii",
+     "teaches": "the fewest rooms: a sweep or a heap of end times",
+     "why": "The rooms needed equal the peak overlap; a min-heap of end times shows when a room frees up for reuse.",
+     "level": "core"
+    },
+    {
+     "id": "morgan-stanley-maximum-concurrent-processes",
+     "teaches": "a line sweep with +1 / -1 events",
+     "why": "Turn each interval into a +1 at its start and a -1 just after its end, then the peak running sum is the answer.",
+     "level": "core"
+    },
+    {
+     "id": "bytedance-interval-list-intersections",
+     "teaches": "insert an interval and test overlap",
+     "why": "Intersection is [max starts, min ends]; advancing the pointer that ends first is the overlap test applied to two sorted lists.",
+     "level": "core"
+    },
+    {
+     "id": "roblox-track-received-byte-ranges",
+     "teaches": "sort by start and merge overlaps",
+     "why": "Merge after every arrival with the extra rule that adjacent ranges also join: merge intervals inside an upload story.",
+     "level": "practice"
+    },
+    {
+     "id": "uber-my-calendar-i",
+     "teaches": "insert an interval and test overlap",
+     "why": "Online booking: test each half-open request against its sorted neighbours before accepting it.",
+     "level": "practice"
+    },
+    {
+     "id": "jpmorgan-get-min-machines",
+     "teaches": "the fewest rooms: a sweep or a heap of end times",
+     "why": "Machines are rooms and tasks are meetings, with inclusive ends changing the tie rule.",
+     "level": "practice"
+    },
+    {
+     "id": "google-minimum-cars-for-rental-requests",
+     "teaches": "the fewest rooms: a sweep or a heap of end times",
+     "why": "Meeting Rooms II with names: a heap of busy cars by return time and a heap of free car ids give the actual assignment.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-minimum-processes-to-drop-for-synchronization",
+     "teaches": "insert an interval and test overlap",
+     "why": "For each candidate centre, the processes to drop are exactly the disjoint ones, counted fast with bisect on sorted ends and starts.",
+     "level": "practice"
+    },
+    {
+     "id": "smallest-set-covering-intervals",
+     "teaches": "the most non-overlapping intervals (sort by end)",
+     "why": "The sort-by-end greedy with two points per interval: place points as far right as possible and remember only the two largest.",
+     "level": "stretch"
+    },
+    {
+     "id": "quince-minimum-sprinklers-to-cover-an-interval",
+     "teaches": "sort by start and merge overlaps",
+     "why": "Turn sprinklers into intervals, then cover [0, n] with the fewest by always extending to the furthest reach among intervals that start inside the covered part.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "stack",
+   "title": "Stacks",
+   "parents": [
+    "arrays-hashing"
+   ],
+   "phase": "A",
+   "order": 12,
+   "weeks": [
+    9
+   ],
+   "chapters": [
+    "stack",
+    "parsing"
+   ],
+   "techniques": [
+    "match pairs (parentheses)",
+    "evaluate an expression (RPN, a calculator)",
+    "simulate with undo or collapse (asteroids, removing pairs)",
+    "a stack augmented with extra data (min stack)",
+    "a stack of (value, count)"
+   ],
+   "ladder": [
+    {
+     "id": "amazon-valid-parentheses",
+     "teaches": "match pairs (parentheses)",
+     "why": "The defining stack problem: the most recent unmatched opener must be the first one closed, which is exactly last-in first-out.",
+     "level": "core"
+    },
+    {
+     "id": "shopify-min-stack",
+     "teaches": "a stack augmented with extra data (min stack)",
+     "why": "Storing the running minimum beside each entry shows how a stack can carry extra data that stays valid until that entry is popped.",
+     "level": "core"
+    },
+    {
+     "id": "atlassian-evaluate-reverse-polish-notation",
+     "teaches": "evaluate an expression (RPN, a calculator)",
+     "why": "An operand stack evaluates postfix in one pass: each operator pops its two operands (right first) and pushes the result.",
+     "level": "core"
+    },
+    {
+     "id": "microsoft-asteroid-collision",
+     "teaches": "simulate with undo or collapse (asteroids, removing pairs)",
+     "why": "Survivors wait on a stack and each incoming left-mover collapses the top in a while loop, the template for every collision simulation.",
+     "level": "core"
+    },
+    {
+     "id": "attentive-remove-adjacent-duplicates-ii",
+     "teaches": "a stack of (value, count)",
+     "why": "Cascading removals of k equal neighbours become O(n) once each stack entry is a (character, run length) pair.",
+     "level": "core"
+    },
+    {
+     "id": "meta-minimum-removal-for-balanced-parentheses",
+     "teaches": "match pairs (parentheses)",
+     "why": "Matching with a stack of indices tells you which brackets are unmatched, not just whether the string is valid.",
+     "level": "core"
+    },
+    {
+     "id": "abridge-decode-string",
+     "teaches": "evaluate an expression (RPN, a calculator)",
+     "why": "Nested k[...] groups are parsed by pushing the outer context (text so far, repeat count) at '[' and restoring it at ']'.",
+     "level": "core"
+    },
+    {
+     "id": "netflix-undo-redo-command-history",
+     "teaches": "simulate with undo or collapse (asteroids, removing pairs)",
+     "why": "Undo and redo are two stacks moving commands back and forth, with a new command clearing the redo stack.",
+     "level": "core"
+    },
+    {
+     "id": "mathwork-cars-left",
+     "teaches": "simulate with undo or collapse (asteroids, removing pairs)",
+     "why": "Asteroid Collision in an OA story with directions, strengths and indices: you must recognise the collapse-on-a-stack simulation.",
+     "level": "practice"
+    },
+    {
+     "id": "wellsfargo-minimum-remaining-length",
+     "teaches": "simulate with undo or collapse (asteroids, removing pairs)",
+     "why": "Deleting AB or BB means every B cancels the character before it; a stack (or just its size) handles deletions that expose new pairs.",
+     "level": "practice"
+    },
+    {
+     "id": "headlands-exclusive-function-execution-times",
+     "teaches": "match pairs (parentheses)",
+     "why": "Start/end logs are matched pairs on a call stack, and the top of the stack owns the time between events.",
+     "level": "practice"
+    },
+    {
+     "id": "drw-nested-database-transactions",
+     "teaches": "a stack augmented with extra data (min stack)",
+     "why": "BEGIN/ROLLBACK/COMMIT is a stack of dictionaries, each layer holding the writes of one open transaction.",
+     "level": "practice"
+    },
+    {
+     "id": "imc-adding-stack-2-0",
+     "teaches": "a stack augmented with extra data (min stack)",
+     "why": "'Add v to the bottom i elements' in O(1) needs a lazy increment stored on the stack and handed down on pop.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-basic-calculator",
+     "teaches": "evaluate an expression (RPN, a calculator)",
+     "why": "Parentheses with + and - need the stack to save the running result and sign at each '(' and combine them at ')'.",
+     "level": "stretch"
+    },
+    {
+     "id": "mathworks-longest-valid-parentheses",
+     "teaches": "match pairs (parentheses)",
+     "why": "A stack of indices with the last unmatched ')' as its floor turns matching into the length of the longest valid run.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "monotonic-stack",
+   "title": "Monotonic Stack",
+   "parents": [
+    "stack"
+   ],
+   "phase": "A",
+   "order": 13,
+   "weeks": [
+    9
+   ],
+   "chapters": [
+    "monotonic-stack"
+   ],
+   "techniques": [
+    "the next greater or smaller element",
+    "a span or the distance to the next warmer day",
+    "the largest rectangle in a histogram",
+    "the contribution of each element (sum of subarray minimums)",
+    "the lexicographically smallest result (remove k digits)"
+   ],
+   "ladder": [
+    {
+     "id": "amazon-next-greater-element-to-right",
+     "teaches": "the next greater or smaller element",
+     "why": "The canonical query: scanning from the right, values <= the current one can never answer anyone again, so the stack of candidates stays decreasing.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-next-smaller-ticket-price",
+     "teaches": "the next greater or smaller element",
+     "why": "The mirror image, next smaller to the right, shows the same stack with the comparison flipped.",
+     "level": "core"
+    },
+    {
+     "id": "ebay-daily-temperatures",
+     "teaches": "a span or the distance to the next warmer day",
+     "why": "Storing indices instead of values turns 'next warmer day' into a distance, resolved when a warmer day pops the waiting colder days.",
+     "level": "core"
+    },
+    {
+     "id": "tokopedia-stock-span",
+     "teaches": "a span or the distance to the next warmer day",
+     "why": "The span looks backwards to the previous greater price; a stack of (price, span) merges smaller days into today's entry, online.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-next-greater-element-ii",
+     "teaches": "the next greater or smaller element",
+     "why": "A circular array is handled by walking the indices twice and pushing only on the first lap.",
+     "level": "core"
+    },
+    {
+     "id": "airwallex-largest-rectangle-in-histogram",
+     "teaches": "the largest rectangle in a histogram",
+     "why": "Each bar's widest rectangle runs between its previous and next smaller bars, both found the moment the bar is popped from an increasing stack.",
+     "level": "core"
+    },
+    {
+     "id": "nvidia-sum-of-subarray-minimums",
+     "teaches": "the contribution of each element (sum of subarray minimums)",
+     "why": "Counting the subarrays where each element is the minimum, (i - prev smaller) * (next smaller - i), replaces enumerating subarrays.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-remove-k-digits",
+     "teaches": "the lexicographically smallest result (remove k digits)",
+     "why": "Popping a larger previous digit while deletions remain keeps a non-decreasing stack, the template for lexicographically smallest results.",
+     "level": "core"
+    },
+    {
+     "id": "uber-shopkeeper-final-price",
+     "teaches": "the next greater or smaller element",
+     "why": "An OA discount story whose discount is the next smaller-or-equal price to the right.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-predict-answer",
+     "teaches": "the next greater or smaller element",
+     "why": "An Amazon OA query game that needs both the previous and the next smaller element, then picks the nearer one.",
+     "level": "practice"
+    },
+    {
+     "id": "count-maximum-profitable-groups",
+     "teaches": "the contribution of each element (sum of subarray minimums)",
+     "why": "Counting subarrays whose maximum sits at an end reduces to next/previous greater distances per element, contribution counting in an OA story.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-sum-of-max-subarrays",
+     "teaches": "the contribution of each element (sum of subarray minimums)",
+     "why": "Contribution with a weight: each maximum contributes its value times the total length of the subarrays it dominates.",
+     "level": "practice"
+    },
+    {
+     "id": "erase-pairs",
+     "teaches": "the lexicographically smallest result (remove k digits)",
+     "why": "Erasing equal pairs anywhere leaves one copy of each odd-count letter, and choosing which copies is the lexicographically smallest stack.",
+     "level": "practice"
+    },
+    {
+     "id": "visa-largest-square-area-in-cityscape",
+     "teaches": "the largest rectangle in a histogram",
+     "why": "A skyline story hiding the histogram: each maximal rectangle holds a square of side min(height, width).",
+     "level": "practice"
+    },
+    {
+     "id": "google-maximal-rectangle-in-binary-matrix",
+     "teaches": "the largest rectangle in a histogram",
+     "why": "Each matrix row becomes a histogram of consecutive 1s, so the 2-D problem is the histogram stack run once per row.",
+     "level": "stretch"
+    },
+    {
+     "id": "virtu-financial-maximum-sum-of-heights",
+     "teaches": "the contribution of each element (sum of subarray minimums)",
+     "why": "The best mountain for every peak comes from a stack-driven recurrence best[i] = best[j] + h[i] * (i - j), from both sides.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "linked-list",
+   "title": "Linked Lists",
+   "parents": [
+    "two-pointers"
+   ],
+   "phase": "B",
+   "order": 14,
+   "weeks": [
+    10
+   ],
+   "chapters": [
+    "linked-list",
+    "fast-slow-pointers",
+    "lru-cache"
+   ],
+   "techniques": [
+    "reverse in place",
+    "a dummy head to merge or delete",
+    "fast and slow pointers (middle, cycle)",
+    "a gap of k between two pointers (k-th from the end)",
+    "a hash map plus a doubly linked list (LRU)"
+   ],
+   "ladder": [
+    {
+     "id": "the-walt-disney-company-reverse-linked-list",
+     "teaches": "reverse in place",
+     "why": "The base move: walk once and turn every next pointer backwards, keeping prev, curr and next straight.",
+     "level": "core"
+    },
+    {
+     "id": "the-walt-disney-company-merge-two-sorted-lists",
+     "teaches": "a dummy head to merge or delete",
+     "why": "A dummy head and a tail pointer make merging two sorted lists a loop with no special case for the first node.",
+     "level": "core"
+    },
+    {
+     "id": "nvidia-middle-node-linked-list",
+     "teaches": "fast and slow pointers (middle, cycle)",
+     "why": "Two steps against one: the slow pointer is at the middle exactly when the fast one runs off the end.",
+     "level": "core"
+    },
+    {
+     "id": "bloomberg-remove-linked-list-elements",
+     "teaches": "a dummy head to merge or delete",
+     "why": "A dummy before the head turns deleting the head into the same predecessor-skip as any other deletion.",
+     "level": "core"
+    },
+    {
+     "id": "mygate-remove-nth-node-from-end",
+     "teaches": "a gap of k between two pointers (k-th from the end)",
+     "why": "Two pointers kept n apart find the n-th node from the end in one pass, with a dummy for removing the head.",
+     "level": "core"
+    },
+    {
+     "id": "google-detect-linked-list-cycle",
+     "teaches": "fast and slow pointers (middle, cycle)",
+     "why": "Floyd's tortoise and hare detects a cycle in O(1) space: the fast pointer must catch the slow one inside a loop.",
+     "level": "core"
+    },
+    {
+     "id": "omnissa-build-and-check-palindrome-list",
+     "teaches": "reverse in place",
+     "why": "Find the middle with fast/slow, reverse the second half in place, and compare: the first problem that combines two list moves.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-lru-query-result-cache",
+     "teaches": "a hash map plus a doubly linked list (LRU)",
+     "why": "The textbook LRU cache: a hash map to nodes plus a recency-ordered doubly linked list gives O(1) get, put and eviction.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-linked-list-queue-operations",
+     "teaches": "a dummy head to merge or delete",
+     "why": "A hand-built queue with delete and de-duplicate drills unlinking through the predecessor while keeping head and tail correct.",
+     "level": "practice"
+    },
+    {
+     "id": "adobe-group-third-linked-list-nodes",
+     "teaches": "a dummy head to merge or delete",
+     "why": "Odd-even list with period 3: route nodes to two dummy-headed chains and join them, an OA rewiring exercise.",
+     "level": "practice"
+    },
+    {
+     "id": "expedia-lru-page-faults",
+     "teaches": "a hash map plus a doubly linked list (LRU)",
+     "why": "An OA page-fault count that is an LRU cache in disguise: recognise it and build the map + doubly linked list.",
+     "level": "practice"
+    },
+    {
+     "id": "adobe-alternate-divisible-linked-list-prefix",
+     "teaches": "reverse in place",
+     "why": "An OA that chains three moves: reverse a prefix in place, split into two dummy-headed chains, and weave them.",
+     "level": "practice"
+    },
+    {
+     "id": "google-linked-list-cycle-entry",
+     "teaches": "fast and slow pointers (middle, cycle)",
+     "why": "Floyd's second phase: after the meeting, a pointer from the head and one from the meeting point meet at the cycle entry.",
+     "level": "stretch"
+    },
+    {
+     "id": "peoplestrong-reverse-nodes-in-k-groups",
+     "teaches": "reverse in place",
+     "why": "Reverse in groups of k: probe k nodes ahead, reverse the group in place, and stitch it to the previous group's tail.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "trees",
+   "title": "Trees: DFS & BFS",
+   "parents": [
+    "linked-list"
+   ],
+   "phase": "B",
+   "order": 15,
+   "weeks": [
+    10
+   ],
+   "chapters": [
+    "trees",
+    "tree-traversal",
+    "dfs",
+    "bfs"
+   ],
+   "techniques": [
+    "recursive DFS that returns a value (depth, size)",
+    "DFS that passes state down (path sums)",
+    "level-order BFS",
+    "post-order: combine the children's answers (diameter, balanced)",
+    "build a tree from traversals"
+   ],
+   "ladder": [
+    {
+     "id": "linkedin-maximum-depth-of-binary-tree",
+     "teaches": "recursive DFS that returns a value (depth, size)",
+     "why": "A node's answer is built from its children's answers: depth = 1 + max(left, right), with 0 for an empty tree.",
+     "level": "core"
+    },
+    {
+     "id": "salesforce-path-sum",
+     "teaches": "DFS that passes state down (path sums)",
+     "why": "Information can flow down instead of up: carry the remaining target into each child and check it only at a leaf.",
+     "level": "core"
+    },
+    {
+     "id": "atlassian-binary-tree-level-order-traversal",
+     "teaches": "level-order BFS",
+     "why": "BFS with a queue, processed one whole level per round by fixing the queue's length first.",
+     "level": "core"
+    },
+    {
+     "id": "bloomberg-diameter-of-binary-tree",
+     "teaches": "post-order: combine the children's answers (diameter, balanced)",
+     "why": "Return one thing (height) to the parent while scoring another (left height + right height) at every node.",
+     "level": "core"
+    },
+    {
+     "id": "google-balanced-binary-tree",
+     "teaches": "post-order: combine the children's answers (diameter, balanced)",
+     "why": "Compute heights bottom-up once and check each node on the way, instead of recomputing heights top-down in O(n^2).",
+     "level": "core"
+    },
+    {
+     "id": "bloomberg-binary-tree-right-side-view",
+     "teaches": "level-order BFS",
+     "why": "Level-order BFS where you keep only the last node of each level.",
+     "level": "core"
+    },
+    {
+     "id": "google-binary-tree-root-to-leaf-paths",
+     "teaches": "DFS that passes state down (path sums)",
+     "why": "Pass the whole path down to each child and emit it at a leaf, recursively or with an explicit stack that keeps left-to-right order.",
+     "level": "core"
+    },
+    {
+     "id": "ebay-construct-tree-preorder-inorder",
+     "teaches": "build a tree from traversals",
+     "why": "Preorder names the root, inorder splits the rest into left and right subtrees; an index map makes the rebuild O(n).",
+     "level": "core"
+    },
+    {
+     "id": "inmobi-employee-subordinates",
+     "teaches": "recursive DFS that returns a value (depth, size)",
+     "why": "An OA story that is really subtree size: each boss's count is the sum of their reports' subtree sizes.",
+     "level": "practice"
+    },
+    {
+     "id": "drw-count-balanced-tree-nodes",
+     "teaches": "post-order: combine the children's answers (diameter, balanced)",
+     "why": "Subtree sizes computed post-order on an n-ary adjacency list, then a check at each node using its children's sizes.",
+     "level": "practice"
+    },
+    {
+     "id": "atlassian-leaf-similar-trees",
+     "teaches": "recursive DFS that returns a value (depth, size)",
+     "why": "A left-before-right DFS emits the leaves in order; collect them for two trees and compare.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-cousins-in-binary-tree-ii",
+     "teaches": "level-order BFS",
+     "why": "BFS levels give each level's total; each node's cousins are the level total minus its sibling group.",
+     "level": "practice"
+    },
+    {
+     "id": "imc-chain-of-command",
+     "teaches": "recursive DFS that returns a value (depth, size)",
+     "why": "The propagation order is a preorder DFS, and each subtree is a contiguous block of it of length size[v].",
+     "level": "practice"
+    },
+    {
+     "id": "arcesium-binary-tree-maximum-path-sum",
+     "teaches": "post-order: combine the children's answers (diameter, balanced)",
+     "why": "The diameter pattern with weights: offer the parent max(0, best downward gain) and score the bend using both sides.",
+     "level": "stretch"
+    },
+    {
+     "id": "google-maximum-leaf-to-leaf-path-sum",
+     "teaches": "post-order: combine the children's answers (diameter, balanced)",
+     "why": "Same post-order shape, but both ends must be real leaves, so negative branches cannot be dropped and only two-child nodes can bend the path.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "bst",
+   "title": "Binary Search Trees",
+   "parents": [
+    "trees",
+    "binary-search"
+   ],
+   "phase": "B",
+   "order": 16,
+   "weeks": [
+    11
+   ],
+   "chapters": [
+    "bst",
+    "lca",
+    "balanced-bst"
+   ],
+   "techniques": [
+    "inorder traversal is sorted",
+    "validate with lower and upper bounds",
+    "search and insert by the ordering",
+    "lowest common ancestor",
+    "k-th smallest"
+   ],
+   "ladder": [
+    {
+     "id": "meta-range-sum-of-bst",
+     "teaches": "search and insert by the ordering",
+     "why": "The ordering tells you which subtrees cannot contain an answer, so whole branches are skipped.",
+     "level": "core"
+    },
+    {
+     "id": "atlassian-validate-binary-search-tree",
+     "teaches": "validate with lower and upper bounds",
+     "why": "Checking each node against its children is not enough; carry an (low, high) interval down, or check that inorder is strictly increasing.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-kth-smallest-element-in-bst",
+     "teaches": "k-th smallest",
+     "why": "Inorder visits keys in ascending order, so the k-th smallest is the k-th node an iterative inorder walk pops.",
+     "level": "core"
+    },
+    {
+     "id": "peoplestrong-lowest-common-ancestor-bst",
+     "teaches": "lowest common ancestor",
+     "why": "With an ordering, the LCA is the first node on the way down that lies between p and q: no recursion, O(h).",
+     "level": "core"
+    },
+    {
+     "id": "citadel-binary-search-tree-operations",
+     "teaches": "search and insert by the ordering",
+     "why": "Insert, search and delete written from scratch: each walks one path chosen by comparisons, and delete handles the two-child case with the successor.",
+     "level": "core"
+    },
+    {
+     "id": "atlassian-binary-search-tree-iterator",
+     "teaches": "inorder traversal is sorted",
+     "why": "Inorder traversal paused between steps: a stack of the left spine gives next() in amortised O(1).",
+     "level": "core"
+    },
+    {
+     "id": "charta-bst-inorder-successor",
+     "teaches": "search and insert by the ordering",
+     "why": "Walking down by the ordering and remembering the last node where you turned left finds the next larger key.",
+     "level": "core"
+    },
+    {
+     "id": "atlassian-lowest-common-ancestor-of-a-binary-tree",
+     "teaches": "lowest common ancestor",
+     "why": "Without an ordering, LCA is a post-order question: the first node whose two sides each report a target.",
+     "level": "core"
+    },
+    {
+     "id": "blackrock-lowest-common-ancestor-parent-tree",
+     "teaches": "lowest common ancestor",
+     "why": "With parent pointers the LCA is where two root paths meet: mark one path, climb the other.",
+     "level": "practice"
+    },
+    {
+     "id": "lyft-reconstruct-bst-from-preorder",
+     "teaches": "validate with lower and upper bounds",
+     "why": "Rebuilding from preorder in O(n) by giving each subtree its allowed (low, high) range.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-bst-lowest-common-ancestor",
+     "teaches": "lowest common ancestor",
+     "why": "Insertion order plus the split-point idea: the LCA is the first inserted value between p and q, which avoids building a degenerate chain.",
+     "level": "practice"
+    },
+    {
+     "id": "linkedin-kth-closest-bst",
+     "teaches": "inorder traversal is sorted",
+     "why": "Flatten by inorder into a sorted list, then expand two pointers outward from target's insertion point.",
+     "level": "practice"
+    },
+    {
+     "id": "meta-repeated-bst-range-aggregates",
+     "teaches": "inorder traversal is sorted",
+     "why": "Inorder makes every key range a contiguous slice, so prefix sums and binary search answer many queries fast.",
+     "level": "practice"
+    },
+    {
+     "id": "globalization-partners-recover-binary-search-tree",
+     "teaches": "inorder traversal is sorted",
+     "why": "Sortedness as a diagnostic: the one or two descents in the inorder sequence name the two swapped nodes.",
+     "level": "stretch"
+    },
+    {
+     "id": "amazon-maximum-sum-bst",
+     "teaches": "validate with lower and upper bounds",
+     "why": "Bounds checking done bottom-up: each subtree reports (isBST, min, max, sum) so the parent decides in O(1).",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "trie",
+   "title": "Tries",
+   "parents": [
+    "trees"
+   ],
+   "phase": "B",
+   "order": 17,
+   "weeks": [
+    11
+   ],
+   "chapters": [
+    "trie"
+   ],
+   "techniques": [
+    "insert, search and starts-with",
+    "count words with a prefix",
+    "a trie plus DFS to search many words at once",
+    "a bitwise trie for the maximum XOR"
+   ],
+   "ladder": [
+    {
+     "id": "bloomberg-implement-trie",
+     "teaches": "insert, search and starts-with",
+     "why": "The structure itself: one node per prefix plus an end flag, so search and startsWith differ only in that flag.",
+     "level": "core"
+    },
+    {
+     "id": "google-dynamic-prefix-query-counts",
+     "teaches": "count words with a prefix",
+     "why": "A counter on each node of how many words pass through it answers 'how many start with p' by walking p; insert and delete adjust one path.",
+     "level": "core"
+    },
+    {
+     "id": "citadel-search-suggestions-prefix-tree",
+     "teaches": "insert, search and starts-with",
+     "why": "Each typed prefix is one trie node, so keeping the best three words per node turns autocomplete into one step per character.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-wildcard-word-dictionary",
+     "teaches": "a trie plus DFS to search many words at once",
+     "why": "A '.' forces the walk to branch into every child: find becomes a DFS through the trie.",
+     "level": "core"
+    },
+    {
+     "id": "inmobi-maximum-xor-between-two-arrays",
+     "teaches": "a bitwise trie for the maximum XOR",
+     "why": "Numbers as bit strings in a trie, walked greedily toward the opposite bit from the top, because one high bit beats all lower bits.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-word-search-ii",
+     "teaches": "a trie plus DFS to search many words at once",
+     "why": "One grid DFS that walks the trie alongside the board searches for every word at once and abandons dead prefixes immediately.",
+     "level": "core"
+    },
+    {
+     "id": "capital-one-longest-common-prefix-of-number-pairs",
+     "teaches": "insert, search and starts-with",
+     "why": "Digit strings in a trie: the depth another number reaches walking down is its longest common prefix with the whole first array.",
+     "level": "practice"
+    },
+    {
+     "id": "uber-word-pairs",
+     "teaches": "count words with a prefix",
+     "why": "Prefix pairs counted with per-node end and pass counters as words are inserted one by one.",
+     "level": "practice"
+    },
+    {
+     "id": "roblox-solution",
+     "teaches": "count words with a prefix",
+     "why": "Suffix questions become prefix questions after reversing each word, then counting with a trie.",
+     "level": "practice"
+    },
+    {
+     "id": "tiktok-maximum-value",
+     "teaches": "a bitwise trie for the maximum XOR",
+     "why": "An OA story that reduces to the maximum XOR of two prefix XORs, answered with a bitwise trie.",
+     "level": "practice"
+    },
+    {
+     "id": "inmobi-word-squares",
+     "teaches": "a trie plus DFS to search many words at once",
+     "why": "Backtracking where a trie of prefixes supplies only the words that can still fit the columns already fixed.",
+     "level": "stretch"
+    },
+    {
+     "id": "pinterest-autocomplete-system",
+     "teaches": "insert, search and starts-with",
+     "why": "A live autocomplete: the query is a moving trie node, a DFS below it gathers candidates, and frequencies are updated as sentences are committed.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "graphs",
+   "title": "Graphs: BFS & DFS",
+   "parents": [
+    "trees"
+   ],
+   "phase": "B",
+   "order": 18,
+   "weeks": [
+    12
+   ],
+   "chapters": [
+    "graphs",
+    "bfs",
+    "dfs",
+    "flood-fill",
+    "grid-bfs",
+    "multi-source-bfs",
+    "graph-modelling"
+   ],
+   "techniques": [
+    "count connected components (islands)",
+    "the fewest steps in an unweighted graph (BFS)",
+    "multi-source BFS (rotting oranges)",
+    "a grid as a graph with direction arrays",
+    "model the problem as a graph: states as nodes",
+    "detect a cycle"
+   ],
+   "ladder": [
+    {
+     "id": "amazon-count-connected-components",
+     "teaches": "count connected components (islands)",
+     "why": "The bare skill on an explicit edge list: every DFS started from an unvisited node is one new component.",
+     "level": "core"
+    },
+    {
+     "id": "goldman-sachs-number-of-islands",
+     "teaches": "a grid as a graph with direction arrays",
+     "why": "The same component count, but the graph is a grid: cells are nodes and four direction offsets are the edges.",
+     "level": "core"
+    },
+    {
+     "id": "citadel-shortest-path-unweighted-graph",
+     "teaches": "the fewest steps in an unweighted graph (BFS)",
+     "why": "Why BFS and not DFS: when every edge costs 1, the layer a node is first reached at is its distance.",
+     "level": "core"
+    },
+    {
+     "id": "lyft-rotten-oranges-grid-bfs",
+     "teaches": "multi-source BFS (rotting oranges)",
+     "why": "Seeding the queue with every source at once turns many simultaneous spreads into one BFS.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-find-minimum-city-hops",
+     "teaches": "model the problem as a graph: states as nodes",
+     "why": "A list of strings is secretly a graph: 'differ in one letter' is an edge you generate on the fly, then BFS.",
+     "level": "core"
+    },
+    {
+     "id": "oracle-directed-graph-cycle-detection",
+     "teaches": "detect a cycle",
+     "why": "Directed cycles need three colours: only an edge back to a node still on the DFS path closes a cycle.",
+     "level": "core"
+    },
+    {
+     "id": "intuit-maximum-island-area",
+     "teaches": "count connected components (islands)",
+     "why": "Flood fill that also measures: each component reports its size, and you keep the largest.",
+     "level": "practice"
+    },
+    {
+     "id": "rippling-distributed-system-recovery",
+     "teaches": "the fewest steps in an unweighted graph (BFS)",
+     "why": "BFS level order with a tie rule: process each hop-distance layer as a sorted batch.",
+     "level": "practice"
+    },
+    {
+     "id": "benchling-minimum-genetic-mutation",
+     "teaches": "model the problem as a graph: states as nodes",
+     "why": "Gene strings as nodes and single mutations as edges: recognise Word Ladder in a new story.",
+     "level": "practice"
+    },
+    {
+     "id": "doordash-closest-dashmart",
+     "teaches": "multi-source BFS (rotting oranges)",
+     "why": "Many 'nearest X' queries become lookups after one BFS grown from all X cells together.",
+     "level": "practice"
+    },
+    {
+     "id": "mercor-shortest-path-in-grid-with-obstacles-elimination",
+     "teaches": "model the problem as a graph: states as nodes",
+     "why": "When a cell alone does not describe your situation, the BFS node becomes (row, col, eliminations left).",
+     "level": "stretch"
+    },
+    {
+     "id": "belvedere-trading-distances-to-cycles",
+     "teaches": "detect a cycle",
+     "why": "Find the cycle vertices by peeling leaves, then a multi-source BFS from the whole cycle gives every distance.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "topological-sort",
+   "title": "Topological Sort",
+   "parents": [
+    "graphs"
+   ],
+   "phase": "B",
+   "order": 19,
+   "weeks": [
+    12
+   ],
+   "chapters": [
+    "topological-sort"
+   ],
+   "techniques": [
+    "Kahn's algorithm with in-degrees",
+    "detect a cycle with a topological order",
+    "DFS post-order",
+    "the longest path in a DAG (scheduling with durations)"
+   ],
+   "ladder": [
+    {
+     "id": "inmobi-course-schedule",
+     "teaches": "Kahn's algorithm with in-degrees",
+     "why": "The canonical Course Schedule: repeatedly take a course with no unfinished prerequisites; finishing all of them means no cycle.",
+     "level": "core"
+    },
+    {
+     "id": "chainalysis-lexicographically-smallest-course-order",
+     "teaches": "Kahn's algorithm with in-degrees",
+     "why": "Kahn's algorithm produces the order itself; a min-heap for the ready set makes it the smallest one.",
+     "level": "core"
+    },
+    {
+     "id": "arcesium-detect-cycle-in-directed-hate-graph",
+     "teaches": "detect a cycle with a topological order",
+     "why": "A directed graph has a cycle exactly when Kahn's algorithm cannot remove every node.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-package-dependency-order",
+     "teaches": "DFS post-order",
+     "why": "DFS from the target and emit each package when it finishes: post-order is an install order, and a node still on the path means a cycle.",
+     "level": "core"
+    },
+    {
+     "id": "suno-longest-dag-path",
+     "teaches": "the longest path in a DAG (scheduling with durations)",
+     "why": "Longest path is easy once nodes come in topological order: longest[v] = max(longest[u] + 1) over predecessors.",
+     "level": "core"
+    },
+    {
+     "id": "headlands-dependency-job-schedule",
+     "teaches": "the longest path in a DAG (scheduling with durations)",
+     "why": "Durations and unlimited workers: a job starts at the latest finish of its prerequisites, computed in topological order.",
+     "level": "core"
+    },
+    {
+     "id": "intuit-earliest-workflow-stages",
+     "teaches": "Kahn's algorithm with in-degrees",
+     "why": "Kahn's algorithm one whole frontier at a time: each frontier is a stage of concurrent steps.",
+     "level": "practice"
+    },
+    {
+     "id": "applied-intuition-compilation-order-topological-sort",
+     "teaches": "detect a cycle with a topological order",
+     "why": "Build order over string names with a heap tie rule, and 'IMPOSSIBLE' when some module never becomes ready.",
+     "level": "practice"
+    },
+    {
+     "id": "bloomberg-find-all-possible-recipes-from-given-supplies",
+     "teaches": "Kahn's algorithm with in-degrees",
+     "why": "In-degree as 'missing ingredients': supplies seed the queue and every made recipe becomes a new supply.",
+     "level": "practice"
+    },
+    {
+     "id": "meta-minimum-time-target-courses",
+     "teaches": "the longest path in a DAG (scheduling with durations)",
+     "why": "Longest weighted path restricted to the targets' prerequisite closure.",
+     "level": "practice"
+    },
+    {
+     "id": "vercel-leaves-to-root-order",
+     "teaches": "Kahn's algorithm with in-degrees",
+     "why": "Kahn's algorithm run backwards on out-degrees, peeling leaf layers; leftovers mean a cycle.",
+     "level": "practice"
+    },
+    {
+     "id": "intuit-alien-dictionary",
+     "teaches": "Kahn's algorithm with in-degrees",
+     "why": "First build the graph yourself from adjacent word pairs, then a heap-based Kahn's algorithm, with prefix and cycle checks.",
+     "level": "stretch"
+    },
+    {
+     "id": "doordash-longest-increasing-matrix-path",
+     "teaches": "the longest path in a DAG (scheduling with durations)",
+     "why": "A grid where edges point to larger neighbours is a hidden DAG; its number of Kahn layers is the longest increasing path.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "union-find",
+   "title": "Union-Find",
+   "parents": [
+    "graphs"
+   ],
+   "phase": "B",
+   "order": 20,
+   "weeks": [
+    14
+   ],
+   "chapters": [
+    "union-find"
+   ],
+   "techniques": [
+    "connected components as edges arrive",
+    "find the redundant edge",
+    "union by rank and path compression",
+    "union-find that carries extra data (sizes, weights)",
+    "process edges in sorted order (Kruskal, offline queries)"
+   ],
+   "ladder": [
+    {
+     "id": "bytedance-undirected-graph-path-existence",
+     "teaches": "union by rank and path compression",
+     "why": "The whole data structure in its smallest form: union every edge, compare roots; rank and path compression keep 2*10^5 operations fast.",
+     "level": "core"
+    },
+    {
+     "id": "sambanova-number-of-provinces",
+     "teaches": "connected components as edges arrive",
+     "why": "Start with n groups and subtract one for every union that really merges two of them.",
+     "level": "core"
+    },
+    {
+     "id": "inmobi-minimum-connection-changes",
+     "teaches": "find the redundant edge",
+     "why": "An edge whose ends already share a root is redundant, and redundant wires are what you can move.",
+     "level": "core"
+    },
+    {
+     "id": "roblox-longest-contiguous-house-segment",
+     "teaches": "union-find that carries extra data (sizes, weights)",
+     "why": "Each root carries its component size, so the longest run is known after every new house.",
+     "level": "core"
+    },
+    {
+     "id": "spacex-number-of-islands-ii",
+     "teaches": "connected components as edges arrive",
+     "why": "Components that change online: +1 per new land cell, -1 per merge with a neighbouring island.",
+     "level": "core"
+    },
+    {
+     "id": "nutanix-min-cost-to-connect-all-points",
+     "teaches": "process edges in sorted order (Kruskal, offline queries)",
+     "why": "Kruskal: take edges from cheapest up and keep one only when union-find says it joins two components.",
+     "level": "core"
+    },
+    {
+     "id": "atlassian-connected-sum",
+     "teaches": "union-find that carries extra data (sizes, weights)",
+     "why": "Union by size, then score each root by its component size.",
+     "level": "practice"
+    },
+    {
+     "id": "akuna-maximum-difference",
+     "teaches": "union-find that carries extra data (sizes, weights)",
+     "why": "Roots carry a min and max label instead of a size; merging combines them.",
+     "level": "practice"
+    },
+    {
+     "id": "visa-minimum-unreachable-warehouses",
+     "teaches": "union-find that carries extra data (sizes, weights)",
+     "why": "Roots carry vertex and edge counts, so each component can be classified as a tree or not.",
+     "level": "practice"
+    },
+    {
+     "id": "visa-minimum-score-path-between-cities",
+     "teaches": "connected components as edges arrive",
+     "why": "Revisiting is allowed, so the answer is just the cheapest road in city 1's component.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-maximum-truck-weight",
+     "teaches": "process edges in sorted order (Kruskal, offline queries)",
+     "why": "Add roads from the strongest down; the road that first joins start and end is the bottleneck.",
+     "level": "practice"
+    },
+    {
+     "id": "uber-earliest-full-connection",
+     "teaches": "process edges in sorted order (Kruskal, offline queries)",
+     "why": "Sort the logs by time and union until the component count reaches one.",
+     "level": "practice"
+    },
+    {
+     "id": "apple-evaluate-division",
+     "teaches": "union-find that carries extra data (sizes, weights)",
+     "why": "Weighted union-find: each node stores its ratio to the root, and queries divide two ratios.",
+     "level": "stretch"
+    },
+    {
+     "id": "tiktok-server-network-optimization",
+     "teaches": "process edges in sorted order (Kruskal, offline queries)",
+     "why": "Kruskal on 10^5 points, after proving only x-sorted and y-sorted neighbours can be MST edges.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "shortest-paths",
+   "title": "Shortest Paths",
+   "parents": [
+    "graphs",
+    "heap"
+   ],
+   "phase": "B",
+   "order": 21,
+   "weeks": [
+    14
+   ],
+   "chapters": [
+    "shortest-path",
+    "dijkstra",
+    "bellman-ford"
+   ],
+   "techniques": [
+    "Dijkstra with a heap",
+    "0-1 BFS",
+    "Bellman-Ford and at most k edges",
+    "a minimax path (minimum effort)",
+    "Dijkstra over states (node plus extra)"
+   ],
+   "ladder": [
+    {
+     "id": "visa-dijkstra-weighted-undirected-graph",
+     "teaches": "Dijkstra with a heap",
+     "why": "Plain single-source Dijkstra: settle the smallest tentative distance, relax, skip stale heap entries.",
+     "level": "core"
+    },
+    {
+     "id": "visa-minimum-cost-weighted-grid-path",
+     "teaches": "Dijkstra with a heap",
+     "why": "The same Dijkstra on a grid where entering a cell costs its value; four-way moves rule out the simple DP.",
+     "level": "core"
+    },
+    {
+     "id": "google-minimum-direction-violations",
+     "teaches": "0-1 BFS",
+     "why": "Edges cost only 0 or 1, so a deque (front for 0, back for 1) replaces the heap.",
+     "level": "core"
+    },
+    {
+     "id": "inmobi-cheapest-flights-within-k-stops",
+     "teaches": "Bellman-Ford and at most k edges",
+     "why": "Bellman-Ford's round i is 'cheapest with at most i edges', so k + 1 rounds enforce the stop limit.",
+     "level": "core"
+    },
+    {
+     "id": "walmart-minimum-stress-path",
+     "teaches": "a minimax path (minimum effort)",
+     "why": "Dijkstra where a path's value is its largest edge: max(d, w) instead of d + w.",
+     "level": "core"
+    },
+    {
+     "id": "skyscanner-minimum-path-with-discounts",
+     "teaches": "Dijkstra over states (node plus extra)",
+     "why": "The node is not enough; the state (node, discounts used) makes Dijkstra handle the half-price choice.",
+     "level": "core"
+    },
+    {
+     "id": "salesforce-path-with-maximum-probability",
+     "teaches": "Dijkstra with a heap",
+     "why": "Dijkstra with products and a max-heap: it works because values never improve along a path.",
+     "level": "practice"
+    },
+    {
+     "id": "google-minimum-teleporter-repairs",
+     "teaches": "0-1 BFS",
+     "why": "0-1 BFS with the cost on the departure node instead of the edge.",
+     "level": "practice"
+    },
+    {
+     "id": "google-swim-in-rising-water",
+     "teaches": "a minimax path (minimum effort)",
+     "why": "A minimax path on a grid: the cost is the tallest cell you touch.",
+     "level": "practice"
+    },
+    {
+     "id": "mathworks-shortest-route-possible-predecessors",
+     "teaches": "Dijkstra with a heap",
+     "why": "Dijkstra first, then dist[u] + w == dist[v] marks the shortest-route edges you build on.",
+     "level": "practice"
+    },
+    {
+     "id": "microsoft-minimum-fuel-cost",
+     "teaches": "Dijkstra over states (node plus extra)",
+     "why": "Unlimited tank means you always pay the cheapest price seen so far: state (city, best price).",
+     "level": "stretch"
+    },
+    {
+     "id": "amazon-find-safest-path-in-grid",
+     "teaches": "a minimax path (minimum effort)",
+     "why": "Multi-source BFS for every cell's distance to a thief, then a maximin path over those values.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "backtracking",
+   "title": "Backtracking",
+   "parents": [
+    "trees"
+   ],
+   "phase": "B",
+   "order": 22,
+   "weeks": [
+    15
+   ],
+   "chapters": [
+    "backtracking",
+    "subsets",
+    "permutations",
+    "pruning"
+   ],
+   "techniques": [
+    "choose, explore, un-choose",
+    "subsets (include or exclude)",
+    "permutations with a used array",
+    "combinations with a start index, skipping duplicates",
+    "search a grid for a word",
+    "prune early"
+   ],
+   "ladder": [
+    {
+     "id": "atlassian-letter-combinations-of-a-phone-number",
+     "teaches": "choose, explore, un-choose",
+     "why": "The purest decision tree: one level per digit, one branch per letter, and a path you extend and shrink as you go.",
+     "level": "core"
+    },
+    {
+     "id": "temu-subsets",
+     "teaches": "subsets (include or exclude)",
+     "why": "Each element is in or out, so the leaves of a two-way recursion are exactly the 2^n subsets.",
+     "level": "core"
+    },
+    {
+     "id": "atlassian-permutations",
+     "teaches": "permutations with a used array",
+     "why": "Every slot picks any value not yet placed, so you need a used array that you set before recursing and clear after.",
+     "level": "core"
+    },
+    {
+     "id": "pinterest-combination-sum-with-reuse",
+     "teaches": "combinations with a start index, skipping duplicates",
+     "why": "Recursing from the current index (never an earlier one) is what turns orderings into combinations, and staying on the same index allows reuse.",
+     "level": "core"
+    },
+    {
+     "id": "expedia-combination-sum-ii",
+     "teaches": "combinations with a start index, skipping duplicates",
+     "why": "Sorting and skipping an equal value at the same depth removes duplicate combinations without a set.",
+     "level": "core"
+    },
+    {
+     "id": "microsoft-word-search",
+     "teaches": "search a grid for a word",
+     "why": "Mark a cell on the way in and unmark it on the way out, so one path cannot reuse a cell but another path can.",
+     "level": "core"
+    },
+    {
+     "id": "the-walt-disney-company-generate-parentheses",
+     "teaches": "prune early",
+     "why": "Only extend prefixes that can still become valid (opens <= n, closes <= opens) and the search never visits a dead string.",
+     "level": "core"
+    },
+    {
+     "id": "intuit-n-queens",
+     "teaches": "prune early",
+     "why": "Rejecting a column the moment it clashes with an earlier queen cuts whole subtrees, which is what makes backtracking feasible.",
+     "level": "core"
+    },
+    {
+     "id": "microsoft-enumerate-valid-clock-times",
+     "teaches": "permutations with a used array",
+     "why": "A small OA wrapper: permute four digits with a used array, skip equal digits at the same depth, and filter valid times.",
+     "level": "practice"
+    },
+    {
+     "id": "goldman-sachs-alternating-parity-permutations",
+     "teaches": "permutations with a used array",
+     "why": "Permutations with a neighbour rule checked at placement, so bad branches are never grown.",
+     "level": "practice"
+    },
+    {
+     "id": "expedia-palindrome-partitions",
+     "teaches": "choose, explore, un-choose",
+     "why": "The choice is where the next piece ends; choose a palindromic piece, recurse on the rest, un-choose and try a longer one.",
+     "level": "practice"
+    },
+    {
+     "id": "adobe-graph-m-coloring",
+     "teaches": "prune early",
+     "why": "Assign colors vertex by vertex and abandon a color as soon as a neighbour already has it.",
+     "level": "practice"
+    },
+    {
+     "id": "adobe-longest-fruit-path",
+     "teaches": "search a grid for a word",
+     "why": "Word Search without a word: DFS over simple grid paths with mark and unmark, keeping the best length.",
+     "level": "practice"
+    },
+    {
+     "id": "meta-maximum-unique-character-word-subset",
+     "teaches": "subsets (include or exclude)",
+     "why": "Include or exclude each word, pruning a branch the moment two words share a letter (a bitmask AND).",
+     "level": "practice"
+    },
+    {
+     "id": "confluent-sudoku-puzzle-solver",
+     "teaches": "prune early",
+     "why": "Fill cells with legal digits only, undo on failure, and pick the most constrained cell first to keep the tree small.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "dp-1d",
+   "title": "1-D Dynamic Programming",
+   "parents": [
+    "backtracking"
+   ],
+   "phase": "B",
+   "order": 23,
+   "weeks": [
+    16,
+    17
+   ],
+   "chapters": [
+    "dynamic-programming",
+    "dp-1d",
+    "memoization",
+    "kadane",
+    "lis",
+    "counting-dp"
+   ],
+   "techniques": [
+    "recursion, then memo, then table (climbing stairs)",
+    "take or skip on a line (house robber)",
+    "the minimum cost to reach a target (fewest coins)",
+    "count the ways (decode ways)",
+    "DP over prefixes with a dictionary (word break)",
+    "Kadane: the best subarray ending here",
+    "the longest increasing subsequence"
+   ],
+   "ladder": [
+    {
+     "id": "expedia-climbing-stairs",
+     "teaches": "recursion, then memo, then table (climbing stairs)",
+     "why": "The last move came from n-1 or n-2; write that as recursion, memoise it, then turn it into a two-variable loop.",
+     "level": "core"
+    },
+    {
+     "id": "inmobi-house-robber",
+     "teaches": "take or skip on a line (house robber)",
+     "why": "Rob house i or skip it: best[i] = max(best[i-1], best[i-2] + nums[i]) is the take-or-skip template.",
+     "level": "core"
+    },
+    {
+     "id": "mygate-frog-jump",
+     "teaches": "the minimum cost to reach a target (fewest coins)",
+     "why": "Climbing stairs with min instead of +: the cheapest way to a stone is the cheaper of its two predecessors plus the jump cost.",
+     "level": "core"
+    },
+    {
+     "id": "amd-minimum-coin-change",
+     "teaches": "the minimum cost to reach a target (fewest coins)",
+     "why": "Fewest coins: greedy fails, and best[a] = 1 + min(best[a-c]) built from 0 upward, with infinity for unreachable amounts, does not.",
+     "level": "core"
+    },
+    {
+     "id": "de-shaw-decode-ways",
+     "teaches": "count the ways (decode ways)",
+     "why": "Count the ways: the last letter used one or two digits, so add the counts of the two shorter prefixes when each split is valid.",
+     "level": "core"
+    },
+    {
+     "id": "meta-word-break-reusable-dictionary",
+     "teaches": "DP over prefixes with a dictionary (word break)",
+     "why": "ok[i] is true when some dictionary word ends at i and the prefix before it was breakable.",
+     "level": "core"
+    },
+    {
+     "id": "omnissa-maximum-subarray-sum",
+     "teaches": "Kadane: the best subarray ending here",
+     "why": "The best subarray ending here either extends the previous one or restarts; drop a negative running sum.",
+     "level": "core"
+    },
+    {
+     "id": "salesforce-longest-increasing-subsequence",
+     "teaches": "the longest increasing subsequence",
+     "why": "Define the state by where the subsequence ends (O(n^2)), then speed it up with the tails array and binary search.",
+     "level": "core"
+    },
+    {
+     "id": "digitalocean-house-robber-ii",
+     "teaches": "take or skip on a line (house robber)",
+     "why": "A circle is two lines: exclude the first house or the last and run house robber on each.",
+     "level": "practice"
+    },
+    {
+     "id": "morgan-stanley-delete-and-earn",
+     "teaches": "take or skip on a line (house robber)",
+     "why": "Taking x forbids x-1 and x+1, so bucket by value and it becomes house robber on the number line.",
+     "level": "practice"
+    },
+    {
+     "id": "shopify-paint-house",
+     "teaches": "the minimum cost to reach a target (fewest coins)",
+     "why": "Minimum cost with a small state: the cheapest total ending in each color, rolled house by house.",
+     "level": "practice"
+    },
+    {
+     "id": "squadstack-weighted-decode-ways",
+     "teaches": "count the ways (decode ways)",
+     "why": "Decode Ways with min instead of +, showing that the same split recurrence counts ways or finds the cheapest one.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-maximize-protected-city-population",
+     "teaches": "take or skip on a line (house robber)",
+     "why": "An Amazon OA story that reduces to a two-state left-to-right DP over whether the previous city is already protected.",
+     "level": "practice"
+    },
+    {
+     "id": "squarepoint-longest-subsequence-from-two-arrays",
+     "teaches": "the longest increasing subsequence",
+     "why": "LIS where each index offers two values; both are tried against the tails array as it was before that index.",
+     "level": "practice"
+    },
+    {
+     "id": "atlassian-dice-roll-simulation",
+     "teaches": "count the ways (decode ways)",
+     "why": "Counting the ways needs a richer state (last face, run length) and modular arithmetic.",
+     "level": "stretch"
+    },
+    {
+     "id": "microsoft-minimum-jump-cost",
+     "teaches": "the minimum cost to reach a target (fewest coins)",
+     "why": "dp[i] = cost[i] + min of the last k states; a monotonic deque turns O(nk) into O(n).",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "knapsack",
+   "title": "Knapsack",
+   "parents": [
+    "dp-1d"
+   ],
+   "phase": "C",
+   "order": 24,
+   "weeks": [
+    20
+   ],
+   "chapters": [
+    "knapsack",
+    "unbounded-knapsack"
+   ],
+   "techniques": [
+    "0/1 knapsack: take or skip under a capacity",
+    "subset sum: can I make exactly T",
+    "exactly W versus at most W (the initial values)",
+    "unbounded: each item any number of times (fewest coins)",
+    "count combinations versus orderings (loop order)",
+    "a disguise: +/- signs to reach T becomes subset sum",
+    "partition into two sets with the smallest difference",
+    "two resources at once (ones and zeroes)",
+    "bounded copies, or swap the DP dimension when the capacity is huge"
+   ],
+   "ladder": [
+    {
+     "id": "amazon-zero-one-knapsack",
+     "teaches": "0/1 knapsack: take or skip under a capacity",
+     "why": "The plain form: one capacity, take or skip each item, and why the one-row table is swept from high capacity to low.",
+     "level": "core"
+    },
+    {
+     "id": "confluent-positive-subset-sum",
+     "teaches": "subset sum: can I make exactly T",
+     "why": "Drop the values and keep only feasibility: the same table answers 'which sums can I make exactly'.",
+     "level": "core"
+    },
+    {
+     "id": "adobe-count-subsets-with-sum-k",
+     "teaches": "exactly W versus at most W (the initial values)",
+     "why": "Counting exact sums shows that ways[0] = 1 and zeros elsewhere is what means 'exactly k', unlike knapsack's all-zero 'at most' start.",
+     "level": "core"
+    },
+    {
+     "id": "grubhub-coin-change",
+     "teaches": "unbounded: each item any number of times (fewest coins)",
+     "why": "Reusable denominations flip the sweep to low-to-high, and the objective becomes the fewest items for an exact total.",
+     "level": "core"
+    },
+    {
+     "id": "apple-coin-change-ii",
+     "teaches": "count combinations versus orderings (loop order)",
+     "why": "Putting coins in the outer loop counts each multiset once; swapping the loops would count orderings.",
+     "level": "core"
+    },
+    {
+     "id": "expedia-partition-equal-subset-sum",
+     "teaches": "a disguise: +/- signs to reach T becomes subset sum",
+     "why": "Giving one group + and the other - and asking for 0 turns the split into subset sum with target total/2.",
+     "level": "core"
+    },
+    {
+     "id": "intuit-minimum-subset-sum-difference",
+     "teaches": "partition into two sets with the smallest difference",
+     "why": "Build every reachable sum once, then the best split is the reachable sum nearest total/2.",
+     "level": "core"
+    },
+    {
+     "id": "morgan-stanley-three-resource-knapsack",
+     "teaches": "two resources at once (ones and zeroes)",
+     "why": "When each item spends several resources, the capacity becomes a tuple and the table gets one dimension per resource.",
+     "level": "core"
+    },
+    {
+     "id": "google-unit-weight-knapsack",
+     "teaches": "bounded copies, or swap the DP dimension when the capacity is huge",
+     "why": "With capacity and copies up to 10^9 no table fits; unit weights make taking the best values first optimal.",
+     "level": "core"
+    },
+    {
+     "id": "indeed-budget-shopping-most-books",
+     "teaches": "unbounded: each item any number of times (fewest coins)",
+     "why": "An OA story (bundles under a budget) that is unbounded knapsack in the at-most form, where greedy by ratio fails.",
+     "level": "practice"
+    },
+    {
+     "id": "oracle-coin-change-unbounded-and-single-use",
+     "teaches": "count combinations versus orderings (loop order)",
+     "why": "The same fewest-coins table run in both directions side by side: upward reuses a coin, downward uses it once.",
+     "level": "practice"
+    },
+    {
+     "id": "agoda-two-core-process-assignment",
+     "teaches": "partition into two sets with the smallest difference",
+     "why": "An OA scheduling story whose real question is the subset sum nearest half the total.",
+     "level": "practice"
+    },
+    {
+     "id": "jpmorgan-exact-k-subset",
+     "teaches": "two resources at once (ones and zeroes)",
+     "why": "A count limit is a second resource: the state becomes (how many taken, which sums), with negative values ruling out a plain array.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-tallest-billboard",
+     "teaches": "a disguise: +/- signs to reach T becomes subset sum",
+     "why": "Each rod gets +, - or 0; tracking the signed difference instead of both heights is the +/- disguise with an extra option.",
+     "level": "stretch"
+    },
+    {
+     "id": "salesforce-closest-subsequence-sum",
+     "teaches": "bounded copies, or swap the DP dimension when the capacity is huge",
+     "why": "Values up to 10^7 make the sum table impossible, so split the 40 items into halves and combine 2^20 sums with binary search.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "dp-2d",
+   "title": "2-D DP: Grids & Strings",
+   "parents": [
+    "dp-1d"
+   ],
+   "phase": "C",
+   "order": 25,
+   "weeks": [
+    20
+   ],
+   "chapters": [
+    "dp-2d",
+    "dp-strings"
+   ],
+   "techniques": [
+    "paths and costs on a grid",
+    "the longest common subsequence",
+    "edit distance",
+    "palindromes: DP over (i, j) of one string",
+    "design the state for two sequences"
+   ],
+   "ladder": [
+    {
+     "id": "peoplestrong-unique-paths",
+     "teaches": "paths and costs on a grid",
+     "why": "The smallest grid DP: paths into a cell come only from above and from the left, so you add those two counts.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-minimum-path-sum",
+     "teaches": "paths and costs on a grid",
+     "why": "The same recurrence with costs instead of counts: take the cheaper of the two ways in, and keep one rolling row.",
+     "level": "core"
+    },
+    {
+     "id": "morgan-stanley-longest-common-subsequence",
+     "teaches": "the longest common subsequence",
+     "why": "The two-prefix table: a match extends the diagonal, a mismatch drops one character from either string.",
+     "level": "core"
+    },
+    {
+     "id": "astrotalk-edit-distance",
+     "teaches": "edit distance",
+     "why": "Insert, delete and replace become the three neighbouring cells of the LCS-shaped table, with base cases i and j.",
+     "level": "core"
+    },
+    {
+     "id": "goldman-sachs-longest-palindromic-subsequence",
+     "teaches": "palindromes: DP over (i, j) of one string",
+     "why": "DP over the ends (i, j) of one string: equal ends wrap the inside answer, otherwise drop one end.",
+     "level": "core"
+    },
+    {
+     "id": "stanley-get-subsequence-count",
+     "teaches": "design the state for two sequences",
+     "why": "Pick the state 'how much of the pattern is matched so far' and count ways, sweeping slots high to low so one character fills one slot.",
+     "level": "core"
+    },
+    {
+     "id": "wellsfargo-longest-subsequence-substring",
+     "teaches": "design the state for two sequences",
+     "why": "Two strings with different rules (subsequence in x, substring in y): the state must encode a substring ending at j, so mismatches carry down instead of resetting.",
+     "level": "core"
+    },
+    {
+     "id": "google-count-all-one-squares",
+     "teaches": "paths and costs on a grid",
+     "why": "A grid DP whose state is a shape: the largest square ending at a corner is 1 + the min of three neighbours.",
+     "level": "practice"
+    },
+    {
+     "id": "infosys-minimum-path-sum-with-grid-switches",
+     "teaches": "paths and costs on a grid",
+     "why": "Grid costs plus a layer index (which grid you are on), showing how to add a dimension when the story adds a choice.",
+     "level": "practice"
+    },
+    {
+     "id": "expedia-triangle-minimum-path-sum",
+     "teaches": "paths and costs on a grid",
+     "why": "A non-rectangular grid that is easiest bottom-up, where the edge cases disappear.",
+     "level": "practice"
+    },
+    {
+     "id": "phonepe-substrings-without-target-subsequence",
+     "teaches": "design the state for two sequences",
+     "why": "An OA counting question that becomes 'latest start that still matches target[0..j]', a two-sequence state updated as s is scanned.",
+     "level": "practice"
+    },
+    {
+     "id": "amazon-minimum-insertions",
+     "teaches": "the longest common subsequence",
+     "why": "An Amazon OA story that is n - LCS, where unique values let the LCS shrink to a longest increasing subsequence.",
+     "level": "stretch"
+    },
+    {
+     "id": "microsoft-longest-palindrome-from-two-words",
+     "teaches": "palindromes: DP over (i, j) of one string",
+     "why": "Palindrome (i, j) DP on the concatenation, read only at outer pairs that straddle the two words.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "bits-math",
+   "title": "Bits & Maths",
+   "parents": [
+    "arrays-hashing"
+   ],
+   "phase": "C",
+   "order": 26,
+   "weeks": [
+    21
+   ],
+   "chapters": [
+    "bit-manipulation",
+    "xor-tricks",
+    "math",
+    "number-theory",
+    "modular-arithmetic"
+   ],
+   "techniques": [
+    "XOR cancels pairs",
+    "a bitmask as a set",
+    "count bits and powers of two",
+    "gcd, lcm and modular arithmetic",
+    "primes and a sieve"
+   ],
+   "ladder": [
+    {
+     "id": "chubb-unique-element-among-pairs",
+     "teaches": "XOR cancels pairs",
+     "why": "x ^ x = 0 and x ^ 0 = x, so XOR-ing everything leaves the one unpaired value in O(1) space.",
+     "level": "core"
+    },
+    {
+     "id": "gep-missing-number",
+     "teaches": "XOR cancels pairs",
+     "why": "XOR 1..n against the array: present values appear twice and cancel, leaving the missing one.",
+     "level": "core"
+    },
+    {
+     "id": "arm-power-of-two-check",
+     "teaches": "count bits and powers of two",
+     "why": "n & (n - 1) clears the lowest set bit, so a power of two is a positive n where that gives 0.",
+     "level": "core"
+    },
+    {
+     "id": "goodscore-counting-bits",
+     "teaches": "count bits and powers of two",
+     "why": "bits[i] = bits[i >> 1] + (i & 1): each count reuses a smaller number's count.",
+     "level": "core"
+    },
+    {
+     "id": "google-subsets",
+     "teaches": "a bitmask as a set",
+     "why": "Masks 0..2^n-1 are exactly the subsets: bit i set means element i is in.",
+     "level": "core"
+    },
+    {
+     "id": "jpmorgan-greatest-common-divisor",
+     "teaches": "gcd, lcm and modular arithmetic",
+     "why": "Euclid's gcd(a, b) = gcd(b, a mod b), the base of every gcd and lcm question.",
+     "level": "core"
+    },
+    {
+     "id": "ibm-drawing-edge",
+     "teaches": "gcd, lcm and modular arithmetic",
+     "why": "Counting gives 2^(n(n-1)/2), and fast modular exponentiation handles an exponent near 5*10^17.",
+     "level": "core"
+    },
+    {
+     "id": "microsoft-primes-less-than-n",
+     "teaches": "primes and a sieve",
+     "why": "The sieve of Eratosthenes crosses out multiples from p*p and leaves the primes in O(n log log n).",
+     "level": "core"
+    },
+    {
+     "id": "get-discount-pairs",
+     "teaches": "gcd, lcm and modular arithmetic",
+     "why": "Divisibility of a sum depends only on remainders: pair bucket r with bucket x - r.",
+     "level": "practice"
+    },
+    {
+     "id": "jpmorgan-invert-ad-visibility",
+     "teaches": "count bits and powers of two",
+     "why": "XOR with a mask of all ones as wide as the number flips exactly its significant bits.",
+     "level": "practice"
+    },
+    {
+     "id": "zomato-two-unique-numbers",
+     "teaches": "XOR cancels pairs",
+     "why": "XOR gives a ^ b, and its lowest set bit splits the array so each half XORs to one answer.",
+     "level": "practice"
+    },
+    {
+     "id": "deloitte-lonest-substring-with-even-occurrences",
+     "teaches": "a bitmask as a set",
+     "why": "A 26-bit parity mask is the set of odd-count letters; equal masks at both ends mean an all-even substring.",
+     "level": "practice"
+    },
+    {
+     "id": "maven-securities-prime-factor-visitation",
+     "teaches": "primes and a sieve",
+     "why": "A smallest-prime-factor sieve factors every value fast, and repeated flips by the same prime cancel.",
+     "level": "practice"
+    },
+    {
+     "id": "atlassian-greatest-common-divisor-of-strings",
+     "teaches": "gcd, lcm and modular arithmetic",
+     "why": "Euclid on strings: a divisor exists iff s1+s2 == s2+s1, and its length is gcd of the lengths.",
+     "level": "practice"
+    },
+    {
+     "id": "uber-minimum-operations-to-reduce-to-zero",
+     "teaches": "count bits and powers of two",
+     "why": "Read the answer off the binary form: subtract isolated 1s, round runs of 1s up with one carry.",
+     "level": "stretch"
+    },
+    {
+     "id": "microsoft-maximum-score-with-prime-jumps",
+     "teaches": "primes and a sieve",
+     "why": "Sieve the allowed prime jumps, then a 1-D DP over the row picks the best source for each cell.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "segment-tree",
+   "title": "Segment Trees",
+   "parents": [
+    "prefix-sums",
+    "binary-search"
+   ],
+   "phase": "C",
+   "order": 27,
+   "weeks": [
+    27
+   ],
+   "chapters": [
+    "segment-tree",
+    "fenwick-tree"
+   ],
+   "techniques": [
+    "point update and range query",
+    "a Fenwick tree for prefix sums",
+    "range update with lazy propagation",
+    "coordinate compression before counting"
+   ],
+   "ladder": [
+    {
+     "id": "capital-one-dynamic-wall-range-query",
+     "teaches": "point update and range query",
+     "why": "Builds between queries break static prefix sums, so you need a tree with O(log n) point update and range query.",
+     "level": "core"
+    },
+    {
+     "id": "tcs-count-smaller-prior-elements",
+     "teaches": "a Fenwick tree for prefix sums",
+     "why": "The Fenwick loop at its simplest: query the prefix of smaller ranks, then add 1 at your own rank.",
+     "level": "core"
+    },
+    {
+     "id": "optiver-future-pricing",
+     "teaches": "a Fenwick tree for prefix sums",
+     "why": "Moving a dividend is two point updates and a price is a prefix sum over days, in an OA story.",
+     "level": "core"
+    },
+    {
+     "id": "tcs-count-array-inversions",
+     "teaches": "coordinate compression before counting",
+     "why": "Values up to 2^31 cannot index an array, so you rank them first and then count with a Fenwick tree.",
+     "level": "core"
+    },
+    {
+     "id": "airbnb-count-decreasing-triplets",
+     "teaches": "coordinate compression before counting",
+     "why": "Fix the middle element, then multiply two compressed Fenwick counts (greater before, smaller after).",
+     "level": "core"
+    },
+    {
+     "id": "uber-streaming-interval-peak-concurrency",
+     "teaches": "range update with lazy propagation",
+     "why": "Each arrival is a +1 on a range and the answer is the global max, the canonical lazy segment tree over compressed endpoints.",
+     "level": "core"
+    },
+    {
+     "id": "intuit-dynamic-weighted-range-scores",
+     "teaches": "point update and range query",
+     "why": "Rewriting a weighted range query as a combination of two plain range sums, each kept in its own Fenwick tree under point updates.",
+     "level": "practice"
+    },
+    {
+     "id": "epic-minimum-adjacent-transpositions",
+     "teaches": "a Fenwick tree for prefix sums",
+     "why": "An OA string story that is an inversion count once each character is mapped to its target position.",
+     "level": "practice"
+    },
+    {
+     "id": "honda-rd-photo-album",
+     "teaches": "a Fenwick tree for prefix sums",
+     "why": "Run the inserts in reverse and use the Fenwick tree to find the k-th free slot by binary descent.",
+     "level": "practice"
+    },
+    {
+     "id": "odoo-maximum-profit-increasing-triplet",
+     "teaches": "coordinate compression before counting",
+     "why": "The fixed-middle idea with max instead of count: prefix-max Fenwick trees over compressed prices.",
+     "level": "practice"
+    },
+    {
+     "id": "postman-maximum-laptop-rating",
+     "teaches": "point update and range query",
+     "why": "Sorting by price turns each price interval into an index range for a range-max query, with no updates (sparse table or segment tree).",
+     "level": "practice"
+    },
+    {
+     "id": "walmart-range-module",
+     "teaches": "range update with lazy propagation",
+     "why": "Lazy range assignment with range-min queries over compressed half-open ranges.",
+     "level": "stretch"
+    },
+    {
+     "id": "amazon-longest-increasing-subsequence-bounded-difference",
+     "teaches": "point update and range query",
+     "why": "An LIS whose transition is a max over a value window: a max segment tree over value ranks, point-raised as you scan.",
+     "level": "stretch"
+    }
+   ]
+  },
+  {
+   "id": "interval-dp",
+   "title": "Interval & Game DP",
+   "parents": [
+    "dp-2d"
+   ],
+   "phase": "C",
+   "order": 28,
+   "weeks": [
+    28
+   ],
+   "chapters": [
+    "partition-dp",
+    "game-dp",
+    "tree-dp"
+   ],
+   "techniques": [
+    "DP over an interval (i, j) with a split point",
+    "a two-player game: best score difference",
+    "DP on a tree (choose or skip a node)",
+    "merge stones / burst balloons style"
+   ],
+   "ladder": [
+    {
+     "id": "intuit-boolean-parenthesization",
+     "teaches": "DP over an interval (i, j) with a split point",
+     "why": "The operator applied last splits the block, so true/false counts for (i, j) combine from every split point.",
+     "level": "core"
+    },
+    {
+     "id": "tekion-coin-game-from-ends",
+     "teaches": "a two-player game: best score difference",
+     "why": "Taking from either end always leaves a contiguous block, so the game state is (i, j).",
+     "level": "core"
+    },
+    {
+     "id": "rippling-optimal-endpoint-score-difference",
+     "teaches": "a two-player game: best score difference",
+     "why": "Storing mover-minus-opponent turns the two-player recursion into one table: d[i][j] = max(end - d[rest]).",
+     "level": "core"
+    },
+    {
+     "id": "zip-tree-independent-set",
+     "teaches": "DP on a tree (choose or skip a node)",
+     "why": "Two numbers per node (taken, skipped), combined from the children bottom-up.",
+     "level": "core"
+    },
+    {
+     "id": "amazon-binary-tree-cameras",
+     "teaches": "DP on a tree (choose or skip a node)",
+     "why": "An Amazon OA tree DP with three states per node, where the children decide the parent's state.",
+     "level": "core"
+    },
+    {
+     "id": "medianet-minimum-length-after-arithmetic-triple-removals",
+     "teaches": "merge stones / burst balloons style",
+     "why": "Removals make far elements adjacent, so you reason about the last triple in a block, as in burst balloons / merge stones.",
+     "level": "core"
+    },
+    {
+     "id": "openai-optimal-first-player-card-score",
+     "teaches": "a two-player game: best score difference",
+     "why": "An OA wrapper: run the difference DP, then recover the first player's score as (total + diff) / 2.",
+     "level": "practice"
+    },
+    {
+     "id": "twosigma-sewer-drainage-partition",
+     "teaches": "DP on a tree (choose or skip a node)",
+     "why": "An OA tree story where one bottom-up pass of subtree sums answers every possible cut.",
+     "level": "practice"
+    },
+    {
+     "id": "google-stone-game-iii",
+     "teaches": "a two-player game: best score difference",
+     "why": "The score-difference idea on a suffix state instead of an interval, with negative values.",
+     "level": "practice"
+    },
+    {
+     "id": "google-maximum-weighted-end-pick-score",
+     "teaches": "DP over an interval (i, j) with a split point",
+     "why": "End picks with n = 10^5: (step, left picks) pins the interval down, shrinking the table to m^2.",
+     "level": "practice"
+    },
+    {
+     "id": "expedia-scramble-string",
+     "teaches": "DP over an interval (i, j) with a split point",
+     "why": "A split point on two strings at once, tried both kept and swapped.",
+     "level": "practice"
+    },
+    {
+     "id": "google-tree-dependent-knapsack",
+     "teaches": "DP on a tree (choose or skip a node)",
+     "why": "Tree DP meets knapsack: in preorder, skipping a node skips its whole subtree range.",
+     "level": "stretch"
+    }
+   ]
+  }
+ ]
+}

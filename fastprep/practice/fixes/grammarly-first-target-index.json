@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search",
+  "why": "Finding the first occurrence is the 'first index where nums[i] >= target' search (lower bound), plus one check that the value there really is the target.",
+  "hints": [
+    "A normal binary search stops at any copy of the target. You want the leftmost one.",
+    "Search for the first index whose value is >= target. Every copy of target, if any, starts there.",
+    "lo, hi = 0, n; while lo < hi: mid >= target -> hi = mid else lo = mid + 1. Return lo if lo < n and nums[lo] == target, else -1. This is bisect_left."
+  ],
+  "pitfalls": [
+    "lo can end at n when target is bigger than everything: check before reading nums[lo].",
+    "Stopping as soon as nums[mid] == target returns a middle copy, not the first."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

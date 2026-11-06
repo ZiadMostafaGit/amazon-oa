@@ -1,0 +1,16 @@
+{
+ "pattern": "sliding-window",
+ "why": "Variable window, the shortest valid: a window is good once it holds at least k distinct values. Grow the right end; while the window is still good, record its length and shrink from the left; the smallest length recorded is the answer.",
+ "hints": [
+  "For a fixed right end, if [left, right] is good, are longer windows ending at right also good?",
+  "Yes, so for each right you want the largest left that keeps it good. Keep a value -> count map and the number of distinct values.",
+  "For each right: add arr[right]; while distinct >= k, best = min(best, right - left + 1), then remove arr[left] and left += 1. Return -1 if best was never set. O(n)."
+ ],
+ "pitfalls": [
+  "Record the length BEFORE shrinking past validity, inside the while loop.",
+  "If the whole array has fewer than k distinct values, return -1.",
+  "Decrement distinct only when a count drops to 0."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

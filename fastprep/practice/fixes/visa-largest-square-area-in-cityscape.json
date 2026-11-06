@@ -1,0 +1,17 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "It is Largest Rectangle in Histogram with a twist: every maximal rectangle the stack finds (height h, width w) holds a square of side min(h, w), and any square fits inside one of those rectangles. Recognising the histogram behind the skyline story is the point.",
+  "hints": [
+    "A square of side s fits somewhere exactly when what holds over s consecutive buildings?",
+    "Every one of those s buildings has height at least s. That is a rectangle question on a histogram: each maximal rectangle of height h and width w holds a square of side min(h, w).",
+    "Run the largest-rectangle monotonic stack; for each popped bar compute its width w and update best with min(height, w)^2. O(n)."
+  ],
+  "pitfalls": [
+    "Return the area (side squared), not the side length.",
+    "The square's side is limited by the width as well as the height: in [5] the best square is 1x1."
+  ],
+  "statement": "<p>A row of skyscrapers stands along a road. Skyscraper <code>i</code> has height <code>cityline[i]</code> and width 1, and neighbouring skyscrapers touch with no gaps.</p><p>Find the largest axis-aligned square that fits inside the skyline: its bottom lies on the road and every column it covers is at least as tall as the square. Return the square's area.</p><p><b>Worked example:</b> <code>cityline = [1, 2, 3, 2, 1]</code></p><ul><li>A 2x2 square fits over buildings 1-2 (heights 2 and 3), or over buildings 2-3.</li><li>A 3x3 square would need three consecutive buildings of height at least 3, but only one building is that tall.</li></ul><p>Answer: <code>4</code>. For <code>[4, 4, 4, 1]</code> the answer is <code>9</code>, and for <code>[5]</code> it is <code>1</code> (the width limits it).</p>",
+  "constraints": "<ul><li>1 &lt;= cityline.length &lt;= 10^5</li><li>1 &lt;= cityline[i] &lt;= 10^9</li><li>The source gives no bounds (\"TO-DO\"); these are practice assumptions that make an O(n) solution necessary.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

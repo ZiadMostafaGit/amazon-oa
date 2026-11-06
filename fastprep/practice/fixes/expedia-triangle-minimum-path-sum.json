@@ -1,0 +1,15 @@
+{
+ "pattern": "dp-2d",
+ "why": "A grid-path DP on a triangle: from (r, c) you move to (r+1, c) or (r+1, c+1), so working bottom-up, best[r][c] = triangle[r][c] + min of the two cells below.",
+ "hints": [
+  "Top-down you have to handle the edges of each row. What if you start from the last row instead?",
+  "best for the last row is the row itself; above it, best[c] = triangle[r][c] + min(best[c], best[c+1]).",
+  "Overwrite one array from the bottom row up; the answer is best[0]. O(n^2) time, O(n) space."
+ ],
+ "pitfalls": [
+  "Values can be negative, so do not stop early.",
+  "A single row is the answer itself."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

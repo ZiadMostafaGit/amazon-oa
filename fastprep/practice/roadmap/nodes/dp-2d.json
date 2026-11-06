@@ -1,0 +1,84 @@
+{
+ "node": "dp-2d",
+ "ladder": [
+  {
+   "id": "peoplestrong-unique-paths",
+   "teaches": "paths and costs on a grid",
+   "why": "The smallest grid DP: paths into a cell come only from above and from the left, so you add those two counts.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-minimum-path-sum",
+   "teaches": "paths and costs on a grid",
+   "why": "The same recurrence with costs instead of counts: take the cheaper of the two ways in, and keep one rolling row.",
+   "level": "core"
+  },
+  {
+   "id": "morgan-stanley-longest-common-subsequence",
+   "teaches": "the longest common subsequence",
+   "why": "The two-prefix table: a match extends the diagonal, a mismatch drops one character from either string.",
+   "level": "core"
+  },
+  {
+   "id": "astrotalk-edit-distance",
+   "teaches": "edit distance",
+   "why": "Insert, delete and replace become the three neighbouring cells of the LCS-shaped table, with base cases i and j.",
+   "level": "core"
+  },
+  {
+   "id": "goldman-sachs-longest-palindromic-subsequence",
+   "teaches": "palindromes: DP over (i, j) of one string",
+   "why": "DP over the ends (i, j) of one string: equal ends wrap the inside answer, otherwise drop one end.",
+   "level": "core"
+  },
+  {
+   "id": "stanley-get-subsequence-count",
+   "teaches": "design the state for two sequences",
+   "why": "Pick the state 'how much of the pattern is matched so far' and count ways, sweeping slots high to low so one character fills one slot.",
+   "level": "core"
+  },
+  {
+   "id": "wellsfargo-longest-subsequence-substring",
+   "teaches": "design the state for two sequences",
+   "why": "Two strings with different rules (subsequence in x, substring in y): the state must encode a substring ending at j, so mismatches carry down instead of resetting.",
+   "level": "core"
+  },
+  {
+   "id": "google-count-all-one-squares",
+   "teaches": "paths and costs on a grid",
+   "why": "A grid DP whose state is a shape: the largest square ending at a corner is 1 + the min of three neighbours.",
+   "level": "practice"
+  },
+  {
+   "id": "infosys-minimum-path-sum-with-grid-switches",
+   "teaches": "paths and costs on a grid",
+   "why": "Grid costs plus a layer index (which grid you are on), showing how to add a dimension when the story adds a choice.",
+   "level": "practice"
+  },
+  {
+   "id": "expedia-triangle-minimum-path-sum",
+   "teaches": "paths and costs on a grid",
+   "why": "A non-rectangular grid that is easiest bottom-up, where the edge cases disappear.",
+   "level": "practice"
+  },
+  {
+   "id": "phonepe-substrings-without-target-subsequence",
+   "teaches": "design the state for two sequences",
+   "why": "An OA counting question that becomes 'latest start that still matches target[0..j]', a two-sequence state updated as s is scanned.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-minimum-insertions",
+   "teaches": "the longest common subsequence",
+   "why": "An Amazon OA story that is n - LCS, where unique values let the LCS shrink to a longest increasing subsequence.",
+   "level": "stretch"
+  },
+  {
+   "id": "microsoft-longest-palindrome-from-two-words",
+   "teaches": "palindromes: DP over (i, j) of one string",
+   "why": "Palindrome (i, j) DP on the concatenation, read only at outer pairs that straddle the two words.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "Edit distance has only one rung (the classic itself); the pool's other edit-distance-titled problems are either duplicates or BFS (word ladder). google-count-all-one-squares was taken from outside the pools (in no other pool). salesforce-closest-subsequence-sum moved from this pool to knapsack. amazon-minimum-insertions has a garbled source statement and no constraints; the repair rewrites both, and its single example is consistent."
+}

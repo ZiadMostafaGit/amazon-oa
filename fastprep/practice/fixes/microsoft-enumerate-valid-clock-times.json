@@ -1,0 +1,16 @@
+{
+  "pattern": "permutations",
+  "why": "Permutations with a used array and duplicate digits: sort the digits and, at each position, skip a digit equal to the previous one that is not in use, so [0,0,1,2] gives each time once; then keep only valid HH:MM.",
+  "hints": [
+    "Four digits have at most 24 orderings. How do equal digits create the same time twice, and how can you avoid generating it at all?",
+    "Sort the digits. At each slot, try every unused digit, but skip digit i when it equals digit i - 1 and digit i - 1 is unused: that branch was already explored.",
+    "When four digits are placed, check hour <= 23 and minute <= 59 and format with two digits each. Because the digits are sorted, valid times come out in chronological order."
+  ],
+  "pitfalls": [
+    "Leading zeroes must be kept: 01:02, not 1:2.",
+    "Hours 24..29 are invalid even though the first digit is 2.",
+    "A set of strings also removes duplicates, but then you must sort."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

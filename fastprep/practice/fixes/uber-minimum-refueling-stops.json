@@ -1,0 +1,16 @@
+{
+  "pattern": "heap",
+  "why": "Repeatedly take the best of what you have passed: drive as far as your fuel allows, putting every station you pass into a max-heap; only when stuck, refuel from the biggest station passed so far. Deciding late lets the heap make each stop the best possible one.",
+  "hints": [
+    "You do not have to decide at a station whether to stop there. You can decide later, as if you had stopped.",
+    "Keep a max-heap of fuel amounts of stations already reached. Whenever the next station or the target is beyond your reach, pop the largest and add it (one stop). If the heap is empty, return -1.",
+    "Sort stations by position, sweep once, O(n log n). The answer is the number of pops."
+  ],
+  "pitfalls": [
+    "Stations may be unsorted: sort by position first.",
+    "Check the target as the final 'station' so the last stretch is covered too.",
+    "A DP over stops is O(n^2) and too slow for 2 * 10^5 stations."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

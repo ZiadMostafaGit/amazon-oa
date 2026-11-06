@@ -1,0 +1,18 @@
+{
+ "pattern": "segment-tree",
+ "why": "An LIS where the previous value must lie in [x - k, x - 1]: the DP needs 'max over a value range', so compress values and keep a max segment tree indexed by value rank, querying the window and updating the point for x.",
+ "hints": [
+  "Patience sorting does not handle the difference limit. Write the plain DP first: best[x] = 1 + max best[v] over earlier v with x - k <= v < x.",
+  "That max is over a contiguous range of values. Index a structure by value: compress the values to ranks and find the rank window with two binary searches.",
+  "Scan arr; for each x query the max on ranks [rank(x - k), rank(x) - 1], add 1, and raise position rank(x) to that value. O(n log n)."
+ ],
+ "pitfalls": [
+  "Strictly increasing: equal values cannot follow each other, so the window ends at x - 1.",
+  "k = 0 means no element can follow another; the answer is 1.",
+  "Update with max, since an equal value seen later may give a longer chain."
+ ],
+ "statement": "<p>Given a non-empty integer array <code>arr</code> and a non-negative integer <code>k</code>, return the maximum length of a subsequence that satisfies all of the following:</p><ul><li>It keeps the original order of the chosen elements.</li><li>It is strictly increasing.</li><li>Every two adjacent chosen elements differ by at most <code>k</code>.</li></ul><p><b>Example:</b> <code>arr = [7,1,4,5,8,8,10,6,7,7,7,8]</code>, <code>k = 4</code>. The subsequence <code>[1,4,5,6,7,8]</code> is strictly increasing and its adjacent differences 3, 1, 1, 1, 1 are all at most 4, so the answer is <code>6</code>.</p>",
+ "constraints": "<ul><li><code>1 &lt;= arr.length &lt;= 10^5</code></li><li><code>-10^9 &lt;= arr[i] &lt;= 10^9</code></li><li><code>0 &lt;= k &lt;= 10^9</code></li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

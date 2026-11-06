@@ -1,18 +1,18 @@
 {
- "pattern": "prefix-sums",
- "why": "Track, for every prefix, which letters have appeared an odd number of times, as a 26-bit mask (a prefix sum taken mod 2, i.e. XOR). A substring has all-even counts exactly when the masks at its two ends are equal, so the answer is the widest gap between two equal masks: remember each mask's first index in a hash map.",
- "hints": [
-  "A letter occurs an even number of times in S[l..r] when its count before l and its count up to r have the same parity.",
-  "Keep one parity bit per letter: a 26-bit mask updated with XOR as you scan. Equal masks at two positions mean the substring between them is all-even.",
-  "Store the first index where each mask appears (mask 0 at index -1) and take the longest i - first[mask]. O(N) time, at most 2^26 but really at most N+1 masks."
- ],
- "pitfalls": [
-  "Forgetting the empty prefix (mask 0 at index -1), which is needed when the whole prefix is the answer, as in \"zthtzh\".",
-  "Overwriting the first index with later ones: keep the earliest index to get the longest span.",
-  "Returning 1 for no answer: a non-empty all-even substring has even length, so the answer is 0 when none exists."
- ],
- "statement": "<p>You are given a string <code>S</code> of <code>N</code> lowercase English letters. Return the length of the longest <b>substring</b> (a contiguous segment) in which <b>every letter occurs an even number of times</b>. If no non-empty substring qualifies, return <code>0</code>.</p><p><b>Worked example.</b> <code>S = \"bdaaadadb\"</code>:</p><ul><li><code>\"aa\"</code> (length 2) and <code>\"adad\"</code> (length 4) qualify.</li><li><code>\"aaadad\"</code> (positions 2 to 7) has a = 4 and d = 2, both even: length 6.</li><li>No longer substring qualifies: the whole string has two <code>b</code>s and four <code>a</code>s, but three <code>d</code>s, which is odd.</li></ul><p>Answer: <code>6</code>. For <code>\"abacb\"</code> the answer is <code>0</code>; for <code>\"zthtzh\"</code> the whole string qualifies, so the answer is <code>6</code>.</p>",
- "constraints": "<ul><li><code>1 &lt;= N &lt;= 100,000</code></li><li><code>S</code> consists only of lowercase letters <code>'a'</code>-<code>'z'</code></li><li>An O(N) or O(N &middot; 26) solution is expected.</li></ul>",
- "by": "claude",
- "at": "2026-11-06"
+  "pattern": "bit-manipulation",
+  "why": "A bitmask as a set: keep the set of letters seen an odd number of times as a 26-bit mask, toggled with XOR at each character. A substring has all-even counts exactly when the masks at its two ends are equal, so the answer is the widest gap between two equal masks: remember each mask's first index in a hash map.",
+  "hints": [
+    "A letter occurs an even number of times in S[l..r] when its count before l and its count up to r have the same parity.",
+    "Keep one parity bit per letter: a 26-bit mask updated with XOR as you scan. Equal masks at two positions mean the substring between them is all-even.",
+    "Store the first index where each mask appears (mask 0 at index -1) and take the longest i - first[mask]. O(N) time, at most 2^26 but really at most N+1 masks."
+  ],
+  "pitfalls": [
+    "Forgetting the empty prefix (mask 0 at index -1), which is needed when the whole prefix is the answer, as in \"zthtzh\".",
+    "Overwriting the first index with later ones: keep the earliest index to get the longest span.",
+    "Returning 1 for no answer: a non-empty all-even substring has even length, so the answer is 0 when none exists."
+  ],
+  "statement": "<p>You are given a string <code>S</code> of <code>N</code> lowercase English letters. Return the length of the longest <b>substring</b> (a contiguous segment) in which <b>every letter occurs an even number of times</b>. If no non-empty substring qualifies, return <code>0</code>.</p><p><b>Worked example.</b> <code>S = \"bdaaadadb\"</code>:</p><ul><li><code>\"aa\"</code> (length 2) and <code>\"adad\"</code> (length 4) qualify.</li><li><code>\"aaadad\"</code> (positions 2 to 7) has a = 4 and d = 2, both even: length 6.</li><li>No longer substring qualifies: the whole string has two <code>b</code>s and four <code>a</code>s, but three <code>d</code>s, which is odd.</li></ul><p>Answer: <code>6</code>. For <code>\"abacb\"</code> the answer is <code>0</code>; for <code>\"zthtzh\"</code> the whole string qualifies, so the answer is <code>6</code>.</p>",
+  "constraints": "<ul><li><code>1 &lt;= N &lt;= 100,000</code></li><li><code>S</code> consists only of lowercase letters <code>'a'</code>-<code>'z'</code></li><li>An O(N) or O(N &middot; 26) solution is expected.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
 }

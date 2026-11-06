@@ -1,0 +1,16 @@
+{
+  "pattern": "backtracking",
+  "why": "N-Queens is the classic of pruning early: place one queen per row and reject a column the moment it shares a column or diagonal with an earlier queen, so whole subtrees of hopeless boards are never built.",
+  "hints": [
+    "One queen per row is forced. So the only choice is which column the queen of each row takes. What makes a column illegal?",
+    "A queen at (r, c) attacks column c and the diagonals r - c and r + c. Keep three sets; only try columns absent from all three, recurse to the next row, then remove them.",
+    "Trying columns 0..n-1 in order at each row emits the solutions already sorted by their column vectors. Build each board as strings when row n is reached."
+  ],
+  "pitfalls": [
+    "Checking the whole board at the end (instead of on placement) is far too slow.",
+    "n = 2 and n = 3 have no solution: return [].",
+    "Use r - c and r + c for the two diagonals, not just one."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

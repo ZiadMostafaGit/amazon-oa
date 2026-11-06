@@ -1,0 +1,15 @@
+{
+  "pattern": "dp-1d",
+  "why": "Fewest coins: the minimum cost to reach a target. best[a] = 1 + min(best[a - c]) over coins c, built from 0 up to amount, with infinity marking amounts that cannot be made.",
+  "hints": [
+    "Greedy (largest coin first) gives 4+1+1 for 6 with coins [1,3,4], but 3+3 is better. What do you need to know about smaller amounts?",
+    "best[0] = 0. For each amount a, the last coin used is some c <= a, so best[a] = 1 + min(best[a - c]).",
+    "Fill best[1..amount] in increasing order, using infinity for unreachable amounts; return -1 if best[amount] is still infinity. O(amount * coins)."
+  ],
+  "pitfalls": [
+    "amount = 0 needs 0 coins, not -1.",
+    "Do not let infinity + 1 look like a real answer."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

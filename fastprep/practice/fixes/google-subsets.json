@@ -1,0 +1,16 @@
+{
+  "pattern": "bit-manipulation",
+  "why": "A bitmask is a set: every integer mask from 0 to 2^n - 1 picks the elements whose bits are 1, so iterating masks in increasing order enumerates all subsets in exactly the order the judge asks for.",
+  "hints": [
+    "How many subsets does a set of n elements have, and how could you number them?",
+    "Give each element a bit: bit i is 1 when nums[i] is in the subset. Masks 0..2^n-1 are exactly the subsets.",
+    "for mask in range(1 << n): append [nums[i] for i in range(n) if mask >> i & 1]. O(n * 2^n)."
+  ],
+  "pitfalls": [
+    "The empty subset (mask 0) must be included.",
+    "Inside each subset keep the original input order: loop i from 0 upwards.",
+    "Backtracking produces the subsets in a different order; this judge wants increasing mask order."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

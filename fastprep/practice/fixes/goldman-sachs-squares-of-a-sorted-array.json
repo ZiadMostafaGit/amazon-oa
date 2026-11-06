@@ -1,0 +1,16 @@
+{
+ "pattern": "two-pointers",
+ "why": "The squares are smallest in the middle (near zero) and largest at the two ends, so the two ends are two sorted sequences read from the outside in. Compare both ends, write the larger square into the output from the back, and move that pointer: an O(n) merge instead of an O(n log n) sort.",
+ "hints": [
+  "Squaring then sorting is O(n log n). Where in the sorted input does the LARGEST square come from?",
+  "The largest square is at one of the two ends (a big negative or a big positive). Compare nums[lo]^2 and nums[hi]^2.",
+  "Fill out[n-1] down to out[0]: take the larger end square, move that end inward. O(n) time."
+ ],
+ "pitfalls": [
+  "All-negative and all-positive inputs both work without special cases.",
+  "Write from the back: the smallest square is in the middle and you do not know where it is."
+ ],
+ "constraints": "<ul><li>1 &le; nums.length &le; 10<sup>4</sup> (practice choice; the source gives none)</li><li>-10<sup>4</sup> &le; nums[i] &le; 10<sup>4</sup></li><li>nums is sorted in non-decreasing order</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

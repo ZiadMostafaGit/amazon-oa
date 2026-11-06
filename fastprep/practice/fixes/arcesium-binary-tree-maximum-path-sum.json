@@ -1,0 +1,16 @@
+{
+ "pattern": "tree-dp",
+ "why": "Diameter's post-order pattern with weights: each node returns the best downward path it can offer its parent (never below zero, since a negative branch can be dropped), and scores the path that bends at it using both children.",
+ "hints": [
+  "A best path bends at one highest node. What does that node take from its left side and from its right side?",
+  "gain(node) = node.val + max(0, gain(left), gain(right)) is what the node offers upward. The path bending at node is node.val + max(0, gain(left)) + max(0, gain(right)).",
+  "Decode the level-order array (each present node takes the next two slots as its children), then one post-order pass. O(n). Start the best at minus infinity, not 0."
+ ],
+ "pitfalls": [
+  "All-negative trees: the answer is the largest single value, not 0.",
+  "A path offered upward can use only one child; only the bending node may use both.",
+  "-1001 marks a missing child, and missing nodes do not consume slots for children."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

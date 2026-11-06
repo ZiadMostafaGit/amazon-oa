@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-1d",
+  "why": "DP over prefixes with a dictionary: ok[i] is true when some dictionary word ends at i and the prefix before it, ok[i - len(word)], was itself breakable. ok[0] = true.",
+  "hints": [
+    "If s can be broken, its last word is some dictionary word w ending at the end of s. What must be true of the rest?",
+    "ok[i] = any(ok[i - len(w)] and s[i - len(w):i] == w for w in words). The base case ok[0] = true is the empty prefix.",
+    "Put words in a set and only try lengths that some word actually has (at most 100), so each i costs O(distinct lengths * length). Return ok[n]."
+  ],
+  "pitfalls": [
+    "Greedy longest match fails: 'aaaab' style traps.",
+    "The empty string is breakable.",
+    "Plain recursion without memo is exponential on 'aaaa...b'."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

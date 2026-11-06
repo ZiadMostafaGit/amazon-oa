@@ -1,0 +1,15 @@
+{
+  "pattern": "number-theory",
+  "why": "Euclid on strings: a common divisor exists only if str1 + str2 == str2 + str1, and then the longest one has length gcd(len1, len2), so the answer is the prefix of that length.",
+  "hints": [
+    "If t divides both strings, what can you say about str1 + str2 versus str2 + str1?",
+    "They are equal (both are copies of t). Conversely, if they are equal, a common divisor exists.",
+    "If str1 + str2 != str2 + str1 return ''. Otherwise return str1[:gcd(len(str1), len(str2))]. O(len1 + len2)."
+  ],
+  "pitfalls": [
+    "When no divisor exists, return the empty string.",
+    "The longest divisor's length is the gcd of the lengths, not the minimum length."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

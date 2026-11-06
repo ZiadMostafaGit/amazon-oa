@@ -1,0 +1,16 @@
+{
+ "pattern": "sorting",
+ "why": "Sort indices to keep original positions: instead of sorting the values (and losing where they were), sort the list 0..n-1 by the key (-nums[i], i), which gives the rank order and the tie rule at once.",
+ "hints": [
+  "If you sort nums itself, where did the 4th largest value come from? You need the positions to survive the sort.",
+  "Sort the indices, not the values. What key makes larger values come first and, among equals, smaller indices first?",
+  "order = sorted(range(n), key=lambda i: (-nums[i], i)); return order[k-1]. O(n log n); quickselect or a heap of size k are follow-ups."
+ ],
+ "pitfalls": [
+  "k is one-based.",
+  "Equal values occupy separate ranks, smaller original index first.",
+  "Do not modify nums."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

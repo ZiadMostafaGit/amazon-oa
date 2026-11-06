@@ -1,0 +1,15 @@
+{
+  "pattern": "stack",
+  "why": "Matching pairs with a twist: keep a stack of indices whose bottom is the position of the last unmatched ')' (start with -1). When a ')' matches, the current valid run reaches back to the index now on top, so its length is i - top. It needs the matching-pairs stack plus the sentinel insight.",
+  "hints": [
+    "When a ')' at i matches, where does the valid substring ending at i start?",
+    "Just after the most recent index that is still unmatched: either an unmatched '(' still on the stack, or the last ')' that could not be matched.",
+    "Stack of indices initialised to [-1]. '(' pushes i. ')' pops; if the stack is now empty, push i as the new barrier, else best = max(best, i - stack[-1]). O(n)."
+  ],
+  "pitfalls": [
+    "\"()()\" is valid as a whole: adjacent valid pieces join, which the sentinel handles automatically.",
+    "Counting matched pairs is not enough; they must be contiguous."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "custom-comparators",
+ "why": "Sort with a custom comparator: the right order is not numeric but 'a before b when a+b > b+a as strings', a pairwise rule that is transitive, so sorting by it yields the largest concatenation.",
+ "hints": [
+  "Sorting numerically descending puts 30 before 3, giving 303 instead of 330. What should decide whether a goes before b?",
+  "Compare the two possible concatenations: a goes first when str(a)+str(b) > str(b)+str(a).",
+  "Convert to strings, sort with functools.cmp_to_key using that rule, join. If the result starts with '0', every number was 0: return '0'. O(n log n * digits)."
+ ],
+ "pitfalls": [
+  "All zeros: [0,0] must give '0', not '00'.",
+  "Plain lexicographic string sort fails on cases like [3, 30, 34] vs [12, 121]; use the concatenation comparison.",
+  "In Python, cmp_to_key is needed: a key function cannot express this pairwise rule directly."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

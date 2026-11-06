@@ -1,0 +1,15 @@
+{
+  "pattern": "heap",
+  "why": "The canonical 'take the best two, push the result back' heap loop: always join the two shortest ropes, because every rope's length is paid again in every later join it takes part in (Huffman's argument).",
+  "hints": [
+    "Every join's cost is paid again by each later join that includes the result. Which ropes should be joined early, then?",
+    "Always join the two shortest ropes currently available, then treat the result as a new rope.",
+    "heapify the lengths; while more than one: pop a, pop b, cost += a + b, push a + b. O(n log n)."
+  ],
+  "pitfalls": [
+    "One rope costs 0.",
+    "Sorting once is not enough: the joined rope must re-enter the order, which is what the heap is for."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

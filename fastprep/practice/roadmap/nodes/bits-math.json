@@ -1,0 +1,102 @@
+{
+  "node": "bits-math",
+  "ladder": [
+    {
+      "id": "chubb-unique-element-among-pairs",
+      "teaches": "XOR cancels pairs",
+      "why": "x ^ x = 0 and x ^ 0 = x, so XOR-ing everything leaves the one unpaired value in O(1) space.",
+      "level": "core"
+    },
+    {
+      "id": "gep-missing-number",
+      "teaches": "XOR cancels pairs",
+      "why": "XOR 1..n against the array: present values appear twice and cancel, leaving the missing one.",
+      "level": "core"
+    },
+    {
+      "id": "arm-power-of-two-check",
+      "teaches": "count bits and powers of two",
+      "why": "n & (n - 1) clears the lowest set bit, so a power of two is a positive n where that gives 0.",
+      "level": "core"
+    },
+    {
+      "id": "goodscore-counting-bits",
+      "teaches": "count bits and powers of two",
+      "why": "bits[i] = bits[i >> 1] + (i & 1): each count reuses a smaller number's count.",
+      "level": "core"
+    },
+    {
+      "id": "google-subsets",
+      "teaches": "a bitmask as a set",
+      "why": "Masks 0..2^n-1 are exactly the subsets: bit i set means element i is in.",
+      "level": "core"
+    },
+    {
+      "id": "jpmorgan-greatest-common-divisor",
+      "teaches": "gcd, lcm and modular arithmetic",
+      "why": "Euclid's gcd(a, b) = gcd(b, a mod b), the base of every gcd and lcm question.",
+      "level": "core"
+    },
+    {
+      "id": "ibm-drawing-edge",
+      "teaches": "gcd, lcm and modular arithmetic",
+      "why": "Counting gives 2^(n(n-1)/2), and fast modular exponentiation handles an exponent near 5*10^17.",
+      "level": "core"
+    },
+    {
+      "id": "microsoft-primes-less-than-n",
+      "teaches": "primes and a sieve",
+      "why": "The sieve of Eratosthenes crosses out multiples from p*p and leaves the primes in O(n log log n).",
+      "level": "core"
+    },
+    {
+      "id": "get-discount-pairs",
+      "teaches": "gcd, lcm and modular arithmetic",
+      "why": "Divisibility of a sum depends only on remainders: pair bucket r with bucket x - r.",
+      "level": "practice"
+    },
+    {
+      "id": "jpmorgan-invert-ad-visibility",
+      "teaches": "count bits and powers of two",
+      "why": "XOR with a mask of all ones as wide as the number flips exactly its significant bits.",
+      "level": "practice"
+    },
+    {
+      "id": "zomato-two-unique-numbers",
+      "teaches": "XOR cancels pairs",
+      "why": "XOR gives a ^ b, and its lowest set bit splits the array so each half XORs to one answer.",
+      "level": "practice"
+    },
+    {
+      "id": "deloitte-lonest-substring-with-even-occurrences",
+      "teaches": "a bitmask as a set",
+      "why": "A 26-bit parity mask is the set of odd-count letters; equal masks at both ends mean an all-even substring.",
+      "level": "practice"
+    },
+    {
+      "id": "maven-securities-prime-factor-visitation",
+      "teaches": "primes and a sieve",
+      "why": "A smallest-prime-factor sieve factors every value fast, and repeated flips by the same prime cancel.",
+      "level": "practice"
+    },
+    {
+      "id": "atlassian-greatest-common-divisor-of-strings",
+      "teaches": "gcd, lcm and modular arithmetic",
+      "why": "Euclid on strings: a divisor exists iff s1+s2 == s2+s1, and its length is gcd of the lengths.",
+      "level": "practice"
+    },
+    {
+      "id": "uber-minimum-operations-to-reduce-to-zero",
+      "teaches": "count bits and powers of two",
+      "why": "Read the answer off the binary form: subtract isolated 1s, round runs of 1s up with one carry.",
+      "level": "stretch"
+    },
+    {
+      "id": "microsoft-maximum-score-with-prime-jumps",
+      "teaches": "primes and a sieve",
+      "why": "Sieve the allowed prime jumps, then a 1-D DP over the row picks the best source for each cell.",
+      "level": "stretch"
+    }
+  ],
+  "notes": "Took chubb-unique-element-among-pairs, arm-power-of-two-check, goodscore-counting-bits, google-subsets, jpmorgan-greatest-common-divisor, microsoft-primes-less-than-n and zomato-two-unique-numbers from outside all pools (all unpooled). The pool itself is mostly misc maths or DP with a mod and teaches these techniques poorly. lcm has no dedicated clean problem; it is covered only as a follow-up in the gcd hints. Bitmask-as-set has no bitmask-DP rung here (TSP-style bitmask DP problems belong to the DP nodes)."
+}

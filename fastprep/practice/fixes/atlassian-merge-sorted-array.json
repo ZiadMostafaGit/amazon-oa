@@ -1,0 +1,16 @@
+{
+ "pattern": "two-pointers",
+ "why": "Walk two sorted sequences together, merging. The trick that keeps it in place is to fill nums1 from the back: compare the largest remaining values of the two valid parts and write the larger one into the last free slot, so nothing unread is ever overwritten.",
+ "hints": [
+  "Merging from the front would overwrite values of nums1 you have not read yet. Where is there free space?",
+  "The free slots are at the end of nums1. The largest value of the merged result is the larger of nums1[m-1] and nums2[n-1]: write it at position m+n-1.",
+  "Pointers i = m-1, j = n-1, w = m+n-1. While j >= 0: if i >= 0 and nums1[i] > nums2[j], write nums1[i] and i -= 1, else write nums2[j] and j -= 1; w -= 1. O(m + n)."
+ ],
+ "pitfalls": [
+  "m = 0: the answer is just nums2.",
+  "Loop until nums2 is exhausted; leftover nums1 values are already in place.",
+  "Values can be negative and equal; ties may take from either side."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

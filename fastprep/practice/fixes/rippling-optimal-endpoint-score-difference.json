@@ -1,0 +1,16 @@
+{
+ "pattern": "game-dp",
+ "why": "The two-player game DP in its purest form: the remaining numbers are always a block i..j, and d[i][j] = best (mover's score - opponent's score) on that block, because after your move the opponent faces the same question on a smaller block.",
+ "hints": [
+  "After any sequence of moves the remaining numbers are contiguous. Which two indices describe the game state?",
+  "Store the difference, not two scores: d[i][j] = max(nums[i] - d[i+1][j], nums[j] - d[i][j-1]). Whatever the opponent nets on the rest is subtracted from you.",
+  "Fill by increasing length with d[i][i] = nums[i]; one array overwritten in place is enough. O(n^2)."
+ ],
+ "pitfalls": [
+  "Values can be negative and the answer can be negative.",
+  "Greedy (take the larger end) fails: [1,5,2] wants the first player to avoid opening up the 5.",
+  "Fill short intervals before long ones."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

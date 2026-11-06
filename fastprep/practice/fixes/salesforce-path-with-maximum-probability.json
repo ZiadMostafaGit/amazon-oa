@@ -1,0 +1,15 @@
+{
+ "pattern": "dijkstra",
+ "why": "Dijkstra with a different path value: probabilities multiply and never grow along a path (all are <= 1), so the greedy 'settle the best frontier node' still holds. Use a max-heap on probability instead of a min-heap on distance.",
+ "hints": [
+  "A path's value is a product of numbers between 0 and 1. Does extending a path ever make it better? What does that let you reuse?",
+  "Since values only shrink, the node with the highest probability on the frontier is final, exactly as in Dijkstra.",
+  "best[start] = 1; max-heap of (-prob, node); pop, skip stale, relax best[v] = max(best[v], p * edge). Stop when end pops; return 0.0 if never reached."
+ ],
+ "pitfalls": [
+  "Edges are undirected; add both directions.",
+  "start == end has probability 1.0."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

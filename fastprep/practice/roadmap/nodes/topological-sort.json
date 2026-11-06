@@ -1,0 +1,84 @@
+{
+ "node": "topological-sort",
+ "ladder": [
+  {
+   "id": "inmobi-course-schedule",
+   "teaches": "Kahn's algorithm with in-degrees",
+   "why": "The canonical Course Schedule: repeatedly take a course with no unfinished prerequisites; finishing all of them means no cycle.",
+   "level": "core"
+  },
+  {
+   "id": "chainalysis-lexicographically-smallest-course-order",
+   "teaches": "Kahn's algorithm with in-degrees",
+   "why": "Kahn's algorithm produces the order itself; a min-heap for the ready set makes it the smallest one.",
+   "level": "core"
+  },
+  {
+   "id": "arcesium-detect-cycle-in-directed-hate-graph",
+   "teaches": "detect a cycle with a topological order",
+   "why": "A directed graph has a cycle exactly when Kahn's algorithm cannot remove every node.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-package-dependency-order",
+   "teaches": "DFS post-order",
+   "why": "DFS from the target and emit each package when it finishes: post-order is an install order, and a node still on the path means a cycle.",
+   "level": "core"
+  },
+  {
+   "id": "suno-longest-dag-path",
+   "teaches": "the longest path in a DAG (scheduling with durations)",
+   "why": "Longest path is easy once nodes come in topological order: longest[v] = max(longest[u] + 1) over predecessors.",
+   "level": "core"
+  },
+  {
+   "id": "headlands-dependency-job-schedule",
+   "teaches": "the longest path in a DAG (scheduling with durations)",
+   "why": "Durations and unlimited workers: a job starts at the latest finish of its prerequisites, computed in topological order.",
+   "level": "core"
+  },
+  {
+   "id": "intuit-earliest-workflow-stages",
+   "teaches": "Kahn's algorithm with in-degrees",
+   "why": "Kahn's algorithm one whole frontier at a time: each frontier is a stage of concurrent steps.",
+   "level": "practice"
+  },
+  {
+   "id": "applied-intuition-compilation-order-topological-sort",
+   "teaches": "detect a cycle with a topological order",
+   "why": "Build order over string names with a heap tie rule, and 'IMPOSSIBLE' when some module never becomes ready.",
+   "level": "practice"
+  },
+  {
+   "id": "bloomberg-find-all-possible-recipes-from-given-supplies",
+   "teaches": "Kahn's algorithm with in-degrees",
+   "why": "In-degree as 'missing ingredients': supplies seed the queue and every made recipe becomes a new supply.",
+   "level": "practice"
+  },
+  {
+   "id": "meta-minimum-time-target-courses",
+   "teaches": "the longest path in a DAG (scheduling with durations)",
+   "why": "Longest weighted path restricted to the targets' prerequisite closure.",
+   "level": "practice"
+  },
+  {
+   "id": "vercel-leaves-to-root-order",
+   "teaches": "Kahn's algorithm with in-degrees",
+   "why": "Kahn's algorithm run backwards on out-degrees, peeling leaf layers; leftovers mean a cycle.",
+   "level": "practice"
+  },
+  {
+   "id": "intuit-alien-dictionary",
+   "teaches": "Kahn's algorithm with in-degrees",
+   "why": "First build the graph yourself from adjacent word pairs, then a heap-based Kahn's algorithm, with prefix and cycle checks.",
+   "level": "stretch"
+  },
+  {
+   "id": "doordash-longest-increasing-matrix-path",
+   "teaches": "the longest path in a DAG (scheduling with durations)",
+   "why": "A grid where edges point to larger neighbours is a hidden DAG; its number of Kahn layers is the longest increasing path.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "DFS post-order has one clean teacher (amazon-package-dependency-order); most bank problems are Kahn-shaped with a lexicographic tie rule, so several practice rungs use a heap."
+}

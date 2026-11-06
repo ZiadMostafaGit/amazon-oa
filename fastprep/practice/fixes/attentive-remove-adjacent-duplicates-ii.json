@@ -1,0 +1,15 @@
+{
+  "pattern": "stack",
+  "why": "Removals cascade (removing one group can make a new group), which is exactly what a stack of (character, run length) handles: each character extends or starts the top run, and a run that reaches k is popped. It teaches the 'stack of (value, count)' technique.",
+  "hints": [
+    "After a group of k is removed, which characters become neighbours? Where do you need to look to see whether a new group forms?",
+    "Only at the end of the text you have kept so far. Keep a stack of runs (char, count): an equal character increments the top count, a different one pushes (char, 1).",
+    "When the top count reaches k, pop it; the run below is now the top and the next equal character continues it. Rebuild the string from the runs. O(n)."
+  ],
+  "pitfalls": [
+    "Rescanning the string after every removal is O(n^2/k) and too slow for n = 10^5.",
+    "A stack of single characters cannot tell you the run length in O(1); store the count with the character."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

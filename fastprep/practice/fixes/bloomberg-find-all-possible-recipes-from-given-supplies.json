@@ -1,0 +1,15 @@
+{
+ "pattern": "topological-sort",
+ "why": "Kahn's algorithm over names: a recipe's in-degree is the number of its ingredients not yet available. Start the queue with the supplies; each item that becomes available decrements the recipes that use it, and a recipe reaching 0 becomes a new available item.",
+ "hints": [
+  "A recipe becomes makeable the moment its last missing ingredient appears. How can you notice that moment without rescanning every recipe?",
+  "Count missing ingredients per recipe and keep, for each item, the recipes that need it. That is in-degree plus adjacency: Kahn's algorithm.",
+  "Queue starts with all supplies; pop an item, decrement each recipe using it, enqueue a recipe when its count hits 0. Return the made recipes in input order. O(total ingredients)."
+ ],
+ "pitfalls": [
+  "Recipes on a cycle (or needing an ingredient nobody has) never reach 0 and are simply not made.",
+  "Return in the order recipes appear in the input, not in the order they were made."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

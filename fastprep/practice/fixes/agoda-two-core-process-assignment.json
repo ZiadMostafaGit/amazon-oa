@@ -1,0 +1,18 @@
+{
+ "pattern": "knapsack",
+ "why": "Minimising the busier core is partition into two sets with the smallest difference: the lighter core should sum as close to total/2 as possible, which is a subset-sum reachability question.",
+ "hints": [
+  "If the lighter core gets s, the busier one gets total - s. Which s minimises the busier core?",
+  "You want the largest reachable subset sum s <= total/2; greedy (always put the job on the lighter core) can miss it.",
+  "Build the subset-sum reachability for 0..total/2, take the largest reachable s, and return [total - s, s]."
+ ],
+ "pitfalls": [
+  "Greedy longest-job-first is not optimal for two cores in general.",
+  "Return the busier core first, as in the example [41, 31].",
+  "An empty list returns [0, 0]."
+ ],
+ "statement": "<p>You are given an array <code>time</code>, where <code>time[i]</code> is how long process <code>i</code> takes. Assign every process to one of two cores. Each core runs its processes one after another, so its load is the sum of their times.</p><p>Choose the assignment that makes the larger of the two loads as small as possible, and return the two loads as <code>[busier, lighter]</code> (larger first).</p><p><b>Example:</b> <code>time = [10, 21, 10, 21, 10]</code>, total 72. Putting <code>10 + 21 + 10</code> on one core and <code>21 + 10</code> on the other gives loads 41 and 31. No split does better: the loads would have to be closer to 36 each, but no subset sums to anything between 32 and 40. The answer is <code>[41, 31]</code>.</p>",
+ "constraints": "<ul><li><code>0 &lt;= time.length &lt;= 100</code></li><li><code>1 &lt;= time[i] &lt;= 1000</code></li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

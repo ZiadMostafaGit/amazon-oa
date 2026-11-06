@@ -1,0 +1,128 @@
+{
+ "problemId": "meta-range-sum-of-bst",
+ "generatedAt": "2026-11-06T16:49:32",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[10, 5, 15, 3, 7, null, 18]"
+    },
+    {
+     "name": "low",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "high",
+     "type": "int",
+     "rawValue": "15"
+    }
+   ],
+   "expectedRaw": "25"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[10, 5, 15, 3, 7, 13, 18, 1, null, 6]"
+    },
+    {
+     "name": "low",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "high",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[8]"
+    },
+    {
+     "name": "low",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "high",
+     "type": "int",
+     "rawValue": "15"
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[10, 5, 15, 3, 7, null, 18]"
+    },
+    {
+     "name": "low",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "high",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[10, 5, 15, 3, 7, null, 18]"
+    },
+    {
+     "name": "low",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "high",
+     "type": "int",
+     "rawValue": "15"
+    }
+   ],
+   "expectedRaw": "40"
+  },
+  {
+   "inputs": [
+    {
+     "name": "root",
+     "type": "TreeNode",
+     "rawValue": "[8]"
+    },
+    {
+     "name": "low",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "high",
+     "type": "int",
+     "rawValue": "11"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

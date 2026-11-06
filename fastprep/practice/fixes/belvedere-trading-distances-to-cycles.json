@@ -1,0 +1,15 @@
+{
+ "pattern": "cycle-detection-graph",
+ "why": "Two graph ideas chained: first find which vertices lie on a cycle by peeling leaves (repeatedly delete degree-1 vertices; what survives is the cycle), then run one multi-source BFS from all cycle vertices to get each vertex's distance to its cycle.",
+ "hints": [
+  "A vertex of degree 1 can never be on a cycle. Delete it; does that create new degree-1 vertices?",
+  "Keep removing degree-1 vertices with a queue until none are left. In a graph where each component has one cycle, exactly the cycle vertices remain.",
+  "Seed a BFS with every surviving vertex at distance 0 and spread outward; the level each removed vertex is reached at is its answer. O(n)."
+ ],
+ "pitfalls": [
+  "Recursive DFS for cycle finding overflows at 2 * 10^5 vertices in Python; leaf peeling avoids recursion.",
+  "Several components each have their own cycle; seeding all cycle vertices at once handles them together."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+ "pattern": "union-find",
+ "why": "Union-find that carries a weight: each variable stores its ratio to its parent, so after path compression weight[x] = x / root. Two variables in the same set give c / d = weight[c] / weight[d]; different sets mean the ratio is unknown.",
+ "hints": [
+  "If you knew every variable as a multiple of one representative in its group, how would you answer c / d?",
+  "Weighted union-find: weight[x] = x / parent[x]. During find, multiply the weights along the path so weight[x] becomes x / root.",
+  "To union a / b = v with roots ra, rb: set parent[ra] = rb and weight[ra] = v * weight[b] / weight[a]. Unknown variables give -1.0. A DFS over the ratio graph per query also works for these small limits."
+ ],
+ "pitfalls": [
+  "[x, x] is 1.0 only when x appears in some equation.",
+  "Cycles in the equations are harmless for union-find: the second equation of a cycle finds both ends already in one set."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

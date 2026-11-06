@@ -1,0 +1,68 @@
+{
+ "problemId": "expedia-triangle-minimum-path-sum",
+ "generatedAt": "2026-11-06T16:49:23",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "triangle",
+     "type": "int[][]",
+     "rawValue": "[[6, 5, 7]]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "triangle",
+     "type": "int[][]",
+     "rawValue": "[[3, 4], [4, 1, 8, 3], [6, 5, 7], [4, 1, 8, 3]]"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "triangle",
+     "type": "int[][]",
+     "rawValue": "[[2], [5, 5, 7], [4, 1, 8, 3]]"
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "triangle",
+     "type": "int[][]",
+     "rawValue": "[[3, 4], [6, 5, 7], [4, 1, 8, 3], [4, 1, 8, 3]]"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "triangle",
+     "type": "int[][]",
+     "rawValue": "[[2], [4, 1, 8, 3], [6, 5, 7], [4, 1, 8, 3]]"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "triangle",
+     "type": "int[][]",
+     "rawValue": "[[-2, 0, 4], [3, -4, -2, 0, 4, 4]]"
+    }
+   ],
+   "expectedRaw": "-6"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "intervals",
+ "why": "Insert an interval and test overlap: because the list is already sorted and disjoint, it splits into three runs: intervals ending before the new one, intervals that overlap it (absorb them by widening start and end), and intervals after it.",
+ "hints": [
+  "The list is already sorted and disjoint. Which existing intervals can the new one possibly touch?",
+  "Closed intervals [a, b] and [s, e] overlap exactly when a <= e and s <= b. Everything with end < s comes first untouched; then every interval with start <= e overlaps and is absorbed into [min starts, max ends]; the rest follows.",
+  "Three while loops with one index: copy while intervals[i][1] < s; merge while intervals[i][0] <= e; append [s, e]; copy the rest. O(n), no sort needed."
+ ],
+ "pitfalls": [
+  "Closed intervals: [1,3] and [3,5] overlap and must merge.",
+  "An empty list returns [newInterval].",
+  "The new interval may go first, last, or swallow every interval."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

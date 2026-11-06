@@ -1,0 +1,17 @@
+{
+ "pattern": "trees",
+ "why": "The canonical build-from-traversals problem: preorder tells you which value is the root, inorder tells you which values go to its left and which to its right. Recursing on those two ranges rebuilds the tree.",
+ "hints": [
+  "Where is the root in preorder? Once you know the root, what does its position in inorder tell you?",
+  "Everything left of the root in inorder is its left subtree and everything right is its right subtree. The left subtree's values come next in preorder, then the right subtree's.",
+  "Map value -> inorder index. Recurse build(lo, hi) on inorder ranges while consuming preorder with one moving index: root first, then build left, then right. O(n)."
+ ],
+ "pitfalls": [
+  "Searching inorder for the root at every step is O(n^2); the index map makes it O(n).",
+  "Build the left subtree before the right one, because that is the order preorder lists them.",
+  "Values are not in BST order; do not compare them, look up their inorder positions.",
+  "A skewed tree of 1000 nodes recurses 1000 deep: raise Python's recursion limit."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

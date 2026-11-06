@@ -1,0 +1,15 @@
+{
+ "pattern": "greedy-exchange",
+ "why": "Prove the order with an exchange argument: if candidate x goes to A and y to B but costA[x]-costB[x] > costA[y]-costB[y], swapping them lowers the total. So sort by costA - costB and send the first half to A.",
+ "hints": [
+  "Imagine first sending everyone to B. What does it cost to move one candidate from B to A?",
+  "Moving candidate i to A changes the total by costs[i][0] - costs[i][1]. You must move exactly half, so move the half with the smallest (most negative) differences. A swap argument shows any other split can be improved.",
+  "Sort by c[0] - c[1]; sum c[0] for the first n/2 and c[1] for the rest. O(n log n)."
+ ],
+ "pitfalls": [
+  "Sorting by min(costA, costB) or greedily giving each candidate their cheaper city breaks the exact-half quota.",
+  "Costs reach 10^9 and n reaches 10^5: the total needs 64 bits."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+ "pattern": "bst",
+ "why": "The key BST fact: an inorder traversal visits the keys in ascending order, so the k-th smallest is simply the k-th node an inorder walk visits.",
+ "hints": [
+  "In what order does left subtree, node, right subtree visit the keys of a BST?",
+  "Inorder is sorted. Walk it and count; stop at the k-th visited node.",
+  "Iterative inorder: push the left spine, pop a node (count it), then push the left spine of its right child. O(h + k) time, O(h) space."
+ ],
+ "pitfalls": [
+  "k is one-based: k = 1 is the minimum.",
+  "Stop as soon as you reach k; there is no need to collect the whole list."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+ "pattern": "hash-tables",
+ "why": "The array index as the hash, under an O(1)-space rule: the answer lies in 1..n+1, so place each value v in 1..n at index v-1 by swapping (cyclic sort); the first index i with nums[i] != i+1 gives the answer.",
+ "hints": [
+  "With a set this is easy. Which range can the answer possibly fall in, for an array of length n?",
+  "The answer is in 1..n+1, so values outside 1..n are irrelevant and each relevant value v has a home: index v-1. Can you put values home by swapping?",
+  "For each i, while 1 <= a[i] <= n and a[a[i]-1] != a[i], swap a[i] into its home. Then scan for the first i with a[i] != i+1; if none, return n+1. Each swap fixes one value, so O(n) total."
+ ],
+ "pitfalls": [
+  "The swap loop condition must compare a[a[i]-1] with a[i], not a[i] with i+1, or duplicates loop forever.",
+  "Negatives, zeros and values above n are simply left where they are.",
+  "All of 1..n present: the answer is n+1."
+ ],
+ "constraints": "<ul><li>1 &lt;= nums.length &lt;= 10^5</li><li>-2^31 &lt;= nums[i] &lt;= 2^31 - 1</li><li>Target O(n) time and O(1) extra space (LeetCode 41 bounds; the source gives none).</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

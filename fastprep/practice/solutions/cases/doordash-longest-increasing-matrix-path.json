@@ -1,0 +1,68 @@
+{
+ "problemId": "doordash-longest-increasing-matrix-path",
+ "generatedAt": "2026-11-06T16:49:22",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[2, 1, 1], [2, 1, 1]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1], [4, 4, -2, 0, 1], [-2, -3, 2, 5, -3]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[], [2, 4, 6, -5, 1]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[9, 9, 4], [2, 1, 1], [9, 9, 4], [6, 6, 8]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[6, 6, 8], [6, 6, 8], [2, 1, 1]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "matrix",
+     "type": "int[][]",
+     "rawValue": "[[1], [1]]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 {
   "pattern": "bit-manipulation",
-  "why": "Every operation adds or subtracts one power of two, so this is about n's binary form: an isolated 1-bit costs one subtraction, while a run of 1-bits is cheaper to round up (one addition turns the run into a single carry bit). The week pairs it with DP, but the greedy over bits is the whole solution (a DP over bits with a carry state gives the same answer).",
+  "why": "Every operation adds or subtracts one power of two, so the answer is read off n's binary form: an isolated 1-bit costs one subtraction, while a run of 1-bits is cheaper to round up (one addition turns the run into a single carry bit). A greedy scan over the low bits solves it.",
   "hints": [
     "Write 6 = 110 and 21 = 10101 in binary. Count the answers against the 1-bits.",
     "Scan from the lowest bit. A single 1 followed by 0 should be subtracted; a 1 followed by another 1 (bits ...11) should be removed by adding 1, which carries the run into one higher bit.",

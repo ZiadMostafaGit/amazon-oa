@@ -1,0 +1,78 @@
+{
+ "node": "trie",
+ "ladder": [
+  {
+   "id": "bloomberg-implement-trie",
+   "teaches": "insert, search and starts-with",
+   "why": "The structure itself: one node per prefix plus an end flag, so search and startsWith differ only in that flag.",
+   "level": "core"
+  },
+  {
+   "id": "google-dynamic-prefix-query-counts",
+   "teaches": "count words with a prefix",
+   "why": "A counter on each node of how many words pass through it answers 'how many start with p' by walking p; insert and delete adjust one path.",
+   "level": "core"
+  },
+  {
+   "id": "citadel-search-suggestions-prefix-tree",
+   "teaches": "insert, search and starts-with",
+   "why": "Each typed prefix is one trie node, so keeping the best three words per node turns autocomplete into one step per character.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-wildcard-word-dictionary",
+   "teaches": "a trie plus DFS to search many words at once",
+   "why": "A '.' forces the walk to branch into every child: find becomes a DFS through the trie.",
+   "level": "core"
+  },
+  {
+   "id": "inmobi-maximum-xor-between-two-arrays",
+   "teaches": "a bitwise trie for the maximum XOR",
+   "why": "Numbers as bit strings in a trie, walked greedily toward the opposite bit from the top, because one high bit beats all lower bits.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-word-search-ii",
+   "teaches": "a trie plus DFS to search many words at once",
+   "why": "One grid DFS that walks the trie alongside the board searches for every word at once and abandons dead prefixes immediately.",
+   "level": "core"
+  },
+  {
+   "id": "capital-one-longest-common-prefix-of-number-pairs",
+   "teaches": "insert, search and starts-with",
+   "why": "Digit strings in a trie: the depth another number reaches walking down is its longest common prefix with the whole first array.",
+   "level": "practice"
+  },
+  {
+   "id": "uber-word-pairs",
+   "teaches": "count words with a prefix",
+   "why": "Prefix pairs counted with per-node end and pass counters as words are inserted one by one.",
+   "level": "practice"
+  },
+  {
+   "id": "roblox-solution",
+   "teaches": "count words with a prefix",
+   "why": "Suffix questions become prefix questions after reversing each word, then counting with a trie.",
+   "level": "practice"
+  },
+  {
+   "id": "tiktok-maximum-value",
+   "teaches": "a bitwise trie for the maximum XOR",
+   "why": "An OA story that reduces to the maximum XOR of two prefix XORs, answered with a bitwise trie.",
+   "level": "practice"
+  },
+  {
+   "id": "inmobi-word-squares",
+   "teaches": "a trie plus DFS to search many words at once",
+   "why": "Backtracking where a trie of prefixes supplies only the words that can still fit the columns already fixed.",
+   "level": "stretch"
+  },
+  {
+   "id": "pinterest-autocomplete-system",
+   "teaches": "insert, search and starts-with",
+   "why": "A live autocomplete: the query is a moving trie node, a DFS below it gathers candidates, and frequencies are updated as sentences are committed.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "Bitwise trie had no candidates in the pool; inmobi-maximum-xor-between-two-arrays and tiktok-maximum-value came from the free bank. mt-search-myterious-grid (in the pool) is not really a trie problem, and squarepoint-suggested-products duplicates citadel-search-suggestions with a thin statement, so both were left out."
+}

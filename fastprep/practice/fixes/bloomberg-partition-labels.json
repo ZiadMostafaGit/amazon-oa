@@ -1,0 +1,15 @@
+{
+ "pattern": "greedy",
+ "why": "Track the furthest reach so far: a part that starts here must extend at least to the last occurrence of every letter it contains. Scan, keep end = max(last[c]); when the index reaches end, cut.",
+ "hints": [
+  "If a part contains letter c, how far right must that part extend at minimum?",
+  "Precompute last[c] for each letter. While scanning, the current part's end is the furthest last occurrence among its letters; it can only grow. When i == end, nothing inside reaches further, so cutting here is safe and as early as possible.",
+  "last = {c: i}; walk i with end = max(end, last[text[i]]); when i == end append end - start + 1 and set start = i + 1. O(n)."
+ ],
+ "pitfalls": [
+  "Empty text returns an empty list.",
+  "Cutting as soon as i == end is what makes the number of parts maximal; do not wait for the letter to change."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

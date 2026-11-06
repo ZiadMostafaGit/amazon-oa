@@ -1,0 +1,15 @@
+{
+  "pattern": "xor-tricks",
+  "why": "The canonical XOR fact: x ^ x = 0 and x ^ 0 = x, and XOR is order-independent, so XOR-ing the whole array cancels every pair and leaves the single value, in O(1) space.",
+  "hints": [
+    "A hash set works. Can you do it with one integer of extra memory?",
+    "What is a ^ a? What is a ^ 0? Does the order of XOR operations matter?",
+    "acc = 0; for v in nums: acc ^= v; return acc. O(n) time, O(1) space."
+  ],
+  "pitfalls": [
+    "Negative values work too: XOR acts on the two's-complement bits.",
+    "Sorting works but costs O(n log n); summing with a set uses O(n) memory."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

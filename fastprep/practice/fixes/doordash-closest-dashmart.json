@@ -1,0 +1,15 @@
+{
+ "pattern": "multi-source-bfs",
+ "why": "Answering each query with its own BFS is too slow. Instead run one BFS started from every DashMart at once (multi-source BFS): each open cell's level is its distance to the nearest DashMart, and every query becomes a lookup.",
+ "hints": [
+  "Many queries ask 'how far to the nearest D?'. Can you turn the question around and grow outward from the DashMarts instead of from each query?",
+  "Put every D in the queue at distance 0 and BFS through open cells. The level at which a cell is reached is its distance to the closest DashMart.",
+  "For a query on an open cell or D, read dist; outside the grid is -1; on an X cell, take 1 + the smallest dist among its open or D neighbours (or -1). O(rows * cols + queries)."
+ ],
+ "pitfalls": [
+  "Blocked cells are never entered during the BFS, but a query may start on one and take a single first step off it.",
+  "Coordinates outside the grid return -1, and an unreachable cell keeps -1."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

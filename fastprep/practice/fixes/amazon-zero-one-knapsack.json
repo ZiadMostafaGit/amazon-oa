@@ -1,0 +1,16 @@
+{
+ "pattern": "knapsack",
+ "why": "The canonical 0/1 knapsack: every item is either taken once or skipped, under one weight capacity. best[c] = the most value using total weight at most c; item (w, v) offers best[c - w] + v.",
+ "hints": [
+  "Try every subset? 2^200 is hopeless. Ask instead: for each possible used weight, what is the best value so far?",
+  "Process items one at a time. With item (w, v) the new best[c] is max(best[c], best[c - w] + v): skip it, or take it on top of the best answer for the remaining capacity.",
+  "Keep one array best[0..capacity] all zeros and loop c from capacity down to w, so best[c - w] still holds the value before this item. O(n * capacity)."
+ ],
+ "pitfalls": [
+  "Looping c upward lets the same item be taken again (that is unbounded knapsack).",
+  "Items heavier than the capacity contribute nothing; with no items or capacity 0 the answer is 0.",
+  "Starting every best[c] at 0 is what makes this 'at most capacity': unused weight is allowed."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

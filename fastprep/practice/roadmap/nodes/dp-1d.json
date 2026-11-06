@@ -1,0 +1,102 @@
+{
+  "node": "dp-1d",
+  "ladder": [
+    {
+      "id": "expedia-climbing-stairs",
+      "teaches": "recursion, then memo, then table (climbing stairs)",
+      "why": "The last move came from n-1 or n-2; write that as recursion, memoise it, then turn it into a two-variable loop.",
+      "level": "core"
+    },
+    {
+      "id": "inmobi-house-robber",
+      "teaches": "take or skip on a line (house robber)",
+      "why": "Rob house i or skip it: best[i] = max(best[i-1], best[i-2] + nums[i]) is the take-or-skip template.",
+      "level": "core"
+    },
+    {
+      "id": "mygate-frog-jump",
+      "teaches": "the minimum cost to reach a target (fewest coins)",
+      "why": "Climbing stairs with min instead of +: the cheapest way to a stone is the cheaper of its two predecessors plus the jump cost.",
+      "level": "core"
+    },
+    {
+      "id": "amd-minimum-coin-change",
+      "teaches": "the minimum cost to reach a target (fewest coins)",
+      "why": "Fewest coins: greedy fails, and best[a] = 1 + min(best[a-c]) built from 0 upward, with infinity for unreachable amounts, does not.",
+      "level": "core"
+    },
+    {
+      "id": "de-shaw-decode-ways",
+      "teaches": "count the ways (decode ways)",
+      "why": "Count the ways: the last letter used one or two digits, so add the counts of the two shorter prefixes when each split is valid.",
+      "level": "core"
+    },
+    {
+      "id": "meta-word-break-reusable-dictionary",
+      "teaches": "DP over prefixes with a dictionary (word break)",
+      "why": "ok[i] is true when some dictionary word ends at i and the prefix before it was breakable.",
+      "level": "core"
+    },
+    {
+      "id": "omnissa-maximum-subarray-sum",
+      "teaches": "Kadane: the best subarray ending here",
+      "why": "The best subarray ending here either extends the previous one or restarts; drop a negative running sum.",
+      "level": "core"
+    },
+    {
+      "id": "salesforce-longest-increasing-subsequence",
+      "teaches": "the longest increasing subsequence",
+      "why": "Define the state by where the subsequence ends (O(n^2)), then speed it up with the tails array and binary search.",
+      "level": "core"
+    },
+    {
+      "id": "digitalocean-house-robber-ii",
+      "teaches": "take or skip on a line (house robber)",
+      "why": "A circle is two lines: exclude the first house or the last and run house robber on each.",
+      "level": "practice"
+    },
+    {
+      "id": "morgan-stanley-delete-and-earn",
+      "teaches": "take or skip on a line (house robber)",
+      "why": "Taking x forbids x-1 and x+1, so bucket by value and it becomes house robber on the number line.",
+      "level": "practice"
+    },
+    {
+      "id": "shopify-paint-house",
+      "teaches": "the minimum cost to reach a target (fewest coins)",
+      "why": "Minimum cost with a small state: the cheapest total ending in each color, rolled house by house.",
+      "level": "practice"
+    },
+    {
+      "id": "squadstack-weighted-decode-ways",
+      "teaches": "count the ways (decode ways)",
+      "why": "Decode Ways with min instead of +, showing that the same split recurrence counts ways or finds the cheapest one.",
+      "level": "practice"
+    },
+    {
+      "id": "amazon-maximize-protected-city-population",
+      "teaches": "take or skip on a line (house robber)",
+      "why": "An Amazon OA story that reduces to a two-state left-to-right DP over whether the previous city is already protected.",
+      "level": "practice"
+    },
+    {
+      "id": "squarepoint-longest-subsequence-from-two-arrays",
+      "teaches": "the longest increasing subsequence",
+      "why": "LIS where each index offers two values; both are tried against the tails array as it was before that index.",
+      "level": "practice"
+    },
+    {
+      "id": "atlassian-dice-roll-simulation",
+      "teaches": "count the ways (decode ways)",
+      "why": "Counting the ways needs a richer state (last face, run length) and modular arithmetic.",
+      "level": "stretch"
+    },
+    {
+      "id": "microsoft-minimum-jump-cost",
+      "teaches": "the minimum cost to reach a target (fewest coins)",
+      "why": "dp[i] = cost[i] + min of the last k states; a monotonic deque turns O(nk) into O(n).",
+      "level": "stretch"
+    }
+  ],
+  "notes": "16 rungs for the two plan weeks: the first 8 (core) cover every technique, one per technique except minimum cost, which gets two (frog jump, then coin change). mygate-frog-jump and amd-minimum-coin-change were in no pool and were added with new solutions. Coin change also appears in the knapsack node's technique list (unbounded, fewest coins); the bank has more copies (infosys-minimum-coins-for-target, paytm-minimum-coins-for-target) that knapsack can use. Word break has no OA-style practice rung; the pool's Word Break variants are interview-stage only."
+}

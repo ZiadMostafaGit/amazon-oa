@@ -1,0 +1,15 @@
+{
+  "pattern": "backtracking",
+  "why": "Palindrome partitioning: the choice at each step is where the next piece ends. Choose a palindromic piece, explore the rest of the string, then un-choose it and try a longer piece.",
+  "hints": [
+    "Every partition starts with some first piece text[0:end]. Which first pieces are allowed?",
+    "dfs(start): for each end in start+1..n, if text[start:end] is a palindrome, append it to the path, recurse on end, then pop. When start == n, record the path.",
+    "Collect all partitions and sort them (list comparison of strings gives the required order). With n <= 10 a direct palindrome check per piece is fine; for longer strings precompute isPal[i][j]."
+  ],
+  "pitfalls": [
+    "Comparison is case-sensitive: 'Aa' is not a palindrome.",
+    "Record a copy of the path, not the list you keep mutating."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

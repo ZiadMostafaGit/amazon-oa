@@ -1,0 +1,128 @@
+{
+ "problemId": "shopify-mars-rover-robot-controller",
+ "generatedAt": "2026-11-06T16:49:33",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 17,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[1, 0]"
+    },
+    {
+     "name": "direction",
+     "type": "String",
+     "rawValue": "\"N\""
+    },
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"MRMLM\""
+    }
+   ],
+   "expectedRaw": "\"2 2 N\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    },
+    {
+     "name": "direction",
+     "type": "String",
+     "rawValue": "\"N\""
+    },
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"MRMLM\""
+    }
+   ],
+   "expectedRaw": "\"1 2 N\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[2, 3, 3]"
+    },
+    {
+     "name": "direction",
+     "type": "String",
+     "rawValue": "\"E\""
+    },
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"E\""
+    }
+   ],
+   "expectedRaw": "\"2 3 E\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    },
+    {
+     "name": "direction",
+     "type": "String",
+     "rawValue": "\"N\""
+    },
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"N\""
+    }
+   ],
+   "expectedRaw": "\"0 0 N\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 3]"
+    },
+    {
+     "name": "direction",
+     "type": "String",
+     "rawValue": "\"N\""
+    },
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"MRMLM\""
+    }
+   ],
+   "expectedRaw": "\"1 5 N\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    },
+    {
+     "name": "direction",
+     "type": "String",
+     "rawValue": "\"E\""
+    },
+    {
+     "name": "commands",
+     "type": "String",
+     "rawValue": "\"E\""
+    }
+   ],
+   "expectedRaw": "\"2 2 E\""
+  }
+ ]
+}

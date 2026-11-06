@@ -1,0 +1,15 @@
+{
+ "pattern": "greedy",
+ "why": "Pair the extremes: if every team must have the same sum, that sum is total / (n/2), and after sorting the smallest skill can only be paired with the largest. Pair from both ends and check each pair hits the target.",
+ "hints": [
+  "If every pair has the same sum S, what must S be in terms of the total skill?",
+  "Sort. The weakest candidate needs the strongest partner: if the smallest paired with anything smaller than the largest, the largest would need a partner smaller than the smallest. So pairs are (s[0], s[n-1]), (s[1], s[n-2]), ...",
+  "Sort, set target = s[0] + s[-1], walk i from both ends; if any s[i] + s[n-1-i] != target return -1, else add the products. O(n log n)."
+ ],
+ "pitfalls": [
+  "The answer can exceed 32 bits (up to 5*10^4 products of 10^10): Python is fine, but keep it in mind in other languages.",
+  "n = 2 is always a valid single team."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

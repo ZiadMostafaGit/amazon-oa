@@ -1,0 +1,96 @@
+{
+ "node": "sliding-window",
+ "ladder": [
+  {
+   "id": "jump-trading-fixed-window-rolling-mean",
+   "teaches": "fixed-size window",
+   "why": "Add the entering value, subtract the leaving one: a window of size k slides in O(1) per step.",
+   "level": "core"
+  },
+  {
+   "id": "akuna-longest-substring-without-repeating-characters",
+   "teaches": "variable window: the longest valid (shrink while invalid)",
+   "why": "The classic longest valid window: grow right, and when a repeat appears move left just past its previous occurrence.",
+   "level": "core"
+  },
+  {
+   "id": "inmobi-max-consecutive-ones-iii",
+   "teaches": "variable window: the longest valid (shrink while invalid)",
+   "why": "Rephrasing 'flip at most k zeros' as 'longest window with at most k zeros' and shrinking only while the window is invalid.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-anagram-start-indices",
+   "teaches": "window with a frequency map (distinct counts, anagrams)",
+   "why": "A fixed window carrying 26 letter counts: only two counts change per slide, and a match means an anagram.",
+   "level": "core"
+  },
+  {
+   "id": "microsoft-minimum-length-good-subarray",
+   "teaches": "variable window: the shortest valid (shrink while valid)",
+   "why": "The mirror template: record the length while the window is valid, then shrink to look for something shorter.",
+   "level": "core"
+  },
+  {
+   "id": "digitalocean-longest-repeating-character-replacement",
+   "teaches": "window with a frequency map (distinct counts, anagrams)",
+   "why": "Validity read from the frequency map: window length minus the most frequent count is the number of replacements needed.",
+   "level": "core"
+  },
+  {
+   "id": "atlassian-beautiful-subarrays",
+   "teaches": "exactly k = at most k minus at most k-1",
+   "why": "Exactly k odd numbers is awkward to slide, at most k is easy (each right end adds right - left + 1), so subtract atMost(k-1) from atMost(k).",
+   "level": "core"
+  },
+  {
+   "id": "amazon-sliding-window-maximum",
+   "teaches": "window maximum with a monotonic deque",
+   "why": "Values smaller than a newer value can never be a window maximum again, so a decreasing deque of indices gives every maximum in O(n).",
+   "level": "core"
+  },
+  {
+   "id": "salesforce-maximum-requests-in-window",
+   "teaches": "variable window: the longest valid (shrink while invalid)",
+   "why": "Sorting timestamps turns 'requests within one time window' into the longest window with last - first under a limit.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-get-minimum-boxes",
+   "teaches": "variable window: the longest valid (shrink while invalid)",
+   "why": "Amazon OA: sort, then the kept boxes are a contiguous run, so find the longest window with max <= capacity * min.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-get-max-alternating-music",
+   "teaches": "variable window: the longest valid (shrink while invalid)",
+   "why": "Amazon OA: fix each of the two alternating patterns and find the longest window with at most k mismatches.",
+   "level": "practice"
+  },
+  {
+   "id": "snowflake-vowel-substring",
+   "teaches": "window with a frequency map (distinct counts, anagrams)",
+   "why": "Counting windows with vowel counts: for each right end, shrink to the tightest start that still holds all five vowels and count the starts before it.",
+   "level": "practice"
+  },
+  {
+   "id": "juspay-minimum-of-window-maxima",
+   "teaches": "window maximum with a monotonic deque",
+   "why": "Recognising sliding window maximum inside a min-of-max question and folding the maxima into a running minimum.",
+   "level": "practice"
+  },
+  {
+   "id": "linkedin-minimum-window-substring",
+   "teaches": "variable window: the shortest valid (shrink while valid)",
+   "why": "The hardest shortest-valid window: a need map and a missing counter make validity O(1) while left shrinks.",
+   "level": "stretch"
+  },
+  {
+   "id": "amazon-get-max-consecutive-on",
+   "teaches": "variable window: the longest valid (shrink while invalid)",
+   "why": "Amazon OA: one segment flip clears a whole run of zeros, so the window budget counts zero-runs, not zeros.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "The bank has no plain Minimum Size Subarray Sum (positive values, sum >= target) and no 'Subarrays with K Different Integers'; microsoft-minimum-length-good-subarray stands in for shortest-valid and atlassian-beautiful-subarrays (exactly k odd) for exactly-k. atlassian-beautiful-subarrays was moved here from the prefix-sums pool; it can also be solved with prefix parity counts."
+}

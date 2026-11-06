@@ -1,0 +1,98 @@
+{
+ "problemId": "salesforce-closest-subsequence-sum",
+ "generatedAt": "2026-11-06T16:49:33",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3]"
+    },
+    {
+     "name": "goal",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "goal",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[7, -11, 15, -2]"
+    },
+    {
+     "name": "goal",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3, 3]"
+    },
+    {
+     "name": "goal",
+     "type": "int",
+     "rawValue": "-7"
+    }
+   ],
+   "expectedRaw": "7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-3, -1, -2]"
+    },
+    {
+     "name": "goal",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3]"
+    },
+    {
+     "name": "goal",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

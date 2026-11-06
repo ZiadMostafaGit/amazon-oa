@@ -1,0 +1,78 @@
+{
+ "node": "shortest-paths",
+ "ladder": [
+  {
+   "id": "visa-dijkstra-weighted-undirected-graph",
+   "teaches": "Dijkstra with a heap",
+   "why": "Plain single-source Dijkstra: settle the smallest tentative distance, relax, skip stale heap entries.",
+   "level": "core"
+  },
+  {
+   "id": "visa-minimum-cost-weighted-grid-path",
+   "teaches": "Dijkstra with a heap",
+   "why": "The same Dijkstra on a grid where entering a cell costs its value; four-way moves rule out the simple DP.",
+   "level": "core"
+  },
+  {
+   "id": "google-minimum-direction-violations",
+   "teaches": "0-1 BFS",
+   "why": "Edges cost only 0 or 1, so a deque (front for 0, back for 1) replaces the heap.",
+   "level": "core"
+  },
+  {
+   "id": "inmobi-cheapest-flights-within-k-stops",
+   "teaches": "Bellman-Ford and at most k edges",
+   "why": "Bellman-Ford's round i is 'cheapest with at most i edges', so k + 1 rounds enforce the stop limit.",
+   "level": "core"
+  },
+  {
+   "id": "walmart-minimum-stress-path",
+   "teaches": "a minimax path (minimum effort)",
+   "why": "Dijkstra where a path's value is its largest edge: max(d, w) instead of d + w.",
+   "level": "core"
+  },
+  {
+   "id": "skyscanner-minimum-path-with-discounts",
+   "teaches": "Dijkstra over states (node plus extra)",
+   "why": "The node is not enough; the state (node, discounts used) makes Dijkstra handle the half-price choice.",
+   "level": "core"
+  },
+  {
+   "id": "salesforce-path-with-maximum-probability",
+   "teaches": "Dijkstra with a heap",
+   "why": "Dijkstra with products and a max-heap: it works because values never improve along a path.",
+   "level": "practice"
+  },
+  {
+   "id": "google-minimum-teleporter-repairs",
+   "teaches": "0-1 BFS",
+   "why": "0-1 BFS with the cost on the departure node instead of the edge.",
+   "level": "practice"
+  },
+  {
+   "id": "google-swim-in-rising-water",
+   "teaches": "a minimax path (minimum effort)",
+   "why": "A minimax path on a grid: the cost is the tallest cell you touch.",
+   "level": "practice"
+  },
+  {
+   "id": "mathworks-shortest-route-possible-predecessors",
+   "teaches": "Dijkstra with a heap",
+   "why": "Dijkstra first, then dist[u] + w == dist[v] marks the shortest-route edges you build on.",
+   "level": "practice"
+  },
+  {
+   "id": "microsoft-minimum-fuel-cost",
+   "teaches": "Dijkstra over states (node plus extra)",
+   "why": "Unlimited tank means you always pay the cheapest price seen so far: state (city, best price).",
+   "level": "stretch"
+  },
+  {
+   "id": "amazon-find-safest-path-in-grid",
+   "teaches": "a minimax path (minimum effort)",
+   "why": "Multi-source BFS for every cell's distance to a thief, then a maximin path over those values.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "Bellman-Ford has only the k-stops form here (no negative-weight problem worth teaching). mt-minimum-obstacles-to-remove-to-allow-figure-fall and uber-minimum-obstacle-removal are not 0-1 BFS despite their names (falling-figure simulation); amazon-minimum-obstacle-removals-on-shortest-grid-path is a monotone-path DP. zorvyn-shortest-path-with-k-free-edges is a good state-Dijkstra problem but has no bounds. citadel-shortest-path-unweighted-graph, amazon-find-minimum-city-hops, benchling-minimum-genetic-mutation and mercor-shortest-path-in-grid-with-obstacles-elimination were moved to graphs (they are BFS)."
+}

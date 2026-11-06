@@ -1,0 +1,17 @@
+{
+ "pattern": "hash-tables",
+ "why": "A frequency map of the values, then a lookup per neighbour: each number has at most C(10,2) one-swap variants, so generate them and look each one up in the map instead of comparing all pairs.",
+ "hints": [
+  "Comparing every pair is O(n^2 * digits). How many different numbers can one number turn into with a single swap?",
+  "At most 45 (choose two of up to 10 digit positions). Count the values with a map, then for each distinct value generate its variants and look them up.",
+  "Pairs of equal values: C(c, 2) each. Pairs of different values a < b: count[a] * count[b] when b is a variant of a; only count b > a so each pair is counted once. Skip swaps that create a leading zero or do not change the number."
+ ],
+ "pitfalls": [
+  "Equal numbers pair without a swap (example 2).",
+  "A swap that puts a 0 first is invalid.",
+  "Several swaps can produce the same variant; use a set so a pair is not counted twice.",
+  "Count index pairs, so multiply the counts."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

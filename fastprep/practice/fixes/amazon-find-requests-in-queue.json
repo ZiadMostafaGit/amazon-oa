@@ -1,15 +1,16 @@
 {
- "pattern": "queue",
- "why": "The server is a FIFO queue where, each second, the front request is served and any request whose deadline wait[i] equals the current time drops out. Simulating with a front pointer plus buckets of requests by expiry time gives each request one removal, so the queue size per second comes out in linear time.",
- "hints": [
-  "Write out the timeline for example 1: at each second, which requests leave the queue, and why?",
-  "At time t, the request served at t-1 leaves, and every unserved request with wait[i] == t expires. Group requests by their wait value so you can find who expires at t without scanning the queue.",
-  "Keep removed flags, a front index that skips removed requests, and buckets[t]. Each second: remove last served, remove bucket t, record the count, advance front to the next alive request. O(n + max wait)."
- ],
- "pitfalls": [
-  "The output starts with n at time 0 and ends with the 0 for the instant the queue becomes empty.",
-  "A request served at time t is still counted at t; it leaves at t+1.",
-  "A request with wait[i] = t expires at time t even if it would have been next; an already-served request must not be removed twice."
- ],
- "by": "claude", "at": "2026-11-06"
+  "pattern": "simulation",
+  "why": "Process events in time order: each second the front request is served and every request whose deadline wait[i] equals the current time drops out. Simulating with a front pointer plus buckets of requests by expiry time gives each request one removal, so the queue size per second comes out in linear time.",
+  "hints": [
+    "Write out the timeline for example 1: at each second, which requests leave the queue, and why?",
+    "At time t, the request served at t-1 leaves, and every unserved request with wait[i] == t expires. Group requests by their wait value so you can find who expires at t without scanning the queue.",
+    "Keep removed flags, a front index that skips removed requests, and buckets[t]. Each second: remove last served, remove bucket t, record the count, advance front to the next alive request. O(n + max wait)."
+  ],
+  "pitfalls": [
+    "The output starts with n at time 0 and ends with the 0 for the instant the queue becomes empty.",
+    "A request served at time t is still counted at t; it leaves at t+1.",
+    "A request with wait[i] = t expires at time t even if it would have been next; an already-served request must not be removed twice."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
 }

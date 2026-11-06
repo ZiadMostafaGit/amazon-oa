@@ -1,0 +1,16 @@
+{
+ "pattern": "knapsack",
+ "why": "The +/- disguise in its simplest form: put a + sign on one group and a - sign on the other and ask for total 0. Signs summing to 0 means the + group sums to exactly total/2, so the question becomes plain subset sum with target total/2.",
+ "hints": [
+  "If the two groups are equal, what must each one sum to?",
+  "An odd total can never split. Otherwise ask: can some subset reach exactly total/2? Think of each value getting a + or - sign; (sum of +) = (total + 0) / 2.",
+  "Run the subset-sum table reach[0..total/2] (or a big-integer bitset reach |= reach << v) and return reach[total/2]. O(n * total)."
+ ],
+ "pitfalls": [
+  "Check the parity of the total first.",
+  "Empty input and [0] return true: both groups may be empty.",
+  "Iterate sums downward (or use the shifted bitset) so a value is used at most once."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

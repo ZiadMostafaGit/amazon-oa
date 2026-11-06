@@ -1,0 +1,15 @@
+{
+  "pattern": "stack",
+  "why": "Undo and redo are two stacks: executed commands on one, undone commands on the other. UNDO moves the top of the first to the second, REDO moves it back, and a new EXECUTE clears the redo stack. It teaches 'simulate with undo' as stack moves.",
+  "hints": [
+    "Which command does UNDO remove, and which command does REDO bring back?",
+    "UNDO removes the most recent active command; REDO restores the most recently undone one. Both are 'last in, first out', so use two stacks: active and redo.",
+    "EXECUTE pushes onto active and clears redo; UNDO pops active onto redo (if any); REDO pops redo onto active (if any). After each step output '|'.join(active)."
+  ],
+  "pitfalls": [
+    "Executing a new command must empty the redo stack.",
+    "UNDO on an empty history and REDO with nothing undone are no-ops, but still produce a snapshot."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

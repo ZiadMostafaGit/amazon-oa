@@ -1,0 +1,18 @@
+{
+  "pattern": "stack",
+  "why": "With only + and - but arbitrary parentheses, a stack saves the running result and the sign in front of each '(' and restores them at ')'. It is expression evaluation where the stack carries the outer context, the harder form of the calculator technique.",
+  "hints": [
+    "Without parentheses this is a running sum with a current sign. What must you remember when you enter a parenthesis?",
+    "The result accumulated so far outside it, and the sign in front of it. Push both on '('; on ')' finish the inner value and combine: result = saved_result + saved_sign * inner.",
+    "Scan once with result, sign, num: digits build num; '+'/'-' add sign*num to result and set sign; '(' pushes (result, sign) and resets; ')' closes as above. O(n)."
+  ],
+  "pitfalls": [
+    "Unary minus, as in \"-(2+3)\" or \"1-(-2)\", is just a sign before a number or a parenthesis.",
+    "Numbers can have many digits; flush num whenever a non-digit arrives, and at the end.",
+    "Spaces can appear anywhere."
+  ],
+  "by": "claude",
+  "at": "2026-11-06",
+  "statement": "<p>Given a string <code>s</code> holding a valid arithmetic expression, evaluate it and return the integer result. Do not use a built-in expression evaluator such as <code>eval</code>.</p><p>The expression may contain:</p><ul><li>non-negative integer literals, possibly with several digits;</li><li>the binary operators <code>+</code> and <code>-</code>;</li><li><code>-</code> used as a unary minus, before a number or before a parenthesis (for example <code>\"-(2 + 3)\"</code>); unary <code>+</code> does not occur;</li><li>parentheses <code>(</code> and <code>)</code>, nested to any depth;</li><li>spaces, anywhere.</li></ul><p><b>Worked example:</b> <code>s = \"(1+(4+5+2)-3)+(6+8)\"</code></p><ul><li>Innermost group: 4 + 5 + 2 = 11</li><li>Outer group: 1 + 11 - 3 = 9</li><li>Second group: 6 + 8 = 14</li><li>Total: 9 + 14 = 23</li></ul><p>Answer: <code>23</code>. For <code>\"1 + 1\"</code> the answer is <code>2</code>, for <code>\" 2-1 + 2 \"</code> it is <code>3</code>, and for <code>\"1-(-2)\"</code> it is <code>3</code>.</p>",
+  "constraints": "<ul><li>1 &lt;= s.length &lt;= 3 * 10^5</li><li>s contains digits, '+', '-', '(', ')' and ' '.</li><li>s is a valid expression; every intermediate value and the result fit in a signed 32-bit integer.</li><li>The source statement is cut off after \"may contain:\"; it links the canonical Basic Calculator (LeetCode 224), whose rules and bounds are restored here.</li></ul>"
+}

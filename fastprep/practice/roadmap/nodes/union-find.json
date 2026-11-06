@@ -1,0 +1,90 @@
+{
+ "node": "union-find",
+ "ladder": [
+  {
+   "id": "bytedance-undirected-graph-path-existence",
+   "teaches": "union by rank and path compression",
+   "why": "The whole data structure in its smallest form: union every edge, compare roots; rank and path compression keep 2*10^5 operations fast.",
+   "level": "core"
+  },
+  {
+   "id": "sambanova-number-of-provinces",
+   "teaches": "connected components as edges arrive",
+   "why": "Start with n groups and subtract one for every union that really merges two of them.",
+   "level": "core"
+  },
+  {
+   "id": "inmobi-minimum-connection-changes",
+   "teaches": "find the redundant edge",
+   "why": "An edge whose ends already share a root is redundant, and redundant wires are what you can move.",
+   "level": "core"
+  },
+  {
+   "id": "roblox-longest-contiguous-house-segment",
+   "teaches": "union-find that carries extra data (sizes, weights)",
+   "why": "Each root carries its component size, so the longest run is known after every new house.",
+   "level": "core"
+  },
+  {
+   "id": "spacex-number-of-islands-ii",
+   "teaches": "connected components as edges arrive",
+   "why": "Components that change online: +1 per new land cell, -1 per merge with a neighbouring island.",
+   "level": "core"
+  },
+  {
+   "id": "nutanix-min-cost-to-connect-all-points",
+   "teaches": "process edges in sorted order (Kruskal, offline queries)",
+   "why": "Kruskal: take edges from cheapest up and keep one only when union-find says it joins two components.",
+   "level": "core"
+  },
+  {
+   "id": "atlassian-connected-sum",
+   "teaches": "union-find that carries extra data (sizes, weights)",
+   "why": "Union by size, then score each root by its component size.",
+   "level": "practice"
+  },
+  {
+   "id": "akuna-maximum-difference",
+   "teaches": "union-find that carries extra data (sizes, weights)",
+   "why": "Roots carry a min and max label instead of a size; merging combines them.",
+   "level": "practice"
+  },
+  {
+   "id": "visa-minimum-unreachable-warehouses",
+   "teaches": "union-find that carries extra data (sizes, weights)",
+   "why": "Roots carry vertex and edge counts, so each component can be classified as a tree or not.",
+   "level": "practice"
+  },
+  {
+   "id": "visa-minimum-score-path-between-cities",
+   "teaches": "connected components as edges arrive",
+   "why": "Revisiting is allowed, so the answer is just the cheapest road in city 1's component.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-maximum-truck-weight",
+   "teaches": "process edges in sorted order (Kruskal, offline queries)",
+   "why": "Add roads from the strongest down; the road that first joins start and end is the bottleneck.",
+   "level": "practice"
+  },
+  {
+   "id": "uber-earliest-full-connection",
+   "teaches": "process edges in sorted order (Kruskal, offline queries)",
+   "why": "Sort the logs by time and union until the component count reaches one.",
+   "level": "practice"
+  },
+  {
+   "id": "apple-evaluate-division",
+   "teaches": "union-find that carries extra data (sizes, weights)",
+   "why": "Weighted union-find: each node stores its ratio to the root, and queries divide two ratios.",
+   "level": "stretch"
+  },
+  {
+   "id": "tiktok-server-network-optimization",
+   "teaches": "process edges in sorted order (Kruskal, offline queries)",
+   "why": "Kruskal on 10^5 points, after proving only x-sorted and y-sorted neighbours can be MST edges.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "Find the redundant edge has one clean teacher here (inmobi-minimum-connection-changes, which counts redundant edges); the classic Redundant Connection I is not in my pools (zomato-friend-circles-and-redundant-edges sits in the trees pool) and Redundant Connection II (anyscale) is too tangled for a core rung. nutanix's reference solution is Prim (faster for the dense graph); its hints teach Kruskal. nutanix-min-cost-to-connect-all-points was moved here from the graphs pool; spacex-number-of-islands-ii and akuna-maximum-difference too."
+}

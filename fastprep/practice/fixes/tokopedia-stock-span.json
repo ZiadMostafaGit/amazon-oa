@@ -1,0 +1,15 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "The span looks backwards: it runs until the previous strictly greater price. A stack of (price, span) pairs merges every smaller-or-equal day into today's entry, so each price is popped once. It teaches the span form of the monotonic stack, processed online.",
+  "hints": [
+    "Today's span stops at which earlier day?",
+    "The nearest earlier day with a strictly higher price. Days with lower or equal prices are covered by today and can never stop a later span either.",
+    "Keep a stack of (price, span). For each price, start span = 1, pop while top price <= price and add its span, then push (price, span). Amortised O(1) per day."
+  ],
+  "pitfalls": [
+    "The span counts today itself, so it is at least 1.",
+    "Pop on <= (equal prices are included in the span)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

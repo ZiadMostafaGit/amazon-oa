@@ -1,0 +1,15 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "Treat each row as the floor of a histogram whose bar heights count the consecutive 1s ending at that row. The largest all-ones rectangle has its bottom on some row, so running Largest Rectangle in Histogram once per row solves the matrix in O(rows * cols).",
+  "hints": [
+    "Fix the bottom row of the rectangle. What does the matrix look like from that row upward?",
+    "A histogram: for each column, the number of consecutive 1s ending at this row. A 0 resets the column's height to 0.",
+    "Update the heights row by row and run the monotonic-stack largest-rectangle pass on each row's heights; keep the maximum. O(rows * cols)."
+  ],
+  "pitfalls": [
+    "A 0 cell resets the column height to 0; it does not just stop increasing it.",
+    "Remember the 0-height sentinel at the end of each row's stack pass."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

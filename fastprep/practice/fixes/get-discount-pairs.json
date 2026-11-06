@@ -1,0 +1,16 @@
+{
+  "pattern": "modular-arithmetic",
+  "why": "Divisibility of a sum depends only on remainders: (a + b) % x == 0 exactly when a % x and b % x add up to 0 or x. Bucket prices by remainder and pair bucket r with bucket x - r, counting r = 0 (and r = x/2) within one bucket.",
+  "hints": [
+    "Checking every pair is O(n^2). What property of a price decides whether it can pair with another?",
+    "Only p % x matters: remainders r and (x - r) % x pair up. Count how many prices fall in each remainder.",
+    "For each remainder r with complement c = (x - r) % x: if r == c add cnt*(cnt-1)/2, else if r < c add cnt[r]*cnt[c]. O(n) with a hash map (x can be 2*10^9, so not an array)."
+  ],
+  "pitfalls": [
+    "Remainder 0 pairs with itself, and so does x/2 when x is even: count C(k, 2) there.",
+    "Count each pair of buckets once (only when r < complement).",
+    "x is up to 2*10^9: use a hash map of remainders, not an array of size x."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

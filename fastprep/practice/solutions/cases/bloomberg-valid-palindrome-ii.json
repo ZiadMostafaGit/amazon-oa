@@ -1,0 +1,68 @@
+{
+ "problemId": "bloomberg-valid-palindrome-ii",
+ "generatedAt": "2026-11-06T16:49:16",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aaba\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aa\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abcca\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abba\""
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

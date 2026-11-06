@@ -1,0 +1,16 @@
+{
+ "pattern": "partition-dp",
+ "why": "A merge-stones / burst-balloons style interval DP: removals make far-apart elements adjacent, so think about the triple that removes a[i] last within its block. rem[i][j] = a[i..j] can vanish completely, either because a[i], a[p], a[j] form the final triple after the two insides vanish, or because the block splits into two removable blocks.",
+ "hints": [
+  "Simulating removal orders explodes. Ask instead: which segments can disappear entirely, and which elements survive between them?",
+  "In a fully removable block a[i..j], a[i] is removed with some a[p], a[q]. If q == j, the parts i+1..p-1 and p+1..j-1 must vanish first and 2*a[p] == a[i] + a[j]; otherwise the block splits after q into two removable blocks.",
+  "Fill rem for lengths 3, 6, 9, ... (O(n^3)), then best[j] = min(best[j-1] + 1, best[i] for every removable a[i..j-1]). The answer is best[n]."
+ ],
+ "pitfalls": [
+  "Only lengths divisible by 3 can vanish.",
+  "The order matters (example 2): removing the wrong triple first strands elements, which is why you reason about the last triple, not the first.",
+  "Survivors separate the array into independent removable blocks."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

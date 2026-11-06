@@ -1,0 +1,90 @@
+{
+  "node": "linked-list",
+  "ladder": [
+    {
+      "id": "the-walt-disney-company-reverse-linked-list",
+      "teaches": "reverse in place",
+      "why": "The base move: walk once and turn every next pointer backwards, keeping prev, curr and next straight.",
+      "level": "core"
+    },
+    {
+      "id": "the-walt-disney-company-merge-two-sorted-lists",
+      "teaches": "a dummy head to merge or delete",
+      "why": "A dummy head and a tail pointer make merging two sorted lists a loop with no special case for the first node.",
+      "level": "core"
+    },
+    {
+      "id": "nvidia-middle-node-linked-list",
+      "teaches": "fast and slow pointers (middle, cycle)",
+      "why": "Two steps against one: the slow pointer is at the middle exactly when the fast one runs off the end.",
+      "level": "core"
+    },
+    {
+      "id": "bloomberg-remove-linked-list-elements",
+      "teaches": "a dummy head to merge or delete",
+      "why": "A dummy before the head turns deleting the head into the same predecessor-skip as any other deletion.",
+      "level": "core"
+    },
+    {
+      "id": "mygate-remove-nth-node-from-end",
+      "teaches": "a gap of k between two pointers (k-th from the end)",
+      "why": "Two pointers kept n apart find the n-th node from the end in one pass, with a dummy for removing the head.",
+      "level": "core"
+    },
+    {
+      "id": "google-detect-linked-list-cycle",
+      "teaches": "fast and slow pointers (middle, cycle)",
+      "why": "Floyd's tortoise and hare detects a cycle in O(1) space: the fast pointer must catch the slow one inside a loop.",
+      "level": "core"
+    },
+    {
+      "id": "omnissa-build-and-check-palindrome-list",
+      "teaches": "reverse in place",
+      "why": "Find the middle with fast/slow, reverse the second half in place, and compare: the first problem that combines two list moves.",
+      "level": "core"
+    },
+    {
+      "id": "amazon-lru-query-result-cache",
+      "teaches": "a hash map plus a doubly linked list (LRU)",
+      "why": "The textbook LRU cache: a hash map to nodes plus a recency-ordered doubly linked list gives O(1) get, put and eviction.",
+      "level": "core"
+    },
+    {
+      "id": "amazon-linked-list-queue-operations",
+      "teaches": "a dummy head to merge or delete",
+      "why": "A hand-built queue with delete and de-duplicate drills unlinking through the predecessor while keeping head and tail correct.",
+      "level": "practice"
+    },
+    {
+      "id": "adobe-group-third-linked-list-nodes",
+      "teaches": "a dummy head to merge or delete",
+      "why": "Odd-even list with period 3: route nodes to two dummy-headed chains and join them, an OA rewiring exercise.",
+      "level": "practice"
+    },
+    {
+      "id": "expedia-lru-page-faults",
+      "teaches": "a hash map plus a doubly linked list (LRU)",
+      "why": "An OA page-fault count that is an LRU cache in disguise: recognise it and build the map + doubly linked list.",
+      "level": "practice"
+    },
+    {
+      "id": "adobe-alternate-divisible-linked-list-prefix",
+      "teaches": "reverse in place",
+      "why": "An OA that chains three moves: reverse a prefix in place, split into two dummy-headed chains, and weave them.",
+      "level": "practice"
+    },
+    {
+      "id": "google-linked-list-cycle-entry",
+      "teaches": "fast and slow pointers (middle, cycle)",
+      "why": "Floyd's second phase: after the meeting, a pointer from the head and one from the meeting point meet at the cycle entry.",
+      "level": "stretch"
+    },
+    {
+      "id": "peoplestrong-reverse-nodes-in-k-groups",
+      "teaches": "reverse in place",
+      "why": "Reverse in groups of k: probe k nodes ahead, reverse the group in place, and stitch it to the previous group's tail.",
+      "level": "stretch"
+    }
+  ],
+  "notes": "The linked-list pool is dominated by cache-design problems (LRU, LFU, TTL caches, in-memory databases); only the plainest LRU problems were kept. Cycle detection, the k-th-from-end gap and dummy-head deletion had no good problem in the pool, so bloomberg-remove-linked-list-elements, mygate-remove-nth-node-from-end, google-detect-linked-list-cycle and google-linked-list-cycle-entry were taken from outside every pool. amazon-process-queries-on-cart is in the pool but is a hash-map problem, not a linked list."
+}

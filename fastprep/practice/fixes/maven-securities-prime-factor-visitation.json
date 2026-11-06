@@ -1,0 +1,16 @@
+{
+  "pattern": "number-theory",
+  "why": "Factor many numbers quickly with a smallest-prime-factor sieve, then notice that flipping by the same prime twice cancels: keep only each prime's flip parity and flip the multiples of the odd ones once, which costs about n log log n instead of one pass per value.",
+  "hints": [
+    "Flipping every multiple for every factor of every value can be 10^5 * 10^5. Do two flips by the same prime matter?",
+    "No, they cancel. Track, for each prime, whether it was used an odd number of times. Factor each value with a smallest-prime-factor table.",
+    "Sieve spf up to max(numbers); for each value, walk its distinct primes and toggle parity[p]; then for each p with odd parity flip bulbs p, 2p, 3p, ... O(M log log M + n log log n)."
+  ],
+  "pitfalls": [
+    "Use distinct prime factors: 12 = 2*2*3 flips by 2 once and 3 once.",
+    "numbers[i] = 1 has no prime factors and does nothing.",
+    "Positions are 1-based: bulb at index i-1 is position i."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

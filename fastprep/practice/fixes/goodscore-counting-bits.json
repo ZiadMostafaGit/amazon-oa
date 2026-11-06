@@ -1,0 +1,15 @@
+{
+  "pattern": "bit-manipulation",
+  "why": "Counting set bits for every number at once: i >> 1 is a smaller number already done, and i & 1 is the bit you dropped, so bits[i] = bits[i >> 1] + (i & 1) fills the table in O(n).",
+  "hints": [
+    "Counting bits of each number separately costs O(n log n). Can each answer reuse an earlier one?",
+    "Shifting i right by one drops its last bit. How do the bit counts of i and i >> 1 differ?",
+    "res = [0]*(n+1); for i in 1..n: res[i] = res[i >> 1] + (i & 1). (Or res[i] = res[i & (i-1)] + 1.)"
+  ],
+  "pitfalls": [
+    "The output has n + 1 entries, from 0 through n.",
+    "n = 0 returns [0]."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+  "pattern": "backtracking",
+  "why": "Sudoku is choose, explore, un-choose with heavy pruning: put a digit in an empty cell only if its row, column and box do not already hold it, recurse, and erase it if the rest cannot be completed.",
+  "hints": [
+    "Fill the empty cells one at a time. Which digits are legal for a cell, and what do you do when none is?",
+    "Keep sets (or bitmasks) of used digits per row, column and box. For a cell, try each digit absent from all three, add it, recurse, and remove it if the recursion fails.",
+    "Prune harder by always filling the empty cell with the fewest legal digits next. Return the board once no empty cell remains."
+  ],
+  "pitfalls": [
+    "Box index is (r // 3) * 3 + c // 3.",
+    "Undo all three set updates when you backtrack, not just the board cell."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

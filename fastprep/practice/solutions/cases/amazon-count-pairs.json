@@ -1,0 +1,98 @@
+{
+ "problemId": "amazon-count-pairs",
+ "generatedAt": "2026-11-06T16:49:14",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[-1, 0]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[1, 1]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "numbers",
+     "type": "int[]",
+     "rawValue": "[1, 2, 2]"
+    },
+    {
+     "name": "k",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

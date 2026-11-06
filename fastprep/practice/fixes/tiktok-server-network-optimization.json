@@ -1,0 +1,15 @@
+{
+ "pattern": "minimum-spanning-tree",
+ "why": "A minimum spanning tree where the complete graph is too big (10^5 servers). Treat the cost min(dx, dy) as two edges, one costing dx and one dy; only neighbours in x-sorted order and in y-sorted order can ever be needed, so Kruskal runs on just 2(n - 1) sorted edges.",
+ "hints": [
+  "Connecting everything as cheaply as possible is an MST. But there are 5 * 10^9 pairs. Which pairs can you prove are never needed?",
+  "Split each pair into an x-edge of weight |dx| and a y-edge of weight |dy|. Going from server a to c in x-order is never cheaper than via the server b between them, so only x-adjacent and y-adjacent pairs matter.",
+  "Sort indices by x and add edges between neighbours, same for y, then Kruskal: sort the 2(n - 1) edges and union with union-find, summing weights of merging edges. O(n log n)."
+ ],
+ "pitfalls": [
+  "Servers may share coordinates; a 0-cost edge is fine.",
+  "Stop after n - 1 merges, or keep going; both give the same total."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

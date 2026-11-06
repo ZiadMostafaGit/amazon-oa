@@ -1,0 +1,16 @@
+{
+ "pattern": "bst",
+ "why": "Building a BST by hand: insert and search both walk one root-to-leaf path chosen by comparisons, and delete adds the classic three cases (leaf, one child, two children replaced by the inorder successor).",
+ "hints": [
+  "Each operation should touch only one path from the root. How do you decide left or right at each node?",
+  "Search: compare and move until you find the key or fall off. Insert: the same walk, then hang a new node where you fell off. Delete: no child or one child splices out; two children copy in the smallest key of the right subtree and delete that node.",
+  "Implement the three operations with loops on a small Node class; each costs O(height). Sorted inserts make a chain, which is fine at 5000 operations."
+ ],
+ "pitfalls": [
+  "Inserting an existing key must not create a duplicate node.",
+  "Deleting the root or a key that is absent are the cases that usually break.",
+  "When deleting a two-child node, the successor can have a right child; reattach it to the successor's parent."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

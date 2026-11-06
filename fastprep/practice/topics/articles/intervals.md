@@ -1,778 +1,1324 @@
 # Interval Problems
 
-> An interval problem is never really about intervals. It is about endpoints on a
-> line, and about the single number you have to remember once you have agreed to
-> visit those endpoints in order.
+> Sorting intervals by the endpoint that fits the question turns a pile of pairs that all might clash with each other into a single walk along a line, where the past shrinks to one number (the end of the current block, the end of the last interval kept, or how many are open right now), and choosing which endpoint to sort by and what to remember is the entire technique.
 
-## When you reach for it
+## The problem it solves
 
-The input is a pile of pairs, and each pair is a *range*: a meeting from 9 to 10,
-a process alive from `start` to `end`, a block of card numbers from `lo` to `hi`.
-The question is then one of four — do they overlap, how much of the line do they
-cover together, how many are alive at once, or which subset can you keep without
-conflict.
+Here are five closed intervals of integers. Each one could be a meeting, a process
+that is running, or a range of bytes received:
 
-That family is huge here: 182 problems in this bank use it, #23 of 150. Almost
-every one is one of these shapes:
+```
+[1, 4]   [6, 9]   [2, 3]   [8, 11]   [13, 15]
+```
 
-- **Collapse the union** — *Merge Intervals*, which a dozen companies here ask
-  verbatim, and *Compress Consecutive Integer Ranges*.
-- **Measure the union** — *Process Execution Time* wants the total time at least
-  one process is running; *Dasher Active Time* is the same sum with a different
-  noun.
-- **Count what is simultaneous** — *Meeting Rooms II*, *Get Minimum Cores*,
-  *Minimum Number of Chairs*. All one question: what is the largest number of
-  intervals covering a single point?
-- **Intersect two schedules** — *Interval List Intersections*, *Find First Common
-  Availability*.
-- **Choose a conflict-free subset** — *Minimum Removals for Non-Overlapping
-  Intervals*, *Maximum Number of Events That Can Be Attended*.
-- **Maintain a calendar online** — *My Calendar I*, *In-Memory Meeting Room
-  Manager*: intervals arrive one at a time, each accepted or rejected against
-  everything booked so far.
+[[p:micro1-merge-intervals|Merge Intervals]] asks for their union, written as
+the fewest disjoint intervals in increasing order. Draw them on a line and the
+answer is visible: [1, 4] swallows [2, 3]; [6, 9] and [8, 11] overlap and become
+[6, 11]; [13, 15] stands alone. The answer is
 
-The trigger is structural, not lexical: pairs `(s, e)` with `s <= e` from a
-totally ordered universe, and an answer depending on how they sit relative to
-each other on that one axis. Time is the usual axis, but *Card Range Obfuscation
-Part1* ranges over card numbers and *Memory Allocator* over addresses.
+```
+[1, 4]   [6, 11]   [13, 15]
+```
 
-It is the wrong tool in three situations. If the pairs are **edges**, not ranges —
-`(u, v)` meaning "u knows v" — you want [[union-find]] or [[graphs]]; nothing
-about `u < v` means anything. If you must answer **many queries against a static
-set** — *Closed Interval Overlap Queries*, *Schedule Tasks with an Interval Tree*
-— one sweep is not enough and you want an interval tree or a [[segment-tree]].
-And if the intervals carry **weights** and you want the heaviest conflict-free
-subset — *Max Sum of Non-Overlapping Intervals* — the greedy in this chapter is
-simply wrong, and you need [[dynamic-programming|DP with a binary search]].
+Easy by eye. The question is how to do it for 10^5 intervals with endpoints up to
+10^9, which is what the bank's version allows.
 
-## The idea
+The first solution people write marks points. Make an array over the whole line,
+set every covered point to 1, and read off the runs of 1s. For the example that is
+15 cells. For endpoints up to 10^9 it is a billion cells, and with negative
+endpoints down to -10^9 it is two billion. It does not fit.
 
-Sorting turns a two-dimensional pile into a one-dimensional walk.
+The second solution compares pairs. Any two intervals that overlap get replaced
+by their union; repeat until no two overlap. It is correct, but every round looks
+at all pairs, n(n-1)/2 of them, and you may need up to n - 1 rounds. With 10^5
+intervals even one round is 5 x 10^9 comparisons.
 
-An interval is a point in the plane: `(start, end)`. A set of `n` intervals is a
-scatter of `n` points, and "do any two overlap" is a question about `n(n-1)/2`
-pairs — the shape that makes people write a double loop. Sort by start and the
-pile becomes a line you read left to right, and the entire past collapses into
-**one number**.
+What this chapter builds is the one-pass method that sorts once and then looks at
+each interval exactly once, in O(n log n). It then turns the same idea into the
+other interval questions an interview asks: is any pair overlapping, insert one
+interval, how many rooms do I need, how many can I keep, where do two schedules
+meet. About 380 problems in this bank are interval problems; most of them are one
+of those questions with a different noun.
 
-Here is the precise claim, and it is the whole chapter. Walk the intervals in
-order of start. Suppose you are holding a *current block* `[cs, ce]`, the union of
-a run of intervals that have all touched each other. The next interval `[s, e]`
-has `s >= cs`, because the list is sorted. So exactly one of two things is true:
+The questions all have the same input, pairs (start, end) on one ordered axis,
+and the answer depends on how the pairs sit relative to each other along that
+axis. Time is the usual axis, but bytes in
+[[p:roblox-track-received-byte-ranges|Track Received Byte Ranges]], positions on a
+line of sprinklers, and memory addresses are the same thing.
 
-- `s <= ce`: the new interval begins before the block ends, so the block and it
-  overlap, and their union is the single interval `[cs, max(ce, e)]`.
-- `s > ce`: it begins after the block ends. And now the useful half — every
-  *remaining* interval also starts at or after `s`, so no future interval can
-  reach back and touch this block either. The block is finished. Emit it and
-  start a new one at `[s, e]`.
+### When it is the wrong tool
 
-Nothing about the intervals inside the block survives except `ce` — not how many
-there were, not where they started. One integer summarises an arbitrarily long
-prefix, which is why the scan needs O(1) memory per step and no inner loop.
+- **The intervals carry weights, and you want the heaviest conflict-free set.**
+  [[p:amazon-cinema-shows|Cinema Shows]] asks for the largest total audience among
+  screenings that do not overlap. One long screening with a huge audience can beat
+  three short ones, so no sort-and-take rule works. That is
+  [[dynamic-programming]] with a [[binary-search]] (Variation M).
+- **The pairs are not ranges.** If (u, v) means "u is connected to v", there is
+  nothing between u and v; that is [[graphs]] or [[union-find]].
+- **Many queries against a fixed set.** "Which intervals contain point x?" asked
+  10^5 times needs the queries sorted into the same sweep, or a
+  [[segment-tree]].
+- **The window is yours to choose.** "The longest subarray such that..." is an
+  interval too, but you are not given it; that is [[sliding-window]] or
+  [[two-pointers]].
 
-<svg viewBox="0 0 660 230" role="img" aria-label="intervals drawn as bars sorted by start, with a moving wall at the current block end">
+## Build it from the brute force
+
+We start with what a beginner writes, count it, find the waste, and remove it. The
+sorted one-pass merge will come out at the end as the obvious fix.
+
+### Step 1: when do two intervals overlap?
+
+Everything rests on this test, so derive it rather than guess it. Two closed
+intervals a = [a1, a2] and b = [b1, b2] fail to share a point in exactly two ways:
+a ends before b starts (a2 < b1), or b ends before a starts (b2 < a1). There is no
+third way to be apart. So they overlap exactly when neither happens:
+
+```
+overlap(a, b)  =  a1 <= b2  and  b1 <= a2
+```
+
+Read it as: each one starts before the other one ends.
+
+### You might think: "they overlap if b's start lies inside a"
+
+That is the test people write first: `a1 <= b1 <= a2`. Try a = [2, 3] and
+b = [1, 10]. b's start, 1, is not inside [2, 3], so the test says no overlap. But
+[2, 3] is entirely inside [1, 10]. The one-sided test misses the case where b
+starts first.
+
+Notice when the one-sided test *is* right: when you already know a1 <= b1, that
+is, when a starts first. Then "b starts before a ends" is the whole test. That is
+the first hint that sorting by start will make everything simpler: once the
+intervals are in order of start, the two-sided test collapses to one comparison.
+
+### Step 2: the brute force, and its cost
+
+```
+blocks = the intervals
+repeat:
+    find any two blocks that overlap
+    replace them by [min of starts, max of ends]
+until no two blocks overlap
+```
+
+Each search for an overlapping pair is up to n(n-1)/2 comparisons. Each merge
+reduces the number of blocks by one, so there are at most n - 1 merges. Worst
+case about n^3 / 2 comparisons. And even the cheapest possible input is expensive:
+60 intervals where nothing overlaps cost 60 x 59 / 2 = 1,770 comparisons just to
+learn that nothing needs doing. The runnable block below prints that number.
+
+### Step 3: notice the waste
+
+Most of those comparisons could never succeed. [1, 4] and [13, 15] are nowhere
+near each other, and we compared them anyway. What would let us *know* two
+intervals cannot meet without comparing them?
+
+Sort by start: [1, 4], [2, 3], [6, 9], [8, 11], [13, 15]. Now walk left to right,
+holding the union of what you have seen as a current block. Suppose the block is
+[1, 4] and the next interval is [6, 9]. It starts at 6, after the block ends at 4.
+Here is the key fact: **every interval after it starts at 6 or later too,
+because the list is sorted.** So no interval still to come can reach back and touch
+[1, 4]. The block is finished. We never compared [1, 4] with [8, 11] or [13, 15],
+and we did not need to.
+
+<svg viewBox="0 0 660 230" role="img" aria-label="a schematic: the current block from cs to ce, a vertical wall at ce, and the next interval in two cases; in the first it starts before the wall and extends the block, in the second it starts after the wall and every later interval also starts after it, so the block is final">
   <g>
     <line x1="30" y1="200" x2="640" y2="200"/>
-    <text x="30" y="220">1</text>
-    <text x="130" y="220">4</text>
-    <text x="230" y="220">6</text>
-    <text x="330" y="220">9</text>
-    <text x="410" y="220">11</text>
-    <text x="530" y="220">13</text>
-    <text x="610" y="220">15</text>
-    <rect class="fill" x="30" y="30" width="100" height="18" rx="4"/>
-    <text x="140" y="44">[1,4]</text>
-    <rect class="fill" x="70" y="60" width="40" height="18" rx="4"/>
-    <text x="140" y="74">[2,3] nested: ce stays 4</text>
-    <rect class="fill" x="230" y="90" width="100" height="18" rx="4"/>
-    <text x="340" y="104">[6,9]</text>
-    <rect class="fill" x="310" y="120" width="100" height="18" rx="4"/>
-    <text x="420" y="134">[8,11] extends ce to 11</text>
-    <rect class="fill" x="530" y="150" width="80" height="18" rx="4"/>
-    <text x="440" y="164">[13,15] starts past 11: flush</text>
-    <line x1="130" y1="20" x2="130" y2="200"/>
-    <line x1="410" y1="20" x2="410" y2="200"/>
-    <text x="150" y="18">a wall at ce; nothing later can reach back over it</text>
+    <rect class="fill" x="60" y="40" width="220" height="22" rx="4"/>
+    <text x="170" y="32" text-anchor="middle">current block [cs, ce]</text>
+    <line x1="280" y1="20" x2="280" y2="200"/>
+    <text x="280" y="218" text-anchor="middle">ce</text>
+    <rect x="200" y="90" width="160" height="18" rx="4"/>
+    <text x="370" y="104">case 1: s &lt;= ce, so it joins: ce = max(ce, e)</text>
+    <rect x="330" y="140" width="120" height="18" rx="4"/>
+    <text x="460" y="154">case 2: s &gt; ce</text>
+    <text x="460" y="176">every later start is &gt;= s,</text>
+    <text x="460" y="192">so the block is final</text>
   </g>
 </svg>
 
-There is a second way to look at the same picture, and it is worth holding both.
-Forget the intervals as objects; keep only their endpoints, each tagged `+1`
-where an interval opens and `-1` where it closes. Sort the tags by position and
-keep a running total: that total is how many intervals cover the point you are
-standing on. Its maximum is the peak concurrency, and the maximal stretches where
-it is positive are precisely the merged blocks. One sorted walk, two questions.
-The general form has its own chapter: [[sweep-line]].
+That is the abstract picture. Here it is on the real numbers, sorted:
+
+<svg viewBox="0 0 660 240" role="img" aria-label="the five intervals as bars sorted by start, from 1 to 15; walls at 4 and 11 mark block ends that no later bar crosses; 2 to 3 sits inside 1 to 4, 8 to 11 extends 6 to 9">
+  <g>
+    <line x1="30" y1="205" x2="640" y2="205"/>
+    <text x="30" y="225" text-anchor="middle">1</text>
+    <text x="70" y="225" text-anchor="middle">2</text>
+    <text x="150" y="225" text-anchor="middle">4</text>
+    <text x="230" y="225" text-anchor="middle">6</text>
+    <text x="310" y="225" text-anchor="middle">8</text>
+    <text x="350" y="225" text-anchor="middle">9</text>
+    <text x="430" y="225" text-anchor="middle">11</text>
+    <text x="510" y="225" text-anchor="middle">13</text>
+    <text x="590" y="225" text-anchor="middle">15</text>
+    <rect class="fill" x="30" y="30" width="120" height="18" rx="4"/>
+    <text x="160" y="44">[1,4] opens a block, ce = 4</text>
+    <rect class="fill" x="70" y="62" width="40" height="18" rx="4"/>
+    <text x="160" y="76">[2,3] inside it: ce stays 4</text>
+    <rect class="fill" x="230" y="94" width="120" height="18" rx="4"/>
+    <text x="360" y="108">[6,9]: 6 &gt; 4, close [1,4]</text>
+    <rect class="fill" x="310" y="126" width="120" height="18" rx="4"/>
+    <text x="440" y="140">[8,11]: 8 &lt;= 9, ce = 11</text>
+    <rect class="fill" x="510" y="158" width="80" height="18" rx="4"/>
+    <text x="300" y="172">[13,15]: 13 &gt; 11, close [6,11]</text>
+    <line x1="150" y1="20" x2="150" y2="205"/>
+    <line x1="430" y1="20" x2="430" y2="205"/>
+  </g>
+</svg>
+
+The two vertical lines are walls. No bar that starts to the right of a wall ever
+crosses back over it, because nothing later starts earlier.
+
+### The question that unlocks it
+
+**Once the intervals are sorted, what is the least I need to remember about the
+ones I have already passed?**
+
+For merging, the answer is one number: the end of the current block, ce (plus
+its start, cs, only so we can print it). Not how many intervals are in the block,
+not which ones, not where they ended individually. The next interval only asks
+"do you reach as far as my start?", and only ce can answer that.
+
+This question comes back in every variation, and its answer is always tiny:
+
+| question | sort by | what you remember |
+|---|---|---|
+| merge, total coverage | start | the end of the current block |
+| does any pair overlap | start | the end of the previous interval |
+| most intervals with no overlap | end | the end of the last one kept |
+| fewest rooms | start (or all endpoints) | the end times of the busy rooms (or just their count) |
+| intersect two sorted lists | already sorted | one position in each list |
+
+### You might think: "compare each interval with the previous one"
+
+After sorting, it is tempting to compare each interval with the interval just
+before it in the sorted list: "[6, 9] and [8, 11] overlap because 8 <= 9". Try
+[1, 10], [2, 3], [4, 5]. [4, 5] against the previous interval [2, 3]: 4 > 3, so it
+looks like a gap, and you close a block. But [4, 5] is inside [1, 10]. The previous
+*interval* ended at 3; the current *block* ends at 10. You must compare with the
+block, and the block's end is the largest end seen so far in it, not the last one.
+
+The same mistake in code is one character: writing `ce = e` instead of
+`ce = max(ce, e)` when an interval joins. On [1, 10], [2, 3], the block end would
+drop from 10 to 3. The sort orders the starts; it promises nothing about the ends.
+A later interval can end earlier.
+
+### You might think: "sort by end, it's the same thing"
+
+It is not, and the reason is the wall. Sorting by end gives [1, 2], [5, 6],
+[1, 10] for the input [[5, 6], [1, 2], [1, 10]]. The walk opens [1, 2], then sees
+[5, 6] start after 2 and closes [1, 2] as final. Then [1, 10] arrives and starts at
+1, far to the *left* of the wall at 2. Sorted by end, a later interval can start
+anywhere, so a closed block is not safe. The output would be [1, 2], [5, 10], and
+the points 3 and 4, which are covered by [1, 10], are lost.
+
+So: sorting by start is what makes "this block is final" true. That one guarantee
+is the whole algorithm.
+
+### You might think: "I can mark points, just with a dictionary"
+
+A set of covered integers works for tiny ranges and dies on [0, 10^9]: one interval
+puts a billion keys in the set. The merge never looks at points at all, only at
+endpoints, which is why its cost depends on n and not on how long the intervals
+are.
+
+### The technique in one sentence
+
+**Sort the intervals by start, carry one block, and for each interval either
+extend the block to the larger end (if it starts at or before the block's end) or
+close the block for good and open a new one (if it starts after); for every other
+interval question, choose the sort key and the one remembered quantity the same
+way.** The unlocking question is the bold one: after sorting, what is the least you
+must remember about the intervals behind you?
 
 ## Worked by hand
 
-Take `[[1, 4], [6, 9], [2, 3], [8, 11], [13, 15]]`, closed intervals over the
-integers. Sorted by start: `[1,4], [2,3], [6,9], [8,11], [13,15]`.
+### The first trace: the merge
 
-`out` is the finished blocks, `(cs, ce)` the block in hand.
+Input [[1, 4], [6, 9], [2, 3], [8, 11], [13, 15]], closed. Sorted by start:
+[1, 4], [2, 3], [6, 9], [8, 11], [13, 15]. `out` holds the finished blocks and
+(cs, ce) is the block in hand.
 
-| step | interval | block before | `s <= ce`? | action | block after | `out` |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | [1,4] | — | — | open the first block | (1, 4) | — |
-| 2 | [2,3] | (1, 4) | 2 <= 4, yes | `ce = max(4, 3) = 4` | (1, 4) | — |
-| 3 | [6,9] | (1, 4) | 6 <= 4, no | flush, open | (6, 9) | [1,4] |
-| 4 | [8,11] | (6, 9) | 8 <= 9, yes | `ce = max(9, 11) = 11` | (6, 11) | [1,4] |
-| 5 | [13,15] | (6, 11) | 13 <= 11, no | flush, open | (13, 15) | [1,4], [6,11] |
-| — | end | (13, 15) | — | flush | — | [1,4], [6,11], [13,15] |
+| step | interval | block before | s <= ce? | action | block after | out |
+|---|---|---|---|---|---|---|
+| 1 | [1, 4] | none | | open the first block | (1, 4) | |
+| 2 | [2, 3] | (1, 4) | 2 <= 4, yes | ce = max(4, 3) = 4 | (1, 4) | |
+| 3 | [6, 9] | (1, 4) | 6 <= 4, no | close (1, 4), open | (6, 9) | [1, 4] |
+| 4 | [8, 11] | (6, 9) | 8 <= 9, yes | ce = max(9, 11) = 11 | (6, 11) | [1, 4] |
+| 5 | [13, 15] | (6, 11) | 13 <= 11, no | close (6, 11), open | (13, 15) | [1, 4], [6, 11] |
+| end | | (13, 15) | | close the last block | | [1, 4], [6, 11], [13, 15] |
 
-Total covered time, counting inclusively as *Process Execution Time* asks you to:
-`(4-1+1) + (11-6+1) + (15-13+1) = 4 + 6 + 3 = 13`.
+Step 4 in words: "The block so far is 6 to 9. The next interval starts at 8. Does
+the block reach 8? Yes, it goes to 9. So they overlap, and the block now reaches as
+far as the further of the two ends: max(9, 11) = 11. I do not need to remember that
+[6, 9] and [8, 11] were two intervals. All the future asks is: how far right does
+this block go? 11."
 
-Now the same five intervals through the second lens. Each closed interval
-`[s, e]` over the integers is the half-open `[s, e+1)`, so it contributes `+1` at
-`s` and `-1` at `e + 1`.
+Step 2 in words: "[2, 3] starts at 2, inside the block. It ends at 3, which is
+*less* than the block's end, 4. If I wrote ce = 3, the point 4 would fall out of the
+block. The max keeps it."
 
-| position | tag | running count | note |
-| --- | --- | --- | --- |
-| 1 | +1 | 1 | [1,4] opens |
-| 2 | +1 | 2 | [2,3] opens — two alive |
-| 4 | -1 | 1 | [2,3] closed after 3 |
-| 5 | -1 | 0 | [1,4] closed after 4 → block ends |
-| 6 | +1 | 1 | [6,9] opens |
-| 8 | +1 | 2 | [8,11] opens |
-| 10 | -1 | 1 | [6,9] closed after 9 |
-| 12 | -1 | 0 | [8,11] closed after 11 → block ends |
-| 13 | +1 | 1 | [13,15] opens |
-| 16 | -1 | 0 | done |
+Step 3 in words: "[6, 9] starts at 6, after the block's end at 4. Everything after
+it in the list starts at 6 or later. So nothing can ever touch [1, 4] again. Write it
+down and forget it."
 
-Peak count 2, so two meeting rooms. Four things in these two tables are worth a
-second look, and none of them is visible in the code.
+And the final row: the loop ends with a block in hand that was never closed. That
+last close is easy to forget, and it is the reason the code below writes the block
+into `out` the moment it is opened rather than at the moment it is closed.
 
-**Step 2 is the reason the `max` is there.** `[2,3]` is entirely inside the
-block. If the update were `ce = e` rather than `ce = max(ce, e)`, the block would
-*shrink* to `[1,3]` and the point 4 would silently drop out of the answer. The
-sorted order guarantees the new start is not smaller; it says nothing at all
-about the new end.
+If the question is the total covered time, as in
+[[p:ibm-process-execution-time|Process Execution Time]], where a process from 1 to
+5 counts 5 units, sum the blocks inclusively: (4 - 1 + 1) + (11 - 6 + 1) +
+(15 - 13 + 1) = 4 + 6 + 3 = 13.
 
-**Step 3 finished a block on a single comparison.** We never looked at `[8,11]`
-or `[13,15]` before declaring `[1,4]` complete, and did not have to: sortedness
-says every unseen start is at least 6. This one-sided guarantee is what sorting
-buys, and the proof below is mostly ceremony around it.
+### The second trace: the same intervals, seen as endpoints
 
-**The zeros in the second table sit exactly at the gaps in the first.** The
-counter returns to 0 after positions 5 and 12, and the merged blocks are `[1,4]`,
-`[6,11]`, `[13,15]`. Merging is "the maximal runs where the counter is positive";
-concurrency is "the maximum it reaches". Which is why *Process Execution Time*
-and *Meeting Rooms II* feel like different problems and are not.
+The merge forgets everything but ce. There is a second way to look at the same
+line that forgets even more: forget the intervals entirely and keep only their
+endpoints, each tagged +1 where an interval opens and -1 where it closes. Walk the
+tags in order with a running total. The total at any point is how many intervals
+cover it.
 
-**The close tags sit at `e + 1`, not `e`.** With integer closed intervals, an
-interval that ends at 4 is still running *during* 4. Putting the `-1` at 4 would
-report 1 room for two meetings that genuinely both occupy minute 4. Almost every
-wrong answer on this topic is a variant of that sentence.
+Closed integer intervals need one adjustment first. [1, 4] covers the integers 1,
+2, 3 and 4, so it is "open" from 1 up to, but not including, 5. Write it half-open
+as [1, 5): +1 at 1, -1 at 5. Do that for all five:
 
-## Why it is correct
+| position | tag | running count | what happened |
+|---|---|---|---|
+| 1 | +1 | 1 | [1, 4] opens |
+| 2 | +1 | 2 | [2, 3] opens: two intervals cover 2 |
+| 4 | -1 | 1 | [2, 3] closed after 3 |
+| 5 | -1 | 0 | [1, 4] closed after 4: the first block ends |
+| 6 | +1 | 1 | [6, 9] opens |
+| 8 | +1 | 2 | [8, 11] opens |
+| 10 | -1 | 1 | [6, 9] closed after 9 |
+| 12 | -1 | 0 | [8, 11] closed after 11: the second block ends |
+| 13 | +1 | 1 | [13, 15] opens |
+| 16 | -1 | 0 | the third block ends |
 
-Two claims deserve proofs. The first is that the one-pass merge really computes
-the union. The second is the theorem that makes *Meeting Rooms II* a three-line
-problem: the minimum number of rooms equals the maximum overlap.
+This table shows two things the first did not.
 
-:::proof The sorted scan computes the union exactly
-**Setup.** Intervals `I₁, …, I_n`, each `I_k = [s_k, e_k]` with `s_k <= e_k`,
-indexed so that `s_1 <= s_2 <= … <= s_n`. Write `U_k = I_1 ∪ … ∪ I_k` for the
-union of the first `k` as a set of points. A finite union of closed intervals
-decomposes uniquely into **maximal** closed intervals — its connected components,
-pairwise disjoint and separated by non-empty gaps. Call it `comp(U_k)`.
+**The count returns to 0 exactly at the gaps between blocks.** It hits 0 after 4
+and after 11, and the blocks are [1, 4], [6, 11], [13, 15]. So the merge is "the
+stretches where the count is positive". The sweep and the merge are two views of
+one walk.
 
-**Invariant.** After the loop has consumed `I_1 … I_k` (so `k >= 1`), let `out`
-be the emitted list and `(cs, ce)` the block in hand. Then:
+**The largest count is the number of rooms.** The count peaks at 2. If the five
+intervals were meetings, two rooms would be enough, and two would be needed: at
+point 2, two meetings are both running. That is the claim behind
+[[p:amazon-meeting-rooms-ii|Meeting Rooms II]], proved in Why it is correct.
 
-- **(I1)** `out ++ [(cs, ce)]` equals `comp(U_k)`, in increasing order;
-- **(I2)** `cs <= s_k` and `ce = max(e_1, …, e_k restricted to the last
-  component)`; in particular `ce` is the right endpoint of the last component;
-- **(I3)** every interval in `out` has its right endpoint strictly less than
-  `cs`.
+Look at row 4 to see why the -1 goes at e + 1 and not at e. If [2, 3] closed at 3
+instead of 4, the count at 3 would be 1, as if only one meeting were running at
+minute 3. But [1, 4] and [2, 3] are both running during minute 3. Almost every wrong
+answer in this family comes from one sentence: **decide whether an interval owns
+its end point, and put the -1 just after the last point it owns.**
 
-**Base case.** `k = 1`. `out` is empty and `(cs, ce) = (s_1, e_1)`. The union of
-one interval has one component, namely itself, so (I1) holds; (I2) holds with
-equality; (I3) is vacuous.
+## From the idea to the code
 
-**Inductive step.** Assume the invariant after `k` and consume
-`I_{k+1} = [s, e]`. By the sort, `s = s_{k+1} >= s_k >= cs`.
-
-*Case A: `s <= ce`.* Then `s ∈ [cs, ce]`, so `[s, e]` and `[cs, ce]` intersect,
-and the union of two intersecting closed intervals is the single closed interval
-`[min(cs, s), max(ce, e)] = [cs, max(ce, e)]`. It cannot also touch an interval
-of `out`: by (I3) each of those ends strictly before `cs`, and `[s, e]` ⊆
-`[cs, ∞)`. So `comp(U_{k+1})` is `out` unchanged plus the one component
-`[cs, max(ce, e)]`. The code sets `ce ← max(ce, e)` and nothing else, restoring
-(I1) and (I2); `out` and `cs` do not move, so (I3) survives.
-
-*Case B: `s > ce`.* Then `[s, e]` is disjoint from `[cs, ce]` and, by (I3), from
-everything in `out`, and the gap `(ce, s)` is non-empty. So
-`comp(U_{k+1}) = comp(U_k) ++ [[s, e]]`. The code appends `(cs, ce)` to `out` and
-sets `(cs, ce) ← (s, e)`, which is exactly that list, splitting it after the last
-old component: (I1) holds. (I2) holds because the new last component is `[s, e]`
-itself. (I3) holds because the newly appended element of `out` ends at `ce < s =
-cs`, and all earlier ones end before the old `cs <= ce`.
-
-**Termination.** The loop body runs once per interval and does O(1) work with no
-nested loop, so it performs exactly `n` iterations and stops. The final flush
-appends the last block.
-
-**Conclusion.** After `n` iterations and the flush, the output is `comp(U_n)`:
-the maximal, pairwise disjoint, increasing intervals whose union is exactly the
-union of the input. Maximality is (I3) read forwards — consecutive outputs are
-separated by a non-empty gap, so no two of them could have been merged. ∎
-:::
-
-:::proof Minimum rooms = maximum overlap
-**Setup.** `n` meetings, meeting `k` occupying the half-open interval
-`[s_k, e_k)`. A *schedule* assigns each meeting a room so that two meetings in
-the same room never share a point. Let `R` be the fewest rooms for which a
-schedule exists, and let `M = max_x |{k : x ∈ [s_k, e_k)}|` be the largest number
-of meetings covering any single instant.
-
-**`R >= M`.** Let `x` be an instant covered by `M` meetings. Those `M` meetings
-pairwise share the point `x`, so no two may go in the same room: any schedule
-uses at least `M` distinct rooms.
-
-**`R <= M`.** Process the meetings in increasing order of start, assigning each
-to any room free at its start instant. Suppose meeting `k`, starting at `x`,
-finds `r` rooms busy. Each of those `r` rooms holds a meeting `j` placed earlier,
-so `s_j <= x`, and still running, so `e_j > x`; each therefore covers `x`. With
-meeting `k`, which also covers `x`, that is `r + 1` meetings at one instant, so
-`r + 1 <= M` and a room numbered at most `M` is free. By induction on the
-processing order the greedy finishes inside `M` rooms and never double-books.
-
-**Conclusion.** `R = M`, and `M` is computable by the sweep: sort the `2n`
-endpoints, add `+1` at each start and `-1` at each end, and take the running
-maximum. ∎
-:::
-
-Both arguments leaned on assumptions, and that list is where the bugs live.
-
-- **The input is sorted by start, ascending.** Used twice in the first proof: to
-  know `s >= cs` (Case A) and to know no future interval can reopen a flushed
-  block (Case B). Sorting by end breaks both.
-- **Intervals are well formed: `s <= e`.** A backwards interval is empty, and
-  Case A's union argument quietly fails. Normalise at the door.
-- **The overlap test matches the convention.** The proof used `s <= ce` because
-  intervals are closed and touching at a point counts as intersecting. For
-  half-open `[s, e)` intervals, touching does *not* count, and the test must be
-  `s < ce`. Getting this backwards changes the answer by exactly one room, or
-  merges two blocks that should be separate.
-- **`ce` is the maximum end so far in the block, not the last one.** (I2) is
-  the load-bearing part of the invariant, and the only thing standing between you
-  and nested intervals.
-- **Rooms are interchangeable.** The second proof assigned meeting `k` to *any*
-  free room. *Minimum Meeting Rooms with Assignments*, where a meeting may only
-  use certain rooms, is not this theorem; the equality can fail and it becomes a
-  matching problem.
-- **Endpoints are exactly comparable.** Floats parsed from "09:30", or two time
-  zones mixed in one list, break the total order the sort assumes.
-
-## What it costs
-
-Split the work in two: arranging the endpoints, then walking them.
-
-**The walk is linear.** The merge loop runs once per interval and does a constant
-number of comparisons plus one amortised `append` — no nested loop, because the
-prefix is summarised by `ce`. That is `Θ(n)` after the sort, and the sweep over
-`2n` tagged endpoints is likewise `Θ(n)`. The two-pointer intersection of sorted
-lists of lengths `n` and `m` advances one pointer per iteration and neither ever
-goes backwards, so it runs at most `n + m` times — an [[amortized-analysis|
-amortised]] counting argument, not a bound you can read off the code.
-
-**The sort dominates:** `Θ(n log n)` comparisons, so the whole thing is
-`Θ(n log n)` time. Space is `Θ(n)` for the sorted copy and the output, plus
-`O(1)` working state — although in Python `sorted()` allocates a new list, and the
-output of a merge can be as large as the input when nothing overlaps.
-
-Is the `log` avoidable? In the comparison model, no, and the reduction is worth
-knowing. Given `n` numbers `x_1 … x_n`, build the degenerate intervals
-`[x_i, x_i]`; merging them yields the distinct values in increasing order with
-`Θ(n)` extra work. A merge running in `o(n log n)` comparisons would therefore
-sort in `o(n log n)` comparisons, contradicting the `Ω(n log n)` sorting bound.
-Interval merging is *exactly* as hard as sorting, and the only escape is to leave
-the comparison model: with small integer coordinates a difference array
-([[prefix-sums]]) or a [[counting-sort]] gives `Θ(n + M)` for coordinate range
-`M`. *Minimum Number of Chairs* over a day of minutes is that case; *Merge
-Intervals* with endpoints up to `10⁹` is not.
-
-Three costs people forget:
-
-- **The heap variant is not free.** The popular *Meeting Rooms II* solution
-  keeps a min-heap of end times: `n` pushes and up to `n` pops at `O(log n)`, so
-  the same `O(n log n)` class as the sweep, but with a heap's constant factor and
-  `O(n)` extra memory, for the number two sorted endpoint arrays already give.
-  Use it when you need *which* room, not how many ([[heap]]).
-- **Comparisons are not always unit cost.** A `key=lambda` costs a call per
-  element, and intervals carrying labels (*Merge Intervals with Names*) may end
-  up comparing strings. See [[custom-comparators]].
-- **The output can be the bottleneck.** *Insert Interval* cannot beat `O(n)`
-  even though binary search finds the insertion point in `O(log n)`: the
-  untouched suffix still has to be copied into the result.
-
-## The implementation
-
-Merge, coverage and peak overlap, with the claims checked against a brute-force
-count that marks every integer point.
+### The brute force and the one-pass merge, side by side
 
 ```python run
 import random
 
 
+def overlap(a, b):
+    """Closed intervals share a point unless one ends before the other starts."""
+    return a[0] <= b[1] and b[0] <= a[1]
+
+
+def merge_brute(intervals):
+    """Keep merging any overlapping pair until no pair overlaps."""
+    blocks = [list(iv) for iv in intervals]
+    pairs_checked = 0
+    changed = True
+    while changed:
+        changed = False
+        for i in range(len(blocks)):
+            for j in range(i + 1, len(blocks)):
+                pairs_checked += 1
+                if overlap(blocks[i], blocks[j]):
+                    a, b = blocks[i], blocks.pop(j)
+                    blocks[i] = [min(a[0], b[0]), max(a[1], b[1])]
+                    changed = True
+                    break
+            if changed:
+                break
+    return sorted(blocks), pairs_checked
+
+
 def merge(intervals):
-    """Union of CLOSED integer intervals, as sorted maximal blocks."""
+    """Sort by start; remember only the block being built."""
     out = []
     for s, e in sorted(intervals):
-        if out and s <= out[-1][1]:
-            out[-1][1] = max(out[-1][1], e)    # nested interval must not shrink it
+        if out and s <= out[-1][1]:            # starts inside the current block
+            out[-1][1] = max(out[-1][1], e)    # extend it; never shrink it
         else:
-            out.append([s, e])                 # a fresh row: never alias the input
+            out.append([s, e])                 # a gap: the old block is final
     return out
 
 
-def covered(intervals):
-    """Total time at least one interval is running (inclusive units)."""
-    return sum(e - s + 1 for s, e in merge(intervals))
-
-
-def max_overlap(intervals):
-    """Peak number of intervals covering one point = rooms needed."""
-    events = []
-    for s, e in intervals:
-        events.append((s, 1))
-        events.append((e + 1, -1))     # closed -> half-open; ties then sort themselves
-    events.sort()
-    cur = best = 0
-    for _, delta in events:
-        cur += delta
-        best = max(best, cur)
-    return best
-
-
 demo = [[1, 4], [6, 9], [2, 3], [8, 11], [13, 15]]
-print("input   ", demo)
-print("merged  ", merge(demo))
-print("covered ", covered(demo), "units;   rooms needed:", max_overlap(demo))
-assert merge(demo) == [[1, 4], [6, 11], [13, 15]]
-assert covered(demo) == 13 and max_overlap(demo) == 2
+blocks, work = merge_brute(demo)
+print("brute :", blocks, "after", work, "pair checks")
+print("sorted:", merge(demo), "after", len(demo), "steps (plus the sort)")
+assert blocks == merge(demo) == [[1, 4], [6, 11], [13, 15]]
 
 
-def brute_covered(iv):
-    pts = set()
-    for s, e in iv:
-        pts.update(range(s, e + 1))
-    return len(pts)
-
-
-def brute_overlap(iv):
-    if not iv:
-        return 0
-    lo, hi = min(s for s, _ in iv), max(e for _, e in iv)
-    return max(sum(1 for s, e in iv if s <= t <= e) for t in range(lo, hi + 1))
+def points(iv):                                # the slowest truth: mark every point
+    return {x for s, e in iv for x in range(s, e + 1)}
 
 
 rng = random.Random(4)
-for _ in range(500):
-    iv = [[s, s + rng.randint(0, 5)]
-          for s in (rng.randint(0, 14) for _ in range(rng.randint(0, 8)))]
-    blocks = merge(iv)
-    assert all(blocks[i][1] < blocks[i + 1][0] for i in range(len(blocks) - 1)), iv
-    assert covered(iv) == brute_covered(iv), iv
-    assert max_overlap(iv) == brute_overlap(iv), iv
-print("500 random instances: blocks disjoint, coverage and peak match a point count")
+for _ in range(1000):
+    iv = [[s, s + rng.randint(0, 5)] for s in
+          (rng.randint(0, 20) for _ in range(rng.randint(0, 9)))]
+    out = merge(iv)
+    assert out == merge_brute(iv)[0], iv
+    assert points(out) == points(iv), iv                        # same union
+    assert all(out[k][1] < out[k + 1][0] for k in range(len(out) - 1))  # disjoint
+print("1000 random inputs: same blocks as the brute force, same points, disjoint")
+
+chain = [[2 * k, 2 * k + 1] for k in range(60)][::-1]          # nothing overlaps
+print("60 disjoint intervals: brute force checks", merge_brute(chain)[1], "pairs")
 ```
 
-Three lines carry the weight.
+### Each line, and which part of the idea it is
 
-`for s, e in sorted(intervals)` is the whole algorithm's premise, and it is one
-call. Everything after it is allowed to be simple *because* of it. If you ever
-find yourself writing an inner loop over `out`, you have lost the invariant — go
-back and check the sort.
+| line | in plain words | part of the idea |
+|---|---|---|
+| `for s, e in sorted(intervals)` | walk in order of start (ties by end) | the sort that makes "final" true |
+| `if out and s <= out[-1][1]` | is there a block, and does it reach my start? | the one-sided overlap test, legal because starts are sorted |
+| `out[-1][1] = max(out[-1][1], e)` | the block now reaches the further end | case 1 in the picture; the max is for nested intervals |
+| `out.append([s, e])` | a gap: start a new block | case 2; the old block is final, no later interval can touch it |
+| `return out` | the blocks, in order | the union |
 
-`out[-1][1] = max(out[-1][1], e)` is invariant (I2) written down. The `max` looks
-defensive and is not: the sort orders starts and leaves ends arbitrary, so a
-later interval genuinely can end earlier.
+Three settled confusions.
 
-`events.append((e + 1, -1))` does two jobs. It converts the closed interval to
-the half-open `[s, e+1)`, so a meeting ending at 4 still occupies 4; and because
-closes now land strictly past the last instant they cover, ties between a close
-and an open resolve themselves. With continuous coordinates you cannot add 1, and
-must instead sort `(t, delta)` so `-1` precedes `+1` at equal `t` — which tuple
-order gives free, since `-1 < 1`. Both express one sentence: *a meeting that ends
-when another begins does not need a second room.*
+**Where is cs?** It is `out[-1][0]`, set once when the block opens and never
+changed. Because starts are sorted, no later interval in the block can start
+earlier, so the block's start never moves. Only its end does.
 
-## Variants you will meet
+**Where is the final close?** There is none. The block is appended to `out` as soon
+as it opens, and later intervals edit `out[-1]` in place. So when the loop ends, the
+last block is already in `out`. Code that keeps (cs, ce) in two variables and appends
+only on a gap must remember to append once more after the loop; that is the most
+common way to drop the last block.
 
-**Merge with adjacency.** *Compress Consecutive Integer Ranges* and *Compact the
-List* treat `[1,3]` and `[4,6]` as one run, since 3 and 4 are adjacent integers:
-the test becomes `s <= ce + 1`.
+**Why `[s, e]` and not the input row?** `out.append(row)` would put the caller's own
+list into the output, and the next `out[-1][1] = ...` would edit the caller's
+input. Build a fresh list. Python's `sorted` copies the outer list, not the inner
+ones.
 
-**Total covered length.** *Process Execution Time*, *Dasher Active Time*: merge,
-then sum with the inclusive `e - s + 1`.
+### The subtle line, both ways
 
-**Peak concurrency and minimum resources.** *Meeting Rooms II*, *Get Minimum
-Cores*, *Minimum Number of Chairs*: the second proof above. Sweep tagged
-endpoints, or sort starts and ends into two arrays and merge them with two
-pointers ([[two-pointers]]), or keep a min-heap of end times ([[heap]]) — the
-heap is the only one that can also say *which* room.
+The line is `ce = max(ce, e)`. Here it is against `ce = e` on
+[[1, 10], [2, 3], [4, 5], [11, 12]], and then the sort key changed from start to
+end.
 
-**Insert one interval.** *Insert Interval*: given a sorted disjoint list, splice
-in `[s, e]` in three phases — copy everything ending before `s`, absorb
-everything overlapping into `[min(starts), max(ends)]`, copy the rest.
+```python run
+def merge_traced(intervals, extend, key=None, label="", show=True):
+    if show:
+        print(label)
+    out = []
+    for s, e in sorted(intervals, key=key):
+        if out and s <= out[-1][1]:
+            before = out[-1][1]
+            out[-1][1] = extend(before, e)
+            note = "merge: end %d -> %d" % (before, out[-1][1])
+            if out[-1][1] < before:
+                note += "   <- the block SHRANK"
+        else:
+            out.append([s, e])
+            note = "new block"
+        if show:
+            print("   [%2d,%2d]  %-34s blocks %s" % (s, e, note, out))
+    return out
 
-**Intersect two sorted lists.** *Interval List Intersections*, *Find First
-Common Availability*: the intersection of `[a1,a2]` and `[b1,b2]` is
-`[max(a1,b1), min(a2,b2)]`, non-empty iff `max(a1,b1) <= min(a2,b2)`. Emit it if
-non-empty, then advance the pointer whose interval ends first — it can meet
-nothing later. *Combine Two Vectors of Intervals* is the union version of the
-same walk.
 
-**Complement and gaps.** *Generate Available Time Slots*, *Build a Combined
-People Schedule*: merge the busy intervals, then emit the gap between each
-consecutive pair — plus the slivers before the first block and after the last,
-which is where this one is always wrong first.
+nested = [[1, 10], [2, 3], [4, 5], [11, 12]]
+right = merge_traced(nested, lambda ce, e: max(ce, e), label="ce = max(ce, e)  (right)")
+wrong = merge_traced(nested, lambda ce, e: e, label="ce = e  (wrong)")
+assert right == [[1, 10], [11, 12]]
+assert wrong == [[1, 3], [4, 5], [11, 12]]          # points 6..10 have vanished
 
-**Maximum conflict-free subset.** *Minimum Removals for Non-Overlapping
-Intervals*, *Maximum Number of Events That Can Be Attended*: sort by **end** and
-take greedily. Note the swap — the union wants starts, a subset wants ends. The
-wider family is [[scheduling]].
+# the same bug is invisible when no interval sits inside another
+plain = [[1, 4], [3, 6], [8, 9]]
+assert merge_traced(plain, max, show=False) == \
+       merge_traced(plain, lambda ce, e: e, show=False) == [[1, 6], [8, 9]]
+print("no nesting: max and assign agree, so a sample without nesting cannot tell")
 
-**Weighted selection.** *Max Sum of Non-Overlapping Intervals*: the greedy dies,
-because one heavy long interval can beat many light short ones. Sort by end and
-let `best[i]` be the best total over the first `i`; then
-`best[i] = max(best[i-1], w_i + best[p(i)])`, with `p(i)` the last interval
-ending before `i` starts, found by [[binary-search]]. [[dynamic-programming]] in
-interval clothing.
+# sorting by END instead of start lets a later interval reach back over a closed block
+late = [[5, 6], [1, 2], [1, 10]]
+by_end = merge_traced(late, max, key=lambda p: p[1], label="sorted by end (wrong)")
+assert by_end == [[1, 2], [5, 10]]                  # 3 and 4 are covered, and lost
+assert merge_traced(late, max, label="sorted by start (right)") == [[1, 10]]
+```
 
-**Online conflict checking.** *In-Memory Meeting Room Manager*, *My Calendar I*:
-keep the bookings sorted by start and, per candidate, binary-search the
-predecessor and check two neighbours — `O(log n)` for both find and insert if the
-container is a balanced tree or [[ordered-set]].
+Here is the wrong run as a table, the way you would trace it on paper. A `*` marks
+the block end that was overwritten.
 
-**Circular intervals.** *Minimum Servers for Cyclic Daily Tasks*: a task from
-22:00 to 02:00 wraps. Split every wrapping interval in two, or sweep two copies
-of the timeline. Never compare endpoints modulo anything.
+| interval | test | ce = max(ce, e) | ce = e |
+|---|---|---|---|
+| [1, 10] | first | block (1, 10) | block (1, 10) |
+| [2, 3] | 2 <= 10 | ce = max(10, 3) = 10 | ce = 3* |
+| [4, 5] | 4 <= ce? | 4 <= 10: ce stays 10 | **4 <= 3 fails**: close (1, 3), open (4, 5) |
+| [11, 12] | 11 <= ce? | 11 <= 10 fails: close (1, 10) | 11 <= 5 fails: close (4, 5) |
+| result | | [1, 10], [11, 12] | [1, 3], [4, 5], [11, 12] |
 
-**Many intervals, many queries.** *Closed Interval Overlap Queries*, *Batch
-Point-in-Range Queries*: sort the queries in with the intervals and answer them
-in one combined sweep, or build a [[segment-tree]] / [[fenwick-tree]] over
-compressed coordinates.
+Point at the row for [4, 5]. The wrong version compares 4 with 3, the end it
+wrote one step earlier, which belonged to the *nested* interval [2, 3]. The real
+block reaches 10. Everything after that row is built on a block end that is too
+small, and the points 6 to 10 vanish from the answer.
 
-**More than one axis.** Rectangles, skylines and area unions are intervals in one
-axis swept along the other: [[sweep-line]]. *Union of K Sorted Interval Streams*
-is the merge above fed by a [[k-way-merge]].
+What does the wrong version compute? It compares each interval with the end of
+the *previous interval in sorted order* (whenever they touch), which is the "compare
+with the previous one" instinct from the derivation. It is correct whenever no
+interval ends inside the block it joins, and the middle assert shows that on such
+inputs the two versions agree. That is why a sample like [[1, 3], [2, 6], [8, 10]]
+passes with the bug.
 
-Here is the greedy variant, with the wrong rule next to it and a brute-force
-check that the right one is actually optimal.
+Say it a second way. Sorting gives a guarantee about starts and nothing about
+ends. The test `s <= ce` uses a start, which the sort controls. The update uses an
+end, which the sort does not control, so the update must protect itself with a
+max. Any time you write an update from sorted data, ask which half of each pair the
+sort controls.
+
+And the last trace in the output, sorted by end: [1, 2] is closed when [5, 6]
+arrives, and then [1, 10], which starts at 1, arrives after the wall. That is the
+wall from the picture being crossed, which can only happen when the sort key is not
+the start.
+
+### The convention line
+
+The second subtle line is not in the merge loop but in its first character of
+logic: `<=` or `<`. For closed intervals, [1, 2] and [2, 3] share the point 2, so
+they overlap and merge, and the test is `s <= ce`. For half-open intervals
+[1, 2) and [2, 3), the first is over at 2 when the second begins, so they do not
+overlap, and the test is `s < ce`. For "adjacent integers join too", as in Track
+Received Byte Ranges where [1, 3] and [4, 6] merge, the test is `s <= ce + 1`.
+Three problems, three tests, one loop. Read the statement for which world you are
+in, and write it as a comment on the first line of the function.
+
+## Why it is correct
+
+Three claims carry this chapter: the merge computes the union; the fewest rooms
+equals the largest overlap; and keeping the earliest-ending interval is optimal.
+All three go in one proof, in three parts.
+
+:::proof The merge, the rooms count, and the earliest-end greedy
+**Part 1: the merge computes the union.**
+
+*Setup.* Intervals I_1, ..., I_n with I_k = [s_k, e_k], numbered so that
+s_1 <= s_2 <= ... <= s_n. Their union is a set of points; it can be written in
+exactly one way as disjoint maximal intervals with gaps between them. Call these
+the components.
+
+*Claim.* After the loop has handled I_1 to I_k, the list `out` is exactly the
+components of I_1 ∪ ... ∪ I_k, in order. In particular the last entry's end, ce, is
+the largest end among the intervals of the last component, and every earlier entry
+ends strictly before the last entry starts.
+
+*Base case.* After I_1, `out` = [[s_1, e_1]]. One interval is its own only
+component.
+
+*Step.* Assume the claim after k intervals, and let [s, e] = I_{k+1}. Because of
+the sort, s >= s_k >= the last block's start cs. Two cases.
+
+- If s <= ce, then s lies inside [cs, ce], so [s, e] and the last block share the
+  point s. Their union is the single interval [cs, max(ce, e)]. It cannot touch any
+  earlier entry, because those end before cs and [s, e] starts at s >= cs. So the
+  components are the old ones with the last one extended to max(ce, e), which is
+  exactly what the code writes.
+- If s > ce, then [s, e] shares no point with the last block (it starts after the
+  block ends) or with earlier entries (they end even sooner). It is a new component,
+  separated by the non-empty gap from ce to s. The code appends it. The old last
+  block can never change again: every later interval starts at s or later, so by
+  the same argument it starts after ce too.
+
+*Conclusion.* After n steps `out` is the components of the whole union. The loop
+does constant work per interval, so it ends.
+
+**Part 2: the fewest rooms equals the largest overlap.**
+
+*Setup.* Meetings are half-open [s_k, e_k). A schedule puts each meeting in a room
+so that two meetings in one room never share an instant. Let R be the fewest rooms
+of any schedule, and M the largest number of meetings that all contain one instant.
+
+*R >= M.* Take an instant x contained in M meetings. Any two of them share x, so no
+two can share a room: at least M rooms.
+
+*R <= M.* Hand out rooms in order of start time, giving each meeting any room that
+is free at its start. Suppose a meeting starting at x finds every one of r open
+rooms busy. Each busy room holds a meeting that started at or before x (it was
+handed out earlier) and has not ended by x. So those r meetings and this one all
+contain x: r + 1 <= M. A meeting opens a new room only when all r existing
+rooms are busy, and then there are r + 1 <= M rooms. So the count never exceeds M.
+
+So R = M, and M is what the +1/-1 sweep computes.
+
+**Part 3: keeping the interval that ends first is optimal.**
+
+*Setup.* We want the largest set of pairwise non-overlapping intervals. The greedy
+sorts by end, keeps the first, discards everything that overlaps it, and repeats.
+
+*Exchange.* Let g be the interval with the smallest end, and let O be any best set.
+Let o be the member of O with the smallest end. Since g ends first of all,
+end(g) <= end(o). Every other member of O starts after o ends (they do not overlap
+o, and o ends first among them), so they start after g ends too. Replace o by g in
+O: the set is still non-overlapping, and it is the same size, so it is still a
+best set, and it contains g.
+
+*Induction.* So some best set contains g. Remove g and every interval that overlaps
+it; what is left of that best set is a best set for what is left of the input
+(otherwise a bigger one plus g would beat it). Repeat. The greedy makes exactly
+these choices, so it reaches a best size. ∎
+:::
+
+The assumptions, in plain words, each a place where a variant breaks the method.
+
+- **Sorted by start (Part 1).** Used twice: to know the new interval cannot start
+  before the block, and to know a closed block is final. Sorted by end, the second
+  fails, as the trace showed.
+- **The block end is the max of the ends, not the last end (Part 1).** The proof
+  says "extended to max(ce, e)". Nothing else would be the union.
+- **The overlap test matches the convention.** Part 1 used "s inside [cs, ce]
+  means a shared point", true for closed intervals. For half-open ones, s = ce is
+  not inside [cs, ce), and the test must be strict.
+- **Rooms are interchangeable (Part 2).** The argument gave the meeting *any* free
+  room. If a meeting may only use certain rooms, the lower bound still holds but the
+  upper bound does not, and the answer can be larger than M.
+- **Every interval is worth the same (Part 3).** The exchange swapped o for g and
+  said "same size". If they had weights, the swap could lose value, and the greedy
+  is wrong. That is Cinema Shows.
+- **Well-formed input.** s <= e for closed, s < e for half-open. A backwards
+  interval is empty and breaks every case.
+
+## What it costs
+
+**The walk.** One pass, constant work per interval, no inner loop, because the past
+is summarised by ce. That is O(n).
+
+**The sort.** O(n log n) comparisons, and it dominates. Total O(n log n) time.
+Space: O(n) for the sorted copy and the output (the output can be as large as the
+input when nothing overlaps).
+
+**The brute force.** Up to n - 1 rounds of up to n^2 / 2 pair checks: O(n^3)
+worst case, O(n^2) even when nothing overlaps. For 10^5 intervals the merge does
+about 1.7 million comparisons in the sort and 10^5 steps in the walk.
+
+**Is the log avoidable? Not with comparisons.** Given n numbers, make the
+intervals [x, x]. Merging them outputs the distinct numbers in sorted order. So a
+merge faster than sorting would sort faster than O(n log n) comparisons, which is
+impossible. Merging is exactly as hard as sorting. The escape is to leave
+comparisons behind: when the coordinates are small integers (minutes of a day, a
+range up to 10^5), a difference array does the sweep in O(n + range) with no sort
+(Variation I).
+
+**The costs people forget.**
+
+- **The heap version of rooms is also O(n log n)**, n pushes and up to n pops on a
+  heap of size up to n. It is not faster than the sweep. Use it when you need to
+  know *which* room each meeting gets, which the sweep cannot tell you.
+- **Insert Interval is O(n) even though the position can be found in O(log n).**
+  The answer is a whole new list, and copying the untouched intervals into it is
+  O(n). An O(log n) insertion needs a structure updated in place (Variation F).
+- **Online booking with a plain list** pays O(n) per insertion for shifting
+  elements, so n bookings cost O(n^2). Fine for 1,000 bookings, as in
+  [[p:uber-my-calendar-i|My Calendar I]], not for 10^5; then use a balanced tree or
+  a sorted container ([[ordered-set]]).
+- **Sorting with a `key=lambda`** calls the function once per element. Sorting the
+  tuples directly is faster and sorts by start, then end, which is what the merge
+  wants anyway.
+
+## How to think about it
+
+Ask these, in this order, on every problem in this family.
+
+1. **What is an interval here, and does it own its end?** Closed [s, e] or
+   half-open [s, e)? Integers or continuous time? Write it as the first comment:
+   `# half-open [s, e), a meeting ending at t frees the room at t`. If the statement
+   gives inclusive integer ends and you want half-open, convert once at the door:
+   e becomes e + 1.
+2. **Which question is it?** Union or coverage; is there any overlap; insert one;
+   peak overlap or fewest resources; most non-overlapping or fewest removals; cover
+   a target with the fewest; points that hit every interval; intersect two lists;
+   accept or reject online. Each has a row in the table under the unlocking question.
+3. **Which sort key?** Start, to build a union or a cover. End, to choose a subset
+   or place points. All endpoints as events, to count what is simultaneous. The
+   sentence to remember: *starts describe the union, ends choose the subset,
+   endpoints count the crowd.*
+4. **After sorting, what is the least I must remember?** One end, a counter, a heap
+   of ends, two pointers. If your answer is "all the earlier intervals", the sort
+   key is wrong or the problem is not this family.
+5. **What happens at a tie?** Two intervals that touch at one point: overlap or
+   not? At one instant where one meeting ends and another starts: which event is
+   processed first? Write the rule, then check the code obeys it.
+6. **Are the intervals weighted, or the resources different?** Then the greedy
+   proofs fail; think DP or matching.
+7. **Offline or online?** All intervals given up front means sort. One at a time,
+   each accepted or rejected immediately, means a sorted structure and a neighbour
+   check.
+8. **How big are the coordinates?** Up to 10^5, or minutes of one day: a difference
+   array, no sort. Up to 10^9 or 10^18: sort, never index by coordinate.
+
+### Telling it from its neighbours
+
+- **Sweep line** ([[sweep-line]]). The +1/-1 walk is the one-dimensional sweep.
+  When the objects are rectangles or segments in a plane and you sweep one axis
+  while keeping intervals on the other, it is that chapter.
+- **Scheduling** ([[scheduling]]). Jobs with deadlines and durations, not fixed
+  intervals: you choose *when* to run them. The earliest-deadline and
+  exchange-argument ideas are related, but the intervals are not given.
+- **Greedy and exchange arguments** ([[greedy]], [[greedy-exchange]]). Part 3 of the
+  proof is the textbook exchange argument; the interval subset problems are the
+  cleanest place to learn it.
+- **Sorting with a key** ([[sorting]], [[custom-comparators]]). The whole technique
+  is "pick the key". When the key is a tuple (end, then start), say why.
+- **Heaps** ([[heap]]). The rooms problem with assignment is a heap of end times.
+- **DP** ([[dynamic-programming]]). Weighted intervals.
+
+## Variations
+
+The roadmap names five techniques for this node: sort by start and merge; insert an
+interval and test overlap; the most non-overlapping intervals by sorting by end;
+the fewest rooms with a sweep or a heap of end times; and the line sweep with
++1/-1 events. A to F are the first two, G is the third, H the fourth, I the fifth.
+J to L are harder relatives that appear in assessments, M is the weighted case,
+and N collects the rare ones.
+
+### A. Merge with adjacency
+
+**What changes.** Ranges that are next to each other also join: [1, 3] and [4, 6]
+become [1, 6]. The test becomes `s <= ce + 1`.
+
+**Why.** For integer ranges, "no gap" means no missing integer between them, and 3
+and 4 have none.
+
+**Example.** Bytes [1, 3], [7, 9], [4, 6]: sorted [1, 3], [4, 6], [7, 9]; 4 <= 3 + 1
+joins, 7 <= 6 + 1 joins: one range [1, 9].
+
+**Bank.** [[p:roblox-track-received-byte-ranges|Track Received Byte Ranges]] asks
+for the merged ranges after *every* chunk. With up to 2,000 chunks, re-merging the
+sorted list each time (or inserting with Variation D) is fast enough; the endpoints
+go up to 10^18, so only endpoint-based methods work.
+
+### B. Total covered length
+
+**What changes.** Merge, then add up the block lengths.
+
+**Why.** Overlaps would be counted twice if you summed the raw intervals.
+
+**Example.** [[p:ibm-process-execution-time|Process Execution Time]]: inclusive,
+so [1, 5] is 5 units and the formula is e - s + 1. For continuous time, a meeting
+from 1 to 5 o'clock is 4 hours: e - s. Same merge, different length formula; the
+statement tells you which.
+
+### C. Is there any overlap at all?
+
+**What changes.** No output list; you only need to know whether some pair clashes.
+
+**Why.** After sorting by start, if any two intervals overlap, then some *adjacent*
+pair in sorted order overlaps. (If a and c overlap with b between them in the
+sorted order, b starts between a's start and c's start, which is before a ends, so
+a and b overlap.) So compare each interval with the one before it: the "previous
+interval" comparison is exactly right here, because the first clash ends the
+search.
+
+**Example.** [[p:bytedance-meeting-rooms|Meeting Rooms]], half-open: [[0, 30],
+[5, 10], [15, 20]] sorted, 5 < 30, clash, return false. [[7, 10], [2, 4]]: sorted,
+7 < 4 fails, no clash, true. Touching meetings [1, 2), [2, 3) do not clash, so the
+test is `s < previous end`.
+[[p:apple-meeting-room-request-feasibility|Meeting Room Request Feasibility]] is the
+same with an empty list allowed (answer true).
+
+### D. Insert one interval into a sorted, disjoint list
+
+**What changes.** The list is already merged. You add one interval and must
+return the merged result.
+
+**Why.** Because the list is sorted and disjoint, it splits into three runs: the
+intervals that end before the new one starts (copy them), the ones that overlap it
+(absorb them into [min of starts, max of ends]), and the ones that start after the
+new one ends (copy them). No sort needed: O(n).
+
+**Example.** [[p:amazon-insert-interval|Insert Interval]], closed: [[1, 2], [3, 5],
+[6, 7], [8, 10], [12, 16]] plus [4, 8]. Run 1: [1, 2] ends at 2 < 4. Run 2: [3, 5]
+starts at 3 <= 8, absorb to [3, 8]; [6, 7], absorb; [8, 10], 8 <= 8 (closed, so
+touching counts), absorb to [3, 10]. Run 3: [12, 16]. Result [[1, 2], [3, 10],
+[12, 16]].
+
+### E. Intersect two sorted lists
+
+**What changes.** Two lists, each sorted and disjoint; you want every overlap
+between an interval of one and an interval of the other.
+
+**Why.** The intersection of [a1, a2] and [b1, b2] is [max(a1, b1), min(a2, b2)],
+non-empty when that start is at most that end. That is the overlap test of Step 1,
+written as an interval. Then advance the pointer whose interval ends first: it
+cannot meet anything later in the other list, because everything later there starts
+after the current one, which already reaches at least as far.
+
+**Example.** [[p:bytedance-interval-list-intersections|Intersect Two Sorted Interval Lists]]:
+A = [[0, 2], [5, 10], [13, 23], [24, 25]], B = [[1, 5], [8, 12], [15, 24], [25, 26]].
+Answer [[1, 2], [5, 5], [8, 10], [15, 23], [24, 24], [25, 25]]. The one-point
+intersections [5, 5], [24, 24] and [25, 25] exist because the intervals are closed.
+
+### F. Online booking: accept or reject one at a time
+
+**What changes.** Requests arrive one by one; each is accepted only if it clashes
+with nothing accepted so far.
+
+**Why.** Keep the accepted bookings sorted by start. They are disjoint, so a new
+request can only clash with its two neighbours in that order: the last booking that
+starts at or before it, and the first that starts after it. A binary search finds
+them.
+
+**Example.** [[p:uber-my-calendar-i|My Calendar I]], half-open: [10, 20) yes;
+[15, 25) clashes with [10, 20), no; [20, 30) touches only, yes; [5, 10) yes;
+[5, 11) clashes with [10, 20), no. Answer [true, false, true, true, false].
+
+```python run
+import bisect
+import random
+
+
+def insert(intervals, new):
+    """Sorted, disjoint, closed intervals plus one more: three phases."""
+    s, e = new
+    out, i, n = [], 0, len(intervals)
+    while i < n and intervals[i][1] < s:          # 1. ends before new starts: copy
+        out.append(list(intervals[i])); i += 1
+    while i < n and intervals[i][0] <= e:         # 2. overlaps new: absorb
+        s, e = min(s, intervals[i][0]), max(e, intervals[i][1]); i += 1
+    out.append([s, e])
+    out.extend(list(iv) for iv in intervals[i:])  # 3. starts after new ends: copy
+    return out
+
+
+def intersect(A, B):
+    """Two sorted disjoint closed lists. Advance whichever interval ends first."""
+    i = j = 0
+    out = []
+    while i < len(A) and j < len(B):
+        lo, hi = max(A[i][0], B[j][0]), min(A[i][1], B[j][1])
+        if lo <= hi:
+            out.append([lo, hi])
+        if A[i][1] < B[j][1]:                     # A[i] can meet nothing later in B
+            i += 1
+        else:
+            j += 1
+    return out
+
+
+def book_all(requests):
+    """Half-open bookings, accepted only if they clash with nobody already booked."""
+    starts, ends, answer = [], [], []
+    for s, e in requests:
+        k = bisect.bisect_right(starts, s)        # bookings starting at or before s
+        ok = (k == 0 or ends[k - 1] <= s) and (k == len(starts) or e <= starts[k])
+        if ok:                                    # only two neighbours can clash
+            starts.insert(k, s); ends.insert(k, e)
+        answer.append(ok)
+    return answer
+
+
+print(insert([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4, 8]))
+assert insert([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4, 8]) == [[1, 2], [3, 10], [12, 16]]
+assert insert([], [5, 7]) == [[5, 7]] and insert([[1, 3]], [3, 4]) == [[1, 4]]
+print(intersect([[0, 2], [5, 10], [13, 23], [24, 25]], [[1, 5], [8, 12], [15, 24], [25, 26]]))
+assert intersect([[0, 2], [5, 10], [13, 23], [24, 25]], [[1, 5], [8, 12], [15, 24], [25, 26]]) \
+    == [[1, 2], [5, 5], [8, 10], [15, 23], [24, 24], [25, 25]]
+print(book_all([[10, 20], [15, 25], [20, 30], [5, 10], [5, 11]]))
+assert book_all([[10, 20], [15, 25], [20, 30], [5, 10], [5, 11]]) == [True, False, True, True, False]
+
+rng = random.Random(2)
+for _ in range(500):
+    pts = sorted(rng.sample(range(40), 2 * rng.randint(0, 6)))
+    base = [pts[k:k + 2] for k in range(0, len(pts), 2)]
+    a = rng.randint(0, 40); new = [a, a + rng.randint(0, 8)]
+    covered = {x for s, e in base + [new] for x in range(s, e + 1)}
+    got = insert(base, new)
+    assert {x for s, e in got for x in range(s, e + 1)} == covered
+    assert all(got[k][1] < got[k + 1][0] for k in range(len(got) - 1))
+print("500 random inserts: same points as before plus the new one, still disjoint")
+```
+
+### G. The most intervals with no overlap (sort by end)
+
+**What changes.** You choose a subset. Keep as many as possible with no two
+overlapping, or equivalently remove as few as possible.
+
+**Why.** Part 3 of the proof: the interval that ends first leaves the most room for
+the rest, and swapping it into any best set costs nothing. So sort by end, keep an
+interval if it starts at or after the end of the last one kept (for half-open), and
+remember only that last end. Removals = n - kept.
+
+**Example.** [[1, 100], [2, 3], [4, 5], [6, 7]]. By end: [2, 3], [4, 5], [6, 7]
+kept, [1, 100] overlaps [2, 3] and is dropped. Kept 3, removals 1.
+
+**The two wrong rules, with their counterexamples.** *Earliest start*: keeps
+[1, 100] first, then nothing else fits: 1. *Shortest first*: on [[1, 5], [4, 7],
+[6, 10]] it keeps [4, 7], the shortest, which overlaps both others: 1, while [1, 5]
+and [6, 10] give 2. Only "ends first" has an exchange argument behind it.
+
+**Bank.** [[p:bytedance-minimum-interval-removals|Minimum Removals for Non-Overlapping Intervals]]:
+touching intervals are compatible, so the keep test is `s >= last_end`.
 
 ```python run
 from itertools import combinations
 import random
 
 
-def max_disjoint_by_end(iv):
-    """Largest set of pairwise disjoint closed intervals. Sort by END."""
-    taken, last_end = 0, float("-inf")
-    for s, e in sorted(iv, key=lambda p: p[1]):
-        if s > last_end:
-            taken += 1
+def keep_most(iv, key):
+    """Greedy: walk in `key` order, keep each interval that starts at or after the
+    end of the last kept one (half-open: touching is allowed)."""
+    kept, last_end = [], float("-inf")
+    for s, e in sorted(iv, key=key):
+        if s >= last_end:
+            kept.append([s, e])
             last_end = e
-    return taken
+    return kept
 
 
-def max_disjoint_by_start(iv):
-    """The tempting rule that is wrong: keep the earliest-STARTING compatible one."""
-    taken, last_end = 0, float("-inf")
-    for s, e in sorted(iv):
-        if s > last_end:
-            taken += 1
-            last_end = e
-    return taken
+by_end = lambda p: p[1]
+by_start = lambda p: p[0]
+by_length = lambda p: p[1] - p[0]
 
 
-def brute(iv):
+def best_brute(iv):
     for k in range(len(iv), 0, -1):
         for combo in combinations(sorted(iv), k):
-            if all(combo[i][1] < combo[i + 1][0] for i in range(k - 1)):
+            if all(combo[i][1] <= combo[i + 1][0] for i in range(k - 1)):
                 return k
     return 0
 
 
-bad = [[1, 100], [2, 3], [4, 5], [6, 7]]
-print("intervals      ", bad)
-print("by end (right) ", max_disjoint_by_end(bad), " optimum:", brute(bad))
-print("by start (wrong)", max_disjoint_by_start(bad), " <- one greedy meeting ate the day")
-assert max_disjoint_by_end(bad) == 3 and max_disjoint_by_start(bad) == 1
+long_first = [[1, 100], [2, 3], [4, 5], [6, 7]]
+straddle = [[1, 5], [4, 7], [6, 10]]            # the short one sits across two long ones
+for name, iv in (("long first", long_first), ("straddle", straddle)):
+    print(name, iv)
+    for label, key in (("end", by_end), ("start", by_start), ("length", by_length)):
+        print("   by %-6s keeps %s" % (label, keep_most(iv, key)))
+    print("   optimum", best_brute(iv))
+assert len(keep_most(long_first, by_end)) == 3 and len(keep_most(long_first, by_start)) == 1
+assert len(keep_most(straddle, by_end)) == 2 and len(keep_most(straddle, by_length)) == 1
 
 rng = random.Random(9)
-for _ in range(300):
-    iv = [[s, s + rng.randint(0, 4)]
-          for s in (rng.randint(0, 12) for _ in range(rng.randint(0, 7)))]
-    assert max_disjoint_by_end(iv) == brute(iv), iv
-print("300 random instances: sorting by end is optimal, checked against every subset")
-print("minimum removals for", bad, "=", len(bad) - max_disjoint_by_end(bad))
+for _ in range(500):
+    iv = [[s, s + rng.randint(1, 5)] for s in
+          (rng.randint(0, 12) for _ in range(rng.randint(0, 7)))]
+    assert len(keep_most(iv, by_end)) == best_brute(iv), iv
+print("500 random inputs: sorting by end keeps as many as the best subset")
+print("minimum removals for", long_first, "=", len(long_first) - len(keep_most(long_first, by_end)))
 ```
 
-Why sorting by end is optimal is a one-paragraph [[greedy-exchange|exchange
-argument]]. Let `g₁` have the smallest end, and let `O` be any optimal solution
-with `o₁` its earliest-ending member. Then `e(g₁) <= e(o₁)`, so every other
-interval of `O` starts after `e(o₁) >= e(g₁)` and does not conflict with `g₁`
-either: swapping `o₁` for `g₁` keeps `O` valid and the same size. Recurse on the
-intervals starting after `e(g₁)`; after at most `|O|` swaps an optimal solution
-has become the greedy's, so the greedy is optimal.
+Each wrong rule is right on one of the two inputs and wrong on the other. That is
+why "it passed the example" means nothing for a greedy, and why the random check
+against every subset is the test to run.
+
+### H. The fewest rooms: a sweep, or a heap of end times
+
+**What changes.** You want the number of resources (rooms, machines, cars, cores)
+so every interval gets one, with no two overlapping intervals sharing.
+
+**Why.** Part 2 of the proof: the answer is the largest overlap. Two ways to
+compute it.
+
+- **The sweep.** +1 at every start, -1 at every end, sorted by time, running max.
+  For half-open intervals, at equal times the -1 must come first: a meeting that
+  ends at 10 frees its room for one that starts at 10. Sorting the pairs (t, delta)
+  does that by itself, because -1 < +1.
+- **The heap.** Sort by start. Keep a min-heap of the end times of busy rooms. For
+  each meeting, if the earliest end is at or before its start, that room is free:
+  pop it and reuse it. Otherwise open a new room. Push the meeting's end. The number
+  of rooms opened is the answer, and the heap also tells you *which* room each
+  meeting got.
+
+**Example.** [[0, 30], [5, 10], [15, 20], [10, 15]], half-open. The sweep: 0 +1 (1),
+5 +1 (2), 10 -1 (1), 10 +1 (2), 15 -1 (1), 15 +1 (2), 20 -1 (1), 30 -1 (0). Peak 2.
+
+**The tie, both ways.** Meetings [0, 30) and [30, 60). With -1 first at t = 30 the
+count goes 1, 0, 1: one room. With +1 first it goes 1, 2, 1: two rooms, and the
+answer is wrong by one. For *closed* intervals the opposite is right, because both
+meetings own the instant 30; convert to half-open with e + 1 and the tuple sort is
+right again.
+
+**Bank.** [[p:amazon-meeting-rooms-ii|Meeting Rooms II]] is the plain case.
+[[p:jpmorgan-get-min-machines|Task Scheduling]] has inclusive ends ("runs from
+start[i] through end[i]"), so a task ending at 5 and one starting at 5 need two
+machines. [[p:google-minimum-cars-for-rental-requests|Minimum Cars for Rental Requests]]
+wants the assignment itself: a heap of busy cars by return time plus a heap of free
+car ids, so a freed car with the smallest id is reused first.
+
+```python run
+import heapq
+import random
+
+
+def rooms_sweep(meetings, show=False):
+    """Half-open [s, e): +1 at s, -1 at e. At equal times -1 sorts first."""
+    events = sorted([(s, +1) for s, _ in meetings] + [(e, -1) for _, e in meetings])
+    cur = best = 0
+    for t, d in events:
+        cur += d
+        best = max(best, cur)
+        if show:
+            print("   t=%2d %+d  in use %d  peak %d" % (t, d, cur, best))
+    return best
+
+
+def rooms_heap(meetings):
+    """Sort by start; a min-heap holds (end time, room) for every busy room."""
+    busy, opened, assigned = [], 0, []
+    for s, e in sorted(meetings):
+        if busy and busy[0][0] <= s:           # the room that frees first is free by s
+            _, room = heapq.heappop(busy)      # reuse it
+        else:
+            room, opened = opened, opened + 1  # every busy room is still busy: open one
+        heapq.heappush(busy, (e, room))
+        assigned.append(room)
+    return opened, assigned
+
+
+def rooms_brute(meetings):                     # the most meetings covering one instant
+    times = {t for m in meetings for t in m}
+    return max((sum(s <= t < e for s, e in meetings) for t in times), default=0)
+
+
+m = [[0, 30], [5, 10], [15, 20], [10, 15]]
+print("sweep on", m)
+assert rooms_sweep(m, show=True) == 2
+print("heap: rooms and assignment (by start order)", rooms_heap(m))
+assert rooms_heap(m)[0] == 2
+
+touch = [[0, 30], [30, 60]]
+wrong_order = sorted([(s, 1) for s, _ in touch] + [(e, -1) for _, e in touch],
+                     key=lambda ev: (ev[0], -ev[1]))          # +1 before -1 at a tie
+cur = peak = 0
+for t, d in wrong_order:
+    cur += d
+    peak = max(peak, cur)
+print("touching meetings: -1 first ->", rooms_sweep(touch), " +1 first ->", peak)
+assert rooms_sweep(touch) == 1 and peak == 2
+
+rng = random.Random(8)
+for _ in range(1000):
+    ms = [[s, s + rng.randint(1, 6)] for s in
+          (rng.randint(0, 15) for _ in range(rng.randint(0, 9)))]
+    assert rooms_sweep(ms) == rooms_heap(ms)[0] == rooms_brute(ms), ms
+print("1000 random inputs: sweep == heap == the busiest instant")
+```
+
+In the heap output, the assignment [0, 1, 1, 1] reads: [0, 30) took room 0;
+[5, 10) found room 0 busy until 30 and opened room 1; [10, 15) found room 1 free at
+10 and reused it; [15, 20) reused room 1 again at 15.
+
+### I. The +1/-1 sweep and the difference array
+
+**What changes.** You want the count at every point, or the peak, and the
+coordinates are small.
+
+**Why.** The sweep sorted 2n events. When the coordinates are integers in a small
+range, put the +1 and -1 directly into an array indexed by coordinate, then take a
+running sum ([[prefix-sums]]). No sort: O(n + range).
+
+**Example.** [[p:morgan-stanley-maximum-concurrent-processes|Maximum Concurrent Processes]],
+inclusive minutes: [1, 3], [2, 4], [4, 5]. diff[1] += 1, diff[4] -= 1; diff[2] += 1,
+diff[5] -= 1; diff[4] += 1, diff[6] -= 1. Running sums for minutes 1 to 5: 1, 2, 2, 2,
+1. Peak 2. Minute 4 is shared by [2, 4] and [4, 5], and the -1 for [2, 4] sits at 5,
+so minute 4 counts both.
+
+### J. Points that hit every interval (stretch)
+
+**What changes.** Choose the fewest points so every interval contains one (or two).
+
+**Why.** Sort by end. The first interval to end must contain a point; the best place
+for it is as far right as possible, at its end, because that point also hits the
+most later intervals. Remember the last point placed; skip intervals that already
+contain it.
+
+**Example.** [1, 4], [2, 5], [6, 8]: sorted by end; place 4 (hits [1, 4] and
+[2, 5]); [6, 8] does not contain 4, place 8. Two points.
+
+**Bank.** [[p:smallest-set-covering-intervals|Smallest Set Covering Intervals]] needs
+*two* points per interval: place them at e - 1 and e, and remember the two largest
+points placed, because an interval may already contain one of them and need only one
+more.
+
+### K. Cover a target with the fewest intervals (stretch)
+
+**What changes.** Choose the fewest intervals whose union covers [0, n].
+
+**Why.** Sort by start. Among the intervals that start inside the part already
+covered, take the one that reaches furthest. Remember the covered end and the best
+reach so far. If no interval starting inside the covered part reaches further, there
+is a gap: impossible.
+
+**Example.** Target [0, 5], intervals [0, 2], [1, 4], [3, 5], [0, 1]. Covered up to 0;
+starting at or before 0: [0, 2], [0, 1]; take [0, 2]. Covered to 2; starting at or
+before 2: [1, 4]; take it. Covered to 4; [3, 5]; take it. Three intervals.
+
+**Bank.** [[p:quince-minimum-sprinklers-to-cover-an-interval|Minimum Sprinklers to Cover an Interval]]:
+sprinkler i covers [i - r, i + r], clipped to the target; then it is exactly this.
+
+### L. One interval that overlaps all the others
+
+**What changes.** Keep as many intervals as possible such that one of them
+overlaps every other kept one.
+
+**Why.** Try each interval as the centre. The intervals it does *not* overlap are
+those ending before it starts plus those starting after it ends. With the ends and
+starts each sorted, both counts are a [[binary-search]]: O(n log n) in total.
+
+**Bank.** [[p:amazon-minimum-processes-to-drop-for-synchronization|Minimum Processes to Drop for Synchronization]]:
+closed intervals, so "ends before it starts" is `end < start`, counted with
+`bisect_left(sorted_ends, start)`, and "starts after it ends" is
+`n - bisect_right(sorted_starts, end)`.
+
+### M. Weighted intervals (not greedy)
+
+**What changes.** Each interval has a value; maximise the total of a
+non-overlapping set.
+
+**Why.** The exchange in Part 3 breaks: swapping in the earliest-ending interval can
+lose value. Sort by end and let best[i] be the best total using the first i
+intervals; then best[i] = max(best[i - 1], value_i + best[p(i)]), where p(i) is the
+number of intervals that end before interval i starts, found by binary search. That
+is DP, the [[knapsack]] take-or-skip idea on a line.
+
+**Bank.** [[p:amazon-cinema-shows|Cinema Shows]].
+
+### N. Rare shapes
+
+- **Gaps and free slots.** Merge the busy intervals, then output the space between
+  consecutive blocks, plus before the first and after the last if the day has
+  bounds. The bounds are where this is wrong first.
+- **Circular time.** A task from 22:00 to 02:00 wraps midnight. Split it into
+  [22:00, 24:00) and [00:00, 02:00), or sweep two copies of the day.
+- **Many queries.** Sort the query points in with the endpoints and answer them
+  during one sweep, or build a [[segment-tree]] or [[fenwick-tree]] over compressed
+  coordinates.
 
 ## Recognising it in a statement
 
 Ordered by how much you should trust them.
 
-1. **The input is literally pairs of endpoints.** "`intervals[i] = [start_i,
-   end_i]`", "the inclusive start and end times", "`[s, e]` with `s <= e`". Two
-   numbers per row and an order on them is the signal; everything else is which
-   of the four questions is being asked.
-2. **"Overlap", "merge", "conflict", "at the same time", "concurrent",
-   "simultaneously".** *Maximum Concurrent Processes*, *Meeting Concurrency
-   Intervals*, *Detect a Server RAM Capacity Breach* — all peak-counting.
-3. **"Minimum number of X to handle all Y"** — room, core, chair, classroom,
-   worker. *Get Minimum Cores*, *Minimum Classrooms for Courses*: the answer is
-   the maximum overlap, by the second proof. The highest-frequency shape here.
+1. **The input is pairs of endpoints.** "intervals[i] = [start_i, end_i]",
+   "inclusive start and end times", "start < end for every interval". Two numbers per
+   row and an order on them is the signal; the rest is which question.
+2. **"Minimum number of rooms / machines / cars / chairs / cores."** The largest
+   overlap. The most frequent shape here.
+3. **"Overlap", "merge", "conflict", "at the same time", "concurrent".** Merge or
+   peak count.
 4. **"Non-overlapping", "the fewest to remove", "the most you can attend".**
-   Subset selection, sort by end.
-5. **A range of something that is not time.** Card numbers in *Card Range
-   Obfuscation Part1*, addresses in *Memory Allocator*, character spans in
-   *Highlight Matching Phrases*, the stretch a lamp illuminates in *Lamps
-   Illumination*. The word "interval" never appears; the structure is identical.
-6. **Constraint shapes.** `n <= 10⁵` with coordinates up to `10⁹` says sort and
-   sweep; coordinates up to `10⁵`, or a fixed day of 1440 minutes, says a
-   difference array will do and you can skip the sort.
+   Sort by end.
+5. **"Cover", "every point", "at least one in each".** Variations J and K.
+6. **A range of something that is not time.** Bytes, card numbers, addresses,
+   positions lit by a lamp, the reach of a sprinkler. The word "interval" may not
+   appear.
+7. **Constraint shapes.** n up to 10^5 with endpoints up to 10^9: sort and sweep.
+   Endpoints up to 10^5 or a day of 1,440 minutes: a difference array, no sort.
 
-The anti-signals:
+**Disguised forms.** Sprinklers at positions with ranges are intervals
+[i - r, i + r]. "Each show starts at start[i] and lasts duration[i]" is
+[start, start + duration). A process "running from s through e" is closed, and
+"up to, but not including" is half-open. "Arrows that burst balloons spanning
+[x1, x2]" is points hitting intervals. Turning the story into pairs is the first
+step, and deciding whether ends are owned is the second.
 
-- **Pairs that are not ranges.** `(u, v)` as a relation is [[graphs]] or
-  [[union-find]]. Ask whether `s <= e` is even meaningful.
-- **"Subarray" or "substring".** A contiguous window is [[sliding-window]]
-  territory even though a window is an interval: there the windows are not given
-  to you, you are choosing them.
-- **Weights on the intervals.** Once the objective is a sum of values rather than
-  a count, the earliest-end greedy is unsound and you are in DP.
-- **Rooms that are not interchangeable.** *Minimum Meeting Rooms with
-  Assignments* looks exactly like *Meeting Rooms II* and is not, because the
-  achievability half of the proof no longer holds.
+**Anti-signals.**
+
+- **Weights or values on the intervals**: the greedy is wrong; DP.
+- **Resources that are not interchangeable**: "meeting i may only use rooms in
+  allowed[i]" is matching, not counting.
+- **"Subarray" or "substring"**: you are choosing the window; [[sliding-window]].
+- **Pairs that are relations**: (u, v) as an edge is a graph.
 
 ## Traps
 
-**Overwriting the block end instead of maximising it.** Symptom: nested
-intervals vanish, coverage comes out too small, and the output can even contain
-overlapping blocks — which is a property you can assert against.
+**Assigning the block end instead of maximising it.** Symptom: nested intervals make
+blocks shrink, points vanish, and the output can contain blocks that overlap. The
+subtle-line block shows it.
 
-**Aliasing the caller's rows.** `out.append(interval)` puts the caller's own list
-in your result, and the next `out[-1][1] = …` mutates their input. Symptom: right
-the first time, different the second time on the same data. Append `[s, e]`.
+**Sorting by the wrong endpoint.** By end for a merge: a later interval reaches back
+over a closed block. By start for "most non-overlapping": one long early interval
+eats the day. Symptom: passes samples, which are often already sorted by start.
 
-**Getting the convention wrong at touching endpoints.** `[1,2]` and `[2,3]`: one
-merged block or two, one room or two? Closed intervals merge on `s <= ce` and
-need 2 rooms, since both meetings own the instant 2; half-open uses `s < ce` and
-needs 1. Both are right, only one matches the statement. Symptom: off by exactly
-one, only on inputs with a shared endpoint.
+**Getting the convention wrong at touching endpoints.** [1, 2] and [2, 3]: closed,
+they overlap and need two rooms; half-open, they do not and need one. Symptom: off by
+exactly one, only on inputs with a shared endpoint.
 
-**Inclusive length.** *Process Execution Time* says "1 to 5 contributes 5", i.e.
-`e - s + 1`, because the units are discrete; a meeting from 1 to 5 o'clock lasts
-`e - s = 4` hours, because time is continuous. Decide which world you are in
-before writing the sum.
+**The wrong tie order in the sweep.** For half-open intervals, a start processed
+before an end at the same time counts one room too many. Symptom: [[0, 30], [30, 60]]
+gives 2.
 
-**Event ties in the sweep.** With continuous coordinates, processing the `+1`
-before the `-1` at the same `t` reports one room too many. Sort `(t, delta)`
-tuples, or work in the `e + 1` half-open form.
+**The wrong length formula.** Inclusive integers: e - s + 1. Continuous time: e - s.
+Symptom: every total off by the number of blocks.
 
-**Sorting by end and then merging.** The flush step in the proof needs starts
-sorted. Symptom: passes the samples, which tend to arrive sorted by start
-already, and fails on shuffled input.
+**Forgetting the last block.** Code that appends a block only when a gap is found
+must append once more after the loop. Symptom: the last block is missing, and an
+input with one interval returns an empty list.
 
-**Forgetting the empty input.** `merge([])` must be `[]`, and the final flush
-must not run.
+**Editing the caller's input.** `out.append(row)` then `out[-1][1] = ...` changes the
+input list. Symptom: a second call on the same data gives a different answer.
 
-```python run
-def merge_right(iv):
-    out = []
-    for s, e in sorted(iv):
-        if out and s <= out[-1][1]:
-            out[-1][1] = max(out[-1][1], e)
-        else:
-            out.append([s, e])
-    return out
-
-
-def merge_no_max(iv):                      # bug 1: assigns instead of maximising
-    out = []
-    for s, e in sorted(iv):
-        if out and s <= out[-1][1]:
-            out[-1][1] = e
-        else:
-            out.append([s, e])
-    return out
-
-
-def merge_aliasing(iv):                    # bug 2: stores the caller's own row
-    out = []
-    for row in sorted(iv):
-        if out and row[0] <= out[-1][1]:
-            out[-1][1] = max(out[-1][1], row[1])
-        else:
-            out.append(row)
-    return out
-
-
-nested = [[1, 10], [2, 3], [5, 12]]
-print("right  ", merge_right(nested), "covers 1..12, 12 units")
-print("no max ", merge_no_max(nested), "<- the block shrank to 3, so 4 fell into a gap")
-assert merge_right(nested) == [[1, 12]]
-assert merge_no_max(nested) == [[1, 3], [5, 12]]
-
-caller = [[1, 2], [2, 5]]
-merge_aliasing(caller)
-print("after merge_aliasing, the caller's input is", caller, "<- it was [[1, 2], [2, 5]]")
-assert caller == [[1, 5], [2, 5]]
-
-# the same two meetings, the two conventions, two different answers
-def rooms(iv, closed):
-    ev = []
-    for s, e in iv:
-        ev.append((s, 1))
-        ev.append((e + 1 if closed else e, -1))
-    ev.sort()
-    cur = best = 0
-    for _, d in ev:
-        cur += d
-        best = max(best, cur)
-    return best
-
-
-touch = [[0, 30], [30, 60]]
-print("rooms for", touch, "-> closed (30 is occupied):", rooms(touch, True),
-      " half-open (30 is free):", rooms(touch, False))
-assert rooms(touch, True) == 2 and rooms(touch, False) == 1
-```
-
-The last three lines are the topic's whole bug budget in one print. Neither
-answer is a mistake; choosing without noticing there was a choice is.
+**Empty input.** `merge([])` is `[]`, rooms for no meetings is 0, and
+`max(...)` of an empty sequence raises. Symptom: a crash on the edge case the
+constraints allow ("0 <= intervals.length").
 
 ## What to memorise
 
-Two templates, one sentence, one habit.
-
-**The merge**, which should come out of your fingers:
+**The merge.**
 
 ```python
 out = []
 for s, e in sorted(intervals):          # by START
-    if out and s <= out[-1][1]:         # '<' for half-open intervals
+    if out and s <= out[-1][1]:         # '<' if half-open, '<= ce + 1' if adjacent joins
         out[-1][1] = max(out[-1][1], e) # the max is not optional
     else:
-        out.append([s, e])              # a copy, not the caller's row
+        out.append([s, e])              # a fresh list, not the caller's row
 ```
 
-**The sweep**, for anything about "how many at once":
+**The sweep.**
 
 ```python
-ev = [(s, 1) for s, _ in iv] + [(e + 1, -1) for _, e in iv]   # e+1: closed
-ev.sort()
+events = sorted([(s, 1) for s, e in iv] + [(e, -1) for s, e in iv])   # half-open
 cur = best = 0
-for _, d in ev:
+for t, d in events:
     cur += d
     best = max(best, cur)
 ```
 
-**The sentence** that picks the sort: *sort by start to describe the union, sort
-by end to choose a subset, and drop the intervals entirely — keeping only tagged
-endpoints — to count what is simultaneous.*
+**The sentence.** *Starts describe the union, ends choose the subset, endpoints count
+the crowd.* Then ask: after sorting, what is the least I must remember?
 
-**The habit**: before writing anything, write the convention as a comment —
-`# closed [s, e], integer minutes` — and normalise to half-open at the door by
-replacing `e` with `e + 1`. You will still have to think once; you will not have
-to think again in four different places.
+**The habit.** Write the convention as the first comment, `# closed [s, e]` or
+`# half-open [s, e)`, and convert inclusive ends to half-open at the door with
+e + 1. Then every test is `<` and every tie in the sweep sorts itself.
 
-Numbers worth carrying: merging `n` intervals yields 1 to `n` blocks and costs
-`Θ(n log n)`, optimal in the comparison model; the minimum number of
-interchangeable resources equals the maximum overlap; the intersection of
-`[a1,a2]` and `[b1,b2]` is `[max(a1,b1), min(a2,b2)]`, non-empty exactly when
-`max(a1,b1) <= min(a2,b2)`.
+**Numbers worth carrying.** Merging costs O(n log n) and cannot do better with
+comparisons. The fewest interchangeable resources equals the largest overlap. Two
+closed intervals overlap exactly when max(starts) <= min(ends).
 
 ## Check yourself
 
 :::check
-The merge scan sorts by start only. Why is it safe to emit a finished block
-without ever looking at the intervals that come after the one that closed it?
+Merge by hand, closed intervals: [[5, 8], [1, 9], [2, 6], [10, 12], [9, 9], [12, 14]].
+Write the sorted order and, for each interval, the test, the action and the block
+after it. Then run it again with `ce = e` and find the first interval where the
+two runs differ, and the first output block that is wrong.
 --
-Because the sort gives a one-sided guarantee that is exactly strong enough. When
-`[s, e]` has `s > ce` and we flush `[cs, ce]`, every unexamined `[s', e']` has
-`s' >= s > ce`, so it lies entirely right of `ce` and cannot touch the block.
-That is Case B of the proof.
+Sorted by start: [1, 9], [2, 6], [5, 8], [9, 9], [10, 12], [12, 14].
 
-Note what is *not* guaranteed: nothing about the ends. This is why the same sort
-justifies the flush and yet the block end still needs `max(ce, e)`.
+| interval | test | ce = max(ce, e) | block | ce = e | block |
+|---|---|---|---|---|---|
+| [1, 9] | first | open | (1, 9) | open | (1, 9) |
+| [2, 6] | 2 <= ce | ce = max(9, 6) = 9 | (1, 9) | ce = 6* | (1, 6) |
+| [5, 8] | 5 <= ce | ce = 9 | (1, 9) | ce = 8* | (1, 8) |
+| [9, 9] | 9 <= ce? | 9 <= 9, ce = 9 | (1, 9) | **9 <= 8 fails**: close [1, 8] | (9, 9) |
+| [10, 12] | 10 <= ce? | fails: close [1, 9] | (10, 12) | fails: close [9, 9] | (10, 12) |
+| [12, 14] | 12 <= 12 | ce = 14 | (10, 14) | ce = 14 | (10, 14) |
+
+Right: [[1, 9], [10, 14]]. Wrong: [[1, 8], [9, 9], [10, 14]].
+
+The runs first differ at [2, 6], the nested interval, where the wrong one writes 6
+over 9. Nothing is visible yet. The first wrong *output* is decided at [9, 9]: it
+should join (1, 9) because the block reaches 9, but the wrong block only reaches 8,
+so [1, 8] is closed and [9, 9] is split off. The bug happened two rows before it was
+visible.
 :::
 
 :::check
-A candidate says: "To pick the largest set of non-overlapping intervals, sort by
-start and take each one that does not clash with the last one taken. It is the
-same greedy, just a different key." Where are they wrong?
+Sweep by hand for rooms, half-open: [[1, 5], [2, 3], [3, 7], [5, 6], [6, 8]]. List the
+events in sorted order with the running count, and give the answer. Then say what the
+answer would be if the intervals were closed, and which instants change.
 --
-The rule is genuinely different and genuinely wrong. On
-`[[1,100], [2,3], [4,5], [6,7]]` it takes `[1,100]` first and everything else
-clashes, giving 1; sorting by end gives 3. The runnable block above checks the
-end rule against every subset on 300 random instances.
+Events (time, delta) sorted, -1 before +1 at a tie: (1, +1) 1; (2, +1) 2; (3, -1) 1;
+(3, +1) 2; (5, -1) 1; (5, +1) 2; (6, -1) 1; (6, +1) 2; (7, -1) 1; (8, -1) 0. Peak 2.
 
-The reason is what each rule optimises locally. Taking the earliest end leaves
-the resource free as soon as possible, and the exchange argument shows that is
-never worse. A small start says nothing about when the resource is released, so
-it buys no exchange. Two sorts, two purposes: *starts* describe the union, *ends*
-choose a subset.
+Closed: ends move to e + 1: [1, 6), [2, 4), [3, 8), [5, 7), [6, 9). Events: 1 +1 (1),
+2 +1 (2), 3 +1 (3), 4 -1 (2), 5 +1 (3), 6 -1 (2), 6 +1 (3), 7 -1 (2), 8 -1 (1),
+9 -1 (0). Peak 3. At instant 3, closed intervals [1, 5], [2, 3] and [3, 7] all contain
+3, so three rooms are needed; half-open, [2, 3) is over at 3.
 :::
 
 :::check
-*Minimum Meeting Rooms with Assignments* restricts each meeting to a subset of
-the rooms. Which half of the "rooms = maximum overlap" proof survives, and what
-does that tell you about the answer?
+Someone says: "To keep the most non-overlapping intervals, take the shortest ones
+first; short intervals block the least." Where are they wrong?
 --
-The lower bound survives untouched: `M` meetings covering one instant still
-pairwise conflict, so you still need at least `M` rooms. The upper bound does
-not, because its induction placed each meeting in *any* free room, and with
-restrictions the free room may be one this meeting is not allowed to use.
+Short does not mean out of the way. On [[1, 5], [4, 7], [6, 10]] (half-open), the
+shortest is [4, 7], length 3, and it overlaps both others, so shortest-first keeps
+1. Ending first keeps [1, 5] and [6, 10]: 2.
 
-So the sweep gives a valid lower bound and no longer a valid answer — the problem
-has become a matching between meetings and permitted rooms, not a counting
-problem. Recognising that one sentence of the proof has failed is the whole
-difference between this and *Meeting Rooms II*.
+What makes earliest-end right is the exchange argument: the interval that ends
+first can replace the first interval of any best set without creating a clash,
+because everything else in that set starts after the replaced one ends, which is no
+earlier than when ours ends. "Shortest" has no such swap: the shortest interval can
+sit in the middle and clash with two that would both have fit.
 :::
 
 :::check
-*Process Execution Time* says a process running from 1 to 5 contributes
-`5 - 1 + 1 = 5` units. Someone reuses their *Meeting Rooms II* code, which treats
-`[s, e]` as half-open, and gets a slightly small answer. Explain the two edits
-that fix it, and why there are two.
+Why is it enough, for "can one person attend every meeting?", to compare each
+meeting only with the one just before it in sorted order, when for merging that
+same comparison is a bug?
 --
-Edit one: the merge test. Half-open code merges only when `s < ce`, so `[1,5]`
-and `[5,9]` stay separate, while inclusive units want them merged.
+Because the question is different. "Is there any clash?" stops at the first clash.
+If there is no clash among adjacent pairs, then every meeting ends before the next
+one starts, so the ends are increasing too, and the previous meeting's end *is* the
+largest end so far. So "previous interval" and "current block" are the same thing
+until the first clash, and after it we stop.
 
-Edit two: the length formula, `e - s + 1` instead of `e - s`.
-
-There are two because the convention leaks into two independent decisions — what
-counts as touching, and what a block measures. Converting once at the door
-(`e ← e + 1`, then everything is half-open, merge with `s < ce`, length `e - s`)
-collapses them into one decision, which is the reason to prefer that style.
+Merging does not stop at a clash. It continues with a block whose end may come from
+an earlier, longer interval, so it must remember the largest end, not the last one.
 :::
 
 :::check
-*Insert Interval* hands you an already-sorted, already-disjoint list and one new
-interval. Why can it not be solved in `O(log n)`, given that binary search finds
-the affected region in `O(log n)`?
+Insert [4, 9] into the closed, sorted, disjoint list [[1, 2], [3, 4], [6, 7],
+[9, 12], [14, 15]] by hand, naming the three runs. Then do it again with half-open
+intervals and the same numbers.
 --
-Because the answer has to be produced. Binary search does locate the affected
-region in `O(log n)`, and merging it is `O(k)` in the number of blocks swallowed.
-But the specification asks for the full list, and copying the `n - k` untouched
-blocks into a new list is `Θ(n)`.
+Closed. Run 1 (end < 4): [1, 2]. Run 2 (start <= 9): [3, 4] (4 >= 4, touches),
+[6, 7], [9, 12] (9 <= 9, touches): absorb into [min(4, 3), max(9, 12)] = [3, 12].
+Run 3: [14, 15]. Result [[1, 2], [3, 12], [14, 15]].
 
-The distinction changes with the interface. If the calendar is a mutable
-balanced structure updated in place — the *My Calendar I* setting — then
-`O(log n + k)` per insertion is achievable, and over `m` insertions the swallowed
-blocks sum to at most `m`, so the amortised cost really is logarithmic. Same
-algorithm, different cost, purely because nothing has to be copied.
+Half-open: [4, 9) does not touch [3, 4) (it ends at 4) or [9, 12) (it starts at 9).
+Run 1 (end <= 4): [1, 2), [3, 4). Run 2 (start < 9): [6, 7), absorb: [4, 9). Run 3:
+[9, 12), [14, 15). Result [[1, 2], [3, 4], [4, 9], [9, 12], [14, 15]]. The two tests
+change from `end < s` / `start <= e` to `end <= s` / `start < e`.
+:::
+
+:::check
+A disguised one. "A street has lamps; lamp i at position p[i] lights everything
+within r[i] of it. Points q[j] are houses. For each house, how many lamps light it?"
+n and the number of houses are up to 10^5, positions up to 10^9. Reduce it to this
+chapter.
+--
+Each lamp is the closed interval [p - r, p + r]. A house is lit by every interval
+containing it, so the answer for house q is the count at q in the +1/-1 sweep.
+
+Events: +1 at p - r, -1 just after p + r (at p + r + 1 for integer positions), and a
+query event at each q. Sort all of them by position, with the order at equal
+positions chosen so a lamp starting at q counts and a lamp ending at q - 1 does not:
+process -1, then +1, then queries. Walk with a running count and record it at each
+query. O((n + m) log(n + m)). Coordinates up to 10^9 rule out a difference array
+indexed by position; with positions up to 10^5 it would be the simpler choice.
+:::
+
+:::check
+The heap version of Meeting Rooms II pops a room only when `busy[0][0] <= s`. What
+does it compute if you write `<` instead, and for which statements is that the right
+answer?
+--
+With `<`, a room whose meeting ends exactly when the new one starts is treated as
+still busy, so touching meetings get different rooms. That is the answer for *closed*
+intervals, where a meeting ending at 30 still owns the instant 30, as in Task
+Scheduling ("runs from start through end"). With `<=` it is the half-open answer, as
+in Meeting Rooms II and Minimum Cars for Rental Requests ("a car returned at time t may
+be reused by a rental picked up at time t").
+
+On [[0, 30], [30, 60]], `<=` gives 1 room and `<` gives 2. The same one character is
+the tie order in the sweep and the `<` versus `<=` in the merge: all three are the
+question "does an interval own its end?"
 :::

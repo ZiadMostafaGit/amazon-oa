@@ -1,0 +1,15 @@
+{
+ "pattern": "union-find",
+ "why": "Components that grow as cells arrive: re-running a flood fill after every addition is too slow, but union-find handles it online. A new land cell adds one island, and every union with a neighbouring land cell in a different set removes one.",
+ "hints": [
+  "When one water cell turns to land, which islands can it affect?",
+  "Only its up to four land neighbours. Count +1 for the new cell, then union it with each land neighbour; every union that actually merges two sets is -1.",
+  "Index cells as r * cols + c, keep a land flag, union-find with path compression and union by size. Re-adding existing land appends the unchanged count. O(k alpha(rows * cols))."
+ ],
+ "pitfalls": [
+  "A repeated position must not add another island.",
+  "Two neighbours may already share a root; only decrement when find differs."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

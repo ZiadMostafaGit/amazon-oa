@@ -1,0 +1,16 @@
+{
+  "pattern": "search-rotated",
+  "why": "The classic rotated search: at every mid, at least one half [lo, mid] or [mid, hi] is sorted, and checking whether the target lies inside that sorted half tells you which half to keep.",
+  "hints": [
+    "A rotated array is not sorted, but cut it anywhere and one of the two pieces is.",
+    "If nums[lo] <= nums[mid], the left half is sorted: keep it if nums[lo] <= target < nums[mid], else go right. Otherwise the right half is sorted: keep it if nums[mid] < target <= nums[hi], else go left.",
+    "Standard lo <= hi loop returning mid on a hit, -1 at the end. O(log n). (Alternative: find the minimum's index first, then binary search the right run.)"
+  ],
+  "pitfalls": [
+    "Use <= in nums[lo] <= nums[mid]: when lo == mid the left half is one element and is sorted.",
+    "The range test must be strict on the side of mid (target < nums[mid]) since nums[mid] was already checked."
+  ],
+  "constraints": "<ul><li>1 &lt;= nums.length &lt;= 10<sup>5</sup></li><li>-10<sup>9</sup> &lt;= nums[i], target &lt;= 10<sup>9</sup></li><li>All values are distinct.</li><li>nums is a strictly increasing array rotated at an unknown pivot (possibly not rotated at all).</li><li>Aim for O(log n) time.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

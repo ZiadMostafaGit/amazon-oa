@@ -1,0 +1,16 @@
+{
+ "pattern": "lca",
+ "why": "LCA made simple by the ordering: walk down from the root; while both values are smaller go left, while both are larger go right; the first node that separates them (or equals one) is the LCA.",
+ "hints": [
+  "At the root, if p and q are both smaller than it, where must their LCA be?",
+  "If both are smaller go left, if both are larger go right; otherwise the current node lies between them (or equals one of them) and is the answer.",
+  "A single loop from the root, no recursion and no extra storage: O(h) time, O(1) space."
+ ],
+ "pitfalls": [
+  "A node is its own ancestor: if p is an ancestor of q, the answer is p.",
+  "p and q may be equal; the answer is then that node.",
+  "Compare against min(p, q) and max(p, q), not p and q in the given order."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

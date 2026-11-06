@@ -1,0 +1,16 @@
+{
+  "pattern": "stack",
+  "why": "Nested calls on one CPU form a call stack: the function on top is the one running. Each log event charges the elapsed time to the current top, then pushes or pops. It is matching start/end pairs where the stack also tells you who owns the time between events.",
+  "hints": [
+    "Between two consecutive log records, which function is running?",
+    "The innermost unfinished call: the top of a stack of function IDs. A start pauses it, an end resumes the one below.",
+    "Keep prev = first uncharged second. On start at t: charge t - prev to the top (if any), push, prev = t. On end at t: charge t - prev + 1 to the popped ID, prev = t + 1."
+  ],
+  "pitfalls": [
+    "An end timestamp is inclusive (that second counts), so the next second starts at t + 1.",
+    "Recursive calls of the same ID are separate stack entries; their times add up in the same total.",
+    "Idle time between top-level calls belongs to no function."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

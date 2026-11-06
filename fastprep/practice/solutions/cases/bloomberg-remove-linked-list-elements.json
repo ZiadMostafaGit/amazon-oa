@@ -1,0 +1,98 @@
+{
+ "problemId": "bloomberg-remove-linked-list-elements",
+ "generatedAt": "2026-11-06T16:49:15",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "head",
+     "type": "ListNode",
+     "rawValue": "[1, 2, 6, 3, 4, 5, 6]"
+    },
+    {
+     "name": "val",
+     "type": "int",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "[1, 2, 6, 3, 4, 5, 6]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "head",
+     "type": "ListNode",
+     "rawValue": "[7, 7, 7, 7]"
+    },
+    {
+     "name": "val",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[7, 7, 7, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "head",
+     "type": "ListNode",
+     "rawValue": "[7, 7, 7, 7]"
+    },
+    {
+     "name": "val",
+     "type": "int",
+     "rawValue": "-7"
+    }
+   ],
+   "expectedRaw": "[7, 7, 7, 7]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "head",
+     "type": "ListNode",
+     "rawValue": "[1, 2, 6, 3, 4, 5, 6]"
+    },
+    {
+     "name": "val",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "[1, 2, 6, 3, 4, 5, 6]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "head",
+     "type": "ListNode",
+     "rawValue": "null"
+    },
+    {
+     "name": "val",
+     "type": "int",
+     "rawValue": "-1"
+    }
+   ],
+   "expectedRaw": "null"
+  },
+  {
+   "inputs": [
+    {
+     "name": "head",
+     "type": "ListNode",
+     "rawValue": "[1, 2, 6, 3, 4, 5, 6]"
+    },
+    {
+     "name": "val",
+     "type": "int",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "[1, 2, 6, 3, 5, 6]"
+  }
+ ]
+}

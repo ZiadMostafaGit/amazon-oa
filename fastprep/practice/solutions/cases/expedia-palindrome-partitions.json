@@ -1,0 +1,68 @@
+{
+ "problemId": "expedia-palindrome-partitions",
+ "generatedAt": "2026-11-06T16:49:23",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"BaaaB\""
+    }
+   ],
+   "expectedRaw": "[[\"B\", \"a\", \"a\", \"a\", \"B\"], [\"B\", \"a\", \"aa\", \"B\"], [\"B\", \"aa\", \"a\", \"B\"], [\"B\", \"aaa\", \"B\"], [\"BaaaB\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"Baa\""
+    }
+   ],
+   "expectedRaw": "[[\"B\", \"a\", \"a\"], [\"B\", \"aa\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "[[\"1\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"aabb\""
+    }
+   ],
+   "expectedRaw": "[[\"a\", \"a\", \"b\", \"b\"], [\"a\", \"a\", \"bb\"], [\"aa\", \"b\", \"b\"], [\"aa\", \"bb\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"BaaBB\""
+    }
+   ],
+   "expectedRaw": "[[\"B\", \"a\", \"a\", \"B\", \"B\"], [\"B\", \"a\", \"a\", \"BB\"], [\"B\", \"aa\", \"B\", \"B\"], [\"B\", \"aa\", \"BB\"], [\"BaaB\", \"B\"]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "[[\"d\", \"o\", \"g\"]]"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "strings",
+  "why": "A run-length scan whose only trap is the tie rule: compare with >= so a later run of equal length replaces the earlier one, and remember to close the last run after the loop.",
+  "hints": [
+    "Scan the string once, tracking the current run's character and length.",
+    "When the character changes (or the string ends), compare the finished run with the best. Which comparison makes the rightmost run win a tie?",
+    "Use >= for the update so later equal runs replace earlier ones, and process the final run after the loop. Return char + str(length). O(n)."
+  ],
+  "pitfalls": [
+    "Forgetting the final run: the longest run is often the last one.",
+    "Using > keeps the leftmost run on ties; the problem wants the rightmost.",
+    "The count is written in decimal and can have two digits (e.g. 'a12')."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

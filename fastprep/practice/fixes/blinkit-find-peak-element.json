@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search",
+  "why": "The array is not sorted, yet 'nums[i] > nums[i + 1]' is false while you climb and true once you descend past the peak, so the peak is the first index where that predicate turns true.",
+  "hints": [
+    "Compare nums[mid] with nums[mid + 1]. If you are going uphill, where must the peak be?",
+    "Uphill (nums[mid] < nums[mid + 1]) -> the peak is strictly to the right. Downhill -> the peak is mid or to its left.",
+    "lo, hi = 0, n - 1; while lo < hi: if nums[mid] < nums[mid + 1]: lo = mid + 1 else hi = mid. Return lo. O(log n)."
+  ],
+  "pitfalls": [
+    "mid + 1 is always valid because lo < hi.",
+    "One element: the loop does not run and index 0 is the peak."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

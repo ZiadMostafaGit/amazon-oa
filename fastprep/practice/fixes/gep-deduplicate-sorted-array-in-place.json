@@ -1,0 +1,16 @@
+{
+ "pattern": "in-place-rearrangement",
+ "why": "Reader and writer pointers: a reader scans every element, a writer marks the end of the kept prefix. Because the array is sorted, a value is new exactly when it differs from the last value written, so the reader copies it to the writer slot and the writer advances.",
+ "hints": [
+  "Since the array is sorted, where are all the copies of one value?",
+  "Keep w = length of the compacted prefix. For each value read, it is a new distinct value exactly when it differs from nums[w-1].",
+  "w = 0; for each x: if w == 0 or x != nums[w-1], set nums[w] = x and w += 1. Return nums[:w]. O(n) time, O(1) extra space."
+ ],
+ "pitfalls": [
+  "Empty array returns empty.",
+  "Compare with the last WRITTEN value, not with the previous read value (both work here because the array is sorted, but the writer comparison generalises to 'keep at most k copies').",
+  "Do not use a set: it costs O(n) space and the task is about compaction in place."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

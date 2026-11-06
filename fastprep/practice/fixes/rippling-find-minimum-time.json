@@ -1,0 +1,16 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "Minimise the finishing time: if every process can be done when each processor runs at most k of them, it can with k + 1, so binary search k. The check is greedy, largest processes go to the largest processors, k at a time. A processor running k processes takes 2k - 1 seconds.",
+  "hints": [
+    "A processor that runs k processes needs k seconds of work plus k - 1 pauses. So the question becomes: what is the smallest k that works?",
+    "Fix k. Sort processes and capacities descending; give the strongest processor the k largest processes, the next one the next k, and so on. If a process is larger than the processor it reaches, k fails. Feasibility is monotone in k.",
+    "If the largest process exceeds every capacity, return -1. Otherwise binary search k in [1, n] and return 2k - 1. O((n + m) log n)."
+  ],
+  "pitfalls": [
+    "Time is 2k - 1, not k or 2k.",
+    "Check impossibility first: max(processSize) > max(capacity)."
+  ],
+  "constraints": "<ul><li>1 &lt;= n, m &lt;= 10<sup>5</sup></li><li>1 &lt;= processSize[i], capacity[i] &lt;= 10<sup>9</sup></li><li>The source shows no bounds; these are practice assumptions.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

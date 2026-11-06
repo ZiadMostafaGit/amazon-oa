@@ -1,0 +1,15 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "Instead of enumerating subarrays, count for each element how many subarrays it is the minimum of: (i - previous smaller index) * (next smaller-or-equal index - i). Previous and next smaller elements come from a monotonic stack. It teaches the contribution technique.",
+  "hints": [
+    "Turn it around: for a fixed arr[i], in how many subarrays is it the minimum?",
+    "In every subarray that starts after the previous smaller element and ends before the next smaller element: left choices times right choices.",
+    "Find prev (strictly smaller) and next (smaller or equal) with a monotonic stack, sum arr[i] * (i - prev) * (next - i), take mod 10^9+7. O(n)."
+  ],
+  "pitfalls": [
+    "With equal values, use a strict bound on one side and a non-strict one on the other, or subarrays with tied minimums are counted twice or not at all.",
+    "Apply the modulo to the final sum (or as you go); the raw sum can be very large."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

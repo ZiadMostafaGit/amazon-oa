@@ -1,0 +1,15 @@
+{
+ "pattern": "union-find",
+ "why": "Process edges in sorted order: add roads from the highest limit down with union-find. The first road whose addition puts start and end in the same set is the bottleneck of the best route, so its limit is the answer (this is Kruskal stopped early).",
+ "hints": [
+  "Suppose you only allowed roads with limit >= W. Is there a route? How does the answer change as W falls?",
+  "Lower W gradually: sort roads by limit, largest first, and union them in that order. Stop as soon as start and end are connected.",
+  "Union-find with path compression; the limit of the road just added at that moment is the answer, or -1 if they never connect. O(E log E)."
+ ],
+ "pitfalls": [
+  "Parallel roads between the same cities are fine; the stronger one is processed first.",
+  "A Dijkstra variant maximising the minimum also works, but the sorted-edge union-find is shorter."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

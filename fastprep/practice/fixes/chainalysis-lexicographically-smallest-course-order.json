@@ -1,0 +1,15 @@
+{
+ "pattern": "topological-sort",
+ "why": "Kahn's algorithm produces the order itself, not just a yes/no: repeatedly output a course whose prerequisites are all done. Using a min-heap for the ready set makes the order the lexicographically smallest one, and an order shorter than numCourses means a cycle.",
+ "hints": [
+  "Which courses can you take on day one? After taking one, which new courses become possible?",
+  "Count each course's unfinished prerequisites (its in-degree). A course is ready at 0. Taking it decrements every course that depends on it.",
+  "Push all in-degree-0 courses into a min-heap; pop the smallest, append it, decrement its successors, push those that reach 0. If the result has fewer than numCourses entries, return []. O((V + E) log V)."
+ ],
+ "pitfalls": [
+  "The pair is [course, prerequisite]: the edge goes prerequisite -> course.",
+  "A plain queue gives a valid order but not the smallest one; the tie rule needs a heap."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

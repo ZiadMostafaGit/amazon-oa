@@ -1,0 +1,17 @@
+{
+ "pattern": "prefix-sums",
+ "why": "Difference array for range updates: adding units to every slot in [start, end] is +units at start and -units just after end in a difference array. One prefix sum over the difference array then gives every slot's total, so each booking costs O(1) instead of O(length).",
+ "hints": [
+  "Adding each booking slot by slot is O(n) per booking. What is the smallest change that describes 'add u from start to end'?",
+  "In a difference array d, d[start] += u and d[end+1] -= u. The prefix sum of d at slot x is exactly the total added to x.",
+  "Allocate d of size n+2, apply every booking in O(1), then one running sum over slots 1..n gives the answer. O(n + bookings)."
+ ],
+ "pitfalls": [
+  "Slots are 1-based and end is inclusive: the -u goes at end + 1.",
+  "Size the array n + 2 so end = n does not overflow.",
+  "Slots with no booking are 0."
+ ],
+ "constraints": "<ul><li>1 &le; n &le; 2 &times; 10<sup>4</sup></li><li>1 &le; bookings.length &le; 2 &times; 10<sup>4</sup></li><li>bookings[i] = [start, end, units] with 1 &le; start &le; end &le; n and 1 &le; units &le; 10<sup>4</sup></li><li>(Practice bounds; the source gives none.)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

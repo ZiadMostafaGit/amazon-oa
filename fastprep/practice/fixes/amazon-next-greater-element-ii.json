@@ -1,0 +1,15 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "Next greater element on a circular array: walk the indices twice (i mod n) so elements near the end can find their answer at the start. Only the first pass pushes; the second pass only resolves waiting indices.",
+  "hints": [
+    "How would you handle the wrap-around without building a new array?",
+    "Iterate j from 0 to 2n-1 and use i = j mod n; the second lap lets the stack see the beginning again after the end.",
+    "Stack of indices still waiting: while nums[top] < nums[i], pop and set its answer to nums[i]; push i only during the first lap. Unresolved indices keep -1. O(n)."
+  ],
+  "pitfalls": [
+    "Do not push during the second lap, or indices are processed twice.",
+    "The maximum value (and any copies of it) has no greater element: -1."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

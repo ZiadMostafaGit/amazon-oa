@@ -1,0 +1,16 @@
+{
+ "pattern": "counting-sort",
+ "why": "Counting sort when values are small: scores are 0..100, so bucket them and walk from 100 down; a score's rank is 1 + the number of players with a strictly higher score, and players qualify while that rank is at most k.",
+ "hints": [
+  "A player's rank depends only on how many players scored strictly more. How could you get that count for every score quickly?",
+  "Scores are between 0 and 100. Count how many players have each score, then walk scores from high to low keeping 'how many scored higher'.",
+  "For each score s from 100 down to 1: rank = higher + 1; if rank > k stop; else add bucket[s] to the answer and to higher. O(n + 100). Sorting descending works too."
+ ],
+ "pitfalls": [
+  "Ties share a rank, and the next rank skips (1, 1, 1, 4).",
+  "A score of 0 never levels up, whatever its rank.",
+  "All tied players at a qualifying rank qualify, even if that makes more than k players."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

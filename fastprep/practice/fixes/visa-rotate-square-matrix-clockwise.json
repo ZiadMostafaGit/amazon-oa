@@ -1,0 +1,15 @@
+{
+  "pattern": "matrix-traversal",
+  "why": "Rotation is an index mapping: out[r][c] = matrix[n-1-c][r]. Equivalently, transpose then reverse every row; seeing both views is the whole skill.",
+  "hints": [
+    "Rotate a 3x3 by hand. Where does the first row of the input end up?",
+    "The first input row becomes the last output column. Write the mapping as out[r][c] = matrix[n-1-c][r], or as transpose + reverse each row.",
+    "Build a new n x n grid with that formula (or zip(*matrix[::-1]) in Python). O(n^2) time."
+  ],
+  "pitfalls": [
+    "Mixing up clockwise and counter-clockwise: check one corner. The input's bottom-left must land at the output's top-left.",
+    "For n = 1 the matrix is unchanged."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search",
+  "why": "Each key keeps its timestamps in increasing order, and a get asks for the greatest timestamp <= t: bisect_right(timestamps, t) - 1, the predecessor search.",
+  "hints": [
+    "Sets for one key arrive with increasing timestamps, so appending keeps each key's list sorted for free.",
+    "For get(key, t) you need the last stored timestamp that is <= t. In a sorted list that is index bisect_right(ts, t) - 1.",
+    "Map key -> (list of timestamps, list of values). set appends to both and outputs \"null\"; get bisects and outputs the value or \"\" when the index is -1. O(log k) per get."
+  ],
+  "pitfalls": [
+    "A query timestamp earlier than every set returns the empty string.",
+    "Use bisect_right: a stored timestamp equal to the query must be found."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

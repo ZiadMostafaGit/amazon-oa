@@ -1,0 +1,15 @@
+{
+ "pattern": "trie",
+ "why": "Trie plus DFS: a normal letter follows one child, but a '.' must try every child, so find becomes a depth-first search through the trie that stops at the first full match.",
+ "hints": [
+  "With a hash set, how many words would '.' force you to try? What structure lets you explore all of them while sharing prefixes?",
+  "Store words in a trie. find(node, i): if pattern[i] is a letter, go to that child; if it is '.', try find on every child; at the end of the pattern require the end flag.",
+  "Recursive DFS returning as soon as one branch succeeds. Insert is O(L); find is O(L) without dots and bounded by the trie size with them."
+ ],
+ "pitfalls": [
+  "A '.' matches exactly one letter, so lengths must match: 'ca' does not match 'cat'.",
+  "Reaching the end of the pattern is not enough; that node must end a word."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

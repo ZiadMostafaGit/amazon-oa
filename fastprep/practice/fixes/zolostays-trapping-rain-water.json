@@ -1,0 +1,16 @@
+{
+ "pattern": "two-pointers",
+ "why": "Water above bar i is min(maxLeft, maxRight) - height[i]. With pointers at both ends, the side whose running max is smaller is the side whose water is already decided (the other side has a wall at least that tall), so settle that bar and move that pointer inward: move the side that cannot improve.",
+ "hints": [
+  "Water on a bar depends on the tallest bar to its left and the tallest to its right. How would you get both with two extra arrays?",
+  "Keep leftMax and rightMax while two pointers close in. If leftMax <= rightMax, the bar at lo is bounded by leftMax (a taller wall exists on the right), so its water is leftMax - height[lo].",
+  "lo = 0, hi = n-1: update the maxes, settle the side with the smaller max, move it. O(n) time, O(1) space."
+ ],
+ "pitfalls": [
+  "Bars at the very ends hold no water.",
+  "Update the side's max before computing its water so the result is never negative.",
+  "A stack-based solution also works, but the two-pointer one is the clearest O(1)-space idea."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "sliding-window",
+ "why": "Variable window, the longest valid: the window is valid while it contains at most k zeros (each zero can be flipped). Grow the right end every step; when the zero count exceeds k, shrink from the left until it is valid again; the answer is the largest valid window.",
+ "hints": [
+  "Rephrase: what does a stretch of ones after at most k flips look like in the original array?",
+  "It is a contiguous window with at most k zeros. Extending right only adds zeros; moving left only removes them.",
+  "Two pointers: for each right, count zeros; while zeros > k, drop nums[left] and left += 1; best = max(best, right - left + 1). O(n)."
+ ],
+ "pitfalls": [
+  "k = 0 is the longest run of existing ones.",
+  "k can be at least the number of zeros: the answer is then n.",
+  "Shrink with while, not if, in the general template (here if also works, but while is the habit to build)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

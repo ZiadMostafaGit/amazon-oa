@@ -1,6 +1,6 @@
 {
   "pattern": "backtracking",
-  "why": "The longest simple path in a grid has no polynomial shortcut, but the grid is at most 4x4 = 16 cells, so try every path: DFS from each fruit cell, mark the cell visited, recurse to neighbours, unmark on return. The week's DP label does not apply; this is pure backtracking.",
+  "why": "The longest simple path in a grid has no polynomial shortcut, but the grid is at most 4x4 = 16 cells, so try every path: DFS from each fruit cell, mark the cell visited, recurse to neighbours, unmark on return. It is the grid search of Word Search without a target word: pure choose, explore, un-choose.",
   "hints": [
     "With at most 16 cells, can you afford to try every simple path?",
     "Run a DFS from each fruit cell, carrying the current length; a visited set (or matrix) forbids revisiting, and you undo the mark when the call returns.",

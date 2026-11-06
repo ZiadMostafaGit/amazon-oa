@@ -1,0 +1,90 @@
+{
+ "node": "two-pointers",
+ "ladder": [
+  {
+   "id": "london-stock-exchange-two-sum-sorted",
+   "teaches": "converging pointers on a sorted array (pair sum)",
+   "why": "The canonical first rung: on a sorted array, a sum that is too small can only be fixed by moving the left pointer, too big only by moving the right one.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-valid-palindrome",
+   "teaches": "compare from both ends (palindromes)",
+   "why": "Two pointers walking inward compare mirror characters, with skipping of non-alphanumerics showing how each pointer can move on its own rule.",
+   "level": "core"
+  },
+  {
+   "id": "gep-deduplicate-sorted-array-in-place",
+   "teaches": "reader and writer pointers (compact in place)",
+   "why": "A reader scans everything while a writer marks the end of the kept prefix: the template for every in-place compaction.",
+   "level": "core"
+  },
+  {
+   "id": "atlassian-merge-sorted-array",
+   "teaches": "walk two sequences together (merge)",
+   "why": "Merging two sorted runs with one pointer each, and filling from the back so the in-place merge never overwrites unread values.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-container-with-most-water",
+   "teaches": "move the side that cannot improve (container)",
+   "why": "Why discarding the shorter line is safe: it can never do better with a narrower partner, the argument behind every opposite-ends squeeze.",
+   "level": "core"
+  },
+  {
+   "id": "att-three-sum",
+   "teaches": "fix one element, two-pointer the rest, skip duplicates (3Sum)",
+   "why": "Sorting turns 3Sum into n runs of sorted Two Sum, and duplicate-skipping on both the fixed index and the left pointer gives each triplet once.",
+   "level": "core"
+  },
+  {
+   "id": "goldman-sachs-squares-of-a-sorted-array",
+   "teaches": "walk two sequences together (merge)",
+   "why": "The two ends of a sorted array with negatives are two sorted sequences of squares; comparing the ends and writing from the back is an O(n) merge.",
+   "level": "core"
+  },
+  {
+   "id": "amazon-optimal-utilization",
+   "teaches": "converging pointers on a sorted array (pair sum)",
+   "why": "Amazon OA: pair sum at most a capacity across two lists, where an overflowing background app is useless for every larger foreground app, plus collecting ties.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-get-max-pairs",
+   "teaches": "walk two sequences together (merge)",
+   "why": "Amazon OA: after sorting both arrays, each frontend takes the smallest backend it beats, a greedy that is really two sequences walked together.",
+   "level": "practice"
+  },
+  {
+   "id": "ibm-increasing-value-triplets-under-threshold",
+   "teaches": "fix one element, two-pointer the rest, skip duplicates (3Sum)",
+   "why": "Counting instead of listing: once a[lo] + a[hi] fits the budget, every hi' between lo and hi fits too, so add hi - lo in one step.",
+   "level": "practice"
+  },
+  {
+   "id": "citadel-minimum-changes-palindromic-blocks",
+   "teaches": "compare from both ends (palindromes)",
+   "why": "Mirror-pair comparison applied block by block, where each mismatched pair costs exactly one change.",
+   "level": "practice"
+  },
+  {
+   "id": "bloomberg-valid-palindrome-ii",
+   "teaches": "compare from both ends (palindromes)",
+   "why": "The first mismatch is the only decision point: one of the two characters must go, so check both remaining middles.",
+   "level": "practice"
+  },
+  {
+   "id": "amazon-three-sum-closest",
+   "teaches": "fix one element, two-pointer the rest, skip duplicates (3Sum)",
+   "why": "The 3Sum scan without an exact target: the same pointer moves now chase the smallest distance to target.",
+   "level": "practice"
+  },
+  {
+   "id": "zolostays-trapping-rain-water",
+   "teaches": "move the side that cannot improve (container)",
+   "why": "The side with the smaller running max already knows its water level, so settle it and move it: the container argument with an insight.",
+   "level": "stretch"
+  }
+ ],
+ "notes": "All six techniques have a clean classic. The bank has no plain Remove Duplicates beyond GEP's (used) and Move Zeroes / Sort Colors (bloomberg-move-zeroes, bloomberg-sort-colors) are good extra reader/writer drills outside any pool if a second compaction rung is wanted. salesforce-minimum-removals-to-balance-array and amazon-get-minimum-boxes are same-direction windows, so they fit sliding-window better."
+}

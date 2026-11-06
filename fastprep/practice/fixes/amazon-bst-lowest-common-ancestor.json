@@ -1,0 +1,16 @@
+{
+ "pattern": "lca",
+ "why": "Insert by the ordering, then find the LCA by the ordering. The insight: the LCA is the first inserted value lying between p and q, because until it arrives p and q always fall on the same side of every node.",
+ "hints": [
+  "Build the tree by insertion and walk down from the root as in BST LCA. Then ask: is the tree even needed?",
+  "When a value v with min(p,q) <= v <= max(p,q) is inserted, p and q (inserted later or v itself) end up on different sides of v or equal to it, and every earlier node sends both the same way.",
+  "Either build the BST and do the split-point walk, or scan insertionOrder once and return the first value in [min(p,q), max(p,q)]. The scan is O(n) even when the tree degenerates into a chain."
+ ],
+ "pitfalls": [
+  "Sorted insertion order turns the tree into a 100000-node chain: avoid recursion.",
+  "p may equal q.",
+  "A node is its own ancestor."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

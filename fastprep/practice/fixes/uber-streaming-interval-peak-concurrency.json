@@ -1,0 +1,16 @@
+{
+ "pattern": "lazy-propagation",
+ "why": "Each arrival adds 1 to every time in [start, end) and the answer is the maximum over all times: range update plus a global max query, the job of a lazy segment tree over compressed endpoints.",
+ "hints": [
+  "Re-sweeping all intervals after each arrival is O(n^2 log n). What changes when one interval arrives?",
+  "Every time point in [start, end) gains 1. Compress the endpoints (all are known up front) into elementary segments [x_i, x_{i+1}), so an interval is a contiguous range of segments.",
+  "Use a segment tree storing max per node plus a pending add: a range +1 fully covering a node bumps both; a parent's max = max(children) + its pending add. The root's max is the answer. O(n log n)."
+ ],
+ "pitfalls": [
+  "Half-open intervals: [1,5) and [5,7) do not overlap, so map end to the segment before it.",
+  "Coordinates can be negative or large: compress them.",
+  "Pushing pending adds down is optional here if the parent recomputes as max(children) + add[node]."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

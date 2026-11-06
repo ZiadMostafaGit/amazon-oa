@@ -1,0 +1,16 @@
+{
+ "pattern": "hash-tables",
+ "why": "The array index as the hash: every value lies in 1..n-1, so each value names a slot of the array itself. Mark slot v by negating it the first time you see v; meeting a slot that is already negative means v was seen before.",
+ "hints": [
+  "A set solves it in O(n) extra space. The values are in 1..n-1 and the array has n slots. Can the array itself be the set?",
+  "Use the sign of nums[v] as a 'seen v' flag. Since all values are positive, negating does not destroy the value stored there (take abs when you read it).",
+  "For each x: v = abs(x); if nums[v] < 0 return v; else nums[v] = -nums[v]. O(n) time, O(1) extra space (work on a copy if the caller's array must stay intact)."
+ ],
+ "pitfalls": [
+  "Read abs(x): the element you are visiting may itself have been negated earlier.",
+  "Index 0 is never used as a mark because values start at 1; that is fine.",
+  "Floyd's cycle detection is the follow-up when the array must not be modified at all."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

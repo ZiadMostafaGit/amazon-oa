@@ -16,7 +16,8 @@ renders exactly the constructs the dialect allows and nothing else:
     <svg ...>         raw HTML, passed through verbatim (diagrams)
 
 Inline: `code`, **bold**, *italic*, [text](url), and [[topic-slug]] /
-[[topic-slug|text]] which becomes a link into the study space.
+[[topic-slug|text]] which becomes a link into the study space, and
+[[p:problem-id|text]], a link that opens that problem in the editor.
 
 Everything that is not one of those is escaped, so an article cannot smuggle a
 <script> in through a paragraph.
@@ -49,6 +50,10 @@ def inline(text: str, topic_href=None) -> str:
 
     # `code` is stashed first so nothing below reformats its contents
     out = re.sub(r"`([^`]+)`", stash, out)
+    # [[p:problem-id|text]]: a problem in the bank, opened in the editor
+    out = re.sub(r"\[\[p:([a-z0-9-]+)(?:\|([^\]]+))?\]\]",
+                 lambda m: '<a class="plink" href="?id=%s">%s</a>' % (
+                     m.group(1), m.group(2) or m.group(1).replace("-", " ")), out)
     out = re.sub(r"\[\[([a-z0-9-]+)(?:\|([^\]]+))?\]\]",
                  lambda m: '<a class="tlink" href="%s">%s</a>' % (
                      (topic_href or (lambda s: "#" + s))(m.group(1)),

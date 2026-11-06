@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-wildcard-word-dictionary",
+ "generatedAt": "2026-11-06T16:49:14",
+ "from": "reference solution, verified 2026-11-06T16:48:47",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"insert\", \"cart\"], [\"find\", \"ca.\"], [\"find\", \"c..t\"], [\"find\", \"d..\"]]"
+    }
+   ],
+   "expectedRaw": "[false, true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"insert\", \"car\"], [\"insert\", \"cat\"], [\"find\", \"c..t\"], [\"find\", \"ca\"], [\"find\", \"d..\"], [\"find\", \"ca.\"], [\"find\", \"ca\"], [\"insert\", \"cart\"]]"
+    }
+   ],
+   "expectedRaw": "[false, false, false, true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"insert\", \"cat\"], [\"insert\", \"cart\"], [\"find\", \"ca.\"], [\"insert\", \"cat\"], [\"find\", \"c..t\"], [\"insert\", \"cat\"], [\"find\", \"ca\"], [\"find\", \"d..\"]]"
+    }
+   ],
+   "expectedRaw": "[true, true, false, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"insert\", \"cat\"], [\"insert\", \"car\"], [\"insert\", \"cart\"], [\"find\", \"c..t\"], [\"find\", \"d..\"]]"
+    }
+   ],
+   "expectedRaw": "[true, false]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[[\"find\", \"ca\"], [\"find\", \"d..\"], [\"insert\", \"cat\"], [\"find\", \"c..t\"], [\"find\", \"ca.\"], [\"insert\", \"cart\"]]"
+    }
+   ],
+   "expectedRaw": "[false, false, false, true]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

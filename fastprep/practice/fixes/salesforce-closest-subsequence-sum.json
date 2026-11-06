@@ -1,0 +1,16 @@
+{
+ "pattern": "meet-in-the-middle",
+ "why": "A subset-sum question where the 'capacity' is huge (values up to 10^7, negative too), so no sum-indexed knapsack table fits. Swapping the dimension to the items instead, n <= 40 allows meet in the middle: enumerate each half's 2^20 subset sums and combine them with binary search.",
+ "hints": [
+  "Why is a reach[sum] table impossible here, and what is small instead?",
+  "2^40 is too many, but 2^20 is about a million. Split the array in two halves and list every subset sum of each half.",
+  "Sort the right half's sums; for each left sum s, binary-search goal - s among them and check the neighbours on both sides. O(2^(n/2) * n)."
+ ],
+ "pitfalls": [
+  "The empty subsequence (sum 0) is allowed, so abs(goal) is an upper bound.",
+  "Check both the insertion point and the element before it.",
+  "Build subset sums iteratively (doubling a list), not by recursion over 40 levels of bitmasks."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

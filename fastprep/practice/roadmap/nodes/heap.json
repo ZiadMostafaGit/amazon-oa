@@ -1,0 +1,84 @@
+{
+  "node": "heap",
+  "ladder": [
+    {
+      "id": "cognizant-kth-largest-element",
+      "teaches": "top k with a heap of size k",
+      "why": "A min-heap of the k largest so far keeps the kth largest at its root, in O(n log k).",
+      "level": "core"
+    },
+    {
+      "id": "ericsson-top-k-frequent-elements",
+      "teaches": "top k with a heap of size k",
+      "why": "Top k by a key: count first, then a size-k heap whose ordering includes the tie-break rule.",
+      "level": "core"
+    },
+    {
+      "id": "inmobi-connect-n-ropes-minimum-cost",
+      "teaches": "repeatedly take the best and push back the rest (simulate)",
+      "why": "Pop the two smallest, push their sum: the merged item must re-enter the order, which is why a heap and not one sort.",
+      "level": "core"
+    },
+    {
+      "id": "the-walt-disney-company-merge-k-sorted-lists",
+      "teaches": "merge k sorted lists",
+      "why": "The next output is the smallest of k heads, so a heap of heads gives each step in O(log k).",
+      "level": "core"
+    },
+    {
+      "id": "intuit-find-median-from-data-stream",
+      "teaches": "two heaps for a running median",
+      "why": "A max-heap of the lower half and a min-heap of the upper half put the median at the tops after every add.",
+      "level": "core"
+    },
+    {
+      "id": "snowflake-minimum-station-bus-fleet",
+      "teaches": "a heap of events or end times (scheduling)",
+      "why": "Process trips by departure and reuse the earliest-free bus at the origin: a min-heap of end times (per station).",
+      "level": "core"
+    },
+    {
+      "id": "get-minimum-cost",
+      "teaches": "repeatedly take the best and push back the rest (simulate)",
+      "why": "Amazon OA: buy the globally cheapest next unit m times, popping a type and pushing back its next price.",
+      "level": "practice"
+    },
+    {
+      "id": "ibm-get-maximum-amount",
+      "teaches": "repeatedly take the best and push back the rest (simulate)",
+      "why": "Each sale takes the type with the most stock and pushes it back with one less: a max-heap simulation in a story.",
+      "level": "practice"
+    },
+    {
+      "id": "snowflake-find-min-weight",
+      "teaches": "repeatedly take the best and push back the rest (simulate)",
+      "why": "Halve the current heaviest each day: the greedy choice is obvious once you see a max-heap gives it.",
+      "level": "practice"
+    },
+    {
+      "id": "amazon-package-delivery-system",
+      "teaches": "repeatedly take the best and push back the rest (simulate)",
+      "why": "Amazon OA: the heaviest package goes to the truck with most capacity, whose halved capacity goes back into the heap.",
+      "level": "practice"
+    },
+    {
+      "id": "amazon-reorganize-string",
+      "teaches": "repeatedly take the best and push back the rest (simulate)",
+      "why": "Most frequent letter first, holding the last letter out for one step: a heap with a cooldown.",
+      "level": "practice"
+    },
+    {
+      "id": "uber-minimum-refueling-stops",
+      "teaches": "repeatedly take the best and push back the rest (simulate)",
+      "why": "Decide late: keep passed stations in a max-heap and refuel from the best only when stuck.",
+      "level": "stretch"
+    },
+    {
+      "id": "amazon-sum-max-plus-min-after-decrement-operations",
+      "teaches": "repeatedly take the best and push back the rest (simulate)",
+      "why": "Starts as a pop-max/push-max-1 heap loop, but 10^9 requests force batching the simulation with arithmetic.",
+      "level": "stretch"
+    }
+  ],
+  "notes": "tiktok-get-server-index was dropped: its only example lists answers in arrival-time order ([1,2,1,3,2]) although the statement and screenshot ask for the server of each request in input order (that would be [2,1,1,3,2]). The events/end-times technique is taught by snowflake-minimum-station-bus-fleet instead; meeting-rooms style problems live in the intervals node. amazon-package-delivery-system was taken from the bs-answer pool. tiktok-optimize-tiktok-watch-time and amazon-maximum-quality-sum are greedy, not heap, despite their tags."
+}

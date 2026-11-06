@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-1d",
+  "why": "The minimum cost to reach a target: the frog reaches stone i only from i-1 or i-2, so best[i] = min(best[i-1] + |h[i]-h[i-1]|, best[i-2] + |h[i]-h[i-2]|). It is climbing stairs with min instead of +.",
+  "hints": [
+    "How could the frog have arrived at stone i? There are only two possible previous stones.",
+    "best[0] = 0; best[i] = min over the two predecessors j of best[j] + abs(heights[i] - heights[j]). Write it recursively with memo first, then as a loop.",
+    "Keep the last two values only. O(n) time, O(1) space."
+  ],
+  "pitfalls": [
+    "A greedy 'take the cheaper next jump' fails; the DP must compare both full paths.",
+    "One stone means 0 energy.",
+    "Heights can be negative; abs handles that."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}
