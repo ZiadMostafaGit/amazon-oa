@@ -77,7 +77,7 @@ const Path = {
     if (d.next) {
       const left = el('div', 'pn-left');
       left.append(el('div', 'pn-label', 'Next up · Stage ' + d.next.number + ' · ' + d.next.stageTitle));
-      left.append(el('div', 'pn-title', d.next.title));
+      left.append(el('div', 'pn-title', cleanTitle(d.next.title)));
       const go = el('button', 'btn primary big', 'Continue  →');
       go.onclick = () => this.go(d.next.id);
       next.append(left, go);
@@ -170,7 +170,7 @@ const Path = {
     if (m.next) {
       const left = el('div', 'pn-left');
       left.append(el('div', 'pn-label', 'Next up · ' + m.next.order + '. ' + m.next.nodeTitle + (m.next.teaches ? ' · teaches ' + m.next.teaches : '')));
-      left.append(el('div', 'pn-title', m.next.title));
+      left.append(el('div', 'pn-title', cleanTitle(m.next.title)));
       const go = el('button', 'btn primary big', 'Continue  →');
       go.onclick = () => this.go(m.next.id);
       next.append(left, go);
@@ -354,7 +354,7 @@ const Path = {
     const b = el('button');
     b.append(el('span', 'dot', ''));
     const mid = el('span', 'lmid');
-    mid.append(el('span', 'pt', p.title));
+    mid.append(el('span', 'pt', cleanTitle(p.title)));
     if (p.why) mid.append(el('span', 'why', (showTech && p.teaches ? p.teaches + ' — ' : '') + p.why));
     b.append(mid);
     const meta = el('span', 'pm');
@@ -422,7 +422,7 @@ const Path = {
   row(p, kind) {
     const li = el('li', 'prow' + (p.status ? ' s-' + p.status : ''));
     const b = el('button');
-    b.append(el('span', 'dot', ''), el('span', 'pt', p.title));
+    b.append(el('span', 'dot', ''), el('span', 'pt', cleanTitle(p.title)));
     const meta = el('span', 'pm');
     if (kind) meta.append(el('span', 'kind ' + kind.toLowerCase(), kind));
     meta.append(el('span', 'diff ' + p.difficulty, p.difficulty));

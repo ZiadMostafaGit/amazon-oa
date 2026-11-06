@@ -634,7 +634,7 @@ function resultRow(p, index) {
   const pr = p.progress || {};
   if (pr.status) title.append(Object.assign(el('span', 'dot ' + pr.status), {title: pr.status}));
   else if (pr.bookmarked) title.append(Object.assign(el('span', 'dot bookmarked'), {title: 'bookmarked'}));
-  title.append(el('span', null, p.title || p.id));
+  title.append(el('span', null, cleanTitle(p.title) || p.id));
   b.append(title);
 
   const sub = el('div', 'sub');
@@ -717,18 +717,34 @@ function kvLine(k, v, cls) {
 function exampleBlock(ex, i) {
   const box = el('div', 'example');
   box.append(el('div', 'example-label', 'Example ' + (ex.id != null ? ex.id : i + 1)));
-  const kv = el('div', 'kv');
-  (ex.inputText || []).forEach(inp => {
-    kv.append(kvLine((inp.inputName || '?') + '  ' + (inp.inputType || ''), inp.inputValue || ''));
-  });
-  kv.append(kvLine('→ output  ' + (ex.outputType || ''), ex.outputText || '', 'out'));
-  box.append(kv);
+  const io = el('div', 'io');
+  const line = (label, text, cls) => {
+    const row = el('div', 'io-row' + (cls ? ' ' + cls : ''));
+    row.append(el('span', 'io-k', label), el('span', 'io-v', text));
+    return row;
+  };
+  const ins = (ex.inputText || []);
+  ins.forEach((inp, k) => io.append(line(k ? '' : 'Input', (inp.inputName || '?') + ' = ' + (inp.inputValue || ''))));
+  io.append(line('Output', ex.outputText || '', 'out'));
+  box.append(io);
   if (ex.explanation) {
     const why = el('div', 'why');
     why.innerHTML = ex.explanation;
     box.append(why);
   }
   return box;
+}
+
+/* titles in the bank carry emoji (a banana, a tomato); they say nothing and pull the eye */
+function cleanTitle(t) {
+  return String(t || '').replace(/[\p{Extended_Pictographic}\u{1F1E6}-\u{1F1FF}\uFE0F\u200D]/gu, '').replace(/\s{2,}/g, ' ').trim();
+}
+
+/* the source lost its superscripts: "1 <= n <= 105" is 10^5. Only the unambiguous
+   shape is restored - a bare 10 followed by one digit, next to a comparison. */
+function fixPowers(html) {
+  return String(html || '').replace(/(≤|<=|&lt;=|<|&lt;)(\s*)10([2-9])(?![\d.,])/g, '$1$210<sup>$3</sup>')
+                           .replace(/(^|[\s(>])10([2-9])(\s*)(≤|<=|&lt;=)/g, '$110<sup>$2</sup>$3$4');
 }
 
 function dataTable(cols, rows, limit) {
@@ -844,7 +860,9 @@ function renderProblem() {
   /* --- sticky head: where it sits, what it is, where you are with it --- */
   const head = el('div', 'problem-head');
   if (d.path) head.append(pathBar(d.path));
-  head.append(el('h1', null, d.title || d.id));
+  const h1 = el('h1', null, cleanTitle(d.title) || d.id);
+  h1.title = d.id;
+  head.append(h1);
   const meta = el('div', 'meta-row');
   if (d.difficulty) meta.append(el('span', 'tag ' + d.difficulty, d.difficulty));
   if (d.company) meta.append(el('span', 'tag company', d.company));
@@ -942,12 +960,12 @@ function renderProblem() {
   if (fx.statement) {
     /* the repair reads first; the source is one click away, never replaced */
     let showing = 'fixed';
-    const tog = el('button', 'btn ghost small fixtoggle', 'Show original');
-    const badge = el('span', 'fixbadge', 'clarified');
+    const tog = el('button', 'linkbtn fixtoggle', 'show the original wording');
+    const badge = el('span', 'fixbadge', 'clarified ·');
     badge.title = 'Rewritten for clarity from the source and its screenshots. The original is kept.';
     const paint = () => {
       st.innerHTML = showing === 'fixed' ? fx.statement : original;
-      tog.textContent = showing === 'fixed' ? 'Show original' : 'Show clarified';
+      tog.textContent = showing === 'fixed' ? 'show the original wording' : 'show the clarified wording';
       badge.hidden = showing !== 'fixed';
     };
     tog.onclick = () => { showing = showing === 'fixed' ? 'orig' : 'fixed'; paint(); };
@@ -1015,7 +1033,7 @@ function renderProblem() {
 
   if (fx.constraints || d.constraints) {
     body.append(el('h2', 'section', 'Constraints'));
-    const c = el('div', 'prose'); c.innerHTML = fx.constraints || d.constraints; body.append(c);
+    const c = el('div', 'prose constraints'); c.innerHTML = fixPowers(fx.constraints || d.constraints); body.append(c);
     if (fx.constraints && d.constraints) {
       const o = el('details', 'origc');
       o.append(el('summary', null, 'Constraints as the source gives them'));
@@ -1615,7 +1633,7 @@ async function openProblem(id) {
 
 function paintProblem() {
   const d = state.current;
-  $('#crumb').innerHTML = '<b>' + esc(d.title || d.id) + '</b>';
+  $('#crumb').innerHTML = '<b>' + esc(cleanTitle(d.title) || d.id) + '</b>';
   renderProblem();
   renderWorkbench();
   renderPosition();

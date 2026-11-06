@@ -1546,3 +1546,126 @@ ol.tech-list > li.tech:first-child{border-top:none}
 }
 
 ul.plist{list-style:none;margin:0;padding:0}
+
+/* =====================================================================
+   Quieter, warmer, made for reading.
+   One neutral palette instead of blue-navy; Inter for the interface and
+   problems, a book face for the chapters; text instead of pills; nothing
+   pinned above the statement.
+   ===================================================================== */
+:root{
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --bg:#161618; --pane:#1a1a1d; --raised:#202024; --raised-2:#27272c;
+  --line:#2e2e34; --line-soft:#242429;
+  --ink:#dedcd6; --ink-strong:#f4f2ee; --ink-dim:#a29f98; --ink-faint:#74716b;
+  --accent:#93b4ff; --accent-soft:#232a3b;
+  --good:#62c995; --good-soft:#172820; --warn:#e2b765; --warn-soft:#2a2416; --bad:#ee8181; --bad-soft:#2e1c1d;
+}
+:root[data-theme="light"]{
+  --bg:#f6f5f2; --pane:#fcfbf9; --raised:#f0eee9; --raised-2:#e8e5df;
+  --line:#e0dcd4; --line-soft:#ebe8e2;
+  --ink:#2a2824; --ink-strong:#141310; --ink-dim:#625e57; --ink-faint:#958f86;
+  --accent:#2f5ad0; --accent-soft:#e4e9f8;
+  --good:#1d7a48; --good-soft:#e1f1e7; --warn:#94600a; --warn-soft:#f7eedb; --bad:#b73a3a; --bad-soft:#f8e3e3;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f6f5f2; --pane:#fcfbf9; --raised:#f0eee9; --raised-2:#e8e5df;
+    --line:#e0dcd4; --line-soft:#ebe8e2;
+    --ink:#2a2824; --ink-strong:#141310; --ink-dim:#625e57; --ink-faint:#958f86;
+    --accent:#2f5ad0; --accent-soft:#e4e9f8;
+    --good:#1d7a48; --good-soft:#e1f1e7; --warn:#94600a; --warn-soft:#f7eedb; --bad:#b73a3a; --bad-soft:#f8e3e3;
+  }
+}
+body{font-family:var(--sans);font-feature-settings:"cv11","ss01";letter-spacing:-.003em}
+
+/* the top bar: words, not a row of boxes */
+#top{background:var(--bg);border-bottom:1px solid var(--line-soft)}
+#top .iconbtn{border-color:transparent;background:transparent;color:var(--ink-dim)}
+#top .iconbtn:hover{background:var(--raised);color:var(--ink-strong);border-color:transparent}
+#top .iconbtn[aria-pressed="true"]{color:var(--ink-strong);background:var(--raised)}
+#top .brand{font-weight:650}
+#top .env{opacity:.75}
+
+/* the problem: nothing pinned above it, metadata as one line of text */
+#problemPane{background:var(--bg)}
+.problem-head{position:static;background:transparent;border-bottom:none;padding:28px 30px 4px}
+.problem-head h1{font-size:25px;font-weight:700;letter-spacing:-.022em;line-height:1.25;margin:0 0 8px}
+.problem-head .meta-row{gap:0;row-gap:4px}
+.problem-head .meta-row .tag{background:none;border:none;padding:0;border-radius:0;font:500 13px/1.5 var(--sans);
+  color:var(--ink-dim);letter-spacing:0}
+.problem-head .meta-row .tag + .tag::before{content:"·";margin:0 8px;color:var(--ink-faint)}
+.problem-head .meta-row .tag.easy{color:var(--good)} .problem-head .meta-row .tag.medium{color:var(--warn)} .problem-head .meta-row .tag.hard{color:var(--bad)}
+.problem-head .meta-row .tag.khatt{color:var(--accent);font-weight:600}
+.problem-head .meta-row .tag.faint{color:var(--ink-faint);font-family:var(--sans)}
+.problem-head .topics-row{margin-top:2px}
+.problem-head .topics-row .tag.topic{background:none;border:none;padding:0;color:var(--accent);font:500 13px var(--sans)}
+.problem-head .topics-row .rowlabel{font:500 13px var(--sans);color:var(--ink-faint);text-transform:none;letter-spacing:0;margin-right:8px}
+.linkbtn.reveal{font-size:13px;padding:0}
+.problem-head .statusbar{gap:16px;margin-top:12px;padding-bottom:4px}
+.problem-head .statusbtn{height:auto;padding:2px 0;border:none;border-radius:0;background:none!important;font:500 13px var(--sans);color:var(--ink-faint)}
+.problem-head .statusbtn::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;border:1.5px solid currentColor;margin-right:6px;vertical-align:0}
+.problem-head .statusbtn:hover{color:var(--ink)}
+.problem-head .statusbtn[aria-pressed="true"]{color:var(--ink-strong);font-weight:600}
+.problem-head .statusbtn[aria-pressed="true"]::before{background:currentColor}
+.problem-head .statusbtn.solved[aria-pressed="true"]{color:var(--good)}
+.problem-head .statusbtn.review[aria-pressed="true"]{color:var(--bad)}
+.problem-head .statusbtn.mark[aria-pressed="true"]{color:var(--warn)}
+.problem-head .statusbtn.mark::before{display:none}
+.idchip{display:none}
+.pathbar{margin:0 0 14px}
+.problem-body{padding:14px 30px 90px}
+
+/* section titles: plain words */
+h2.section{display:block;margin:30px 0 10px;font:650 16px/1.3 var(--sans);letter-spacing:-.01em;text-transform:none;color:var(--ink-strong)}
+h2.section::after{display:none}
+.fixbadge{background:none;color:var(--ink-faint);font:500 13px var(--sans);text-transform:none;letter-spacing:0;padding:0;margin-left:10px}
+.fixtoggle{height:auto;padding:0;margin-left:6px;font:500 13px var(--sans);color:var(--accent);border:none;background:none}
+
+/* the statement */
+.prose{font-family:var(--sans)}
+.problem-body .prose{font-size:16px;line-height:1.72;color:var(--ink)}
+.prose code{font-family:var(--mono);font-size:.86em;background:var(--raised-2);border:none;padding:.12em .38em;border-radius:5px;color:var(--ink-strong)}
+.prose pre{background:var(--raised);border:none;border-radius:8px}
+.prose sup{font-size:.72em;line-height:0}
+.constraints ul{padding-left:18px}
+
+/* examples, the way judges print them */
+.example{background:none;border:none;border-radius:0;padding:0;margin:0 0 22px}
+.example-label{font:650 14.5px/1.3 var(--sans);letter-spacing:0;text-transform:none;color:var(--ink-strong);margin:0 0 8px}
+.io{background:var(--raised);border-radius:8px;padding:11px 14px;font:13.5px/1.75 var(--mono);color:var(--ink)}
+.io-row{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px}
+.io-k{font:600 13px/1.85 var(--sans);color:var(--ink-faint)}
+.io-v{white-space:pre-wrap;word-break:break-word;color:var(--ink-strong)}
+.example .why{border-top:none;margin-top:8px;padding-top:0;font-size:15px;line-height:1.68;color:var(--ink-dim)}
+
+/* the folded panes read as quiet lines */
+.disclosure.plan{background:transparent;border-color:var(--line-soft)}
+.stuck details.rung{border-color:var(--line-soft);background:transparent}
+details.srcnotes{border-color:var(--line-soft)}
+
+/* the chapters: a book, not a dashboard */
+.chapter{font-family:var(--serif);font-size:18.5px;line-height:1.72;color:var(--ink);max-width:70ch;font-optical-sizing:auto}
+.chapter p,.chapter li{hyphens:auto}
+.chapter h1,.chapter h2,.chapter h3,.chapter h4{font-family:var(--sans);letter-spacing:-.015em}
+.chapter h2{border-top:none;padding-top:0;margin-top:46px;font-size:22px}
+.chapter strong{color:var(--ink-strong)}
+.chapter code{font-size:.8em}
+.chapter pre, .chapter .snippet, .chapter table{font-family:var(--mono)}
+.chapter table{font-family:var(--sans);font-size:15px}
+
+/* path and tree pick up the same calm */
+.path-hero h1{font-family:var(--sans);font-weight:700}
+.tnode{background:var(--pane)}
+.problem-head .topics-row{justify-content:flex-start}
+.problem-head .statusbar{margin-top:8px}
+.problem-body > h2.section:first-of-type{margin-top:18px}
+/* the plan pane, folded: one quiet line you can open */
+.disclosure.plan:not([open]){border:none;padding:0;margin:18px 0 0}
+.disclosure.plan:not([open]) > summary{padding:6px 0;gap:10px}
+.disclosure.plan:not([open]) > summary .hint{display:none}
+.disclosure.plan .stamp{background:var(--raised-2);color:var(--ink-dim)}
+.problem-head .linkbtn.reveal{margin-left:0;color:var(--ink-faint)}
+.problem-head .linkbtn.reveal:hover{color:var(--accent)}
+.fixtoggle{margin-left:6px!important}
