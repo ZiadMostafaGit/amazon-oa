@@ -1,0 +1,16 @@
+{
+  "pattern": "bfs",
+  "why": "Recovery order 'by shortest hop count, then by node id' is BFS level order on an unweighted graph with each level sorted. It is the same problem as Akuna's Delivery Management System in a new story.",
+  "hints": [
+    "All links cost one hop. Which traversal discovers nodes in order of hop count?",
+    "BFS from company level by level; sort each level before appending, because ties must go to the lower id.",
+    "Adjacency list, visited array, frontier lists; sort each next frontier. O((V + E) log V). Exclude company and ignore unreachable nodes."
+  ],
+  "pitfalls": [
+    "company must not appear in the output.",
+    "Unreachable or isolated nodes are left out entirely.",
+    "Sorting adjacency lists alone does not sort a level, since several parents contribute to it; sort the whole frontier."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

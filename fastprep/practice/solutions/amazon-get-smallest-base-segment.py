@@ -24,3 +24,7 @@ def getSmallestBaseSegment(segmentSize: int, missingData: str) -> str:
     if leftover > 0:
         counts['a'] = counts.get('a', 0) + leftover
     return ''.join(ch * counts[ch] for ch in sorted(counts))
+
+
+# the bank renamed this problem's entry point
+solve = getSmallestBaseSegment

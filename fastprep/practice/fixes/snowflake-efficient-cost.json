@@ -1,0 +1,17 @@
+{
+ "pattern": "partition-dp",
+ "why": "You cut the array into contiguous blocks of length at most threshold and pay each block's maximum: a partition DP where best[i] = min over the last block length j <= threshold of best[i - j] + max(arr[i-j..i-1]).",
+ "hints": [
+  "Think about the last block of an optimal partition of the first i elements: it has some length j between 1 and threshold.",
+  "best[i] = min over j of best[i - j] + max of the last j elements; growing j one step at a time lets you update that maximum in O(1).",
+  "Fill best[0..n] with best[0] = 0, two nested loops: O(n * threshold) time, O(n) space."
+ ],
+ "pitfalls": [
+  "Blocks may have different lengths; fixed-size chunks of length threshold are not always optimal.",
+  "Do not let j exceed i (the block cannot start before index 0).",
+  "Compute the block maximum incrementally, otherwise the solution becomes O(n * threshold^2)."
+ ],
+ "constraints": "<ul><li>Not stated in the source (the screenshot shows none). Reasonable bounds: <code>1 &lt;= arr.length &lt;= 10^4</code>, <code>1 &lt;= threshold &lt;= arr.length</code>, <code>0 &lt;= arr[i] &lt;= 10^9</code>; an O(n * threshold) solution is expected.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

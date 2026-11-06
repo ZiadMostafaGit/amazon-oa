@@ -1,0 +1,16 @@
+{
+  "pattern": "prefix-sums",
+  "why": "Work on the needed increments d = target - source. Prefix operations build a non-increasing profile and suffix operations a non-decreasing one, so d must split into those two; reading d's consecutive differences (a difference array) shows every rise must come from suffix starts and every drop from prefix ends.",
+  "hints": [
+    "Only additions are allowed, so look at need[i] = target[i] - source[i]. What shape does a sum of prefix increments have? And of suffix increments?",
+    "Prefix ops give a non-increasing profile P, suffix ops a non-decreasing S, with d = P + S. Greedily give S only the rises of d (S grows by max(0, d[i] - d[i-1])); then P = d - S must stay >= 0 and non-increasing.",
+    "One pass: total = d[0] + sum of positive rises; fail (-1) if some d[i] < 0 or d[i] - S[i] < 0. O(n), 64-bit values."
+  ],
+  "pitfalls": [
+    "Any negative need makes it impossible: there is no decrement.",
+    "The cost is d[0] (prefix ops all cover index 0, plus any whole-array ops) plus the sum of rises, not the sum of absolute differences.",
+    "Values reach 10^13; Python is fine, but in other languages use 64-bit types."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

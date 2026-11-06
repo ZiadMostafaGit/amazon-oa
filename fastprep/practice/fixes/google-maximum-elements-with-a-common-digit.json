@@ -1,0 +1,16 @@
+{
+ "pattern": "frequency-counting",
+ "why": "A group is valid when some digit d appears in every member, so the best group for digit d is simply all numbers containing d. Count, for each of the 10 digits, how many numbers contain it, and take the maximum.",
+ "hints": [
+  "Fix the shared digit first. Which numbers can join a group that shares digit d?",
+  "All of them that contain d, and nothing else. So the answer is the max over d = 0..9 of the count of numbers containing d.",
+  "For each number, take the set of its two digits and increment a counter per distinct digit. O(N)."
+ ],
+ "pitfalls": [
+  "Count a number like 55 once for digit 5, not twice: use the set of its digits.",
+  "Duplicates in the array are separate elements (90, 90, 90 gives 3).",
+  "Digit 0 can be shared (as in 90, 10, 20)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -28,3 +28,11 @@ def solve(s: str) -> bool:
         if ok and bal == 0:
             return True
     return False
+
+
+# the bank renamed this problem's entry point
+canMakeBalanced = solve
+
+
+# the bank renamed this problem's entry point
+canMakeBalanced = solve

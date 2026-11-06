@@ -1,0 +1,16 @@
+{
+  "pattern": "kadane",
+  "why": "For each sell day, the best buy is the cheapest earlier price, so one pass tracking the running minimum and the best price minus that minimum solves it. This is Kadane's algorithm on daily price differences.",
+  "hints": [
+    "If you sell on day j, which buy day is best?",
+    "The minimum price seen before j. Profit for day j = prices[j] - minSoFar.",
+    "Single pass: update best = max(best, p - minSoFar), then minSoFar = min(minSoFar, p). Start best at 0. O(n), O(1)."
+  ],
+  "pitfalls": [
+    "You must buy before you sell; the minimum must come from an earlier day.",
+    "A strictly falling series returns 0, not a negative number.",
+    "A single day returns 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

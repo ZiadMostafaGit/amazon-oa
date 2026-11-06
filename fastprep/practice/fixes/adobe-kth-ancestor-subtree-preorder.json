@@ -1,0 +1,16 @@
+{
+  "pattern": "dfs",
+  "why": "Two tree tools combine: during one DFS the current root-to-node path is a stack, so the k-th ancestor of u is path[-1-k] when u is visited; and in the preorder (Euler tour) every subtree is one contiguous slice, so the answer row is order[tin[a] : tin[a] + size[a]].",
+  "hints": [
+    "During a DFS, which nodes are on the stack when you stand at u?",
+    "Exactly u's ancestors, in order. Answer each query offline when its u is visited: the k-th ancestor is path[len-1-k] if k < len(path).",
+    "In the same DFS record preorder values, tin and subtree sizes; output the slice for the found ancestor, or [-1]. O(n + q + output). Binary lifting is the online alternative for the ancestor part."
+  ],
+  "pitfalls": [
+    "Child order follows the order edges first appear, not node ids: build adjacency by scanning edges in order.",
+    "k = 0 means u itself; k >= depth(u) + 1 means no ancestor: return [-1].",
+    "Iterative DFS is required for 2*10^5 nodes in Python."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

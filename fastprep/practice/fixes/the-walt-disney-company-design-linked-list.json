@@ -1,0 +1,16 @@
+{
+  "pattern": "linked-list",
+  "why": "A design exercise for the basic singly linked list: get, add at head, add at tail, add before index and delete at index all reduce to 'walk to the node before position i, then relink', made uniform by a dummy head node.",
+  "hints": [
+    "Keep a size counter so you can reject invalid indices without walking the list.",
+    "A dummy node in front of the real head means 'insert at 0' and 'delete index 0' are the same code as any other index: walk i steps from the dummy to the predecessor.",
+    "Insert: p.next = Node(val, p.next). Delete: p.next = p.next.next. Each operation is O(index), at most O(n), fine for 1000 operations."
+  ],
+  "pitfalls": [
+    "Add-at with a negative index means the head; index == length appends; index > length does nothing.",
+    "Delete and get need 0 <= index < length; a negative index is invalid for them.",
+    "Every non-get operation returns 0, even when it was ignored."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

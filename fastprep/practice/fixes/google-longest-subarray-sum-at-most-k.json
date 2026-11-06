@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "A subarray sum is P[i] - P[j], so the task is: for each i find the smallest j < i with P[j] >= P[i] - k. Negative numbers break the sliding window, but the running maximum of prefix sums is non-decreasing, so the earliest such j can be binary searched (the week's 'binary search' half; a segment tree descent works the same way).",
+ "hints": [
+  "With negatives, shrinking the window does not always lower the sum, so two pointers fail. Rewrite the condition with prefix sums P.",
+  "You want the leftmost j with P[j] >= P[i] - k. If some P[j] is large, any later index with a smaller prefix is never better, so only the running maximum M[j] = max(P[0..j]) matters, and M is sorted.",
+  "Keep the array M as you scan i, binary search it for P[i] - k, and track i - j. O(n log n) time, O(n) space."
+ ],
+ "pitfalls": [
+  "Include P[0] = 0 so subarrays starting at index 0 count.",
+  "Subarrays must be non-empty: require j < i, and return 0 if nothing qualifies (e.g. every element is above a negative k).",
+  "k can be negative and sums reach 10^14: no fixed-size value arrays indexed by sum."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

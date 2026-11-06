@@ -41,3 +41,7 @@ def solve(roster: List[List[str]]) -> List[List[str]]:
         result.append([str(lo), str(hi), names])
 
     return result
+
+
+# the bank renamed this problem's entry point
+buildCombinedSchedule = solve

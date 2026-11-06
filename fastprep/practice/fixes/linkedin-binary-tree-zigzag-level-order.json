@@ -1,0 +1,18 @@
+{
+  "pattern": "bfs",
+  "why": "Zigzag order is level-order traversal (BFS one level at a time) where every other level's list is reversed before it is recorded.",
+  "hints": [
+    "First get plain level order: BFS, processing exactly len(queue) nodes per round.",
+    "Keep a flag that flips each level. When it says right-to-left, reverse that level's values.",
+    "Always enqueue children left then right; only the recorded list is reversed. O(n) time, O(width) space."
+  ],
+  "pitfalls": [
+    "Do not reverse the order you enqueue children in; that scrambles deeper levels.",
+    "An empty tree returns [].",
+    "Missing children produce no entries."
+  ],
+  "statement": "<p>Given the root of a binary tree, return its node values level by level. Level 0 (the root) is read left to right, level 1 right to left, level 2 left to right, and so on, alternating. Missing children produce no entries. An empty tree gives <code>[]</code>.</p><p><b>Worked example.</b> Tree <code>[1,2,3,4,null,null,5]</code>: root 1 with children 2 and 3; 2 has left child 4; 3 has right child 5.</p><ul><li>Level 0, left to right: <code>[1]</code>.</li><li>Level 1 holds 2, 3; read right to left: <code>[3, 2]</code>.</li><li>Level 2 holds 4, 5; read left to right: <code>[4, 5]</code>.</li><li>Answer: <code>[[1], [3, 2], [4, 5]]</code>.</li></ul>",
+  "constraints": "<ul><li>Bounds not stated in the source; reasonable ones for practice:</li><li>0 &lt;= number of nodes &lt;= 2000</li><li>-100 &lt;= node.val &lt;= 100</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

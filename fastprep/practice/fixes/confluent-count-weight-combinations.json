@@ -1,0 +1,16 @@
+{
+  "pattern": "unbounded-knapsack",
+  "why": "Counting multisets of weights 1..k with sum total is the coin-change-ways problem: each weight is a coin with unlimited supply. Looping weights in the outer loop counts combinations (not orderings).",
+  "hints": [
+    "Order does not matter and each weight can repeat. This is a known 'number of ways to make change' problem.",
+    "ways[s] = number of combinations summing to s using the weights processed so far. Adding weight w: ways[s] += ways[s - w] for s from w up to total.",
+    "Initialise ways[0] = 1, loop w = 1..min(k, total) outside and s inside (ascending, since reuse is allowed), mod 1e9+7. O(total * k)."
+  ],
+  "pitfalls": [
+    "Swapping the loops (sums outside, weights inside) counts ordered sequences instead.",
+    "total = 0 has exactly one combination.",
+    "Weights larger than total never contribute; cap at min(k, total)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "mt-closest-land-mark",
+ "generatedAt": "2026-11-06T15:18:35",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "aNum",
+     "type": "int",
+     "rawValue": "26"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "aNum",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "aNum",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "aNum",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "aNum",
+     "type": "int",
+     "rawValue": "-25"
+    }
+   ],
+   "expectedRaw": "25"
+  },
+  {
+   "inputs": [
+    {
+     "name": "aNum",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

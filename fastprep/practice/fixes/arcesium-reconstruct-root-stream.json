@@ -1,0 +1,16 @@
+{
+  "pattern": "trees",
+  "why": "The internal nodes are given in level order of a perfect binary tree, so node i has children 2i+1 and 2i+2 and the leaves follow them. Undo the distribution bottom-up: a splitting node's stream is left + right, a parallelising node's stream interleaves left and right.",
+  "hints": [
+    "Think of the tree as an array heap. Where do the leaves sit, and which node is whose parent?",
+    "Work from the last internal node back to the root. Each node rebuilds its own stream from its two children's streams, inverting what it did.",
+    "Type 0: concatenate left then right. Type 1: put left at even positions and right at odd positions (left is the longer one if odd). Total work O(total values * depth)."
+  ],
+  "pitfalls": [
+    "Strip the -1 padding from each leaf row before using it.",
+    "For an odd stream the left child got the extra item in both node types; slicing with result[0::2] = left handles that.",
+    "Leaves are indices m..2m in heap order when there are m internal nodes."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

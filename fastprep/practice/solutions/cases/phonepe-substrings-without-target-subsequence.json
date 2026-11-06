@@ -1,0 +1,98 @@
+{
+ "problemId": "phonepe-substrings-without-target-subsequence",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"abc\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ac\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"ac\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aa\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"aaaa\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"ac\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "s",
+     "type": "String",
+     "rawValue": "\"aa\""
+    },
+    {
+     "name": "target",
+     "type": "String",
+     "rawValue": "\"aa\""
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

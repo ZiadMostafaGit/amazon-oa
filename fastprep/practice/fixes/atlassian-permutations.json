@@ -1,0 +1,15 @@
+{
+  "pattern": "permutations",
+  "why": "Each position of the output is a choice among the values not yet used: the standard permutation backtracking with a used set. Choosing values in sorted order makes the output come out lexicographic.",
+  "hints": [
+    "Fill the first slot, then the second from what is left. What do you need to remember about which values are already placed?",
+    "Sort nums, then DFS: at each depth try every unused value in ascending order, mark it used, recurse, unmark. Visiting in ascending order yields lexicographic output automatically.",
+    "Path list + used boolean array; record a copy when the path has n values. O(n * n!) time."
+  ],
+  "pitfalls": [
+    "Append a copy of the path, not the path itself, or every row ends up as the same (emptied) list.",
+    "The input is not necessarily sorted; sort first to get lexicographic order."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

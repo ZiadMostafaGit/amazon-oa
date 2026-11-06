@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-1d",
+  "why": "Each '?' choice only affects its neighbours, so a DP over the string with state 'last character is 0 or 1' captures everything: dp[i][c] = fewest mismatches in the prefix ending at i with character c.",
+  "hints": [
+    "The cost only involves adjacent pairs. What is the only thing about the prefix you need to remember when deciding position i?",
+    "Keep two values: best inefficiency so far if position i is '0', and if it is '1'. A fixed character forbids one of them; '?' allows both.",
+    "new0 = min(dp0, dp1 + 1) if position i can be '0' (else infinity), symmetric for new1. Answer min(dp0, dp1). O(n) time, O(1) space."
+  ],
+  "pitfalls": [
+    "Leading '?' have no left neighbour: filling them with a fixed '0' can add a needless mismatch (\"??1\" should become \"111\"). The DP, which tries both characters, avoids this.",
+    "A string of only '?' has inefficiency 0.",
+    "Initialise the forbidden state at position 0 to infinity, not 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

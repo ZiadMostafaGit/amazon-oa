@@ -1,0 +1,16 @@
+{
+  "pattern": "heap",
+  "why": "Every merge's sum is paid again in every later merge it takes part in, so small numbers should be combined first: this is the Huffman / connect-ropes greedy, implemented with a min-heap.",
+  "hints": [
+    "A value merged early is counted again in every later merge. Which values should be merged first?",
+    "Always merge the two smallest current values; an exchange argument shows any other choice costs at least as much.",
+    "Min-heap: pop two, add their sum to the cost, push the sum back, until one value remains. O(n log n)."
+  ],
+  "pitfalls": [
+    "Sorting once and merging left to right is wrong: a merged sum may be larger than later elements.",
+    "With n = 2 the cost is just the sum of both.",
+    "Cost can exceed 32 bits for large n; use 64-bit outside Python."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

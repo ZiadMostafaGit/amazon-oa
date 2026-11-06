@@ -1,0 +1,16 @@
+{
+ "pattern": "bit-manipulation",
+ "why": "Rebuild the integer both ways with shifts: little-endian puts byte i at bit offset 8*i, big-endian at 8*(n-1-i). Compare each reconstruction to value.",
+ "hints": [
+  "Endianness is just which end of the array holds the least significant byte.",
+  "little = OR of bytes[i] << (8*i); big = OR of bytes[i] << (8*(n-1-i)).",
+  "Check little first (so palindromic byte arrays and single bytes return 'little'), then big, else 'neither'. O(n)."
+ ],
+ "pitfalls": [
+  "If both match, the answer is 'little', so test it first.",
+  "A value too large for n bytes simply matches neither reconstruction; no special case needed if you build from the bytes.",
+  "Shift by 8 bits per byte, not 1."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

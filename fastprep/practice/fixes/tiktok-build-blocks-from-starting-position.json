@@ -1,0 +1,17 @@
+{
+ "pattern": "binary-search",
+ "why": "A block [x, x + size - 1] is free exactly when the first obstacle at or after x lies beyond x + size - 1. Keeping obstacles in sorted order turns each check into one binary search (lower_bound), which is the week's binary search on a dynamic sorted set.",
+ "hints": [
+  "You do not need to look at every cell of the block. Which single obstacle decides the answer?",
+  "The nearest obstacle at or to the right of x: if it is inside [x, x + size - 1] the answer is 0, otherwise 1.",
+  "Keep obstacles in a sorted list (bisect.insort) and use bisect_left(x) for each check. O(log n) per check plus insertion cost; a balanced tree / SortedList makes inserts O(log n) too."
+ ],
+ "pitfalls": [
+  "The block covers x through x + size - 1 inclusive, so size = 3 at x = 3 touches 5.",
+  "An obstacle exactly at x blocks the block.",
+  "Marking every cell in a set is O(size) per check, too slow for large sizes; coordinates can be huge or negative, so no fixed array."
+ ],
+ "constraints": "<ul><li>1 &lt;= operations.length &lt;= 10^5 (not stated in the source)</li><li>-10^9 &lt;= x &lt;= 10^9 and 1 &lt;= size &lt;= 10^9 (not stated in the source)</li><li>Each type-1 operation targets a coordinate with no obstacle yet.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

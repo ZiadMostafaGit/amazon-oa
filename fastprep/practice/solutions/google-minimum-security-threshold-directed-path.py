@@ -31,3 +31,7 @@ def solve(n: int, edges: List[List[int]], source: int, target: int) -> int:
                 heapq.heappush(heap, (nxt, v))
 
     return -1
+
+
+# the bank renamed this problem's entry point
+minimumSecurityThreshold = solve

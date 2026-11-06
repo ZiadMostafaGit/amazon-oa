@@ -1,0 +1,16 @@
+{
+  "pattern": "graph-modelling",
+  "why": "Using every ticket exactly once is an Eulerian path on the directed graph of airports. Hierholzer's algorithm, visiting each airport's destinations in lexicographic order and adding an airport to the route only when it is stuck, gives the smallest valid itinerary without trial-and-error backtracking.",
+  "hints": [
+    "Airports are nodes and tickets are directed edges. What is the name for a walk that uses every edge exactly once?",
+    "Greedy smallest-next fails when the smallest choice dead-ends (example 3). Hierholzer fixes this: walk greedily, and when an airport has no unused tickets left, append it to the route. Dead ends get appended first, so reversing the route puts them last.",
+    "Adjacency lists sorted in reverse so pop() gives the smallest; iterative stack starting at JFK; when the top has no outgoing tickets, pop it into route; return route reversed. O(E log E)."
+  ],
+  "pitfalls": [
+    "Duplicate tickets are separate edges and must each be used: keep a list (multiset), not a set.",
+    "Pure greedy without the post-order trick dead-ends on inputs like example 3.",
+    "Backtracking over all orders works for tiny inputs but is exponential at 300 tickets."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

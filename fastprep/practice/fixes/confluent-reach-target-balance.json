@@ -1,0 +1,18 @@
+{
+  "pattern": "knapsack",
+  "why": "Choosing some transactions to hit the target balance is subset sum, the 0/1 knapsack decision version: each transaction is taken or not, and the 'capacity' is the target. Negative debits just shift the range of reachable sums.",
+  "hints": [
+    "Each transaction is either included or not. Brute force is 2^n; what do you need to remember about a set of choices?",
+    "Only the sum matters. Keep the set of sums reachable using the first i transactions; adding item x maps each sum s to s and s + x.",
+    "Track reachable sums as a bitset offset by the total of negative values (shift left for credits, right for debits), then test the target bit. O(n * range / wordsize)."
+  ],
+  "pitfalls": [
+    "Negative values break the usual dp[0..target] array; offset the indices.",
+    "The empty subset reaches 0, so target 0 returns 1.",
+    "Return 1/0, not true/false."
+  ],
+  "statement": "<p>You are given a list of bank transactions: a positive number is a credit and a negative number is a debit. Decide whether some subset of the transactions (each used at most once, in any order) sums exactly to <code>target</code>. The empty subset has sum 0.</p><p>Return <code>1</code> if such a subset exists, otherwise <code>0</code>.</p><p>The interviewer expected the O(2^n) subset enumeration first (practical up to about n = 25) and then a dynamic-programming solution over reachable sums.</p><p><b>Example:</b> <code>transactions = [1, 2, 3]</code>, <code>target = 5</code>.</p><ul><li>Start: reachable sums {0}.</li><li>Add 1: {0, 1}.</li><li>Add 2: {0, 1, 2, 3}.</li><li>Add 3: {0, 1, 2, 3, 4, 5, 6}.</li></ul><p>5 is reachable (by {2, 3}), so the answer is <code>1</code>.</p>",
+  "constraints": "<ul><li>Bounds are not stated in the source. Assume 1 &lt;= transactions.length &lt;= 200, -1000 &lt;= transactions[i] &lt;= 1000 and |target| &lt;= 2 * 10^5.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

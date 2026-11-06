@@ -50,3 +50,7 @@ def _connected(n: int, edges) -> bool:
             parent[ru] = rv
             comps -= 1
     return comps == 1
+
+
+# the bank renamed this problem's entry point
+firstFullyConnectedTimestamp = solve

@@ -1,0 +1,16 @@
+{
+  "pattern": "multi-source-bfs",
+  "why": "First, every cell's safety is its distance to the nearest thief: a multi-source BFS started from all thieves at once. Then the best path maximises its minimum safety, a bottleneck path solved with a max-heap Dijkstra (or binary search on the answer plus BFS), matching the week's Heap + Binary search label.",
+  "hints": [
+    "Computing 'distance to nearest thief' from each cell separately is too slow. Can you compute it for all cells in one pass?",
+    "Push every thief into the BFS queue at distance 0; the BFS layers give each cell's safety. Then you want the path from (0,0) to (n-1,n-1) whose smallest safety is largest.",
+    "Bottleneck path: pop the cell with the highest current path-safety from a max-heap, relax neighbours with min(path, safety[next]). Or binary search a threshold s and BFS only through cells with safety >= s. O(n^2 log n)."
+  ],
+  "pitfalls": [
+    "Include both endpoints: if the start or finish is a thief, the answer is 0.",
+    "Manhattan distance in a grid with 4-moves equals BFS distance, so no need for pairwise distances.",
+    "Do not use plain BFS for the second phase; it must prefer high-safety cells."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

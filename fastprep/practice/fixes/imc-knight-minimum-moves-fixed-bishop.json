@@ -1,0 +1,17 @@
+{
+  "pattern": "grid-bfs",
+  "why": "Each knight move costs 1, so the minimum number of moves is a BFS. The twist is that whether the bishop has been captured changes which squares are legal, so the BFS state is (row, col, captured) rather than just the square.",
+  "hints": [
+    "Every move has the same cost, so think breadth-first search over squares. But is the square alone enough to describe where you are?",
+    "Landing on the bishop removes its threats for the rest of the trip, so the same square can be legal or illegal depending on history. Make 'bishop captured yet?' part of the state: 2 * n * n states.",
+    "BFS from (start, captured = start is the bishop's square). From each state try 8 knight moves: the target is always accepted, the bishop's square flips captured to true, and other threatened squares are skipped only while not captured. O(n^2)."
+  ],
+  "pitfalls": [
+    "The target square is a legal landing even when it lies on the bishop's diagonal.",
+    "Forbidding the bishop's diagonals for the whole search (ignoring capture) misses routes like example 1's capture-first path.",
+    "Return 0 when start equals target, and remember the start square itself may be threatened.",
+    "Track visited separately for captured and not captured; reaching a square after capture is a different state."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

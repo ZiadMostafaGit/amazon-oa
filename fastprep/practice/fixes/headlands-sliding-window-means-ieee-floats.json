@@ -1,0 +1,17 @@
+{
+  "pattern": "sliding-window",
+  "why": "One mean per window of length k is a classic fixed-size sliding window: keep a running double sum, add the entering value and subtract the leaving one. The IEEE twist is that NaN and infinities poison a running sum, so keep counts of NaN, +Inf and -Inf in the window and sum only the finite values.",
+  "hints": [
+    "If you add +Infinity to a running sum, can you ever subtract it back out? What about NaN?",
+    "No, so never put special values in the sum. Track three counters (NaN, +Inf, -Inf) for the window plus a double sum of finite values; the counters decide the result whenever any is non-zero.",
+    "Decode bits with struct, slide the window updating counters and sum in O(1), then emit: NaN if nanCount or both infinities, otherwise +/-Inf, otherwise float32(sum / k) bits with -0.0 mapped to +0.0. O(n)."
+  ],
+  "pitfalls": [
+    "Inputs are signed 32-bit ints; mask with 0xFFFFFFFF before decoding, and outputs must match the expected sign convention (negative infinity appears as -8388608).",
+    "Any NaN payload counts as NaN, but the output is always 0x7fc00000.",
+    "Converting a large double to float32 can overflow; map that to the matching infinity rather than crashing.",
+    "A zero mean must be returned as +0 bits even if the arithmetic yields -0.0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

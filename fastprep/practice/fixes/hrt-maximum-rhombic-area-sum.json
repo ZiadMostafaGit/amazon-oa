@@ -1,0 +1,16 @@
+{
+  "pattern": "prefix-sums",
+  "why": "A rhombus is a stack of horizontal row segments (widths 1, 3, 5, ... and back), so its sum is a few range sums. Row prefix sums make each segment O(1), and trying every valid centre gives the maximum.",
+  "hints": [
+    "Draw the rhombus: row by row, it is a centred horizontal segment that widens then narrows. How can you sum a horizontal segment fast?",
+    "Row prefix sums give any segment in O(1). The row at vertical offset d from the centre covers columns centerCol-(r-1-|d|) to centerCol+(r-1-|d|).",
+    "Valid centres have r-1 <= centerRow <= R-r and the same for columns. For each, add 2r-1 row segments using row prefix sums. O(R*C*r), at most about 10^6 here (diagonal prefix sums give O(R*C) if needed)."
+  ],
+  "pitfalls": [
+    "Size r means Manhattan distance strictly less than r, so the radius is r-1 (r = 1 is a single cell).",
+    "Only centres whose whole rhombus fits are valid; do not clip at the border.",
+    "Values can be negative, so initialise the maximum to minus infinity, not 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,18 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "Any two equal letters can be erased, so the shortest string keeps exactly one copy of every letter with an odd count and nothing else. Choosing which copy to keep to get the smallest string is the \"smallest subsequence of distinct characters\" problem (LeetCode 316), solved with a monotonic stack that pops a bigger letter when it appears again later.",
+  "hints": [
+    "Pairs need not be adjacent. Which letters must survive in a shortest result, and how many copies of each?",
+    "Letters with an even count vanish completely; letters with an odd count leave exactly one copy, and you may keep any occurrence. Now you need the lexicographically smallest way to pick one occurrence of each.",
+    "Scan the occurrences of odd-count letters left to right with a stack: skip a letter already on the stack; otherwise pop while the top is larger and occurs again later, then push. O(N) with last-occurrence indices."
+  ],
+  "pitfalls": [
+    "Do not erase only adjacent pairs; any two identical letters form a pair.",
+    "The shortest length comes first, lexicographic order only breaks ties, so never keep 3 copies of a letter to get a smaller string.",
+    "Even-count letters are fully removed; they must not influence the stack.",
+    "When nothing remains, this bank's expected output for example 3 is written as a single space \" \" rather than the empty string."
+  ],
+  "constraints": "<ul><li>1 &lt;= N &lt;= 10^5 (not stated in the source; a reasonable bound)</li><li>S consists of uppercase English letters A-Z (as in every example; not stated in the source)</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

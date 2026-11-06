@@ -29,6 +29,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 import banksync
+import fixes as fixes_mod
 import fpdb
 import images
 import languages
@@ -118,6 +119,10 @@ def _problem_payload(detail: dict) -> dict:
     detail["studyTopics"] = topics_mod.topics_for(pid)
     # say what this problem does not have, rather than rendering empty sections
     detail["gaps"] = gaps_for(detail)
+    # a hand-written repair laid over the source (clearer statement, hints, the
+    # pattern it is an instance of), and where the KHATT plan schedules it
+    detail["fix"] = fixes_mod.get(pid)
+    detail["khatt"] = fixes_mod.khatt_for(pid)
     return detail
 
 

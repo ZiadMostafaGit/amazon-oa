@@ -1,0 +1,17 @@
+{
+ "pattern": "knapsack",
+ "why": "Each rod goes to the left support, the right support, or is left out: a three-way knapsack choice. The week's interval/bitmask label fits loosely; the clean state is the height difference between the two sides, which is at most the total length (5000), and the value stored is the tallest shorter side for that difference.",
+ "hints": [
+  "2^20 subsets per side is too many, but the total length is only 5000. What single number describes how far the two sides are from balanced?",
+  "Keep dp[diff] = the largest height of the shorter side among all ways to place the rods seen so far with that difference. Each rod either is skipped, joins the taller side (diff grows), or joins the shorter side (diff shrinks, or flips if the rod is longer than diff).",
+  "Process rods one by one, building a new dictionary from the old one each time. The answer is dp[0]. O(n * total) time, O(total) space."
+ ],
+ "pitfalls": [
+  "Update a copy of the table, not the one you are iterating, or a rod gets used twice.",
+  "When the rod is longer than the current difference the shorter side becomes the taller one: the new shorter height is old_short + diff, not old_short + rod.",
+  "Return 0 when no positive balance exists (e.g. [1,2]); dp[0] starts at 0, which covers this."
+ ],
+ "statement": "<p>You have rods with lengths <code>rods[i]</code>. You want to build a billboard on two steel supports of <b>equal</b> height. Each support is made by welding some rods together, so its height is the sum of the rods used. Every rod can go to the left support, to the right support, or stay unused.</p><p>Return the largest possible common height of the two supports, or <code>0</code> if no positive equal height is possible.</p><p><b>Example:</b> <code>rods = [1,2,3,6]</code></p><ul><li>Left support: <code>6</code>, height 6.</li><li>Right support: <code>1 + 2 + 3</code>, height 6.</li><li>Both are 6, and nothing taller can balance (total is 12), so the answer is <code>6</code>.</li></ul><p>For <code>rods = [1,2]</code> the only options are 1 vs 2, 1 vs 0 or 2 vs 0, none balanced above 0, so the answer is <code>0</code>.</p>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

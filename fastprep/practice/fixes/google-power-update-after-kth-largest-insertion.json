@@ -1,0 +1,17 @@
+{
+ "pattern": "segment-tree",
+ "why": "The hard part is 'k-th largest of a growing multiset' under 10^5 insertions. All values are known in advance, so compress them and keep a Fenwick tree (or segment tree) of counts; a binary-lifting descent finds the k-th largest in O(log n). The power update itself is just pow(p, x, MOD).",
+ "hints": [
+  "Sorting after every insertion is O(n^2 log n). Which values can ever appear? All of them are in the input.",
+  "Coordinate-compress every value from nums and the queries, ranked from largest to smallest. Then the k-th largest is the smallest rank whose prefix count reaches k.",
+  "Fenwick tree of counts, descend by powers of two to find that rank, then p = pow(p, x, 10^9+7). O((n + q) log n)."
+ ],
+ "pitfalls": [
+  "Duplicates take separate ranks: store counts, not a set.",
+  "Insert the query value before selecting the k-th largest.",
+  "Use modular exponentiation (pow with three arguments); p^x with x up to 10^9 cannot be computed directly.",
+  "If p becomes 0 it stays 0; if p is 1 it stays 1; pow handles both."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

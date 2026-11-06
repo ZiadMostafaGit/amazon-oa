@@ -1,0 +1,16 @@
+{
+  "pattern": "two-pointers",
+  "why": "Sort fish and baits in descending order: the largest bait catches the largest fish first, and every fish a bait skips is too small for every smaller bait too. So one pointer walks the fish while the loop walks the baits, each bait advancing the fish pointer up to 3 times.",
+  "hints": [
+    "The rules already fix the order: biggest bait first, biggest catchable fish first. What does sorting both arrays buy you?",
+    "With fish sorted descending, the remaining fish always form a suffix. A bait catches fish[i] if fish[i] > bait; if it cannot catch fish[i], it cannot catch anything after it either, and neither can smaller baits.",
+    "Sort both descending; for each bait take up to 3 fish while fish[i] > bait, advancing i. O(n log n + m log m) for the sorts, O(n + m) for the sweep."
+  ],
+  "pitfalls": [
+    "The bait must be strictly smaller than the fish; equal sizes do not catch.",
+    "Each bait has a cap of 3 catches even when more fish qualify.",
+    "Once a bait fails on the largest remaining fish, no later (smaller) bait can do better; you can stop early."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "lca",
+ "why": "On a tree, dist(u, v) = rootDist(u) + rootDist(v) - 2 * rootDist(lca(u, v)). Changing an edge weight shifts rootDist for every vertex in the child's subtree by the same delta, which is a range add over that subtree's Euler-tour interval: a Fenwick tree with range add / point query plus binary-lifting LCA handles both operations in O(log n).",
+ "hints": [
+  "Recomputing paths per query is O(n) each; express a distance using distances from a fixed root instead.",
+  "dist(u, v) = d(u) + d(v) - 2 d(lca). An update on edge (parent p, child c) adds (new - old) to d(x) for every x in c's subtree, which is a contiguous range in an Euler tour (tin[c]..tout[c]).",
+  "Do an iterative DFS for tin/tout, depth, parent and initial d; build binary lifting for LCA; keep a Fenwick tree for range-add point-query deltas. Each query is O(log n); sum the type-2 answers."
+ ],
+ "pitfalls": [
+  "Updates may list the edge as (v, u); identify the child as the endpoint deeper in the rooted tree.",
+  "Store the current weight of each edge so the delta is new - current, not new - original.",
+  "Recursive DFS overflows the stack at n = 2*10^5; iterate. Sums exceed 32 bits."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

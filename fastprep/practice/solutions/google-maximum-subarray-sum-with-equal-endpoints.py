@@ -16,3 +16,7 @@ def maximumEqualEndpointSum(nums: List[int]) -> int:
         if best is None or cand > best:
             best = cand
     return best
+
+
+# the bank renamed this problem's entry point
+solve = maximumEqualEndpointSum

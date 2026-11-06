@@ -1,0 +1,16 @@
+{
+  "pattern": "binary-search",
+  "why": "The total cost f(x) = 2 * sum |x - center[i]| is convex in x: it falls until the median, then rises. So the suitable points form one contiguous range around the median, and you can binary search its left and right ends separately; prefix sums over sorted centers make each f(x) evaluation O(log n).",
+  "hints": [
+    "Plot f(x) = sum of 2|x - c| as x moves along the line. What shape is it, and where is its minimum?",
+    "f is convex with its minimum at the median, so {x : f(x) <= d} is a single interval (or empty). Binary search the leftmost x in [-10^9, median] with f(x) <= d and the rightmost x in [median, 10^9].",
+    "Sort centers and build prefix sums; f(x) = 2 * (x*k - sum_left + sum_right - x*(n-k)) where k = number of centers <= x (bisect). Total O(n log n + log(range) * log n)."
+  ],
+  "pitfalls": [
+    "If f(median) > d the answer is 0; check this before searching.",
+    "Do not forget the factor 2 (go and come back).",
+    "Only integer x in [-10^9, 10^9] count; clamp the search range."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

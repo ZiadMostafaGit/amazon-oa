@@ -1,0 +1,17 @@
+{
+ "pattern": "prefix-sums",
+ "why": "Sorting both parts gives a sorted whole exactly when every left value is <= every right value, i.e. max(A[0..i-1]) <= min(A[i..n-1]). That is a prefix-maximum / suffix-minimum scan, the 'prefix aggregate' idea with max and min instead of sums.",
+ "hints": [
+  "After sorting each part, the only place the joined array can go wrong is the seam between the two parts.",
+  "The split before index i works iff the largest element on the left is at most the smallest element on the right.",
+  "Precompute suffix minima right to left, then sweep left to right with a running prefix maximum and count split points i in 1..n-1 where prefixMax <= suffixMin[i]. O(n)."
+ ],
+ "pitfalls": [
+  "Both parts must be non-empty: split points are 1..n-1 only.",
+  "Use <= (non-decreasing): equal values across the seam are fine.",
+  "Re-sorting for each split is O(n^2 log n) and too slow."
+ ],
+ "statement": "<p>You are given an array <code>A</code> of <code>N</code> integers. Choose a split point to cut it into a non-empty <b>left</b> part and a non-empty <b>right</b> part. Sort each part independently, then join them back (left first). Count the split points for which the joined array is sorted in non-decreasing order.</p><p><b>Example:</b> <code>A = [1, 3, 2, 4]</code>.</p><ul><li>Left <code>[1]</code>, right <code>[3,2,4]</code>: sorted parts <code>[1] + [2,3,4]</code> = <code>[1,2,3,4]</code>. Sorted.</li><li>Left <code>[1,3]</code>, right <code>[2,4]</code>: <code>[1,3] + [2,4]</code> = <code>[1,3,2,4]</code>. Not sorted.</li><li>Left <code>[1,3,2]</code>, right <code>[4]</code>: <code>[1,2,3] + [4]</code> = <code>[1,2,3,4]</code>. Sorted.</li></ul><p>The answer is <code>2</code>.</p>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+  "pattern": "graphs",
+  "why": "Splitting vertices into two groups with every edge crossing is two-colouring the graph. BFS colouring each component either succeeds or finds an edge between same-coloured vertices (an odd cycle).",
+  "hints": [
+    "Two groups with every edge crossing between them: try painting vertices with two colours so that neighbours always differ.",
+    "Colour a start vertex 0, give its neighbours 1, their neighbours 0, and so on. A conflict (an edge whose ends share a colour) means not bipartite; it happens exactly when there is an odd cycle.",
+    "Build an undirected adjacency list using edges[i][j] or edges[j][i], then BFS-colour from every uncoloured vertex. O(n^2) for the matrix scan."
+  ],
+  "pitfalls": [
+    "The matrix may record an edge in only one triangle; treat edges[i][j] == 1 or edges[j][i] == 1 as an edge, or a triangle stored one-sided looks bipartite.",
+    "The graph can be disconnected; start a new colouring from every uncoloured vertex, including isolated ones."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

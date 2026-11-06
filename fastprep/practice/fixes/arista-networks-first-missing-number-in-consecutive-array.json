@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search",
+  "why": "In a gap-free run, nums[i] - i equals nums[0]. The first missing number sits right after the first index where nums[i] - i becomes larger than nums[0], and that predicate flips from false to true exactly once, so binary search finds it in O(log n).",
+  "hints": [
+    "Compare nums[i] with what it would be if nothing were missing: nums[0] + i.",
+    "The predicate 'nums[i] > nums[0] + i' is false on a prefix and true afterwards. Binary search for the first true index lo.",
+    "The answer is nums[0] + lo. O(log n) time, O(1) space; a linear scan also passes but misses the point of the week."
+  ],
+  "pitfalls": [
+    "Values can be negative; work with nums[0] + i, not with i alone.",
+    "Return nums[0] + lo, not nums[lo] - 1: with several numbers missing in a row (say 10 followed by 13) the latter returns 12 instead of 11."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

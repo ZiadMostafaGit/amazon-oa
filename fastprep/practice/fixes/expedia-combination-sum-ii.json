@@ -1,0 +1,16 @@
+{
+  "pattern": "backtracking",
+  "why": "Choose-or-skip each candidate once with a running remainder: the Combination Sum II backtracking template, where sorting lets you prune once a value exceeds the remainder and skip equal values at the same depth to avoid duplicate combinations.",
+  "hints": [
+    "Each position can be used at most once, but [1,7] built from either 1 counts only once. How do you stop the same value list from being built twice?",
+    "Sort candidates. In the DFS, loop i from start; skip nums[i] if i > start and nums[i] == nums[i-1] (same value already tried at this depth), and recurse with i + 1 because positions are single-use.",
+    "DFS(start, remain): record path when remain == 0; break when nums[i] > remain (all values positive). Sorted traversal outputs the combinations already in lexicographic order. Worst case O(2^n) for n <= 20."
+  ],
+  "pitfalls": [
+    "Skip duplicates only among siblings (i > start), not along a path, or [1,1,6] disappears.",
+    "Recurse with i + 1, not i: each position is single-use.",
+    "Return [] (not [[]]) when nothing sums to target."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+ "pattern": "segment-tree",
+ "why": "Point updates (build a wall) mixed with range questions (is there any wall in [l, r]) is the dynamic range query problem: keep a Fenwick tree or segment tree of wall counts, and a query is 'count in [l, r] > 0'. Static prefix sums do not work because the array changes between queries.",
+ "hints": [
+  "If walls never changed, a prefix-sum array would answer 'any wall in [l, r]' in O(1). What breaks when builds are interleaved?",
+  "Store 1 at each built index and ask whether the range sum is positive; a Fenwick tree gives point update and prefix sum in O(log n). Building the same index twice must not add twice.",
+  "Parse the input lines, keep a built[] flag, update the Fenwick tree only on the first build, and output '1' or '0' per query. O((n + q) log n). (A sorted set with 'next wall at or after l' also works.)"
+ ],
+ "pitfalls": [
+  "build is idempotent: guard repeated builds or the counts are still fine for 'any wall' but a sum-based variant would double count.",
+  "Return strings '0'/'1', one per query, in order; builds produce no output.",
+  "Be tolerant of trailing blank lines or extra spaces in the input."
+ ],
+ "statement": "<p>A line has positions <code>0..n-1</code>, initially with no walls. Process <code>q</code> operations in order:</p><ul><li><code>build i</code>: put a wall at position <code>i</code> (building where a wall already stands changes nothing).</li><li><code>query l r</code>: output <code>1</code> if at least one wall is in positions <code>l..r</code> inclusive, else <code>0</code>.</li></ul><p>The input is one string: line 1 is <code>n</code>, line 2 is <code>q</code>, then one operation per line. Return the query answers as a list of strings, in order.</p><p><b>Published example:</b> <code>\"5\\n1\\nquery 0 4\"</code>: no walls exist, so the output is <code>[\"0\"]</code>.</p><p><b>Worked example:</b> <code>n = 5</code>, operations <code>query 0 4</code>, <code>build 2</code>, <code>query 0 1</code>, <code>query 1 3</code>, <code>build 2</code>, <code>query 2 2</code>.</p><ol><li><code>query 0 4</code>: no walls yet, output <code>0</code>.</li><li><code>build 2</code>: wall at 2.</li><li><code>query 0 1</code>: positions 0..1 have no wall, output <code>0</code>.</li><li><code>query 1 3</code>: contains position 2, output <code>1</code>.</li><li><code>build 2</code>: already built, nothing changes.</li><li><code>query 2 2</code>: output <code>1</code>.</li></ol><p>Result: <code>[\"0\",\"0\",\"1\",\"1\"]</code>.</p>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

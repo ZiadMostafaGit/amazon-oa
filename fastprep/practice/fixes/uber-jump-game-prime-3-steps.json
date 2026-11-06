@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-1d",
+  "why": "The jumps only go right, so this is the classic 'max score path to the last index' 1-D DP: dp[i] = arr[i] + max(dp[i-1], dp[i-p]) over the allowed jump lengths p. The maths part is sieving the primes that end in 3.",
+  "hints": [
+    "You must land exactly on the last index, and each landing adds its value, including negative ones.",
+    "The legal jumps are 1 and primes p with p % 10 == 3 (3, 13, 23, 43, 53, 73, 83, 103, ...). Sieve once up to n.",
+    "dp[0] = arr[0]. For each i, take the best of dp[i-1] and dp[i-p] for listed primes p <= i, then add arr[i]. Answer dp[n-1]. O(n * P), where P is the number of such primes."
+  ],
+  "pitfalls": [
+    "33, 63 and 93 end in 3 but are not prime.",
+    "Values can be negative, so start the max at -infinity or dp[i-1], not 0.",
+    "n = 1 returns arr[0]."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

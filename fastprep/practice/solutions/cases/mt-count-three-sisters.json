@@ -1,0 +1,98 @@
+{
+ "problemId": "mt-count-three-sisters",
+ "generatedAt": "2026-11-06T15:18:35",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "int",
+     "rawValue": "877"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "890"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "int",
+     "rawValue": "876"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "893"
+    }
+   ],
+   "expectedRaw": "663"
+  },
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "890"
+    }
+   ],
+   "expectedRaw": "660"
+  },
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "int",
+     "rawValue": "876"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "889"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "l",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "r",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "6"
+  }
+ ]
+}

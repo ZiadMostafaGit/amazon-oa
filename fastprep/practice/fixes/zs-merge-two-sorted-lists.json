@@ -1,0 +1,17 @@
+{
+  "pattern": "linked-list",
+  "why": "The merge step of merge sort, done with pointers: repeatedly splice the smaller of the two current heads onto a growing tail. A dummy node removes the special case for the first node.",
+  "hints": [
+    "At any moment the next node of the result is the smaller of the two current heads.",
+    "Create a dummy node and a tail pointer. While both lists are non-empty, link tail.next to the smaller head, advance that list and the tail.",
+    "When one list runs out, attach the rest of the other in one step. Return dummy.next. O(n + m) time, O(1) extra space."
+  ],
+  "pitfalls": [
+    "Either or both lists may be empty.",
+    "Don't forget to attach the leftover list at the end.",
+    "Reuse the existing nodes; building new nodes works for the judge but misses the in-place point."
+  ],
+  "statement": "<p>You are given the heads of two singly linked lists, <code>listA</code> and <code>listB</code>, each sorted in nondecreasing order. Splice their existing nodes into one sorted list and return its head. Keep duplicates. Either list may be empty.</p><p><b>Worked example.</b> <code>listA = 1 -&gt; 2 -&gt; 4</code>, <code>listB = 1 -&gt; 3 -&gt; 4</code>.</p><ul><li>Compare 1 and 1: take either (say A's 1). Result: 1.</li><li>Compare 2 and 1: take B's 1. Result: 1, 1.</li><li>Compare 2 and 3: take 2. Then 4 and 3: take 3. Then 4 and 4: take A's 4.</li><li>A is empty; attach the rest of B (4). Result: <code>1 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 4</code>.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "dijkstra",
+  "why": "Run Dijkstra from the capital to get dist[]; an edge (u, v, w) is on some shortest route exactly when dist[u] + w == dist[v]. Those edges form a DAG, and the cities on any shortest route to v are the union of the sets for its DAG predecessors, plus the predecessors themselves: a DP over the DAG in Dijkstra order (the week's DP + Shortest paths).",
+  "hints": [
+    "First find the shortest distance to every city. How can you tell whether a road is used by some shortest route?",
+    "Road u->v (length w) is a shortest-route road iff dist[u] + w == dist[v]. Then 'cities on a shortest route to v' = union over such u of ({u} plus the set for u).",
+    "Dijkstra with a heap O(E log V); process cities in pop order and store each set as a bitmask (Python int) so unions are one OR. Answer = popcount minus the city itself and the capital."
+  ],
+  "pitfalls": [
+    "Count every city on any tied shortest route, not just the immediate predecessor.",
+    "Do not count the capital or the target itself; the capital's answer is 0.",
+    "Process cities in nondecreasing distance so a city's predecessors are finished before it."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

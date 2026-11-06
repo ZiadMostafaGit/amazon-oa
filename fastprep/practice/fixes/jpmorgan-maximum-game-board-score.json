@@ -1,0 +1,17 @@
+{
+  "pattern": "dp-1d",
+  "why": "Starting at i you are forced to collect gameVal[i] + gameVal[i+k] + ...; that is a suffix sum along stride k, so dp[i] = gameVal[i] + dp[i+k] computed right to left, and the answer is the largest dp[i].",
+  "hints": [
+    "Once you pick a start, the rest of the path is forced. Can you reuse the score from a later start?",
+    "The score from i equals gameVal[i] plus the score from i + k (or just gameVal[i] if i + k is past the end).",
+    "Fill dp from the right in one pass and take the max over all i. O(n) time; you can even do it in place."
+  ],
+  "pitfalls": [
+    "You cannot stop early: every landed space counts, including negative ones, so a start near the end may win.",
+    "The answer can be negative if every space is negative; initialise the max to -infinity, not 0.",
+    "n is up to 10^6: avoid recursion and O(n*k) loops."
+  ],
+  "statement": "<p>A board is a line of spaces <code>gameVal[0..n-1]</code>, each worth some (possibly negative) points. Pick a starting space <code>i</code>. Your piece lands on <code>i</code>, then jumps exactly <code>k</code> spaces right each time, landing on <code>i + k</code>, <code>i + 2k</code>, ... and collecting every landed value, until the next jump would go past the last space. Return the maximum total over all starting spaces.</p><p><b>Worked example:</b> <code>gameVal = [2,-3,4,6,1]</code>, <code>k = 2</code></p><ul><li>Start 0: lands on 0, 2, 4: 2 + 4 + 1 = 7</li><li>Start 1: lands on 1, 3: -3 + 6 = 3</li><li>Start 2: 4 + 1 = 5; start 3: 6; start 4: 1</li></ul><p>Answer: <code>7</code> (starting at index 0).</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

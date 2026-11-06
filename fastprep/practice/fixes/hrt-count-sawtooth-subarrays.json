@@ -1,0 +1,17 @@
+{
+  "pattern": "dp-1d",
+  "why": "Let run[i] be the length of the longest alternating-parity subarray ending at i: it is run[i-1] + 1 if arr[i] and arr[i-1] differ in parity, else 1. Every valid subarray ends somewhere, and exactly run[i] of them end at i, so the answer is the sum of run[i].",
+  "hints": [
+    "Count subarrays by where they end. How many valid ones end at index i?",
+    "If arr[i] differs in parity from arr[i-1], every valid subarray ending at i-1 extends, plus [arr[i]] itself; otherwise only [arr[i]].",
+    "Keep one running length, add it to the total each step. O(n) time, O(1) space; the total can reach n(n+1)/2."
+  ],
+  "pitfalls": [
+    "Parity of negatives: in Python -3 % 2 == 1, but in Java/C++ use & 1 or abs.",
+    "Single elements always count.",
+    "The answer can exceed 32 bits for large n."
+  ],
+  "constraints": "<ul><li>Bounds are not stated in the source. Assume 1 &lt;= arr.length &lt;= 10^5 and -10^9 &lt;= arr[i] &lt;= 10^9.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

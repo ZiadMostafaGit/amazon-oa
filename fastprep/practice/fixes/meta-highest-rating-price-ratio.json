@@ -1,0 +1,17 @@
+{
+  "pattern": "arrays",
+  "why": "This week is Math + Arrays. It is an argmax scan, and the only maths is comparing fractions without floating point: r_i/p_i > r_b/p_b becomes r_i*p_b > r_b*p_i because all values are positive.",
+  "hints": [
+    "Keep the index of the best item seen so far.",
+    "Compare ratios by cross-multiplying instead of dividing, which avoids floating-point ties.",
+    "Replace the best only on a strictly greater ratio, which keeps the lowest index on ties. O(n)."
+  ],
+  "pitfalls": [
+    "Use a strict '>' so that equal ratios keep the earlier index.",
+    "Floating-point division can treat equal ratios such as 1/3 and 2/6 as different. Cross-multiplication is exact."
+  ],
+  "statement": "<p>You are given two arrays of positive integers of the same length: <code>prices</code> and <code>ratings</code> (each rating is 1 to 5). Item <code>i</code> has value <code>ratings[i] / prices[i]</code>. Return the index of the item with the <b>highest</b> ratio. If several items share the highest ratio, return the <b>smallest</b> index.</p><p><b>Example:</b> <code>prices = [7, 5, 2, 11]</code>, <code>ratings = [3, 4, 1, 3]</code>.</p><ul><li>Ratios: 3/7 &asymp; 0.43, 4/5 = 0.8, 1/2 = 0.5, 3/11 &asymp; 0.27.</li><li>The largest is 0.8 at index <b>1</b>.</li></ul>",
+  "constraints": "<ul><li>Not stated in the source (it only allows up to O(n&sup3;)). Assume 1 &le; prices.length = ratings.length &le; 10<sup>5</sup>, 1 &le; prices[i] &le; 10<sup>9</sup>, 1 &le; ratings[i] &le; 5.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "trees",
+  "why": "Plain preorder (root, left, right) on a binary tree; the only twist is that the tree is stored heap-style in an array, so the children of index i are 2i+1 and 2i+2 instead of pointers.",
+  "hints": [
+    "In this array format, how do you get from a node to its children, and how do you know a child is missing?",
+    "Children of i are 2i+1 and 2i+2; a child is missing if its index is past the end or holds -1. Preorder visits the node, then the whole left subtree, then the right.",
+    "Use an explicit stack: pop i, output tree[i], push the right child then the left child (so left is processed first). O(n) time and space, no recursion-depth risk."
+  ],
+  "pitfalls": [
+    "An empty array or a root of -1 means an empty tree: return [].",
+    "Check the index bound before reading tree[2i+1] or tree[2i+2].",
+    "Push right before left on the stack, or you get root-right-left order."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

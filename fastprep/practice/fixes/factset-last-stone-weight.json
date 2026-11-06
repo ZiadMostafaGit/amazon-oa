@@ -1,0 +1,16 @@
+{
+  "pattern": "heap",
+  "why": "The worker always needs the two largest stones, and the leftover goes back into the pile: 'repeatedly extract the max and reinsert' is exactly what a max-heap does in O(log n) per step.",
+  "hints": [
+    "Each step needs the two heaviest stones from a pile that keeps changing. Sorting once is not enough, because the remainder must be put back in the right place.",
+    "Keep all weights in a max-heap. Pop two; if they differ, push the difference back. Stop when at most one stone remains.",
+    "Python heapq is a min-heap, so store negated weights. At most n - 1 smashes, each O(log n): O(n log n) total."
+  ],
+  "pitfalls": [
+    "Return 0 when the heap empties, as in the example where the last two stones are both 1.",
+    "Forgetting to negate values (or negate back) when using heapq.",
+    "Re-sorting the whole list after every smash is O(n^2 log n) and times out at n = 10^5."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

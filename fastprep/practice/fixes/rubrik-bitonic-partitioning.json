@@ -1,0 +1,17 @@
+{
+ "pattern": "partition-dp",
+ "why": "A partition is a chain of contiguous segments, so count chains with a DP keyed by the last segment [i..j]: inc[i][j] counts strictly increasing-mean prefixes ending in that segment and dec[i][j] counts strictly decreasing-mean suffixes starting there. Every valid partition is one peak segment glued to an increasing prefix on its left and a decreasing suffix on its right.",
+ "hints": [
+  "Whether a new segment may follow the previous one depends only on the previous segment's mean, so the DP state is the last segment itself, (start, end).",
+  "inc[i][j] = sum of inc[h][i-1] over previous segments [h..i-1] whose mean is below mean(i..j); dec is the mirror image from the right. Then for each peak [i..j] with something on both sides, multiply the number of compatible left chains by the number of compatible right chains.",
+  "Prefix sums give each segment's total; compare means exactly as sum1*len2 < sum2*len1. Three nested loops, O(n^3) for n = 100, big integers for the count."
+ ],
+ "pitfalls": [
+  "Compare means with cross-multiplication, never with floating point division; equal means must be rejected (strict).",
+  "The peak needs at least one segment on each side, so the peak cannot start at index 0 or end at index n-1.",
+  "The count can exceed 64 bits for n = 100; return it as a decimal string.",
+  "Negative values are allowed; cross-multiplying by positive lengths keeps the inequality direction correct."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

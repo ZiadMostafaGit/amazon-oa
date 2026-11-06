@@ -1,0 +1,16 @@
+{
+  "pattern": "lca",
+  "why": "The narrowest key that unlocks both devices is owned by their deepest common ancestor: the lowest common ancestor in a general rooted tree. Record parent and depth with one traversal, lift the deeper node to the same depth, then lift both until they meet.",
+  "hints": [
+    "A key at device d covers both targets exactly when d is an ancestor of both. Which such d has the smallest subtree?",
+    "The deepest common ancestor. With parent pointers and depths you can walk both nodes upward in step.",
+    "Iterative DFS from 0 to fill parent[] and depth[]; raise the deeper node until depths match, then step both up until equal. O(n). For many queries, binary lifting gives O(log n) each."
+  ],
+  "pitfalls": [
+    "A node is its own ancestor: if p is above q, the answer is p.",
+    "p may equal q.",
+    "Deep trees (10^5) overflow recursive DFS in Python; use a stack."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "bfs",
+  "why": "Meshed gears must turn opposite ways, so this is 2-coloring the graph (bipartite check): BFS from gear 0 colouring neighbours with the opposite direction, and an edge between two same-coloured gears means an odd cycle, which locks the mechanism.",
+  "hints": [
+    "Gear 0 is clockwise, so its neighbours are counterclockwise, their neighbours clockwise... What graph property makes this impossible?",
+    "This is a bipartite check. If an edge ever joins two gears that got the same direction, return [-1, -1].",
+    "BFS from 0 with side[v] in {0, 1}; on conflict stop. Otherwise count side 0 and side 1. O(n + edges)."
+  ],
+  "pitfalls": [
+    "Any odd cycle (like a triangle) locks the system.",
+    "A self-loop [u, u] is an immediate conflict.",
+    "Return counts in the order [clockwise, counterclockwise], with gear 0 clockwise."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

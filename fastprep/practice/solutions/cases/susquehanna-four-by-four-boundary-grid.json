@@ -1,0 +1,68 @@
+{
+ "problemId": "susquehanna-four-by-four-boundary-grid",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 28,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "clues",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 0, 0]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clues",
+     "type": "int[][]",
+     "rawValue": "[[2, 2, 3, 1], [1, 2, 3], [3, 2, 1, 2], [3, 3, -2, -3]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clues",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0]]"
+    }
+   ],
+   "expectedRaw": "[[1, 2, 3, 4], [2, 1, 4, 3], [3, 4, 1, 2], [4, 3, 2, 1]]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clues",
+     "type": "int[][]",
+     "rawValue": "[[2, 2, 3, 1], [2, 1, 3, 3], [3, 2, 1, 2], [1, 3, 3, 2]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clues",
+     "type": "int[][]",
+     "rawValue": "[[2, 2, 3, 1], [1, 3, 3, 2], [3, 2, 2], [3, 1, 2, 3]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "clues",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [1, 1, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]"
+    }
+   ],
+   "expectedRaw": "[]"
+  }
+ ]
+}

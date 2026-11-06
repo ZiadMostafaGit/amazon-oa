@@ -1,0 +1,16 @@
+{
+  "pattern": "union-find",
+  "why": "Each transaction links its user to its device and its card, so a fraud ring is a connected component of the user-device-card graph. Union all three keys per row, then count distinct users sharing the target's root.",
+  "hints": [
+    "Users are linked transitively through shared devices or cards. What structure answers 'which users end up in the same group'?",
+    "Union-find over tagged keys (user, device, card). Each transaction unions its user with its device and its card.",
+    "After processing all rows, count users whose root equals the target's root. O(T alpha(T)). BFS over a bipartite user-identifier graph also works."
+  ],
+  "pitfalls": [
+    "Tag keys by type so device 'X1' and card 'X1' are not merged by accident.",
+    "Count unique users, not transactions.",
+    "A user with no shared identifiers still forms a ring of size 1."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

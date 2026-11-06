@@ -1,0 +1,18 @@
+{
+  "pattern": "trees",
+  "why": "Build the tree from the edge list (parent -> children, child -> parent), validate it in priority order (format, duplicate edge, more than two children, several roots, cycle), then print it with a preorder traversal that wraps every subtree in parentheses.",
+  "hints": [
+    "Separate the work into parse, validate, print. Checks run in priority order E1 to E5, and the first that fails decides the answer.",
+    "Track a set of seen pairs (E2), the child list of each parent (E3: a third child), and which nodes have a parent. Roots are nodes with no parent: more than one is E4; none, or a root that cannot reach every node, means a cycle (E5).",
+    "Print recursively: S(v) = '(' + v + S(first child) + S(second child) + ')', children sorted alphabetically. Labels are single letters, so at most 26 nodes; parsing the string is the O(length) part."
+  ],
+  "pitfalls": [
+    "Any malformed token, such as a missing parenthesis, extra space or lowercase label, is E1 and beats all other errors.",
+    "Report the highest-priority error, even if a lower one appears earlier in the string.",
+    "The output has no spaces: (A(B(C))(D)).",
+    "With zero roots everything is in a cycle: report E5, not E4."
+  ],
+  "statement": "<p>You are given a string <code>pairs</code> of parent-child pairs separated by single spaces. Each pair is written <code>(A,B)</code> with uppercase letters, meaning A is the parent of B.</p><p>If the pairs form a valid binary tree, return its S-expression. Otherwise return the highest-priority error code that applies:</p><ul><li><code>E1</code>: the string is malformed (a token is not exactly <code>(X,Y)</code>).</li><li><code>E2</code>: the same pair appears more than once.</li><li><code>E3</code>: some parent has more than two children.</li><li><code>E4</code>: there is more than one root (node with no parent).</li><li><code>E5</code>: there is a cycle.</li></ul><p>The S-expression of a node is <code>(</code> + its label + the S-expressions of its children + <code>)</code>, with no spaces. When a node has two children, the alphabetically smaller label comes first.</p><p><b>Worked example.</b> <code>\"(A,B) (B,C) (A,D)\"</code></p><ul><li>All tokens are well formed, no pair repeats, A has two children (B, D), B has one (C).</li><li>A has no parent, every other node has one, so A is the only root and there is no cycle.</li><li>S(C) = <code>(C)</code>, S(B) = <code>(B(C))</code>, S(D) = <code>(D)</code>.</li><li>S(A) = <code>(A(B(C))(D))</code>.</li></ul><p>For <code>\"(A,B) (A,B)\"</code> the pair repeats, so the answer is <code>E2</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

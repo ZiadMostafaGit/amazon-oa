@@ -1,0 +1,15 @@
+{
+  "pattern": "tree-dp",
+  "why": "Cutting the edge above node v splits the tree into v's subtree and everything else, so the difference is |total - 2 * flow(v)|. Subtree flows come from one bottom-up pass, and the answer is the minimum over all non-root v.",
+  "hints": [
+    "When you cut the edge between v and its parent, what are the two parts?",
+    "One part is v's subtree with flow S(v); the other has total - S(v). The difference is |total - 2 * S(v)|.",
+    "parent[i] < i, so loop i from n-1 down to 1 adding S(i) into S(parent[i]): no recursion needed. Take the min over i >= 1. O(n)."
+  ],
+  "pitfalls": [
+    "The root has no edge above it; only nodes 1..n-1 are candidate cuts.",
+    "Flow means subtree sum, not the node's own input."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

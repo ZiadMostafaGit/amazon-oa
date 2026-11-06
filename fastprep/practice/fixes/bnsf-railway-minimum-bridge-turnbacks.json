@@ -1,0 +1,16 @@
+{
+ "pattern": "lis",
+ "why": "Turning back the fewest cars means keeping the longest subsequence in which each car weighs at most U and every two consecutive kept cars sum to at most U. That is an LIS-style DP: best[i] = 1 + max best[j] over earlier j with weight[j] <= U - weight[i], and a prefix-max Fenwick tree over compressed weights answers that max in O(log n).",
+ "hints": [
+  "Minimise removals = maximise the cars you keep. What condition links a kept car to the kept car right before it?",
+  "dp[i] = longest valid kept sequence ending at car i = 1 + max dp[j] for j < i with weight[j] <= U - weight[i]. It is like LIS, but the comparison is against U - weight[i].",
+  "Compress weights; scan cars left to right; query the prefix max of dp over weights <= U - w with a Fenwick tree, then store dp at w. Skip cars heavier than U. Answer n - max dp. O(n log n)."
+ ],
+ "pitfalls": [
+  "A car heavier than U can never be kept, even alone.",
+  "The condition is on consecutive kept cars only, not on all pairs, so it is not enough to keep the lightest cars.",
+  "The O(n^2) DP is the right idea but too slow for large n; the Fenwick prefix max fixes that."
+ ],
+ "constraints": "<ul><li>Not stated in the source; reasonable bounds: 1 &le; weight.length &le; 10^5</li><li>1 &le; weight[i], U &le; 10^9</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

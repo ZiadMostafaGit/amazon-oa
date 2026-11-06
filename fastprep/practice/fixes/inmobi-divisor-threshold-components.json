@@ -1,0 +1,16 @@
+{
+  "pattern": "union-find",
+  "why": "gcd(i, j) > t means i and j share some divisor d > t, so every edge is explained by 'both are multiples of the same d > t'. Uniting all multiples of each d from t+1 to n with union-find builds exactly the components, in harmonic-series time.",
+  "hints": [
+    "Checking all pairs is 2*10^10 gcd calls. If gcd(i, j) = g > t, what do i and j have in common with g?",
+    "Both i and j are multiples of g. Conversely all multiples of any d > t are pairwise connected through d. So for each d > t, union d with 2d, 3d, ... up to n.",
+    "Union-find with path compression and union by size. Total unions are sum n/d = O(n log n). Then count roots and the largest size."
+  ],
+  "pitfalls": [
+    "t = 0 makes everything one component (gcd >= 1 > 0), as in example 2.",
+    "t >= n/2 leaves every node isolated, since no d > t has a second multiple <= n.",
+    "Start multiples at 2d: a node is already in its own set."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

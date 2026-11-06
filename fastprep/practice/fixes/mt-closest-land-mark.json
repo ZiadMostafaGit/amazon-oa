@@ -1,0 +1,16 @@
+{
+  "pattern": "math",
+  "why": "The landmarks are the Fibonacci numbers 0, 1, 1, 2, 3, 5, 8, ... Generate them until one passes N. The closest one is either the last value <= N or the first value > N, and the answer is the smaller distance.",
+  "hints": [
+    "Fibonacci numbers grow exponentially, so only about 30 of them are at most 10^6.",
+    "N lies between two consecutive Fibonacci numbers. Only those two can be closest.",
+    "Iterate a, b = b, a+b while a <= N, tracking min |N - a|, including the first value past N. O(log N)."
+  ],
+  "pitfalls": [
+    "0 is a Fibonacci number, so N = 0 gives 0.",
+    "Check the first Fibonacci number above N too, not only the last one below it."
+  ],
+  "statement": "<p>Given an integer <code>N</code> (<code>aNum</code>), return its distance to the nearest Fibonacci number. The Fibonacci sequence is 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ..., where each term is the sum of the previous two. The distance is <code>|N - F|</code>, minimised over all Fibonacci numbers <code>F</code>.</p><p><b>Example:</b> <code>N = 25</code>. The nearest Fibonacci numbers are 21 (distance 4) and 34 (distance 9), so the answer is <b>4</b>.</p><p><code>N = 5</code> is itself a Fibonacci number, so the answer is <b>0</b>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

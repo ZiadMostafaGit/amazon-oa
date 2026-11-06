@@ -1,0 +1,16 @@
+{
+ "pattern": "scheduling",
+ "why": "This is the classic task-scheduler problem: regions are task types and minGap is the cooldown. The most frequent region forces (maxFreq-1) blocks of width minGap+1 plus a final partial block holding every region tied for the max, and the total can never be less than n.",
+ "hints": [
+  "Only the counts per region matter, not the order of the string. Which region is hardest to place?",
+  "Lay out the most frequent region first: copies separated by minGap gaps. That skeleton has (maxFreq - 1) * (minGap + 1) slots before the last copy, and every other region fits into the gaps.",
+  "Answer = max(n, (maxFreq - 1) * (minGap + 1) + number of regions with count maxFreq). O(n) with a counter."
+ ],
+ "pitfalls": [
+  "If there are more requests than gap slots, no idle time is needed and the answer is just n.",
+  "All regions tied at the maximum frequency go in the final block, not just one.",
+  "minGap = 0 means any order works: answer n."
+ ],
+ "constraints": "<ul><li>Not stated in the source; the same task in the bank (getMinTime2) uses:</li><li>1 &le; requests.length &le; 10^5, lowercase letters</li><li>0 &le; minGap &le; 100</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+  "pattern": "matrix-traversal",
+  "why": "This week is Simulation, and the simulation here is a scan: for every non-zero cell, walk the square of radius matrix[i][j] around it (clipped to the board, corners skipped) and check that nothing in it is greater or equal. No clever structure is needed, because the stated limit allows O(rows^2 * cols^2).",
+  "hints": [
+    "The region depends on the cell's own value v: rows i-v..i+v and columns j-v..j+v, clipped to the matrix.",
+    "A cell is a corner of its region exactly when |r-i| == v and |c-j| == v. Skip those four cells and the centre itself; any other cell with value >= v disqualifies it.",
+    "Loop over cells in row-major order, scan each region and stop at the first blocker. Appending in that order gives the required sorting for free. Worst case O(R^2 * C^2)."
+  ],
+  "pitfalls": [
+    "Zero cells are never local maximums, even when every neighbour is zero.",
+    "'Greater or equal' disqualifies, so two equal peaks that see each other both fail.",
+    "Only the four extreme corners are excluded, not whole corner regions. For v = 1 that leaves the 4 orthogonal neighbours."
+  ],
+  "constraints": "<ul><li>Not stated in the source. Assume 1 &le; rows, cols &le; 100 and 0 &le; matrix[i][j] &le; 100.</li><li>The source allows time complexity up to O(rows&sup2; &times; cols&sup2;).</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+ "pattern": "prefix-sums",
+ "why": "A service's final count is its last direct assignment, raised by the largest global floor that came after that assignment. So precompute the suffix maximum of floor operations over the log and combine it with each service's last-assignment time; this is a running-max (prefix/suffix aggregate) trick. A segment tree over the log, this week's tool, would answer the same 'max floor after time t' query, but a suffix array is enough because the log is offline.",
+ "hints": [
+  "For one service, which logs actually matter to its final value?",
+  "Only its last [1, p, x] assignment (or its initial value) and every [2, -1, x] floor after that. The floors combine as a maximum.",
+  "Record last_time[i] and value[i] in one pass; compute suffix_max[t] = largest floor among logs[t..m-1]; answer max(value[i], suffix_max[last_time[i] + 1]). O(n + m)."
+ ],
+ "pitfalls": [
+  "A floor before the last direct assignment no longer applies (example 2: service 3 set to 20 after the floor of 8 stays 20).",
+  "A direct assignment can lower a value, including to 0, before a later floor raises it.",
+  "Applying each floor to all n services is O(n m) and times out."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

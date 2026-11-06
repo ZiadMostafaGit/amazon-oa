@@ -1,0 +1,17 @@
+{
+  "pattern": "bfs",
+  "why": "Cities are nodes and 'differ in exactly one character' is an unweighted edge, so the minimum number of hops is a BFS shortest path, the same shape as Word Ladder.",
+  "hints": [
+    "Draw the cities as dots and connect two when they differ in one letter. What are you being asked to find in that picture?",
+    "Shortest path in an unweighted graph is BFS. Instead of comparing every pair, generate neighbours: for each of the 3 positions try all 26 letters and check membership in a set of cities.",
+    "Set of cities, queue of (city, dist), visited set. Each city generates 75 candidates, so O(75 n). Return -1 if endCity is never reached."
+  ],
+  "pitfalls": [
+    "startCity == endCity needs 0 hops.",
+    "A hop may only land on a city in the list; generated strings not in the set are not allowed.",
+    "Comparing all pairs is O(n^2) and slow for large lists; generate neighbours instead."
+  ],
+  "constraints": "<ul><li>1 &le; cities.length &le; 10^5 (not stated in the source)</li><li>Each city, startCity and endCity is exactly three lowercase English letters.</li><li>startCity and endCity appear in cities.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

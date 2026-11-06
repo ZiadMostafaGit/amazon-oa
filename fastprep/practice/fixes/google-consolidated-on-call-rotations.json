@@ -1,0 +1,17 @@
+{
+ "pattern": "sweep-line",
+ "why": "Every change in who is on call happens at some rotation's start or end. Sweep those times in order, apply all +1/-1 events at each time, and emit the segment between consecutive event times when someone is on call; merge with the previous segment if the set did not actually change.",
+ "hints": [
+  "Between two consecutive start/end times the on-call set cannot change. Which times matter?",
+  "Make events (time, name, +1) and (time, name, -1), group by time, and sweep. The segment [t_prev, t) carries the set that was active after processing t_prev.",
+  "Keep a count per name (the same person may overlap themselves) and a flag for whether membership changed at t_prev; skip empty segments. O(n log n) plus output size."
+ ],
+ "pitfalls": [
+  "Half-open intervals: an end at 40 and a start at 40 meet with no gap and no overlap.",
+  "If one person's rotation ends exactly when their next one starts, the set does not change, so the segment must not be split.",
+  "Omit periods where no one is on call.",
+  "Sort names inside each output segment."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

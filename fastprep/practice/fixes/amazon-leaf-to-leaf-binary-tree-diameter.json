@@ -1,0 +1,17 @@
+{
+  "pattern": "tree-dp",
+  "why": "Like tree diameter, but both ends must be leaves. Post-order returns, for each node, the longest downward path to a leaf; a node with both children combines left + right + 2 as a candidate leaf-to-leaf path.",
+  "hints": [
+    "Any leaf-to-leaf path has a highest node, where it turns. What must be true of that node?",
+    "The turning node needs both a left and a right child. For each node compute down(v) = edges to its deepest leaf (0 at a leaf; 1 + down of the only child if one child is missing).",
+    "Only at nodes with two children update best = max(best, down(left) + down(right) + 2). Iterative post-order, O(n) time; return 0 if no node has two children."
+  ],
+  "pitfalls": [
+    "A node with one child is not a leaf, and it cannot be the turning point; the root of a chain is not a leaf either.",
+    "With fewer than two leaves the answer is 0.",
+    "10^5 nodes in a chain overflows recursion; use an explicit stack."
+  ],
+  "statement": "<p>Given the root of a binary tree, return the largest number of edges on a simple path that starts at one leaf and ends at a different leaf. A leaf is a node with no children (the root counts only if it has no children). The path may turn at any node and need not pass through the root. If the tree has fewer than two leaves, return 0.</p><p><b>Worked example.</b> Tree <code>[1,2,3,4,5,null,6]</code>: 1 has children 2 and 3; 2 has children 4 and 5; 3 has right child 6. Leaves: 4, 5, 6.</p><ul><li>4 to 5 turns at 2: 2 edges.</li><li>4 to 6 turns at 1: 4 -&gt; 2 -&gt; 1 -&gt; 3 -&gt; 6, 4 edges. Same for 5 to 6.</li><li>The answer is <code>4</code>.</li></ul><p>For <code>[1,2,null,3]</code> the only leaf is 3 (node 1 has a child, so it is not a leaf), so the answer is 0.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

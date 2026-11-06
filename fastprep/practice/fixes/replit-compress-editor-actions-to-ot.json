@@ -1,0 +1,17 @@
+{
+  "pattern": "stack",
+  "why": "BACKSPACE always undoes whatever sits immediately left of the cursor, so the characters left of the cursor behave like a stack of operation records (inserted char or skipped original). Backspace pops the top: an insert is cancelled, a skip becomes a delete. Finally merge adjacent records of the same type.",
+  "hints": [
+    "What is directly to the left of the cursor after each action, and does it come from an APPEND or from the original document?",
+    "Record each APPEND as an insert and each successful RIGHT as a skip, pushing the record's index on a stack of live records. BACKSPACE pops the top record: if it is an insert, cancel it; if it is a skip, turn it into a delete (the original character is removed).",
+    "One pass builds the record list in O(actions); a second pass drops cancelled inserts and merges neighbours of the same type (concatenate text, add counts), converting counts to strings."
+  ],
+  "pitfalls": [
+    "A deleted original stays in the log as DELETE, while a cancelled insert disappears completely; that difference is why you cannot just pop from the output.",
+    "RIGHT past the end of the document and BACKSPACE with nothing on the left do nothing and produce no record.",
+    "Merge only after cancellation: cancelling an insert between two skips makes them adjacent, and they must merge.",
+    "Counts are output as decimal strings, and there is no trailing SKIP for the untouched suffix."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

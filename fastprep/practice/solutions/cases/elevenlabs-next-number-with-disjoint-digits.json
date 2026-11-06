@@ -1,0 +1,68 @@
+{
+ "problemId": "elevenlabs-next-number-with-disjoint-digits",
+ "generatedAt": "2026-11-06T15:18:27",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "654322"
+    }
+   ],
+   "expectedRaw": "700000"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "10"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-654321"
+    }
+   ],
+   "expectedRaw": "7000000"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "2"
+  }
+ ]
+}

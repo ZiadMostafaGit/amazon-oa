@@ -1,0 +1,16 @@
+{
+  "pattern": "binary-search",
+  "why": "Sweep b from left to right; the peaks allowed to pair with b are exactly indices 0..b-viewingGap, a prefix that only grows. Keep those heights in a sorted structure and binary search for the closest height to heights[b] (its predecessor and successor).",
+  "hints": [
+    "For a fixed right index b, which left indices a are allowed? They form a prefix 0..b - viewingGap that gains one index each step.",
+    "Insert heights[b - viewingGap] into a sorted container as b advances, then binary search for heights[b]: the best partner is the neighbour just below or just above it.",
+    "Use a sorted list with bisect.insort (fine in practice) or a Fenwick tree over compressed heights for guaranteed O(n log n). Stop early if the difference reaches 0."
+  ],
+  "pitfalls": [
+    "The condition is |a - b| >= viewingGap, so index b - viewingGap itself is allowed.",
+    "Check both neighbours (predecessor and successor) of the insertion point.",
+    "Sorting all heights globally and taking adjacent differences ignores the distance rule."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,18 @@
+{
+  "pattern": "greedy",
+  "why": "Any 2p books can be bought with p pair purchases (buy the outside ones singly, then pair the outermost chosen books inward), so the order constraint disappears: pair up the most expensive books while each pair costs more than pairCost. It is scheduled in the DP week, but sorting plus a greedy prefix replaces the interval DP.",
+  "hints": [
+    "The left/right rule looks like an interval DP. Before writing one, ask: which sets of books can be covered by p pair purchases?",
+    "Any set of 2p books can be: remove the books outside the chosen set one by one, pair the outermost two chosen books, and repeat inward. So pair purchases should go to the 2p most expensive books.",
+    "Sort costs descending; for p = 1..k the saving is (sum of the 2p largest) - p * pairCost; take the best saving (0 if none helps) and subtract it from the total. O(n log n)."
+  ],
+  "pitfalls": [
+    "Using a pair purchase is not always good: in [1, 1, 1] with pairCost 2, no pair helps.",
+    "With an odd number of books left, the last one must be bought singly (the pair needs two different books).",
+    "k caps the number of pair uses; you do not have to use all of them, and p can be at most n // 2.",
+    "Totals reach about 10^14; keep them in 64-bit."
+  ],
+  "constraints": "<ul><li>1 &lt;= n &lt;= 10^5 (the source's bound is garbled; this is a reasonable reading)</li><li>1 &lt;= cost[i] &lt;= 10^9</li><li>1 &lt;= pairCost &lt;= 10^9</li><li>1 &lt;= k &lt;= n</li><li>cost is not necessarily sorted</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

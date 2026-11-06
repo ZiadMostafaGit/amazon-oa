@@ -1,0 +1,16 @@
+{
+ "pattern": "unbounded-knapsack",
+ "why": "Every denomination can be reused any number of times and you want the fewest coins for an exact total: that is unbounded knapsack minimising item count, best[a] = 1 + min over coins c of best[a - c].",
+ "hints": [
+  "Greedy (largest coin first) fails for denominations like [1,3,4] and amount 6; you need to consider every last coin.",
+  "best[a] = minimum coins for amount a; the last coin used is some c, so best[a] = 1 + min(best[a - c]) over coins c <= a, with best[0] = 0.",
+  "Fill best[0..amount] left to right, marking unreachable amounts as infinity, and return -1 if best[amount] stays infinite. O(amount * coins)."
+ ],
+ "pitfalls": [
+  "amount = 0 answers 0, not -1.",
+  "Coins larger than amount (up to 2^31 - 1) must be skipped, not used as array indices.",
+  "Keep 'unreachable' distinct from a real count so 1 + infinity does not become a valid answer."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "simulation",
+ "why": "A single left-to-right pass: add points[K] for every token cell and +1 whenever a token cell's left neighbour is also a token. No pattern beyond careful counting.",
+ "hints": [
+  "Two separate contributions: the points of token cells, and the adjacent token pairs.",
+  "A pair (K-1, K) is counted once, when you are at K and both cells are 'T'.",
+  "One loop, O(N)."
+ ],
+ "pitfalls": [
+  "Three tokens in a row make two pairs, not one (TTT gives +2).",
+  "Do not count a pair twice by also checking the right neighbour."
+ ],
+ "statement": "<p>A board has <code>N</code> cells in a row, numbered <code>0</code> to <code>N-1</code>. You get an array <code>points</code> and a string <code>tokens</code>, both of length <code>N</code>. <code>tokens[K]</code> is <code>'T'</code> if cell K holds a token and <code>'E'</code> if it is empty.</p><p>Your score is:</p><ul><li><code>points[K]</code> for every cell K that holds a token, plus</li><li><b>1 extra point</b> for every pair of adjacent cells (K, K+1) that both hold tokens.</li></ul><p>Return the total score.</p><p><b>Example:</b> <code>points = [3,4,5,2,3]</code>, <code>tokens = \"TEETT\"</code></p><ul><li>Token cells are 0, 3 and 4: 3 + 2 + 3 = 8.</li><li>Adjacent token pairs: (3,4) only, so +1.</li><li>Total: <code>9</code>.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

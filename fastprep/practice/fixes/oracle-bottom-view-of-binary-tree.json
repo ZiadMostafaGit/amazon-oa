@@ -1,0 +1,16 @@
+{
+  "pattern": "bfs",
+  "why": "The bottom view needs, for each horizontal distance, the deepest node with ties going to the later node in level order. A level-order BFS that carries each node's distance and simply overwrites map[distance] gives exactly that, because later BFS visits are never shallower.",
+  "hints": [
+    "Write down (horizontal distance, depth) for every node in example 2. Which node should win when two share both numbers?",
+    "Traverse in level order (BFS), left child before right. The last node you see at each horizontal distance is the deepest one, and among equal depths the one visited later, which is precisely the tie rule.",
+    "BFS with a queue of (node, hd); do best[hd] = node.val on every visit; track min and max hd and output best[min..max]. O(n) time and space."
+  ],
+  "pitfalls": [
+    "DFS with overwrite gets the tie rule wrong unless you also compare depths and level-order positions; BFS gets it for free.",
+    "Empty tree: return [] without touching root.",
+    "Horizontal distances are negative on the left; use a dict or offset, not a plain list index."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

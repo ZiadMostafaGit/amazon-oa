@@ -1,0 +1,16 @@
+{
+  "pattern": "frequency-counting",
+  "why": "The number of common features between two strings is the multiset intersection size, which is sum over letters of min(count1, count2), so precompute a 26-entry count per string. Then search pairs from the largest length gap downward and stop at the first pair whose overlap fits the threshold.",
+  "hints": [
+    "\"Common features\" counts repeated letters too (\"aa\" and \"aaa\" share 2). How do you compute that for two strings without comparing characters pairwise?",
+    "Store a 26-letter count vector per string; the overlap of two strings is the sum of min(c1[k], c2[k]). Checking a pair is then O(26) regardless of length.",
+    "Sort strings by length. For each shorter string, try partners from longest down, and stop as soon as the gap cannot beat the best found, or a partner fits. At worst O(26 n^2), about 2.6 * 10^7 for n = 1000."
+  ],
+  "pitfalls": [
+    "Overlap is a multiset count, not the number of distinct shared letters.",
+    "Two strings of equal length give gain 0; the answer can be 0 if no pair fits (or all lengths are equal).",
+    "Break out of the inner loop early once the overlap exceeds the threshold, or the pair check costs more than it needs to."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

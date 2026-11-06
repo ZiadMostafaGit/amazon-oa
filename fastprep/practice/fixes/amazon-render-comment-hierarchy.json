@@ -1,0 +1,16 @@
+{
+  "pattern": "dfs",
+  "why": "The comments form a forest given as a flat parent list. Group children under their parent in input order, then a preorder DFS from each root (in input order) emits each comment indented by its depth.",
+  "hints": [
+    "A child can appear before its parent, so first build the whole structure, then render.",
+    "Map each id to the list of its children's indices, appending in input order; roots are those with parent -1, also in input order.",
+    "Iterative DFS with a stack of (index, depth), pushing children in reverse so the first child pops first; output '  ' * depth + text. O(n)."
+  ],
+  "pitfalls": [
+    "Indent is exactly two spaces per level.",
+    "Sibling order is input order, not id order.",
+    "Deep threads (10^5 levels) overflow recursion; use a stack."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

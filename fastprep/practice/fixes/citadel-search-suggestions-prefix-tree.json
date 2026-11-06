@@ -1,0 +1,16 @@
+{
+  "pattern": "trie",
+  "why": "Every typed character extends a prefix, and 'all products starting with this prefix' is exactly one node of a trie. Store the three lexicographically smallest words at each node while inserting, and each query step becomes a single child step.",
+  "hints": [
+    "Consecutive queries share almost everything: the prefix after typing c is the previous prefix plus c. Can you reuse the previous step's position instead of starting over?",
+    "Build a trie over the products. At each node keep a small list of the (at most three) smallest words that pass through it; then walking the query one character at a time reads off the answer at each node.",
+    "Insert products in sorted order and append to each node's list only while it has fewer than 3 words. Walk the query; once a child is missing, every remaining answer is []. O(total characters) build, O(|query|) answering. Sorting plus two pointers/binary search is an equally good alternative."
+  ],
+  "pitfalls": [
+    "Once a prefix has no match, every longer prefix must also return [], even if a later character would match from the root.",
+    "The query can be 10^5 long: re-scanning all products for each prefix is far too slow.",
+    "Keep only three words per node, or memory blows up with 10^6 characters."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

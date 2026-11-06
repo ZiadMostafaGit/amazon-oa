@@ -1,0 +1,16 @@
+{
+  "pattern": "dijkstra",
+  "why": "Each cell is a node and stepping into it costs its value, so the cheapest corner-to-corner route is a shortest path with non-negative weights on vertices: Dijkstra on the grid. Moves go in all four directions, so the right/down-only DP does not work.",
+  "hints": [
+    "Movement is in all four directions, so a simple 'only right and down' DP can miss the best route. What does a grid with non-negative cell costs become?",
+    "Treat cells as graph vertices; the edge into a cell costs that cell's value. Start with dist = grid[0][0] at the start and run Dijkstra.",
+    "Min-heap of (cost, r, c), dist grid initialised to infinity, skip -1 cells and stale entries; return dist at the bottom-right or -1. O(R*C log(R*C))."
+  ],
+  "pitfalls": [
+    "Include the start cell's cost (and the destination's); a 1x1 grid returns its own value.",
+    "Return -1 at once if either corner is blocked.",
+    "Cells with cost 0 are legal and may create ties; do not confuse 0 with blocked (-1)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

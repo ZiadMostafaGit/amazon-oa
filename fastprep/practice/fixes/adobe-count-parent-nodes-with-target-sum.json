@@ -1,0 +1,16 @@
+{
+  "pattern": "trees",
+  "why": "Rebuild the tree from its preorder string with null markers, then visit every node and check the ones with both children: a single DFS where each node compares value + left + right against target.",
+  "hints": [
+    "Preorder with # markers fully determines the tree: read a token, build the left subtree, then the right.",
+    "While rebuilding, each node knows its two direct children's values once both subtrees are read; that is when to test the sum.",
+    "Recursive (or explicit-stack) parser over the token list with a moving index; count nodes where both children exist and the three values sum to target. O(n)."
+  ],
+  "pitfalls": [
+    "A node with only one child never qualifies, even if value + child == target.",
+    "Strip spaces around tokens; values can be negative.",
+    "Sums reach 3 * 10^9: use 64-bit integers outside Python."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

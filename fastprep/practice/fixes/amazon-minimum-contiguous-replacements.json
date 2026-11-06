@@ -1,0 +1,16 @@
+{
+  "pattern": "intervals",
+  "why": "Two values whose first-to-last spans overlap can never both survive (one would split the other), so they must end up as the same value. Overlapping spans chain into groups, exactly the merge step of Partition Labels; a group with k distinct values costs k - 1 replacements. In graph terms: values are nodes, overlapping spans are edges, answer = distinct values - connected components.",
+  "hints": [
+    "Record the first and last index of every value. What happens to value x if another value y appears somewhere between x's first and last occurrence?",
+    "Values with overlapping spans must merge into one value, and merging is transitive, so spans group into connected blocks. Each replacement reduces the number of distinct values by one, and you need exactly one value per block.",
+    "Store last[v]; sweep left to right extending end = max(end, last[arr[i]]) and count a block whenever i == end. Answer = (number of distinct values) - (number of blocks). O(n)."
+  ],
+  "pitfalls": [
+    "An already valid array needs 0 operations.",
+    "Nested spans count as overlapping too ([1,2,2,1]: 2 sits inside 1's span).",
+    "Do not count replacements per occurrence: one operation changes every copy of a value."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

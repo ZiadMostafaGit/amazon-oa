@@ -1,0 +1,16 @@
+{
+  "pattern": "string-matching",
+  "why": "This is the textbook exact-match problem for the week's Strings: KMP / Z / hashing. Build the KMP failure table for needle, then scan haystack once. The first time the matched length reaches len(needle), return the start index.",
+  "hints": [
+    "Comparing the needle at every start is O(n*m), which is too slow at 10^5 by 10^5 in the worst case (e.g. 'aaaa...b').",
+    "KMP precomputes, for each prefix of needle, its longest proper prefix that is also a suffix. On a mismatch you fall back to that instead of restarting.",
+    "Build fail[] in O(m), scan haystack in O(n), and when k == m return i - m + 1. Return 0 for an empty needle and -1 if there is no match."
+  ],
+  "pitfalls": [
+    "An empty needle returns 0, even for an empty haystack.",
+    "A needle longer than the haystack gives -1.",
+    "Return the start index, i - m + 1, not the end index."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

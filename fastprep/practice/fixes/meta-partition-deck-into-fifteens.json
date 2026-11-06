@@ -1,0 +1,17 @@
+{
+ "pattern": "backtracking",
+ "why": "Grouping the deck into triples summing to 15 is an exact-cover search. Values are only 1..9, so the state is the count of each value; always building the triple that contains the smallest remaining card and memoizing the count vector turns the search into a small memoized DP, the bitmask/state-DP idea of this week applied to a multiset.",
+ "hints": [
+  "Cards with equal values are interchangeable. What compact state describes the remaining deck?",
+  "The smallest remaining card must be in some triple; try every pair (b, c) with b <= c and a + b + c = 15 that is still available, and recurse.",
+  "Memoize on the tuple of 9 counts. There are few such tuples for 36 cards, and each state tries at most a handful of pairs."
+ ],
+ "pitfalls": [
+  "An empty deck is a valid (empty) partition: return true.",
+  "Quick reject: the total must equal 15 * (number of cards / 3).",
+  "When b == c you need two copies of that value, not one.",
+  "Searching over card indices instead of value counts explores identical decks many times and blows up."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

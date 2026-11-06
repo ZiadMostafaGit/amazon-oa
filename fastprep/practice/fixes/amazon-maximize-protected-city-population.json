@@ -1,0 +1,17 @@
+{
+  "pattern": "dp-1d",
+  "why": "Each unit at city i protects either i or i - 1, so decisions only interact with the neighbouring city. Scanning left to right with a state 'is city i already protected by a unit that stayed' gives a two-state linear DP, a cousin of the week's greedy approach.",
+  "hints": [
+    "A unit's choice only touches city i or i - 1. What small piece of information about the previous city do you need as you scan?",
+    "Keep two values: best total so far if the previous city is protected, and if it is not yet protected. A unit at i either moves left (protects i - 1, i stays unprotected for now) or stays (protects i).",
+    "Transitions per city in O(1); finalize city i - 1's population when you process unit i. O(n) time, O(1) space. Greedy alternative: in each block of consecutive units, all of them can shift left except that you drop the single smallest city."
+  ],
+  "pitfalls": [
+    "The unit in the first city cannot move left.",
+    "Two units on the same city count its population once.",
+    "Moving left can leave the unit's own city unprotected; the DP must allow that, not just compare pairs greedily."
+  ],
+  "constraints": "<ul><li>Numeric bounds are not stated in the source. Assume 1 &lt;= n &lt;= 10^5 and 1 &lt;= population[i] &lt;= 10^9.</li><li>unit.length == n and unit contains only '0' and '1'.</li><li>The total can exceed 32 bits, so return a 64-bit value.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

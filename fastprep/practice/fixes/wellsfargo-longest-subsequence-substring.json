@@ -1,0 +1,16 @@
+{
+ "pattern": "dp-strings",
+ "why": "Two strings, one used as a subsequence and one as a substring: a 2-D DP over prefixes. dp[i][j] = longest suffix of y[:j] (a substring ending at j) that is a subsequence of x[:i]; it extends diagonally on a match and carries down from the previous x-prefix otherwise.",
+ "hints": [
+  "A substring of y is fixed by where it ends; ask for each end j how long a block ending there can be found in order inside x.",
+  "dp[i][j] = dp[i-1][j-1] + 1 if x[i-1] == y[j-1] (the block grows by y[j-1] matched to x[i-1]), else dp[i-1][j] (x[i-1] is skipped).",
+  "Fill an (|x|+1) x (|y|+1) table row by row keeping only one previous row, answer = maximum entry. O(|x| * |y|) time, O(|y|) space."
+ ],
+ "pitfalls": [
+  "This is not LCS: on a mismatch you may not drop a character of y (the y side must stay contiguous), so do not take dp[i][j-1].",
+  "And not longest common substring either: x's characters may be skipped.",
+  "Take the maximum over the whole table, not dp[|x|][|y|]."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

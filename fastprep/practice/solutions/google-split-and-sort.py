@@ -2,7 +2,7 @@
 from typing import List, Optional, Any
 
 
-def solve(A: List[int]) -> int:
+def splitAndSort(A: List[int]) -> int:
     n = len(A)
     if n < 2:
         return 0

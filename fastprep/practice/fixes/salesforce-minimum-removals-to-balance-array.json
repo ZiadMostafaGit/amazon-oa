@@ -1,0 +1,16 @@
+{
+ "pattern": "sliding-window",
+ "why": "After sorting, the elements you keep unmodified must form a contiguous block where max <= 2 * min, which a sliding window finds. The single allowed modification can always rescue one more element (set it to a value inside the block's range), so keep = longest window + 1, capped at n.",
+ "hints": [
+  "Sort first. If you keep some unmodified elements, why can you assume they are consecutive in sorted order?",
+  "Find the longest sorted window with a[j] <= 2 * a[i]. The one modification lets you keep one extra element: change it to any value between the window's min and max.",
+  "Two pointers over the sorted array give the longest window L in O(n). Answer = n - min(n, L + 1). O(n log n) for the sort."
+ ],
+ "pitfalls": [
+  "Do not forget the free modified element; without it you over-count removals by one.",
+  "If the whole array is already balanced, the answer is 0, not -1.",
+  "The condition is max <= 2 * min, inclusive."
+ ],
+ "constraints": "<ul><li>Not stated in the source; reasonable bounds: 1 &le; arr.length &le; 10^5</li><li>1 &le; arr[i] &le; 10^9</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

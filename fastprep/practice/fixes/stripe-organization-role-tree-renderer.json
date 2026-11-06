@@ -1,0 +1,16 @@
+{
+  "pattern": "dfs",
+  "why": "Relations give each role's parent; invert them into child lists, sort each list, and print a preorder DFS from the root where depth controls the '--' prefix.",
+  "hints": [
+    "The input gives child -> parent; printing needs parent -> children.",
+    "Build children lists, find the root (empty parent), sort children lexicographically, then preorder: print a node, then its children.",
+    "Explicit stack of (role, depth), pushing sorted children in reverse so the smallest is printed first. O(n log n) for the sorts."
+  ],
+  "pitfalls": [
+    "The root relation looks like \"ceo,\" with an empty parent; split on the first comma only.",
+    "Relations arrive in any order, so a child may appear before its parent.",
+    "Lexicographic order means plain string order (underscores and digits sort by character code)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

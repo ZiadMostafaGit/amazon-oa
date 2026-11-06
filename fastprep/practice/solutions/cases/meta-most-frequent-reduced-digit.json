@@ -1,0 +1,68 @@
+{
+ "problemId": "meta-most-frequent-reduced-digit",
+ "generatedAt": "2026-11-06T15:18:33",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "readings",
+     "type": "int[]",
+     "rawValue": "[789]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "readings",
+     "type": "int[]",
+     "rawValue": "[123, 792, 456, 101]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "readings",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "readings",
+     "type": "int[]",
+     "rawValue": "[456, 789, 101, 123, 789]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "readings",
+     "type": "int[]",
+     "rawValue": "[789, 456, 789, 456]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "readings",
+     "type": "int[]",
+     "rawValue": "[123, 456, 789]"
+    }
+   ],
+   "expectedRaw": "6"
+  }
+ ]
+}

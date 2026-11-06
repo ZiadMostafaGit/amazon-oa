@@ -1,0 +1,15 @@
+{
+  "pattern": "counting-dp",
+  "why": "Choosing the four digits one at a time, the number of codes with a given digit sum after i digits only depends on the previous count table: ways[i][s] = sum of ways[i-1][s-d] for d = 0..9. That is a small counting DP.",
+  "hints": [
+    "Four nested loops over digits would work here, but think about how to count without listing: what do you need to know after fixing the first i digits?",
+    "Let ways[i][s] = number of i-digit strings with digit sum s. Then ways[i][s] = sum over d = 0..9 of ways[i-1][s-d], starting from ways[0][0] = 1.",
+    "Fill a 5 x 37 table (or roll a single array) and return ways[4][S]. About 4 * 37 * 10 steps."
+  ],
+  "pitfalls": [
+    "Codes may start with 0 (0022 counts), so digits 0..9 are allowed in every position.",
+    "S = 0 and S = 36 each have exactly one code (0000, 9999); guard negative indices s - d < 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

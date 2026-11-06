@@ -51,3 +51,7 @@ def processVersionedSocialNetwork(n: int, operations: List[str]) -> List[str]:
                 states[key].append(active)
 
     return out
+
+
+# the bank renamed this problem's entry point
+solve = processVersionedSocialNetwork

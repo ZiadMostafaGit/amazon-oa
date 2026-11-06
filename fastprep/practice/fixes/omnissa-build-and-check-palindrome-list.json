@@ -1,0 +1,16 @@
+{
+  "pattern": "fast-slow-pointers",
+  "why": "A singly linked list cannot be read backwards, so find the middle with fast/slow pointers, reverse the second half in place, and walk both halves together comparing values. It combines two linked-list moves from this week.",
+  "hints": [
+    "Copying values into an array and comparing with its reverse is O(n) space. The O(1)-space version needs a way to read the back half backwards.",
+    "Find the middle with slow/fast pointers, then reverse the list starting at the middle. Now the second half reads from the tail toward the centre.",
+    "Compare node by node from head and from the reversed half until the reversed half runs out. O(n) time, O(1) extra space after building the list."
+  ],
+  "pitfalls": [
+    "Empty and one-node lists are palindromes.",
+    "For odd lengths the middle node needs no partner; stop when the reversed half is exhausted.",
+    "Build the list from values first: the exercise asks you to define the node class yourself."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

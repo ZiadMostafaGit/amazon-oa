@@ -1,0 +1,16 @@
+{
+  "pattern": "design-data-structure",
+  "why": "Peeking means looking one item ahead without consuming it: wrap the iterator and cache the next value, so peek reads the cache and next returns the cache and refills it.",
+  "hints": [
+    "The underlying iterator cannot un-read a value. What could you store so peek does not lose it?",
+    "Hold one look-ahead slot. peek returns it; next returns it and loads the following value; hasNext checks whether the slot is filled.",
+    "Implement with an index into nums (or a cached value plus a flag). Every operation is O(1)."
+  ],
+  "pitfalls": [
+    "Repeated peeks must return the same value.",
+    "hasNext after the last next is false; return the strings \"true\"/\"false\", and numbers as decimal strings."
+  ],
+  "statement": "<p>You are given an array <code>nums</code> and a list of operations to run, in order, on <b>one</b> iterator over <code>nums</code>:</p><ul><li><code>peek</code>: return the next value without moving past it.</li><li><code>next</code>: return the next value and move past it.</li><li><code>hasNext</code>: return <code>\"true\"</code> if a value remains, else <code>\"false\"</code>.</li></ul><p>Return one string per operation. Every <code>peek</code> and <code>next</code> is guaranteed to have a value available.</p><p><b>Worked example:</b> <code>nums = [1,2,3]</code>, operations <code>[peek, next, peek, next, hasNext]</code></p><ul><li><code>peek</code> sees 1, position unchanged: <code>\"1\"</code></li><li><code>next</code> returns 1 and advances: <code>\"1\"</code></li><li><code>peek</code> sees 2: <code>\"2\"</code></li><li><code>next</code> returns 2: <code>\"2\"</code></li><li><code>hasNext</code>: 3 remains: <code>\"true\"</code></li></ul><p>Answer: <code>[\"1\",\"1\",\"2\",\"2\",\"true\"]</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

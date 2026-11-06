@@ -1,0 +1,18 @@
+{
+  "pattern": "greedy",
+  "why": "You choose k '(' and k ')' and match each '(' with a later ')'; the score is the sum of (close index - open index), which equals sum of chosen close indices minus sum of chosen open indices. So greedily take the k leftmost '(' and the k rightmost ')', for the best feasible k; the number of feasible pairs is bounded by the stack-style greedy matching count.",
+  "hints": [
+    "The score of a set of pairs only depends on which indices you chose, not on how you pair them. Why?",
+    "Total score = (sum of chosen ')' indices) - (sum of chosen '(' indices). For a fixed k that is maximised by the k earliest '(' and the k latest ')', as long as k pairs can be matched at all.",
+    "Count the maximum matchable pairs K with a counter (like a stack of open brackets). Then for k = 1..K add opens[k-1] and closes[-k] to running sums and keep the best difference; each extra pair adds less than the previous, so you can stop once it stops helping. O(n)."
+  ],
+  "pitfalls": [
+    "You do not have to use every bracket: in \"()()\" the best is the single outer pair (0, 3) with score 3.",
+    "A ')' must come after the '(' it is paired with; a string like \")(\" scores 0.",
+    "Pairs are counted by index difference, so nested pairs (0, 3) and (1, 2) give 3 + 1 = 4."
+  ],
+  "statement": "<p>You are given a string <code>s</code> of the characters <code>(</code> and <code>)</code>. Choose some pairs of positions <code>(i, j)</code> with <code>i &lt; j</code>, <code>s[i] = '('</code> and <code>s[j] = ')'</code>, using each position in at most one pair. The chosen characters then form a balanced selection: as many opening as closing parentheses. The score of a pair is <code>j - i</code>, and the score of the selection is the sum over its pairs. Return the maximum possible score (0 if no pair can be formed).</p><p><b>Worked example 1:</b> <code>s = \"(())\"</code></p><ul><li>Opens at 0 and 1, closes at 2 and 3.</li><li>Pair (0, 3) and (1, 2): 3 + 1 = 4. Pairing (0, 2) and (1, 3) also gives 2 + 2 = 4.</li></ul><p>Answer: <code>4</code>.</p><p><b>Worked example 2:</b> <code>s = \"()()\"</code></p><ul><li>Using both pairs (0, 1) and (2, 3) gives 1 + 1 = 2.</li><li>Using only the outer pair (0, 3) gives 3; the middle characters are left out.</li><li>(1, 2) is not allowed because s[1] is ')'.</li></ul><p>Answer: <code>3</code>.</p>",
+  "constraints": "<ul><li>1 &lt;= s.length &lt;= 10^5 (not stated in the source; a reasonable bound)</li><li>s contains only '(' and ')'.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

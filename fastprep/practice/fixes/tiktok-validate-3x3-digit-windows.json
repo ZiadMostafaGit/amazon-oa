@@ -1,0 +1,16 @@
+{
+  "pattern": "sliding-window",
+  "why": "The 3 x 3 window slides one column at a time, so instead of recounting nine cells, add the entering column's three digits and remove the leaving column's three. A running count array for digits 1-9 plus a count of distinct digits answers each position in O(1).",
+  "hints": [
+    "Moving the window one step right changes only two columns. What do you need to remember about the current window?",
+    "Keep counts[1..9] and the number of digits with a non-zero count. A window is valid when that number is 9 (nine cells, nine distinct digits means each appears once).",
+    "Add column c; once c >= 2, record distinct == 9 and remove column c - 2. O(n) overall (the brute force O(9n) also passes)."
+  ],
+  "pitfalls": [
+    "The result has n - 2 entries, one per window position, not n.",
+    "Checking only that the sum is 45 is wrong: 1+2+...+9 can be matched by other multisets (e.g. two 5s instead of 4 and 6).",
+    "Remove the leftmost column after recording the answer, not before."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

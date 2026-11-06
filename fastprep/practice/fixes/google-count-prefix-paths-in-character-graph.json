@@ -1,0 +1,16 @@
+{
+  "pattern": "backtracking",
+  "why": "Counting simple paths that spell a prefix is DFS with a visited set: from every vertex labelled target[0], extend to unvisited neighbours whose label matches the next character, unmarking on return. Each depth reached adds one to counts[depth].",
+  "hints": [
+    "A path that spells the first k+1 characters is a path that spells the first k characters, extended by one more matching vertex. Can one search fill in every counts[k] at once?",
+    "Start a DFS from each vertex whose label is target[0]. At depth d, add 1 to counts[d], then try each unvisited neighbour with label target[d+1]. Mark on entry and unmark on exit so other paths can reuse the vertex.",
+    "Adjacency list + visited array + recursive DFS. Graph has at most 10 vertices, so plain backtracking is fast. Return counts as a list of length len(target)."
+  ],
+  "pitfalls": [
+    "Paths are ordered: [0,1] and [1,0] are different if both spell the prefix (example 3 counts 8 two-vertex paths on a 4-cycle).",
+    "Vertices cannot repeat within a path; forgetting to unmark on backtrack undercounts, forgetting to mark overcounts.",
+    "Prefixes with no match still need a 0 entry."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

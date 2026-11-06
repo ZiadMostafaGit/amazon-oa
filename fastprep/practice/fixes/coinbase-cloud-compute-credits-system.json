@@ -1,0 +1,17 @@
+{
+  "pattern": "heap",
+  "why": "The time-driven part is a stream of rebates that must post in (due time, creation order) before each operation: a min-heap of pending rebates. The rest is design: dicts for balances and activity, merge redirection, and a per-workspace balance history searched with bisect.",
+  "hints": [
+    "Rebates fire on a schedule independent of the operations; what structure gives the earliest due one quickly?",
+    "Min-heap of (dueTime, txIndex). Before each operation at t, pop and post all with dueTime <= t to the current owner of the transaction (follow merges).",
+    "Keep balance history as a list of (time, balance) per workspace for GET_BALANCE (bisect for the last entry <= timeAt). TOP_WORKSPACES sorts active ones by (-activity, id)."
+  ],
+  "pitfalls": [
+    "Rebate = floor(amount * 2 / 100), due exactly 86,400,000 ms later; due at t means posted before the operation at t.",
+    "Receiving a transfer does not add to activity; only sending and consuming do.",
+    "After a merge, pending rebates go to the survivor, and the absorbed workspace is inactive (its queries return the empty string).",
+    "Failed operations must not change anything, including the transaction counter."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

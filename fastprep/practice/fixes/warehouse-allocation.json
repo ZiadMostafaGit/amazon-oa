@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "The best difference d is 0 if total is divisible by n, else 1; the final piles are 'extra' piles of base+1 and the rest of base. Assign the larger targets to the largest piles and count boxes that must leave over-full piles. That is a greedy target assignment backed by a little math (divmod).",
+ "hints": [
+  "Moving boxes keeps the total fixed, so the most even layout has every pile at floor(total/n) or ceil(total/n).",
+  "With base, extra = divmod(total, n), exactly 'extra' piles end at base + 1. Give those slots to the currently largest piles, since they would otherwise have to shed more.",
+  "Sort descending, set target = base + 1 for the first extra piles and base for the rest, and sum max(0, pile - target). Each move fixes one surplus box. O(n log n)."
+ ],
+ "pitfalls": [
+  "Count only the surplus (boxes removed), not surplus plus deficit; each move both removes and adds one box.",
+  "Totals reach 10^14; use 64-bit integers.",
+  "When total % n == 0 every pile targets exactly base."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

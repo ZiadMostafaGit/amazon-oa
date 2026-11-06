@@ -1,0 +1,16 @@
+{
+  "pattern": "trees",
+  "why": "Peeling leaves one at a time can leave any connected subtree of m = n - k nodes. A subtree with diameter D fits in the ball of radius D/2 around a centre node (D even) or a centre edge (D odd), and a ball can be trimmed to any smaller connected size. So find the smallest radius ball (around a node or an edge) holding at least m nodes, using BFS distances from every node.",
+  "hints": [
+    "Which node sets can remain after removing k leaves one by one? Is every connected set of size n - k possible?",
+    "Yes. Now think about tree centres: a tree of diameter D has a centre node (D even) or centre edge (D odd) with everything within D // 2 of it.",
+    "BFS from every node (n <= 2000, so O(n^2)). For node c, the m-th smallest distance r gives diameter 2r; for edge (u, v), the m-th smallest min(dist_u, dist_v) gives 2r + 1. Answer the minimum. O(n^2 log n)."
+  ],
+  "pitfalls": [
+    "If n - k = 1 the answer is 0.",
+    "Do not just remove the k deepest leaves greedily; which branch to shorten depends on the shape.",
+    "Odd diameters need edge centres; checking only node centres overestimates by one."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

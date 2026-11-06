@@ -1,0 +1,16 @@
+{
+ "pattern": "stack",
+ "why": "Nested transactions are a stack of dictionaries: BEGIN pushes an empty layer, SET writes into the top layer, ROLLBACK pops it, and GET looks from the top layer down to the permanent store. COMMIT folds every layer into the store from oldest to newest, so newer writes win, then empties the stack.",
+ "hints": [
+  "The newest transaction shadows older ones, and ROLLBACK only undoes the newest. Which data structure has exactly that last-in, first-out shape?",
+  "Keep the permanent store as a dict and the active transactions as a stack of dicts, one per BEGIN. SET with an empty stack is an ERROR.",
+  "GET: scan the stack from top to bottom, then the store, else NOT_FOUND. COMMIT: for each layer from bottom to top, store.update(layer), then clear. COUNT is len(store). O(depth) per GET, which you can avoid with per-key version stacks if needed."
+ ],
+ "pitfalls": [
+  "COUNT counts only committed keys; uncommitted SETs are visible to GET but not to COUNT (example 1).",
+  "COMMIT applies all active layers, not just the newest, and must apply them oldest first so inner values win.",
+  "ROLLBACK and COMMIT with no active transaction return ERROR and change nothing.",
+  "Every operation produces exactly one output string, including BEGIN and SET."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

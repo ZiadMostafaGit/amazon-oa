@@ -1,0 +1,17 @@
+{
+  "pattern": "sorting",
+  "why": "Group prices by city in a hash map, then sort each city's list and read the middle. All prices are known up front, so a plain sort per city is simpler than the streaming two-heap median, which only pays off when queries interleave with inserts.",
+  "hints": [
+    "Each city is independent: first collect its prices.",
+    "Use a dict city -> list of prices; sort each list once and take the middle element (odd) or average the two middles (even).",
+    "Output cities in sorted order as 'city=median', printing an integer when the median is whole and 'x.5' otherwise. O(N log N) overall."
+  ],
+  "pitfalls": [
+    "Format matters: 6 not 6.0, and 1.5 for a half; compute with integers (sum of the two middles, then check parity).",
+    "Cities must be sorted by name in the output, not by first appearance.",
+    "Price 0 is valid."
+  ],
+  "statement": "<p>Each entry is a string <code>\"city price\"</code> (city has no spaces, price is a non-negative integer). For every city, find the median of its prices: the middle value after sorting, or the mean of the two middle values when the count is even. Return one string <code>\"city=median\"</code> per city, sorted by city name. Write the median as an integer when it is whole, otherwise with a <code>.5</code> suffix.</p><p><b>Worked example:</b> <code>[\"sf 10\",\"ny 4\",\"sf 20\",\"ny 8\",\"sf 30\"]</code></p><ul><li>ny prices sorted: [4, 8]; even count, median = (4 + 8) / 2 = 6, written <code>6</code>.</li><li>sf prices sorted: [10, 20, 30]; median = 20.</li><li>Sort by city: ny, sf.</li></ul><p>Answer: <code>[\"ny=6\",\"sf=20\"]</code>. For <code>[\"a 1\",\"a 2\"]</code> the median is 1.5, giving <code>[\"a=1.5\"]</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

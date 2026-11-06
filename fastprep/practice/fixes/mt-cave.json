@@ -1,0 +1,17 @@
+{
+  "pattern": "dp-2d",
+  "why": "This week is Backtracking + DFS, and a DFS over all routes would work on tiny maps. But you can never move up and never revisit a cell, so within a row the route is a single left-to-right or right-to-left sweep from where it entered to where it drops down. That makes it a row-by-row DP: best[r][c] = most chambers visited when leaving row r downward from column c.",
+  "hints": [
+    "Because upward moves are banned, what happens inside one row is very constrained. What shape can the route take in a single row?",
+    "Inside a row you enter at column e and walk straight to column d (no revisits), collecting |e-d|+1 cells, all safe and in the same X-free segment. So cur[d] = max over e of prev[e] + |e-d| + 1.",
+    "Compute cur with a left-to-right pass (best = max(best+1, prev[c]+1), reset at X) and a right-to-left pass, then pass cur down to the next row's safe cells. In the last row read column M-1. O(N*M)."
+  ],
+  "pitfalls": [
+    "Return -1 if the start or the exit is X, or if the exit is unreachable.",
+    "An X splits the row: a sweep cannot jump over it, so reset the running best at every X.",
+    "In row 0 the route enters only at column 0, not at any column."
+  ],
+  "constraints": "<ul><li>Not stated in the source (it says N/A). Assume 1 &le; N, M &le; 1000 and that each row is a string of '.' and 'X'.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

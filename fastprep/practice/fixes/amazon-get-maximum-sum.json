@@ -1,0 +1,16 @@
+{
+  "pattern": "top-k",
+  "why": "Taking a type means taking all its servers (health is positive), so collapse servers into one total per type with a hash map. Choosing up to k types to maximise the sum is then picking the k largest totals.",
+  "hints": [
+    "Once you decide to use a type, is there any reason to leave one of its servers out?",
+    "No: every health is positive. So each type is worth the sum of its servers' health, and you want the k most valuable types.",
+    "Sum health per type in a dict in O(n), sort the totals descending (or use a heap of size k) and add the first k. O(n log n)."
+  ],
+  "pitfalls": [
+    "Rank types by their total health, not by their single best server.",
+    "There may be fewer than k distinct types; then take them all.",
+    "The published explanation of example 2 mislabels the types: the answer 20 comes from types 2 and 5 (10 + 10), since types 1 and 3 total only 3 each."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

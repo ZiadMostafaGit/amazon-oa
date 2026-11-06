@@ -1,0 +1,17 @@
+{
+  "pattern": "lru-cache",
+  "why": "This is the textbook LRU cache: a hash map from key to node gives O(1) lookup, and a doubly linked list ordered by recency gives O(1) 'move to front' and 'evict from back'. The query-result story adds nothing beyond the serialised operation list.",
+  "hints": [
+    "You need two O(1) operations: find a key, and find the least recently used key. No single structure does both.",
+    "Combine a dict key -> node with a doubly linked list ordered from most to least recent. get moves the node to the front; put inserts or updates at the front and, if over capacity, removes the node before the tail sentinel and deletes its key from the dict.",
+    "Use head/tail sentinel nodes so insert and unlink never special-case an empty list. O(1) per operation, O(capacity) space. (OrderedDict with move_to_end/popitem(last=False) is the same idea.)"
+  ],
+  "pitfalls": [
+    "A successful get must refresh the key's recency; a miss must not change anything.",
+    "Updating an existing key refreshes its recency but does not evict anything.",
+    "Return the string 'null' for each put and the value as a string for each get."
+  ],
+  "constraints": "<ul><li>Not stated in the source; reasonable bounds for practice:</li><li>1 &lt;= capacity &lt;= 3000</li><li>1 &lt;= operations.length &lt;= 2 * 10^5</li><li>0 &lt;= key &lt;= 10^4, 0 &lt;= value &lt;= 10^5</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

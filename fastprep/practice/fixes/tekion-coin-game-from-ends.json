@@ -1,0 +1,16 @@
+{
+ "pattern": "game-dp",
+ "why": "This is the classic 'Predict the Winner' / coins-in-a-line game: the remaining coins are always a contiguous range, so dp[i][j] = best (current player - opponent) on coins[i..j], and the first player wins iff dp[0][n-1] >= 0.",
+ "hints": [
+  "Each move removes one end, so the remaining coins always form a contiguous block [i..j].",
+  "Track the score difference for the player to move: dp[i][j] = max(coins[i] - dp[i+1][j], coins[j] - dp[i][j-1]).",
+  "Fill by increasing length, answer dp[0][n-1] >= 0. O(n^2) time. (With an even count the first player can always take all odd or all even positions, so the answer is in fact always true, but the DP is the general tool.)"
+ ],
+ "pitfalls": [
+  "Greedy 'take the larger end' fails: on [8,15,3,7] taking 8 lets the opponent grab 15.",
+  "A tie counts as a win here (at least as large).",
+  "Recursion without memoization is exponential; n can be 500."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

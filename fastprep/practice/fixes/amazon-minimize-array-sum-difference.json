@@ -1,0 +1,16 @@
+{
+  "pattern": "greedy",
+  "why": "The cost of a run that keeps going up (or down) telescopes to its endpoints' difference, so every middle point of a monotonic run, and every repeated value, can be dropped. Greedily keep only the first element, the turning points (local peaks and valleys) and the last element.",
+  "hints": [
+    "When is |a - b| + |b - c| equal to |a - c|? Think about what that says about b.",
+    "b can go exactly when it lies between a and c (inclusive). So only the turning points, where the direction changes from up to down or back, carry cost; equal neighbours carry none.",
+    "First drop consecutive duplicates, then scan and keep arr[0], arr[-1], and every element where the sign of the difference flips. O(n)."
+  ],
+  "pitfalls": [
+    "Equal adjacent values contribute 0 and should collapse to one copy ([6, 4, 4, 3, 3, 2] becomes [6, 4, 3, 2]).",
+    "Always keep the first and last elements.",
+    "A plateau at a peak or valley ([1, 3, 3, 1]) must keep one copy of the peak value."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

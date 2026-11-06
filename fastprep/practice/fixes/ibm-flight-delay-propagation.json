@@ -1,0 +1,16 @@
+{
+  "pattern": "multi-source-bfs",
+  "why": "A delay flows from flightTo[i] to flightFrom[i], so build directed edges in that direction and start one BFS from all initially delayed flights at once; everything it reaches is delayed.",
+  "hints": [
+    "Which way does a delay travel along a dependency pair? Draw the arrow before writing any code.",
+    "Edge flightTo[i] -> flightFrom[i]. Put all initially delayed flights in the queue together (multi-source) and mark everything reachable.",
+    "Adjacency list, visited array of size flightNodes + 1, BFS from the deduplicated delayed list, then output visited IDs in ascending order by scanning 1..flightNodes. O(V + E)."
+  ],
+  "pitfalls": [
+    "Reversing the edge direction gives the wrong set (example 2 shows the direction).",
+    "Repeated delayed IDs or repeated edges must not produce duplicates; use a visited array.",
+    "Cycles are possible in the dependency data; mark nodes when enqueued so the BFS terminates."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

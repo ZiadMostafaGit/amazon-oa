@@ -1,0 +1,15 @@
+{
+ "pattern": "stack",
+ "why": "Both deletable pairs end in 'B' (\"AB\" and \"BB\"), so any 'B' can delete itself together with whatever character is directly before it. Scanning left to right with a stack, each 'B' pops the top if there is one, like matching brackets; what is left on the stack is the minimum.",
+ "hints": [
+  "Look at the two removable pairs. What do they have in common?",
+  "Every removal is \"some character followed by B\". So a 'B' can cancel any character immediately to its left, and only an 'A' with nothing to cancel, or a leading 'B', survives.",
+  "Push characters onto a stack; when you see 'B' and the stack is non-empty, pop instead of pushing. Return the stack size (a counter is enough). O(n)."
+ ],
+ "pitfalls": [
+  "\"BA\" cannot be removed; an 'A' never cancels anything, it only gets cancelled by a later 'B'.",
+  "Repeatedly searching and splicing the string is O(n^2) and too slow for 2 * 10^5.",
+  "Removals concatenate the remaining parts, which is exactly why the stack top is the right neighbour."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

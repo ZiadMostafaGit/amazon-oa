@@ -12,3 +12,7 @@ def countScoreCategories(scores: List[int]) -> List[int]:
         else:
             honors += 1
     return [fail, regular, honors]
+
+
+# the bank renamed this problem's entry point
+solve = countScoreCategories

@@ -1,0 +1,16 @@
+{
+  "pattern": "greedy",
+  "why": "Prices are served strictly from high to low, so group bids by price and process groups in descending order; inside a group the one-at-a-time round robin can be simulated in bulk by giving everyone min(remaining request) per full round instead of share by share.",
+  "hints": [
+    "Who gets served first is fixed by price, so sort or heap the price groups from highest to lowest.",
+    "Within a group, if the shares left cover every request, everybody is satisfied; otherwise round robin by timestamp means each bidder gets one share per round, and the first bidders in timestamp order get the leftovers.",
+    "Process groups until shares run out; a bidder is unallotted only if their group was never reached or the round robin ran out before their first share (k shares left, group of size g > k: the last g - k by timestamp get nothing). O(n log n)."
+  ],
+  "pitfalls": [
+    "Simulating one share at a time is too slow: totalShares can be 10^9.",
+    "In a tied group with fewer shares than bidders, only the earliest-timestamp bidders get a share.",
+    "A user who got even one share is not in the answer; return ids sorted ascending."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

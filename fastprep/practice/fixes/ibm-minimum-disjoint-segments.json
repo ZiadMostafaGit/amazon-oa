@@ -1,0 +1,14 @@
+{
+ "pattern": "greedy",
+ "why": "Cut the string into the fewest pieces with all-distinct characters: extend the current segment as far as possible and cut only when the next character already appears in it. Making each segment as long as possible never hurts later segments, which is the classic greedy partition.",
+ "hints": [
+  "Should the first segment be as long as possible or as short as possible?",
+  "Extending the current segment only removes options from nothing later on: the next segment starts later, which is never worse. So cut only when forced, i.e. when a character repeats inside the current segment.",
+  "Scan with a set (or 26-bit mask) of characters in the current segment; on a repeat, count a new segment and reset the set to the current character. O(n)."
+ ],
+ "pitfalls": [
+  "After a cut, the new segment already contains the repeating character; do not reset to empty.",
+  "A non-empty string always needs at least one segment."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

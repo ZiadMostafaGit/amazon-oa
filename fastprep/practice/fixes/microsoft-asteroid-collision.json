@@ -1,0 +1,16 @@
+{
+  "pattern": "stack",
+  "why": "Only a right-mover followed later by a left-mover can collide, and an incoming left-mover always hits the most recent surviving right-mover first. Survivors so far sit on a stack; each left-mover pops smaller right-movers off the top until it dies, ties, or passes everything.",
+  "hints": [
+    "Which pairs can ever meet? And when a left-moving asteroid arrives, which surviving asteroid does it hit first?",
+    "It hits the nearest right-mover to its left, i.e. the top of a stack of survivors. Compare sizes: pop the top if it is smaller and keep going, pop both if equal, stop if the top is bigger.",
+    "Scan once; push right-movers, and process each left-mover against the stack top in a while loop; push it if it survives. Each asteroid is pushed and popped once, O(n)."
+  ],
+  "pitfalls": [
+    "Left-movers at the start (or after all right-movers are gone) never collide; push them.",
+    "Equal sizes destroy both: pop the top and drop the incoming asteroid.",
+    "A single left-mover can destroy several right-movers in a row: use a while loop, not an if."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

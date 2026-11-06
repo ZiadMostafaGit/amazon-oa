@@ -1,0 +1,128 @@
+{
+ "problemId": "visa-minimum-unreachable-warehouses",
+ "generatedAt": "2026-11-06T15:18:37",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "warehouseNodes",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "warehouseFrom",
+     "type": "int[]",
+     "rawValue": "[2, 4, 5, 6]"
+    },
+    {
+     "name": "warehouseTo",
+     "type": "int[]",
+     "rawValue": "[2, 3, 5, 2, 4]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "warehouseNodes",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "warehouseFrom",
+     "type": "int[]",
+     "rawValue": "[1, 3, 2, 3]"
+    },
+    {
+     "name": "warehouseTo",
+     "type": "int[]",
+     "rawValue": "[3, 2]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "warehouseNodes",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "warehouseFrom",
+     "type": "int[]",
+     "rawValue": "[1, 4, 2]"
+    },
+    {
+     "name": "warehouseTo",
+     "type": "int[]",
+     "rawValue": "[2, 3, 5, 2, 6, 4]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "warehouseNodes",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "warehouseFrom",
+     "type": "int[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "warehouseTo",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "warehouseNodes",
+     "type": "int",
+     "rawValue": "6"
+    },
+    {
+     "name": "warehouseFrom",
+     "type": "int[]",
+     "rawValue": "[2, 2, 6, 4, 4, 5]"
+    },
+    {
+     "name": "warehouseTo",
+     "type": "int[]",
+     "rawValue": "[2, 3, 5, 4, 4]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "warehouseNodes",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "warehouseFrom",
+     "type": "int[]",
+     "rawValue": "[1, 2, 0]"
+    },
+    {
+     "name": "warehouseTo",
+     "type": "int[]",
+     "rawValue": "[2, 1, 3, 1]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

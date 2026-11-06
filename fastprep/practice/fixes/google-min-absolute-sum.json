@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "Flipping x turns the total S into S - 2x, so there are only N + 1 possible sums. One pass computing min(|S|, min over x of |S - 2x|) is the whole solution.",
+ "hints": [
+  "What happens to the total when you multiply a single element x by -1?",
+  "It becomes S - 2x. You may also flip nothing, keeping S.",
+  "Compute S, then scan all x for the smallest |S - 2x|, starting from |S|. O(N)."
+ ],
+ "pitfalls": [
+  "'At most one' flip: keep the no-flip option |S| (example 3).",
+  "Flipping a zero changes nothing; flipping a negative number increases the sum.",
+  "Do not just flip the largest element; the best x is the one closest to S / 2."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

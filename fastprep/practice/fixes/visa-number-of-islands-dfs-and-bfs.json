@@ -1,0 +1,16 @@
+{
+  "pattern": "flood-fill",
+  "why": "Every unvisited land cell starts a new island; flooding from it (by DFS or BFS, the source asks for both) marks the whole 4-connected component, so the count of flood starts is the island count.",
+  "hints": [
+    "Scan the grid. When you find land you have not seen, what should you do with the rest of its island so you never count it again?",
+    "Flood it: visit all 4-neighbour land cells reachable from it and mark them. DFS uses a stack (or recursion), BFS uses a queue; both give the same count.",
+    "Count += 1 per flood start; mark cells visited (or overwrite with 0). O(rows * cols) time and space."
+  ],
+  "pitfalls": [
+    "An empty grid ([] or [[]]) must return 0 without indexing grid[0].",
+    "Diagonal neighbours do not connect islands.",
+    "Recursive DFS on a 500x500 all-land grid overflows Python's stack; use an explicit stack or BFS."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

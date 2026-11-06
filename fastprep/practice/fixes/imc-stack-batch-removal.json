@@ -1,0 +1,15 @@
+{
+ "pattern": "design-data-structure",
+ "why": "A plain stack cannot drop 'every value below x' quickly. Store pushes in a doubly linked list (so any element can be unlinked and the top is the tail), and keep a min-heap and a max-heap of (value, node) with lazy deletion: remove_lower pops the min-heap while below x, remove_upper pops the max-heap while above x. Each element is removed once, so the whole run is O(n log n).",
+ "hints": [
+  "remove_lower and remove_upper can delete elements from the middle of the stack. What lets you remove an arbitrary element in O(1) and still know the top?",
+  "Keep the stack as a doubly linked list; to find all elements below x without scanning, keep them in a min-heap (and a max-heap for above x).",
+  "Heaps hold (value, node id); skip entries whose node is already dead. pop unlinks the tail, removals unlink nodes from the heaps' ends. Output the tail value or EMPTY after every command. Amortised O(log n) per element."
+ ],
+ "pitfalls": [
+  "remove_lower removes values strictly less than value; equal values stay (same for remove_upper with strictly greater).",
+  "A popped element is still inside the heaps; lazy deletion must check an alive flag.",
+  "Scanning the whole stack on each removal is O(n^2) and times out at 2 * 10^5 operations."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

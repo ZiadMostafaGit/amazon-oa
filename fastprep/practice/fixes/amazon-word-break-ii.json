@@ -1,0 +1,17 @@
+{
+  "pattern": "memoization",
+  "why": "Every sentence is a dictionary word followed by a sentence for the rest of the string, so the answer for suffix i is built from the answers for later suffixes. Backtracking over split points with memoisation by start index is the standard solution; a trie can speed up the 'which words start here' lookup, which is the link to this week's Tries topic.",
+  "hints": [
+    "Pick the first word: it must be a dictionary word that is a prefix of s. What remains is the same problem on a shorter string.",
+    "Define sentences(i) = every way to split s[i:]. For each j where s[i:j] is a word, prepend it to each sentence in sentences(j). sentences(n) = [''] (one empty way).",
+    "Memoise on i (lru_cache) so each suffix is solved once; only try lengths up to the longest word. Sort the final list. Output-sensitive time, fine for |s| <= 20."
+  ],
+  "pitfalls": [
+    "Return the sentences in lexicographic order.",
+    "Words can be reused.",
+    "When no segmentation exists return [], and avoid emitting a trailing space for the last word."
+  ],
+  "statement": "<p>Given a string <code>s</code> and a list of distinct dictionary words <code>wordDict</code>, insert spaces into <code>s</code> so that every piece is a dictionary word. Return every possible resulting sentence, sorted lexicographically. Words may be used any number of times. Return <code>[]</code> if no split works.</p><p><b>Worked example.</b> <code>s = \"catsanddog\"</code>, <code>wordDict = [\"cat\",\"cats\",\"and\",\"sand\",\"dog\"]</code>.</p><ul><li>Prefixes of s in the dictionary: \"cat\" and \"cats\".</li><li>After \"cat\" the rest is \"sanddog\": \"sand\" then \"dog\" works, giving <code>cat sand dog</code>.</li><li>After \"cats\" the rest is \"anddog\": \"and\" then \"dog\" works, giving <code>cats and dog</code>.</li><li>Sorted: <code>[\"cat sand dog\", \"cats and dog\"]</code>.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+  "pattern": "top-k",
+  "why": "Keeping the k largest values seen so far in a size-k min-heap means the heap top is always the kth largest: a direct top-k heap problem (quickselect is the alternative).",
+  "hints": [
+    "You do not need the whole array sorted, only the boundary between the top k and the rest.",
+    "Keep a min-heap of the k largest elements so far. When it grows beyond k, pop the smallest. At the end the heap top is the kth largest.",
+    "heapq push/pop per element: O(n log k) time, O(k) space. Quickselect gives average O(n)."
+  ],
+  "pitfalls": [
+    "Duplicates count separately: in [3,2,3,1,2,4,5,5,6] with k = 4 the answer is 4, not 3.",
+    "Python's heapq is a min-heap; for a max-heap approach you must negate values."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

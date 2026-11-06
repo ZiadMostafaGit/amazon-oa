@@ -1,0 +1,16 @@
+{
+ "pattern": "combinatorics",
+ "why": "f(n) is 2^L - 1 where L is n's bit length, so the candidates are all numbers with at most L bits. Those with exactly k set bits (k = popcount(n)) number C(L, k): choose which k of the L positions are 1. Subtract 1 for n itself.",
+ "hints": [
+  "First work out f(n): the smallest all-ones number >= n has the same bit length L as n.",
+  "Every x in [1, 2^L - 1] is an L-bit pattern (with leading zeros allowed); having k ones is choosing k positions out of L.",
+  "Answer = C(L, popcount(n)) - 1, mod 1e9+7. O(L)."
+ ],
+ "pitfalls": [
+  "Exclude n itself (the -1); if n is all ones the answer is 0.",
+  "Do not loop up to f(n); n can be near 2^31.",
+  "x must be positive, but since k >= 1 the zero pattern is never counted anyway."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

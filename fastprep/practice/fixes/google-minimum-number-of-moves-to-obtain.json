@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "Each interval move can be stretched for free, so a value only forces new moves when it rises above its left neighbour. The answer is the sum of positive rises, sum of max(0, A[i] - A[i-1]) with A[-1] = 0: LeetCode 1526 (Minimum Number of Increments on Subarrays).",
+ "hints": [
+  "Look at two neighbours A[i-1] and A[i]. If A[i] <= A[i-1], can every move that covers i also be extended from i-1?",
+  "Yes, so only rises cost: A[i] - A[i-1] new intervals must start at i when A[i] > A[i-1]. Drops just end intervals for free.",
+  "One pass with prev = 0, add max(0, v - prev). O(N), O(1) space."
+ ],
+ "pitfalls": [
+  "Start with prev = 0 so the first element's whole height is counted.",
+  "Zeros split the array into independent blocks; the formula handles them automatically.",
+  "Simulating moves one by one is far too slow with values up to 10^9."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

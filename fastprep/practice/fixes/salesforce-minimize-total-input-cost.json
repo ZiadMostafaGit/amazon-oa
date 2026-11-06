@@ -1,0 +1,17 @@
+{
+  "pattern": "partition-dp",
+  "why": "Splitting an ordered array into exactly k contiguous groups to minimise a sum of per-group costs is partition DP: dp[w][i] = best cost for the first i campaigns in w weeks, where the last week is some suffix j..i-1 costing its maximum.",
+  "hints": [
+    "Campaigns stay in order and each week is a contiguous block. If you fix where the last week starts, what subproblem is left?",
+    "dp[w][i] = min over j < i of dp[w-1][j] + max(costs[j..i-1]). Grow the last block leftward from i-1 so its maximum updates in O(1).",
+    "Fill w = 1..k, i = w..n, j from i-1 down to w-1 with a running maximum. O(k * n^2) time, O(n) space per layer (a monotonic stack brings it to O(k * n) if n is large)."
+  ],
+  "pitfalls": [
+    "Every week must have at least one campaign, so j ranges from w-1 upward and dp[w][i] is invalid when i < w.",
+    "Greedily isolating the biggest costs does not work; the maximum of a block depends on what else is in it.",
+    "With k = 1 the answer is just the overall maximum; with k = n it is the sum."
+  ],
+  "constraints": "<ul><li>1 &lt;= numberOfWeeks &lt;= campaignCosts.length</li><li>Numeric bounds are not stated in the source. Reasonable: 1 &lt;= campaignCosts.length &lt;= 500, 1 &lt;= campaignCosts[i] &lt;= 10^5</li><li>Campaign order must be preserved.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+ "pattern": "arrays",
+ "why": "The tournament is a worst-case check: if customer i wins they get r[i]+n, and the most any rival can reach is r[j]+(n-1) by finishing second. So i qualifies exactly when r[i]+1 is at least the largest reward among the others, which is a single max (top-two) scan; sorting is optional, not required.",
+ "hints": [
+  "Ask what the scariest rival can do: who is the most dangerous opponent, and where would they finish?",
+  "Only one rival can take second place (n-1 points), and the strongest rival should take it. So i is fine iff r[i] + n >= max over j != i of r[j] + n - 1, i.e. r[i] + 1 >= max of the others.",
+  "Track the largest and second-largest values in one pass; for each i compare against the largest value that is not i itself. O(n) time, O(1) space."
+ ],
+ "pitfalls": [
+  "A tie with the best rival still counts as having the highest total (example 3: 9+3 = 10+2).",
+  "When i is the unique maximum, compare it to the second maximum, not to itself; duplicates of the maximum each compare against the other copy.",
+  "n = 1: the single customer always qualifies."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

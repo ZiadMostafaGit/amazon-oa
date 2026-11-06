@@ -1,0 +1,16 @@
+{
+  "pattern": "design-data-structure",
+  "why": "A token store keyed by id with an expiry time: generate sets it, renew updates it only while still alive, count tallies alive tokens. The heap week fits if counts are frequent (a min-heap of expiries with lazy deletion), but with 2000 operations a dict scan is enough.",
+  "hints": [
+    "All you need per token is its current expiration time.",
+    "Alive at time t means expiry > t. RENEW checks that first, then sets expiry = t + timeToLive.",
+    "Dict tokenId -> expiry; COUNT counts entries with expiry > t. For large inputs, keep a min-heap of (expiry, id) and pop stale entries lazily. O(n) per count with the dict."
+  ],
+  "pitfalls": [
+    "Expiry equal to the current time is already expired: no renewal, not counted.",
+    "RENEW on an unknown or expired token is ignored silently.",
+    "Only COUNT produces output; times arrive as strings."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

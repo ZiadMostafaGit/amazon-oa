@@ -1,0 +1,16 @@
+{
+  "pattern": "bit-manipulation",
+  "why": "Every operation adds or subtracts one power of two, so this is about n's binary form: an isolated 1-bit costs one subtraction, while a run of 1-bits is cheaper to round up (one addition turns the run into a single carry bit). The week pairs it with DP, but the greedy over bits is the whole solution (a DP over bits with a carry state gives the same answer).",
+  "hints": [
+    "Write 6 = 110 and 21 = 10101 in binary. Count the answers against the 1-bits.",
+    "Scan from the lowest bit. A single 1 followed by 0 should be subtracted; a 1 followed by another 1 (bits ...11) should be removed by adding 1, which carries the run into one higher bit.",
+    "Loop while n > 0: if n is odd, count one op and do n += 1 when n & 3 == 3, else n -= 1; then shift right. O(log n) time, O(1) space."
+  ],
+  "pitfalls": [
+    "Counting the 1-bits (popcount) is wrong for runs: 7 = 111 needs 2 ops (8 - 1), not 3.",
+    "The pair 0b11 at the very top (n = 3) still rounds up: 3 -> 4 -> 0 is 2 ops, same as 2 + 1, so either choice is fine there.",
+    "n is up to 2^40: fine in Python, but use a 64-bit type in other languages."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,18 @@
+{
+  "pattern": "simulation",
+  "why": "This week is Shortest paths, but here the figure only falls straight down, so there is no path to search. It must drop exactly d = (rows-1) - (lowest figure row) rows. Every obstacle that some figure cell passes through on the way down must go, so the answer is a direct simulation of the fall.",
+  "hints": [
+    "The figure moves rigidly, straight down. How far must it fall before one of its cells touches the bottom row?",
+    "d = rows - 1 - (max row of any '*'). A figure cell at (r, c) sweeps rows r+1 .. r+d of column c. Count the '#' cells covered by at least one sweep.",
+    "Per column, mark the swept ranges with a difference array (or just walk them) and count '#' cells under the marks. O(rows*cols)."
+  ],
+  "pitfalls": [
+    "Count an obstacle once even if several figure cells pass through it.",
+    "An obstacle between two figure cells of the same column is hit only if it lies within d rows below the upper cell.",
+    "If the figure already touches the bottom, d = 0 and the answer is 0."
+  ],
+  "statement": "<p>A game board is a rectangular grid of characters: <code>'-'</code> is empty, <code>'#'</code> is an obstacle and <code>'*'</code> is part of a figure. The figure is one piece (its cells are connected by sides).</p><p>The figure falls straight down as a rigid body until at least one of its cells is in the bottom row. Return the minimum number of obstacles that must be removed so it can make that fall. That is the number of distinct <code>'#'</code> cells that some figure cell passes through on the way down.</p><p><b>Example:</b> <code>[[*,*,*],[#,*,*],[*,*,-],[-,*,-],[-,#,#]]</code> gives <b>2</b>.</p><ul><li>The lowest figure cell is in row 3 and the bottom row is 4, so the figure falls <code>d = 1</code> row.</li><li>Moving down by 1: cell (0,0) enters (1,0), which is <code>'#'</code>. Cell (3,1) enters (4,1), which is <code>'#'</code>. Every other target is empty or already part of the figure.</li><li>Remove those 2 obstacles.</li></ul><p>The source allows time complexity up to O(rows &times; cols).</p>",
+  "constraints": "<ul><li>Not stated in the source. Assume 1 &le; rows, cols &le; 1000, that the board contains only '-', '#', '*', and that the figure is one connected piece.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

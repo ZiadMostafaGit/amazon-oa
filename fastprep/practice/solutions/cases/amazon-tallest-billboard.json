@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-tallest-billboard",
+ "generatedAt": "2026-11-06T15:18:19",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "rods",
+     "type": "int[]",
+     "rawValue": "[3]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rods",
+     "type": "int[]",
+     "rawValue": "[1, 6, 2, 6]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rods",
+     "type": "int[]",
+     "rawValue": "[-5, 5]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rods",
+     "type": "int[]",
+     "rawValue": "[2, 3, 6, 1, 3]"
+    }
+   ],
+   "expectedRaw": "6"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rods",
+     "type": "int[]",
+     "rawValue": "[3, 2, 3, 2]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "rods",
+     "type": "int[]",
+     "rawValue": "[1, 2, 3]"
+    }
+   ],
+   "expectedRaw": "3"
+  }
+ ]
+}

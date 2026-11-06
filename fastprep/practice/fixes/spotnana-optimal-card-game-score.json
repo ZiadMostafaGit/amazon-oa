@@ -1,0 +1,17 @@
+{
+ "pattern": "game-dp",
+ "why": "After any sequence of end-picks the remaining cards are a contiguous range [i..j], so the game is an interval DP: dp[i][j] = best (my score - opponent score) for the player to move on that range. Alice's score is (total + dp[0][n-1]) / 2.",
+ "hints": [
+  "Whatever happens, the cards left on the table always form a contiguous block. That block is the whole game state.",
+  "Store the score difference, not two scores: dp[i][j] = max(cards[i] - dp[i+1][j], cards[j] - dp[i][j-1]), because after your pick the opponent plays optimally on the smaller range.",
+  "Fill by increasing length; Alice = (sum + dp[0][n-1]) / 2. O(n^2) time, O(n) space possible with a 1-D array."
+ ],
+ "pitfalls": [
+  "Greedily taking the larger end is wrong: [1,5,233,7] needs Alice to take 7 first to secure 233.",
+  "Handle an empty array (score 0) and a single card.",
+  "Negative card values (not excluded by the source) still work with the difference DP, but not with 'always take the max end'."
+ ],
+ "constraints": "<ul><li>0 &lt;= cards.length &lt;= 1000 (not stated in the source; an O(n^2) DP is expected)</li><li>|cards[i]| &lt;= 10^6 (not stated in the source)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

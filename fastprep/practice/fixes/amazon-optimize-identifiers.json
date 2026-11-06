@@ -1,0 +1,16 @@
+{
+ "pattern": "strings",
+ "why": "Removing letters only from the ends leaves a substring, so you want the shortest substring that starts with s[0] and ends with s[-1]. One left-to-right pass remembering the latest index of s[0] gives the shortest such substring ending at each occurrence of s[-1]; the answer is n minus that length.",
+ "hints": [
+  "After any sequence of front/back removals, what is left of s?",
+  "You need the shortest substring s[i..j] with s[i] == s[0] and s[j] == s[-1]. For a fixed end j, the best start is the latest i <= j with s[i] == s[0].",
+  "Scan j from left to right, update last = j when s[j] == s[0], and when s[j] == s[-1] try length j - last + 1. Answer = n - minimum length. O(n)."
+ ],
+ "pitfalls": [
+  "If s[0] == s[-1], a single character already has the right type (\"a\" has type \"aa\"), so the answer is n - 1.",
+  "Update the latest start before checking the end at the same index, so the length-1 case is found.",
+  "The empty string has type \"\", so you can never remove all letters."
+ ],
+ "constraints": "<ul><li>2 &le; |s| &le; 2 * 10^5</li><li>s consists of lowercase English letters only</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

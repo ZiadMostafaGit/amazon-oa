@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-1d",
+  "why": "Disjoint adjacent swaps work like tiling a line with monominoes (keep arr[i] in place) and dominoes (swap arr[i-1] with arr[i]). This is the classic 1-D DP: dp[i] = max(dp[i-1] + arr[i-1]*i, dp[i-2] + arr[i-2]*i + arr[i-1]*(i-1)).",
+  "hints": [
+    "Because swaps cannot share an index, each element either stays put or trades places with exactly one neighbour.",
+    "Look at the last position: either element i stays (from dp[i-1]) or elements i-1 and i swapped (from dp[i-2]). That is the same structure as climbing stairs or domino tiling.",
+    "Run the recurrence with two rolling variables. O(n) time, O(1) space."
+  ],
+  "pitfalls": [
+    "Values can be negative, so swapping is not always good. Let the max decide.",
+    "Positions are 1-based multipliers: element at index i is weighted i+1.",
+    "Results reach about 8000^2 * 1e9 / 2, beyond 32-bit (return type long)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

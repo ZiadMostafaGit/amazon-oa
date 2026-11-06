@@ -1,0 +1,16 @@
+{
+  "pattern": "tree-dp",
+  "why": "Whether a node is balanced depends only on the sizes of its children's subtrees, which are computed bottom-up: size(v) = 1 + sum of children's sizes. One post-order pass gives every size and lets you check each node.",
+  "hints": [
+    "You need the size of every subtree. Can a node's size be computed from its children's sizes?",
+    "Post-order: size(v) = 1 + sum(size(c)). A node is balanced if all its children's sizes are equal (trivially true with 0 or 1 child).",
+    "Get a parent-before-child order with an iterative DFS from 0, then process it in reverse to fill sizes and count. O(n) time and space."
+  ],
+  "pitfalls": [
+    "Leaves and single-child nodes are balanced.",
+    "Compare subtree sizes, not shapes (example 3).",
+    "Deep chains break recursive DFS in Python; go iterative."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "amazon-reconstruct-itinerary",
+ "generatedAt": "2026-11-06T15:18:19",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[[\"SFO\", \"SJC\"]]"
+    }
+   ],
+   "expectedRaw": "[\"JFK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[[\"JFK\", \"NRT\"], [\"NRT\", \"JFK\"], [\"JFK\", \"NRT\"], [\"JFK\", \"KUL\"]]"
+    }
+   ],
+   "expectedRaw": "[\"JFK\", \"NRT\", \"JFK\", \"NRT\", \"KUL\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[\"JFK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[[\"JFK\", \"NRT\"], [\"NRT\", \"JFK\"]]"
+    }
+   ],
+   "expectedRaw": "[\"JFK\", \"NRT\", \"JFK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[[\"JFK\", \"SFO\"], [\"JFK\", \"ATL\"], [\"SFO\", \"ATL\"], [\"ATL\", \"JFK\"], [\"ATL\", \"SFO\"], [\"ATL\", \"JFK\"]]"
+    }
+   ],
+   "expectedRaw": "[\"JFK\", \"ATL\", \"JFK\", \"SFO\", \"ATL\", \"SFO\", \"JFK\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "tickets",
+     "type": "String[][]",
+     "rawValue": "[[\"red\", \"yz\"]]"
+    }
+   ],
+   "expectedRaw": "[\"JFK\"]"
+  }
+ ]
+}

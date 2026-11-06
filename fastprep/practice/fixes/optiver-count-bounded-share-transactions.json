@@ -1,0 +1,16 @@
+{
+  "pattern": "counting-dp",
+  "why": "A sequence is a walk on the holding count that never goes below 0; count walks of each length that end at targetShares. ways[t][h] = number of length-t sequences ending at holding h, built from ways[t-1][h-1] (buy) and ways[t-1][h+1] (sell), summed over t = 0..maxTransactions.",
+  "hints": [
+    "Only the current holding matters for what comes next. What state would let you count sequences step by step?",
+    "State (steps taken, current holding). A buy moves h -> h + 1; a sell moves h -> h - 1 only if h > 0.",
+    "Roll a 1-D array over t = 1..maxTransactions, adding ways[target] after every step (and at t = 0). Holdings never exceed start + maxTransactions. O(maxT * (start + maxT))."
+  ],
+  "pitfalls": [
+    "Count all lengths 0..maxTransactions, not just length exactly maxTransactions.",
+    "A sale is forbidden at 0 shares.",
+    "The empty sequence counts only when start == target."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

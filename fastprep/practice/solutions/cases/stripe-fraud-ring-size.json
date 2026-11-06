@@ -1,0 +1,98 @@
+{
+ "problemId": "stripe-fraud-ring-size",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"Charlie,D2,CC2\", \"Eve,D3,CC4\"]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"Eve,D3,CC4\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"David,D3,CC3\", \"Bob,D1,CC2\", \"Charlie,D2,CC2\", \"Eve,D3,CC4\", \"Alice,D1,CC1\", \"Eve,D3,CC4\"]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"David,D3,CC3\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"Charlie,D2,CC2\", \"David,D3,CC3\", \"Alice,D1,CC1\", \"Eve,D3,CC4\", \"Bob,D1,CC2\", \"David,D3,CC3\"]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"David,D3,CC3\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"Bob,D1,CC2\", \"Charlie,D2,CC2\", \"David,D3,CC3\", \"David,D3,CC3\", \"Eve,D3,CC4\"]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"Alice,D1,CC1\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"A,D1,C1\", \"B,D2,C2\", \"C,D3,C3\", \"A,D1,C1\"]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"A,D1,C1\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"Bob,D1,CC2\", \"Charlie,D2,CC2\", \"Bob,D1,CC2\", \"David,D3,CC3\", \"Eve,D3,CC4\"]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"Eve,D3,CC4\""
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

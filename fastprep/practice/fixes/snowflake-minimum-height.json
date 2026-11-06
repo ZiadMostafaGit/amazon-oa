@@ -1,0 +1,18 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "This is a tree problem whose answer is monotone: if height h is reachable with k cuts, so is h+1. So binary search h, and check each h with a bottom-up tree pass that cuts a subtree only when keeping it would push something below depth h.",
+  "hints": [
+    "If you can reach height h with at most max_operations moves, can you also reach h+1? That monotonicity suggests guessing h and checking it.",
+    "For a fixed h, process nodes from the deepest up. Track each node's subtree height. When a node v (whose parent is not the root) has subtree height h-1, keeping it would make some node deeper than h, so cut v and move it under the root, where it now fits exactly. Cutting as late (as high) as possible is the greedy choice.",
+    "Root the tree at 1 (edges are given unordered), get a BFS/DFS order, then binary search h in [1, n-1] with the O(n) greedy check. Total O(n log n)."
+  ],
+  "pitfalls": [
+    "The edge list is not oriented: tree_from[i] is not necessarily the parent. Build an undirected adjacency list and root it at 1.",
+    "Children of the root never need cutting; moving them changes nothing.",
+    "Use an iterative traversal; a path-shaped tree overflows Python's recursion limit.",
+    "Height is counted in edges, so a single node has height 0."
+  ],
+  "constraints": "<ul><li>2 &le; tree_nodes &le; 10^5 (not stated in the source; typical for this OA)</li><li>0 &le; max_operations &le; tree_nodes - 1</li><li>The edges form a tree on tables 1..tree_nodes; edge direction is not guaranteed to be parent to child.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

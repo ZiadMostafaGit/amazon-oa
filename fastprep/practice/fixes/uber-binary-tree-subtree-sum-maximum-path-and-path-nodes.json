@@ -1,0 +1,17 @@
+{
+  "pattern": "tree-dp",
+  "why": "The maximum path sum is the classic tree DP: for each node, the best downward chain is value + max(0, best child chain), and the best path bending at that node is value + both non-negative child chains. Remembering which child each chain uses lets you rebuild the path.",
+  "hints": [
+    "A path has one highest node. What does the path look like on each side of it?",
+    "For each node compute down[v] = values[v] + max(0, down[left], down[right]); the best path through v as its top is values[v] + max(0, down[left]) + max(0, down[right]).",
+    "Post-order (reverse BFS) computes down[] and the next node on each chain; record the best top node, then print the left chain reversed, the top, and the right chain. O(n)."
+  ],
+  "pitfalls": [
+    "All values may be negative: the best path is then the single largest node, so never force a child into the path.",
+    "Use 64-bit sums: 2*10^5 values of 10^9.",
+    "Recursion overflows on a 2*10^5 chain; iterate.",
+    "Print the path from one end to the other: left chain bottom-up, the top node, then the right chain top-down."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

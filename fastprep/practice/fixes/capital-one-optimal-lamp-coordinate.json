@@ -1,0 +1,15 @@
+{
+ "pattern": "sliding-window",
+ "why": "A lamp at c lights exactly the objects inside a segment of length 2*radius, so the question is the maximum number of sorted points fitting in a window of width 2*radius. Two pointers slide that window over the sorted coordinates; for the first best window ending at objects[j], the smallest lamp spot is objects[j] - radius.",
+ "hints": [
+  "Instead of trying every coordinate c, think about which groups of objects can be lit together. What must be true of the leftmost and rightmost lit objects?",
+  "A set of consecutive objects objects[i..j] can be lit together iff objects[j] - objects[i] <= 2 * radius. Find the largest such window with two pointers.",
+  "Grow j, shrink i while the span exceeds 2r, and on a strictly larger count record c = objects[j] - radius (the leftmost lamp that still reaches objects[j]). Strict improvement keeps the smallest c. O(n)."
+ ],
+ "pitfalls": [
+  "The answer is a lamp coordinate, not a count or an object.",
+  "Lamp positions are not limited to object coordinates; the smallest valid c is objects[j] - radius, which can be negative (example 3 returns 4 for object 7).",
+  "Only update on a strictly larger count, otherwise you drift to a larger coordinate for the same count."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

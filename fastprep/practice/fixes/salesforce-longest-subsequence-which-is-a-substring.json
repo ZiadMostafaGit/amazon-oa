@@ -1,0 +1,16 @@
+{
+ "pattern": "dp-strings",
+ "why": "Two strings, one read as a subsequence (x) and one as a substring (y): a 2-D DP over prefixes. dp[i][j] = longest block of y ending at j that can be picked in order from x[:i]; on a match it grows diagonally, otherwise x[i-1] is skipped and dp[i-1][j] carries down.",
+ "hints": [
+  "The brute force tries every substring of y; instead, fix where the substring of y ends.",
+  "dp[i][j] = dp[i-1][j-1] + 1 when x[i-1] == y[j-1], else dp[i-1][j]: skipping a character of x is allowed, skipping one of y is not.",
+  "Fill the (|x|+1) x (|y|+1) table with one rolling row and track the maximum entry. O(|x|*|y|) = 4*10^6 steps."
+ ],
+ "pitfalls": [
+  "Do not use the LCS recurrence: dp[i][j-1] would skip a y character and break contiguity.",
+  "The answer is the maximum over the whole table, not the last cell.",
+  "The O(N^2 * M) brute force in the source is too slow at 2000 x 2000."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

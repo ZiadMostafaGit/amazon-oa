@@ -1,0 +1,68 @@
+{
+ "problemId": "mt-cave",
+ "generatedAt": "2026-11-06T15:18:35",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "String[]",
+     "rawValue": "[\"....\"]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "String[]",
+     "rawValue": "[\"......\", \".XXXX.\", \".XXXX.\", \".XXXX.\", \"...X.X\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "String[]",
+     "rawValue": "[\"abc\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "String[]",
+     "rawValue": "[\"...X\", \"....\", \"..X.\", \"X...\", \"..X.\"]"
+    }
+   ],
+   "expectedRaw": "12"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "String[]",
+     "rawValue": "[\".X...\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "A",
+     "type": "String[]",
+     "rawValue": "[\".X...\", \"...X.\", \"...X.\"]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

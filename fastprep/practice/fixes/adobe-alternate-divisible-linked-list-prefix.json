@@ -1,0 +1,17 @@
+{
+ "pattern": "linked-list",
+ "why": "Two textbook linked-list moves glued together: reverse the first k nodes in place (Reverse Linked List II on a prefix), then split into two stable chains with dummy-tail pointers (Odd Even / Partition List) and weave them alternately like Merge Two Lists with a turn flag.",
+ "hints": [
+  "Break it into three passes: reverse a prefix, split into two chains, weave the chains.",
+  "Reversing the first k nodes: the usual prev/cur/next loop k times, then reconnect the old head (now the k-th node) to the rest. Splitting: walk once and append each node to the 'divisible' or 'other' chain, which keeps each chain's order.",
+  "Weave by alternating chains, starting with divisible; when one chain runs out, append the rest of the other. Each node is relinked a constant number of times: O(n) time, O(1) extra space."
+ ],
+ "pitfalls": [
+  "k = 0 means no reversal; k = n reverses the whole list.",
+  "Zero and negative multiples are divisible; Python's % with a positive divisor already gives 0 for them.",
+  "Cut each node's next pointer as you move it into a chain, or the old links create a cycle.",
+  "An empty list returns None."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

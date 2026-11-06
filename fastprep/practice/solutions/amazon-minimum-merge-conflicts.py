@@ -40,3 +40,11 @@ def solve(primary: str, secondary: str) -> int:
             cur[j] = a if a < b else b
         prev = cur
     return prev[m]
+
+
+# the bank renamed this problem's entry point
+getMinimumConflicts = solve
+
+
+# the bank renamed this problem's entry point
+getMinimumConflicts = solve

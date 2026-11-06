@@ -1,0 +1,16 @@
+{
+  "pattern": "trie",
+  "why": "Insert every number of arr1 as a digit string into a trie; then walk each number of arr2 down the trie, and the depth reached is its longest common prefix with anything in arr1. The maximum depth over arr2 is the answer.",
+  "hints": [
+    "Comparing every pair is 50000 * 50000, too slow. Treat the numbers as digit strings.",
+    "Shared prefixes are exactly what a trie stores: insert all of arr1's digit strings, one trie level per digit.",
+    "For each number in arr2, follow its digits from the root until a digit has no child; the steps taken are its best prefix length. O(10 * (n + m)) time. (A set of all prefixes of arr1 works too.)"
+  ],
+  "pitfalls": [
+    "Only cross-array pairs count; don't compare numbers within the same array.",
+    "Compare decimal digit strings, not numeric values (544 is a prefix of 5444444).",
+    "If no pair shares a first digit the answer is 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

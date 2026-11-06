@@ -1,0 +1,16 @@
+{
+  "pattern": "subsets",
+  "why": "Every element is in or out, so there are 2^n subsets; the only work is listing them in the required order (by size, then by index positions), which is exactly combinations of each size k in index order.",
+  "hints": [
+    "How many choices does each element have, and so how many subsets are there in total?",
+    "The ordering asks for all subsets of size 0, then size 1, and so on, with same-size subsets ordered by their index positions. That is 'all combinations of k indices in lexicographic order' for k = 0..n.",
+    "For k in 0..n, generate combinations of size k by backtracking (choose the next index greater than the last) or itertools.combinations, keeping nums' order. O(n * 2^n)."
+  ],
+  "pitfalls": [
+    "Include the empty subset first.",
+    "Keep elements in input order inside a subset ([3,-1], not [-1,3]); do not sort nums.",
+    "The usual include/exclude DFS produces a different order; group by size as required."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

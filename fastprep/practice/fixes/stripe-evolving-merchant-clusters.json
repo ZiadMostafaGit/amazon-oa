@@ -1,0 +1,17 @@
+{
+  "pattern": "union-find",
+  "why": "Each day the graph is 'merchants sharing an active link type', and clusters are its connected components. Union every merchant holding the same active link (union-find, or BFS over a link to merchants map), then apply the pin rules by intersecting each component with the previous day's pin set. Degree uses distinct neighbours.",
+  "hints": [
+    "Group active (merchant, link) pairs by link type first. Merchants sharing a link form a clique, but for connectivity you only need to union them in a chain.",
+    "For each day, compute components (size >= 2) and degrees (distinct neighbours, via a set per merchant). Then for each component look at which previous pins it contains: 0 means fresh by max degree, 1 means keep it, 2 or more means pick among them by max degree.",
+    "With 200 merchants, rebuild everything per day: DSU for components, sets for degrees. Sort clusters by (-size, pin) and members lexicographically. Trivial cost."
+  ],
+  "pitfalls": [
+    "Duration includes the report day: duration 2 on day 1 covers days 1-2. A renewal extends activity, it does not reset it.",
+    "Merchants persist after their links expire, but singletons are never printed.",
+    "Degree counts distinct neighbours even if they share several links.",
+    "Always print the 'Day X:' header, even with no clusters."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

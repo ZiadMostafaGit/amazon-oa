@@ -24,3 +24,7 @@ def buildTaskHierarchy(records: List[List[str]]) -> List[str]:
             for _, sub_id, sub_name in kids:
                 out.append("SUBTASK|" + sub_id + "|" + sub_name)
     return out
+
+
+# the bank renamed this problem's entry point
+printTaskHierarchy = buildTaskHierarchy

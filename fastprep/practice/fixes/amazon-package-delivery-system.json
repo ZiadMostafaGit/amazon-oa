@@ -1,0 +1,18 @@
+{
+  "pattern": "heap",
+  "why": "Within a scenario you want the truck with the most remaining capacity whenever you place the heaviest remaining package; a max-heap of capacities gives that truck in O(log n), and its halved capacity goes back into the heap.",
+  "hints": [
+    "Which package is hardest to place? Place it first, while trucks are still at full capacity.",
+    "Sort packages heaviest first. Give each one to the truck with the largest current capacity; if even that truck cannot carry it, the scenario is impossible. Any other truck choice can only waste capacity.",
+    "Per scenario: max-heap of capacities (negate in Python). For each package in descending order, check the top, then heapreplace with top // 2. O((n + m) log n) per scenario."
+  ],
+  "pitfalls": [
+    "Capacity halves with floor division after every delivery, including odd capacities: 7 becomes 3, then 1, then 0.",
+    "Answer each scenario independently; do not reuse a heap mutated by the previous scenario.",
+    "Delivering light packages first can make a feasible scenario look infeasible; go heaviest first."
+  ],
+  "statement": "<p>You manage Amazon's package delivery system. There are <code>t</code> independent shipment scenarios. Scenario <code>i</code> has a list of truck capacities <code>truckCapacities[i]</code> and a list of package weights <code>packageWeights[i]</code>.</p><ul><li>A truck can deliver a package only if its <b>current</b> capacity is at least the package's weight.</li><li>After each delivery, that truck's capacity becomes <code>floor(capacity / 2)</code>.</li><li>A truck may make any number of deliveries, and packages can be delivered in any order.</li></ul><p>Return an array with one entry per scenario: <code>1</code> if every package of that scenario can be delivered, <code>0</code> otherwise.</p><p><b>Worked example.</b> <code>truckCapacities = [[7]]</code>, <code>packageWeights = [[4, 3]]</code>.</p><ul><li>The truck (capacity 7) delivers the package of weight 4. Its capacity becomes floor(7/2) = 3.</li><li>It then delivers the package of weight 3. Its capacity becomes floor(3/2) = 1.</li></ul><p>All packages were delivered, so the answer is <code>[1]</code>.</p>",
+  "constraints": "<ul><li>1 &le; t &le; 10^5; total trucks and total packages across scenarios up to about 10^5 each (not stated in the source, which only asks to avoid brute force)</li><li>1 &le; capacity, weight &le; 10^9</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

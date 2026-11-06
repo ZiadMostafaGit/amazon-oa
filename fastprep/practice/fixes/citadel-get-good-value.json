@@ -1,0 +1,16 @@
+{
+  "pattern": "lis",
+  "why": "We need every OR value over strictly increasing subsequences. That is LIS-style DP where the state is not a length but the set of reachable ORs: ending[v] = the ORs of increasing subsequences ending in value v, built from ORs ending in smaller values. Values are < 1024, so ORs fit in 10 bits and each set is a 1024-bit mask.",
+  "hints": [
+    "Like LIS, process elements left to right. An element x can extend any increasing subsequence whose last value is < x.",
+    "The OR result is < 1024, so represent 'reachable ORs' for each last value as a bitmask over 0..1023. x extends every OR o reachable with last value < x, giving o | x.",
+    "Use a Fenwick tree (prefix-OR over values) of masks to get 'all ORs with last < x', and only expand ORs not already seen for x (each (value, OR) pair is processed once). Total about O(1024 * 1024 + n log 1024). Add 0 for the empty subsequence."
+  ],
+  "pitfalls": [
+    "The empty subsequence counts: 0 is always in the answer.",
+    "Strictly increasing: equal values cannot extend each other ([5,5] is not allowed).",
+    "Re-expanding the same OR many times is O(n * 1024) per element, too slow. Track what was already fed into each value."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

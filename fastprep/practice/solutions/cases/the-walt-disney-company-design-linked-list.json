@@ -1,0 +1,68 @@
+{
+ "problemId": "the-walt-disney-company-design-linked-list",
+ "generatedAt": "2026-11-06T15:18:37",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[3, 1, 2], [0, 1, 0], [4, 1, 0]]"
+    }
+   ],
+   "expectedRaw": "[0, -1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0], [0, 1, 0], [3, 1, 2], [4, 1, 0], [1, 0, 1], [0, 1, 0], [2, 0, 3]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1, 0, 0, 0, -1, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[3, 3, 9], [0, -1, 0], [4, -1, 0], [0, 0, 0]]"
+    }
+   ],
+   "expectedRaw": "[0, -1, 0, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[3, -2, 8], [3, 3, 9], [0, -1, 0]]"
+    }
+   ],
+   "expectedRaw": "[0, 0, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[2, 0, 3], [0, 1, 0], [0, 1, 0], [1, 0, 1], [4, 1, 0]]"
+    }
+   ],
+   "expectedRaw": "[0, -1, -1, 0, 0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "operations",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [4, -1, 0], [0, -1, 0], [3, -2, 8], [3, 3, 9]]"
+    }
+   ],
+   "expectedRaw": "[-1, 0, -1, 0, 0]"
+  }
+ ]
+}

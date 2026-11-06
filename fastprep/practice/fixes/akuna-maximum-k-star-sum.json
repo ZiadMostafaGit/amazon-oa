@@ -1,0 +1,18 @@
+{
+  "pattern": "greedy",
+  "why": "Fix the center and the best star around it is greedy: add the k largest neighbour values but only those that are positive. Try every node as center; total work is the sum of degrees.",
+  "hints": [
+    "If you already knew which node was the center, which arms would you pick?",
+    "For a fixed center, take its neighbours' values in descending order, stopping after k arms or at the first non-positive value, since arms are optional and a negative arm only lowers the sum.",
+    "Build per-node lists of neighbour values; for each node sort (or heapq.nlargest(k, ...)) and sum the positive top k plus the center's own value. Max over all nodes. O(E log E)."
+  ],
+  "pitfalls": [
+    "The center is always included, even if its value is negative; the answer can be negative.",
+    "Arms are optional: skip negative and zero neighbour values.",
+    "k = 0 means the star is just the center.",
+    "Isolated nodes are valid one-node stars."
+  ],
+  "constraints": "<ul><li>1 &le; g_nodes &le; 10^5; 0 &le; g_edges &le; 10^5 (not stated in the source)</li><li>-10^4 &le; values[i] &le; 10^4 (not stated in the source; values may be negative)</li><li>0 &le; k &le; g_nodes - 1</li><li>No self-loops or duplicate edges.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

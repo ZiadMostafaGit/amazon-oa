@@ -1,0 +1,17 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "Count subarrays whose maximum sits at the left end, plus those whose maximum sits at the right end, minus those counted twice (both ends equal the maximum). For a left end l the valid r run up to the next strictly greater element, and symmetrically for r, which is exactly what a monotonic stack computes.",
+  "hints": [
+    "Split the count: groups where the first month is a maximum, groups where the last month is, and the overlap. How far right can a group starting at l extend while stockPrice[l] stays the maximum?",
+    "Until just before the next strictly greater price. So left-max groups starting at l number nextGreater[l] - l; right-max groups ending at r number r - prevGreater[r]. Groups where both ends are the max (single elements, and pairs of equal values with nothing bigger between) are counted twice.",
+    "Two monotonic-stack passes for next/previous strictly greater, one more stack pass counting equal-value pairs visible to each other, then left + right - both. O(n) for n up to 5 * 10^5."
+  ],
+  "pitfalls": [
+    "Use strictly greater when bounding the extent; equal values do not break a group (e.g. [3, 1, 3] is valid).",
+    "Subtract the double-counted groups: every single month, and every [l, r] with stockPrice[l] == stockPrice[r] being the maximum.",
+    "The answer is about n^2 / 2, more than 32 bits for n = 5 * 10^5.",
+    "An O(n^2) scan over all groups times out."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

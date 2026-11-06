@@ -24,3 +24,7 @@ def getMinAmount(quality: List[int]) -> int:
             freq.clear()
             end = i + 1
     return n - total_kept
+
+
+# the bank renamed this problem's entry point
+solve = getMinAmount

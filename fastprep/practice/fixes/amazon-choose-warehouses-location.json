@@ -1,0 +1,17 @@
+{
+  "pattern": "prefix-sums",
+  "why": "After sorting, the centres served by each warehouse form two contiguous groups, and one warehouse is best placed at its group's median. Prefix sums give each group's distance-to-median cost in O(1), so you try every split point. It sits in the 1-D DP week, but it is really a sorted split with prefix sums.",
+  "hints": [
+    "With one warehouse on a line, where should it go to minimise the total distance? Then think about which centres each of two warehouses would serve.",
+    "Sort the positions. Each warehouse serves a contiguous block, so try every split into a left block and a right block; each block's best cost is the sum of distances to its median.",
+    "Prefix sums over the sorted array give a block's cost to its median in O(1): (median * left count - left sum) + (right sum - median * right count). O(n log n) for the sort plus O(n) for the splits."
+  ],
+  "pitfalls": [
+    "With two or fewer centres the answer is 0.",
+    "Placing warehouses at the mean instead of the median gives the wrong total for absolute distances.",
+    "Forgetting to sort first breaks the 'contiguous groups' argument."
+  ],
+  "constraints": "<ul><li>Bounds are not stated in the source. Reasonable: 1 &lt;= n &lt;= 10^5, 1 &lt;= dist_centers[i] &lt;= 10^9</li><li>Positions may repeat; the total may exceed 32 bits.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -48,3 +48,7 @@ def solve(n: int, edges: List[List[int]], aliceStart: int, bobStart: int, destin
                 break
 
     return safe[destination]
+
+
+# the bank renamed this problem's entry point
+canAliceReachSafely = solve

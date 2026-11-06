@@ -1,0 +1,98 @@
+{
+ "problemId": "stripe-risky-fraud-ring",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 3,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"Charlie,D2,CC2,80\", \"Charlie,D2,CC2,80\"]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"Bob,D1,CC2,0\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"Bob,D1,CC2,0\", \"Bob,D1,CC2,0\", \"Charlie,D2,CC2,80\", \"Bob,D1,CC2,0\"]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"Bob,D1,CC2,0\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"Bob,D1,CC2,0\", \"Alice,D1,CC1,70\"]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"Bob,D1,CC2,0\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"Alice,D1,CC1,70\", \"Charlie,D2,CC2,80\", \"Charlie,D2,CC2,80\"]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"Alice\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "transactions",
+     "type": "String[]",
+     "rawValue": "[\"Alice,D1,CC1,70\", \"Bob,D1,CC2,0\", \"Charlie,D2,CC2,80\"]"
+    },
+    {
+     "name": "targetUser",
+     "type": "String",
+     "rawValue": "\"Bob,D1,CC2,0\""
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

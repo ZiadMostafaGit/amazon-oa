@@ -1,0 +1,16 @@
+{
+  "pattern": "linked-list",
+  "why": "A queue is a singly linked list with a head (dequeue end) and a tail (enqueue end). delete and removeAllDuplicates are the classic 'unlink a node using its predecessor' moves; the trap is keeping the tail pointer correct when the removed node is the last one.",
+  "hints": [
+    "Hold three things: head, tail and a Node class with val and next. Enqueue links after tail; dequeue advances head.",
+    "To remove a node from a singly linked list you need its predecessor: walk with prev/cur (a dummy node before head makes removing the head the same case as any other).",
+    "removeAllDuplicates is one pass with a seen set: unlink cur when its value is already seen, else add it. After any removal, if you unlinked the last node, set tail = prev. O(n) per delete/dedupe, O(1) for enqueue/dequeue."
+  ],
+  "pitfalls": [
+    "Deleting the tail node without moving tail makes the next enqueue attach to a detached node (example 2).",
+    "When dequeue empties the queue, set tail to None as well as head.",
+    "delete removes only the first match from the head, not every match."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

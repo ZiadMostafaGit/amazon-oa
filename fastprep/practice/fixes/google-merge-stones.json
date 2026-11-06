@@ -1,0 +1,16 @@
+{
+ "pattern": "partition-dp",
+ "why": "The final pile is built by merging a contiguous range, and the last move always combines k contiguous blocks of the range: that is interval DP over [i, j], the same split-the-interval shape as matrix-chain or burst balloons, with the cost of the range added whenever it can collapse into one pile.",
+ "hints": [
+  "Each move turns k piles into 1, removing k-1 piles. When is it possible at all to get from n piles to 1?",
+  "Let dp[i][j] be the minimum cost to merge stones[i..j] into as few piles as possible. Split it into a left part that becomes exactly one pile and a right part, stepping the split point by k-1; if (j-i) is a multiple of k-1 the range collapses to one pile and you add sum(i..j).",
+  "Prefix sums for range totals, fill dp by increasing length, split m in range(i, j, k-1). O(n^3 / k) time, O(n^2) space."
+ ],
+ "pitfalls": [
+  "Check (n-1) % (k-1) == 0 first; otherwise return -1.",
+  "Only add the range sum when (length-1) % (k-1) == 0, i.e. when the range really ends as one pile.",
+  "Stepping the split by 1 instead of k-1 gives wrong states where the left part is not a single pile."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

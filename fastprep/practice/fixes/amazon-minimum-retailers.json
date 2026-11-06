@@ -1,0 +1,16 @@
+{
+  "pattern": "binary-search",
+  "why": "For each candidate hub [s,e], count the intervals that intersect it: all n minus those ending before s minus those starting after e. With starts and ends sorted, both counts are a binary search, so it is a sorting + binary search counting problem dressed as intervals.",
+  "hints": [
+    "The statement already says it: pick a hub, keep everything touching it. The only question is how to count 'intervals touching [s,e]' fast for every hub.",
+    "Count the complement. An interval misses [s,e] only if it ends before s or starts after e, and these two cases never overlap. Sort all ends and all starts separately.",
+    "missed = bisect_left(ends, s) + (n - bisect_right(starts, e)); answer = min over hubs of missed. O(n log n)."
+  ],
+  "pitfalls": [
+    "Touching at an endpoint counts as intersecting: use strict comparisons (end < s, start > e) for 'missed'.",
+    "Duplicate intervals are allowed; binary search on sorted arrays handles them, a set would not.",
+    "An O(n^2) pairwise check times out at n = 10^5."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

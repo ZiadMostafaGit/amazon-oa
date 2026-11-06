@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "Because each part may be rearranged, a part works iff its counts can be balanced: '?' must cover |#( - #)| + |#[ - #]| and the leftover '?' count must be even. Prefix counts of the five characters give both parts' counts at every split in O(1).",
+ "hints": [
+  "Rearranging removes all ordering constraints. What must be true of the counts of each bracket type in a part?",
+  "A part is fixable iff q >= |open( - close)| + |open[ - close]| and (q minus that) is even, since leftover '?' must pair up as () or [].",
+  "Sweep split points 1..n-1 keeping running counts for the left part; the right part is totals minus left. Count splits where both sides pass. O(n)."
+ ],
+ "pitfalls": [
+  "Both parts must be non-empty.",
+  "Parity matters: one leftover '?' cannot be used, so an odd remainder fails.",
+  "Treat the two bracket types separately; a '(' cannot be matched by ']'."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

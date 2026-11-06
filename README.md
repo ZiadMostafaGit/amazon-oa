@@ -63,6 +63,21 @@ under it; when it runs out the page beeps, flashes the tab title and says so.
 The deadline is what is stored, not a counter, so sleeping, a background tab or
 a reload cannot quietly hand you more time.
 
+**Repaired where the source is thin.** A lot of the bank is a two-line paraphrase of a
+screenshot with one example and "be efficient" for constraints. A repair lives beside the
+problem in `fixes/<id>.json`, never in the bank (every sync rewrites the bank): a clarified
+statement with a worked example (the original stays one click away), real constraints, and a
+**Stuck?** ladder that opens one rung at a time: three hints, then *which pattern is this and
+why* with a button into that chapter, then the edge cases that sink a first attempt. The pattern
+comes last on purpose: in an OA, naming the tool is the skill. `python3 tools/fix.py todo` lists
+what still needs work, most urgent first; `tools/fix.py stats` says how much is done.
+
+**The KHATT plan's DSA runs here.** The year plan's 367 daily problems are this bank's problems,
+not LeetCode's: per pattern week, the chapter first, then the classic form of the pattern, then
+the story-wrapped forms companies actually ask; company weeks use that company's most-reported
+OA problems. `fixes/khatt.json` records each one's week and day, and the problem shows it as a
+**KHATT W20 · Sun** tag.
+
 **Track.** Attempted / solved / review, bookmarks, notes, your last submission per language and
 your custom cases, all in `progress.db` — and every edit is mirrored into the browser as you
 type, so a server that is down, restarted or listening elsewhere cannot cost you what you wrote;
@@ -93,6 +108,7 @@ fastprep/
   all_problems.json  the same bank as one JSON file, rewritten after every sync that changes it
   practice/          the app: serve.py, fpdb.py, parsing.py, runner.py, static/, tools/, tests/
   practice/solutions/ reference solutions, one file per problem id
+  practice/fixes/     repairs laid over thin problems (clearer statement, hints, pattern), khatt.json
 docs/                write-ups that are not in the bank and not reproducible:
                      a frame-by-frame post-mortem of a real 60-minute attempt, five debugging
                      projects, the Siemens set, the work-simulation half, field notes

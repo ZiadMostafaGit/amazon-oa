@@ -1,0 +1,16 @@
+{
+ "pattern": "dijkstra",
+ "why": "With an unlimited tank, the right move is always to pay the cheapest price seen so far on your route for each further unit. So the state is (city, cheapest price so far), and Dijkstra over that expanded graph, with edge cost distance * cheapestPrice, gives the minimum spend.",
+ "hints": [
+  "With unlimited capacity, when you buy fuel for a road you should have bought it at the cheapest city you passed through.",
+  "Let the state be (city, best price seen). Moving along a road of length d from state (u, p) costs d * p and leads to (v, min(p, price[v])).",
+  "Compress the distinct prices (at most n), run Dijkstra on n * n states with a heap, and stop when destination is popped. O(n * E * log) in the worst case, small for n = 200."
+ ],
+ "pitfalls": [
+  "Plain shortest distance times a price is wrong: a detour to a cheap city can pay off (example 2 goes 0 -> 2 -> 1 -> 3).",
+  "A city can be revisited with a cheaper price state, so do not mark cities visited by city alone.",
+  "start == destination costs 0; unreachable returns -1."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

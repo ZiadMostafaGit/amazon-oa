@@ -1,0 +1,16 @@
+{
+  "pattern": "dfs",
+  "why": "In a preorder (Euler tour) of the whole tree, every subtree occupies one contiguous block that starts at its root. So one DFS gives each node's entry index and subtree size, and the k-th node of u's subtree DFS is simply order[tin[u] + k - 1].",
+  "hints": [
+    "Write out the preorder of the whole tree and mark where node 2's subtree lies. What do you notice?",
+    "Subtree DFS order is a contiguous slice of the global preorder, as long as children are visited in the same (ascending) order.",
+    "One iterative DFS records order[], tin[v] and size[v]; each query is O(1): -1 if k > size[u], else order[tin[u] + k - 1]."
+  ],
+  "pitfalls": [
+    "Visit children in ascending id order; push them onto the stack in reverse so the smallest pops first.",
+    "k can be up to 10^9; compare with the subtree size before indexing.",
+    "n = 10^5 deep chains overflow recursion; use an explicit stack."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

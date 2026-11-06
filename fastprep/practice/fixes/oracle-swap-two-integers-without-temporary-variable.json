@@ -1,0 +1,16 @@
+{
+ "pattern": "bit-manipulation",
+ "why": "XOR is its own inverse: after a ^= b, b ^= a, a ^= b each variable holds the other's original value, so no third variable is needed.",
+ "hints": [
+  "You need a way to store 'both values' in one variable and still recover each one.",
+  "a ^ b combined with either a or b gives back the other, because x ^ x = 0 and x ^ 0 = x.",
+  "Three steps: a ^= b; b ^= a (now b is the old a); a ^= b (now a is the old b). O(1)."
+ ],
+ "pitfalls": [
+  "The add/subtract trick (a = a + b; b = a - b; a = a - b) overflows 32-bit integers in Java or C++; XOR does not.",
+  "Swapping through pointers to the same variable with XOR zeroes it; with two separate variables and equal values it is fine.",
+  "Python's a, b = b, a is fine in Python but misses the point of the interview question."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

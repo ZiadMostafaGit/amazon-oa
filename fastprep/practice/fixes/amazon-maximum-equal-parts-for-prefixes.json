@@ -1,0 +1,16 @@
+{
+  "pattern": "hash-tables",
+  "why": "Parts are contiguous pieces with identical letter counts. A prefix with counts g*v (v primitive) can be cut into k pieces only if k divides g and the earlier prefixes with counts (g/k)*v, 2(g/k)*v, ... all exist; hashing each prefix by its primitive count vector v finds those earlier prefixes.",
+  "hints": [
+    "If a prefix is split into k equal pieces, every letter count must be divisible by k. But is divisibility enough when the pieces have to be contiguous? Try \"AABB\".",
+    "The cut points of a k-way split are themselves prefixes, with counts c/k, 2c/k, .... Group prefixes by their count vector divided by its gcd; within a group a prefix is identified by its multiplier t.",
+    "Hash map from primitive vector v to a record of which multipliers have appeared; for each divisor s of g track how many consecutive multiples s, 2s, ... have appeared. The answer is g/s for the smallest s whose chain reaches g. O(n * (26 + divisors))."
+  ],
+  "pitfalls": [
+    "The gcd of the letter counts is only an upper bound: \"AABB\" has gcd 2 but cannot be split into two equal contiguous pieces, so its answer is 1.",
+    "Every prefix can be one part, so the answer is never below 1.",
+    "Recomputing every possible split from scratch for each prefix is O(n^2) or worse."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

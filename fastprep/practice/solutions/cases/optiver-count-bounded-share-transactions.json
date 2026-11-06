@@ -1,0 +1,128 @@
+{
+ "problemId": "optiver-count-bounded-share-transactions",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "startShares",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "targetShares",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "maxTransactions",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startShares",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "targetShares",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "maxTransactions",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startShares",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "targetShares",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "maxTransactions",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startShares",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "targetShares",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "maxTransactions",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startShares",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "targetShares",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxTransactions",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "startShares",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "targetShares",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "maxTransactions",
+     "type": "int",
+     "rawValue": "2"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

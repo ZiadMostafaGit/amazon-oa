@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy",
+ "why": "To raise both feature counts by one you either buy a '11' model or buy one '01' plus one '10' model; '00' models never help and a lone single-feature model is wasted. So build a list of 'units' (each '11' cost, and the i-th cheapest A-only paired with the i-th cheapest B-only), sort it, and the answer for k is the sum of the k cheapest units, a prefix sum over a sorted list.",
+ "hints": [
+  "Classify models into '11', A-only, B-only and useless '00'. What is the cheapest way to add +1 to both counts?",
+  "Either one '11' model or a pair (A-only, B-only). Pair the cheapest A-only with the cheapest B-only, the second with the second, and so on.",
+  "Put all '11' costs and all pair costs into one list, sort it, and take running sums: answer[k-1] = sum of the k smallest units, -1 once units run out. O(n log n)."
+ ],
+ "pitfalls": [
+  "Check the character order: '01' means feature A only and '10' means B only (per the statement), but only the pairing structure matters.",
+  "Pairs must use the cheapest remaining singles on each side; sorting each side and zipping guarantees that.",
+  "Entries beyond the number of available units are -1."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

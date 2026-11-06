@@ -1,0 +1,16 @@
+{
+  "pattern": "intervals",
+  "why": "The rooms needed equal the maximum number of meetings running at the same moment. Sort by start and keep a min-heap of end times of rooms in use (reuse a room when its meeting ended at or before the new start), or sweep sorted start and end times.",
+  "hints": [
+    "At any instant, every running meeting needs its own room. What is the busiest instant?",
+    "Process meetings by start time; a room is free if its meeting ended at or before the new start (end == start is allowed).",
+    "Sort starts and ends separately and sweep with two pointers (or a min-heap of end times); the max concurrent count is the answer. O(n log n)."
+  ],
+  "pitfalls": [
+    "Touching meetings [1,5] and [5,6] can share a room: process ends before starts at equal times.",
+    "A zero-length meeting [t, t] still occupies a room at time t; the start-sorted min-heap handles it naturally, while a separate start/end sweep that processes ends first can wrongly let it free its own room.",
+    "Up to 2*10^6 meetings: avoid per-time-unit arrays unless sized to the max time, and avoid slow per-item Python overhead."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+  "pattern": "backtracking",
+  "why": "Only mirrors the beam actually hits matter, and each one's orientation is fixed the first time the beam meets it. So simulate the beam and branch two ways at each newly met mirror (keep or rotate), pruning when the cost reaches the best found: backtracking over at most 16 decisions, with simulation in between.",
+  "hints": [
+    "Trying all 2^16 orientations and simulating each is possible but slow in Python. Which mirrors does a particular beam path actually depend on?",
+    "Simulate the beam; when it first reaches an undecided mirror, branch on '/' and '\\' (cost +1 if it differs from the original), and remember the choice because a revisit must reuse it.",
+    "Detect loops with a visited set of (row, col, direction). Success means stepping out of the grid from the bottom-right cell while moving East or South. Prune branches whose cost is already >= best."
+  ],
+  "pitfalls": [
+    "Reaching the bottom-right cell is not enough: its mirror may turn the beam back inside or out through the wrong side.",
+    "A beam can cycle forever; without a (cell, direction) visited check the simulation never ends.",
+    "A revisited mirror keeps the orientation chosen on the first visit; do not branch again.",
+    "Leaving the grid anywhere else is a failure for that branch, not the end of the search."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

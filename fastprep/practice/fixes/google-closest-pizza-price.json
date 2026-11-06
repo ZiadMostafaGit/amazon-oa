@@ -1,0 +1,17 @@
+{
+ "pattern": "arrays",
+ "why": "With at most 10 pizzas and 10 toppings there are only 10 * (1 + 10 + 45) orders, so brute-force enumeration is optimal. The week's binary-search idea is the scalable version: sort all topping sums and binary search for x - pizza; here it is not needed.",
+ "hints": [
+  "Count the possible orders: one pizza times (no topping, one topping, or a pair of different toppings).",
+  "List all topping extras (0, each single, each distinct pair), then try every pizza + extra and keep the one closest to x, preferring the cheaper on ties.",
+  "O(n * m^2) = about 560 checks. For large inputs: sort the extras and binary search for x - pizza."
+ ],
+ "pitfalls": [
+  "A topping cannot be used twice: pairs are i < j only (example 4).",
+  "Ties in distance go to the lower price (900 beats 1100 for x = 1000).",
+  "m can be 0: the only extra is 0.",
+  "Going over x is allowed."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

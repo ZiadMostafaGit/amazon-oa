@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "Sorting each part independently gives a sorted whole exactly when everything on the left is <= everything on the right, i.e. max(left) <= min(right). So for every cut you need a prefix maximum and a suffix minimum, both precomputed in one pass each; the sorting in the story is never actually done.",
+ "hints": [
+  "After sorting both parts, where can the array still be out of order? Only at the join.",
+  "The join is fine iff the largest left element is <= the smallest right element. So a cut after index i is valid iff prefixMax[i] <= suffixMin[i+1].",
+  "Build suffixMin right to left, then scan left to right with a running max and count valid cuts. O(N) time, O(N) space."
+ ],
+ "pitfalls": [
+  "Both parts must be non-empty: there are N-1 cuts, not N+1.",
+  "Equal values are fine (non-decreasing): use <=, as in [5,5,5] giving 2.",
+  "Actually sorting each split is O(N^2 log N) and times out at N = 100000."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

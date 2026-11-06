@@ -1,0 +1,16 @@
+{
+ "pattern": "bit-manipulation",
+ "why": "The XOR of a range n..x equals P(x) XOR P(n-1), where P(k) = 0 ^ 1 ^ ... ^ k follows a period-4 pattern (k, 1, k+1, 0). Since n is divisible by 4, P(n-1) = 0, so you only maximise P(x) over x in [n, 2^bits - 1], which depends only on x mod 4.",
+ "hints": [
+  "Range XOR is a prefix-XOR difference, just like range sums with prefix sums.",
+  "P(k) is k when k % 4 == 0, 1 when 1, k + 1 when 2, 0 when 3. With n % 4 == 0, P(n - 1) = 0, so v = P(x).",
+  "The largest candidate is the biggest x <= 2^bits - 1 with x % 4 == 2 (giving x + 1 = all ones) or x % 4 == 0; evaluate those few candidates and pick the smallest x with the maximum v. O(1)."
+ ],
+ "pitfalls": [
+  "x must keep the same bit length as n, so it is capped at 2^bits - 1.",
+  "On ties return the smallest x.",
+  "n goes up to 10^12: never loop over the range."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "binary-search-on-answer",
+  "why": "k complete rows need k(k+1)/2 coins, which grows with k, so the answer is the largest k whose cost fits in n: a monotone yes/no question you can binary search over k, once per array element.",
+  "hints": [
+    "Write down how many coins k full rows use. Is that quantity increasing in k?",
+    "Because k(k+1)/2 is increasing, 'can I build k rows?' is true up to some k and false after it. Binary search for the last true k.",
+    "Search k in [0, 2*10^5] (enough for n up to 10^9) for each element: O(m log n) total. A closed form floor((sqrt(8n+1)-1)/2) also works if you use math.isqrt to avoid float error."
+  ],
+  "pitfalls": [
+    "n = 0 must give 0 rows.",
+    "Using float sqrt can be off by one for large n; use integer math.isqrt or binary search.",
+    "Return one answer per input element, in the same order."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

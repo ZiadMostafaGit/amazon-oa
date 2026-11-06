@@ -1,0 +1,15 @@
+{
+  "pattern": "strings",
+  "why": "This week is Simulation + Strings. Normalise case and count the adjacent positions where the letter differs. That is a one-pass comparison of neighbours.",
+  "hints": [
+    "Shift does not change the key, so compare letters case-insensitively.",
+    "A key change happens at boundary i exactly when lower(rec[i]) != lower(rec[i-1]).",
+    "Loop from i = 1 and count. O(n), with no extra memory."
+  ],
+  "pitfalls": [
+    "A recording of length 0 or 1 has 0 changes.",
+    "Do not count distinct letters. 'w a w a' has 3 changes, not 1."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

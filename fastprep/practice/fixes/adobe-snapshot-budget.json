@@ -1,0 +1,17 @@
+{
+  "pattern": "tree-dp",
+  "why": "Each version must be within maxCost edges below a stored ancestor. Working bottom-up, track for each node how deep its still-uncovered descendants go; once that depth reaches maxCost the node itself must be stored, which is the greedy 'place a guard as high as possible' tree DP. The week label is Segment tree, but a post-order greedy is all that is needed.",
+  "hints": [
+    "A snapshot only helps versions in its own subtree. When is a node forced to be stored?",
+    "Let far[v] = distance from v to its deepest descendant not yet covered by a snapshot inside v's subtree. If far[v] reaches maxCost, storing v is never worse than storing anything lower.",
+    "Because parents[i] < i, process versions from n down to 1: if far[v] >= maxCost, count it and set far[v] = -1; then far[parent] = max(far[parent], far[v] + 1). O(n) time."
+  ],
+  "pitfalls": [
+    "Version 0 is already stored and never counted, even if far[0] is large.",
+    "With maxCost = 0 every version 1..n must be stored: the answer is n.",
+    "Recursion depth can reach 2*10^5 on a chain; iterate in reverse index order instead of recursing."
+  ],
+  "statement": "<p>There are <code>n + 1</code> versions forming a rooted tree. Version <code>0</code> is the root and is already stored as a snapshot. For each version <code>i</code> from 1 to n, its parent is <code>parents[i - 1]</code> (always a smaller number).</p><p>The cost to read a version is the number of edges from it up to its nearest stored ancestor (itself counts, so a stored version costs 0). Return the minimum number of extra versions to store so every version costs at most <code>maxCost</code>.</p><p><b>Worked example:</b> <code>n = 6, maxCost = 2, parents = [0,1,2,3,4,5]</code> is the chain 0-1-2-3-4-5-6.</p><ul><li>Bottom-up: version 6 is uncovered at depth 0 below itself, 5 sees depth 1, 4 sees depth 2 = maxCost, so store 4 (covers 4, 5, 6).</li><li>Continue: 3 sees depth 0, 2 sees 1, 1 sees 2, so store 1 (covers 1, 2, 3).</li><li>Version 0 is already stored.</li></ul><p>Answer: <code>2</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

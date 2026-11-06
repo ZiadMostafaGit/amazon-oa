@@ -1,0 +1,16 @@
+{
+  "pattern": "permutations",
+  "why": "Distinct permutations of a multiset under a custom alphabet: sort the characters by the custom rank (digits, then lowercase, then uppercase), then run the permutation backtracking that skips equal characters at the same depth, which yields the permutations already in the required order.",
+  "hints": [
+    "Python's normal string order puts uppercase before lowercase. What key gives digits < lowercase < uppercase?",
+    "Sort s with key (group, char) where group is 0 for digits, 1 for lowercase, 2 for uppercase. Then generate permutations by DFS, trying characters in that sorted order and skipping a character equal to the previous one if the previous copy is unused at this depth.",
+    "Counter-based DFS (iterate over distinct characters in custom order, decrement count, recurse) avoids duplicates naturally. At most 7! = 5040 results."
+  ],
+  "pitfalls": [
+    "Repeated characters must not produce repeated permutations (\"b1b\" has 3, not 6).",
+    "Empty string returns [\"\"], not [].",
+    "Do not use the default sort order: 'A' < 'a' in ASCII but must come after it here."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

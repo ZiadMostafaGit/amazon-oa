@@ -1,0 +1,98 @@
+{
+ "problemId": "kotak-first-string-occurrence",
+ "generatedAt": "2026-11-06T15:18:30",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "haystack",
+     "type": "String",
+     "rawValue": "\"sad\""
+    },
+    {
+     "name": "needle",
+     "type": "String",
+     "rawValue": "\"sad\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "haystack",
+     "type": "String",
+     "rawValue": "\"sadbutsad\""
+    },
+    {
+     "name": "needle",
+     "type": "String",
+     "rawValue": "\"sadbutsad\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "haystack",
+     "type": "String",
+     "rawValue": "\"b\""
+    },
+    {
+     "name": "needle",
+     "type": "String",
+     "rawValue": "\"abc\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "haystack",
+     "type": "String",
+     "rawValue": "\"dog\""
+    },
+    {
+     "name": "needle",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "haystack",
+     "type": "String",
+     "rawValue": "\"cat\""
+    },
+    {
+     "name": "needle",
+     "type": "String",
+     "rawValue": "\"x\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "haystack",
+     "type": "String",
+     "rawValue": "\"sad\""
+    },
+    {
+     "name": "needle",
+     "type": "String",
+     "rawValue": "\"sadbutsad\""
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

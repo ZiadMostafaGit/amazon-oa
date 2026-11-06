@@ -1,0 +1,17 @@
+{
+  "pattern": "sliding-window",
+  "why": "A window of windowSize minutes starting at minute t covers t through t + windowSize - 1. After sorting the timestamps, the best window can start at a request, so a two-pointer window over the sorted array keeps requests with ts[right] - ts[left] <= windowSize - 1 and reports its largest size.",
+  "hints": [
+    "The timestamps are not sorted. Once they are, what does \"all requests within one window\" mean for the first and last request in the group?",
+    "A group fits in one window when last - first <= windowSize - 1 (both ends inclusive). For each right end, move left forward until that holds.",
+    "Sort in O(n log n), then a single two-pointer pass in O(n), keeping max(right - left + 1)."
+  ],
+  "pitfalls": [
+    "The window is inclusive of both ends: size 4 starting at 1 covers 1, 2, 3, 4, so the span limit is windowSize - 1, not windowSize.",
+    "Duplicate timestamps all count: [2, 2] with windowSize 1 is 2 requests.",
+    "Sort first; the input order is arbitrary (example 1 is [1, 3, 7, 5])."
+  ],
+  "statement": "<p>You are given request timestamps in minutes, <code>timestamp</code> (not necessarily sorted, duplicates allowed), and a window length <code>windowSize</code> in minutes. A window starting at minute <code>t</code> covers minutes <code>t</code> through <code>t + windowSize - 1</code>, both inclusive. Return the largest number of requests that fall inside any single window.</p><p><b>Worked example:</b> <code>timestamp = [1, 3, 7, 5]</code>, <code>windowSize = 4</code></p><ul><li>Window [1, 4] contains times 1 and 3: 2 requests.</li><li>Window [3, 6] contains 3 and 5: 2 requests.</li><li>Window [5, 8] contains 5 and 7: 2 requests.</li><li>No window of 4 minutes contains three of these times (1 to 5 already spans 5 minutes).</li></ul><p>Answer: <code>2</code>. With <code>timestamp = [2, 2, 3]</code> and <code>windowSize = 1</code>, window [2, 2] holds both requests at time 2, so the answer is <code>2</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

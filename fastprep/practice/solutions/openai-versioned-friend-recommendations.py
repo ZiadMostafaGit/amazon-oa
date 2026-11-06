@@ -54,3 +54,7 @@ def recommendAtSnapshots(n: int, operations: List[str]) -> List[str]:
             out.append("[" + ",".join(ids) + "]")
 
     return out
+
+
+# the bank renamed this problem's entry point
+solve = recommendAtSnapshots

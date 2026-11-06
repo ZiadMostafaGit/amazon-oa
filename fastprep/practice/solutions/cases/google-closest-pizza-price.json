@@ -1,0 +1,128 @@
+{
+ "problemId": "google-closest-pizza-price",
+ "generatedAt": "2026-11-06T15:18:27",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "pizzas",
+     "type": "int[]",
+     "rawValue": "[901, 900]"
+    },
+    {
+     "name": "toppings",
+     "type": "int[]",
+     "rawValue": "[-2, 250]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "-1000"
+    }
+   ],
+   "expectedRaw": "898"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pizzas",
+     "type": "int[]",
+     "rawValue": "[850, 800, 850, 900]"
+    },
+    {
+     "name": "toppings",
+     "type": "int[]",
+     "rawValue": "[148]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "100"
+    }
+   ],
+   "expectedRaw": "800"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pizzas",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "toppings",
+     "type": "int[]",
+     "rawValue": "[-4, -6, -5, -6, -4]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pizzas",
+     "type": "int[]",
+     "rawValue": "[800, 800, 800, 800]"
+    },
+    {
+     "name": "toppings",
+     "type": "int[]",
+     "rawValue": "[100, 100]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "998"
+    }
+   ],
+   "expectedRaw": "1000"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pizzas",
+     "type": "int[]",
+     "rawValue": "[800, 800, 800, 800, 800]"
+    },
+    {
+     "name": "toppings",
+     "type": "int[]",
+     "rawValue": "[100]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "997"
+    }
+   ],
+   "expectedRaw": "900"
+  },
+  {
+   "inputs": [
+    {
+     "name": "pizzas",
+     "type": "int[]",
+     "rawValue": "[903]"
+    },
+    {
+     "name": "toppings",
+     "type": "int[]",
+     "rawValue": "[200, 200]"
+    },
+    {
+     "name": "x",
+     "type": "int",
+     "rawValue": "1000"
+    }
+   ],
+   "expectedRaw": "903"
+  }
+ ]
+}

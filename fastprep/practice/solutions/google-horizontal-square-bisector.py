@@ -43,3 +43,7 @@ def solve(squares: List[List[int]]) -> float:
         acc += band
 
     return float(ys[-1])
+
+
+# the bank renamed this problem's entry point
+horizontalBisector = solve

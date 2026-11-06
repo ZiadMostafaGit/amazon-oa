@@ -1,0 +1,16 @@
+{
+  "pattern": "lis",
+  "why": "By Dilworth's theorem, the minimum number of strictly decreasing subsequences needed to cover the array equals the length of its longest non-decreasing subsequence, so it is an LIS computation. The heap-week view is the same greedy: put each number on the pile whose last element is the smallest one still greater than it, opening a new pile if none exists.",
+  "hints": [
+    "Two elements a (earlier) and b (later) with a <= b can never be in the same strictly decreasing subsequence. What does a long chain of such elements force?",
+    "Greedy piles: process left to right; place x on the pile whose top is the smallest value strictly greater than x, otherwise start a new pile. The pile tops stay sorted, and the number of piles equals the longest non-decreasing subsequence.",
+    "Keep the sorted list of pile tops (equivalently, LIS tails for non-decreasing order) and use bisect_right per element. O(n log n) for n = 2*10^5."
+  ],
+  "pitfalls": [
+    "Strictly decreasing: equal values must go in different subsequences, so [1,1,1] needs 3. Use bisect_right (non-decreasing LIS), not bisect_left.",
+    "Values can be negative and up to 10^9 in size; do not index arrays by value.",
+    "A naive greedy that scans all piles is O(n^2)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "linked-list",
+  "why": "The node table is two singly linked lists that may merge into a shared suffix, which is the classic intersection-of-two-lists problem. Either mark all nodes on list A and walk B until a marked node, or use the two-pointer trick that switches heads so both pointers travel lenA + lenB steps.",
+  "hints": [
+    "Intersection means the same node index, not equal values. Once two chains meet, what happens to the rest of their paths?",
+    "They share everything after the meeting point. So the first node of B that also lies on A is the answer: record A's nodes, then walk B.",
+    "Mark A's nodes in a boolean array (O(n) space), then walk B and return the first marked index; or, for O(1) space, run pointers pa and pb and switch each to the other head when it hits -1; they meet at the intersection or both reach -1."
+  ],
+  "pitfalls": [
+    "Either head can be -1 (empty list); then the answer is -1.",
+    "If both heads are the same node, that head is the answer.",
+    "next can have up to 2 * 10^5 entries; walk iteratively, not recursively."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

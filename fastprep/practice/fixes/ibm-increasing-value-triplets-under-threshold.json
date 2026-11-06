@@ -1,0 +1,15 @@
+{
+ "pattern": "two-pointers",
+ "why": "Index order does not matter and values are distinct, so this is 3-sum-smaller on the sorted array: count triples of values with sum <= t. Fix the smallest value, then two pointers over the rest count all pairs fitting the remaining budget.",
+ "hints": [
+  "Since the triple is ordered by value, not position, you are free to sort. What does the problem become on a sorted array?",
+  "Fix i as the smallest value; you need pairs lo < hi in the suffix with a[lo] + a[hi] <= t - a[i]. If a[lo] + a[hi] fits, every hi' in (lo, hi] also fits with lo.",
+  "Sort; for each i, set lo = i+1, hi = n-1; when the pair fits add hi - lo and move lo up, otherwise move hi down. O(n^2) worst case, fine for n = 10^4, with early break when even the two smallest exceed the budget."
+ ],
+ "pitfalls": [
+  "t and the sums can exceed 2^31 - 1; use 64-bit types outside Python.",
+  "Do not impose a < b < c on the original indices.",
+  "Count is up to C(10^4, 3), about 1.7 * 10^11, so it needs a 64-bit integer too."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

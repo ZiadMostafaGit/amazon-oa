@@ -1,0 +1,16 @@
+{
+ "pattern": "k-way-merge",
+ "why": "The textbook k-way merge: keep the current head of every list in a min-heap; repeatedly pop the smallest node, append it to the output and push its successor. The week's linked-list part is relinking existing nodes instead of copying values.",
+ "hints": [
+  "At any moment the next output node is the smallest among the k current heads.",
+  "A min-heap of (value, list index, node) gives that smallest head in O(log k); after popping, push that node's next.",
+  "Append popped nodes to a tail pointer. O(N log k) time for N total nodes, O(k) heap. (Pairwise divide-and-conquer merging has the same complexity.)"
+ ],
+ "pitfalls": [
+  "Empty lists (None heads) must be skipped when building the heap, and an empty outer array returns None.",
+  "Put the list index in the heap tuple: ListNode objects cannot be compared when values tie.",
+  "Keep duplicates: every original node appears once in the result."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

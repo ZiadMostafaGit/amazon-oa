@@ -1,0 +1,18 @@
+{
+ "pattern": "binary-search",
+ "why": "Same task as TikTok's 'Build Blocks from a Starting Position': a block [x, x + size - 1] fits iff the first obstacle at or after x is beyond x + size - 1. Keep obstacles sorted and binary search; the 'design' part of the week is choosing that sorted structure.",
+ "hints": [
+  "For a check at x you only care about one obstacle. Which one?",
+  "The smallest obstacle >= x. The block fits iff that obstacle does not exist or is > x + size - 1.",
+  "Sorted list + bisect_left per query (or a SortedList / TreeSet for O(log n) inserts). Append '1' or '0' per type-2 operation."
+ ],
+ "pitfalls": [
+  "Block cells are x .. x + size - 1, inclusive.",
+  "An obstacle at exactly x makes the answer 0.",
+  "Do not mark each cell of the block; sizes can be large."
+ ],
+ "statement": "<p>On an infinite number line you process a list of operations:</p><ul><li><code>[1, x]</code>: place an obstacle at coordinate <code>x</code> (x is guaranteed to be empty).</li><li><code>[2, x, size]</code>: check whether a block of length <code>size</code> starting at <code>x</code> could be built, i.e. whether all of <code>x, x+1, ..., x+size-1</code> are free of obstacles. Output <code>'1'</code> if they are, <code>'0'</code> otherwise. The block is <b>not</b> actually built.</li></ul><p>Return the string formed by the outputs of all type-2 operations, in order.</p><p><b>Example:</b> <code>[[1,2],[1,5],[2,3,2],[2,3,3],[2,1,1],[2,1,2]]</code></p><ul><li>Obstacles at 2 and 5.</li><li><code>[2,3,2]</code>: cells 3, 4 are free: <code>1</code>.</li><li><code>[2,3,3]</code>: cells 3, 4, 5; 5 has an obstacle: <code>0</code>.</li><li><code>[2,1,1]</code>: cell 1 is free: <code>1</code>.</li><li><code>[2,1,2]</code>: cells 1, 2; 2 has an obstacle: <code>0</code>.</li></ul><p>The answer is <code>\"1010\"</code>.</p>",
+ "constraints": "<ul><li>1 &lt;= operations.length &lt;= 10^5 (not stated in the source)</li><li>-10^9 &lt;= x &lt;= 10^9, 1 &lt;= size &lt;= 10^9 (not stated in the source)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+  "pattern": "parsing",
+  "why": "Convert each 'HH:MM' to minutes since midnight, and the question becomes: what is the largest departure strictly before now? This week is Binary search + Strings. If the timetable is sorted, bisect_left on the minute values finds that departure in O(log n), and a linear scan also works.",
+  "hints": [
+    "Comparing times as strings is risky. Turn them into minutes first.",
+    "You need the latest departure t with t < now. Strict, because a bus leaving exactly now has not left yet.",
+    "Parse each time with h*60 + m. Either scan for the maximum t < now, or bisect_left the sorted list and take the element before. Return now - t, or -1 if there is none."
+  ],
+  "pitfalls": [
+    "A bus at exactly the current time does not count (example 3 returns 90, not 0).",
+    "If no bus left before now, return -1, including when now is 00:00.",
+    "Do not assume the latest earlier bus is the one just before the first later one unless the table is sorted."
+  ],
+  "constraints": "<ul><li>Not stated in the source. Assume 1 &le; timeTable.length &le; 1000, every time is a valid 'HH:MM' in 24-hour format, and the timetable is in increasing order.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

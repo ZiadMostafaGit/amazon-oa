@@ -1,0 +1,68 @@
+{
+ "problemId": "meta-count-key-changes",
+ "generatedAt": "2026-11-06T15:18:31",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "recording",
+     "type": "String[]",
+     "rawValue": "[\"a\", \"A\", \"a\", \"B\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recording",
+     "type": "String[]",
+     "rawValue": "[\"w\", \"W\", \"a\", \"b\", \"B\", \"A\", \"b\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recording",
+     "type": "String[]",
+     "rawValue": "[\"w\", \"w\", \"A\", \"w\", \"a\", \"w\"]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recording",
+     "type": "String[]",
+     "rawValue": "[\"W\", \"w\", \"a\", \"a\", \"B\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recording",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"B\", \"W\", \"a\", \"A\", \"a\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "recording",
+     "type": "String[]",
+     "rawValue": "[\"w\", \"A\", \"w\", \"A\", \"w\"]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

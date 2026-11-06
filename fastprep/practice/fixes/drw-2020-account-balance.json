@@ -1,0 +1,16 @@
+{
+ "pattern": "hash-tables",
+ "why": "A bookkeeping simulation: sum every amount, then group card payments (negative amounts) by month in a hash map of (count, total) and charge the 5 fee for every one of the twelve months that does not reach 3 payments and 100 total.",
+ "hints": [
+  "The balance is just the sum of all amounts minus the fees; the only real work is deciding which months are waived.",
+  "Key a dictionary by month (characters 5-6 of the date) and keep the number and the absolute total of negative transactions.",
+  "Loop over all 12 months, not just those that appear, subtracting 5 unless count >= 3 and total >= 100. O(n)."
+ ],
+ "pitfalls": [
+  "Months with no transactions still pay the fee.",
+  "Positive amounts never count toward the waiver.",
+  "Both conditions are needed: three small payments under 100 total do not waive the fee."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "intervals",
+  "why": "Each value covers the interval from its first to its last occurrence; any values whose intervals overlap must end up as the same value. Merging overlapping intervals (the partition-labels sweep) gives the groups, and each group of g distinct values costs g - 1 replacements.",
+  "hints": [
+    "If value v appears at positions i < j, what must every element between i and j become in the final array?",
+    "All of them must end up with v's final value. Replace each value by its [first, last] span; overlapping spans chain into one group that must collapse to a single value, while separate segments can stay distinct.",
+    "Record last occurrence of each value, sweep left to right extending the current segment's end to the max last occurrence seen, and close a segment when i reaches its end. Answer = distinct values - number of segments. O(n)."
+  ],
+  "pitfalls": [
+    "A value nested inside another's span still has to merge: in [1, 2, 2, 1], 1 appears in two blocks until 2 becomes 1 (or 1 becomes 2).",
+    "Overlap is transitive: [1, 2, 1, 3, 2, 3] is one group even though 1 and 3 never interleave directly.",
+    "One operation removes one distinct value, so a group of g values needs g - 1 operations, not the number of bad positions."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "union-find",
+  "why": "Users, devices and cards are nodes; each transaction unions its user with its device and its card, so a ring is a connected component. Then average the risk of the target component's non-trusted users (score > 0) and compare with 75.",
+  "hints": [
+    "Two users are in the same ring if any chain of shared devices or cards links them. What structure merges such groups cheaply?",
+    "Union-find over tagged keys ('user', id), ('device', id), ('card', id). Trusted users (score 0) still get unioned; they only drop out of the average.",
+    "After all unions, sum and count scores > 0 among users whose root equals the target's root. Block iff count > 0 and sum > 75 * count (integer compare, no float). O(T alpha(T))."
+  ],
+  "pitfalls": [
+    "Tag node types: a device id may equal a card id or a user name.",
+    "Strictly greater than 75: an average of exactly 75 is not blocked.",
+    "If every user in the ring is trusted, the average is undefined; return false (and false if the target never appears)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,98 @@
+{
+ "problemId": "nvidia-flatten-nested-list-iterator",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 35,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"[1,[4,[6]]]\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"NEXT\", \"HAS_NEXT\", \"[1,[4,[6]]]\", \"HAS_NEXT\", \"HAS_NEXT\", \"NEXT\", \"HAS_NEXT\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"true\", \"4\", \"true\", \"true\", \"6\", \"false\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"[[1,1],2,[1,1]]\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"HAS_NEXT\", \"NEXT\", \"NEXT\", \"NEXT\", \"HAS_NEXT\", \"NEXT\", \"HAS_NEXT\", \"HAS_NEXT\", \"NEXT\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"1\", \"1\", \"2\", \"true\", \"1\", \"true\", \"true\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"[1,[4,[6]]]\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"NEXT\", \"HAS_NEXT\", \"NEXT\", \"HAS_NEXT\", \"HAS_NEXT\", \"HAS_NEXT\"]"
+    }
+   ],
+   "expectedRaw": "[\"1\", \"true\", \"4\", \"true\", \"true\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"[[],[7,[]],[]]\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"HAS_NEXT\", \"HAS_NEXT\", \"HAS_NEXT\", \"HAS_NEXT\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"true\", \"true\", \"true\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"[[1,1],2,[1,1]]\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"HAS_NEXT\", \"NEXT\", \"NEXT\", \"HAS_NEXT\", \"NEXT\", \"HAS_NEXT\", \"NEXT\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"1\", \"1\", \"true\", \"2\", \"true\", \"1\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nestedList",
+     "type": "String",
+     "rawValue": "\"[[1,1],2,[1,1]]\""
+    },
+    {
+     "name": "operations",
+     "type": "String[]",
+     "rawValue": "[\"HAS_NEXT\", \"NEXT\", \"NEXT\", \"HAS_NEXT\", \"NEXT\", \"NEXT\", \"HAS_NEXT\"]"
+    }
+   ],
+   "expectedRaw": "[\"true\", \"1\", \"1\", \"true\", \"2\", \"1\", \"true\"]"
+  }
+ ]
+}

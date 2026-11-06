@@ -1,0 +1,16 @@
+{
+  "pattern": "graphs",
+  "why": "Mutual friends are paths of length 2 from t: walk t's friends, then their friends, and count how often each non-friend appears. Ranking by (-count, name) and taking the first three finishes it.",
+  "hints": [
+    "A mutual friend of t and c is a common neighbour. How do you enumerate everyone at distance exactly 2 from t?",
+    "For each friend f of t and each friend c of f, if c is not t and not already t's friend, increment count[c].",
+    "Adjacency sets, a counter, then sort by (-count, name) and slice [:3] (or a heap of size 3). O(sum of friend degrees + C log C)."
+  ],
+  "pitfalls": [
+    "Exclude t itself and t's direct friends from candidates.",
+    "Ties break by lexicographically smaller name, which is case-sensitive string order.",
+    "Return fewer than three names when fewer candidates exist."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

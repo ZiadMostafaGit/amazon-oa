@@ -1,0 +1,16 @@
+{
+  "pattern": "greedy",
+  "why": "If you unlock the first k reels, you must pay all k first-viewings, and every remaining m - k viewing should be a rewatch of the cheapest repeatWatch among those k. So the answer is min over k of prefixSum(initial+repeat) + (m - k) * prefixMin(repeat): a greedy scan, no heap needed despite the week's Heap + Greedy label.",
+  "hints": [
+    "Fix how many reels you unlock. Once that prefix is fixed, which reel should every extra viewing go to?",
+    "With prefix k unlocked, all extra viewings go to the cheapest repeat cost in that prefix. Cost(k) = sum of (initial[i] + repeat[i]) for i < k, plus (m - k) * min repeat in the prefix.",
+    "Scan k = 1..min(n, m), maintaining the running sum and running minimum, and take the best Cost(k). O(n) time, O(1) space; use big integers since m and costs reach 1e9."
+  ],
+  "pitfalls": [
+    "You can unlock at most m reels (each unlock is itself a viewing), so k <= min(n, m).",
+    "Totals reach about 1e18, so in typed languages use 64-bit integers.",
+    "Unlocking more reels is not always better: a later cheap repeat may be too expensive to reach."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

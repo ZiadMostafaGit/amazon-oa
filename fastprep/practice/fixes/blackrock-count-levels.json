@@ -1,0 +1,17 @@
+{
+  "pattern": "trees",
+  "why": "The employee/manager pairs form a tree. Each person's level is their distance from the top of the hierarchy, found by walking up manager links, and the number of levels between two people is the difference of their levels, whether or not one manages the other.",
+  "hints": [
+    "Store each employee's manager in a dict. How far is someone from the top?",
+    "A person's level = number of manager links up to the person who has no manager. The two names may be in different branches, so compare their levels rather than looking for a path.",
+    "Compute both depths (memoised walk up the dict) and return the absolute difference. O(depth) per name."
+  ],
+  "pitfalls": [
+    "The two names may be in any order; return a non-negative difference.",
+    "The top person never appears as an employee; their level is 0.",
+    "The same person can manage many employees; build the map from employee to manager, not the reverse."
+  ],
+  "statement": "<p>You get a list of <code>[employee, manager]</code> pairs that describe a company's whole hierarchy (one person at the top has no manager), plus two names. A person's <i>level</i> is the number of reporting steps from them up to the top. Return how many levels lie between the two people: the difference between their levels. The two people may be in different parts of the tree, with neither managing the other.</p><p><b>Worked example:</b> pairs <code>Terry-David, Kyle-David, Ben-Kyle, Scott-Jon, Chris-Scott, Jon-Kenny, Kenny-David, David-Mike</code>, names <code>Scott</code> and <code>David</code>.</p><ul><li>Mike is the top: level 0. David reports to Mike: level 1.</li><li>Scott reports to Jon, Jon to Kenny, Kenny to David: Scott is at level 4.</li><li>Difference: 4 - 1 = 3.</li></ul><p>Answer: <code>3</code>. In the first example Susan (level 2) and Amy (level 0) are 2 levels apart.</p><p><i>Note: the source never shows two people in different branches; this practice version uses the level difference for that case.</i></p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

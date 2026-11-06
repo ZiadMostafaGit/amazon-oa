@@ -1,0 +1,16 @@
+{
+  "pattern": "anagrams",
+  "why": "A username belongs to a real name exactly when it is a permutation of it, so each name maps to an anagram key (sorted letters or a 26-letter count). Count keys over allNames in a hash map; a real name is recurring when its key has count >= 2.",
+  "hints": [
+    "Two usernames belong to the same person if and only if they are anagrams. What canonical form do all anagrams share?",
+    "Map every string to its sorted letters. Count how often each key appears in allNames, then look each real name's key up in that count.",
+    "One Counter over allNames (names are at most 10 letters, so sorting each is cheap), filter realNames with count >= 2, sort the result. Overall O((n + m) L log L + n log n)."
+  ],
+  "pitfalls": [
+    "Return [\"None\"] (a list with the string None) when nobody qualifies, not an empty list.",
+    "The real name itself may or may not appear in allNames; count permutations including the exact spelling.",
+    "The output must be in lexicographic order, not input order."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "backtracking",
+  "why": "The longest simple path in a grid has no polynomial shortcut, but the grid is at most 4x4 = 16 cells, so try every path: DFS from each fruit cell, mark the cell visited, recurse to neighbours, unmark on return. The week's DP label does not apply; this is pure backtracking.",
+  "hints": [
+    "With at most 16 cells, can you afford to try every simple path?",
+    "Run a DFS from each fruit cell, carrying the current length; a visited set (or matrix) forbids revisiting, and you undo the mark when the call returns.",
+    "Track the best length seen at every step (you may stop anywhere). Exponential in the worst case but tiny for 16 cells; return 0 if there is no fruit."
+  ],
+  "pitfalls": [
+    "Forgetting to unmark a cell on return makes later paths think it is used.",
+    "Return 0, not 1, when the grid has no 1s.",
+    "Moves are 4-directional only; diagonals do not count."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

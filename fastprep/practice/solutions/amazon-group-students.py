@@ -13,3 +13,7 @@ def groupStudents(levels: List[int], maxSpread: int) -> int:
             classes += 1
             anchor = lv
     return classes
+
+
+# the bank renamed this problem's entry point
+solve = groupStudents

@@ -1,0 +1,16 @@
+{
+ "pattern": "math",
+ "why": "Only the parity of each result matters, and both + and x commute with taking mod 2, so you can reduce every value mod 2 and evaluate the alternating chain on bits. It sits in the math week as modular arithmetic: (a*b) % 2 and (a+b) % 2 depend only on a % 2 and b % 2.",
+ "hints": [
+  "The real results can be astronomically large, but you only need them mod 2.",
+  "Reduce each value with % 2 (Python gives 0 or 1 even for negatives) and apply the same alternating multiply, add, multiply, ... steps on bits.",
+  "Evaluate A[0::2] and A[1::2] separately in one pass each, then compare the two bits. O(n) time, O(1) extra."
+ ],
+ "pitfalls": [
+  "Both groups start with multiplication: first * second + third * fourth ... evaluated strictly left to right, not with operator precedence.",
+  "In languages where -3 % 2 == -1, normalise to 0 or 1.",
+  "A group with a single element just returns that element mod 2."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

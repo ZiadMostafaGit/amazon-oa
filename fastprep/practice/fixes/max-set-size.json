@@ -1,0 +1,15 @@
+{
+ "pattern": "hash-tables",
+ "why": "A perfect set is a chain v, v^2, v^4, ... with every value present. Put the values in a hash set, start only at values whose square root is not present, and walk v -> v*v while it exists; this is the longest-consecutive-sequence trick with squaring instead of +1, and chains are at most 5 long under 10^6.",
+ "hints": [
+  "Once the smallest bag of a perfect set is fixed, the whole set is forced. What is it?",
+  "From any start v the chain is v, v^2, v^4, ... while present. Use a hash set for O(1) lookups and only start from values whose integer square root is not in the set.",
+  "For each chain start, count steps while cur*cur is in the set; keep the max; return -1 if it is below 2. Roughly O(n) since a chain has at most 5 values below 10^6."
+ ],
+ "pitfalls": [
+  "A single bag is not a perfect set; return -1 when no chain reaches length 2.",
+  "Compute integer square roots exactly (math.isqrt), floating sqrt can be off by one.",
+  "cur*cur can grow huge; stop as soon as it exceeds the maximum value."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

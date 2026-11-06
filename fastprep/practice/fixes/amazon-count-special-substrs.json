@@ -1,0 +1,17 @@
+{
+  "pattern": "prefix-sums",
+  "why": "Prefix counts of ones let you pick out exactly which block of k consecutive ones a substring contains; since a special substring with k ones has length k + k*k, k is at most about sqrt(n), and for each block the valid start positions form a range you can count in O(1).",
+  "hints": [
+    "If a substring has k ones it must have k*k zeros, so its length is exactly k + k*k. How large can k be when n is 10^5?",
+    "k <= about 316. For fixed k, a substring holding exactly the j-th through (j+k-1)-th ones must start after the (j-1)-th one and end before the (j+k)-th one; with the length fixed, the valid starts form one interval.",
+    "Store positions of ones with sentinels -1 and n. For each k (while k + k*k <= n) and each block of k ones, intersect the start range with the range implied by the end range and the fixed length, add its size. O(n * sqrt(n))."
+  ],
+  "pitfalls": [
+    "A substring of only zeros is never special (0 ones needs 0 zeros, which is the empty string).",
+    "Checking every substring is O(n^2) and too slow for n = 10^5.",
+    "Do not stop at k = 1: in \"010001\" the whole string (2 ones, 4 zeros) is special, so the source's own example has 4 special substrings."
+  ],
+  "statement": "<p>You are given a binary string <code>s</code> (a user's clickstream: <code>'1'</code> = significant action, <code>'0'</code> = insignificant action).</p><p>A non-empty substring is <b>special</b> when its number of zeros equals the square of its number of ones: <code>cnt0 = cnt1 * cnt1</code>.</p><p>Return the number of special substrings (substrings at different positions are counted separately).</p><p><b>Worked example.</b> <code>s = \"10010\"</code>.</p><ul><li>Substrings with 1 one need exactly 1 zero, so they have length 2 and contain one of each: <code>s[0,1] = \"10\"</code>, <code>s[2,3] = \"01\"</code>, <code>s[3,4] = \"10\"</code>. (<code>s[1,2] = \"00\"</code> has no ones.)</li><li>Substrings with 2 ones need 4 zeros, length 6, longer than the string.</li><li>Answer: <code>3</code>.</li></ul><p>The source's own example: <code>s = \"010001\"</code> has 4 special substrings: <code>s[0,1] = \"01\"</code>, <code>s[1,2] = \"10\"</code>, <code>s[4,5] = \"01\"</code>, and the whole string <code>s[0,5]</code> (2 ones, 4 zeros).</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

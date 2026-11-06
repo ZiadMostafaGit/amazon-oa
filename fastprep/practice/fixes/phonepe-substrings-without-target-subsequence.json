@@ -1,0 +1,16 @@
+{
+ "pattern": "dp-strings",
+ "why": "For each end position r, the substrings s[l..r] that contain target are exactly those whose start l is at most the latest start L(r) from which target can still be matched. A string DP f[j] = latest start that matches target[0..j] as a subsequence ending by r gives L(r) = f[m-1], and the valid count for r is r - L(r).",
+ "hints": [
+  "If s[l..r] contains target, then so does s[l'..r] for every l' < l. So for each end r there is a cutoff start.",
+  "Let f[j] be the largest l such that target[0..j] is a subsequence of s[l..r]. When s[r] == target[j], f[j] can become f[j-1] (or r when j = 0).",
+  "Scan s once; for each character update the matching target positions from high j to low j, then add r - f[m-1] (or r + 1 if no match yet). O(|s| * |target|) worst case, within the stated product bound."
+ ],
+ "pitfalls": [
+  "Update target positions in decreasing j so f[j-1] is still the value from before this character (one character cannot match two target letters).",
+  "When target is not yet matchable (f[m-1] = -1) all r + 1 substrings ending at r are valid.",
+  "The answer can exceed 32-bit range (up to about 2*10^10)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

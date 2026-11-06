@@ -1,0 +1,17 @@
+{
+ "pattern": "counting-dp",
+ "why": "A bitonic subsequence is fixed by its peak: an increasing subsequence ending at the peak times a decreasing one starting there. inc[i] = 1 + sum of inc[j] for j < i with arr[j] < arr[i] is counting DP, and a Fenwick tree indexed by value (only 200 values) makes that prefix sum O(log V), which is where this week's Fenwick tree comes in.",
+ "hints": [
+  "Pick the peak of the subsequence. How do the left part and the right part depend on each other?",
+  "They are independent: count = (strictly increasing subsequences ending at i, at least 2 long) * (strictly decreasing subsequences starting at i, at least 2 long), summed over i.",
+  "inc[i] = 1 + sum of inc over earlier smaller values: a Fenwick tree keyed by value gives it in O(log V). Do the same right-to-left for dec. Answer = sum (inc[i] - 1) * (dec[i] - 1) mod 1e9+7. O(n log V)."
+ ],
+ "pitfalls": [
+  "Subtract the singleton from both sides; a pure increasing or pure decreasing sequence does not count.",
+  "Strict comparisons: equal values cannot be adjacent in the subsequence, so query values below v, not at most v.",
+  "Subsequences are counted by index set, so equal-looking sequences from different indices count separately.",
+  "Take the modulus during the Fenwick updates, not only at the end."
+ ],
+ "statement": "<p>Given <code>arr</code>, count the subsequences (chosen by index, so two different index sets count separately even if their values look the same) that <b>strictly increase</b> to a peak and then <b>strictly decrease</b>, where both the rising part and the falling part have at least one step. So every such subsequence has length at least 3. Return the count modulo 10^9 + 7.</p><p><b>Worked example:</b> <code>arr = [1, 2, 3, 2, 1]</code>. Group by the peak:</p><ul><li>Peak 3 (index 2): the rising part ending at it is one of [1,3], [2,3], [1,2,3] (3 ways); the falling part is one of [3,2], [3,1], [3,2,1] (3 ways). 3 * 3 = 9.</li><li>Peak 2 at index 1: [1,2] then [2,1] using the last 1: 1 way.</li><li>Peak 2 at index 3: [1,2] then [2,1]: 1 way.</li><li>Total 9 + 1 + 1 = <b>11</b>.</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

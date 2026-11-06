@@ -1,0 +1,128 @@
+{
+ "problemId": "adobe-graph-m-coloring",
+ "generatedAt": "2026-11-06T15:18:19",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 15,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [2, 0]]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [1, 2]]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [2, 0], [0, 1]]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [1, 2], [0, 1], [2, 0]]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [2, 0]]"
+    },
+    {
+     "name": "m",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

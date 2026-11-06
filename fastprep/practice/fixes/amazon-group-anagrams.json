@@ -1,0 +1,19 @@
+{
+  "pattern": "anagrams",
+  "why": "Two strings are anagrams exactly when their letter counts match, so a 26-entry count vector (as a tuple) is a canonical key. Hash every string by that key and each bucket is one group.",
+  "hints": [
+    "Anagrams have the same letters with the same multiplicities. What value can you compute from a string that is identical for all of its anagrams?",
+    "Count the 26 lowercase letters into a vector and use tuple(vector) as a dictionary key. This is O(L) per string, versus O(L log L) for sorting, which the statement forbids anyway.",
+    "dict: key -> list of strings, one pass over strs. Then sort each group and sort the groups by their first word so the output order is deterministic. O(N * L) for grouping."
+  ],
+  "pitfalls": [
+    "Lists are not hashable in Python; convert the count vector to a tuple before using it as a key.",
+    "The expected output is canonical: words inside a group sorted, and groups sorted by their first word.",
+    "The empty string is a valid input and forms its own group (all-zero key).",
+    "Duplicates such as [\"a\", \"a\"] stay in the same group twice."
+  ],
+  "statement": "<p>You are given an array of strings <code>strs</code>, each made of lowercase English letters. Put the strings into groups so that two strings are in the same group exactly when they are anagrams of each other (same letters, same counts, any order).</p><p>Do not sort the characters of a string to find its group. Instead count how many times each of the 26 letters appears and use that 26-entry count vector as the grouping key.</p><p><b>Output order:</b> sort the strings inside each group, then sort the groups by their first string.</p><p><b>Worked example:</b> <code>strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]</code></p><ul><li><code>eat</code>, <code>tea</code>, <code>ate</code> each have one a, one e, one t: same key, one group.</li><li><code>tan</code>, <code>nat</code> have one a, one n, one t: second group.</li><li><code>bat</code> has one a, one b, one t: its own group.</li><li>Sort inside groups: <code>[ate, eat, tea]</code>, <code>[nat, tan]</code>, <code>[bat]</code>; sort groups by first word.</li></ul><p>Answer: <code>[[\"ate\",\"eat\",\"tea\"],[\"bat\"],[\"nat\",\"tan\"]]</code>.</p>",
+  "constraints": "<ul><li>1 &lt;= strs.length &lt;= 10^4</li><li>0 &lt;= strs[i].length &lt;= 100</li><li>strs[i] contains only lowercase English letters.</li><li>Bounds are not stated in the source (an onsite report); these are the standard LeetCode 49 bounds.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

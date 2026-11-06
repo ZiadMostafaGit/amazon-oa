@@ -1,0 +1,16 @@
+{
+  "pattern": "math",
+  "why": "No search is needed: every digit of n is forbidden, so a same-length answer must already beat n at its first digit, and after that the rest can be the smallest allowed digit. If no allowed digit is bigger than n's first digit, take one more digit: smallest nonzero allowed digit followed by the smallest allowed digit. This is digit-by-digit construction; the week's backtracking label would also work but is overkill.",
+  "hints": [
+    "List the allowed digits (those not in n). Can the answer share its first digit with n?",
+    "It cannot, since that digit is forbidden. So the answer either has the same length and a larger first digit, or has one more digit. In both cases, fill the remaining positions with the smallest allowed digit.",
+    "Same length: smallest allowed nonzero digit > n's first digit, then repeat the minimum allowed digit. Otherwise length + 1: smallest allowed nonzero digit, then the minimum allowed digit L times. Return -1 if allowed digits are empty or only 0, or if the result exceeds 2^31 - 1. O(digits)."
+  ],
+  "pitfalls": [
+    "If n uses all digits 1-9 (only 0 allowed) no positive number qualifies: return -1.",
+    "The leading digit cannot be 0 even if 0 is the smallest allowed digit.",
+    "Check the 32-bit limit on the final result, e.g. a 10-digit n can force an 11-digit answer."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+ "pattern": "segment-tree",
+ "why": "Give each appended rating a fixed slot in arrival order. A max segment tree over slots answers 'largest rating, leftmost slot', and deleted slots are set to minus infinity. A Fenwick tree of alive flags converts between a current index and a slot: the current index of a slot is the number of alive slots before it, and deleting index k means finding the (k+1)-th alive slot.",
+ "hints": [
+  "Deletion shifts indices, but the relative order of survivors never changes. What if every rating keeps the slot where it was appended?",
+  "Two jobs: (1) map current index <-> slot under deletions, which is order-statistics on an alive bitmap; (2) find the leftmost maximum among alive slots.",
+  "Fenwick tree over alive flags (prefix count, and binary-lifting search for the k-th alive slot) plus a max segment tree that descends left on ties. Each operation O(log n)."
+ ],
+ "pitfalls": [
+  "The query must return the earliest current index among equal maxima, after converting the slot back to a shifted index.",
+  "Deleting from a Python list and scanning for the max is O(n) per operation and too slow at scale.",
+  "Mark deleted slots as minus infinity in the segment tree, not 0, in case ratings can be 0 or negative."
+ ],
+ "statement": "<p>Start with an empty list of employee ratings and process <code>operations</code> in order:</p><ul><li><code>[1, rating]</code>: append <code>rating</code> to the end of the list.</li><li><code>[2, index]</code>: delete the rating at zero-based position <code>index</code>; later ratings shift one place left. The index is always valid.</li><li><code>[3]</code>: report <code>[maxRating, earliestIndex]</code>, the largest rating in the list and the smallest current index holding it. Queries are made only while the list is non-empty.</li></ul><p>Return the answers of all type-3 operations, in order.</p><p><b>Worked example:</b> <code>[[1,5],[1,7],[1,7],[3],[2,1],[3]]</code></p><ul><li>After three appends the list is <code>[5, 7, 7]</code>.</li><li>Query: max is 7, first at index 1, so output <code>[7, 1]</code>.</li><li>Delete index 1: list becomes <code>[5, 7]</code>.</li><li>Query: max 7 at index 1, so output <code>[7, 1]</code>.</li><li>Answer: <code>[[7,1],[7,1]]</code>.</li></ul>",
+ "constraints": "<ul><li>Not stated in the source; reasonable bounds: 1 &le; operations.length &le; 2 * 10^5</li><li>0 &le; rating &le; 10^9</li><li>Every delete index is valid; queries happen only on a non-empty list</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+  "pattern": "trie",
+  "why": "'One word ends with the other' is a prefix question once every word is reversed, so a trie over reversed words with a counter at each word-end node answers 'how many earlier words are a suffix of this one' by walking the word. Because words are at most 10 letters, a hash map of suffix counts does the same job.",
+  "hints": [
+    "A suffix of a word is a prefix of the word read backwards. Which data structure is built for counting prefixes?",
+    "For each word, the pairs it forms are: words equal to it, and words that are a proper suffix of it (the longer word is always the one that 'contains' the other). Count each pair once from the longer side, and equal pairs as c*(c-1)/2.",
+    "Count words with a Counter. For each distinct word w with count c: add c*(c-1)/2, then for each proper suffix s = w[k:] add c * count[s]. O(n * L^2) with L <= 10. Trie version: insert reversed words, and while walking a reversed word add the end-counts you pass."
+  ],
+  "pitfalls": [
+    "Equal words are a pair too: [\"a\",\"a\"] gives 1, and three copies give 3.",
+    "Do not count a pair twice: count it only from the longer word (proper suffixes) plus the equal-pair formula.",
+    "The answer can exceed 32 bits (10^5 copies of one word give ~5*10^9 pairs).",
+    "Comparing all pairs is O(n^2) = 10^10 at n = 10^5."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

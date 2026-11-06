@@ -1,0 +1,18 @@
+{
+  "pattern": "strings",
+  "why": "This week is Simulation + Strings. Walk the message, count consonants only, and on every n-th one substitute the next consonant from the 21-letter consonant alphabet, keeping case and wrapping z to b.",
+  "hints": [
+    "Vowels and non-letters do not advance the consonant counter.",
+    "Build a map from each consonant to the next one in 'bcdfghjklmnpqrstvwxyz', cyclically, so z maps to b. Apply it to the lowercase letter and restore the case.",
+    "One pass with a counter: when count % n == 0, replace. Collect the pieces in a list and join them. O(len)."
+  ],
+  "pitfalls": [
+    "The next consonant skips vowels: 'd' becomes 'f', not 'e'.",
+    "Keep the case: 'S' becomes 'T' and 'Z' becomes 'B'.",
+    "Count consonants regardless of case: 'C' and 'c' both count."
+  ],
+  "statement": "<p>Given a string <code>message</code> and an integer <code>n</code>, replace every <code>n</code>-th consonant (counting only consonants, from the left) with the <b>next consonant</b> in alphabetical order, keeping its case. The consonant order is <code>b c d f g h j k l m n p q r s t v w x y z</code>, and <code>z</code>/<code>Z</code> wraps around to <code>b</code>/<code>B</code>. Vowels (a, e, i, o, u) and any other characters stay unchanged and are not counted.</p><p><b>Example:</b> <code>message = \"CodeSignal\"</code>, <code>n = 3</code>.</p><ul><li>Consonants in order: C(1), d(2), S(3), g(4), n(5), l(6).</li><li>The 3rd is S, which becomes T. The 6th is l, which becomes m.</li><li>Result: <code>\"CodeTignam\"</code>.</li></ul>",
+  "constraints": "<ul><li>Not stated in the source (it only allows up to O(message.length&sup2;)). Assume 1 &le; message.length &le; 10<sup>4</sup>, 1 &le; n &le; 10<sup>4</sup>, and that message contains English letters and possibly other printable characters.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

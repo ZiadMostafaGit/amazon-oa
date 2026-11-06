@@ -1,0 +1,15 @@
+{
+ "pattern": "heap",
+ "why": "Each round picks the current minimum (ties by index) and deletes it with its live neighbours. A min-heap of (value, index) with lazy deletion finds the minimum, and prev/next arrays (a doubly linked list) find the live neighbours after earlier deletions; it is a simulation driven by a heap.",
+ "hints": [
+  "Two things change as you go: which tasks are still alive, and who is next to whom. What do you need to answer \"smallest alive\" and \"its neighbours\" quickly?",
+  "Push every (value, index) into a min-heap once; skip popped entries already removed. Keep prev[i] and next[i] links so neighbours skip over removed tasks.",
+  "Pop until you get an alive task, add its value, then unlink it and its alive left and right neighbours. O(n log n)."
+ ],
+ "pitfalls": [
+  "Neighbours are the adjacent remaining tasks, not the original i-1 and i+1.",
+  "Ties go to the smallest index; the (value, index) tuple ordering handles this.",
+  "The first or last task has only one neighbour."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "flood-fill",
+  "why": "Rooms are connected components of non-wall cells, and one run cleans exactly one room. So the answer is the number of components that contain at least one '*': a flood fill per component.",
+  "hints": [
+    "One run cleans a whole room, and it never helps to run twice in the same room. What do you really need to count?",
+    "Count connected components of non-'#' cells (4-directional) that contain at least one dirty '*' cell.",
+    "Scan the grid; from each unvisited '*' launch an iterative BFS/DFS over non-wall cells, marking them visited, and add 1. O(rows * cols)."
+  ],
+  "pitfalls": [
+    "Rooms with only clean floor need no run; do not count every component.",
+    "With up to 200,000 cells, a recursive DFS will overflow Python's stack; use an explicit queue or stack.",
+    "A plan with no dirty cells at all returns 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -2,7 +2,7 @@
 from typing import List, Optional, Any
 
 
-def solution(chapter: List[int], evening: List[int]) -> int:
+def solve(chapter: List[int], evening: List[int]) -> int:
     i = 0
     n = len(chapter)
     if n == 0:

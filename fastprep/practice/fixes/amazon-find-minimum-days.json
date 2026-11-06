@@ -1,0 +1,15 @@
+{
+ "pattern": "greedy",
+ "why": "Each chapter needs ceil(pages[i]/p) days of coverage, and a day adds one coverage to a length-k window. Sweeping left to right, the left-most chapter still short of coverage must be covered by windows that start at it (clamped to n-k), so place them there greedily and track active windows with a difference array. The week's sliding-window idea shows up as the range-add, not as binary search.",
+ "hints": [
+  "Turn pages into a count: chapter i must be inside a chosen window ceil(pages[i] / p) times. Order of days does not matter.",
+  "Scan from the left. If chapter i is still short by x covers, every window that can still help and also helps the most future chapters starts at i (or at n-k if i is past the last start). Add x such windows.",
+  "Keep a difference array: when adding x windows starting at s, add x to the running coverage now and subtract x at s+k. Sum all x. O(n) time, answer can exceed 32-bit."
+ ],
+ "pitfalls": [
+  "Windows cannot start after n-k; chapters near the right end must be covered by the window that starts at n-k.",
+  "Use ceiling division; reading less than p pages in a day still costs a full day.",
+  "The answer can reach about 10^5 * 10^9, so it needs a 64-bit integer in other languages."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

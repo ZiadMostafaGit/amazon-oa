@@ -1,0 +1,15 @@
+{
+  "pattern": "math",
+  "why": "This week is Math. The range has at most 900 three-digit numbers, so check each one for three pairwise distinct digits. With a digit-DP mindset you could also count combinatorially (9*9*8 = 648 over all 100..999), but the brute force is well within limits.",
+  "hints": [
+    "Every number in range has exactly 3 digits.",
+    "A number qualifies when its three digits are pairwise different: len(set(str(x))) == 3.",
+    "Loop x from l to r and count. O(r - l)."
+  ],
+  "pitfalls": [
+    "Both ends of the range are inclusive.",
+    "Leading zeros are impossible here, so 0 can still appear as the middle or last digit (890 counts)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

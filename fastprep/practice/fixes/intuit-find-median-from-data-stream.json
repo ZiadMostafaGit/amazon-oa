@@ -1,0 +1,16 @@
+{
+  "pattern": "heap",
+  "why": "The classic two-heaps pattern: a max-heap holds the smaller half and a min-heap the larger half, balanced to within one element, so the median is read from the heap tops after each add.",
+  "hints": [
+    "Sorting after every add is O(n log n) per query. You only ever need the middle one or two values.",
+    "Split the values into a lower half (max-heap) and an upper half (min-heap); the median lives at their tops.",
+    "On add, push into the lower heap, move its top to the upper heap, then rebalance so lower has the same size or one more. Median = lower top, or the mean of both tops. O(log n) per add."
+  ],
+  "pitfalls": [
+    "Python's heapq is a min-heap; store negatives for the max-heap.",
+    "Return floats: (1 + 5) / 2 = 3.0, and an odd count still returns e.g. 5.0.",
+    "Values can be negative; do not use integer division for the mean."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

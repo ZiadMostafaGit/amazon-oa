@@ -1,0 +1,16 @@
+{
+  "pattern": "palindromes",
+  "why": "This week is Strings (KMP / Z / hashing), but no matching is needed here. A palindrome is fixed by its left half (plus an optional middle letter), so the smallest palindromic rearrangement is the sorted left half, the middle letter, then the mirror. That is counting sort over 26 letters.",
+  "hints": [
+    "The input is already a palindrome, so every letter has an even count except at most one.",
+    "The first half decides the whole palindrome. To make it lexicographically smallest, put the half's letters in sorted order.",
+    "Count letters, build half = each letter repeated count//2 in a..z order, mid = the odd-count letter (if any), and return half + mid + reversed(half). O(n + 26)."
+  ],
+  "pitfalls": [
+    "Use count // 2 copies in the half, not the full count.",
+    "Keep the odd letter in the middle. It is not part of the sorted half.",
+    "Sorting the whole string does not give a palindrome."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

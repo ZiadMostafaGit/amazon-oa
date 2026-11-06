@@ -1,0 +1,16 @@
+{
+  "pattern": "design-data-structure",
+  "why": "A small design task: a dict token -> expiry time. generate sets expiry, renew updates it only while expiry > now, and count tallies tokens with expiry > now.",
+  "hints": [
+    "You only need each token's current expiration time.",
+    "A token is alive at time t iff expiry > t (equal means expired). Renew checks that before resetting expiry to t + ttl.",
+    "Dict of token -> expiry; count scans the dict (or keep a sorted structure / heap with lazy deletion if counts are frequent). O(1) per generate/renew."
+  ],
+  "pitfalls": [
+    "Expiry exactly equal to current_time is expired: it cannot be renewed or counted.",
+    "Renewing a missing or expired token does nothing (it does not create one).",
+    "Parse each query string by splitting on spaces; count has only one argument."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

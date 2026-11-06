@@ -1,0 +1,16 @@
+{
+  "pattern": "sliding-window",
+  "why": "A stable period is a subarray with at most k distinct values. That property is monotone (shrinking a valid window keeps it valid), so a variable-size window with a frequency map finds, for every right end, the leftmost valid start, and adds right - left + 1 periods.",
+  "hints": [
+    "If a subarray has at most k distinct values, what about every subarray inside it?",
+    "So for each right end there is a leftmost start L(right) such that all starts from L to right work, and L only moves right. Count right - L + 1 periods ending at right.",
+    "Grow the window with a dict of counts; while it has more than k keys, shrink from the left (deleting keys that hit 0). Sum window lengths, mod 10^9 + 7. O(n)."
+  ],
+  "pitfalls": [
+    "Delete a key when its count reaches 0, otherwise len(counts) overstates the distinct values.",
+    "Revenues can be negative; use a hash map, not an array indexed by value.",
+    "The total can reach about n^2 / 2 = 5 * 10^9; apply the modulus (Python is fine, other languages need 64-bit)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

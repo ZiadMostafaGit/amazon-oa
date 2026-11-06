@@ -1,0 +1,68 @@
+{
+ "problemId": "infosys-count-equal-distinct-character-partitions",
+ "generatedAt": "2026-11-06T15:18:29",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "String",
+     "rawValue": "\"aaaa\""
+    }
+   ],
+   "expectedRaw": "8"
+  },
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "String",
+     "rawValue": "\"aa\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "String",
+     "rawValue": "\"abcca\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "value",
+     "type": "String",
+     "rawValue": "\"abbca\""
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

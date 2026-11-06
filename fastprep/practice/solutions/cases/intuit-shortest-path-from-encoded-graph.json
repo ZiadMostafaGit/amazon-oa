@@ -1,0 +1,68 @@
+{
+ "problemId": "intuit-shortest-path-from-encoded-graph",
+ "generatedAt": "2026-11-06T15:18:30",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 11,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "strArr",
+     "type": "String[]",
+     "rawValue": "[\"7\", \"B\", \"D\", \"E\", \"F\", \"G\", \"A-E\", \"B-C\", \"C-D\", \"D-F\", \"E-D\", \"F-G\"]"
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "strArr",
+     "type": "String[]",
+     "rawValue": "[\"7\", \"A\", \"C\", \"E\", \"F\", \"G\", \"A-B\", \"A-E\", \"B-C\", \"C-D\", \"D-F\", \"E-D\", \"F-G\"]"
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "strArr",
+     "type": "String[]",
+     "rawValue": "[\"7\", \"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"A-E\", \"B-C\", \"C-D\", \"D-F\", \"E-D\", \"D-F\"]"
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "strArr",
+     "type": "String[]",
+     "rawValue": "[\"5\", \"A\", \"B\", \"C\", \"D\", \"A-C\", \"A-B\", \"A-C\", \"B-C\", \"C-D\", \"D-F\"]"
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "strArr",
+     "type": "String[]",
+     "rawValue": "[\"5\", \"A\", \"F\", \"D\", \"F\", \"A-B\", \"B-C\", \"C-D\", \"D-F\"]"
+    }
+   ],
+   "expectedRaw": "\"-1\""
+  },
+  {
+   "inputs": [
+    {
+     "name": "strArr",
+     "type": "String[]",
+     "rawValue": "[\"5\", \"B\", \"B\", \"C\", \"D\", \"F\", \"A-B\", \"A-C\", \"B-C\", \"C-D\", \"D-F\"]"
+    }
+   ],
+   "expectedRaw": "\"B-C-D-F\""
+  }
+ ]
+}

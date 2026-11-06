@@ -1,0 +1,18 @@
+{
+ "pattern": "greedy",
+ "why": "Chapters are read in a fixed order and unused time is lost, so the only sensible policy is greedy: each evening, read chapters while the next one still fits. A single pointer into chapters walks forward while you loop over evenings.",
+ "hints": [
+  "Is there ever a reason to read fewer chapters than fit on an evening? Leftover minutes are discarded anyway.",
+  "Walk through evenings with a pointer i at the next unread chapter; while chapter[i] fits in the remaining minutes, read it and subtract.",
+  "Return the 1-based evening on which the last chapter is finished. O(len(chapter) + len(evening))."
+ ],
+ "pitfalls": [
+  "A chapter that does not fit blocks the evening entirely; you cannot skip ahead to a shorter later chapter.",
+  "Leftover minutes do not carry over to the next evening.",
+  "If the evenings run out before the book is finished, return -1."
+ ],
+ "statement": "<p>A book has chapters that must be read <b>in order</b>. <code>chapter[i]</code> is the number of minutes chapter i takes, and <code>evening[j]</code> is the number of minutes you have on evening j (evenings are numbered from 1).</p><p>Each evening you read as many consecutive unread chapters as fit in that evening's minutes. A chapter is started only if it can be finished the same evening, so chapters are never split. Unused minutes are lost; they do not carry over.</p><p>Return the number (1-based) of the evening on which you finish the last chapter, or <code>-1</code> if the evenings run out first.</p><p><b>Example:</b> <code>chapter = [3,2,1]</code>, <code>evening = [2,5,3,3]</code></p><ul><li>Evening 1 (2 minutes): chapter 0 needs 3, does not fit. Nothing read.</li><li>Evening 2 (5 minutes): chapter 0 (3) fits, 2 left; chapter 1 (2) fits, 0 left.</li><li>Evening 3 (3 minutes): chapter 2 (1) fits. The book is finished.</li></ul><p>The answer is <code>3</code>.</p>",
+ "constraints": "<ul><li>1 &lt;= chapter.length, evening.length &lt;= 10^5 (not stated in the source)</li><li>1 &lt;= chapter[i], evening[j] &lt;= 10^9 (not stated in the source)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

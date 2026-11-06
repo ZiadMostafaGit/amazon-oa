@@ -3,7 +3,7 @@ from bisect import bisect_left
 from typing import List, Optional, Any
 
 
-def solve(arr: List[int], pairs: List[List[int]]) -> int:
+def calculateBeautyValues(arr: List[int], pairs: List[List[int]]) -> int:
     n = len(arr)
     if n == 0:
         return 0

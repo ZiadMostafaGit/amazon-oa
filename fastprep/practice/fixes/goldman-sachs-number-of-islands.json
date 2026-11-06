@@ -1,0 +1,16 @@
+{
+  "pattern": "flood-fill",
+  "why": "Each island is one connected component of '1' cells under 4-directional adjacency; scanning the grid and flood-filling every unvisited land cell counts the components.",
+  "hints": [
+    "Scan the grid. When you hit a land cell you have not seen, you have found a new island. How do you make sure you never count the rest of that island again?",
+    "Flood fill: from that cell, BFS/DFS to every 4-connected land cell and mark them visited. The number of flood fills started is the answer.",
+    "Visited matrix (the rows are strings, so you cannot overwrite in place unless you copy to lists) plus an explicit stack or queue. O(rows * cols)."
+  ],
+  "pitfalls": [
+    "Diagonal neighbours do not connect islands.",
+    "Recursive DFS on a 300x300 all-land grid overflows Python's recursion limit; use an explicit stack.",
+    "Rows are immutable strings: mark visited in a separate structure or convert to lists."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

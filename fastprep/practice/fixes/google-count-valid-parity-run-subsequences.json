@@ -1,0 +1,16 @@
+{
+ "pattern": "counting-dp",
+ "why": "You only care about the parity of the last picked value and how long the current same-parity run is (1 or 2), so a subsequence's fate depends on a tiny state. Counting subsequences by (last parity, run length) and extending them one element at a time is a counting DP; the week's 2-D table is just parity x run-length.",
+ "hints": [
+  "Whether a new element can be appended depends only on the last one or two picked values' parities, not on their actual values.",
+  "Keep cnt[p][k] = number of subsequences so far ending in parity p with a trailing run of exactly k (k = 1 or 2). An element of parity p can start a new run (after any subsequence of the other parity, or alone) or extend a run of length 1 to 2.",
+  "For each x with parity p: new runs = 1 + cnt[q][1] + cnt[q][2], extended = old cnt[p][1]; add both into cnt[p]. Sum the four counters at the end: O(n) time, O(1) space, mod 1e9+7."
+ ],
+ "pitfalls": [
+  "Compute both updates from the counters before this element, otherwise an element extends a run it just started.",
+  "Count index sets, not distinct value sequences: [2,2] from two different positions are different subsequences.",
+  "Remember the subsequence consisting of the element alone (the +1)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

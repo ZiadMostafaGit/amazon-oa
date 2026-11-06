@@ -1,0 +1,17 @@
+{
+  "pattern": "simulation",
+  "why": "This is a multi-part billing engine, not a classic algorithm: parse records, replay subscription changes in day order to get each version's active days, aggregate usage per user-product and walk the sorted tier bounds. It sits in the binary-search week only because finding a quantity's tier can be done with bisect; the real skill is clean simulation with exact integer arithmetic.",
+  "hints": [
+    "Keep everything in integers: accumulate monthly_cost * days_active per user (that is 30 times the real charge) and divide by 30 only at the very end.",
+    "Sort changes by day. Keep a map sub_id -> (user, cost, start_day). On a change on day d, close the old version with d - start days and open the new one at day d; '-' means add without closing anything. Afterwards, close every open version with 31 - start days.",
+    "For usage, sum quantity per (user, product) first, then charge through the product's sorted finite bounds: each tier charges min(q, bound) - previous_bound units at its price, the -1 tier takes the rest. Output sorted by user id, flooring total_scaled // 30 once."
+  ],
+  "pitfalls": [
+    "Do not floor per subscription or per segment; only the user's final total is floored.",
+    "Changes arrive out of order; a change can reference a subscription created by an earlier-day change.",
+    "Tiered pricing is marginal: crossing a bound does not reprice earlier units, and repeated usage rows are summed before tiering.",
+    "Users who appear only in usage or end with a zero total must still be listed."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

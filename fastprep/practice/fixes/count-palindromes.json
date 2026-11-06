@@ -1,0 +1,16 @@
+{
+  "pattern": "palindromes",
+  "why": "This week is Strings. Every palindromic substring has a centre (a character, or a gap between two characters), and expanding outwards from each of the 2n-1 centres counts each palindrome exactly once. With n <= 5000 that is O(n^2) in the worst case. Manacher's algorithm does it in O(n).",
+  "hints": [
+    "Count substrings (positions), not distinct strings: 'aaa' gives 6.",
+    "Each palindrome is identified by its centre and radius. Grow from every centre while the two ends match.",
+    "For c in 0..2n-2: l = c//2, r = l + c%2, and while l >= 0, r < n and s[l] == s[r], count it and widen. O(n^2) time, O(1) space (Manacher: O(n))."
+  ],
+  "pitfalls": [
+    "Even-length palindromes such as 'cc' need gap centres.",
+    "Single letters each count as one palindrome.",
+    "Checking every substring separately is O(n^3), too slow for n = 5000."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

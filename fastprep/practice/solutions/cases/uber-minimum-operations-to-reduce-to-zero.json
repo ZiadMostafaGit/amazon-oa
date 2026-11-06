@@ -1,0 +1,68 @@
+{
+ "problemId": "uber-minimum-operations-to-reduce-to-zero",
+ "generatedAt": "2026-11-06T15:18:37",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "7"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "-6"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "long",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

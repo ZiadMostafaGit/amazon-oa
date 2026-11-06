@@ -1,0 +1,16 @@
+{
+ "pattern": "simulation",
+ "why": "The rules spell out the procedure: for each paragraph, two pointers pack words greedily into lines of at most width characters (words joined by single spaces), pad on the right (LEFT) or left (RIGHT), then frame everything with '*'. It is careful simulation of a text layout with a greedy line break.",
+ "hints": [
+  "Handle one paragraph at a time; the border is added only once around all lines.",
+  "A line keeps taking the next word while current length + 1 + word length <= width. When it does not fit, close the line and start a new one with that word.",
+  "Pad each line to exactly width with spaces (after for LEFT, before for RIGHT), add '*' on both sides, and add a top and bottom row of width + 2 stars. O(total characters)."
+ ],
+ "pitfalls": [
+  "Count the single space between words when testing whether the next word fits.",
+  "Lines of different paragraphs are never merged, even if they would fit together.",
+  "The border rows are width + 2 stars long, not width."
+ ],
+ "constraints": "<ul><li>Not stated in the source; reasonable bounds: 1 &le; paragraphs.length = alignments.length &le; 100</li><li>Each word is at most width characters; 1 &le; width &le; 100</li><li>alignments[i] is LEFT or RIGHT</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

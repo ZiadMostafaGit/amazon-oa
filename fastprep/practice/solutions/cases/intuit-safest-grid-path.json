@@ -1,0 +1,68 @@
+{
+ "problemId": "intuit-safest-grid-path",
+ "generatedAt": "2026-11-06T15:18:30",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 6,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [0, 0, 0]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [0, 0, 0], [0, 0, 0]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[5, 3, 6, 5, -4]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0, 1]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [0, -3, 0]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[-2, 1, 6]]"
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

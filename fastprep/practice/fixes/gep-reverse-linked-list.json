@@ -1,0 +1,17 @@
+{
+  "pattern": "linked-list",
+  "why": "The core pointer exercise every other linked-list problem builds on: walk the list once, turning each next pointer around while remembering the node you came from.",
+  "hints": [
+    "When you point cur.next backwards, you lose the rest of the list. Save it first.",
+    "Keep prev (initially None) and cur (initially head). Each step: nxt = cur.next; cur.next = prev; prev = cur; cur = nxt.",
+    "When cur becomes None, prev is the new head. One pass, O(n) time, O(1) extra space; avoid recursion, since 10^5 nodes overflows Python's stack."
+  ],
+  "pitfalls": [
+    "Empty list: return None without touching anything.",
+    "Recursive reversal hits the recursion limit for 10^5 nodes.",
+    "Return prev, not cur (cur is None at the end)."
+  ],
+  "statement": "<p>You are given <code>head</code>, the first node of a finite, acyclic singly linked list (each node has <code>val</code> and <code>next</code>). Reverse the list in place by turning every <code>next</code> pointer around, and return the new head. Use the original nodes; do not build new ones. Return <code>None</code> for an empty list.</p><p><b>Worked example.</b> <code>1 -&gt; 2 -&gt; 3</code></p><ul><li>Start: prev = None, cur = 1.</li><li>Node 1 now points to None; prev = 1, cur = 2.</li><li>Node 2 now points to 1; prev = 2, cur = 3.</li><li>Node 3 now points to 2; prev = 3, cur = None. Stop.</li><li>Return node 3: the list reads <code>3 -&gt; 2 -&gt; 1</code>.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "bit-manipulation",
+ "why": "Flipping every significant bit is XOR with a mask of all ones that is exactly as wide as the number: base10 ^ ((1 << bit_length) - 1).",
+ "hints": [
+  "XOR with 1 flips a bit, XOR with 0 keeps it. Which mask flips exactly the significant bits?",
+  "The mask is 2^L - 1 where L is the number of bits up to and including the highest 1.",
+  "Compute L with bit_length (or by shifting right until zero), build the mask, XOR. O(log n)."
+ ],
+ "pitfalls": [
+  "Do not use ~base10: it flips all 32 (or infinitely many in Python) bits and gives a negative number.",
+  "Leading zeros above the highest 1 must stay zero, so 30 (11110) becomes 1, not a large number.",
+  "base10 = 1 becomes 0."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,15 @@
+{
+  "pattern": "dp-1d",
+  "why": "The last move onto step n is either a 1-step from n-1 or a 2-step from n-2, so ways(n) = ways(n-1) + ways(n-2): the base 1-D DP (Fibonacci) the week opens with.",
+  "hints": [
+    "Think about the very last move you make to reach step n. Where could you have been just before it?",
+    "ways(n) = ways(n-1) + ways(n-2), with ways(0) = 1 (the empty climb) and ways(1) = 1.",
+    "Iterate from the bottom keeping only the last two values. O(n) time, O(1) space."
+  ],
+  "pitfalls": [
+    "Plain recursion without memoisation is exponential and times out near n = 45.",
+    "Get the base cases right: ways(1) = 1, ways(2) = 2."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

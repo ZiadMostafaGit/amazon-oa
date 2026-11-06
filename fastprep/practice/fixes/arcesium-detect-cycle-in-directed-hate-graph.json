@@ -1,0 +1,17 @@
+{
+  "pattern": "topological-sort",
+  "why": "Politicians are nodes and each hate pair is a directed edge, so the question is simply 'does this directed graph have a cycle?'. Kahn's topological sort answers it: if some nodes can never reach in-degree 0, they sit on a cycle.",
+  "hints": [
+    "Ignore the politics: draw each [u, v] as an arrow u -> v. A cycle means you can follow arrows and come back to where you started.",
+    "A directed graph has no cycle exactly when it has a topological order. Repeatedly remove nodes with in-degree 0; if you remove all n, there is no cycle.",
+    "Build adjacency lists and in-degree counts, run a queue-based Kahn's algorithm and count removed nodes; answer is removed < n. O(n + E) time and space (or DFS with white/grey/black colouring)."
+  ],
+  "pitfalls": [
+    "An undirected 'visited' check is wrong here: 0->2 and 1->2 reach node 2 twice without any cycle. Only a back edge to a node still on the current DFS path counts.",
+    "A self-loop [u, u] is a cycle of length one.",
+    "Politicians with no relationships still count toward n; the graph can be disconnected, so start from every node."
+  ],
+  "constraints": "<ul><li>1 &lt;= n (not stated in the source; assume up to about 10^5)</li><li>0 &lt;= u, v &lt; n for every pair [u, v] in hatePairs</li><li>hatePairs may be empty and may contain self-loops; numeric bounds are not stated in the source</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

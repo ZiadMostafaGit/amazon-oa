@@ -1,0 +1,16 @@
+{
+  "pattern": "grid-bfs",
+  "why": "Open cells are graph nodes connected to their 4 open neighbours; asking whether finish is reachable from start is a BFS (or DFS) on the grid from start.",
+  "hints": [
+    "Treat each open cell as a node. What are its neighbours?",
+    "BFS from start over in-bounds open neighbours, marking visited; succeed when you reach finish.",
+    "Check both endpoints are open first, then BFS with a deque and a visited matrix. O(rows * cols)."
+  ],
+  "pitfalls": [
+    "If start or finish is a wall, return false even when start == finish.",
+    "Diagonal moves are not allowed.",
+    "start == finish on an open cell is true without moving."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

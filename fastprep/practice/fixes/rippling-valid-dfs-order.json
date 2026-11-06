@@ -1,0 +1,16 @@
+{
+  "pattern": "dfs",
+  "why": "Simulate the DFS stack against the given order: the next vertex must be an unvisited neighbour of the deepest stack vertex that still has unvisited neighbours, because DFS only backtracks out of a vertex once all its neighbours are visited. Tracking each vertex's count of unvisited neighbours makes the check linear.",
+  "hints": [
+    "In a recursive DFS, when does the search leave a vertex and return to its parent?",
+    "Only after every neighbour of that vertex is visited. So before placing order[i], pop stack vertices with no unvisited neighbours; then order[i] must be adjacent to the new top.",
+    "Keep rem[v] = number of unvisited neighbours (decrement neighbours on each visit), adjacency sets for O(1) membership, and a stack. Validate length, range, duplicates and order[0] == 0 first. O(n + edges)."
+  ],
+  "pitfalls": [
+    "You may not pop a vertex that still has unvisited neighbours, even if order[i] is adjacent to an ancestor (example 3).",
+    "Check length n, repeats, out-of-range values and that the order starts at 0 before simulating.",
+    "Order entries can be any 32-bit integer, so range-check before indexing."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

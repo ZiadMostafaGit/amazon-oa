@@ -1,0 +1,16 @@
+{
+  "pattern": "two-pointers",
+  "why": "Runs of equal characters are found with two pointers: i marks the start of a run and j walks right while the character stays the same. Every run is visited once, and using >= when comparing lengths keeps the rightmost longest run.",
+  "hints": [
+    "Break the string into maximal blocks of one repeated character. How do you find where each block ends?",
+    "Set j = i and advance j while source[j] == source[i]; the run length is j - i, then jump i to j. Track the best run; on a tie the later run should win.",
+    "One linear scan with two indices, O(n) time and O(1) space; return best_char + str(best_len)."
+  ],
+  "pitfalls": [
+    "Ties go to the rightmost run: compare with >=, not >.",
+    "The answer is the character followed by the length as a string (\"c3\"), not the substring itself.",
+    "The final run ends at the end of the string; make sure it is compared too."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

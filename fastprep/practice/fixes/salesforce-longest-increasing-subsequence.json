@@ -1,0 +1,15 @@
+{
+  "pattern": "lis",
+  "why": "This is the textbook Longest Increasing Subsequence with no story at all; it is the template the week's other subsequence problems reduce to.",
+  "hints": [
+    "Define the subproblem by where the subsequence ends: what is the longest increasing subsequence that ends at index i?",
+    "dp[i] = 1 + max(dp[j]) over j < i with nums[j] < nums[i] gives O(n^2). Faster: keep tails[L] = smallest possible last value of an increasing subsequence of length L+1; tails stays sorted.",
+    "For each x, binary-search the first tail >= x (bisect_left) and replace it, or append if none. The answer is len(tails). O(n log n)."
+  ],
+  "pitfalls": [
+    "Strictly increasing: use bisect_left, not bisect_right, so equal values replace rather than extend ([7,7,7] gives 1).",
+    "tails is not itself a valid subsequence; only its length is meaningful."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

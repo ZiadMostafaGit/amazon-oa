@@ -1,0 +1,98 @@
+{
+ "problemId": "mt-busting-town-buses",
+ "generatedAt": "2026-11-06T15:18:35",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "timeTable",
+     "type": "String[]",
+     "rawValue": "[\"19:55\", \"19:55\"]"
+    },
+    {
+     "name": "moment",
+     "type": "String",
+     "rawValue": "\"19:55\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timeTable",
+     "type": "String[]",
+     "rawValue": "[\"12:30\", \"14:00\", \"19:55\", \"14:00\"]"
+    },
+    {
+     "name": "moment",
+     "type": "String",
+     "rawValue": "\"14:00\""
+    }
+   ],
+   "expectedRaw": "90"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timeTable",
+     "type": "String[]",
+     "rawValue": "[\"14:00\", \"19:55\", \"14:00\", \"12:30\"]"
+    },
+    {
+     "name": "moment",
+     "type": "String",
+     "rawValue": "\"19:55\""
+    }
+   ],
+   "expectedRaw": "355"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timeTable",
+     "type": "String[]",
+     "rawValue": "[\"19:55\", \"14:00\", \"12:30\"]"
+    },
+    {
+     "name": "moment",
+     "type": "String",
+     "rawValue": "\"12:30\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timeTable",
+     "type": "String[]",
+     "rawValue": "[\"12:30\", \"19:55\", \"19:55\"]"
+    },
+    {
+     "name": "moment",
+     "type": "String",
+     "rawValue": "\"12:30\""
+    }
+   ],
+   "expectedRaw": "-1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "timeTable",
+     "type": "String[]",
+     "rawValue": "[\"19:55\", \"14:00\", \"14:00\"]"
+    },
+    {
+     "name": "moment",
+     "type": "String",
+     "rawValue": "\"00:00\""
+    }
+   ],
+   "expectedRaw": "-1"
+  }
+ ]
+}

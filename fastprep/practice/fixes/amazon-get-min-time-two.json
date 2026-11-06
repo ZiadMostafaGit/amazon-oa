@@ -1,0 +1,16 @@
+{
+ "pattern": "scheduling",
+ "why": "Regions are task types and minGap is the cooldown between two runs of the same type: the task-scheduler problem. The most frequent region builds a skeleton of (maxFreq-1) blocks of width minGap+1, ties fill the last block, and the answer is never below n.",
+ "hints": [
+  "Only the count per region matters. Which region dictates the idle time?",
+  "Place the most frequent region first with minGap slots between copies; other regions fill those gaps. The skeleton length is (maxFreq - 1) * (minGap + 1) + (number of regions tied at maxFreq).",
+  "Count with a 26-slot array, compute the skeleton, return max(n, skeleton). O(n)."
+ ],
+ "pitfalls": [
+  "When the other regions overflow the gaps, there is no idle time: return n, not the skeleton.",
+  "Count every region tied for the maximum frequency in the last block.",
+  "minGap = 0 gives n."
+ ],
+ "constraints": "<ul><li>1 &le; n = requests.length &le; 10^5</li><li>0 &le; minGap &le; 100</li><li>requests contains lowercase English letters</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

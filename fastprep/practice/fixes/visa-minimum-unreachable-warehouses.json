@@ -1,0 +1,16 @@
+{
+  "pattern": "union-find",
+  "why": "Orient each component separately: a component with at least as many roads as warehouses contains a cycle, and you can point the cycle around and every other road away from it, so every warehouse gets an incoming road. A tree component (edges = vertices - 1) always leaves exactly one warehouse with no incoming road. Union-find counts the tree components.",
+  "hints": [
+    "Each warehouse needs at least one road pointing into it. Compare the number of roads and warehouses in one connected component.",
+    "A component with V warehouses and fewer than V roads (a tree) must leave one warehouse without an incoming road; with a cycle, it can cover them all. So the answer is the number of tree components.",
+    "Union-find with per-root size and edge count; answer = number of roots with edges == size - 1. Isolated warehouses count. O((n + m) alpha)."
+  ],
+  "pitfalls": [
+    "Isolated warehouses are trees of size 1 and each adds 1.",
+    "Count an edge even when its endpoints are already joined (it closes a cycle).",
+    "Warehouses are numbered from 1."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -3,7 +3,7 @@ from functools import lru_cache
 from typing import List
 
 
-def solve(s: str, wordDict: List[str]) -> List[str]:
+def wordBreak(s: str, wordDict: List[str]) -> List[str]:
     words = set(wordDict)
     if not words:
         return []

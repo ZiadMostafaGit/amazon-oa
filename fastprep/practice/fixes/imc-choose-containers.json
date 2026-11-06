@@ -1,0 +1,17 @@
+{
+  "pattern": "binary-search",
+  "why": "For each container set, every order uses the smallest container that is at least its size: a lower-bound lookup in that set's sorted sizes. Sort the requirements once with prefix sums, and for each container size find by binary search which requirements it serves, so each set costs O(k log n) instead of O(n).",
+  "hints": [
+    "For one order and one set, which container is used? The smallest size >= the requirement: a lower bound in a sorted list.",
+    "Doing that per order per set is O(n * sets). Flip it: sort the requirements; in a set with sorted sizes s1 < s2 < ..., size sj serves exactly the requirements in (s(j-1), sj]. Find that block with bisect and add count*sj - (sum of the block) from prefix sums.",
+    "A set is invalid if its largest size < max requirement. Total O(n log n + C log n) for C containers overall; pick the smallest waste, lowest index on ties."
+  ],
+  "pitfalls": [
+    "If no set can hold the largest requirement, return -1.",
+    "Ties go to the lower set index.",
+    "Waste can exceed 32-bit range (10^5 orders * 10^9); Python ints are fine, but don't cap it.",
+    "A container size equal to a requirement is an exact fit with zero waste; use bisect_left / '<=' carefully."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "sliding-window",
+  "why": "Let k be the smallest global frequency. A subarray whose top frequency is exactly k is, in practice, the longest window where no user appears more than k times (the rarest user can always be included k times in the longest such window). \"No count above k\" is monotone, so a variable-size window with a frequency map finds it.",
+  "hints": [
+    "First compute one number from the whole array: the minimum frequency over all users. What does a consistent window look like in terms of that number?",
+    "Every user in the window must appear at most k times. That condition survives shrinking, so for each right end you can keep the leftmost valid start and only move it rightward.",
+    "Counter for k, then slide: add userEvent[right]; while its window count exceeds k, drop userEvent[left] and advance left; track the best length. O(n)."
+  ],
+  "pitfalls": [
+    "k is the minimum over all users of their total count, computed on the whole array, not per window.",
+    "When the count of the incoming user exceeds k, only that user can be over the limit, so shrink until it is back to k.",
+    "IDs go up to 10^9: use a dict, not an array indexed by id."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

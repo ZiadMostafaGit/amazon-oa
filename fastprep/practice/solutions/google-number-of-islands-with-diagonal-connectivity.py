@@ -25,3 +25,7 @@ def countIslands(grid: List[List[int]]) -> int:
                             grid[nx][ny] = 0
                             stack.append((nx, ny))
     return count
+
+
+# the bank renamed this problem's entry point
+solve = countIslands

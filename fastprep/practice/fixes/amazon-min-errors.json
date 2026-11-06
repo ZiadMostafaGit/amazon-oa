@@ -1,0 +1,18 @@
+{
+  "pattern": "greedy-exchange",
+  "why": "Every '0' before a '1' costs x and every '1' before a '0' costs y (pairs anywhere, not just adjacent). An exchange argument shows that among the '!' positions an optimal filling is sorted: all 0s then all 1s if x <= y, otherwise all 1s then 0s. So only n+1 split points need checking, each costed in O(1) with prefix counts.",
+  "hints": [
+    "Count errors as pairs (i < j): s[i]s[j] = \"01\" costs x and \"10\" costs y. Suppose two '!' positions got \"10\" but you swap them to \"01\"; how does the cost change?",
+    "Swapping two filled '!' values only changes the cost of the pair between them (and nothing involving fixed characters' counts on each side overall), so the '!' values should appear in sorted order: 0s first if x <= y, else 1s first. That leaves one split point t to choose.",
+    "Prefix counts of fixed 0s and 1s give each '!' position's cost against fixed characters for either value. Prefix-sum those costs over the '!' positions and evaluate each split t: fixed cost + first t as one value + rest as the other + t*(m-t)*min(x, y). O(n)."
+  ],
+  "pitfalls": [
+    "Pairs are subsequences, not adjacent characters: in \"10111\" the 0 forms \"01\" with all three later 1s.",
+    "Don't forget the cost among fixed characters and among the '!' characters themselves (the t*(m-t) term).",
+    "Filling each '!' greedily by its local cost ignores the interactions between '!' positions."
+  ],
+  "statement": "<p>You are given a string <code>errorString</code> of <code>'0'</code>, <code>'1'</code> and <code>'!'</code>, and two integers <code>x</code> and <code>y</code>. Replace every <code>'!'</code> with <code>'0'</code> or <code>'1'</code>.</p><p>The number of errors of the final binary string is counted over all pairs of positions <code>i &lt; j</code> (not necessarily adjacent):</p><ul><li>each pair with <code>s[i] = '0'</code>, <code>s[j] = '1'</code> (a <code>\"01\"</code> subsequence) adds <code>x</code> errors;</li><li>each pair with <code>s[i] = '1'</code>, <code>s[j] = '0'</code> (a <code>\"10\"</code> subsequence) adds <code>y</code> errors.</li></ul><p>Return the minimum possible number of errors.</p><p><b>Worked example.</b> <code>errorString = \"101!1\"</code>, <code>x = 2</code>, <code>y = 3</code>.</p><ul><li><code>'!' = '0'</code> gives <code>\"10101\"</code>: <code>\"01\"</code> pairs = 3 (cost 6), <code>\"10\"</code> pairs = 3 (cost 9), total 15.</li><li><code>'!' = '1'</code> gives <code>\"10111\"</code>: the single 0 at index 1 forms <code>\"01\"</code> with the three later 1s (cost 3*2 = 6) and <code>\"10\"</code> with the 1 at index 0 (cost 3), total 9.</li><li>Answer: <code>9</code>.</li></ul>",
+  "constraints": "<ul><li>Bounds are not stated in the source. Reasonable: 1 &lt;= length of errorString &lt;= 10^5, 0 &lt;= x, y &lt;= 10^5</li><li>errorString contains only '0', '1' and '!'</li><li>The answer can exceed 32 bits.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

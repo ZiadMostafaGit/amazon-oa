@@ -1,0 +1,16 @@
+{
+  "pattern": "trees",
+  "why": "Picking the lower middle of each sorted segment as the root is the 'sorted array to balanced BST' construction; the preorder can be emitted directly by recursing on index ranges, and the special-value test is applied to each value as it is emitted.",
+  "hints": [
+    "You never need node objects: a subtree is just a range [lo, hi] of the sorted array.",
+    "For range [lo, hi] the root is index lo + (hi - lo) // 2; emit it, then the left range, then the right range.",
+    "Use a stack of ranges (push right before left) and output 0 for values where x//10 + (x//10)*(x%10) + x%10 == x. O(n log n) for the sort."
+  ],
+  "pitfalls": [
+    "Lower middle: for even length take the left of the two middles.",
+    "Keep duplicates when sorting; do not use a set.",
+    "Replace values only in the output; the tree shape comes from the original sorted values."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

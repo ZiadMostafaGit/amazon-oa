@@ -1,0 +1,68 @@
+{
+ "problemId": "roblox-solution",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"gammon\", \"backgammon\", \"comeback\", \"door\"]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"backdoor\", \"back\", \"comeback\", \"come\", \"door\", \"backgammon\", \"come\", \"gammon\"]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"cba\", \"cba\", \"a\", \"b\", \"ba\", \"cba\", \"ca\"]"
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"back\", \"backdoor\", \"gammon\", \"comeback\", \"door\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"come\", \"door\", \"back\", \"comeback\", \"backgammon\", \"gammon\"]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"b\", \"a\", \"a\", \"b\", \"ba\", \"ca\"]"
+    }
+   ],
+   "expectedRaw": "6"
+  }
+ ]
+}

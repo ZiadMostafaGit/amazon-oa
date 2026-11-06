@@ -1,0 +1,16 @@
+{
+  "pattern": "subsets",
+  "why": "With negative values you cannot prune when the running sum exceeds target, so this is really subset enumeration with duplicate skipping: walk sorted values, include or skip each, skip equal values at the same depth, and record any subset whose sum equals target.",
+  "hints": [
+    "In classic Combination Sum II you stop once the sum is too big. Why does that break when negatives exist?",
+    "Treat it as generating distinct subsets of a multiset (Subsets II): sort, and at each depth do not start two branches with the same value. Check the sum at every node, not only at leaves.",
+    "DFS(start, sum): if sum == target record the path; for i from start, skip if i > start and nums[i] == nums[i-1]; recurse with i + 1. Visiting in sorted order produces the required lexicographic order (shorter prefix first). At most 2^16 nodes."
+  ],
+  "pitfalls": [
+    "Record the empty combination only when target == 0, and record matches at every node, since a longer extension may also hit the target (e.g. [-1,1] and [-1,0,1]).",
+    "No pruning on sum > target: a later negative can bring it back down.",
+    "Duplicate values must not produce duplicate rows; skip equal siblings at the same depth."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "meta-compute-difference",
+ "generatedAt": "2026-11-06T15:18:31",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"CodeeSignal\""
+    }
+   ],
+   "expectedRaw": "-7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"CodeSinal\""
+    }
+   ],
+   "expectedRaw": "-5"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"1\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"CodeSiggnal\""
+    }
+   ],
+   "expectedRaw": "-7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"CodeSiignal\""
+    }
+   ],
+   "expectedRaw": "-7"
+  },
+  {
+   "inputs": [
+    {
+     "name": "text",
+     "type": "String",
+     "rawValue": "\"dog\""
+    }
+   ],
+   "expectedRaw": "-3"
+  }
+ ]
+}

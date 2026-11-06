@@ -1,0 +1,18 @@
+{
+  "pattern": "bfs",
+  "why": "Cousins are the nodes on the same level minus your siblings. A level-by-level BFS gives each level's total; each node's new value is that total minus the sum of its parent's children.",
+  "hints": [
+    "The sum of a node's cousins equals the sum of its whole level minus the sum of itself and its sibling.",
+    "BFS level by level: first compute the level's total, then for each parent assign both of its children total - (left + right).",
+    "Here the tree is a level-order string array: rebuild child indices from it (each non-null node consumes the next two slots), run the BFS on indices, and write the new values back into the same positions. O(n)."
+  ],
+  "pitfalls": [
+    "Replacements are simultaneous: use original values, so compute all sums before overwriting.",
+    "The root and any only-child-level nodes with no cousins get 0.",
+    "Keep every 'null' marker in place in the output array.",
+    "In this level-order format, null entries do not reserve child slots; don't use the 2i+1 heap formula."
+  ],
+  "constraints": "<ul><li>Not stated in the source; reasonable bounds for practice:</li><li>1 &lt;= number of nodes &lt;= 10^5</li><li>1 &lt;= node value &lt;= 10^4</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

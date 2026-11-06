@@ -1,0 +1,17 @@
+{
+  "pattern": "sliding-window",
+  "why": "A throttling gateway is three fixed-length time windows (1 s, 10 s, 60 s) over a sorted stream. Because dropped requests still count, request i breaks the cap of c per w seconds exactly when the request c positions earlier is still inside the window, so each check is one index comparison.",
+  "hints": [
+    "Dropped requests still count toward future limits. That means the window contents are just the raw sorted times. How does that simplify things?",
+    "Request i is the (c+1)-th inside a window of length w exactly when requestTime[i - c] >= requestTime[i] - w + 1. So check i-3 for the 1-second cap, i-20 for 10 seconds, and i-60 for 60 seconds.",
+    "One pass: for each i, drop it if any of the three index-offset checks fires, and count it once. O(n) time, O(1) extra space."
+  ],
+  "pitfalls": [
+    "A request breaking several limits is counted once; use if/elif or a boolean, not three separate increments.",
+    "Windows are inclusive: 10 seconds means times T-9 through T, and one minute means T-59 through T.",
+    "Do not remove dropped requests from the window; the note says they still count.",
+    "n is up to 10^6; per-request window rebuilds or per-second dictionaries over 10^9 time values will be too slow or too big."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

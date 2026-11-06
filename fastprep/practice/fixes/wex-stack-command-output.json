@@ -1,0 +1,16 @@
+{
+  "pattern": "stack",
+  "why": "The commands are literally push (U) and pop (O) on a last-in-first-out structure; the only work beyond the stack itself is tokenising the string and stopping at X.",
+  "hints": [
+    "Split the string on any whitespace first; the numbers after U are separate tokens, and they may be negative.",
+    "Walk the tokens with an index: on U read the next token as the value and push it, on O pop and record, on X stop.",
+    "A Python list is the stack (append / pop). One pass over at most 10^4 tokens: O(n) time, O(n) space."
+  ],
+  "pitfalls": [
+    "Splitting on a single space breaks on tabs, newlines or repeated spaces; use split() with no argument.",
+    "Values left on the stack at X are not output.",
+    "The value after U is its own token: advance the index by two, not one."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

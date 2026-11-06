@@ -1,0 +1,16 @@
+{
+  "pattern": "greedy",
+  "why": "A token always moves exactly 3 right, so the board splits into three independent chains by index mod 3, and within a chain tokens step forward one slot and can never pass each other. The front token can always run to the end of its chain, so every coin at or after the first token of its chain is collectable. It is scheduled in the 1-D DP week, but the chain observation makes it a direct greedy count.",
+  "hints": [
+    "A move of exactly 3 never changes index mod 3. What does that tell you about which tokens can ever reach which coins?",
+    "Split positions into chains 0, 3, 6, ... / 1, 4, 7, ... / 2, 5, 8, .... In a chain, tokens advance one slot at a time and can't overtake. Move the furthest token to the end first, then the next one up behind it, and so on: together they sweep every slot from the first token onward.",
+    "For each of the 3 chains, find its first 'T' and count the 'C's after it. O(N)."
+  ],
+  "pitfalls": [
+    "Coins before the first token of their chain can never be collected, even if a token in another chain is further left.",
+    "A coin under a token's starting position doesn't exist (a cell holds one thing), so only later positions count.",
+    "Moving tokens in the wrong order looks blocked; move the token furthest ahead first."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

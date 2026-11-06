@@ -1,0 +1,128 @@
+{
+ "problemId": "adobe-maze-reachability",
+ "generatedAt": "2026-11-06T15:18:19",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 25,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1, 0]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "finish",
+     "type": "int[]",
+     "rawValue": "[1, -2]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0], [0, 1, 0]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "finish",
+     "type": "int[]",
+     "rawValue": "[0, 2]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0], [0, 0, 0], [0, 0, 0]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "finish",
+     "type": "int[]",
+     "rawValue": "[0, 2]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0, 0, 0]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "finish",
+     "type": "int[]",
+     "rawValue": "[0, 2]"
+    }
+   ],
+   "expectedRaw": "true"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[1], [0, 0]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "finish",
+     "type": "int[]",
+     "rawValue": "[1, -4]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "grid",
+     "type": "int[][]",
+     "rawValue": "[[0, 1, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]"
+    },
+    {
+     "name": "start",
+     "type": "int[]",
+     "rawValue": "[0, 0]"
+    },
+    {
+     "name": "finish",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "true"
+  }
+ ]
+}

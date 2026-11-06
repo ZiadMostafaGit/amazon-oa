@@ -1,0 +1,16 @@
+{
+  "pattern": "greedy",
+  "why": "A multiset can form a palindrome when at most one letter has an odd count. Each change fixes two odd letters, so the minimum is (#odd letters)//2. Greedy choice: sort the odd letters and turn the larger half into the smaller half (the middle one, if any, becomes the centre), then lay out the smallest palindrome from the counts.",
+  "hints": [
+    "Only letters with odd counts are a problem. Changing one letter can fix two of them at once.",
+    "With odd letters sorted o1 < o2 < ... < ok, change o_k to o_1, o_{k-1} to o_2, and so on. If k is odd, the median o_{(k+1)/2} stays odd and becomes the centre. That uses the minimum number of changes and makes the letters as small as possible.",
+    "Then build half = letters a..z, each repeated count//2 times, and return half + centre + reverse(half). O(n + 26)."
+  ],
+  "pitfalls": [
+    "Change the largest odd letters into the smallest ones. Doing it the other way round gives a valid but larger palindrome.",
+    "When the length is odd, exactly one odd letter stays as the centre. Pick the median odd letter, not the smallest.",
+    "Do not add extra changes. The count of changes must stay minimal even if more changes would give a smaller string."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

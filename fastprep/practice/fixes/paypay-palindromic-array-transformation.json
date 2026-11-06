@@ -1,0 +1,16 @@
+{
+  "pattern": "dynamic-programming",
+  "why": "Concatenating the array gives one fixed string S, and the operations only move each boundary between arr[i] and arr[i+1] by at most one character. So the question is whether you can pick a shift (-1, 0, +1) for every boundary so that the pieces mirror. Walking boundaries from the outside in, with a small set of reachable positions per step, is a DP with 3 states per boundary.",
+  "hints": [
+    "Characters never change order. Only the cut points in the concatenated string move, each by at most one.",
+    "For the array to be a palindrome, the t-th cut from the left and the t-th cut from the right must be symmetric (b_t + b_{n-t} = |S|), and each piece must equal its mirror piece.",
+    "Process t = 1..n/2. Keep the set of feasible previous cuts and try the 3 candidate cuts, checking the mirrored cut is also within +/-1 of its original and that S[prev:b] equals the matching piece from the right. O(n * 9 * 10)."
+  ],
+  "pitfalls": [
+    "Each pair of neighbours may use at most one operation, so a boundary moves by at most 1 in total. Example 3 fails because 2 characters would have to move.",
+    "Every piece must keep at least one character, which the length >= 2 guarantee and the +/-1 limit make safe. Still, do not create empty strings.",
+    "A single-element array is always palindromic."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

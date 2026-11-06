@@ -1,0 +1,16 @@
+{
+  "pattern": "knapsack",
+  "why": "Each item is taken once or not at all under a weight limit, maximising value: this is 0/1 knapsack exactly, with weights[i] as weight, values[i] as value and capacity as the limit.",
+  "hints": [
+    "Each item is a yes/no decision with a weight cost. What table lets you combine decisions without trying all 2^n subsets?",
+    "dp[c] = best value with total weight at most c using the items seen so far; for item (w, v): dp[c] = max(dp[c], dp[c - w] + v).",
+    "Iterate c from capacity down to w so each item is used once. O(n * capacity) time, O(capacity) space."
+  ],
+  "pitfalls": [
+    "Looping capacity upward reuses an item (that is unbounded knapsack).",
+    "Capacity 0 or no items fits returns 0.",
+    "Zero-value items are harmless; do not special-case them wrongly."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

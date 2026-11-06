@@ -1,0 +1,16 @@
+{
+ "pattern": "tree-dp",
+ "why": "Since levels can only go up, each folder's final level must be at least a[u] - dist(u, v) for every folder u, and setting it to exactly that maximum is feasible and minimal for every folder at once. Computing max over u of (a[u] - dist(u, v)) for all v is a two-pass tree DP (children up, then parent down), i.e. rerooting.",
+ "hints": [
+  "If a folder u has level L, any folder at distance d from it must end with level at least L - d. Is the smallest level that satisfies all of these constraints also feasible?",
+  "Yes: f(v) = max over all u of (a[u] - dist(u, v)) satisfies every edge and is the smallest possible value for each v, so the answer is sum(f(v) - a[v]).",
+  "Root the tree, do a post-order pass best[parent] = max(best[parent], best[child] - 1), then a pre-order pass best[child] = max(best[child], best[parent] - 1). Iterative BFS order, O(n)."
+ ],
+ "pitfalls": [
+  "Use an iterative traversal: the tree can be a 2 * 10^5 long path, which breaks Python recursion.",
+  "A single pass from the root only captures influence from below; you need the second, downward pass.",
+  "The total can exceed 32 bits."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

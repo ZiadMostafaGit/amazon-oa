@@ -1,0 +1,16 @@
+{
+  "pattern": "bit-manipulation",
+  "why": "A subset's OR is at most k iff its OR equals some mask m <= k, i.e. every chosen value is a submask of m. So for each m <= k take every positive-profit item whose value is a submask of m; summing those gains over all submasks is a sum-over-subsets (SOS) DP on the 10-bit masks.",
+  "hints": [
+    "OR only ever turns bits on. If the final OR is some mask m, what must be true of each chosen value?",
+    "Each chosen value must be a submask of m. So for a fixed m, take every item with value submask of m and positive profit; the answer is the best m <= k.",
+    "gain[v] = total positive profit at value v; run SOS DP (for each bit, best[m] += best[m ^ bit] when the bit is set) to get best[m] for all 1024 masks; answer max(best[m] for m <= k), at least 0. O(n + 10 * 1024)."
+  ],
+  "pitfalls": [
+    "'OR at most k' compares numbers, not bit sets: with k = 4, an OR of 3 is allowed though 3 is not a submask of 4. Enumerate every mask m <= k, not just submasks of k.",
+    "Never take negative-profit items; the empty subset gives 0.",
+    "Duplicate values must sum their profits, not overwrite."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

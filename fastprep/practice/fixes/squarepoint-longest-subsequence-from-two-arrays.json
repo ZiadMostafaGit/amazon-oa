@@ -1,0 +1,16 @@
+{
+ "pattern": "lis",
+ "why": "Once the choices are made it is a plain longest strictly increasing subsequence, and each index simply offers up to two candidate values. Run patience-sort LIS where each index tries both values against the state from before that index.",
+ "hints": [
+  "You never need to fix the whole chosen array first: only values that end up in the subsequence matter, and each index contributes at most one.",
+  "Use the classic tails array (smallest possible last value of an increasing subsequence of each length). At index i, both first[i] and second[i] are candidates to place.",
+  "For each index compute bisect_left positions for both values on the current tails, then apply both updates. O(n log n)."
+ ],
+ "pitfalls": [
+  "Compute both placements before applying either, or the two values at one index could chain into the same subsequence.",
+  "Strictly increasing means bisect_left, not bisect_right.",
+  "Empty arrays return 0."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

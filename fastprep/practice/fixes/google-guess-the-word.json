@@ -1,0 +1,16 @@
+{
+ "pattern": "simulation",
+ "why": "This is LeetCode 843 (Guess the Word) turned into a deterministic replay: the only 'math' is the match count between two strings, and the solver is a minimax filter. You simulate it exactly: score every candidate by its worst feedback bucket, guess the best one, keep the words consistent with the feedback.",
+ "hints": [
+  "A guess gives a number 0..6. After seeing it, which words can still be the secret?",
+  "For each candidate guess g, group the current candidates by match(g, w). The guess whose largest group is smallest is the minimax choice; ties go to the lexicographically smaller word. The guess's own bucket (6) counts too.",
+  "Loop up to 10 times: pick the guess in O(m^2 * 6), compare with secret, filter. With at most 100 words this is about 10 * 100^2 * 6 operations."
+ ],
+ "pitfalls": [
+  "Guesses are chosen only from the current candidates, not from the original list.",
+  "Break ties by the word itself, so iterate candidates in sorted order and keep the first minimum.",
+  "Return the 1-based attempt number, and -1 if ten attempts pass without a full match."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

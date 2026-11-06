@@ -1,0 +1,17 @@
+{
+  "pattern": "math",
+  "why": "When two identical trucks collide and swap velocities, it looks exactly as if they passed through each other. So collisions never change the set of exit times. Each truck leaves at (L - x)/v if v > 0, or x/|v| if v < 0, and the answer is the maximum of those. This is the 'ants on a plank' trick.",
+  "hints": [
+    "Ignore which truck is which. Look only at the set of moving velocities.",
+    "Swapping velocities at a collision is indistinguishable from the two trucks passing through each other.",
+    "For each truck compute its solo exit time and return the maximum as a float. O(n)."
+  ],
+  "pitfalls": [
+    "Divide by |v| for left-moving trucks: the time is x / -v.",
+    "Return a float such as 6.0, not an integer.",
+    "Velocity 0 would never leave. The source does not cover it, so assume it does not occur."
+  ],
+  "constraints": "<ul><li>Not stated in the source. Assume 1 &le; initial.length = velocity.length &le; 10<sup>5</sup>, 1 &le; laneLength &le; 10<sup>9</sup>, distinct 0 &lt; initial[i] &lt; laneLength, and velocity[i] &ne; 0 with |velocity[i]| &le; 10<sup>9</sup>.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

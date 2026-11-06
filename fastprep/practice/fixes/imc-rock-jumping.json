@@ -1,0 +1,18 @@
+{
+ "pattern": "binary-search-on-answer",
+ "why": "Raising the water only removes rocks, so 'can I still cross at level h' is monotone: true up to some height, then false. Binary search h. For a fixed h, landing on every surviving rock is optimal, because splitting a jump never increases its length and (a + b)^2 >= a^2 + b^2, so feasibility is one greedy scan of the gaps.",
+ "hints": [
+  "If you can cross at water level h, can you cross at any lower level? What does that monotonicity let you do?",
+  "For a fixed level, which rocks should you use? Every one still above water: a long jump costs more energy than the same distance in two hops, and short hops never break maxJump.",
+  "Binary search h in [0, 10^9]; check(h) walks 0 -> surviving rocks -> width, failing on a gap > maxJump or total squared gaps > maxEnergy. O(numRocks * log 10^9)."
+ ],
+ "pitfalls": [
+  "A rock is usable while level <= height (submerged only if the water is strictly higher).",
+  "Return -1 if even level 0 fails, and 10^9 if the top level still works.",
+  "Energy totals reach 10^18; Python is fine, but in other languages use 64-bit and stop early when the sum exceeds maxEnergy.",
+  "Do not forget the final jump to the right bank."
+ ],
+ "statement": "<p>A river runs from <code>x = 0</code> (left bank) to <code>x = width</code> (right bank). Rock i stands at position <code>x[i]</code> (strictly between the banks, sorted ascending) and has height <code>heights[i]</code>.</p><p>You jump from the left bank, possibly via rocks, to the right bank. A jump from position a to position b costs <code>(a - b)^2</code> energy, and no single jump may be longer than <code>maxJump</code>. The total energy must be at most <code>maxEnergy</code>.</p><p>Before you start, the water rises to some level h. A rock with <code>height &lt; h</code> is submerged and cannot be used; a rock with <code>height &gt;= h</code> is still usable. Return the <b>largest</b> water level h at which you can still cross. Return <code>-1</code> if you cannot cross even at level 0, and <code>10^9</code> if crossing is possible at every level up to 10^9.</p><p><b>Example:</b> <code>width = 10</code>, rocks at <code>x = [4, 7]</code> with <code>heights = [3, 5]</code>, <code>maxJump = 10</code>, <code>maxEnergy = 40</code>.</p><ul><li>Level 3: both rocks usable. Path 0 -> 4 -> 7 -> 10 costs 16 + 9 + 9 = 34 &lt;= 40. Possible.</li><li>Level 4: the rock at 4 (height 3) is submerged. Best path 0 -> 7 -> 10 costs 49 + 9 = 58 &gt; 40. Not possible.</li></ul><p>The answer is <code>3</code>.</p>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

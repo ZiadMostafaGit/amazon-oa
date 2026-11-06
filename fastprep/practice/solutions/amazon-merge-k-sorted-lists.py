@@ -23,3 +23,7 @@ def solve(lists: List[Optional['ListNode']]) -> Optional['ListNode']:
         if nxt is not None:
             heapq.heappush(heap, (nxt.val, i, nxt))
     return dummy
+
+
+# the bank renamed this problem's entry point
+mergeKLists = solve

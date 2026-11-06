@@ -1,0 +1,15 @@
+{
+  "pattern": "strings",
+  "why": "This week is Strings, and this is a warm-up: one pass over the characters, classify each as uppercase or lowercase, and return uppercase count minus lowercase count.",
+  "hints": [
+    "You only need two counters.",
+    "Use str.isupper() and str.islower(). Anything that is neither (digits, spaces, punctuation) counts for nothing.",
+    "A single O(n) pass that returns upper - lower."
+  ],
+  "pitfalls": [
+    "An empty string gives 0.",
+    "Non-letters must not be counted as lowercase just because they are not uppercase."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

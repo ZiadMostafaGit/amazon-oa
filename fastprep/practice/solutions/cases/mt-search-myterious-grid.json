@@ -1,0 +1,98 @@
+{
+ "problemId": "mt-search-myterious-grid",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "phrases",
+     "type": "String[]",
+     "rawValue": "[\"car\", \"bar\", \"acdc\"]"
+    },
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[[\"x\", \"a\", \"c\", \"d\"], [\"a\", \"b\", \"ac\", \"a\", \"c\", \"b\"], [\"y\", \"r\", \"d\", \"s\"]]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "phrases",
+     "type": "String[]",
+     "rawValue": "[\"cat\", \"ac\", \"bar\", \"acdc\"]"
+    },
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[[\"y\", \"r\", \"d\", \"s\"], [\"a\", \"b\", \"a\", \"c\"], [\"a\", \"b\", \"a\", \"c\"]]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "phrases",
+     "type": "String[]",
+     "rawValue": "[\"0\", \"10\"]"
+    },
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[[\"ab\", \"ab\", \"ab\", \"abc\", \"bc\", \"abc\"]]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "phrases",
+     "type": "String[]",
+     "rawValue": "[\"blue\"]"
+    },
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "phrases",
+     "type": "String[]",
+     "rawValue": "[\"ac\", \"cat\", \"bar\", \"acdc\", \"bar\", \"bar\", \"acdc\", \"abacaba\"]"
+    },
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[[\"x\", \"a\", \"c\", \"d\"], [\"y\", \"r\", \"d\", \"s\"]]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "phrases",
+     "type": "String[]",
+     "rawValue": "[\"10\", \"yz\", \"1\", \"cat\", \"b\"]"
+    },
+    {
+     "name": "grid",
+     "type": "String[][]",
+     "rawValue": "[[\"blue\", \"b\", \"blue\", \"0\", \"bc\", \"ab\"], [\"0\", \"0\", \"x\", \"b\", \"1\", \"1\"]]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+  "pattern": "stack",
+  "why": "Brackets must close in the reverse order they opened, which is last-in first-out: push each opener and, at each closer, the top of the stack must be its matching opener.",
+  "hints": [
+    "Which open bracket must the next closing bracket match?",
+    "The most recent unmatched opener. Keep openers on a stack; a closer pops the top and must be the same type.",
+    "One pass with a list as stack and a dict mapping closer -> opener; valid if no mismatch occurs and the stack is empty at the end. O(n)."
+  ],
+  "pitfalls": [
+    "A closer with an empty stack (\")(\") is invalid.",
+    "Leftover openers at the end (\"((\") make the string invalid.",
+    "Matching counts per type is not enough: \"([)]\" has balanced counts but is invalid."
+  ],
+  "statement": "<p>Given a string <code>s</code> made only of the characters <code>( ) [ ] { }</code>, return <code>true</code> if it is valid and <code>false</code> otherwise.</p><p>A string is valid when:</p><ul><li>every opening bracket is closed by a bracket of the same type,</li><li>brackets are closed in the reverse order in which they were opened, and</li><li>every closing bracket has an earlier opening bracket to match.</li></ul><p>The empty string is valid.</p><p><b>Worked example:</b> <code>s = \"([)]\"</code></p><ul><li><code>(</code>: open, pending openers <code>(</code></li><li><code>[</code>: open, pending <code>( [</code></li><li><code>)</code>: the most recent opener is <code>[</code>, not <code>(</code>, so the string is invalid.</li></ul><p>Answer: <code>false</code>. For <code>\"()[]{}\"</code> each opener is closed immediately by its partner, so the answer is <code>true</code>; for <code>\"{[]}\"</code> the answer is also <code>true</code>.</p>",
+  "constraints": "<ul><li>0 &lt;= s.length &lt;= 10^4</li><li>s contains only the characters ( ) [ ] { }</li><li>Bounds are not stated in the source (an interview report); these are the standard LeetCode 20 bounds.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

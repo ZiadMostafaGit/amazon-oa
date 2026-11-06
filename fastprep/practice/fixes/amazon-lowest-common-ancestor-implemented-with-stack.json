@@ -1,0 +1,17 @@
+{
+  "pattern": "lca",
+  "why": "Lowest common ancestor via parent pointers: an iterative stack DFS records each node's parent, then p's ancestors go into a set and the first ancestor of q found in that set is the answer.",
+  "hints": [
+    "If every node knew its parent, how would you find where the paths from p and q to the root first meet?",
+    "Traverse with an explicit stack and store parent[child] = node. Then walk from p to the root, adding each node to a set.",
+    "Walk up from q; the first node already in the set is the LCA. O(n) time and space. First rebuild children from the level-order strings (each non-null node consumes the next two slots)."
+  ],
+  "pitfalls": [
+    "A node is its own ancestor: include p itself in the set, and check q itself first.",
+    "p and q are values; map values to node positions.",
+    "In this level-order format null entries do not reserve child slots, so the 2i+1 formula is wrong."
+  ],
+  "constraints": "<ul><li>Not stated in the source; reasonable bounds for practice:</li><li>2 &lt;= number of nodes &lt;= 10^5</li><li>Node values are unique integers; p != q and both exist in the tree.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

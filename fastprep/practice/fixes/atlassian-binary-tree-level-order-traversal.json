@@ -1,0 +1,15 @@
+{
+  "pattern": "bfs",
+  "why": "Level by level, left to right is exactly breadth-first search on the tree, where you process the queue one whole level at a time.",
+  "hints": [
+    "Depth-first traversal does not visit nodes in level order. Which traversal visits all nodes at depth d before any at depth d+1?",
+    "BFS with a queue. At the start of each round, the queue holds exactly one level; record its length and pop that many nodes.",
+    "Collect each level's values into a list, enqueue left then right children. O(n) time, O(width) space."
+  ],
+  "pitfalls": [
+    "An empty tree returns [], not [[]].",
+    "Take len(queue) before the inner loop; it changes as you add children."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

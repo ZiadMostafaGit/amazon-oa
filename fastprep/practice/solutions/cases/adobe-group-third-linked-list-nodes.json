@@ -1,0 +1,18 @@
+{
+ "problemId": "adobe-group-third-linked-list-nodes",
+ "generatedAt": "2026-11-06T15:18:19",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 31,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "head",
+     "type": "ListNode",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "null"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "pattern": "segment-tree",
+ "why": "Minimum swaps to sort a 1/2/3 array has a closed form from the 3x3 table m[a][b] = how many b's sit in the zone where a's belong: fix 2-cycles first (min(m[a][b], m[b][a])), the rest form 3-cycles costing 2 swaps each. Updates move the zone boundaries, so each zone count is a range-count query: three Fenwick/segment trees, one per value.",
+ "hints": [
+  "After sorting, the first c1 cells hold 1s, the next c2 hold 2s, the rest 3s. Count how many of each value sit in each zone.",
+  "A 1 in the 2-zone and a 2 in the 1-zone fix each other with one swap; pair those up for all three value pairs. Whatever is still misplaced forms 3-cycles, and each cycle of 3 needs 2 swaps: answer = pairs + 2 * (remaining / 3).",
+  "Keep one Fenwick tree per value for range counts. Each query: point update, recompute c1, c2, then 6 range counts. O(log n) per query."
+ ],
+ "pitfalls": [
+  "Positions in queries are 1-based.",
+  "The zone boundaries change with every update (counts change), so you cannot precompute zones once.",
+  "An update that writes the same value must still produce an answer.",
+  "Recounting the array per query is O(n * q) = 10^10: too slow."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

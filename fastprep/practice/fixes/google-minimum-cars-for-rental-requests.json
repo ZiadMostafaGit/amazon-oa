@@ -1,0 +1,18 @@
+{
+ "pattern": "heap",
+ "why": "This is Meeting Rooms II with names attached: rentals are half-open intervals, and the minimum number of cars equals the maximum overlap. Sweep rentals by pickup time, keep busy cars in a min-heap by return time, and reuse the lowest-numbered free car.",
+ "hints": [
+  "A car is just a 'room' that holds non-overlapping intervals. How many cars do you need at the busiest moment?",
+  "Sort by pickup time. Before assigning a rental, release every car whose return time is <= this pickup (half-open intervals). Reuse a free car if there is one, otherwise open a new car.",
+  "Two heaps: busy (returnTime, carId) and free carIds, so the smallest free id is reused. O(n log n). Then print each car's record ids in the order assigned."
+ ],
+ "pitfalls": [
+  "Endpoints touch: a car returned at time 3 can take a pickup at time 3 (use <=, not <).",
+  "The input is unsorted; sort by pickup time (then return time, then record id).",
+  "A zero-length rental [t, t) goes to car 0 and does not make car 0 busy; create car 0 if it does not exist yet.",
+  "Always reuse the lowest-numbered free car, or the output ids will differ."
+ ],
+ "statement": "<p>You are given an <b>unsorted</b> list of rental records. Each record is <code>[recordId, pickupTime, returnTime]</code>; <code>recordId</code> is unique.</p><p>Assign every rental to a car so that no car has two overlapping rentals, using the <b>minimum</b> number of cars. Rentals are half-open intervals <code>[pickupTime, returnTime)</code>, so a car returned at time <code>t</code> can be picked up again at time <code>t</code>.</p><p>Assignment rules (so the answer is unique):</p><ul><li>Process rentals in order of pickup time (ties: earlier return time, then smaller recordId).</li><li>Give a rental the free car with the <b>smallest id</b>; if no car is free, create a new car whose id is the next integer (0, 1, 2, ...).</li><li>A zero-duration rental <code>[t, t)</code> goes to car 0 (creating car 0 if needed) and does not make car 0 busy.</li></ul><p>Return one string per car, in car-id order, of the form <code>\"carId: recordId recordId ...\"</code>, listing that car's records in the order they were assigned.</p><p><b>Example:</b> <code>[[101,1,3],[102,2,4],[103,4,6]]</code></p><ul><li>101 (time 1 to 3): no car is free, create car 0.</li><li>102 (time 2 to 4): car 0 is busy until 3, create car 1.</li><li>103 (time 4 to 6): car 0 was returned at 3 and car 1 at 4, both free; pick the smaller id, car 0.</li></ul><p>Result: <code>[\"0: 101 103\", \"1: 102\"]</code>.</p>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

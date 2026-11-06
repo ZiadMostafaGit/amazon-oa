@@ -1,0 +1,16 @@
+{
+  "pattern": "union-find",
+  "why": "Plates within distance d are connected, and collecting one plate takes its whole connected component, so the answer is the number of connected components. With n <= 1000, check all pairs (compare squared distances) and union them.",
+  "hints": [
+    "One second clears one whole component, so count components.",
+    "Two plates are adjacent when dx^2 + dy^2 <= d^2. Compare squares to avoid sqrt and float error.",
+    "Run DSU over n plates and test all n(n-1)/2 pairs, decrementing the component count on each successful union. O(n^2 * alpha)."
+  ],
+  "pitfalls": [
+    "The distance test uses <= d (inclusive).",
+    "d = 0 joins only plates at identical coordinates.",
+    "Using math.sqrt and float comparison can misjudge exact boundary cases."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

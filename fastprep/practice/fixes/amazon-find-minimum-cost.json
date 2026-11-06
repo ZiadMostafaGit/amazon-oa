@@ -1,0 +1,17 @@
+{
+ "pattern": "prefix-sums",
+ "why": "With one fixed direction, the flow across each edge is a running sum of (products[i] - avg), shifted by a constant that depends on where the flow starts. To make every edge's flow non-negative the shift must cancel the minimum prefix, so the clockwise cost is sum(prefix) - n*min(prefix); counter-clockwise is the mirror, n*max(prefix) - sum(prefix).",
+ "hints": [
+  "Fix the direction as clockwise. How many products cross the edge between container i and i+1? It depends on the surplus accumulated before it.",
+  "Let P[i] = sum of (products[j] - avg) for j <= i. The flow over edge i is P[i] + c for some constant c, every flow must be >= 0 because products only move one way, and the cost is the sum of flows. The smallest valid c is -min(P).",
+  "One pass computes the prefix values, their sum, min and max: clockwise = sum(P) - n*min(P), counter-clockwise = n*max(P) - sum(P); return the smaller. O(n), 64-bit arithmetic."
+ ],
+ "pitfalls": [
+  "Products may not move backwards, so you cannot use the median trick from the two-way circular version; the answer depends on min or max of the prefix sums.",
+  "Try both directions; they can give different costs (8 vs 7 in the example).",
+  "The answer can exceed 32 bits."
+ ],
+ "constraints": "<ul><li>Not stated in the source screenshots. Reasonable bounds: <code>1 &lt;= n &lt;= 10^5</code>, <code>0 &lt;= products[i] &lt;= 10^9</code>, and <code>sum(products)</code> is divisible by <code>n</code>.</li><li>The answer may exceed the 32-bit integer range.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

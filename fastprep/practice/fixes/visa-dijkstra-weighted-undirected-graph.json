@@ -1,0 +1,17 @@
+{
+  "pattern": "dijkstra",
+  "why": "Non-negative edge weights and 'shortest distance from one source to every vertex' is exactly single-source Dijkstra with a binary heap; the story adds nothing beyond the -1 for unreachable vertices.",
+  "hints": [
+    "Weights differ, so plain BFS no longer finds shortest paths. But they are never negative; which algorithm needs exactly that?",
+    "Dijkstra: always settle the unsettled vertex with the smallest tentative distance, then relax its edges. With non-negative weights a settled distance is final.",
+    "Adjacency list with both directions per edge, a heap of (dist, vertex), skip stale heap entries whose dist exceeds the recorded one. O((V + E) log V); finally replace infinity with -1."
+  ],
+  "pitfalls": [
+    "Add every edge in both directions; the graph is undirected.",
+    "Skip stale heap entries (d > dist[u]) or the run degrades badly with many parallel edges.",
+    "Zero-weight edges and self-loops are allowed; they must not break relaxation (use strict < when relaxing).",
+    "Unreached vertices must be reported as -1, not as a large sentinel."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

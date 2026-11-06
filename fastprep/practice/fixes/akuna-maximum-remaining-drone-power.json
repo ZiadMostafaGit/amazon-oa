@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-2d",
+  "why": "Maximum remaining power = 100 minus the cheapest top-to-bottom falling path, where each step goes down-left, down or down-right. That is the classic minimum falling path sum, a row-by-row 2-D DP.",
+  "hints": [
+    "Maximising remaining power is the same as minimising total cost. What does the cheapest way to reach a cell in row i depend on?",
+    "best[i][j] = city[i][j] + min(best[i-1][j-1], best[i-1][j], best[i-1][j+1]) over existing columns.",
+    "Fill row by row (keep only the previous row), answer = 100 - min(last row). O(rows * cols); brute force is also fine for 4x4."
+  ],
+  "pitfalls": [
+    "Edge columns have only two predecessors.",
+    "The drone pays for the starting cell too.",
+    "The result can be negative; do not clamp at 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -2,7 +2,7 @@
 from typing import List, Optional, Any
 
 
-def lowestCommonAncestor(root: List[str], p: int, q: int) -> int:
+def solve(root: List[str], p: int, q: int) -> int:
     n = len(root)
     # Build children links from the compact level-order encoding where "null"
     # entries have no children slots of their own.

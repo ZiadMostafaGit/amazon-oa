@@ -2,7 +2,7 @@
 from typing import List
 
 
-def solve(A: List[int]) -> int:
+def googleMinimumNumberOfMovesToObtain(A: List[int]) -> int:
     total = 0
     prev = 0
     for v in A:

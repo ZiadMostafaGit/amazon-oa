@@ -52,3 +52,7 @@ def crawlSameHostname(startUrl: str, pageUrls: List[str], linkLists: List[str], 
             frontier = nxt
 
     return sorted(visited)
+
+
+# the bank renamed this problem's entry point
+solve = crawlSameHostname

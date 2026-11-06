@@ -1,0 +1,16 @@
+{
+ "pattern": "lis",
+ "why": "It is an LIS-style DP over increasing subsequences, but each state stores a set instead of a length: S[v] = the set of OR scores of increasing subsequences ending with value v. Since values are below 1024, each set is a 1024-bit mask, and a Fenwick tree over values gives the union of S[u] for all u < x.",
+ "hints": [
+  "Values are below 1024, so every OR score is also below 1024: the answer is just a subset of 0..1023.",
+  "Like LIS, process the array left to right; a subsequence ending at x extends any increasing subsequence ending in a smaller value. Track, for each ending value, the set of reachable OR scores as a bitmask.",
+  "Query a Fenwick tree (OR of masks) for values < x, transform every score s into s | x, add x alone, and write back at x. Collect everything plus 0 for the empty subsequence. O(n log V) mask operations."
+ ],
+ "pitfalls": [
+  "The empty subsequence counts and scores 0 (see the expected [0,...]).",
+  "Strictly increasing: equal values cannot chain, so query values strictly less than x.",
+  "Brute-forcing subsequences is exponential; even O(n^2 * 1024) is too slow for n = 10^4."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

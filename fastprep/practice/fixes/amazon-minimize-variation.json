@@ -1,0 +1,15 @@
+{
+ "pattern": "dp-2d",
+ "why": "After sorting, every optimal order builds its prefix as a contiguous window of the sorted values that grows by one element on the left or the right. So it is interval DP: dp[l][r] = (a[r]-a[l]) + min(dp[l+1][r], dp[l][r-1]). The week's greedy + sorting gives the sorted view, but plain greedy (sorted order) is not always optimal.",
+ "hints": [
+  "Sort first. If the first i products chosen are not a contiguous block of the sorted array, can you swap something to lower the sum?",
+  "Every prefix of an optimal arrangement is a contiguous window a[l..r] of the sorted array, and the next product extends that window by one on the left or on the right.",
+  "dp over windows: dp[l][r] = a[r] - a[l] + min(dp[l+1][r], dp[l][r-1]), with dp[i][i] = 0. Iterate by window length with a rolling 1-D array. O(n^2) time, O(n) memory, fine for n = 2000."
+ ],
+ "pitfalls": [
+  "Just sorting ascending or descending is not optimal; you must be able to extend on either side.",
+  "Equal values cost nothing, so duplicates naturally group; no special handling is needed after sorting.",
+  "Sums can exceed 32-bit (2000 * 10^9)."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

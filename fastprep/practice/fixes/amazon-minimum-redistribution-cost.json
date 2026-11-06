@@ -1,0 +1,16 @@
+{
+  "pattern": "prefix-sums",
+  "why": "With every item moving the same way round the circle, the flow across each edge is a starting flow plus the running prefix sum of (products[i] - avg). The flows must be non-negative and the cost is their sum, so the best starting flow is minus the lowest prefix sum.",
+  "hints": [
+    "Think about the number of items crossing each edge rather than individual items. How does the flow over one edge relate to the flow over the previous edge?",
+    "Going clockwise, flow out of warehouse i = flow into it + products[i] - avg. So flow_i = f + prefix_i. All flows must be >= 0 (one direction only), and cost = sum of flows, so choose f = -min(prefix_i).",
+    "One pass computing running prefix sums, their total and their minimum gives cost = total - n * min (with min including 0). Do it for the array and for its reverse (other direction) and take the smaller. O(n), 64-bit."
+  ],
+  "pitfalls": [
+    "Including 0 in the minimum matters: the starting flow can't be negative.",
+    "Values up to 10^9 with n up to 10^5 overflow 32-bit integers.",
+    "Allowing both directions per edge gives the classic 'median' answer, which is smaller than what this problem allows; here each run is one-directional."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

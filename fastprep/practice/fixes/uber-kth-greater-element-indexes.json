@@ -1,0 +1,16 @@
+{
+  "pattern": "segment-tree",
+  "why": "This sits in the Trees week as an indexed tree problem. Insert positions into a Fenwick tree in decreasing value order, so when you handle nums[i] the tree holds exactly the positions of strictly greater values. The answer is the k-th marked position after i, which an order-statistic descent on the tree finds.",
+  "hints": [
+    "If only the elements greater than nums[i] were 'switched on', you would need the k-th switched-on index to the right of i.",
+    "Sort indices by value descending and handle equal values as a group: query all of them first, then insert them, so 'strictly greater' holds.",
+    "Fenwick tree over positions: c = prefix(i). If total - c >= k, find the smallest p with prefix(p) >= c + k using binary lifting. Each step is O(log n), O(n log n) overall."
+  ],
+  "pitfalls": [
+    "Equal values are not 'greater'. Insert a group of equal values only after querying it.",
+    "The output is 1-indexed positions, with -1 when fewer than k exist.",
+    "A per-index scan to the right is O(n^2), too slow at 1e5."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

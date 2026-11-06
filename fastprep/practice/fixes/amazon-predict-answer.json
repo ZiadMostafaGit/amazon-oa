@@ -1,0 +1,17 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "For a day i, the nearest lower day is either the previous strictly smaller element or the next strictly smaller element, whichever is closer. Two monotonic-stack passes compute both for all days in O(n), and each query is then O(1).",
+  "hints": [
+    "The nearest lower day on the left and the nearest lower day on the right are independent questions. Which classic stack query answers each?",
+    "Previous smaller element (scan left to right) and next smaller element (scan right to left), each with a stack that pops while the top is >= the current price.",
+    "Precompute prev[] and nxt[] in O(n), then for each query compare distances i - prev and nxt - i, preferring prev on ties (smaller day number), and convert to 1-based. O(n + q)."
+  ],
+  "pitfalls": [
+    "Ties in distance go to the earlier day (the left candidate).",
+    "Days are 1-based in both queries and answers.",
+    "Strictly lower: equal prices do not count, so pop on >=.",
+    "Answering each query by scanning outwards is O(n) per query, too slow for 10^5 queries."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

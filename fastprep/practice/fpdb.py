@@ -126,6 +126,9 @@ class Bank:
         self._delisted = "p.delisted_at" if "delisted_at" in cols else "NULL"
         self.columns = LIST_COLUMNS % self._delisted
 
+    def all_ids(self) -> list[str]:
+        return [r[0] for r in self.conn.execute("SELECT id FROM problems ORDER BY id")]
+
     def invalidate(self) -> None:
         """Forget derived state after the bank changed underneath us."""
         with self._search_lock:

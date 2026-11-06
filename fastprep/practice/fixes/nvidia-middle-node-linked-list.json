@@ -1,0 +1,16 @@
+{
+  "pattern": "fast-slow-pointers",
+  "why": "You cannot index into a linked list, but if one pointer moves two steps for every one step of another, the slow pointer is at the middle exactly when the fast one runs off the end: the fast/slow pointer pattern.",
+  "hints": [
+    "Counting the nodes and walking again to n // 2 works in two passes. Can you do it in one?",
+    "Move slow one node and fast two nodes per step, both starting at head.",
+    "Loop while fast and fast.next are not None; then slow is the middle (the second middle for even length). O(n) time, O(1) space."
+  ],
+  "pitfalls": [
+    "For an even length the second middle is required; the loop condition 'while fast and fast.next' gives exactly that, 'while fast.next and fast.next.next' gives the first middle.",
+    "Return the node itself (the suffix), not its value."
+  ],
+  "statement": "<p>You are given the head of a singly linked list. Return the middle node. If the list has an even number of nodes there are two middle nodes; return the second one. The returned node is judged as the suffix starting there.</p><p><b>Worked example.</b> <code>1 -&gt; 2 -&gt; 3 -&gt; 4</code> (4 nodes).</p><ul><li>The two middle nodes are 2 and 3; the second is 3.</li><li>With slow/fast pointers starting at 1: after one step slow = 2, fast = 3; after a second step slow = 3, fast = None. Stop.</li><li>Return node 3, judged as <code>[3, 4]</code>.</li></ul><p>For <code>[1,2,3,4,5]</code> the single middle is 3, so the answer is <code>[3,4,5]</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

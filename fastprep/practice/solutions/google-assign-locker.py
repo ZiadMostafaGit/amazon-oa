@@ -3,7 +3,7 @@ import heapq
 from typing import List, Optional, Any
 
 
-def assignLocker(clients: List[str]) -> int:
+def solve(clients: List[str]) -> int:
     free: List[int] = []
     next_locker = 1
     held = {}

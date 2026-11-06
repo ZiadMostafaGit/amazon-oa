@@ -1,0 +1,16 @@
+{
+  "pattern": "combinatorics",
+  "why": "This week is Strings, but the counting is combinatorics. A good subsequence uses some common frequency f. For a fixed f, each letter with count c contributes either nothing or one of C(c, f) choices, so there are prod(1 + C(c_letter, f)) - 1 non-empty choices. Sum that over f = 1..max count.",
+  "hints": [
+    "Only the letter counts matter, not their positions: choosing which f copies of a letter to keep is C(count, f).",
+    "Fix the common frequency f. Each letter is either absent or present exactly f times, which gives prod over letters of (1 + C(c, f)), minus 1 for the empty choice.",
+    "Precompute factorials and inverse factorials mod 1e9+7 up to n, then sum over f = 1..maxCount with a 26-term product each. O(n + 26 * maxCount)."
+  ],
+  "pitfalls": [
+    "Subtract 1 for each f (the empty choice), not once overall.",
+    "Use modular inverses for C(n, k). Python's exact math.comb on 10^5 is slow when repeated.",
+    "Letters with count < f contribute a factor of 1 (they can only be absent)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

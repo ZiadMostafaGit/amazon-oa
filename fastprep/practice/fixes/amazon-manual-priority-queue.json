@@ -1,0 +1,17 @@
+{
+  "pattern": "heap",
+  "why": "This asks you to build the heap itself: store values in an array as a complete binary tree, sift up on push and sift down on pop, so the minimum is always at index 0.",
+  "hints": [
+    "A sorted list gives O(n) inserts; with 2*10^5 operations you want O(log n).",
+    "Use an array where the children of i are 2i+1 and 2i+2 and every parent is <= its children; the minimum is at index 0.",
+    "PUSH: append and swap upward while smaller than the parent. POP: save a[0], move the last element to index 0, then swap downward with the smaller child. PEEK reads a[0]. O(log n) per op."
+  ],
+  "pitfalls": [
+    "When sifting down, compare with the smaller of the two children, and check that the right child exists.",
+    "Popping the last remaining element: remove it without sifting an empty array.",
+    "Duplicates are allowed; use < (not <=) in comparisons to avoid needless swaps, either works for correctness.",
+    "values[i] is ignored for PEEK and POP."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

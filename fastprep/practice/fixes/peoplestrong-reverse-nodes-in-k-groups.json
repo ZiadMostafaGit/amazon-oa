@@ -1,0 +1,16 @@
+{
+ "pattern": "linked-list",
+ "why": "This is exactly LeetCode 25, Reverse Nodes in k-Group. The two-pointer part of the week is the probe: walk k steps ahead to confirm a full group exists, then reverse the group in place and stitch it between the previous group's tail and the next group's head.",
+ "hints": [
+  "Before reversing, check that k nodes actually remain; a short tail is left alone.",
+  "Reverse a group with the standard prev/cur loop, but start prev at the node after the group so the reversed group is already connected to the rest.",
+  "Keep prevTail (the last node of the finished part) and the group's old first node, which becomes its new tail. Each node is visited twice: O(n) time, O(1) extra space."
+ ],
+ "pitfalls": [
+  "k = 1 returns the list unchanged; k = n reverses everything.",
+  "Swap links, not values.",
+  "After a reversal, the old first node of the group is the new tail; that is where the next group attaches."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

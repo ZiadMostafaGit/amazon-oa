@@ -1,0 +1,16 @@
+{
+  "pattern": "hash-tables",
+  "why": "This is two-sum counting over distinct value pairs: a pair is identified by its values, not its positions. Put the values in a Counter, and for each distinct value v with v <= target - v, count the pair if its partner exists (needing two copies when v == target - v).",
+  "hints": [
+    "Duplicates must not create extra pairs: (9, 3) counts once even with two 3s. So what is a pair really identified by?",
+    "Work over distinct values. For each value v, its partner is target - v. Count the pair once by only counting when v <= target - v.",
+    "Counter of values in O(n); loop over its keys, add 1 when the partner is present (and when v == target - v, only if v occurs at least twice). O(n) time and space."
+  ],
+  "pitfalls": [
+    "When target is even, the pair (target/2, target/2) needs at least two copies of target/2.",
+    "Count each unordered pair once, not twice (once from each side).",
+    "n is up to 5 * 10^5, so an O(n^2) pair scan times out."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

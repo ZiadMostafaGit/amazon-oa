@@ -1,0 +1,16 @@
+{
+  "pattern": "lca",
+  "why": "With parent pointers, the lowest common ancestor is where the two upward paths meet. Equalise the depths, then step both nodes up together until they coincide, which needs no extra memory.",
+  "hints": [
+    "If both nodes were at the same depth, how would you find where their paths to the root join?",
+    "Compute each node's depth by walking parent links to the root. Lift the deeper node by the difference.",
+    "Then move both up one step at a time until they are equal. O(h) time, O(1) space (no visited set)."
+  ],
+  "pitfalls": [
+    "A node is its own ancestor: if one node is above the other, return it.",
+    "The two nodes may be the same node.",
+    "A visited-set solution works but breaks the O(1) space requirement."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

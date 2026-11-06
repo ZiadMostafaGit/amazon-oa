@@ -1,0 +1,16 @@
+{
+ "pattern": "linked-list",
+ "why": "This is Odd Even Linked List with period 3: walk the list once with a position counter, route nodes at positions 3, 6, 9, ... to a second chain, and append that chain to the first. Both chains keep their order because nodes are appended at the tail.",
+ "hints": [
+  "Each node's destination depends only on its original position mod 3.",
+  "Build two chains, 'kept' and 'thirds', each with a head and a tail pointer (or a dummy node), appending every node to one of them.",
+  "Link kept's tail to thirds' head and return kept's head. One pass, O(n) time, O(1) extra space."
+ ],
+ "pitfalls": [
+  "Positions count from 1, so the 3rd node (index 2) moves, not the first.",
+  "Set the final tail's next to None, otherwise the last kept node may still point into the old list.",
+  "Lists shorter than 3 are unchanged; an empty list returns None."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

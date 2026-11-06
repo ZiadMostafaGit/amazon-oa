@@ -1,0 +1,17 @@
+{
+  "pattern": "design-data-structure",
+  "why": "A progressive design task: one global dict name -> (size, owner), a per-user dict of capacity and owned files, and per-user backup snapshots. Each level adds one more map; the work is keeping them consistent.",
+  "hints": [
+    "Keep files: name -> (size, owner) and users: id -> {capacity, used, files set}. Admin is a user with infinite capacity.",
+    "GET_N_LARGEST is a filter plus sort by (-size, name). ADD_FILE_BY checks existence, free name and used + size <= capacity before mutating anything.",
+    "MERGE moves user2's files to user1 (update owner and used), adds capacities, deletes user2 and its backup. BACKUP stores a copy of {name: size}; RESTORE deletes the user's current files, then re-adds backed-up names that are not taken by someone else."
+  ],
+  "pitfalls": [
+    "Remaining capacity is capacity - used, returned after success; failure returns None (empty row).",
+    "RESTORE with no backup still deletes all of the user's files and returns 0.",
+    "Merging leaves userId1's backup unchanged; later file changes must not mutate a stored backup (copy it).",
+    "Tie-break GET_N_LARGEST by name ascending when sizes are equal."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

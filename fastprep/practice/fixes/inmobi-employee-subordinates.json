@@ -1,0 +1,17 @@
+{
+  "pattern": "tree-dp",
+  "why": "The number of subordinates of an employee is the size of their subtree minus one, and subtree sizes accumulate bottom-up: each employee adds their own subtree to their boss's.",
+  "hints": [
+    "An employee's subordinates are everyone in their subtree except themselves.",
+    "size(v) = 1 + sum of size over v's direct reports. Process employees children-first.",
+    "Build child lists, get a top-down order with BFS from employee 1, then walk it backwards adding size[v] into size[boss[v]]. Answer is size - 1. O(n) time and space."
+  ],
+  "pitfalls": [
+    "bosses[i] is the boss of employee i + 2, not i + 1.",
+    "A boss can have a larger number than the employee, so a simple loop from n down to 2 is not a valid bottom-up order.",
+    "With n = 1 (empty bosses) the answer is [0]."
+  ],
+  "statement": "<p>A company has <code>n</code> employees numbered 1 to <code>n</code>; employee 1 is the general director and has no boss. You are given <code>bosses</code> of length <code>n - 1</code>: <code>bosses[i]</code> is the direct boss of employee <code>i + 2</code>.</p><p>A subordinate of employee <code>e</code> is anyone whose chain of bosses passes through <code>e</code> (direct or indirect). Return an array of length <code>n</code> whose entry <code>i</code> is the number of subordinates of employee <code>i + 1</code>.</p><p><b>Worked example.</b> <code>bosses = [1, 1, 2, 3]</code>, so n = 5.</p><ul><li>Employee 2's boss is 1, employee 3's boss is 1, employee 4's boss is 2, employee 5's boss is 3.</li><li>Employees 4 and 5 have nobody below them: 0 each.</li><li>Employee 2 has employee 4: 1. Employee 3 has employee 5: 1.</li><li>Employee 1 has 2, 3, 4, 5: 4.</li><li>Answer: <code>[4, 1, 1, 0, 0]</code>.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

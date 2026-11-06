@@ -42,3 +42,7 @@ def solve(rows: int, columns: int, checkpoints: List[List[int]]) -> int:
         dp = ndp
 
     return dp[rows - 1]
+
+
+# the bank renamed this problem's entry point
+countCheckpointPaths = solve

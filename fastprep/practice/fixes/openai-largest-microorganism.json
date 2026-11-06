@@ -1,0 +1,17 @@
+{
+ "pattern": "simulation",
+ "why": "With at most 20 organisms there is no trick: the task is to implement the round rules exactly. A list of (family, size) plus a per-round 'already took part' flag, scanned left to right with deletions applied immediately, reproduces every example. This is the week's linked-list + simulation pairing; a Python list with deletions is the linked list here.",
+ "hints": [
+  "Model one round precisely: who may act, in which order, and what 'participated' means after a deletion shifts the line.",
+  "Scan left to right. An organism that has not participated tries its left neighbour first (different family, strictly smaller, neighbour not participated), then its right neighbour. The eater is marked; the eaten one is deleted on the spot, so the next comparison sees the new neighbour.",
+  "Repeat rounds until a round has no meal, then return the largest survivor as 'family size'. Each round is O(n^2) at worst with list deletions, and there are at most n - 1 meals: trivial for n <= 20."
+ ],
+ "pitfalls": [
+  "Equal sizes never eat each other (strictly smaller only), and same-family neighbours never eat each other.",
+  "An organism that ate this round cannot be eaten later in the same round, nor eat again.",
+  "Left neighbour has priority over the right one.",
+  "When the eater consumes its left neighbour, its own index shifts down by one; keep the scan pointer and flags aligned."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

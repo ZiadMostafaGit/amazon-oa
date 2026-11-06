@@ -1,0 +1,15 @@
+{
+  "pattern": "binary-search",
+  "why": "'continue' asks for the first breakpoint strictly greater than the current line, which is exactly bisect_right on the sorted breakpoints array; 'next' is just +1.",
+  "hints": [
+    "Track one integer, the current line, starting at 1.",
+    "For 'continue', the target is the smallest breakpoint > current. In a sorted array that is breakpoints[bisect_right(breakpoints, current)].",
+    "Each action is O(log b), O(a log b) overall, O(1) extra space."
+  ],
+  "pitfalls": [
+    "Strictly after: if you are standing on a breakpoint, 'continue' must go to the next one (bisect_right, not bisect_left).",
+    "Lines start at 1, not 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

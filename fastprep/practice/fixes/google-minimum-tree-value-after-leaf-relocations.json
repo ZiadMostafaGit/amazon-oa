@@ -1,0 +1,17 @@
+{
+ "pattern": "tree-dp",
+ "why": "The sum of all subtree sums equals the sum of value * depth (root depth 1), so a move only helps by lifting a node to depth 2 under the root, saving value * (depth - 2). Because only leaves can move, a node moves only after its whole subtree has moved, so the moved set is a union of whole subtrees: a tree knapsack over subtree sizes with budget k.",
+ "hints": [
+  "Rewrite the target: each node's value is counted once for every ancestor including itself. So the total is sum(value[v] * depth[v]).",
+  "Re-attaching to the root is always best, saving value*(depth-2). To move a node you must first move everything below it, so you pick disjoint full subtrees, each costing its size in operations and saving the sum of its nodes' savings.",
+  "Tree knapsack: dp[v][j] = best saving using j operations inside v's subtree, merging children with the usual size-bounded convolution, plus the option 'move all of v's subtree' at cost size[v]. O(n * k) total with size-bounded merging."
+ ],
+ "pitfalls": [
+  "Use 64-bit-safe totals (Python ints are fine); values go up to 10^9 and depths to 1000.",
+  "Children of the root (depth 2) save nothing; moving them only wastes operations.",
+  "k = 0 or n = 1 means no move: return the plain sum of value * depth.",
+  "Do not assume moved nodes can keep their subtree: only leaves move, so a subtree comes along one node at a time, deepest first."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

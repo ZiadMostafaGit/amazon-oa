@@ -1,0 +1,16 @@
+{
+  "pattern": "two-pointers",
+  "why": "Repeatedly pairing the highest with the lowest remaining developer is exactly the sorted-array two-pointer walk: sort, then pair arr[i] with arr[n-1-i]. Count distinct pair sums in a set; averages are distinct exactly when sums are.",
+  "hints": [
+    "If you sort the experience values, which two developers form the first pair? The second?",
+    "After sorting, pair i pairs arr[i] with arr[n-1-i]. You only need distinct averages, and (a+b)/2 is distinct iff a+b is, so store integer sums and avoid floating point.",
+    "Sort in O(n log n), move two pointers inward adding arr[i] + arr[j] to a set, return the set's size."
+  ],
+  "pitfalls": [
+    "Storing averages as floats invites precision bugs; compare integer sums instead.",
+    "Equal values (e.g. all ones) give one distinct value, not n/2.",
+    "Pairing is decided by values, not by original positions; do not pair index 0 with index n-1 of the unsorted array."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

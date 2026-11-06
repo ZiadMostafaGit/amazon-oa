@@ -1,0 +1,14 @@
+{
+ "pattern": "greedy",
+ "why": "secretKey[i] % param[i] can be any residue in [0, param[i]-1], so each parameter picks one value from 0..param[i]-1 and you want as many distinct picks as possible. Sorting the bounds and handing each the smallest unused value is the classic greedy assignment.",
+ "hints": [
+  "Forget the secret key: what set of values can hash[i] take for a given param[i]?",
+  "Each index may claim any value in [0, param[i]-1]. Process small bounds first, because they have the fewest options, and give each the next new value 0, 1, 2, ... if its bound allows it.",
+  "Sort param; keep a counter cur of distinct values used; for each p, if cur < p then cur += 1. Answer is cur. O(n log n)."
+ ],
+ "pitfalls": [
+  "param[i] = 1 forces hash[i] = 0, so many 1s still contribute only one distinct value.",
+  "Do not try to build actual keys; values up to 10^9 make that pointless, only the residue range matters."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

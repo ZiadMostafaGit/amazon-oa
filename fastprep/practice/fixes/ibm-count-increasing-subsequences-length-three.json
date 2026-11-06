@@ -1,0 +1,16 @@
+{
+ "pattern": "counting-dp",
+ "why": "Fix the middle element j of the triple: the number of triples with middle j is (smaller values to its left) x (larger values to its right). It is the length-3 slice of the counting-LIS DP, where dp[len][j] counts increasing subsequences of length len ending at j.",
+ "hints": [
+  "Instead of picking three indices, pick the middle one and ask how many valid partners it has on each side.",
+  "Triples with middle j = left_smaller[j] * right_larger[j]; equal values do not count because the order must be strict.",
+  "Compute left_smaller with a Fenwick tree over compressed values scanning left to right, right_larger scanning right to left, then sum the products mod 1e9+7: O(n log n). With n <= 5000 an O(n^2) double loop also passes."
+ ],
+ "pitfalls": [
+  "Strict inequality: use counts of values strictly less (left) and strictly greater (right), so duplicates are excluded.",
+  "Products can be large; take the result modulo 10^9 + 7.",
+  "n < 3 gives 0."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

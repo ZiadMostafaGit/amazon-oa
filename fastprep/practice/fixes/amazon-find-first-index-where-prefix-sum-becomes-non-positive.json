@@ -1,0 +1,17 @@
+{
+  "pattern": "prefix-sums",
+  "why": "A single running sum over the array gives every prefix sum in O(n); the task is a scan that watches when that sum is <= 0. Note the source's examples disagree with the word \"first\", see the statement.",
+  "hints": [
+    "You never need to store all prefix sums; one running total updated left to right is enough.",
+    "Read the examples carefully: in [2, -4, 1] the sums are [2, -2, -1] and the expected answer is 2, not 1. The examples are consistent with the last index whose prefix sum is <= 0.",
+    "Keep total and answer = -1; for each i add inventory[i] and set answer = i whenever total <= 0. Return answer. O(n) time, O(1) space."
+  ],
+  "pitfalls": [
+    "The source text says \"first index\", but its own example 2 expects 2, which only fits the last such index; the tests follow the examples.",
+    "A prefix sum of exactly 0 counts as non-positive.",
+    "Values reach 10^9 over 10^5 elements; fine in Python, but use 64-bit integers in other languages."
+  ],
+  "statement": "<p>You are given an array of integers <code>inventory</code> representing inventory stock. The prefix sum at index <code>i</code> is <code>inventory[0] + ... + inventory[i]</code> (0-based). The task is to report the index where the prefix sum is non-positive (less than or equal to 0). If no prefix sum is non-positive, return <code>-1</code>.</p><p><b>Note on the source.</b> The original assessment text says <i>first</i> index, but its own second example (<code>[2, -4, 1]</code>, answer <code>2</code>) contradicts that: the first non-positive prefix sum is at index 1. All three published examples agree with returning the <b>last</b> index whose prefix sum is &lt;= 0, and that is what the tests here check.</p><p><b>Worked example:</b> <code>inventory = [2, -4, 1]</code></p><ul><li>i = 0: sum = 2 (positive)</li><li>i = 1: sum = -2 (non-positive, remember 1)</li><li>i = 2: sum = -1 (non-positive, remember 2)</li></ul><p>The answer is <code>2</code>. For <code>[1, 2]</code> the sums are 1 and 3, so the answer is <code>-1</code>; for <code>[1, 2, 3, -6]</code> the sums are 1, 3, 6, 0, so the answer is <code>3</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

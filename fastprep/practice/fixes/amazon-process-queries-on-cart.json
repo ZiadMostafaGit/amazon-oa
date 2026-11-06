@@ -1,0 +1,16 @@
+{
+  "pattern": "hash-tables",
+  "why": "Removing the first occurrence of a value from a list is O(n) each time, too slow for 2 * 10^5 queries. Instead keep, per value, a queue of the positions where it lives (a hash map of deques) and mark removed slots as dead; the final cart is the live slots in order.",
+  "hints": [
+    "list.remove(x) scans from the front every time. With 2 * 10^5 operations, what does that cost in the worst case?",
+    "Never delete physically. Append every item to one growing array; for each value keep a deque of its positions in increasing order. Removing the first occurrence of v is popleft on v's deque plus marking that slot dead.",
+    "Hash map value -> deque of indices, a parallel alive array, O(1) per query, then one pass to output the live items. O(n + q) total."
+  ],
+  "pitfalls": [
+    "Positions must stay in order: newly appended items go to the back of their value's deque, which keeps it sorted.",
+    "A removal for a value not in the cart should be ignored safely (empty or missing deque).",
+    "The query is negative; remove the item whose id is -query, not query."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1033,3 +1033,14 @@ select.plan-input,input.plan-input{resize:none}
 .find-why{margin:4px 0 0;padding-left:18px;font-size:12.5px;color:var(--ink-dim);line-height:1.55}
 .find-also{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}
 @media (max-width:900px){ #finderPane{padding:18px 16px 90px} }
+
+/* repairs laid over the source (fixes/<id>.json) */
+.tag.khatt { background: #f2b705; color: #1d1600; border-color: #f2b705; font-weight: 600; }
+.fixbadge { font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  margin-left: 10px; padding: 2px 6px; border-radius: 4px; background: var(--good-soft); color: var(--good); vertical-align: middle; }
+.fixtoggle { margin-left: 8px; vertical-align: middle; height: 24px; padding: 0 8px; font-size: 12px; }
+details.origc { margin: 6px 0 0; font-size: 13px; }
+details.origc summary { cursor: pointer; color: var(--ink-dim); }
+.stuck details.rung { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 6px 10px; margin: 6px 0; }
+.stuck details.rung summary { cursor: pointer; font-weight: 600; }
+.stuck details.rung.locked { opacity: .45; pointer-events: none; }

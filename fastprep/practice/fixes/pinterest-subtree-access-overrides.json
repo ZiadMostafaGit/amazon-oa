@@ -1,0 +1,15 @@
+{
+ "pattern": "segment-tree",
+ "why": "An Euler tour turns every subtree into a contiguous range of entry times, so GRANT/DENY become range assignments and CHECK becomes a point query. Stamping each assignment with its operation index and letting a point query take the newest stamp on its leaf-to-root path in a segment tree gives the latest-operation-wins rule in O(log n) each.",
+ "hints": [
+  "Subtree updates are awkward on a tree. Can you number the nodes so every subtree is one interval?",
+  "With DFS entry/exit times, subtree(v) = [tin[v], tout[v]]. Now you need: assign a value to a range, read the latest value covering a point.",
+  "Segment tree without push-down: a range assign writes (time, value) into O(log n) covering nodes; a point query walks from the leaf to the root and keeps the entry with the largest time. Default is false. O((n + q) log n)."
+ ],
+ "pitfalls": [
+  "Recursive DFS overflows the stack on a path of 2 * 10^5 nodes; use an iterative DFS.",
+  "A later grant at an ancestor overrides an earlier deny at a descendant (example 3); comparing by depth instead of by time is wrong.",
+  "Regions with no applicable operation are denied (false)."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

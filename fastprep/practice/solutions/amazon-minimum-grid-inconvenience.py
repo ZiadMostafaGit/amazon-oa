@@ -63,3 +63,7 @@ def getMinInconvenience(grid: List[List[int]]) -> int:
         else:
             lo = mid + 1
     return lo
+
+
+# the bank renamed this problem's entry point
+solve = getMinInconvenience

@@ -1,0 +1,17 @@
+{
+  "pattern": "simulation",
+  "why": "There is no clever algorithm here: each FUND gets a settlement day from calendar rules (cutoffs, weekends, ACH's extra business day) and ACH limits are per-bucket counters. With at most 1000 commands you just record accepted funds and sum the settled ones at each BALANCE.",
+  "hints": [
+    "Separate the problem into small pure helpers: parse a timestamp, decide if a day is a business day, find the next business day.",
+    "For each FUND compute (effective submission day, settlement day) once: WIRE settles on the effective day, ACH one business day later, STABLECOIN on the request day. ACH limits are dictionaries keyed by (account, effective day) and (account, week = (day-1)//7).",
+    "Keep per-account starting balance and a list of (settle_day, amount). BALANCE sums amounts with settle_day <= query day (O(commands) each is fine for 1000 commands). Join outputs with commas."
+  ],
+  "pitfalls": [
+    "Weekend requests go to Monday regardless of hour; a business-day request exactly at the cutoff hour (17 for WIRE, 20 for ACH) rolls to the next business day.",
+    "A rejected ACH consumes neither the daily nor the weekly limit; check both limits before adding to either.",
+    "ACH limits bucket by the effective submission day (and its week), not by the request day.",
+    "Only the first INIT counts; FUND on an unknown account is ignored and BALANCE on it outputs FAILURE. Accept both '8' and '8,16' timestamps."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

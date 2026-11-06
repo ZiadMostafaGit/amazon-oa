@@ -1,0 +1,68 @@
+{
+ "problemId": "stripe-organization-role-tree-renderer",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 5,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[]",
+     "rawValue": "[\"designer,manager\", \"ceo,\", \"manager,ceo\", \"finance,ceo\", \"engineer,manager\", \"finance,ceo\"]"
+    }
+   ],
+   "expectedRaw": "[\"ceo\", \"--finance\", \"--finance\", \"--manager\", \"----designer\", \"----engineer\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[]",
+     "rawValue": "[\"engineer,lead\", \"lead,\"]"
+    }
+   ],
+   "expectedRaw": "[\"lead\", \"--engineer\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[]",
+     "rawValue": "[\"intern,engineer\", \"engineer,lead\", \"led,\"]"
+    }
+   ],
+   "expectedRaw": "[\"led\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[]",
+     "rawValue": "[\"lead,\"]"
+    }
+   ],
+   "expectedRaw": "[\"lead\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[]",
+     "rawValue": "[\"lead,\", \"engineer,lead\", \"intern,engineer\"]"
+    }
+   ],
+   "expectedRaw": "[\"lead\", \"--engineer\", \"----intern\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "relations",
+     "type": "String[]",
+     "rawValue": "[\"engineer,manager\", \"ceo,\", \"manager,ceo\", \"finance,ceo\", \"finance,ceo\"]"
+    }
+   ],
+   "expectedRaw": "[\"ceo\", \"--finance\", \"--finance\", \"--manager\", \"----engineer\"]"
+  }
+ ]
+}

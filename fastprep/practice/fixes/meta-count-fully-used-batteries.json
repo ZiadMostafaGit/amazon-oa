@@ -1,0 +1,17 @@
+{
+ "pattern": "simulation",
+ "why": "The batteries are a circular queue with ready times: simulate battery by battery, each time recording when the depleted one will be ready, and search forward cyclically for the next ready battery. The hint O(t * n) bound tells you a direct simulation is intended.",
+ "hints": [
+  "Track, per battery, the time at which it is usable again. What happens at each moment a battery runs out?",
+  "When battery cur depletes at time T, count it, set ready[cur] = T + recharge[cur], then scan cur+1, cur+2, ... (cyclically, at most n batteries) for one with ready <= T. None found means -1.",
+  "Stop when the current battery would run past t: that usage is not complete and is not counted. At most t switches, each O(n): O(t * n)."
+ ],
+ "pitfalls": [
+  "A battery whose charge lasts beyond t does not count; one that runs out exactly at t does.",
+  "A battery that becomes ready exactly when needed (ready == now) can be used.",
+  "The battery that just died is checked last in the cyclic scan and only works if its recharge is 0."
+ ],
+ "constraints": "<ul><li>1 &lt;= t &lt;= 10^5 (not stated in the source; the stated O(t * n) budget implies a small t)</li><li>1 &lt;= capacity.length = recharge.length &lt;= 100 (not stated in the source)</li><li>1 &lt;= capacity[i] &lt;= t, 0 &lt;= recharge[i] &lt;= 10^5 (not stated in the source)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

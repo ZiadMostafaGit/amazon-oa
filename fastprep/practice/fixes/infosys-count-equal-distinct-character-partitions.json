@@ -1,0 +1,17 @@
+{
+ "pattern": "counting-dp",
+ "why": "Fix the common distinct count d (only 1..26 possible) and count cut patterns with a prefix DP: ways_d[i] sums ways_d[j] over the start positions j where value[j:i] has exactly d distinct letters. Those j form one contiguous range, so a prefix sum answers each step in O(1).",
+ "hints": [
+  "The number of distinct letters in a part is between 1 and 26. Try solving the problem for one fixed d and add the answers.",
+  "For a fixed end i, the distinct count of value[j:i] only grows as j moves left, and it jumps exactly at the last occurrences of each letter before i. So the j's with exactly d distinct letters lie between the d-th and (d+1)-th most recent last-occurrence.",
+  "Keep the last-occurrence positions sorted (at most 26), one ways array plus prefix sum per d, and sum ways_d[n] over d. O(26 * n) time, take everything mod 1e9+7."
+ ],
+ "pitfalls": [
+  "The whole string as one part is always valid; make sure ways_d[0] = 1 for every d so it is counted.",
+  "Do not count a partition once per d; each partition has exactly one d, so summing over d is correct, but only if each d's DP is kept separate.",
+  "An O(n^2) scan of all cuts times out at n = 100000.",
+  "Apply the modulo when subtracting prefix sums (keep results non-negative)."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

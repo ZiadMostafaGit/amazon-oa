@@ -1,0 +1,16 @@
+{
+  "pattern": "two-pointers",
+  "why": "With exactly one '*', a pattern splits into a prefix and a suffix; the text matches iff it starts with the prefix, ends with the suffix, and is long enough that the two do not overlap. That is a comparison from both ends inward, the two-pointer idea, with no regex or DP needed.",
+  "hints": [
+    "There is exactly one star. What must the text look like before it and after it?",
+    "Split pat at '*' into pre and suf. The text matches when it starts with pre, ends with suf, and len(pre) + len(suf) <= len(text), so the star covers a non-negative middle.",
+    "For each pair, compare pre against the front and suf against the back (pointers from both ends). O(|text| + |pat|) per query."
+  ],
+  "pitfalls": [
+    "Overlap: text \"ab\" with pattern \"ab*b\" has prefix and suffix both present but overlapping; it must be NO. Check the length condition.",
+    "An empty prefix or empty suffix (\"*abc\", \"abc*\") must still work; text[-0:] in Python is the whole string, so guard empty suffix.",
+    "No built-in regex is allowed by the source."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "heap",
+  "why": "Scheduled payments are events keyed by (execute time, creation order): a min-heap pops every payment due at or before the next operation's timestamp in exactly the required order, and cancellation just marks a payment dead (lazy deletion).",
+  "hints": [
+    "Before handling an operation at time t, which payments must run, and in what order?",
+    "Push each payment as (timestamp + delay, sequence number, id) into a min-heap; before each operation pop while top time <= t and execute if not cancelled and funds suffice.",
+    "Store payment status (pending / cancelled / done) and owner in a dict for CANCEL_PAYMENT. Each payment is pushed and popped once: O(log P) per payment."
+  ],
+  "pitfalls": [
+    "Payments due at time t execute before the operation at t, so cancelling at that exact time returns false.",
+    "A skipped payment (insufficient funds) does not count toward outgoing totals and is no longer pending.",
+    "Cancel must fail for a different account's payment; payment ids are global (payment1, payment2, ...), counted only on successful schedules."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,19 @@
+{
+  "pattern": "prefix-sums",
+  "why": "The drone always takes the cheaper way round the ring between consecutive requests, so the task is many 'cost of an arc' queries. A prefix sum over transitionTime answers each arc (clockwise or counter-clockwise) in O(1).",
+  "hints": [
+    "Between two consecutive requests there are only two possible routes around the ring. What do you need to compute their costs quickly?",
+    "Leaving hub i costs transitionTime[i] whichever way you go. The clockwise cost from a to b is a sum of a contiguous (possibly wrapping) block of transitionTime, and so is the counter-clockwise cost: prefix sums give both in O(1).",
+    "Build pfx over the 1-based transitionTime, keep the current hub (start 1), and for each request add min(clockwise, counter) then move there. O(m + n), 64-bit totals."
+  ],
+  "pitfalls": [
+    "The cost is paid by the hub you leave, not by an edge between two hubs: going counter-clockwise from hub 1 to hub m costs transitionTime[1].",
+    "Consecutive identical requests (and a first request of hub 1) cost 0.",
+    "Wrap-around arcs need total - (inner block); off-by-one errors in the prefix indices are the usual bug.",
+    "Totals can exceed 32-bit range."
+  ],
+  "statement": "<p>There are <code>m</code> hubs numbered <code>1..m</code> on a ring (hub <code>m</code> is next to hub <code>1</code>). From hub <code>i</code> the drone can fly to either neighbour, and <b>leaving hub <code>i</code> costs <code>transitionTime[i]</code></b> (1-based) whichever direction it goes.</p><p>The drone starts at hub 1 and must visit <code>requestedHubs[0], requestedHubs[1], …</code> in order. Return the minimum total travel time.</p><p><b>Worked example.</b> <code>transitionTime = [3, 2, 1]</code>, <code>requestedHubs = [1, 3, 3, 2]</code>.</p><ul><li>Hub 1 to hub 1: already there, 0.</li><li>Hub 1 to hub 3: clockwise 1→2→3 costs <code>tt[1] + tt[2] = 3 + 2 = 5</code>; counter-clockwise 1→3 costs <code>tt[1] = 3</code>. Take 3.</li><li>Hub 3 to hub 3: 0.</li><li>Hub 3 to hub 2: counter-clockwise 3→2 costs <code>tt[3] = 1</code>; clockwise 3→1→2 costs <code>tt[3] + tt[1] = 4</code>. Take 1.</li><li>Total: <code>0 + 3 + 0 + 1 = 4</code>.</li></ul>",
+  "constraints": "<ul><li>Numeric bounds are not stated in the source. Reasonable: 1 &lt;= m, n &lt;= 10^5, 1 &lt;= transitionTime[i] &lt;= 10^9, 1 &lt;= requestedHubs[j] &lt;= m</li><li>The answer may exceed 32 bits (return a long).</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

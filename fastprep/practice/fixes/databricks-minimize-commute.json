@@ -1,0 +1,16 @@
+{
+ "pattern": "grid-bfs",
+ "why": "Within one mode every block costs the same time, so the shortest route is an unweighted shortest path: one grid BFS per mode over cells labelled with that mode (plus S and D). Then compare (blocks * time, blocks * cost) across the four modes.",
+ "hints": [
+  "Since you commit to one mode, solve four independent problems and compare.",
+  "For a fixed mode, every step has the same price, so fewest blocks = least time and least cost; BFS finds the fewest blocks.",
+  "Run BFS from S allowing only that mode's digit, 'S' and 'D'; if D is reached with b blocks, its key is (b * time[m], b * cost[m]). Return the name with the smallest key. O(4 * rows * cols)."
+ ],
+ "pitfalls": [
+  "Cells of other modes are walls for the chosen mode, not just 'X'.",
+  "Tie-break on total cost, which is blocks times the per-block cost, not the per-block cost alone.",
+  "Skip unreachable modes; return the mode name string, e.g. 'Bike'."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

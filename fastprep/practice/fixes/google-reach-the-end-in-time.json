@@ -1,0 +1,16 @@
+{
+ "pattern": "grid-bfs",
+ "why": "All moves cost 1 second, so the fastest way to the bottom-right corner is the BFS shortest path on the grid graph; compare that distance with maxTime.",
+ "hints": [
+  "Every step costs the same. Which search gives shortest paths in an unweighted graph?",
+  "Run BFS from (0,0) over '.' cells with 4-directional moves; the first time you reach the bottom-right cell you have the minimum time.",
+  "Queue plus a visited/distance grid, O(rows * cols). Answer 'Yes' if the distance exists and is <= maxTime."
+ ],
+ "pitfalls": [
+  "Unreachable target means 'No', not an exception.",
+  "A 1x1 grid needs 0 seconds, so it is 'Yes' even with maxTime 0.",
+  "Mark cells visited when you push them, not when you pop, or the queue can grow very large on a 500x500 grid."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

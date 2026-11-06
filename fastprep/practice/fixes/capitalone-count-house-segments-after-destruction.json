@@ -1,0 +1,18 @@
+{
+  "pattern": "hash-tables",
+  "why": "Removing house x only affects its own segment, and the change depends on whether x - 1 and x + 1 still exist: both present splits one segment into two (+1), neither present deletes a single-house segment (-1), one present just shrinks it (0). A hash set of living houses gives O(1) per query; the week's union-find is the reverse-time alternative.",
+  "hints": [
+    "When one house disappears, can segments other than its own change?",
+    "Look only at the neighbours x - 1 and x + 1 after removal: two neighbours means a split (+1), zero means the segment vanishes (-1), one means no change.",
+    "Count initial segments as houses h with h - 1 absent, then process queries with a set. O(n + q)."
+  ],
+  "pitfalls": [
+    "Compute the initial count correctly: one segment per house whose left neighbour is missing.",
+    "Remove x from the set before (or independently of) checking its neighbours.",
+    "Positions may be negative or large; use a set, not an array."
+  ],
+  "statement": "<p>Houses stand at distinct integer positions given in <code>houses</code>. They are destroyed one at a time in the order given by <code>queries</code> (every query is a house that exists, and no house is destroyed twice).</p><p>A <b>segment</b> is a maximal group of houses at consecutive integer positions. After each destruction, record how many segments remain. Return those counts in order.</p><p><b>Example:</b> <code>houses = [1, 2, 3, 6, 7, 9]</code>, <code>queries = [6, 3, 7, 2, 9, 1]</code>. Initially the segments are [1,2,3], [6,7], [9].</p><ul><li>Destroy 6: [1,2,3], [7], [9] -&gt; 3.</li><li>Destroy 3: [1,2], [7], [9] -&gt; 3.</li><li>Destroy 7: [1,2], [9] -&gt; 2.</li><li>Destroy 2: [1], [9] -&gt; 2.</li><li>Destroy 9: [1] -&gt; 1.</li><li>Destroy 1: nothing left -&gt; 0.</li></ul><p>Answer: <code>[3, 3, 2, 2, 1, 0]</code>.</p>",
+  "constraints": "<ul><li>Numeric bounds are not stated in the source. Assume 1 &lt;= houses.length &lt;= 10^5, 1 &lt;= queries.length &lt;= houses.length and -10^9 &lt;= houses[i] &lt;= 10^9.</li><li>All values in houses are distinct; every query is in houses, and queries are distinct.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

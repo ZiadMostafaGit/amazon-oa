@@ -1,0 +1,18 @@
+{
+  "pattern": "greedy",
+  "why": "The most frequent task dictates the shape of the schedule: (maxCount - 1) blocks of length n+1, plus one slot per task that ties for max count. Everything else fills the idle gaps, so the answer is a counting greedy, max(len(tasks), (maxCount-1)*(n+1) + numMax). A max-heap simulation is the heap-week view of the same greedy.",
+  "hints": [
+    "Focus on the letter that appears most often. Between its copies there must be n other slots. How long must the schedule be just for that letter?",
+    "Lay out the most frequent letter as frames of size n+1. Other letters fill the gaps; letters tied for the top count add one slot at the end. If there are more tasks than slots, no idle time is needed at all.",
+    "Count letters; let m = max count and k = number of letters with count m. Answer = max(len(tasks), (m - 1) * (n + 1) + k). O(len(tasks)). Heap version: each round of n+1 slots, pop up to n+1 most frequent tasks, decrement, push back."
+  ],
+  "pitfalls": [
+    "n = 0 means no cooldown: the answer is just len(tasks).",
+    "Forgetting the max with len(tasks): with many distinct letters the formula alone undercounts.",
+    "Several letters can tie for the max count; each adds one to the final frame."
+  ],
+  "statement": "<p>You are given an array of CPU <code>tasks</code>, each labeled with a letter from A to Z, and a number <code>n</code>. In each CPU interval the CPU either completes one task or stays idle. Tasks may be done in any order, but two tasks with the <b>same</b> label must be separated by at least <code>n</code> intervals. Return the minimum number of intervals needed to finish all tasks.</p><p><b>Worked example.</b> <code>tasks = [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"]</code>, <code>n = 2</code>.</p><ul><li>One schedule: A, B, idle, A, B, idle, A, B.</li><li>After an A at interval 1, the next A can come no earlier than interval 4 (two intervals in between). B is the same.</li><li>Interval 3 has nothing allowed to run, so the CPU idles.</li></ul><p>That takes <code>8</code> intervals, and no schedule is shorter.</p>",
+  "constraints": "<ul><li>1 &le; tasks.length &le; 10^4</li><li>tasks[i] is an uppercase English letter</li><li>0 &le; n &le; 100</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+  "pattern": "palindromes",
+  "why": "This is longest palindromic substring with a tie-break. Expand around each centre (or use the interval DP that this 1-D DP week has in mind) to find every maximal palindrome. Keep the longest, preferring the lexicographically smaller string on ties, and ignore length-1 answers.",
+  "hints": [
+    "Every palindrome grows symmetrically from a centre: a letter for odd length, a gap for even length.",
+    "From each of the 2n-1 centres expand while the ends match. The maximal palindrome at that centre is the only candidate you need from it.",
+    "Track (length, string) and replace when longer, or same length and smaller. Return 'None' if the best length is < 2. O(n^2) time, O(1) extra space."
+  ],
+  "pitfalls": [
+    "Single characters do not count. A string with no palindrome of length >= 2 returns the literal string 'None'.",
+    "On equal length pick the lexicographically smallest, not the first one found.",
+    "Remember even-length centres ('CC' in 'YABCCBAZ')."
+  ],
+  "constraints": "<ul><li>Not stated in the source. Assume 1 &le; inputStr.length &le; 1000, uppercase letters A-Z only.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

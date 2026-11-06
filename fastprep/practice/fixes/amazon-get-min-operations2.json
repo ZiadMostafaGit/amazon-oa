@@ -1,0 +1,17 @@
+{
+  "pattern": "greedy",
+  "why": "Sorted order by weight fixes the order the points must end in, and each point can only move right. So process points from lightest to heaviest and push each one just far enough to land right of the previous point: moving it any further only makes later points work harder.",
+  "hints": [
+    "Points can only move right, and the final order is forced by the weights. Which point should you decide first?",
+    "Go through points in increasing weight. Each must end strictly to the right of the previous one's final position, and pushing it any further than necessary never helps the points after it.",
+    "Sort indices by weight; keep last = final position of the previous point. For point i at position p, if p <= last, do k = (last - p) // dist[i] + 1 moves, p += k * dist[i]; add k; set last = p. O(n log n), 64-bit counts."
+  ],
+  "pitfalls": [
+    "The first (lightest) point never needs to move.",
+    "Positions grow large (up to about n * max dist), and the operation count needs 64 bits.",
+    "Use ceil division correctly: the point must end strictly greater than last, not just reach it."
+  ],
+  "statement": "<p>There are <code>n</code> points on the x-axis. Point <code>i</code> starts at position <code>i</code> and has weight <code>weight[i]</code>. In one operation you may move point <code>i</code> to the right by exactly <code>dist[i]</code>.</p><p>Return the minimum number of operations so that the points are sorted by weight: going left to right, positions appear in increasing weight order (every lighter point is strictly left of every heavier point; points of equal weight may be in any order among themselves).</p><p><b>Worked example.</b> <code>weight = [3, 6, 5, 2]</code>, <code>dist = [4, 3, 2, 1]</code>.</p><ul><li>By weight: 2 (at position 3), 3 (at 0), 5 (at 2), 6 (at 1).</li><li>Weight 2 stays at 3.</li><li>Weight 3 must pass 3: one move of 4 takes it from 0 to 4 (1 operation).</li><li>Weight 5 must pass 4: moves of 2 take it 2 → 4 → 6 (2 operations).</li><li>Weight 6 must pass 6: moves of 3 take it 1 → 4 → 7 (2 operations).</li><li>Total: <code>1 + 2 + 2 = 5</code>.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

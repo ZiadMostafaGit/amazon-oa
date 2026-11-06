@@ -1,0 +1,16 @@
+{
+  "pattern": "bfs",
+  "why": "In an unweighted tree, distances from a fixed vertex come from one BFS. Run BFS three times (from x, y and z) to get every vertex's three distances, then test each vertex's sorted triple for a^2 + b^2 = c^2.",
+  "hints": [
+    "You need dist(v, x), dist(v, y), dist(v, z) for every v. What computes all distances from one source in an unweighted graph?",
+    "Three BFS runs, one from each fixed vertex, each O(n).",
+    "For each vertex, sort its three distances, skip it if the smallest is 0, and check a*a + b*b == c*c. O(n) overall."
+  ],
+  "pitfalls": [
+    "A vertex at distance 0 from any of x, y, z never counts.",
+    "x, y, z may coincide; three BFS runs still work.",
+    "Vertices are 1-indexed."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

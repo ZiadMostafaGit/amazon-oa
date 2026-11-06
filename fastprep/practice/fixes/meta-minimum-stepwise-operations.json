@@ -1,0 +1,17 @@
+{
+  "pattern": "math",
+  "why": "Heights can only grow, so the ascending target is final[i] = b + i for some base b. The cost is the sum of (b + i - s[i]), which is smallest when b is as small as allowed, b = max(s[i] - i). Descending works the same way with b = max(s[i] + i). Take the cheaper of the two. This week is Greedy + Math: the greedy choice is the smallest feasible base.",
+  "hints": [
+    "Once you fix the first height of a stepwise array, every other height is fixed too.",
+    "Every element needs b + i >= s[i], so b >= s[i] - i. The cost grows with b, so choose the smallest feasible b.",
+    "In one pass compute b_up = max(s[i]-i) and b_down = max(s[i]+i), then cost = n*b +/- n(n-1)/2 - sum(s). Answer = min of the two. O(n) time, O(1) space."
+  ],
+  "pitfalls": [
+    "You cannot lower any height, so the base is pinned by the most demanding element, not by the first one.",
+    "Results can exceed 32-bit (the return type is long). Python is fine, but watch it in other languages.",
+    "A single structure already counts as both patterns, so the cost is 0."
+  ],
+  "constraints": "<ul><li>Not stated in the source. Assume 1 &le; structures.length &le; 10<sup>5</sup> and 0 &le; structures[i] &le; 10<sup>9</sup>.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "factset-last-stone-weight",
+ "generatedAt": "2026-11-06T15:18:27",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[3, 6, 7]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[6, 7, 3, 7, 1, 7, 2]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[2, 3, 6, 7, 7]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[1, 3, 6, -7]"
+    }
+   ],
+   "expectedRaw": "9"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[3, 3, 6, 7]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "weights",
+     "type": "int[]",
+     "rawValue": "[2, 1, 6, 7]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

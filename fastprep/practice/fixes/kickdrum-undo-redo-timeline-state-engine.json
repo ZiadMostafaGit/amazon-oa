@@ -1,0 +1,16 @@
+{
+  "pattern": "stack",
+  "why": "Undo/redo is the classic two-stack pattern: history behind you and redoable future in front, with DO clearing the future. Here it is stored as one list plus a cursor: the prefix up to the cursor is the undo stack, the part after it is the redo stack, and a DO truncates after the cursor before pushing.",
+  "hints": [
+    "What exactly does DO destroy, and what do UNDO and REDO only move past?",
+    "Keep states in a list and an index cur. UNDO k sets cur = max(0, cur - k); REDO k sets cur = min(last, cur + k); DO deletes everything after cur, appends the new state and moves cur to it.",
+    "One pass over the operations, recording states[cur] after each one. Each state is appended once and deleted at most once, so the total cost is O(operations)."
+  ],
+  "pitfalls": [
+    "k can be 10^9: clamp with max/min instead of looping k times.",
+    "DO after an UNDO must permanently discard the old future; a later REDO cannot reach it.",
+    "UNDO never goes before the initial state, and CURRENT still produces an output entry."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

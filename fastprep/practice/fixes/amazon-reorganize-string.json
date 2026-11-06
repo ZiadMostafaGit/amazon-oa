@@ -1,0 +1,16 @@
+{
+  "pattern": "heap",
+  "why": "Building the string greedily by always placing the most frequent remaining letter (other than the one just placed) is the classic max-heap pattern; holding the last letter out of the heap for one step enforces the no-adjacent rule.",
+  "hints": [
+    "If one letter appears more than ceil(n/2) times, no arrangement exists. Otherwise, what should go next?",
+    "Always place the eligible letter with the most copies left (ties: smallest letter), where the letter just placed is not eligible.",
+    "Max-heap of (-count, letter). Pop the best, append it, push back the letter held from the previous step, then hold this one if copies remain. O(n log 26)."
+  ],
+  "pitfalls": [
+    "The tie rule is part of the judged answer: equal counts go to the lexicographically smaller letter.",
+    "Push the previously held letter back after popping, not before, or it may be picked twice in a row.",
+    "Return \"\" when impossible (check max count > (n + 1) // 2 up front)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

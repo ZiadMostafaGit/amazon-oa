@@ -1,0 +1,17 @@
+{
+  "pattern": "top-k",
+  "why": "The only coupling between rows is the total count x, and every value is positive, so the best you can take from row i is its limit[i] largest values. Pool those candidates and take the x largest: a top-k selection, not a DP, even though it sits in the 1-D DP week.",
+  "hints": [
+    "Within one row, if you take j elements, which j should they be?",
+    "From row i only its top limit[i] values can ever be worth taking. Any x of the pooled candidates respects every row limit, so just take the x largest candidates.",
+    "Sort each row descending, pool its first limit[i] values, and sum the x largest (sort the pool or use a heap). If the pool has fewer than x values, return -1. O(n^2 log n)."
+  ],
+  "pitfalls": [
+    "Return -1 when the sum of limit[i] is less than x.",
+    "You must take exactly x, and the pool only contains up to limit[i] per row; don't take x from the whole matrix ignoring limits.",
+    "The sum can exceed 32 bits in other languages (up to 2500 * 10^4 here is fine, but return a long)."
+  ],
+  "statement": "<p>You are given an <code>n x n</code> integer matrix <code>matrix</code>, an array <code>limit</code> of length <code>n</code>, and an integer <code>x</code>.</p><p>Choose <b>exactly</b> <code>x</code> cells of the matrix so that, for every row <code>i</code> (0 &lt;= i &lt; n), at most <code>limit[i]</code> cells are chosen from row <code>i</code>. Return the largest possible sum of the chosen values, or <code>-1</code> if exactly <code>x</code> cells cannot be chosen.</p><p><b>Worked example.</b> <code>limit = [1, 2, 1]</code>, <code>matrix = [[1,2,3],[4,5,6],[7,8,9]]</code>, <code>x = 2</code>.</p><ul><li>Best candidates per row: row 0 can give <code>3</code>; row 1 can give <code>6, 5</code>; row 2 can give <code>9</code>.</li><li>Pool of candidates: <code>9, 6, 5, 3</code>. Take the 2 largest: <code>9</code> (row 2) and <code>6</code> (row 1).</li><li>Answer: <code>15</code>.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

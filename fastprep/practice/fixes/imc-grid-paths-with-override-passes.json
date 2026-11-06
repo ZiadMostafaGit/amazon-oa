@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-2d",
+  "why": "Right/Down path counting is the classic grid DP; the override passes just add a third index: ways[r][c][j] = paths to (r, c) having entered j blocked cells. Each blocked cell shifts j by one.",
+  "hints": [
+    "Without blocked cells this is 'count right/down paths in a grid'. What extra fact about a partial path do the passes force you to remember?",
+    "Add the number of passes used so far to the state: dp[r][c][j]. Entering cell (r, c) costs b = 1 if it is blocked, so dp[r][c][j] = dp[r-1][c][j-b] + dp[r][c-1][j-b].",
+    "Fill rows top to bottom with j from 0..k, modulo 10^9 + 7; the start cell itself uses b passes. Answer = sum over j of dp[n-1][m-1][j]. O(n * m * k)."
+  ],
+  "pitfalls": [
+    "The start and end cells can be blocked and then consume a pass too (with k = 0 and a blocked start the answer is 0).",
+    "Take the modulo at every addition.",
+    "Sum over all j <= k at the end; the answer is 'at most k', not 'exactly k'."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

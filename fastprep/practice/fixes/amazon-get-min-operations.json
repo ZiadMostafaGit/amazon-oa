@@ -1,0 +1,17 @@
+{
+  "pattern": "greedy",
+  "why": "Look at the needed increments d = target - source: prefix operations can only build a non-increasing profile and suffix operations a non-decreasing one. Greedily, every rise in d must be paid by suffix starts and everything else by prefixes, so the answer is d[0] plus the sum of rises, checked for feasibility in one left-to-right pass.",
+  "hints": [
+    "Only +1 operations exist, so work with need[i] = target[i] - source[i]. What shapes can a pile of prefix increments make? A pile of suffix increments?",
+    "need = P + S with P non-increasing (prefixes) and S non-decreasing (suffixes), both >= 0. Give S exactly the upward steps of need; that is the least S can be, which leaves P as large as possible, and check P = need - S never goes negative.",
+    "One pass over need: fail if any need[i] < 0; S accumulates max(0, need[i] - need[i-1]); fail if need[i] - S < 0. Answer = need[0] + total rise. O(n)."
+  ],
+  "pitfalls": [
+    "Any target[i] < source[i] means -1 immediately.",
+    "The answer is not the sum of absolute differences of need; drops are absorbed by prefix ends for free.",
+    "A dip after a rise can be infeasible: need = [1, 0, 1, 0, 1] returns -1."
+  ],
+  "constraints": "<ul><li>Bounds are not stated in the source. Reasonable: 1 &lt;= n &lt;= 10^5, -10^9 &lt;= source[i], target[i] &lt;= 10^9</li><li>source and target have the same length</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

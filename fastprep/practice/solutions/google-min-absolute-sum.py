@@ -2,7 +2,7 @@
 from typing import List, Optional, Any
 
 
-def solve(A: List[int]) -> int:
+def minAbsoluteSum(A: List[int]) -> int:
     total = sum(A)
     best = abs(total)
     for x in A:

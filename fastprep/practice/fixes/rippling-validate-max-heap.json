@@ -1,0 +1,16 @@
+{
+  "pattern": "trees",
+  "why": "A heap is just a binary tree with two properties, and both are checked in one level-order (BFS) walk from node 0: completeness means once you meet a missing child, no real child may appear later in BFS order, and the heap order means every child you enqueue is <= its parent. This week pairs it with heaps because it is exactly the array-heap shape, written as explicit child pointers.",
+  "hints": [
+    "Node ids are not level-order positions, so you cannot test 'children at 2i+1, 2i+2'. Think about what a complete tree looks like when you read it level by level.",
+    "In BFS order of a complete tree, all real children come before all missing children. So the first time you see a -1 child, every child slot after it must also be -1.",
+    "BFS from node 0 with a deque and a 'seen a gap' flag; for each child slot, fail if it is real after a gap or if its value exceeds the parent. O(n) time, O(n) queue."
+  ],
+  "pitfalls": [
+    "A node with a right child but no left child is incomplete even if values are fine.",
+    "Equal parent and child values are allowed (>=, not >).",
+    "An empty tree is a valid heap; return true before touching index 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

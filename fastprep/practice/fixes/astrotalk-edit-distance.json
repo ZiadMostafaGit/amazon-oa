@@ -1,0 +1,17 @@
+{
+ "pattern": "dp-strings",
+ "why": "This is the classic edit distance: dp[i][j] = fewest operations to turn source[:i] into target[:j], and each of insert, delete, replace is one move to a neighbouring cell of the 2-D table.",
+ "hints": [
+  "Look only at the last characters of the two prefixes: either they match, or the last operation was an insert, a delete or a replace.",
+  "dp[i][j] = dp[i-1][j-1] if source[i-1] == target[j-1]; otherwise 1 + min(dp[i-1][j-1] (replace), dp[i-1][j] (delete), dp[i][j-1] (insert)).",
+  "Base cases dp[i][0] = i and dp[0][j] = j; fill row by row with a rolling array. O(|source|*|target|)."
+ ],
+ "pitfalls": [
+  "Empty strings: the answer is the other string's length.",
+  "Case-sensitive: 'a' and 'A' need a replacement.",
+  "Do not add 1 on a match."
+ ],
+ "statement": "<p>Given two case-sensitive strings <code>source</code> and <code>target</code>, return the minimum number of operations needed to turn <code>source</code> into <code>target</code>. Each operation costs 1 and is one of:</p><ul><li><b>insert</b> one character anywhere,</li><li><b>delete</b> one character,</li><li><b>replace</b> one character with another.</li></ul><p><b>Example:</b> <code>source = \"horse\"</code>, <code>target = \"ros\"</code>.</p><ol><li>Replace <code>h</code> with <code>r</code>: <code>horse</code> becomes <code>rorse</code>.</li><li>Delete the second <code>r</code>: <code>rorse</code> becomes <code>rose</code>.</li><li>Delete <code>e</code>: <code>rose</code> becomes <code>ros</code>.</li></ol><p>Two operations are not enough, so the answer is <code>3</code>. If <code>source</code> is empty, the answer is the length of <code>target</code> (insert everything).</p>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

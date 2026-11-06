@@ -758,6 +758,44 @@ const GAP_TEXT = {
   'examples': 'no examples',
 };
 
+/* "Stuck?": the hints open one rung at a time, and the pattern comes last -
+   naming the tool is the skill an assessment tests, so it is not handed out first */
+function stuckLadder(fx) {
+  const box = el('section', 'stuck');
+  box.append(el('h2', 'section', 'Stuck?'));
+  const rungs = [];
+  (fx.hints || []).forEach((h, i) => rungs.push(['Hint ' + (i + 1), () => { const p = el('div', 'prose'); p.textContent = h; return p; }]));
+  if (fx.why || fx.pattern) rungs.push(['Which pattern is this?', () => {
+    const p = el('div', 'prose');
+    if (fx.why) p.append(el('p', null, fx.why));
+    if (fx.pattern) {
+      const b = el('button', 'btn small', 'Open the chapter: ' + fx.pattern);
+      b.onclick = () => Study.open(fx.pattern);
+      p.append(b);
+    }
+    return p;
+  }]);
+  if ((fx.pitfalls || []).length) rungs.push(['Edge cases that sink a first attempt', () => {
+    const ul = el('ul');
+    fx.pitfalls.forEach(x => ul.append(el('li', null, x)));
+    const p = el('div', 'prose'); p.append(ul); return p;
+  }]);
+  const ds = rungs.map(([label, make], i) => {
+    const dt = el('details', 'rung');
+    const sm = el('summary', null, label);
+    dt.append(sm);
+    let filled = false;
+    dt.addEventListener('toggle', () => {
+      if (dt.open && !filled) { dt.append(make()); filled = true; }
+      if (dt.open && ds[i + 1]) ds[i + 1].classList.remove('locked');
+    });
+    if (i > 0) dt.classList.add('locked');
+    return dt;
+  });
+  ds.forEach(d => box.append(d));
+  return box;
+}
+
 function renderProblem() {
   const d = state.current;
   const host = $('#problem');
@@ -774,6 +812,11 @@ function renderProblem() {
   if (d.assessmentPlatform) meta.append(el('span', 'tag plain', d.assessmentPlatform));
   if (d.practiceFormat === 'tabular') meta.append(el('span', 'tag plain', 'SQL / tabular'));
   if (d.seenCount) meta.append(el('span', 'tag count', 'seen ' + d.seenCount + '×'));
+  if (d.khatt) {
+    const k = el('span', 'tag khatt', 'KHATT W' + String(d.khatt.week).padStart(2, '0') + ' · ' + d.khatt.day);
+    k.title = 'Scheduled in the KHATT plan: ' + (d.khatt.label || '');
+    meta.append(k);
+  }
   head.append(meta);
 
   /* what this problem is about: each one opens its chapter in the study space */
@@ -857,15 +900,42 @@ function renderProblem() {
     body.append(n);
   }
 
-  body.append(el('h2', 'section', 'Problem'));
+  const fx = d.fix || {};
+  const ph = el('h2', 'section', 'Problem');
+  body.append(ph);
   const st = el('div', 'prose');
-  st.innerHTML = d.problemStatement || '<p class="hint">No statement recorded.</p>';
+  const original = d.problemStatement || '<p class="hint">No statement recorded.</p>';
+  if (fx.statement) {
+    /* the repair reads first; the source is one click away, never replaced */
+    let showing = 'fixed';
+    const tog = el('button', 'btn ghost small fixtoggle', 'Show original');
+    const badge = el('span', 'fixbadge', 'clarified');
+    badge.title = 'Rewritten for clarity from the source and its screenshots. The original is kept.';
+    const paint = () => {
+      st.innerHTML = showing === 'fixed' ? fx.statement : original;
+      tog.textContent = showing === 'fixed' ? 'Show original' : 'Show clarified';
+      badge.hidden = showing !== 'fixed';
+    };
+    tog.onclick = () => { showing = showing === 'fixed' ? 'orig' : 'fixed'; paint(); };
+    ph.append(badge, tog);
+    paint();
+  } else {
+    st.innerHTML = original;
+  }
   body.append(st);
 
-  if (d.constraints) {
+  if (fx.constraints || d.constraints) {
     body.append(el('h2', 'section', 'Constraints'));
-    const c = el('div', 'prose'); c.innerHTML = d.constraints; body.append(c);
+    const c = el('div', 'prose'); c.innerHTML = fx.constraints || d.constraints; body.append(c);
+    if (fx.constraints && d.constraints) {
+      const o = el('details', 'origc');
+      o.append(el('summary', null, 'Constraints as the source gives them'));
+      const oc = el('div', 'prose'); oc.innerHTML = d.constraints; o.append(oc);
+      body.append(o);
+    }
   }
+
+  if ((fx.hints || []).length || fx.why) body.append(stuckLadder(fx));
 
   if (d.practiceFormat === 'tabular') {
     const tab = d.tabular || {};

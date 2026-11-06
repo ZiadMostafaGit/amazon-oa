@@ -1,0 +1,15 @@
+{
+  "pattern": "frequency-counting",
+  "why": "Reduce each reading to its repeated digit sum (a short simulation), then this is a frequency count over the 10 possible digits, with ties going to the larger digit.",
+  "hints": [
+    "After reduction every value is 0..9, so a count array of size 10 is enough.",
+    "Reduce with a loop: while x >= 10, replace x by the sum of its digits. (Shortcut: for x > 0 the result is 1 + (x-1) % 9.)",
+    "Count the digits, then scan 0..9 and keep the digit whose count is >= the best so far, so ties go to the larger digit. O(n * digits)."
+  ],
+  "pitfalls": [
+    "Ties go to the highest digit, not the first one seen.",
+    "0 stays 0. The 1 + (x-1) % 9 shortcut is wrong for x = 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

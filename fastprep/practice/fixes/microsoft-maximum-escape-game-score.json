@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-1d",
+  "why": "Taking value v earns v times its count but forbids v-1 and v+1, so over the sorted values it is House Robber: you can't take two adjacent values. Group equal values into totals and run the take/skip DP.",
+  "hints": [
+    "After picking v you also lose every v-1 and v+1. Which classic problem forbids taking two neighbours?",
+    "Collapse the array to total[v] = v * count(v). Then choose a set of values with no two consecutive integers maximising the sum of total[v]: House Robber over the values.",
+    "Walk distinct values in sorted order with take/skip: if v follows the previous value by exactly 1, take = skip_prev + total[v]; otherwise take = best_prev + total[v]. O(n log n), or O(max value) with a bucket array."
+  ],
+  "pitfalls": [
+    "Gaps between values matter: if v - 1 is absent, taking v doesn't block the previous value.",
+    "All copies of v score together; work with v * count, not v.",
+    "The score can exceed 32 bits (10^5 * 10^5)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

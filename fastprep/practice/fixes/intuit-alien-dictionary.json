@@ -1,0 +1,16 @@
+{
+  "pattern": "topological-sort",
+  "why": "Each adjacent word pair gives at most one 'letter x before letter y' edge (at the first differing position). The alphabet is a topological order of that letter graph. Kahn's algorithm with a min-heap instead of a queue gives the lexicographically smallest order, and leftover nodes mean a cycle.",
+  "hints": [
+    "Compare only adjacent words, and only up to their first differing character.",
+    "That character pair is a directed edge. If the longer word comes first and the shorter one is its prefix, the input is invalid, so return ''.",
+    "Add every letter that appears as a node, deduplicate edges, and run Kahn's algorithm popping the smallest available letter from a heap. If fewer letters come out than exist, there is a cycle: return ''. O(total letters + 26 log 26)."
+  ],
+  "pitfalls": [
+    "The invalid prefix case: ['abc', 'ab'] must return ''.",
+    "Include letters that have no edges. They still appear in the output.",
+    "Duplicate edges must not inflate in-degrees, or letters will never reach 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

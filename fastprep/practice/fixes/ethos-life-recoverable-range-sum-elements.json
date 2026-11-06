@@ -1,0 +1,16 @@
+{
+  "pattern": "union-find",
+  "why": "A range sum A[l..r] equals P[r] - P[l-1] on prefix sums, so each measurement is an edge between prefix nodes l-1 and r. Differences are known exactly between nodes in the same component, and A[i] = P[i] - P[i-1] is recoverable iff i-1 and i are connected. That is union-find over n+1 prefix nodes, a graph built from the story.",
+  "hints": [
+    "Rewrite every measured range as a difference of two prefix sums.",
+    "Treat prefix indices 0..n as nodes and each measurement as an edge (l-1, r). Any two connected nodes have a known difference, and nothing else is determined.",
+    "Union all edges with DSU (path compression), then output every i with find(i-1) == find(i). O((n + m) * alpha)."
+  ],
+  "pitfalls": [
+    "Use node l-1, not l. Ranges are 1-based and inclusive.",
+    "Two overlapping ranges do not directly determine their overlap unless the prefix graph connects the right endpoints.",
+    "Return an empty list when nothing is recoverable."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

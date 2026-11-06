@@ -1,0 +1,16 @@
+{
+  "pattern": "sliding-window",
+  "why": "A window of k points is strictly increasing exactly when its k - 1 adjacent steps all go up. Track the length of the current strictly increasing run as you slide; the window ending at i is valid whenever that run is at least k long.",
+  "hints": [
+    "Checking every window from scratch costs O(n k). What can you carry from position i - 1 to position i?",
+    "Keep run = length of the strictly increasing streak ending at i (reset to 1 when y[i-1] >= y[i]). The window of size k ending at i is valid exactly when run >= k.",
+    "One pass, add 1 whenever run >= k. O(n) time, O(1) space; k = 1 counts every point."
+  ],
+  "pitfalls": [
+    "Equal neighbours break the streak: strictly increasing means <, not <=.",
+    "Overlapping windows count separately: [1,2,3,4] with k = 3 gives 2.",
+    "k = 1: every single point is a valid window."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

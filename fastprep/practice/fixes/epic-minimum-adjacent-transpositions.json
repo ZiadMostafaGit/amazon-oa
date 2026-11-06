@@ -1,0 +1,15 @@
+{
+ "pattern": "segment-tree",
+ "why": "Minimum adjacent swaps to turn one arrangement into another equals the number of inversions of the permutation that sends each source character to its target position. Matching the k-th copy of a character in source to the k-th copy in target is optimal (equal characters never need to cross), and inversions are counted with a Fenwick tree in O(n log n).",
+ "hints": [
+  "If every character were distinct, how many adjacent swaps does it take to sort a permutation?",
+  "Map each source position to the target position it must reach; for repeated characters, pair them in order (first with first), since swapping two equal characters is wasted. The answer is the inversion count of that position array.",
+  "Build perm with a queue of target positions per character, then sweep from the right with a Fenwick tree counting how many smaller positions were already seen. O(n log n), 64-bit result."
+ ],
+ "pitfalls": [
+  "Pairing equal characters out of order adds useless crossings and overcounts.",
+  "The count can reach about n^2 / 2 = 2 * 10^10, more than 32 bits.",
+  "Characters are ASCII, not only letters; key the position queues by character, not by 'a'..'z' index."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

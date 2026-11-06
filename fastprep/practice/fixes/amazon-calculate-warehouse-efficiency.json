@@ -1,0 +1,16 @@
+{
+ "pattern": "scheduling",
+ "why": "Parcel i leaves the warehouse at the end of day min(i, n-1-i)+1, so it is a job with a deadline that must be picked by then, and you may pick one parcel per day. That is deadline scheduling: sort by deadline, keep a min-heap of chosen weights, and drop the lightest whenever the heap holds more picks than the current deadline allows.",
+ "hints": [
+  "Ignore the shipping story for a moment: by which day must parcel i be chosen before it is gone?",
+  "Parcel i has deadline d_i = min(i, n-1-i) + 1 and you get one pick per day. Maximise the total weight of picks such that at most d picks have deadline at most d.",
+  "Sort parcels by deadline; push each weight into a min-heap, and if the heap size exceeds the current deadline pop the smallest. The heap sum is the answer. O(n log n)."
+ ],
+ "pitfalls": [
+  "The pick happens before that day's shipping, so a parcel shipped on day d can still be picked on day d.",
+  "With odd n the middle parcel is alone on the last day; the number of days is ceil(n/2).",
+  "Simply taking the ceil(n/2) heaviest parcels fails when several heavy ones share an early deadline (both ends of the array)."
+ ],
+ "statement": "<p>The parcels stand in a row, <code>parcelWeights[0..n-1]</code>. Every day happens in this order:</p><ol><li>You choose any one parcel still in the warehouse that has not been chosen before, and add its weight to the efficiency.</li><li>The first and the last parcel still in the row are shipped (on the final day of an odd-length row, the single remaining parcel is shipped).</li></ol><p>This repeats until all parcels are shipped. Return the maximum total efficiency.</p><p>So parcel <code>i</code> is still available up to and including day <code>min(i, n-1-i) + 1</code>, and there are <code>ceil(n/2)</code> days, one pick per day.</p><p><b>Worked example:</b> <code>parcelWeights = [4, 4, 8, 5, 3, 2]</code>, so the last available days are <code>[1, 2, 3, 3, 2, 1]</code>.</p><ul><li>Day 1: pick the first 4 (it ships today). Ship 4 and 2; row is <code>[4, 8, 5, 3]</code>.</li><li>Day 2: pick 5. Ship 4 and 3; row is <code>[8, 5]</code>.</li><li>Day 3: pick 8. Ship 8 and 5.</li><li>Total 4 + 5 + 8 = <b>17</b>.</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

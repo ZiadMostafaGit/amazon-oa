@@ -1,0 +1,17 @@
+{
+  "pattern": "sliding-window",
+  "why": "The substring must be contiguous and duplicate-free, so maintain a window [start, i] with no repeats: extend the right end one character at a time and, when the new character already appears inside the window, jump start past its last occurrence.",
+  "hints": [
+    "If s[start..i] has no repeats and s[i+1] repeats something in it, which starts can still work?",
+    "Only starts after the previous occurrence of s[i+1]. Remember each character's last index; when that index is >= start, move start to last + 1.",
+    "One pass with a dict char -> last index and a running best of i - start + 1. O(n) time, O(alphabet) space."
+  ],
+  "pitfalls": [
+    "Only move start forward: a last occurrence before start is outside the window and must be ignored.",
+    "Characters include digits, symbols and spaces, not just lowercase letters; a dict handles all of them.",
+    "A string of one repeated character has answer 1, not 0."
+  ],
+  "statement": "<p>Given a string <code>s</code>, return the length of the longest contiguous substring in which no character appears twice. <code>s</code> may contain English letters, digits, symbols and spaces.</p><p><b>Worked example:</b> <code>s = \"abcabcbb\"</code></p><ul><li>Window grows to <code>\"abc\"</code> (length 3).</li><li>Next <code>a</code> repeats the a at index 0, so the window starts at index 1: <code>\"bca\"</code>.</li><li>Continuing the same way the window becomes <code>\"cab\"</code>, <code>\"abc\"</code>, then <code>\"cb\"</code> and <code>\"b\"</code>; it never exceeds 3.</li></ul><p>Answer: <code>3</code>. For <code>\"bbbbb\"</code> every valid window is a single <code>b</code>, so the answer is <code>1</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+  "pattern": "bfs",
+  "why": "Pages are nodes and links are directed edges, each click costing 1, so the minimum clicks from start to target is a BFS over get_links(page) on the directed graph.",
+  "hints": [
+    "Each click has the same cost. Which traversal gives the fewest clicks?",
+    "Build get_links as a dict page -> list of linked pages, then BFS from start until you pop target.",
+    "Parse m, the m edges and the final 'start target' line; BFS with a visited set; output [str(distance)] or [\"-1\"]. O(m)."
+  ],
+  "pitfalls": [
+    "Links are directed: A -> B does not let you go from B to A.",
+    "start == target answers 0 even if the page has no links.",
+    "Return a list of output lines of strings, e.g. [\"2\"], not an int."
+  ],
+  "statement": "<p>The function receives the whole standard input as one string and returns the output lines as a list of strings.</p><p>Input format:</p><ul><li>Line 1: integer <code>m</code>, the number of directed links.</li><li>Next <code>m</code> lines: <code>u v</code>, a link from page <code>u</code> to page <code>v</code>.</li><li>Last line: <code>start target</code>.</li></ul><p>Implement <code>get_links(page)</code> returning every <code>x</code> with a link <code>page -&gt; x</code>, and use it to find the minimum number of clicks (one click follows one outgoing link) from <code>start</code> to <code>target</code>. Output one line: that number, <code>0</code> if <code>start == target</code>, or <code>-1</code> if target cannot be reached.</p><p><b>Example:</b> links A-&gt;B, B-&gt;C, A-&gt;D, D-&gt;C, C-&gt;E, query <code>A C</code>.</p><ul><li>0 clicks: {A}.</li><li>1 click: get_links(A) = {B, D}.</li><li>2 clicks: get_links(B) and get_links(D) both contain C, so C is reached.</li></ul><p>Output: <code>[\"2\"]</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

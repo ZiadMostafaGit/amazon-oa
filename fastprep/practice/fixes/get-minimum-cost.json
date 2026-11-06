@@ -1,0 +1,16 @@
+{
+  "pattern": "heap",
+  "why": "The next unit of each type is always more expensive than the last, so buying the globally cheapest available unit m times is optimal. A min-heap keyed by each type's next price does that: pop the cheapest, then push that type's next price (+ b[i]).",
+  "hints": [
+    "Each type's prices go up as you buy more of it. Is the cheapest unit available right now ever a bad buy?",
+    "No: costs per type are increasing, so the m cheapest units overall form a valid purchase. Repeatedly take the smallest current price.",
+    "Min-heap of (next price, type). Pop m times, add to the total, push (price + b[i], i). O((n + m) log n)."
+  ],
+  "pitfalls": [
+    "Item j of type i costs a[i] + (j - 1) * b[i]: the first unit costs exactly a[i].",
+    "Total can reach about 10^5 * (10^5 + 10^10); use 64-bit integers outside Python.",
+    "Do not pre-generate m units per type (n * m is 10^10)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

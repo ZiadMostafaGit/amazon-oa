@@ -43,3 +43,7 @@ def solve(leftChild: List[int], rightChild: List[int], leftCost: List[int], righ
 
     root = f[0]
     return 0 if root == INF else int(root)
+
+
+# the bank renamed this problem's entry point
+minimumRootLeafCutCost = solve

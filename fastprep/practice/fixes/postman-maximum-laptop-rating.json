@@ -1,0 +1,15 @@
+{
+ "pattern": "segment-tree",
+ "why": "Sort laptops by price; then a price range [low, high] is a contiguous block of the sorted array found by two binary searches, and the answer is a range-maximum query on ratings. Since there are no updates, a sparse table gives O(1) per query (a segment tree or Fenwick-for-max offline would also work).",
+ "hints": [
+  "Prices are not sorted, but the queries are about price intervals. What happens to a price interval after you sort laptops by price?",
+  "After sorting, the laptops with low <= price <= high are one contiguous block [bisect_left(low), bisect_right(high) - 1]; you need the max rating in that block.",
+  "Build a static range-max structure (sparse table, O(n log n) build, O(1) query) over sorted ratings; answer -1 when the block is empty. Total O((n + q) log n)."
+ ],
+ "pitfalls": [
+  "Both ends are inclusive; use bisect_left for low and bisect_right for high.",
+  "Return -1 when no laptop's price falls in the range.",
+  "With 10^6 laptops and queries, a per-query scan is O(nq) and far too slow."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

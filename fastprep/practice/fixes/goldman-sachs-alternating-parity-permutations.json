@@ -1,0 +1,17 @@
+{
+  "pattern": "permutations",
+  "why": "Generate permutations of 1..n by backtracking, but only append a value whose parity differs from the last value placed. Trying values in increasing order at every position emits the permutations already in lexicographic order, so no sorting is needed.",
+  "hints": [
+    "This is 'all permutations' with one extra rule between neighbours. Where can you enforce the rule so bad branches are never explored?",
+    "When choosing the next value, skip any used value and any value with the same parity as the current last element. Try values from small to large.",
+    "Backtrack with a used[] array and a current list; on length n, copy it into the result. The output itself is the cost (about (n/2)!^2 permutations), so keep the per-node work O(n)."
+  ],
+  "pitfalls": [
+    "Order is numeric lexicographic (10 > 9), not string order.",
+    "For odd n, sequences must start and end with an odd number; the pruning handles this automatically, but a parity-counting shortcut must respect it.",
+    "n = 1 returns [[1]]."
+  ],
+  "constraints": "<ul><li>1 &lt;= n (no upper bound is stated in the source; since the output grows like ((n/2)!)^2, expect n to be about 10 or less).</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

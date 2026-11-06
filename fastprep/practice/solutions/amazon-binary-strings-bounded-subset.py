@@ -19,3 +19,7 @@ def solve(strs: List[str], maxOnes: int, maxZeroes: int) -> int:
                 if cand > row[z]:
                     row[z] = cand
     return dp[maxOnes][maxZeroes]
+
+
+# the bank renamed this problem's entry point
+largestBoundedSubset = solve

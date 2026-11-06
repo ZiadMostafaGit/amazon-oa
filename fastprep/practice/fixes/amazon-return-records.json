@@ -1,0 +1,17 @@
+{
+  "pattern": "simulation",
+  "why": "This is a straight state simulation: a hash map username -> password for registrations and a set of logged-in users. Each request is a constant-time lookup and update, applied in order.",
+  "hints": [
+    "What state must you remember between requests? Exactly two things.",
+    "A dict of registered users and their passwords, and a set of users currently logged in. Each command checks and updates those.",
+    "Split each request, branch on the verb, do O(1) dict/set work and append the message. O(total length)."
+  ],
+  "pitfalls": [
+    "Logging in an already logged-in user fails, even with the right password.",
+    "Passwords are case-sensitive: \"1adam1\" is not \"1Adam1\".",
+    "Copy the exact messages: \"Register Unsuccessfully\" and \"Login Unsuccessfully\" are not grammatical but must match.",
+    "Logout of a registered but not logged-in user fails."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

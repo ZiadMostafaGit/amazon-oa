@@ -1,0 +1,15 @@
+{
+ "pattern": "rate-limiting",
+ "why": "This is the sliding-window-log rate limiter: each client keeps a deque of its accepted timestamps, old ones fall out the front when they are at most t - windowSeconds, and a request is accepted while the deque holds fewer than maxRequests entries. A hash map from client id to deque keeps clients independent.",
+ "hints": [
+  "Each client is independent, and only that client's accepted requests matter. What do you need to remember per client?",
+  "Keep a queue of accepted timestamps per client. Because timestamps arrive in order, expired entries are always at the front.",
+  "Map clientId -> deque. For each request: pop from the front while dq[0] <= t - windowSeconds, then accept and append t if len(dq) < maxRequests. Amortised O(1) per request."
+ ],
+ "pitfalls": [
+  "Expiry boundary is inclusive: a request at exactly t - windowSeconds has left the window (example 2 at time 3 with window 3).",
+  "Rejected requests are not recorded and do not use capacity.",
+  "Requests with equal timestamps are handled one by one in input order."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

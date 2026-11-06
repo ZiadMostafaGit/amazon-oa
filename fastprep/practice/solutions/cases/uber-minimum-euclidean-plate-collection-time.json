@@ -1,0 +1,158 @@
+{
+ "problemId": "uber-minimum-euclidean-plate-collection-time",
+ "generatedAt": "2026-11-06T15:18:37",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[0, 6]"
+    },
+    {
+     "name": "y",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[0, 0, 1, 0, 2]"
+    },
+    {
+     "name": "y",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 2]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[0, 0, 3, 1, 2]"
+    },
+    {
+     "name": "y",
+     "type": "int[]",
+     "rawValue": "[0, 1, 0, 1]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[0, -3, -3]"
+    },
+    {
+     "name": "y",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0, 2]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[3, 6, 6]"
+    },
+    {
+     "name": "y",
+     "type": "int[]",
+     "rawValue": "[0, 0, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "d",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "x",
+     "type": "int[]",
+     "rawValue": "[0, 0, 2, 0]"
+    },
+    {
+     "name": "y",
+     "type": "int[]",
+     "rawValue": "[1, 0, 0, 2]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

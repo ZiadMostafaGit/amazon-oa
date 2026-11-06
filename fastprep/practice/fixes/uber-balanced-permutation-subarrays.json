@@ -1,0 +1,15 @@
+{
+  "pattern": "arrays",
+  "why": "The week label is Trees, but no tree is needed. Values 1..k fill a contiguous block exactly when their positions span k cells, i.e. max(pos) - min(pos) + 1 == k. Grow k from 1 to n while keeping a running min and max of pos[k].",
+  "hints": [
+    "Because p is a permutation, a window of length k that contains 1..k contains nothing else.",
+    "Store pos[v] for each value. Values 1..k form a subarray iff the gap between the leftmost and rightmost of their positions is exactly k-1.",
+    "Sweep k = 1..n updating lo = min(lo, pos[k]) and hi = max(hi, pos[k]), and emit '1' when hi - lo + 1 == k. O(n)."
+  ],
+  "pitfalls": [
+    "Check the span, not whether p[0..k-1] is a prefix. [3,1,2,4] has k = 2 balanced at positions 1..2.",
+    "k = 1 and k = n are always balanced."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

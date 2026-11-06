@@ -1,0 +1,17 @@
+{
+  "pattern": "greedy",
+  "why": "Although it sits in the backtracking week, plain backtracking over 10^5 digits is hopeless. The structure is greedy: build the answer left to right, trying the largest digit first, and keep it only if the remaining digits can still be arranged. Backtracking's 'try, check, undo' becomes a fast feasibility test.",
+  "hints": [
+    "Lexicographically largest means: make the first character as large as possible, then the second, and so on, as long as the rest can still be completed. What makes the rest completable?",
+    "Split digits into high (5-9) and low (0-4). Two highs can never be adjacent (sum >= 10), and a high v needs both neighbours <= 9 - v. So each high needs its own slot between suitable lows; feasibility is a counting check on how many highs of value >= v fit next to lows <= 9 - v.",
+    "Greedy: at each position try digits 9 down to 0 that fit next to the previous digit, and accept the first whose removal leaves a feasible multiset (O(10 * 5) counting check). Once no highs remain, append the lows in descending order. O(n * 100)."
+  ],
+  "pitfalls": [
+    "Return the empty string when even the full multiset is infeasible, e.g. \"889\".",
+    "Leading zeros are kept: the answer is a string, not a number.",
+    "Descending order is not always valid: \"188\" must become \"818\", not \"881\".",
+    "Trying full backtracking with undo will time out at n = 10^5."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

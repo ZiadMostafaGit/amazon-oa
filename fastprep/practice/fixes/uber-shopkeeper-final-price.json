@@ -1,0 +1,17 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "Each item's discount is the first item to its right with price <= its own: that is the classic 'next smaller-or-equal element' query, answered for all items in one pass with a monotonic stack.",
+  "hints": [
+    "For each item you need the nearest later item that is not more expensive. Brute force is O(n^2) with n = 10^5.",
+    "Keep a stack of indices still waiting for their discount. When a new price p arrives, every waiting item with price >= p has just found its discount p; pop them.",
+    "One left-to-right pass with an index stack: pop while prices[top] >= p, set discount[top] = p, push i. Whatever stays on the stack is sold at full price. O(n) time."
+  ],
+  "pitfalls": [
+    "The condition is equal OR lower, so pop on >=, not >.",
+    "The full-price list must be indices in ascending order, not the order they are left on the stack (that happens to be ascending, but do not reverse it).",
+    "The total can reach 10^5 * 10^9 = 10^14; use 64-bit integers outside Python.",
+    "Return strings: the total as a string and the indices joined by single spaces (empty string if none)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

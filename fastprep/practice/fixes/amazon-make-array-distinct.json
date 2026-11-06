@@ -1,0 +1,17 @@
+{
+ "pattern": "heap",
+ "why": "Sizes can only go up, and moving item i up by one costs cost[i]. Sweep values upward: at each value, among all items waiting there, the most expensive one should stay and the rest move up one step and pay. A max-heap of waiting costs picks who stays, which is the exchange argument 'move the cheap ones'.",
+ "hints": [
+  "Several items share a size; exactly one can keep it. Which one should, if every step up costs that item's own cost per unit?",
+  "Process values in increasing order. Every item currently at value v (original or pushed up) waits in a pool; the most expensive one settles at v, all others pay their cost to move to v+1.",
+  "Sort by size; keep a max-heap of costs and the running sum of costs in it. At each value add newcomers, pop the max, add the remaining sum to the answer, step v; jump v forward when the heap is empty. O(n log n)."
+ ],
+ "pitfalls": [
+  "The cost is per increment, so an item pushed up 3 steps pays 3 * cost[i] (example 2 pays 2 * 3).",
+  "Do not step v one by one across empty stretches when the heap is empty; jump to the next size or you will time out on large sizes.",
+  "Totals can exceed 32-bit."
+ ],
+ "statement": "<p>You are given two arrays <code>size</code> and <code>cost</code> of length <code>n</code>. You may increase any <code>size[i]</code> by 1 as many times as you like; each single increase of item <code>i</code> costs <code>cost[i]</code>. Sizes can never be decreased.</p><p>Return the minimum total cost to make all values in <code>size</code> distinct.</p><p><b>Worked example:</b> <code>size = [2, 3, 3, 2]</code>, <code>cost = [2, 4, 5, 1]</code>.</p><ul><li>Two items have size 2 (costs 2 and 1) and two have size 3 (costs 4 and 5).</li><li>Raise item 1 (size 3, cost 4) once to 4: cost 4.</li><li>Raise item 3 (size 2, cost 1) three times to 5: cost 3.</li><li>Sizes become <code>[2, 4, 3, 5]</code>, all distinct, total <b>7</b>.</li></ul>",
+ "constraints": "<ul><li>Not stated in the source; reasonable bounds: 1 &le; n &le; 10^5</li><li>1 &le; size[i], cost[i] &le; 10^9</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

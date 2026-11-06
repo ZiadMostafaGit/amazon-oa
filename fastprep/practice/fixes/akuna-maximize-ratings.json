@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-1d",
+  "why": "The rule 'never skip two movies in a row' means movie i's choice only depends on whether movie i-1 or i-2 was taken: dp[i] = ratings[i] + max(dp[i-1], dp[i-2]). It is scheduled in the 2-D DP week, but the state is one-dimensional (a House Robber variant with the constraint flipped).",
+  "hints": [
+    "Compare with House Robber, which forbids taking two in a row. Here you may not skip two in a row. What does that say about the last movie taken before movie i?",
+    "If you take movie i, the previous taken movie is i-1 or i-2. Let dp[i] = best sum of a valid choice ending by taking movie i; dp[i] = ratings[i] + max(dp[i-1], dp[i-2]).",
+    "Roll two variables. The answer is max(dp[n-1], dp[n-2]) since you may skip the last movie (but not the last two). O(n), O(1) space."
+  ],
+  "pitfalls": [
+    "You cannot skip the first two movies either: the first taken movie must be index 0 or 1 (dp[0] = r[0], dp[1] = r[1] + max(0, r[0]) style base cases need care).",
+    "With all ratings negative you still must take some: [-1, -3, -2] gives -3.",
+    "The answer may end at n-2 (skipping only the last movie)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+  "pattern": "multi-source-bfs",
+  "why": "All infected cells spread at the same time, one ring per minute, so put every initial infected cell in the queue at distance 0 and BFS: the minutes needed is the largest BFS level that reaches a fresh cell.",
+  "hints": [
+    "Infection spreads one step per minute from every infected cell at once. Which traversal naturally moves outward one layer at a time?",
+    "Start a single BFS with all initially infected cells in the queue (multi-source). The minute a fresh cell is infected equals its BFS distance from the nearest infected cell.",
+    "Count fresh cells, seed the deque with all 2s, process level by level, decrement the fresh count on each infection; return the last level if fresh hits 0, else -1. O(rows * cols)."
+  ],
+  "pitfalls": [
+    "No fresh cells at all returns 0, even when there are no infected cells either.",
+    "Running a separate BFS from each infected cell and taking a max is both slow and wrong; the sources must expand simultaneously.",
+    "Do not count a final empty level as an extra minute; the answer is the level of the last infection, not the number of loop iterations."
+  ],
+  "constraints": "<ul><li>1 &lt;= rows, cols &lt;= 1000 (numeric bounds not stated in the source)</li><li>Each cell is 0, 1 or 2</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

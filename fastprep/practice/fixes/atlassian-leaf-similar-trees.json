@@ -1,0 +1,15 @@
+{
+  "pattern": "dfs",
+  "why": "The leaf sequence is what a depth-first traversal emits when it records only nodes with no children, left before right. Compute it for both trees and compare.",
+  "hints": [
+    "Any DFS that goes left before right visits the leaves in left-to-right order.",
+    "Write a helper that pushes a node's value to a list when it has no left and no right child, and otherwise recurses into its children.",
+    "Compare the two lists. O(n1 + n2) time; use an explicit stack (push right, then left) to avoid deep recursion on a 10000-node chain."
+  ],
+  "pitfalls": [
+    "Only true leaves count; a node with one child is not a leaf.",
+    "Sequences must match in order and length, not just as sets."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

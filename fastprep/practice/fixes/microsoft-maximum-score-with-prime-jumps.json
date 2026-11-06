@@ -1,0 +1,17 @@
+{
+  "pattern": "dp-1d",
+  "why": "Cell i can only be reached from i - 1 or from i - p for a prime p ending in 3, so best[i] = cell[i] + max(best[i-1], best[i-p]): a 1-D DP over the row, with a sieve to list the allowed jumps.",
+  "hints": [
+    "Think backwards: what are the possible last moves into cell i?",
+    "From i - 1, or from i - p where p is a prime with last digit 3 (3, 13, 23, 43, ...). Take the best score of those sources plus cell[i].",
+    "Sieve primes up to n - 1 and keep those ending in 3; dp left to right. O(n * J) where J is the number of such primes (about 1/4 of primes up to n)."
+  ],
+  "pitfalls": [
+    "Cell values can be negative; initialise with negative infinity, not 0.",
+    "Only primes ending in 3 count (3, 13, 23...), not every prime.",
+    "Cell 0 contributes 0 and the score includes the final cell."
+  ],
+  "constraints": "<ul><li>Bounds are not stated in the source. Assume 1 &lt;= n &lt;= 10^4 and -10^4 &lt;= cell[i] &lt;= 10^4, with cell[0] = 0.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

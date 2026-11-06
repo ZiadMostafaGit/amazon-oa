@@ -16,3 +16,7 @@ def applySlidingWindowRateLimit(userIds: List[str], timestamps: List[int]) -> Li
         else:
             out.append(False)
     return out
+
+
+# the bank renamed this problem's entry point
+solve = applySlidingWindowRateLimit

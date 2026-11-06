@@ -1,0 +1,17 @@
+{
+  "pattern": "bfs",
+  "why": "Ordering cities 'by distance, then by number' is BFS by levels on an unweighted graph: collect each level, sort it, append to the answer.",
+  "hints": [
+    "Every road costs the same. Which traversal visits nodes in order of number of roads from the start?",
+    "Run BFS from company level by level. Within a level, the problem wants cities in ascending order, so sort each level before outputting it.",
+    "Adjacency list for 1..cityNodes; BFS frontier lists; sort each new frontier and append it. O((V + E) log V)."
+  ],
+  "pitfalls": [
+    "Do not include company itself in the answer.",
+    "Unreachable cities are omitted, not appended at the end.",
+    "Plain BFS with neighbours in input order does not give ascending order within a level; sort each level (sorting adjacency lists alone is not enough, since a later parent can discover a smaller city)."
+  ],
+  "statement": "<p>Cities are numbered <code>1</code> to <code>cityNodes</code> and joined by bidirectional roads <code>cityFrom[i]</code> &ndash; <code>cityTo[i]</code>, each counting as one step. The company is in city <code>company</code>.</p><p>Return the cities to deliver to, in this order:</p><ul><li>Sort by distance from <code>company</code> (number of roads on the shortest route), nearest first.</li><li>Cities at the same distance go in ascending city number.</li><li>Do not include <code>company</code> itself, and leave out cities that cannot be reached.</li></ul><p><b>Worked example.</b> <code>cityNodes = 4</code>, roads 1-2, 2-3, 2-4, <code>company = 1</code>.</p><ul><li>Distance 1: city 2.</li><li>Distance 2: cities 3 and 4 (both through 2), in ascending order.</li></ul><p>Answer: <code>[2, 3, 4]</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

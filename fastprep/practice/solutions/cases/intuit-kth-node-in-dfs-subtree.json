@@ -1,0 +1,98 @@
+{
+ "problemId": "intuit-kth-node-in-dfs-subtree",
+ "generatedAt": "2026-11-06T15:18:29",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 26,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1, 2, 3]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [1, 4], [3, 3]]"
+    }
+   ],
+   "expectedRaw": "[1, 3, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1, 1, 2, 2, 3]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [4, 1], [2, 3], [3, 3]]"
+    }
+   ],
+   "expectedRaw": "[1, 4, 6, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [1, 1]]"
+    }
+   ],
+   "expectedRaw": "[-1, 1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1, 2]]"
+    }
+   ],
+   "expectedRaw": "[-1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[0, 1, 2, 2, 3]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1, 1], [1, 4], [3, 3]]"
+    }
+   ],
+   "expectedRaw": "[1, 5, -1]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "queries",
+     "type": "int[][]",
+     "rawValue": "[[1, 2], [1, 2]]"
+    }
+   ],
+   "expectedRaw": "[-1, -1]"
+  }
+ ]
+}

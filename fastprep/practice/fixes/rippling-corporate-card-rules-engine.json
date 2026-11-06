@@ -1,0 +1,16 @@
+{
+  "pattern": "hash-tables",
+  "why": "Per-expense rules are checks on one row; trip rules need totals per trip, so first aggregate trip totals and meal totals in a dict keyed by tripId, then emit each row's violations in policy order. The design angle is a list of rule objects evaluated in order.",
+  "hints": [
+    "Two kinds of rules: ones that look at a single expense, and ones that need the whole trip.",
+    "Do a first pass that sums amount per trip and MEAL amount per trip in dicts; then each trip rule becomes a per-row lookup.",
+    "Second pass: for each expense, append codes in the fixed order RESTAURANT_LIMIT, NO_AIRFARE, NO_ENTERTAINMENT, EXPENSE_LIMIT, TRIP_LIMIT, MEAL_LIMIT. O(n) time."
+  ],
+  "pitfalls": [
+    "Limits are 'may not exceed': exactly $75, $250, $2000 or $200 is allowed (use >).",
+    "A trip-level violation is attached to every expense on that trip, including ones that are not meals.",
+    "Amounts arrive as strings; convert before summing. Matching is case-sensitive."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

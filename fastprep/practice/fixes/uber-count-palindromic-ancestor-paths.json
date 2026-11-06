@@ -1,0 +1,16 @@
+{
+  "pattern": "dfs",
+  "why": "Encode the parity of letter counts on the root-to-node path as a 26-bit XOR mask. The path v..u is a palindrome multiset iff mask[u] XOR mask[parent(v)] has at most one bit set. During DFS keep a counter of the masks on the current root path, and for node u count entries equal to mask[u] or differing from it in exactly one bit (27 lookups).",
+  "hints": [
+    "A multiset can be rearranged into a palindrome iff at most one letter has an odd count. Track parities, not counts.",
+    "Prefix XOR on a tree: path(v..u) parity = mask[u] ^ mask[parent(v)]. So you need ancestor-or-virtual-root masks m with popcount(m ^ mask[u]) <= 1.",
+    "Do an iterative DFS from the root. On entry, answer[u] = cnt[mask[u]] + sum over 26 bits of cnt[mask[u] ^ (1<<b)], computed with the parent-side masks (including 0 for above the root), then add mask[u] to cnt. Remove it on exit. O(26 n)."
+  ],
+  "pitfalls": [
+    "Recursion depth reaches 200000 on a path-shaped tree. Use an iterative DFS.",
+    "Include the 'above root' mask 0 so paths starting at node 0 are counted.",
+    "Queries may repeat. Precompute an answer per node, then look them up."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

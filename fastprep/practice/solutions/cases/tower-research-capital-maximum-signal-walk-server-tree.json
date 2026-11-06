@@ -1,0 +1,98 @@
+{
+ "problemId": "tower-research-capital-maximum-signal-walk-server-tree",
+ "generatedAt": "2026-11-06T15:18:37",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, 1]"
+    },
+    {
+     "name": "signals",
+     "type": "int[]",
+     "rawValue": "[30, -1, -2, 4]"
+    }
+   ],
+   "expectedRaw": "75497471"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0]"
+    },
+    {
+     "name": "signals",
+     "type": "int[]",
+     "rawValue": "[-3, -3, -3]"
+    }
+   ],
+   "expectedRaw": "998244345"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, -1, 0, 1]"
+    },
+    {
+     "name": "signals",
+     "type": "int[]",
+     "rawValue": "[30, 4, -1, 30, 5]"
+    }
+   ],
+   "expectedRaw": "75497471"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[-5]"
+    },
+    {
+     "name": "signals",
+     "type": "int[]",
+     "rawValue": "[2, -7, -1, -2]"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[0, 4, 1, 1, 0]"
+    },
+    {
+     "name": "signals",
+     "type": "int[]",
+     "rawValue": "[2, -3, -4, 1, -3]"
+    }
+   ],
+   "expectedRaw": "512"
+  },
+  {
+   "inputs": [
+    {
+     "name": "parent",
+     "type": "int[]",
+     "rawValue": "[-1, 1, 1, 0]"
+    },
+    {
+     "name": "signals",
+     "type": "int[]",
+     "rawValue": "[2, -4, 1, -4, -5]"
+    }
+   ],
+   "expectedRaw": "4"
+  }
+ ]
+}

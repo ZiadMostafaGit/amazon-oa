@@ -37,3 +37,7 @@ def bankingSystemLevel1(operations: List[List[str]]) -> List[List[str]]:
             results.append(["null"])
 
     return results
+
+
+# the bank renamed this problem's entry point
+solve = bankingSystemLevel1

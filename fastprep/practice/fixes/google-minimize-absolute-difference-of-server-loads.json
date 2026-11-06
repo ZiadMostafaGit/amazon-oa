@@ -1,0 +1,17 @@
+{
+ "pattern": "knapsack",
+ "why": "Every process goes to server A or server B, so the difference is total - 2 * (load of A). Minimising it is the subset-sum / 0-1 knapsack question: which subset sums are reachable, and which is closest to total / 2.",
+ "hints": [
+  "If server A gets load S, server B gets total - S. Write the difference in terms of S only.",
+  "You need the set of all reachable subset sums S; then the answer is the minimum of |total - 2S|. That is 0/1 knapsack (each process taken or not).",
+  "Use a boolean DP over sums, or a Python big integer as a bitset: bits |= bits << load. O(n * total / wordsize) time."
+ ],
+ "pitfalls": [
+  "A greedy 'give the next load to the lighter server' fails, e.g. on [3,3,2,2,2].",
+  "Either server may be empty; S = 0 is reachable.",
+  "If negative loads could appear, shift the bitset by the sum of negatives first."
+ ],
+ "constraints": "<ul><li>1 &lt;= loads.length &lt;= 1000</li><li>0 &lt;= loads[i] and the sum of loads is small enough for a subset-sum table, about 10^5 to 10^6 (value bounds are not stated in the source)</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

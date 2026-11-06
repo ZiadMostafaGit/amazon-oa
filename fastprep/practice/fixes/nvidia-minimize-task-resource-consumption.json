@@ -1,0 +1,17 @@
+{
+ "pattern": "heap",
+ "why": "Each step needs 'the smallest remaining value, leftmost on ties' and then deletes a node and its current neighbours, which changes adjacency. A min-heap of (value, original index) gives the selection (original order equals current order among survivors), and a doubly linked list over indices (prev/next arrays) makes neighbour removal O(1); dead heap entries are skipped lazily.",
+ "hints": [
+  "Two needs per step: find the minimum quickly, and find the current left and right neighbours after earlier removals.",
+  "Heap of (value, index) handles the minimum and the leftmost tie-break; prev/next arrays act as a doubly linked list so removing a task just relinks its neighbours.",
+  "Pop until you find an alive task, add its value, then unlink it and its prev/next neighbours, marking them dead. O(n log n)."
+ ],
+ "pitfalls": [
+  "Neighbours are in the CURRENT array: after removals, tasks that were far apart can become adjacent (example 2).",
+  "Ties go to the smallest index; (value, index) tuples in the heap do this for free.",
+  "Entries for removed tasks stay in the heap; check an alive flag before using a popped entry.",
+  "The first or last task has only one neighbour."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

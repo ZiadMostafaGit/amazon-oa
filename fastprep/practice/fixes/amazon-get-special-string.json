@@ -1,0 +1,15 @@
+{
+ "pattern": "greedy",
+ "why": "Lexicographically smallest string greater than s: keep the longest possible prefix of s, bump one position to the smallest larger letter that differs from its left neighbour, and fill the rest with the smallest alternating letters (a, b, a, b...). It is the next-permutation style greedy, with the twist that the kept prefix must itself have no equal neighbours.",
+ "hints": [
+  "To stay as small as possible you want to change s as far to the right as you can. Which prefixes of s are even allowed to be kept unchanged?",
+  "A kept prefix must already be special, so you can only bump a position at or before the first index i where s[i] == s[i-1]. Try positions from that limit leftwards; at position i, pick the smallest letter above s[i] that differs from s[i-1].",
+  "Once a position is bumped, every later position is free: fill with 'a', or 'b' if the previous letter is 'a'. Return -1 if no position can be bumped. O(26 n)."
+ ],
+ "pitfalls": [
+  "Bumping the last character is not always possible: in \"abbd\" the prefix \"abb\" is not special, so you must bump index 2 (giving \"abc\" + \"a\").",
+  "'z' cannot be increased and there is no wrap-around; a run of z's at the start can make the answer \"-1\".",
+  "Building the suffix with string concatenation in a loop is O(n^2) for n = 10^6; use a list and join."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "backtracking",
+  "why": "Classic graph m-coloring: assign colors to vertices 0..n-1 in order, trying each color that no already-colored neighbour uses, and undo on failure. With n <= 12 the backtracking search is small, especially when you break the symmetry between unused colors.",
+  "hints": [
+    "Color vertices one at a time. What must be true of a color before you give it to the next vertex?",
+    "A color is legal for vertex u if no neighbour of u already has it. Recurse to u + 1; if it fails, try the next color, and if none works, backtrack.",
+    "Build adjacency sets (dedupe repeated edges, reject self-loops immediately). Only try colors 0..(colors used so far), since any brand-new color is interchangeable with every other new one. Worst case O(m^n) but tiny here."
+  ],
+  "pitfalls": [
+    "A self-loop makes coloring impossible regardless of m.",
+    "Repeated edges are allowed; they should not break anything.",
+    "Disconnected vertices still need a color, but any color works for them."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

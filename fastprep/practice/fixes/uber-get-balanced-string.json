@@ -1,0 +1,15 @@
+{
+  "pattern": "arrays",
+  "why": "The week is Sliding window + Hashing, and you might picture a window that holds exactly {1..k}. But because arr is a permutation, the only candidate window is the span from the leftmost to the rightmost position of the values 1..k. So k is balanced iff that span has length k, which a running min/max of positions checks.",
+  "hints": [
+    "Where would a window containing exactly the values 1..k have to start and end?",
+    "It must stretch from min(pos[1..k]) to max(pos[1..k]), and it has no room for anything else iff max - min + 1 == k.",
+    "Record pos[v], then sweep k = 1..n maintaining lo and hi, appending '1' or '0'. O(n) time and memory."
+  ],
+  "pitfalls": [
+    "The output is indexed by k-1 (k = 1 is the first character).",
+    "Do not rebuild a window per k. That is O(n^2), too slow for n = 1e5."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,68 @@
+{
+ "problemId": "expedia-climbing-stairs",
+ "generatedAt": "2026-11-06T15:18:27",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-2"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "6"
+    }
+   ],
+   "expectedRaw": "13"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-4"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "intervals",
+  "why": "A room is needed for every meeting that is running at the same moment, so the answer is the maximum number of intervals overlapping at any point: a classic intervals sweep (or a min-heap of end times).",
+  "hints": [
+    "Think about the busiest moment of the day. How many meetings are running then, and could you ever get away with fewer rooms than that?",
+    "The answer is the maximum overlap. Sort starts and ends separately and sweep: a start opens a room, an end frees one. Equivalently, sort by start and keep a min-heap of end times of rooms in use.",
+    "Heap version: sort by start; for each meeting pop the heap top if it ended at or before this start, then push this end. Answer = max heap size. O(n log n)."
+  ],
+  "pitfalls": [
+    "A meeting ending at time t frees its room for a meeting starting at t: [1,5] and [5,8] need only one room. Process ends before starts at equal times.",
+    "Sorting intervals by end instead of start breaks the heap approach."
+  ],
+  "statement": "<p>You are given a list of meetings, <code>intervals[i] = [start_i, end_i]</code>. A meeting occupies a room from <code>start_i</code> up to (but not including) <code>end_i</code>, so a meeting that ends at time <i>t</i> and another that starts at <i>t</i> can share a room. Return the minimum number of conference rooms needed so that every meeting has a room.</p><p><b>Worked example.</b> <code>intervals = [[0,30],[5,10],[15,20]]</code>.</p><ul><li>At time 5, meetings [0,30] and [5,10] are both running: 2 rooms in use.</li><li>At time 10 the [5,10] meeting ends and frees its room.</li><li>At time 15, [15,20] reuses that freed room while [0,30] keeps the other.</li></ul><p>Never more than 2 meetings overlap, so the answer is <code>2</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "knapsack",
+  "why": "Each cat is a group, and you pick at most one route from each group under a shared cost budget to maximise score: the grouped (multiple-choice) 0/1 knapsack. Process cat by cat, building the new budget table only from the previous cat's table so two routes of the same cat never combine.",
+  "hints": [
+    "This is knapsack, but with a twist: what stops you picking two routes of the same cat?",
+    "Process one cat at a time. new[b] = max(old[b], old[b - cost] + score for each route of this cat), always reading from the old table.",
+    "best[0..budget] starting at 0; for each cat copy to nxt and relax from best; answer best[budget]. O(total routes * budget)."
+  ],
+  "pitfalls": [
+    "Updating in place lets one cat use two routes (example 2: two free routes must give 7, not 10).",
+    "Zero-cost routes are allowed and still count as the cat's one choice.",
+    "Cats with no routes simply stay still."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

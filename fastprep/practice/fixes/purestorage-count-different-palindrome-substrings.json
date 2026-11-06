@@ -1,0 +1,17 @@
+{
+  "pattern": "palindromes",
+  "why": "Count palindromic substrings by position (equal strings at different places count separately). Every palindrome has a centre, so expanding around each of the 2n-1 centres, or Manacher's radii, counts them all.",
+  "hints": [
+    "Each palindrome is symmetric around a centre: a letter (odd length) or a gap between two letters (even length). How many centres are there?",
+    "From each centre, expand outward while the characters match; every successful step is one more palindrome. Manacher's algorithm reuses mirror information to get every radius in linear time.",
+    "Expand-around-centre is O(n^2) worst case and fine for moderate n; Manacher gives O(n): answer = sum over centres of the number of palindromes (radius) at that centre."
+  ],
+  "pitfalls": [
+    "Equal substrings at different positions count separately: \"ll\" appears twice in \"hellolle\" and counts as 2.",
+    "Remember even-length centres (between letters), or \"ll\" and \"lloll\" are missed.",
+    "Single letters each count as a palindrome."
+  ],
+  "constraints": "<ul><li>Bounds are not stated in the source. Reasonable: 1 &lt;= |s| &lt;= 10^5 (O(n^2) expansion is fine up to a few thousand)</li><li>s contains only lowercase English letters</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

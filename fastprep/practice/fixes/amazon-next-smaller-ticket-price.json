@@ -1,0 +1,16 @@
+{
+  "pattern": "monotonic-stack",
+  "why": "\"The next strictly smaller value to the right\" is the textbook monotonic-stack query. Scanning from the right, keep a stack of candidate prices that increases from bottom to top; pop anything >= the current price, and the top that remains is its answer.",
+  "hints": [
+    "A brute-force scan to the right for each ticket is O(n^2). When can a later price never be anyone's answer again?",
+    "If price p sits at i, any price to its right that is >= p is useless for every ticket left of i: p is closer and at least as cheap. So discard those, leaving an increasing stack.",
+    "Iterate i from n-1 down to 0: pop while stack top >= prices[i], answer is stack top or -1, push prices[i]. Each price is pushed and popped once, O(n)."
+  ],
+  "pitfalls": [
+    "Strictly smaller: equal prices are not an answer, so pop on >=.",
+    "Return the price itself, not its index.",
+    "The last ticket always gets -1."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

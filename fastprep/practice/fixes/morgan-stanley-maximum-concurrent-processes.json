@@ -1,0 +1,16 @@
+{
+  "pattern": "sweep-line",
+  "why": "Each process adds 1 to every minute in [start, end]; the answer is the highest point of that running total. That is a sweep line (difference array over events) with inclusive ends, the same max-overlap idea as the intervals chapter.",
+  "hints": [
+    "Picture adding +1 for every minute a process is alive. Where does the total peak?",
+    "Turn each log into two events: +1 at startTime and -1 at endTime + 1 (the first minute it is no longer running). Sort events and keep a running sum.",
+    "Sort the 2n events by time (a -1 at time t sorts before a +1 at t, which is fine since the -1 means 'stopped before t'). Track the maximum running sum. O(n log n)."
+  ],
+  "pitfalls": [
+    "Inclusive end: [1,3] and [3,6] are both running at minute 3. Put the -1 at end + 1, not at end.",
+    "A one-minute process [5,5] still counts at minute 5."
+  ],
+  "constraints": "<ul><li>1 &le; n &le; 10^5 (not stated in the source)</li><li>0 &le; startTime &le; endTime &le; 10^9 (not stated in the source)</li><li>Both endpoints are inclusive.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

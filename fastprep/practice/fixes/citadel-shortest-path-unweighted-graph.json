@@ -1,0 +1,16 @@
+{
+  "pattern": "bfs",
+  "why": "With every edge costing 1, the minimum number of edges from source to target is exactly the BFS layer at which target is first discovered. This is the textbook BFS shortest path, with -1 when target is never reached.",
+  "hints": [
+    "All edges have the same length. Which traversal visits vertices in order of distance?",
+    "BFS from source: the first time a vertex is dequeued or discovered, its distance is final.",
+    "Build an adjacency list (both directions), run BFS with a distance array initialised to -1, and return dist[target]. O(n + edges)."
+  ],
+  "pitfalls": [
+    "source == target returns 0 even if the vertex is isolated.",
+    "Edges are undirected: add both directions.",
+    "Mark vertices when you enqueue them, not when you pop, or the queue can blow up."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "intervals",
+  "why": "Machines are rooms and tasks are meetings: the minimum number of machines is the maximum number of tasks active at the same moment. It is Meeting Rooms II with one twist, inclusive end times.",
+  "hints": [
+    "How many tasks are running at the busiest instant? You can never use fewer machines than that.",
+    "The answer is the peak overlap. Because both ends are inclusive, a task ending at 7 and one starting at 7 overlap and need different machines.",
+    "Sort by start and keep a min-heap of end times; pop while heap top < current start (strictly), then push. Or sweep events with +1 at start and -1 at end+1. O(n log n)."
+  ],
+  "pitfalls": [
+    "Endpoints are inclusive: (1,7) and (6,7) overlap, and so do (3,6) and (6,7). Pop only ends strictly less than the new start.",
+    "Identical tasks (example with four copies of [2,5]) each need their own machine.",
+    "n is up to 2*10^5, so the O(n^2) pairwise check is too slow."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

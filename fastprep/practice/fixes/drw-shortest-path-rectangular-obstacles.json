@@ -1,0 +1,17 @@
+{
+  "pattern": "grid-bfs",
+  "why": "The rectangles only decide which cells are walls; once they are painted onto the grid, this is the textbook shortest path in an unweighted grid, which BFS from (0, 0) solves.",
+  "hints": [
+    "Every step costs 1, so the shortest path in moves is a breadth-first search question, not a Dijkstra one.",
+    "First turn the K rectangles into a blocked[N][M] grid (a 2-D difference array marks them in O(K + N*M) even when rectangles are large or overlap), then BFS from (0, 0).",
+    "Mark rectangles with a 2-D difference array plus prefix sums, BFS with a deque and a distance grid, return dist at (N-1, M-1) or -1. O(N*M + K)."
+  ],
+  "pitfalls": [
+    "Return -1 immediately if the start or the destination is covered by a rectangle.",
+    "When N = M = 1 and the cell is free, the answer is 0.",
+    "Painting each rectangle cell by cell can be O(K*N*M) for big overlapping rectangles; use a difference array if K is large.",
+    "x indexes the N dimension and y the M dimension; do not swap them when building the grid."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

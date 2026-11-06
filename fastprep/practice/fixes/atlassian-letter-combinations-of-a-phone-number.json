@@ -1,0 +1,15 @@
+{
+  "pattern": "backtracking",
+  "why": "Each digit is one decision level with 3 or 4 choices; a depth-first walk that picks one letter per digit enumerates the Cartesian product in keypad order. This is the textbook backtracking tree.",
+  "hints": [
+    "Draw the decision tree for \"23\": first pick a letter for 2, then for 3. How deep is it, and how wide?",
+    "Recursively fill position i with each letter mapped to digits[i] in order, recurse to i + 1, and record the string when i == len(digits).",
+    "Map {'2':'abc', ..., '7':'pqrs', '9':'wxyz'}; DFS with a path list. O(4^n * n) time, which is the size of the output."
+  ],
+  "pitfalls": [
+    "Empty input must return [], not [\"\"].",
+    "7 and 9 have four letters; do not assume three per key."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

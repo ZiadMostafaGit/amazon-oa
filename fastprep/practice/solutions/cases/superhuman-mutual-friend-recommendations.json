@@ -1,0 +1,98 @@
+{
+ "problemId": "superhuman-mutual-friend-recommendations",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 2,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "friends",
+     "type": "String[][]",
+     "rawValue": "[[\"Alice\", \"Bob\"], [\"Alice\", \"Dave\"], [\"Bob\", \"Eve\"], [\"Bob\", \"Frank\"], [\"Carol\", \"Dave\"], [\"Carol\", \"Grace\"], [\"Dave\", \"Henry\"], [\"Eve\", \"Frank\"], [\"Eve\", \"Grace\"], [\"Frank\", \"Grace\"]]"
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"Bob\""
+    }
+   ],
+   "expectedRaw": "[\"Grace\", \"Dave\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "friends",
+     "type": "String[][]",
+     "rawValue": "[[\"Frank\", \"Grace\"], [\"Bob\", \"Eve\"], [\"Eve\", \"Grace\"], [\"Carol\", \"Dave\"], [\"Alice\", \"Bob\"], [\"Eve\", \"Frank\"], [\"Bob\", \"Carol\"], [\"Alice\", \"Dave\"], [\"Carol\", \"Grace\"], [\"Eve\", \"Frank\"], [\"Dave\", \"Grace\"], [\"Alice\", \"Carol\"], [\"Bob\", \"Frank\"], [\"Dave\", \"Henry\"]]"
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"Bob\""
+    }
+   ],
+   "expectedRaw": "[\"Grace\", \"Dave\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "friends",
+     "type": "String[][]",
+     "rawValue": "[[\"Bob\", \"Frank\"], [\"Alice\", \"Bob\"], [\"Alice\", \"Carol\"], [\"Alice\", \"Dave\"], [\"Bob\", \"Carol\"], [\"Bob\", \"Eve\"], [\"Bob\", \"Frank\"], [\"Carol\", \"Dave\"], [\"Carol\", \"Grace\"], [\"Dave\", \"Grace\"], [\"Dave\", \"Henry\"], [\"Eve\", \"Grace\"]]"
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"Henry\""
+    }
+   ],
+   "expectedRaw": "[\"Alice\", \"Carol\", \"Grace\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "friends",
+     "type": "String[][]",
+     "rawValue": "[[\"Dave\", \"Henry\"], [\"Bob\", \"Eve\"], [\"Carol\", \"Grace\"], [\"Bob\", \"Frank\"], [\"Eve\", \"Grace\"], [\"Dave\", \"Grace\"], [\"Bob\", \"Carol\"], [\"Eve\", \"Frank\"], [\"Carol\", \"Dave\"], [\"Carol\", \"Grace\"], [\"Alice\", \"Dave\"], [\"Frank\", \"Grace\"], [\"Alice\", \"Carol\"], [\"Alice\", \"Bob\"], [\"Alice\", \"Carol\"]]"
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"Alice\""
+    }
+   ],
+   "expectedRaw": "[\"Grace\", \"Eve\", \"Frank\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "friends",
+     "type": "String[][]",
+     "rawValue": "[[\"Alice\", \"Bob\"], [\"Alice\", \"Carol\"], [\"Bob\", \"Carol\"], [\"Bob\", \"Eve\"], [\"Bob\", \"Frank\"], [\"Carol\", \"Dave\"], [\"Carol\", \"Grace\"], [\"Dave\", \"Grace\"], [\"Dave\", \"Henry\"], [\"Eve\", \"Frank\"], [\"Eve\", \"Grace\"], [\"Frank\", \"Grace\"]]"
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"Grace\""
+    }
+   ],
+   "expectedRaw": "[\"Bob\", \"Alice\", \"Henry\"]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "friends",
+     "type": "String[][]",
+     "rawValue": "[[\"Alice\", \"Bob\"], [\"Alice\", \"Carol\"], [\"Alice\", \"Dave\"], [\"Bob\", \"Carol\"], [\"Bob\", \"Frank\"], [\"Frank\", \"Grace\"], [\"Carol\", \"Grace\"], [\"Dave\", \"Grace\"], [\"Dave\", \"Henry\"], [\"Eve\", \"Frank\"], [\"Eve\", \"Grace\"], [\"Frank\", \"Grace\"]]"
+    },
+    {
+     "name": "t",
+     "type": "String",
+     "rawValue": "\"Carol\""
+    }
+   ],
+   "expectedRaw": "[\"Dave\", \"Frank\", \"Eve\"]"
+  }
+ ]
+}

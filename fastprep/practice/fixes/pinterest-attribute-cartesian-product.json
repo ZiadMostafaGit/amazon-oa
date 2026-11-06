@@ -1,0 +1,16 @@
+{
+  "pattern": "backtracking",
+  "why": "Each attribute is one level of a decision tree and each allowed value is a branch; a depth-first walk that picks one value per key in order emits the Cartesian product with the first attribute changing slowest. It is the same tree as Letter Combinations of a Phone Number.",
+  "hints": [
+    "How does this compare to choosing one letter per phone digit?",
+    "DFS over attribute index i: for each value in values[i] in order, append it, recurse to i + 1, pop. When i == len(keys), record a copy of the row.",
+    "Output size is the product of list lengths (<= 10^5), and the DFS does O(len(keys)) work per row. An iterative build (start with [[]], extend by each attribute) works too."
+  ],
+  "pitfalls": [
+    "No keys means one empty assignment: return [[]].",
+    "Any attribute with an empty value list means no assignments at all: return [].",
+    "Keep the given order of values; do not sort them."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

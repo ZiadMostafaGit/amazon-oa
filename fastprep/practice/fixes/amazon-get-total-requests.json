@@ -1,0 +1,16 @@
+{
+  "pattern": "frequency-counting",
+  "why": "Every server with id replaced[j] changes at once, so individual servers do not matter, only how many servers carry each id. Keep a count per id plus a running total; each day moves a whole bucket from the old id to the new id in O(1).",
+  "hints": [
+    "All servers with the same id are replaced together. Do you ever need to tell two servers with the same id apart?",
+    "No: keep count[id] and total = sum(id * count[id]). A replacement moves count[old] servers to new, changing total by (new - old) * count[old].",
+    "Counter of server ids, then one O(1) update per day and append the total. O(n) overall instead of O(n^2) for rewriting the array daily."
+  ],
+  "pitfalls": [
+    "If replaced[j] is not present that day, nothing changes but you still report the total.",
+    "When replaced[j] == newId[j], do not delete the bucket after adding to it; handle that case (or update in an order that is safe).",
+    "Merging buckets: after day 1 of example 1 every server is 20, so the next replacement of 20 moves both servers."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

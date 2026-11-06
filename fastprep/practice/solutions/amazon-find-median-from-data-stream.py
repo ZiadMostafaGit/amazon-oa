@@ -26,3 +26,7 @@ def solve(operations: List[List[str]]) -> List[float]:
             else:
                 out.append((-low[0] + high[0]) / 2.0)
     return out
+
+
+# the bank renamed this problem's entry point
+processMedianOperations = solve

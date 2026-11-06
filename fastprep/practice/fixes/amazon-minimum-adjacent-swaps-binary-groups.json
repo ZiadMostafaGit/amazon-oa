@@ -1,0 +1,16 @@
+{
+  "pattern": "greedy",
+  "why": "With adjacent swaps, the minimum number of moves to push all 1s to one end is the number of (1, 0) pairs out of order (inversions), and the greedy count is a running prefix count. Compute it for both target orders and take the smaller.",
+  "hints": [
+    "Each adjacent swap of a 1 and a 0 fixes exactly one out-of-order pair. What does that make the minimum number of swaps?",
+    "For 'all 0s then 1s' the answer is the number of pairs i < j with bits[i] = 1 and bits[j] = 0: each 0 must pass every 1 before it. The other order counts pairs with a 0 before a 1.",
+    "One pass: keep a count of 1s (and 0s) seen; at each 0 add ones_seen, at each 1 add zeros_seen. Return the minimum of the two totals. O(n), 64-bit."
+  ],
+  "pitfalls": [
+    "Try both orders; [1,1,0,0] costs 0 one way and 4 the other.",
+    "The count reaches about n^2/4 (2.5 * 10^9), past 32 bits.",
+    "Simulating swaps (bubble sort) is O(n^2) and too slow."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

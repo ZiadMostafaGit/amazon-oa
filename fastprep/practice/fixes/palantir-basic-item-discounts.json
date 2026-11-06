@@ -1,0 +1,16 @@
+{
+ "pattern": "hash-tables",
+ "why": "Put discounts in a dictionary keyed by name, then a single pass over the cart looks up each item's percentage in O(1) and accumulates subtotal and rounded discount. The only subtlety is exact integer rounding with ties-to-even.",
+ "hints": [
+  "Matching items to discounts by name is a lookup, not a nested loop.",
+  "Build name -> percentOff once; for each item add its price to the subtotal and, if a discount exists, add round(price * pct / 100).",
+  "Do the rounding in integers: q, r = divmod(price * pct, 100); round up when 2r > 100, or when 2r == 100 and q is odd. O(items + discounts)."
+ ],
+ "pitfalls": [
+  "Round each item's discount separately before summing, not the total.",
+  "Ties go to the even cent (10.5 -> 10, 11.5 -> 12); floating-point math can misround large prices, so stay in integers.",
+  "Unmatched discounts are ignored, and the same discount applies to every item with that name."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

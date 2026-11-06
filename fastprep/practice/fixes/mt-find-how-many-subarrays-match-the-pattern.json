@@ -1,0 +1,18 @@
+{
+  "pattern": "string-matching",
+  "why": "Map each adjacent pair of numbers to its comparison sign (+1, 0, -1). A subarray of length m+1 matches exactly when its m signs equal the pattern, so the task becomes counting occurrences of pattern in the sign sequence. That is string matching, done with KMP or Z in O(n + m). This week's Sliding window + Arrays approach (compare each window directly) is O(n*m), which the source allows.",
+  "hints": [
+    "The pattern talks only about how each element compares with the one before it.",
+    "Build signs[i] = sign(numbers[i+1] - numbers[i]). Then a match is an occurrence of pattern as a contiguous block of signs.",
+    "Either slide a window of length m over signs and compare (O(n*m)), or run KMP with a failure table on pattern over signs, counting overlapping matches. O(n + m)."
+  ],
+  "pitfalls": [
+    "The subarray has m+1 elements but only m signs. Watch for off-by-one errors.",
+    "Matches may overlap. After a full KMP match, fall back with fail[m-1] instead of resetting to 0.",
+    "Equality (0) is a real symbol. Do not fold it into +1 or -1."
+  ],
+  "statement": "<p>You are given an integer array <code>numbers</code> and an array <code>pattern</code> of length <code>m</code> (with <code>numbers.length &gt; m</code>) whose entries are <code>1</code>, <code>0</code> or <code>-1</code>. A subarray <code>numbers[i..i+m]</code> of length <code>m+1</code> <b>matches</b> when, for every <code>k</code> from 0 to <code>m-1</code>:</p><ul><li><code>pattern[k] = 1</code> means <code>numbers[i+k+1] &gt; numbers[i+k]</code>;</li><li><code>pattern[k] = 0</code> means <code>numbers[i+k+1] = numbers[i+k]</code>;</li><li><code>pattern[k] = -1</code> means <code>numbers[i+k+1] &lt; numbers[i+k]</code>.</li></ul><p>Return the number of matching subarrays.</p><p><b>Example:</b> <code>numbers = [4, 1, 3, 4, 4, 5, 5, 1]</code>, <code>pattern = [1, 0, -1]</code>.</p><ul><li>Signs between neighbours: 4&rarr;1: -1, 1&rarr;3: 1, 3&rarr;4: 1, 4&rarr;4: 0, 4&rarr;5: 1, 5&rarr;5: 0, 5&rarr;1: -1, giving <code>[-1, 1, 1, 0, 1, 0, -1]</code>.</li><li><code>[1, 0, -1]</code> appears once, at signs 4..6, which is the subarray <code>[4, 5, 5, 1]</code>.</li><li>Answer: <b>1</b>.</li></ul><p>The source allows time complexity up to O(numbers.length &times; pattern.length).</p>",
+  "constraints": "<ul><li>Not stated in the source. Assume 2 &le; numbers.length &le; 10<sup>5</sup>, 1 &le; pattern.length &lt; numbers.length, -10<sup>9</sup> &le; numbers[i] &le; 10<sup>9</sup>, and pattern[k] &isin; {-1, 0, 1}.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

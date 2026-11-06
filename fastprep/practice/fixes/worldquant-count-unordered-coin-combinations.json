@@ -1,0 +1,16 @@
+{
+  "pattern": "unbounded-knapsack",
+  "why": "Each denomination can be used any number of times and order does not matter: that is the counting version of unbounded knapsack (Coin Change II). Looping over coins on the outside counts each multiset once.",
+  "hints": [
+    "If you count ways by 'last coin used', [1,2] and [2,1] get counted twice. How can you force one fixed order of coins?",
+    "Process denominations one at a time: ways[s] += ways[s - coin] for s from coin up to target. Because coins are added in a fixed order, each combination is built exactly once.",
+    "1-D array ways of size target+1 with ways[0] = 1, coin loop outer and sum loop inner (ascending, so a coin can be reused). O(len(coins) * target)."
+  ],
+  "pitfalls": [
+    "Swapping the loops (sum outer, coins inner) counts ordered sequences (permutations) instead: 7 instead of 4 for [1,2,3], 4.",
+    "target = 0 has exactly one combination, the empty one.",
+    "Iterating the sum downward would make it 0/1 knapsack (each coin used once)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

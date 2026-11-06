@@ -1,0 +1,17 @@
+{
+  "pattern": "two-pointers",
+  "why": "Every search starts from n and takes the nearest remaining branch on one side, so the next candidate on each side only ever moves outward. Two pointers, r moving right from n+1 and l moving left from n-1, skip zeros and pick alternately.",
+  "hints": [
+    "After you take the nearest branch on the right, where does the next right search start looking?",
+    "Just past it: branches are removed, so the nearest remaining one on each side is further out. Keep r and l as outward-moving pointers, skipping zero cells.",
+    "Loop while total < 100: advance r and l past zeros, take the side whose turn it is (or the other side if it is exhausted), record the index, add the length, flip the turn. O(len(forest))."
+  ],
+  "pitfalls": [
+    "The starting cell n is never collected, even if forest[n] > 0.",
+    "When one side is exhausted, the search switches to the other side; the alternation then continues from there.",
+    "Stop immediately once the total reaches 100 or more (>= 100, not > 100).",
+    "Return indices, not lengths, in pickup order."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

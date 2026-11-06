@@ -1,0 +1,98 @@
+{
+ "problemId": "nielsen-special-bst-preorder",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "9"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[12, 7, 16, 19, 41, 33, 29]"
+    }
+   ],
+   "expectedRaw": "[0, 12, 0, 16, 33, 0, 41]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[1, 26, 51, 49]"
+    }
+   ],
+   "expectedRaw": "[26, 0, 0, 51]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-1"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[]"
+    }
+   ],
+   "expectedRaw": "[]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[0]"
+    }
+   ],
+   "expectedRaw": "[0]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "8"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[12, 7, 16, 41, 19, 41, 33, 29]"
+    }
+   ],
+   "expectedRaw": "[0, 12, 0, 16, 33, 0, 41, 41]"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "7"
+    },
+    {
+     "name": "arr",
+     "type": "int[]",
+     "rawValue": "[41, 7, 16, 12, 33, 8]"
+    }
+   ],
+   "expectedRaw": "[12, 0, 0, 33, 16, 41]"
+  }
+ ]
+}

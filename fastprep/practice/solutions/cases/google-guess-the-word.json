@@ -1,0 +1,98 @@
+{
+ "problemId": "google-guess-the-word",
+ "generatedAt": "2026-11-06T15:18:27",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 4,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"acckzz\", \"eiowzz\", \"acckzz\", \"eiowzz\", \"abcczz\"]"
+    },
+    {
+     "name": "secret",
+     "type": "String",
+     "rawValue": "\"abcczz\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"eiowzz\", \"abcczz\", \"eiowzz\", \"acckzz\"]"
+    },
+    {
+     "name": "secret",
+     "type": "String",
+     "rawValue": "\"abcczz\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"eiowzz\", \"acckzz\"]"
+    },
+    {
+     "name": "secret",
+     "type": "String",
+     "rawValue": "\"acckzz\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"acckzz\", \"ccbazz\", \"eiowzz\", \"abcczz\"]"
+    },
+    {
+     "name": "secret",
+     "type": "String",
+     "rawValue": "\"ccbazz\""
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"bbbbbb\", \"aaaaaa\", \"cccccc\"]"
+    },
+    {
+     "name": "secret",
+     "type": "String",
+     "rawValue": "\"aaaaaa\""
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "words",
+     "type": "String[]",
+     "rawValue": "[\"aaaaaa\", \"cccccc\"]"
+    },
+    {
+     "name": "secret",
+     "type": "String",
+     "rawValue": "\"aaaaaa\""
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

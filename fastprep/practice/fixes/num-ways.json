@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-2d",
+  "why": "The state is (column used so far, prefix of target built). Only the count of each letter per column matters, so dp[j] += dp[j-1] * count[col][target[j-1]] while you sweep columns left to right. It is a 2-D DP compressed into one array, which is how it fits the week's 1-D DP theme, updated backwards like 0/1 knapsack so each column is used once.",
+  "hints": [
+    "Strictly increasing indices means each column contributes at most one character, in order.",
+    "Precompute cnt[col][c], the number of words with letter c at column col. Picking column col for target[j] multiplies the ways by that count.",
+    "dp[0] = 1. For each column, for j from m down to 1, set dp[j] += dp[j-1] * cnt[col][target[j-1]] mod 1e9+7. Answer dp[m]. O(width * (n + m))."
+  ],
+  "pitfalls": [
+    "Iterate j downward inside a column. Going upward would reuse the same column for two target letters.",
+    "Take the modulo at every multiply.",
+    "Different words at the same column are different ways, so multiply by the count rather than adding 1."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

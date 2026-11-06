@@ -1,0 +1,16 @@
+{
+  "pattern": "combinatorics",
+  "why": "It sits in the graphs week but needs no traversal: each of the n(n-1)/2 vertex pairs independently has an edge or not, so the count is 2^(n(n-1)/2) mod 1e9+7, a fast modular exponentiation.",
+  "hints": [
+    "How many unordered pairs of vertices are there, and how many choices does each pair have?",
+    "Pairs are independent, so the number of graphs is 2 raised to the number of pairs, n(n-1)/2.",
+    "Compute e = n*(n-1)//2 exactly (Python big ints) and return pow(2, e, 10**9 + 7). O(log e)."
+  ],
+  "pitfalls": [
+    "n = 1 has zero possible edges, so the answer is 1 (the empty graph).",
+    "n is up to 10^9, so the exponent is about 5*10^17: use modular exponentiation, never build 2^e directly.",
+    "In fixed-width languages n*(n-1) overflows 32 bits; reduce with care (the exponent may be taken mod 10^9+6 by Fermat)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

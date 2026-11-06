@@ -1,0 +1,16 @@
+{
+  "pattern": "backtracking",
+  "why": "This is a tiny skyscraper/Latin-square puzzle: place rows one at a time, keep only permutations that satisfy that row's left/right visibility clues, and prune as soon as a column repeats a value. Trying rows in sorted order makes the first full grid found the lexicographically smallest.",
+  "hints": [
+    "Each row must be a permutation of 1..4, and there are only 24 of them. Which clues can you check the moment a row is chosen?",
+    "Precompute, for each row, the permutations that match its left and right clues. Then backtrack row by row, rejecting a row that repeats a value in any column; check top and bottom clues once all four rows are placed.",
+    "Iterate candidate rows in lexicographic order and return the first complete grid; return [] if the search exhausts. At most 24^4 states, heavily pruned, so it is instant."
+  ],
+  "pitfalls": [
+    "A clue of 0 means no condition, not 'zero visible'.",
+    "Right and bottom clues are read in reverse (from the far edge), but indices still run left-to-right and top-to-bottom.",
+    "Visibility counts strictly taller buildings only: a height equal to the current max is hidden (cannot happen in a Latin row, but matters if you reuse the helper)."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

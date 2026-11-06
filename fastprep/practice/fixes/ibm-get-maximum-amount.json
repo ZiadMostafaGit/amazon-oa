@@ -1,0 +1,17 @@
+{
+  "pattern": "heap",
+  "why": "Each sale earns the current stock of the chosen type and lowers it by one, so the best next sale is always the type with the most items left. Repeatedly taking the maximum is a max-heap: pop the top q, earn q, push q - 1.",
+  "hints": [
+    "Selling from a type earns its current count and reduces that count. Which type should the next customer buy from?",
+    "Always the type with the largest remaining count; that greedy never loses because later prices only fall.",
+    "Max-heap of quantities (negate for heapq). m times: pop q, add q, push q - 1 if positive. O((n + m) log n)."
+  ],
+  "pitfalls": [
+    "The price is the remaining count before the sale, so the first item of a type with 10 items earns 10.",
+    "Use a 64-bit total: up to 10^5 sales at up to 10^5 each.",
+    "If m exceeds the total stock, stop when the heap is empty (bounds normally prevent this)."
+  ],
+  "statement": "<p>A shop has <code>n</code> item types; <code>quantity[i]</code> items of type <code>i</code> are in stock. The price of an item of type <code>i</code> equals the number of type-<code>i</code> items currently in stock (before the sale). <code>m</code> customers each buy exactly one item, and the shopkeeper chooses which type each one gets. Return the maximum total revenue from exactly <code>m</code> sales.</p><p><b>Worked example:</b> <code>quantity = [10,10,8,9,1]</code>, <code>m = 6</code></p><ul><li>Sell type 0 for 10 (stock becomes 9), then type 1 for 10 (stock 9).</li><li>Now types 0, 1 and 3 each have 9: sell each once for 9 + 9 + 9 (all drop to 8).</li><li>Sell one more at price 8.</li></ul><p>Total: 10 + 10 + 9 + 9 + 9 + 8 = <code>55</code>.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

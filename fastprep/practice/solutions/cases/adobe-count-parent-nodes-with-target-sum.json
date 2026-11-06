@@ -1,0 +1,98 @@
+{
+ "problemId": "adobe-count-parent-nodes-with-target-sum",
+ "generatedAt": "2026-11-06T15:18:19",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 20,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "String",
+     "rawValue": "\"1,2,4,#,#,5,#,#,3,#,6,#,#\""
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "String",
+     "rawValue": "\"5,3,#,#,2,#,#\""
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "String",
+     "rawValue": "\"55,3,#,#,2,#,#\""
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "9"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "String",
+     "rawValue": "\"1,24,#,#,5,#,#,3,#,6,#,#\""
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "9"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "String",
+     "rawValue": "\"55,3,#,#,2,#,#\""
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "-10"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "preorder",
+     "type": "String",
+     "rawValue": "\"1,2,4,#,#,5,#,#,3,#,6,#,#\""
+    },
+    {
+     "name": "target",
+     "type": "long",
+     "rawValue": "-11"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

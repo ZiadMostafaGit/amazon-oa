@@ -1,0 +1,16 @@
+{
+ "pattern": "binary-search-on-answer",
+ "why": "With positive entries, if every k x k square fits the threshold then every smaller square does too (a smaller square sits inside a larger one), so validity is monotone in k. Binary-search k, and check a given k in O(n^2) using a 2-D prefix-sum table for O(1) square sums.",
+ "hints": [
+  "If all 3x3 squares are within the threshold, what can you say about all 2x2 squares? Positive values make the answer monotone.",
+  "Build pre[i][j] = sum of the top-left i x j block; any k x k square sum is pre[i+k][j+k] - pre[i][j+k] - pre[i+k][j] + pre[i][j].",
+  "Binary-search k in [1, n]; for each mid scan all squares and fail fast on the first sum above threshold. O(n^2 log n)."
+ ],
+ "pitfalls": [
+  "The condition is that EVERY k x k square fits, so check the maximum square sum, not the minimum.",
+  "Return 0 when even a single cell exceeds the threshold.",
+  "Get the inclusion-exclusion signs right; an off-by-one in prefix indices silently shifts squares."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

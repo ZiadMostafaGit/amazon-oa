@@ -1,0 +1,1837 @@
+{
+ "amazon-find-min-trips": {
+  "week": 1,
+  "day": "Sun",
+  "label": "Arrays & Hashing"
+ },
+ "amazon-find-recurring-names": {
+  "week": 1,
+  "day": "Mon",
+  "label": "Arrays & Hashing"
+ },
+ "amazon-find-unique-values": {
+  "week": 1,
+  "day": "Mon",
+  "label": "Arrays & Hashing"
+ },
+ "amazon-get-distinct-pairs": {
+  "week": 1,
+  "day": "Tue",
+  "label": "Arrays & Hashing"
+ },
+ "amazon-get-max-information-gain": {
+  "week": 1,
+  "day": "Tue",
+  "label": "Arrays & Hashing"
+ },
+ "amazon-get-maximum-sum": {
+  "week": 1,
+  "day": "Wed",
+  "label": "Arrays & Hashing"
+ },
+ "amazon-get-total-requests": {
+  "week": 1,
+  "day": "Thu",
+  "label": "Arrays & Hashing"
+ },
+ "amazon-min-operation": {
+  "week": 1,
+  "day": "Sun",
+  "label": "Arrays & Hashing"
+ },
+ "amazon-group-anagrams": {
+  "week": 2,
+  "day": "Sun",
+  "label": "Arrays & Hashing"
+ },
+ "amazon-match-strings": {
+  "week": 2,
+  "day": "Tue",
+  "label": "Two Pointers"
+ },
+ "amazon-process-queries-on-cart": {
+  "week": 2,
+  "day": "Mon",
+  "label": "Arrays & Hashing"
+ },
+ "amazon-return-records": {
+  "week": 2,
+  "day": "Mon",
+  "label": "Arrays & Hashing"
+ },
+ "bcg-longest-contiguous-character-run": {
+  "week": 2,
+  "day": "Thu",
+  "label": "Two Pointers"
+ },
+ "concentric-ai-linked-list-intersection-node": {
+  "week": 2,
+  "day": "Thu",
+  "label": "Two Pointers"
+ },
+ "hrt-catch-fish-with-reusable-baits": {
+  "week": 2,
+  "day": "Wed",
+  "label": "Two Pointers"
+ },
+ "hsbc-distinct-products-after-removing-one-element": {
+  "week": 2,
+  "day": "Tue",
+  "label": "Arrays & Hashing"
+ },
+ "location-of-data-after-transfers": {
+  "week": 2,
+  "day": "Sun",
+  "label": "Arrays & Hashing"
+ },
+ "visa-collect-branches-for-nest": {
+  "week": 2,
+  "day": "Wed",
+  "label": "Two Pointers"
+ },
+ "akuna-longest-substring-without-repeating-characters": {
+  "week": 3,
+  "day": "Thu",
+  "label": "Sliding Window"
+ },
+ "amazon-dropped-requests": {
+  "week": 3,
+  "day": "Mon",
+  "label": "Sliding Window"
+ },
+ "amazon-find-ideal-days": {
+  "week": 3,
+  "day": "Mon",
+  "label": "Sliding Window"
+ },
+ "amazon-find-kth-minimum-vulnerability": {
+  "week": 3,
+  "day": "Tue",
+  "label": "Sliding Window"
+ },
+ "amazon-get-stable-periods-count": {
+  "week": 3,
+  "day": "Tue",
+  "label": "Sliding Window"
+ },
+ "headlands-sliding-window-means-ieee-floats": {
+  "week": 3,
+  "day": "Wed",
+  "label": "Sliding Window"
+ },
+ "ibm-count-increasing-contiguous-windows": {
+  "week": 3,
+  "day": "Sun",
+  "label": "Sliding Window"
+ },
+ "rippling-consistent-logs": {
+  "week": 3,
+  "day": "Wed",
+  "label": "Sliding Window"
+ },
+ "salesforce-maximum-requests-in-window": {
+  "week": 3,
+  "day": "Thu",
+  "label": "Sliding Window"
+ },
+ "tiktok-validate-3x3-digit-windows": {
+  "week": 3,
+  "day": "Sun",
+  "label": "Sliding Window"
+ },
+ "amazon-next-smaller-ticket-price": {
+  "week": 4,
+  "day": "Thu",
+  "label": "Stack"
+ },
+ "amazon-predict-answer": {
+  "week": 4,
+  "day": "Mon",
+  "label": "Stack"
+ },
+ "amazon-valid-parentheses": {
+  "week": 4,
+  "day": "Sun",
+  "label": "Stack"
+ },
+ "count-maximum-profitable-groups": {
+  "week": 4,
+  "day": "Mon",
+  "label": "Stack"
+ },
+ "erase-pairs": {
+  "week": 4,
+  "day": "Tue",
+  "label": "Stack"
+ },
+ "kickdrum-undo-redo-timeline-state-engine": {
+  "week": 4,
+  "day": "Thu",
+  "label": "Stack"
+ },
+ "maximum-score-in-balanced-string": {
+  "week": 4,
+  "day": "Tue",
+  "label": "Stack"
+ },
+ "microsoft-asteroid-collision": {
+  "week": 4,
+  "day": "Wed",
+  "label": "Stack"
+ },
+ "replit-compress-editor-actions-to-ot": {
+  "week": 4,
+  "day": "Wed",
+  "label": "Stack"
+ },
+ "wex-stack-command-output": {
+  "week": 4,
+  "day": "Sun",
+  "label": "Stack"
+ },
+ "alarm-arrange-coins": {
+  "week": 5,
+  "day": "Wed",
+  "label": "Binary Search"
+ },
+ "amazon-cinema-shows": {
+  "week": 5,
+  "day": "Mon",
+  "label": "Binary Search"
+ },
+ "amazon-find-idle-skills-query": {
+  "week": 5,
+  "day": "Mon",
+  "label": "Binary Search"
+ },
+ "amazon-find-sum-of-beauties": {
+  "week": 5,
+  "day": "Tue",
+  "label": "Binary Search"
+ },
+ "amazon-num-of-suitable-places": {
+  "week": 5,
+  "day": "Tue",
+  "label": "Binary Search"
+ },
+ "arista-networks-first-missing-number-in-consecutive-array": {
+  "week": 5,
+  "day": "Sun",
+  "label": "Binary Search"
+ },
+ "imc-choose-containers": {
+  "week": 5,
+  "day": "Thu",
+  "label": "Binary Search"
+ },
+ "stripe-subscription-and-usage-billing-calculator": {
+  "week": 5,
+  "day": "Wed",
+  "label": "Binary Search"
+ },
+ "tiktok-debugger-breakpoint-actions": {
+  "week": 5,
+  "day": "Sun",
+  "label": "Binary Search"
+ },
+ "tiktok-minimum-height-difference-between-distant-peaks": {
+  "week": 5,
+  "day": "Thu",
+  "label": "Binary Search"
+ },
+ "amazon-linked-list-queue-operations": {
+  "week": 6,
+  "day": "Tue",
+  "label": "Linked List"
+ },
+ "amazon-lru-query-result-cache": {
+  "week": 6,
+  "day": "Wed",
+  "label": "Linked List"
+ },
+ "gep-reverse-linked-list": {
+  "week": 6,
+  "day": "Sun",
+  "label": "Linked List"
+ },
+ "nvidia-middle-node-linked-list": {
+  "week": 6,
+  "day": "Wed",
+  "label": "Linked List"
+ },
+ "omnissa-build-and-check-palindrome-list": {
+  "week": 6,
+  "day": "Mon",
+  "label": "Linked List"
+ },
+ "salesforce-sorted-doubly-linked-list-to-balanced-bst": {
+  "week": 6,
+  "day": "Thu",
+  "label": "Linked List"
+ },
+ "the-walt-disney-company-design-linked-list": {
+  "week": 6,
+  "day": "Tue",
+  "label": "Linked List"
+ },
+ "upstart-buffet-day-gains": {
+  "week": 6,
+  "day": "Mon",
+  "label": "Linked List"
+ },
+ "zs-merge-two-sorted-lists": {
+  "week": 6,
+  "day": "Sun",
+  "label": "Linked List"
+ },
+ "anduril-binary-tree-preorder-traversal": {
+  "week": 7,
+  "day": "Sun",
+  "label": "Trees"
+ },
+ "atlassian-binary-tree-level-order-traversal": {
+  "week": 7,
+  "day": "Sun",
+  "label": "Trees"
+ },
+ "atlassian-leaf-similar-trees": {
+  "week": 7,
+  "day": "Mon",
+  "label": "Trees"
+ },
+ "drw-count-balanced-tree-nodes": {
+  "week": 7,
+  "day": "Wed",
+  "label": "Trees"
+ },
+ "ibm-tree-pythagorean-triples": {
+  "week": 7,
+  "day": "Wed",
+  "label": "Trees"
+ },
+ "imc-chain-of-command": {
+  "week": 7,
+  "day": "Thu",
+  "label": "Trees"
+ },
+ "inmobi-employee-subordinates": {
+  "week": 7,
+  "day": "Tue",
+  "label": "Trees"
+ },
+ "linkedin-binary-tree-zigzag-level-order": {
+  "week": 7,
+  "day": "Sun",
+  "label": "Trees"
+ },
+ "meta-first-common-ancestor-with-parent-pointers": {
+  "week": 7,
+  "day": "Mon",
+  "label": "Trees"
+ },
+ "optiver-construct-binary-tree-s-expression": {
+  "week": 7,
+  "day": "Tue",
+  "label": "Trees"
+ },
+ "twosigma-sewer-drainage-partition": {
+  "week": 7,
+  "day": "Thu",
+  "label": "Trees"
+ },
+ "amazon-cousins-in-binary-tree-ii": {
+  "week": 8,
+  "day": "Tue",
+  "label": "Trees"
+ },
+ "amazon-leaf-to-leaf-binary-tree-diameter": {
+  "week": 8,
+  "day": "Wed",
+  "label": "Trees"
+ },
+ "amazon-lowest-common-ancestor-implemented-with-stack": {
+  "week": 8,
+  "day": "Thu",
+  "label": "Trees"
+ },
+ "amazon-render-comment-hierarchy": {
+  "week": 8,
+  "day": "Tue",
+  "label": "Trees"
+ },
+ "amazon-word-break-ii": {
+  "week": 8,
+  "day": "Mon",
+  "label": "Tries"
+ },
+ "capital-one-longest-common-prefix-of-number-pairs": {
+  "week": 8,
+  "day": "Sun",
+  "label": "Tries"
+ },
+ "citadel-search-suggestions-prefix-tree": {
+  "week": 8,
+  "day": "Sun",
+  "label": "Tries"
+ },
+ "oracle-bottom-view-of-binary-tree": {
+  "week": 8,
+  "day": "Thu",
+  "label": "Trees"
+ },
+ "roblox-solution": {
+  "week": 8,
+  "day": "Mon",
+  "label": "Tries"
+ },
+ "snowflake-minimum-height": {
+  "week": 8,
+  "day": "Wed",
+  "label": "Trees"
+ },
+ "amazon-meeting-rooms-ii": {
+  "week": 9,
+  "day": "Thu",
+  "label": "Intervals"
+ },
+ "amazon-minimum-retailers": {
+  "week": 9,
+  "day": "Thu",
+  "label": "Intervals"
+ },
+ "amazon-package-delivery-system": {
+  "week": 9,
+  "day": "Mon",
+  "label": "Heap / Priority Queue"
+ },
+ "amazon-task-scheduler": {
+  "week": 9,
+  "day": "Mon",
+  "label": "Heap / Priority Queue"
+ },
+ "cognizant-kth-largest-element": {
+  "week": 9,
+  "day": "Sun",
+  "label": "Heap / Priority Queue"
+ },
+ "factset-last-stone-weight": {
+  "week": 9,
+  "day": "Sun",
+  "label": "Heap / Priority Queue"
+ },
+ "google-split-array-into-consecutive-subsequences": {
+  "week": 9,
+  "day": "Tue",
+  "label": "Heap / Priority Queue"
+ },
+ "jpmorgan-get-min-machines": {
+  "week": 9,
+  "day": "Wed",
+  "label": "Intervals"
+ },
+ "morgan-stanley-maximum-concurrent-processes": {
+  "week": 9,
+  "day": "Tue",
+  "label": "Intervals"
+ },
+ "roblox-track-received-byte-ranges": {
+  "week": 9,
+  "day": "Wed",
+  "label": "Intervals"
+ },
+ "amazon-rearrange-digits-adjacent-sum-at-most-nine": {
+  "week": 10,
+  "day": "Tue",
+  "label": "Backtracking"
+ },
+ "atlassian-letter-combinations-of-a-phone-number": {
+  "week": 10,
+  "day": "Wed",
+  "label": "Backtracking"
+ },
+ "atlassian-permutations": {
+  "week": 10,
+  "day": "Thu",
+  "label": "Backtracking"
+ },
+ "bytedance-combination-sum-ii-negative-values": {
+  "week": 10,
+  "day": "Tue",
+  "label": "Backtracking"
+ },
+ "expedia-combination-sum-ii": {
+  "week": 10,
+  "day": "Sun",
+  "label": "Backtracking"
+ },
+ "google-count-prefix-paths-in-character-graph": {
+  "week": 10,
+  "day": "Thu",
+  "label": "Backtracking"
+ },
+ "inmobi-generate-balanced-parentheses": {
+  "week": 10,
+  "day": "Mon",
+  "label": "Backtracking"
+ },
+ "pinterest-attribute-cartesian-product": {
+  "week": 10,
+  "day": "Wed",
+  "label": "Backtracking"
+ },
+ "temu-subsets": {
+  "week": 10,
+  "day": "Sun",
+  "label": "Backtracking"
+ },
+ "wex-custom-ordered-string-permutations": {
+  "week": 10,
+  "day": "Mon",
+  "label": "Backtracking"
+ },
+ "akuna-delivery-management-system": {
+  "week": 11,
+  "day": "Tue",
+  "label": "Graphs"
+ },
+ "akuna-minimize-malware-spread": {
+  "week": 11,
+  "day": "Wed",
+  "label": "Graphs"
+ },
+ "amazon-find-minimum-city-hops": {
+  "week": 11,
+  "day": "Sun",
+  "label": "Graphs"
+ },
+ "amazon-minimum-contiguous-replacements": {
+  "week": 11,
+  "day": "Mon",
+  "label": "Graphs"
+ },
+ "goldman-sachs-number-of-islands": {
+  "week": 11,
+  "day": "Sun",
+  "label": "Graphs"
+ },
+ "ibm-drawing-edge": {
+  "week": 11,
+  "day": "Sun",
+  "label": "Graphs"
+ },
+ "ibm-flight-delay-propagation": {
+  "week": 11,
+  "day": "Thu",
+  "label": "Graphs"
+ },
+ "inmobi-divisor-threshold-components": {
+  "week": 11,
+  "day": "Mon",
+  "label": "Graphs"
+ },
+ "nutanix-min-cost-to-connect-all-points": {
+  "week": 11,
+  "day": "Thu",
+  "label": "Graphs"
+ },
+ "rippling-distributed-system-recovery": {
+  "week": 11,
+  "day": "Wed",
+  "label": "Graphs"
+ },
+ "walmart-minimum-stress-path": {
+  "week": 11,
+  "day": "Tue",
+  "label": "Graphs"
+ },
+ "akuna-maximum-k-star-sum": {
+  "week": 12,
+  "day": "Thu",
+  "label": "Graphs"
+ },
+ "amazon-reconstruct-itinerary": {
+  "week": 12,
+  "day": "Sun",
+  "label": "Advanced Graphs"
+ },
+ "arcesium-detect-cycle-in-directed-hate-graph": {
+  "week": 12,
+  "day": "Thu",
+  "label": "Graphs"
+ },
+ "drw-shortest-path-rectangular-obstacles": {
+  "week": 12,
+  "day": "Mon",
+  "label": "Advanced Graphs"
+ },
+ "hsbc-minimum-cleaning-robot-runs": {
+  "week": 12,
+  "day": "Tue",
+  "label": "Graphs"
+ },
+ "imc-knight-minimum-moves-fixed-bishop": {
+  "week": 12,
+  "day": "Tue",
+  "label": "Advanced Graphs"
+ },
+ "inmobi-check-bipartite-graph": {
+  "week": 12,
+  "day": "Wed",
+  "label": "Graphs"
+ },
+ "lyft-rotten-oranges-grid-bfs": {
+  "week": 12,
+  "day": "Wed",
+  "label": "Graphs"
+ },
+ "visa-dijkstra-weighted-undirected-graph": {
+  "week": 12,
+  "day": "Mon",
+  "label": "Advanced Graphs"
+ },
+ "visa-minimum-cost-weighted-grid-path": {
+  "week": 12,
+  "day": "Sun",
+  "label": "Advanced Graphs"
+ },
+ "amazon-calculate-beauty-values": {
+  "week": 13,
+  "day": "Mon",
+  "label": "Prefix sums + Sorting"
+ },
+ "amazon-drone-delivery-route": {
+  "week": 13,
+  "day": "Tue",
+  "label": "Prefix sums + Math"
+ },
+ "amazon-maximum-equal-parts-for-prefixes": {
+  "week": 13,
+  "day": "Mon",
+  "label": "Hashing + Math"
+ },
+ "amazon-minimum-redistribution-cost": {
+  "week": 13,
+  "day": "Sun",
+  "label": "Prefix sums + Greedy"
+ },
+ "deloitte-lonest-substring-with-even-occurrences": {
+  "week": 13,
+  "day": "Sun",
+  "label": "Prefix sums + Hashing"
+ },
+ "hrt-maximum-rhombic-area-sum": {
+  "week": 13,
+  "day": "Thu",
+  "label": "Prefix sums"
+ },
+ "microsoft-equalize-arrays-with-prefix-suffix-increments": {
+  "week": 13,
+  "day": "Wed",
+  "label": "Prefix sums + Greedy"
+ },
+ "stripe-financial-account-ledger": {
+  "week": 13,
+  "day": "Tue",
+  "label": "Heap + Simulation"
+ },
+ "amazon-choose-warehouses-location": {
+  "week": 14,
+  "day": "Tue",
+  "label": "1-D Dynamic Programming"
+ },
+ "amazon-get-min-cost-book": {
+  "week": 14,
+  "day": "Mon",
+  "label": "1-D Dynamic Programming"
+ },
+ "expedia-climbing-stairs": {
+  "week": 14,
+  "day": "Sun",
+  "label": "1-D Dynamic Programming"
+ },
+ "find-minimum-inefficiency": {
+  "week": 14,
+  "day": "Mon",
+  "label": "1-D Dynamic Programming"
+ },
+ "google-count-code-with-sum": {
+  "week": 14,
+  "day": "Sun",
+  "label": "1-D Dynamic Programming"
+ },
+ "google-maximum-coins-with-moving-tokens": {
+  "week": 14,
+  "day": "Thu",
+  "label": "1-D Dynamic Programming"
+ },
+ "imc-grid-paths-with-override-passes": {
+  "week": 14,
+  "day": "Wed",
+  "label": "1-D Dynamic Programming"
+ },
+ "jpmorgan-bitwise-xor-subsequences": {
+  "week": 14,
+  "day": "Tue",
+  "label": "1-D Dynamic Programming"
+ },
+ "microsoft-maximum-escape-game-score": {
+  "week": 14,
+  "day": "Thu",
+  "label": "1-D Dynamic Programming"
+ },
+ "worldquant-count-unordered-coin-combinations": {
+  "week": 14,
+  "day": "Wed",
+  "label": "1-D Dynamic Programming"
+ },
+ "amazon-find-max-value": {
+  "week": 15,
+  "day": "Tue",
+  "label": "1-D Dynamic Programming"
+ },
+ "amazon-min-errors": {
+  "week": 15,
+  "day": "Wed",
+  "label": "1-D Dynamic Programming"
+ },
+ "purestorage-count-different-palindrome-substrings": {
+  "week": 15,
+  "day": "Thu",
+  "label": "1-D Dynamic Programming"
+ },
+ "salesforce-longest-increasing-subsequence": {
+  "week": 15,
+  "day": "Sun",
+  "label": "1-D Dynamic Programming"
+ },
+ "salesforce-minimize-total-input-cost": {
+  "week": 15,
+  "day": "Mon",
+  "label": "1-D Dynamic Programming"
+ },
+ "amazon-get-min-operations": {
+  "week": 16,
+  "day": "Mon",
+  "label": "Greedy"
+ },
+ "amazon-get-min-operations2": {
+  "week": 16,
+  "day": "Tue",
+  "label": "Greedy"
+ },
+ "amazon-minimize-array-sum-difference": {
+  "week": 16,
+  "day": "Wed",
+  "label": "Greedy"
+ },
+ "amazon-minimum-adjacent-swaps-binary-groups": {
+  "week": 16,
+  "day": "Thu",
+  "label": "Greedy"
+ },
+ "amazon-minimum-operations-to-make-array-valid": {
+  "week": 16,
+  "day": "Sun",
+  "label": "Greedy"
+ },
+ "akuna-maximize-ratings": {
+  "week": 17,
+  "day": "Mon",
+  "label": "2-D Dynamic Programming"
+ },
+ "amazon-get-min-errors": {
+  "week": 17,
+  "day": "Tue",
+  "label": "2-D Dynamic Programming"
+ },
+ "amazon-minimum-path-sum": {
+  "week": 17,
+  "day": "Wed",
+  "label": "2-D Dynamic Programming"
+ },
+ "salesforce-longest-subsequence-which-is-a-substring": {
+  "week": 17,
+  "day": "Thu",
+  "label": "2-D Dynamic Programming"
+ },
+ "target-minimum-edit-distance-string": {
+  "week": 17,
+  "day": "Sun",
+  "label": "2-D Dynamic Programming"
+ },
+ "astrotalk-edit-distance": {
+  "week": 20,
+  "day": "Mon",
+  "label": "2-D Dynamic Programming"
+ },
+ "confluent-positive-subset-sum": {
+  "week": 20,
+  "day": "Mon",
+  "label": "2-D Dynamic Programming"
+ },
+ "google-count-valid-parity-run-subsequences": {
+  "week": 20,
+  "day": "Thu",
+  "label": "2-D Dynamic Programming"
+ },
+ "grubhub-coin-change": {
+  "week": 20,
+  "day": "Sun",
+  "label": "2-D Dynamic Programming"
+ },
+ "ibm-count-increasing-subsequences-length-three": {
+  "week": 20,
+  "day": "Thu",
+  "label": "2-D Dynamic Programming"
+ },
+ "phonepe-substrings-without-target-subsequence": {
+  "week": 20,
+  "day": "Wed",
+  "label": "2-D Dynamic Programming"
+ },
+ "snowflake-efficient-cost": {
+  "week": 20,
+  "day": "Sun",
+  "label": "2-D Dynamic Programming"
+ },
+ "squarepoint-longest-subsequence-from-two-arrays": {
+  "week": 20,
+  "day": "Tue",
+  "label": "2-D Dynamic Programming"
+ },
+ "walmart-distinct-bitwise-or-scores": {
+  "week": 20,
+  "day": "Wed",
+  "label": "2-D Dynamic Programming"
+ },
+ "wellsfargo-longest-subsequence-substring": {
+  "week": 20,
+  "day": "Tue",
+  "label": "2-D Dynamic Programming"
+ },
+ "barclays-production-ratio-worker-allocation": {
+  "week": 21,
+  "day": "Wed",
+  "label": "Math & Geometry"
+ },
+ "drw-2020-account-balance": {
+  "week": 21,
+  "day": "Thu",
+  "label": "Math & Geometry"
+ },
+ "ibm-maximize-consecutive-xor": {
+  "week": 21,
+  "day": "Mon",
+  "label": "Bit Manipulation"
+ },
+ "ibm-plus-mult-array": {
+  "week": 21,
+  "day": "Wed",
+  "label": "Math & Geometry"
+ },
+ "jpmorgan-invert-ad-visibility": {
+  "week": 21,
+  "day": "Sun",
+  "label": "Bit Manipulation"
+ },
+ "microsoft-count-same-bit-numbers": {
+  "week": 21,
+  "day": "Tue",
+  "label": "Bit Manipulation"
+ },
+ "nvidia-check-endianness": {
+  "week": 21,
+  "day": "Sun",
+  "label": "Bit Manipulation"
+ },
+ "oracle-swap-two-integers-without-temporary-variable": {
+  "week": 21,
+  "day": "Mon",
+  "label": "Bit Manipulation"
+ },
+ "warehouse-allocation": {
+  "week": 21,
+  "day": "Tue",
+  "label": "Math & Geometry"
+ },
+ "amazon-find-minimum-cost": {
+  "week": 22,
+  "day": "Mon",
+  "label": "Prefix sums + Greedy"
+ },
+ "amazon-find-security-level": {
+  "week": 22,
+  "day": "Wed",
+  "label": "Prefix sums + Hashing"
+ },
+ "capital-one-dynamic-wall-range-query": {
+  "week": 22,
+  "day": "Tue",
+  "label": "Segment tree + Prefix sums"
+ },
+ "google-find-number-of-ways-to-split-array": {
+  "week": 22,
+  "day": "Tue",
+  "label": "Prefix sums + Sorting"
+ },
+ "imc-maximum-size-square-sub-matrix-with-sum-less-than-threshold": {
+  "week": 22,
+  "day": "Sun",
+  "label": "Binary search + Prefix sums"
+ },
+ "microsoft-minimum-cost-k-capable-models": {
+  "week": 22,
+  "day": "Wed",
+  "label": "Prefix sums + Greedy"
+ },
+ "palantir-basic-item-discounts": {
+  "week": 22,
+  "day": "Thu",
+  "label": "Simulation + Hashing"
+ },
+ "squadstack-minimum-seats-car-pooling": {
+  "week": 22,
+  "day": "Sun",
+  "label": "Prefix sums + Sorting"
+ },
+ "two-sigma-balanced-split-string-with-wildcards": {
+  "week": 22,
+  "day": "Mon",
+  "label": "Prefix sums + Strings"
+ },
+ "amazon-find-safest-path-in-grid": {
+  "week": 23,
+  "day": "Thu",
+  "label": "Advanced Graphs"
+ },
+ "databricks-minimize-commute": {
+  "week": 23,
+  "day": "Mon",
+  "label": "Advanced Graphs"
+ },
+ "google-swim-in-rising-water": {
+  "week": 23,
+  "day": "Sun",
+  "label": "Advanced Graphs"
+ },
+ "juspay-dynamic-weighted-tree-distance-sum": {
+  "week": 23,
+  "day": "Wed",
+  "label": "Advanced Graphs"
+ },
+ "microsoft-minimum-fuel-cost": {
+  "week": 23,
+  "day": "Tue",
+  "label": "Advanced Graphs"
+ },
+ "amazon-all-about-rewards": {
+  "week": 24,
+  "day": "Sun",
+  "label": "Sorting + Arrays"
+ },
+ "amazon-calculate-median-sum": {
+  "week": 24,
+  "day": "Wed",
+  "label": "Greedy + Sorting"
+ },
+ "amazon-find-hash": {
+  "week": 24,
+  "day": "Mon",
+  "label": "Math + Arrays"
+ },
+ "amazon-find-minimum-days": {
+  "week": 24,
+  "day": "Wed",
+  "label": "Sliding window + Binary search"
+ },
+ "amazon-find-requests-in-queue": {
+  "week": 24,
+  "day": "Thu",
+  "label": "Simulation"
+ },
+ "amazon-get-min-time": {
+  "week": 24,
+  "day": "Thu",
+  "label": "Greedy + Sorting"
+ },
+ "amazon-minimize-variation": {
+  "week": 24,
+  "day": "Sun",
+  "label": "Greedy + Sorting"
+ },
+ "amazon-select-least-resource-tasks": {
+  "week": 24,
+  "day": "Mon",
+  "label": "Arrays & Hashing"
+ },
+ "amazon-unfulfilled-bids-after-ranked-round-robin": {
+  "week": 24,
+  "day": "Tue",
+  "label": "Simulation + Sorting"
+ },
+ "max-set-size": {
+  "week": 24,
+  "day": "Tue",
+  "label": "DP + Hashing"
+ },
+ "amazon-calculate-warehouse-efficiency": {
+  "week": 25,
+  "day": "Sun",
+  "label": "Prefix sums + Greedy"
+ },
+ "amazon-find-least-possible-vulnerability": {
+  "week": 25,
+  "day": "Mon",
+  "label": "Sliding window + Binary search"
+ },
+ "amazon-find-minimum-time-required": {
+  "week": 25,
+  "day": "Tue",
+  "label": "Greedy + Hashing"
+ },
+ "amazon-get-min-time-two": {
+  "week": 25,
+  "day": "Sun",
+  "label": "Greedy + Hashing"
+ },
+ "amazon-get-minimum-changes": {
+  "week": 25,
+  "day": "Wed",
+  "label": "Hashing + Arrays"
+ },
+ "amazon-get-special-string": {
+  "week": 25,
+  "day": "Mon",
+  "label": "Greedy + Strings"
+ },
+ "amazon-make-array-distinct": {
+  "week": 25,
+  "day": "Thu",
+  "label": "Greedy + Sorting"
+ },
+ "amazon-maximize-meory-points": {
+  "week": 25,
+  "day": "Thu",
+  "label": "Prefix sums + Greedy"
+ },
+ "amazon-optimize-identifiers": {
+  "week": 25,
+  "day": "Wed",
+  "label": "Two pointers + Strings"
+ },
+ "check-similar-passwords": {
+  "week": 25,
+  "day": "Tue",
+  "label": "Two pointers + Strings"
+ },
+ "capital-one-optimal-lamp-coordinate": {
+  "week": 26,
+  "day": "Tue",
+  "label": "Sliding window + Two pointers"
+ },
+ "drw-nested-database-transactions": {
+  "week": 26,
+  "day": "Thu",
+  "label": "Stack + Design"
+ },
+ "general-motors-per-client-sliding-window-rate-limiter": {
+  "week": 26,
+  "day": "Tue",
+  "label": "Sliding window + Design"
+ },
+ "ibm-increasing-value-triplets-under-threshold": {
+  "week": 26,
+  "day": "Sun",
+  "label": "Two pointers + Sorting"
+ },
+ "ibm-minimum-disjoint-segments": {
+  "week": 26,
+  "day": "Mon",
+  "label": "Sliding window + Greedy"
+ },
+ "imc-stack-batch-removal": {
+  "week": 26,
+  "day": "Wed",
+  "label": "Stack + Simulation"
+ },
+ "jpmorgan-get-min-length": {
+  "week": 26,
+  "day": "Wed",
+  "label": "Stack + Greedy"
+ },
+ "salesforce-minimum-removals-to-balance-array": {
+  "week": 26,
+  "day": "Mon",
+  "label": "Two pointers + Greedy"
+ },
+ "tiktok-format-text": {
+  "week": 26,
+  "day": "Sun",
+  "label": "Two pointers + Simulation"
+ },
+ "amazon-employee-ratings-data-structure": {
+  "week": 27,
+  "day": "Tue",
+  "label": "Segment tree / Fenwick"
+ },
+ "atlassian-count-bitonic-subsequences": {
+  "week": 27,
+  "day": "Sun",
+  "label": "Segment tree / Fenwick"
+ },
+ "atlassian-minimum-sorted-erasure-operations": {
+  "week": 27,
+  "day": "Mon",
+  "label": "Segment tree / Fenwick"
+ },
+ "bnsf-railway-minimum-bridge-turnbacks": {
+  "week": 27,
+  "day": "Thu",
+  "label": "Segment tree / Fenwick"
+ },
+ "epic-minimum-adjacent-transpositions": {
+  "week": 27,
+  "day": "Wed",
+  "label": "Segment tree / Fenwick"
+ },
+ "pinterest-subtree-access-overrides": {
+  "week": 27,
+  "day": "Tue",
+  "label": "Segment tree / Fenwick"
+ },
+ "postman-maximum-laptop-rating": {
+  "week": 27,
+  "day": "Mon",
+  "label": "Segment tree / Fenwick"
+ },
+ "snowflake-find-pod-count": {
+  "week": 27,
+  "day": "Sun",
+  "label": "Segment tree / Fenwick"
+ },
+ "amazon-tallest-billboard": {
+  "week": 28,
+  "day": "Wed",
+  "label": "Interval / bitmask DP"
+ },
+ "google-merge-stones": {
+  "week": 28,
+  "day": "Sun",
+  "label": "Interval / bitmask DP"
+ },
+ "google-minimum-tree-value-after-leaf-relocations": {
+  "week": 28,
+  "day": "Tue",
+  "label": "Interval / bitmask DP"
+ },
+ "infosys-count-equal-distinct-character-partitions": {
+  "week": 28,
+  "day": "Mon",
+  "label": "Interval / bitmask DP"
+ },
+ "meta-partition-deck-into-fifteens": {
+  "week": 28,
+  "day": "Mon",
+  "label": "Interval / bitmask DP"
+ },
+ "rubrik-bitonic-partitioning": {
+  "week": 28,
+  "day": "Thu",
+  "label": "Interval / bitmask DP"
+ },
+ "spotnana-optimal-card-game-score": {
+  "week": 28,
+  "day": "Tue",
+  "label": "Interval / bitmask DP"
+ },
+ "tekion-coin-game-from-ends": {
+  "week": 28,
+  "day": "Sun",
+  "label": "Interval / bitmask DP"
+ },
+ "google-guess-the-word": {
+  "week": 30,
+  "day": "Wed",
+  "label": "Math + Strings"
+ },
+ "google-longest-subarray-sum-at-most-k": {
+  "week": 30,
+  "day": "Thu",
+  "label": "Segment tree + Binary search"
+ },
+ "google-minimize-absolute-difference-of-server-loads": {
+  "week": 30,
+  "day": "Mon",
+  "label": "DP + Arrays"
+ },
+ "google-minimum-cars-for-rental-requests": {
+  "week": 30,
+  "day": "Tue",
+  "label": "Heap + Intervals"
+ },
+ "google-minimum-swaps-to-sort-ternary-array-after-updates": {
+  "week": 30,
+  "day": "Sun",
+  "label": "Segment tree + Greedy"
+ },
+ "google-power-update-after-kth-largest-insertion": {
+  "week": 30,
+  "day": "Mon",
+  "label": "Segment tree + Sorting"
+ },
+ "google-reach-the-end-in-time": {
+  "week": 30,
+  "day": "Wed",
+  "label": "BFS"
+ },
+ "google-score-points": {
+  "week": 30,
+  "day": "Tue",
+  "label": "Simulation + Arrays"
+ },
+ "google-split-and-sort": {
+  "week": 30,
+  "day": "Sun",
+  "label": "Sorting + Arrays"
+ },
+ "google-assign-locker": {
+  "week": 31,
+  "day": "Tue",
+  "label": "Heap + Hashing"
+ },
+ "google-book-reading-evenings": {
+  "week": 31,
+  "day": "Wed",
+  "label": "Greedy + Simulation"
+ },
+ "google-closest-pizza-price": {
+  "week": 31,
+  "day": "Wed",
+  "label": "Binary search + Sorting"
+ },
+ "google-consolidated-on-call-rotations": {
+  "week": 31,
+  "day": "Mon",
+  "label": "Heap + Intervals"
+ },
+ "google-drive-folder-hierarchy-sync": {
+  "week": 31,
+  "day": "Mon",
+  "label": "Heap + Trees"
+ },
+ "google-find-min-distance-to-farthest-node": {
+  "week": 31,
+  "day": "Thu",
+  "label": "Trees + BFS"
+ },
+ "google-maximum-elements-with-a-common-digit": {
+  "week": 31,
+  "day": "Tue",
+  "label": "Hashing + Arrays"
+ },
+ "google-min-absolute-sum": {
+  "week": 31,
+  "day": "Sun",
+  "label": "Greedy + Arrays"
+ },
+ "google-minimum-number-of-moves-to-obtain": {
+  "week": 31,
+  "day": "Sun",
+  "label": "Greedy + Arrays"
+ },
+ "adobe-alternate-divisible-linked-list-prefix": {
+  "week": 32,
+  "day": "Mon",
+  "label": "Linked list"
+ },
+ "adobe-group-third-linked-list-nodes": {
+  "week": 32,
+  "day": "Tue",
+  "label": "Linked list"
+ },
+ "imc-rock-jumping": {
+  "week": 32,
+  "day": "Mon",
+  "label": "Binary search + Greedy"
+ },
+ "nvidia-minimize-task-resource-consumption": {
+  "week": 32,
+  "day": "Wed",
+  "label": "Linked list + Simulation"
+ },
+ "openai-largest-microorganism": {
+  "week": 32,
+  "day": "Tue",
+  "label": "Linked list + Simulation"
+ },
+ "peoplestrong-reverse-nodes-in-k-groups": {
+  "week": 32,
+  "day": "Thu",
+  "label": "Linked list + Two pointers"
+ },
+ "the-walt-disney-company-merge-k-sorted-lists": {
+  "week": 32,
+  "day": "Wed",
+  "label": "Linked list"
+ },
+ "tiktok-build-blocks-from-starting-position": {
+  "week": 32,
+  "day": "Sun",
+  "label": "Binary search + Simulation"
+ },
+ "two-sigma-linear-interpolator": {
+  "week": 32,
+  "day": "Sun",
+  "label": "Binary search + Sorting"
+ },
+ "meta-building-blocks": {
+  "week": 33,
+  "day": "Wed",
+  "label": "Binary search + Design"
+ },
+ "meta-count-fully-used-batteries": {
+  "week": 33,
+  "day": "Tue",
+  "label": "Simulation + Arrays"
+ },
+ "meta-find-all-local-maximums": {
+  "week": 33,
+  "day": "Thu",
+  "label": "Simulation"
+ },
+ "meta-in-memory-database-historical-fields": {
+  "week": 33,
+  "day": "Sun",
+  "label": "Binary search + Design"
+ },
+ "meta-minimum-stepwise-operations": {
+  "week": 33,
+  "day": "Mon",
+  "label": "Greedy + Math"
+ },
+ "mt-cave": {
+  "week": 33,
+  "day": "Sun",
+  "label": "Backtracking + DFS"
+ },
+ "mt-enumerating-narrative-sections": {
+  "week": 33,
+  "day": "Tue",
+  "label": "Sliding window + Hashing"
+ },
+ "mt-minimum-obstacles-to-remove-to-allow-figure-fall": {
+  "week": 33,
+  "day": "Wed",
+  "label": "Shortest paths"
+ },
+ "mt-search-myterious-grid": {
+  "week": 33,
+  "day": "Mon",
+  "label": "Trie + DFS"
+ },
+ "meta-compute-difference": {
+  "week": 34,
+  "day": "Tue",
+  "label": "Strings"
+ },
+ "meta-count-key-changes": {
+  "week": 34,
+  "day": "Sun",
+  "label": "Simulation + Strings"
+ },
+ "meta-highest-rating-price-ratio": {
+  "week": 34,
+  "day": "Tue",
+  "label": "Math + Arrays"
+ },
+ "meta-most-frequent-reduced-digit": {
+  "week": 34,
+  "day": "Sun",
+  "label": "Simulation + Hashing"
+ },
+ "meta-replace-consonant": {
+  "week": 34,
+  "day": "Thu",
+  "label": "Simulation + Strings"
+ },
+ "mt-busting-town-buses": {
+  "week": 34,
+  "day": "Mon",
+  "label": "Binary search + Strings"
+ },
+ "mt-closest-land-mark": {
+  "week": 34,
+  "day": "Mon",
+  "label": "Math"
+ },
+ "mt-count-three-sisters": {
+  "week": 34,
+  "day": "Wed",
+  "label": "Math"
+ },
+ "mt-find-how-many-subarrays-match-the-pattern": {
+  "week": 34,
+  "day": "Wed",
+  "label": "Sliding window + Arrays"
+ },
+ "amazon-compute-encoded-product-name": {
+  "week": 35,
+  "day": "Mon",
+  "label": "Strings: KMP / Z / hashing"
+ },
+ "amazon-find-encrypted-password": {
+  "week": 35,
+  "day": "Wed",
+  "label": "Strings: KMP / Z / hashing"
+ },
+ "count-palindromes": {
+  "week": 35,
+  "day": "Thu",
+  "label": "Strings: KMP / Z / hashing"
+ },
+ "ibm-alphabetically-smallest-palindrome": {
+  "week": 35,
+  "day": "Tue",
+  "label": "Strings: KMP / Z / hashing"
+ },
+ "kotak-first-string-occurrence": {
+  "week": 35,
+  "day": "Sun",
+  "label": "Strings: KMP / Z / hashing"
+ },
+ "nutanix-count-good-subsequences": {
+  "week": 35,
+  "day": "Sun",
+  "label": "Strings: KMP / Z / hashing"
+ },
+ "paypay-palindromic-array-transformation": {
+  "week": 35,
+  "day": "Mon",
+  "label": "Strings: KMP / Z / hashing"
+ },
+ "adyen-maximize-strength-with-disjoint-swaps": {
+  "week": 36,
+  "day": "Thu",
+  "label": "1-D Dynamic Programming"
+ },
+ "cisco-find-sub-string": {
+  "week": 36,
+  "day": "Wed",
+  "label": "1-D Dynamic Programming"
+ },
+ "citadel-get-good-value": {
+  "week": 36,
+  "day": "Tue",
+  "label": "1-D Dynamic Programming"
+ },
+ "ethos-life-recoverable-range-sum-elements": {
+  "week": 36,
+  "day": "Sun",
+  "label": "Graphs"
+ },
+ "intuit-alien-dictionary": {
+  "week": 36,
+  "day": "Sun",
+  "label": "Graphs"
+ },
+ "num-ways": {
+  "week": 36,
+  "day": "Mon",
+  "label": "1-D Dynamic Programming"
+ },
+ "stripe-evolving-merchant-clusters": {
+  "week": 36,
+  "day": "Mon",
+  "label": "Graphs"
+ },
+ "uber-balanced-permutation-subarrays": {
+  "week": 37,
+  "day": "Sun",
+  "label": "Trees"
+ },
+ "uber-count-palindromic-ancestor-paths": {
+  "week": 37,
+  "day": "Mon",
+  "label": "Trees + DFS"
+ },
+ "uber-get-balanced-string": {
+  "week": 37,
+  "day": "Thu",
+  "label": "Sliding window + Hashing"
+ },
+ "uber-jump-game-prime-3-steps": {
+  "week": 37,
+  "day": "Mon",
+  "label": "DP + Math"
+ },
+ "uber-kth-greater-element-indexes": {
+  "week": 37,
+  "day": "Wed",
+  "label": "Trees"
+ },
+ "uber-last-truck-to-leave-the-lane": {
+  "week": 37,
+  "day": "Sun",
+  "label": "Simulation + Math"
+ },
+ "uber-minimum-euclidean-plate-collection-time": {
+  "week": 37,
+  "day": "Wed",
+  "label": "Trees"
+ },
+ "uber-minimum-operations-to-reduce-to-zero": {
+  "week": 37,
+  "day": "Tue",
+  "label": "DP + Bits"
+ },
+ "uber-shopkeeper-final-price": {
+  "week": 37,
+  "day": "Tue",
+  "label": "Stack + Arrays"
+ },
+ "airbnb-in-memory-database": {
+  "week": 38,
+  "day": "Tue",
+  "label": "Design-style coding"
+ },
+ "anthropic-cloud-storage-system": {
+  "week": 38,
+  "day": "Wed",
+  "label": "Design-style coding"
+ },
+ "atlassian-peeking-iterator": {
+  "week": 38,
+  "day": "Sun",
+  "label": "Design-style coding"
+ },
+ "microsoft-authentication-system": {
+  "week": 38,
+  "day": "Thu",
+  "label": "Design-style coding"
+ },
+ "nvidia-flatten-nested-list-iterator": {
+  "week": 38,
+  "day": "Sun",
+  "label": "Design-style coding"
+ },
+ "rippling-corporate-card-rules-engine": {
+  "week": 38,
+  "day": "Mon",
+  "label": "Design-style coding"
+ },
+ "adobe-longest-fruit-path": {
+  "week": 39,
+  "day": "Wed",
+  "label": "DP + Backtracking"
+ },
+ "adobe-snapshot-budget": {
+  "week": 39,
+  "day": "Sun",
+  "label": "Segment tree + Trees"
+ },
+ "anthropic-banking-system-part-3": {
+  "week": 39,
+  "day": "Mon",
+  "label": "Heap + Design"
+ },
+ "coinbase-cloud-compute-credits-system": {
+  "week": 39,
+  "day": "Mon",
+  "label": "Heap + Design"
+ },
+ "hudson-river-trading-minimum-fixed-mirror-rotations": {
+  "week": 39,
+  "day": "Wed",
+  "label": "Backtracking + Simulation"
+ },
+ "intuit-find-median-from-data-stream": {
+  "week": 39,
+  "day": "Tue",
+  "label": "Heap + Design"
+ },
+ "jpmorgan-maximum-game-board-score": {
+  "week": 39,
+  "day": "Thu",
+  "label": "DP + Arrays"
+ },
+ "point72-initial-public-offering": {
+  "week": 39,
+  "day": "Tue",
+  "label": "Heap + Greedy"
+ },
+ "tower-research-capital-maximum-signal-walk-server-tree": {
+  "week": 39,
+  "day": "Sun",
+  "label": "DP + Trees"
+ },
+ "airbnb-city-price-medians": {
+  "week": 40,
+  "day": "Thu",
+  "label": "Heap / Priority Queue"
+ },
+ "amazon-manual-priority-queue": {
+  "week": 40,
+  "day": "Mon",
+  "label": "Heap / Priority Queue"
+ },
+ "amazon-permutation-sorter": {
+  "week": 40,
+  "day": "Sun",
+  "label": "Greedy"
+ },
+ "amazon-reorganize-string": {
+  "week": 40,
+  "day": "Wed",
+  "label": "Heap / Priority Queue"
+ },
+ "get-minimum-cost": {
+  "week": 40,
+  "day": "Tue",
+  "label": "Heap / Priority Queue"
+ },
+ "ibm-expiring-authentication-token-manager": {
+  "week": 40,
+  "day": "Sun",
+  "label": "Heap / Priority Queue"
+ },
+ "ibm-get-maximum-amount": {
+  "week": 40,
+  "day": "Mon",
+  "label": "Heap / Priority Queue"
+ },
+ "adobe-count-parent-nodes-with-target-sum": {
+  "week": 42,
+  "day": "Thu",
+  "label": "Trees + DFS"
+ },
+ "arcesium-reconstruct-root-stream": {
+  "week": 42,
+  "day": "Sun",
+  "label": "Trees + Simulation"
+ },
+ "blackrock-count-levels": {
+  "week": 42,
+  "day": "Mon",
+  "label": "Trees + BFS"
+ },
+ "intuit-kth-node-in-dfs-subtree": {
+  "week": 42,
+  "day": "Tue",
+  "label": "Trees + DFS"
+ },
+ "nielsen-special-bst-preorder": {
+  "week": 42,
+  "day": "Wed",
+  "label": "Trees + Sorting"
+ },
+ "scale-ai-lowest-common-ancestor-general-tree": {
+  "week": 42,
+  "day": "Mon",
+  "label": "Trees + Graphs"
+ },
+ "stripe-organization-role-tree-renderer": {
+  "week": 42,
+  "day": "Sun",
+  "label": "Trees + DFS"
+ },
+ "uber-binary-tree-subtree-sum-maximum-path-and-path-nodes": {
+  "week": 42,
+  "day": "Tue",
+  "label": "Trees + DFS"
+ },
+ "adobe-kth-ancestor-subtree-preorder": {
+  "week": 43,
+  "day": "Mon",
+  "label": "Binary search + Trees"
+ },
+ "jpmorgan-minimize-cost": {
+  "week": 43,
+  "day": "Wed",
+  "label": "Heap + Greedy"
+ },
+ "jpmorgan-minimum-meeting-rooms": {
+  "week": 43,
+  "day": "Tue",
+  "label": "Heap + Intervals"
+ },
+ "mathworks-minimum-diameter-after-removing-leaves": {
+  "week": 43,
+  "day": "Mon",
+  "label": "Trees + Graphs"
+ },
+ "microsoft-maximum-data-transfer-time": {
+  "week": 43,
+  "day": "Sun",
+  "label": "Trees + Graphs"
+ },
+ "rippling-validate-max-heap": {
+  "week": 43,
+  "day": "Sun",
+  "label": "Heap + Trees"
+ },
+ "susquehanna-four-by-four-boundary-grid": {
+  "week": 43,
+  "day": "Thu",
+  "label": "Backtracking"
+ },
+ "tiktok-optimize-tiktok-watch-time": {
+  "week": 43,
+  "day": "Tue",
+  "label": "Heap + Greedy"
+ },
+ "adobe-graph-m-coloring": {
+  "week": 45,
+  "day": "Sun",
+  "label": "Backtracking + Graphs"
+ },
+ "citadel-shortest-path-unweighted-graph": {
+  "week": 45,
+  "day": "Thu",
+  "label": "Graphs + BFS"
+ },
+ "elevenlabs-next-number-with-disjoint-digits": {
+  "week": 45,
+  "day": "Mon",
+  "label": "Backtracking + Math"
+ },
+ "goldman-sachs-alternating-parity-permutations": {
+  "week": 45,
+  "day": "Sun",
+  "label": "Backtracking + Arrays"
+ },
+ "roblox-longest-contiguous-house-segment": {
+  "week": 45,
+  "day": "Wed",
+  "label": "Union-find + Hashing"
+ },
+ "the-walt-disney-company-generate-parentheses": {
+  "week": 45,
+  "day": "Mon",
+  "label": "Backtracking + Strings"
+ },
+ "visa-number-of-islands-dfs-and-bfs": {
+  "week": 45,
+  "day": "Tue",
+  "label": "Graphs + BFS"
+ },
+ "intuit-shortest-path-from-encoded-graph": {
+  "week": 46,
+  "day": "Sun",
+  "label": "Shortest paths + Graphs"
+ },
+ "mathworks-shortest-route-possible-predecessors": {
+  "week": 46,
+  "day": "Thu",
+  "label": "DP + Shortest paths"
+ },
+ "openai-cogwheel-rotation-directions": {
+  "week": 46,
+  "day": "Tue",
+  "label": "Graphs + BFS"
+ },
+ "rippling-valid-dfs-order": {
+  "week": 46,
+  "day": "Mon",
+  "label": "Graphs + DFS"
+ },
+ "snowflake-minimum-clicks-between-wiki-pages": {
+  "week": 46,
+  "day": "Sun",
+  "label": "Graphs + BFS"
+ },
+ "stripe-risky-fraud-ring": {
+  "week": 46,
+  "day": "Wed",
+  "label": "Graphs + BFS"
+ },
+ "superhuman-mutual-friend-recommendations": {
+  "week": 46,
+  "day": "Mon",
+  "label": "Graphs + Sorting"
+ },
+ "adobe-maze-reachability": {
+  "week": 47,
+  "day": "Mon",
+  "label": "Graphs + BFS"
+ },
+ "capitalone-count-house-segments-after-destruction": {
+  "week": 47,
+  "day": "Tue",
+  "label": "Union-find + Arrays"
+ },
+ "concentric-ai-maximum-profit-under-or-limit": {
+  "week": 47,
+  "day": "Thu",
+  "label": "DP + Bits"
+ },
+ "drw-doctor-appointment-slot-assignment": {
+  "week": 47,
+  "day": "Sun",
+  "label": "Union-find + Graphs"
+ },
+ "intuit-safest-grid-path": {
+  "week": 47,
+  "day": "Mon",
+  "label": "Heap + Binary search"
+ },
+ "stripe-fraud-ring-size": {
+  "week": 47,
+  "day": "Sun",
+  "label": "Graphs + BFS"
+ },
+ "visa-minimum-unreachable-warehouses": {
+  "week": 47,
+  "day": "Wed",
+  "label": "Union-find + Graphs"
+ },
+ "akuna-maximum-remaining-drone-power": {
+  "week": 50,
+  "day": "optional",
+  "label": "DP"
+ },
+ "amazon-maximize-protected-city-population": {
+  "week": 50,
+  "day": "optional",
+  "label": "DP + Greedy"
+ },
+ "confluent-count-weight-combinations": {
+  "week": 50,
+  "day": "optional",
+  "label": "DP"
+ },
+ "flextrade-best-time-to-buy-and-sell-stock": {
+  "week": 50,
+  "day": "optional",
+  "label": "DP + Greedy"
+ },
+ "microsoft-maximum-score-with-prime-jumps": {
+  "week": 50,
+  "day": "optional",
+  "label": "DP + Math"
+ },
+ "confluent-reach-target-balance": {
+  "week": 51,
+  "day": "optional",
+  "label": "DP + Arrays"
+ },
+ "hrt-count-sawtooth-subarrays": {
+  "week": 51,
+  "day": "optional",
+  "label": "DP + Arrays"
+ },
+ "optiver-count-bounded-share-transactions": {
+  "week": 51,
+  "day": "optional",
+  "label": "DP + Simulation"
+ },
+ "roblox-cat-route-budget-game-adaptation": {
+  "week": 51,
+  "day": "optional",
+  "label": "DP + Arrays"
+ },
+ "shopify-zero-one-knapsack": {
+  "week": 51,
+  "day": "optional",
+  "label": "DP"
+ }
+}

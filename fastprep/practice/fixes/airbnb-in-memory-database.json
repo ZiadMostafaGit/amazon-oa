@@ -1,0 +1,17 @@
+{
+  "pattern": "design-data-structure",
+  "why": "A design-style task: a dict of records, each a dict of field -> (value, expiry). Levels add sorted scans, TTL checks on read, and backups that store remaining TTLs and re-base them on restore.",
+  "hints": [
+    "Model the database as key -> {field: (value, expiresAt or None)}. Every read filters out fields whose expiry has passed.",
+    "TTL is a half-open interval [timestamp, timestamp + ttl): a field is alive at time t iff expiresAt is None or t < expiresAt. Scans sort the alive fields by name and format them as field(value).",
+    "For backup, deep-copy alive fields as (value, remaining = expiresAt - t). For restore at time t, find the latest backup at or before timestampToRestore (bisect on backup times) and rebuild with expiresAt = t + remaining. Each op is O(fields in the record log fields)."
+  ],
+  "pitfalls": [
+    "A field that expires exactly at t is already gone at t.",
+    "delete on an expired field returns false.",
+    "backup counts only non-empty records after dropping expired fields.",
+    "A restored record keeps its remaining TTL measured at backup time, not its original TTL."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

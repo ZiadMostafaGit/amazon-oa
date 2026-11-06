@@ -1,0 +1,128 @@
+{
+ "problemId": "adobe-snapshot-budget",
+ "generatedAt": "2026-11-06T15:18:19",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 1,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "1"
+    },
+    {
+     "name": "maxCost",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[1]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxCost",
+     "type": "int",
+     "rawValue": "-2"
+    },
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[0, 1, -1]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "5"
+    },
+    {
+     "name": "maxCost",
+     "type": "int",
+     "rawValue": "2"
+    },
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[0, 1, 2, 4, 5]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "maxCost",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[0, 1, 1, 1]"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "maxCost",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[0, 1, 2, 3, 4, 3]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-3"
+    },
+    {
+     "name": "maxCost",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "parents",
+     "type": "int[]",
+     "rawValue": "[-3, 4, 1, -4, -4]"
+    }
+   ],
+   "expectedRaw": "0"
+  }
+ ]
+}

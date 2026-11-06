@@ -1,0 +1,17 @@
+{
+  "pattern": "dfs",
+  "why": "The directive order is a preorder DFS that visits children in ascending index. In a preorder (Euler tour) array, every subtree is a contiguous block starting at its root, so the kth receiver from startNode is order[tin[startNode] + k - 1] whenever k <= subtree size.",
+  "hints": [
+    "Write out the receive order from the root and from a child. How does the child's order sit inside the root's order?",
+    "Do one preorder DFS from person 1 with children sorted ascending. Record tin[v] (position in the order) and size[v]. The subtree of v is order[tin[v] : tin[v] + size[v]].",
+    "Each query is then O(1): return -1 if k > size[start], else order[tin[start] + k - 1]. Iterative DFS, O(n log n) for sorting children (already sorted if you build them by increasing index), O(n + q) after that."
+  ],
+  "pitfalls": [
+    "Re-running a DFS per query is O(n * q), far too slow for 2 * 10^5 queries.",
+    "parent[i] describes person i + 1; persons are 1-indexed.",
+    "Children must be visited in ascending index order.",
+    "Recursion depth up to 10^5 crashes Python; use an explicit stack."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,18 @@
+{
+ "pattern": "multi-source-bfs",
+ "why": "First compute every cell's distance to the nearest thief with one BFS started from all thieves at once (multi-source BFS). Then the task is a bottleneck path: maximise the minimum distance along a route, solved by a max-heap Dijkstra (or binary search on the answer with a reachability BFS).",
+ "hints": [
+  "Two separate questions: how far is each cell from its nearest thief, and which route keeps that number as large as possible at its worst point?",
+  "Seed a BFS queue with every thief at distance 0; one pass gives Manhattan distance to the nearest thief for every cell (moves are 4-directional, so BFS distance equals Manhattan distance on an open grid).",
+  "Run Dijkstra with a max-heap where a path's value is the minimum distance seen; pop the best cell, stop at (n-1, n-1). O(n^2 log n). Binary search on the answer plus BFS is an alternative."
+ ],
+ "pitfalls": [
+  "If the start or end holds a thief the answer is 0 immediately.",
+  "Running a BFS from each thief separately is O(thieves * n^2) and too slow.",
+  "Use min along the path, not sum."
+ ],
+ "statement": "<p>You are given an <code>n x n</code> grid where <code>1</code> marks a thief and <code>0</code> an empty cell. Walk from <code>(0,0)</code> to <code>(n-1,n-1)</code> moving up, down, left or right; you may step on thief cells.</p><p>For a cell, its <b>danger distance</b> is the Manhattan distance to the nearest thief. The <b>safeness factor</b> of a path is the smallest danger distance among all cells on it (start and end included). Return the largest safeness factor any path can achieve.</p><p><b>Example:</b> <code>grid = [[0,0,1],[0,0,0],[0,0,0]]</code> (one thief at <code>(0,2)</code>).</p><ul><li>Danger distances: row 0 is <code>2 1 0</code>, row 1 is <code>3 2 1</code>, row 2 is <code>4 3 2</code>.</li><li>Path down the left column then along the bottom visits distances 2, 3, 4, 3, 2: its minimum is 2.</li><li>The start and the end both have distance 2, so no path can do better. The answer is <code>2</code>.</li></ul><p>For the published example <code>[[1,0,0],[0,0,0],[0,0,1]]</code> the start and end hold thieves, so every path scores <code>0</code>.</p>",
+ "constraints": "<ul><li>Not stated in the source; this is LeetCode 2812, whose bounds are <code>1 &lt;= n &lt;= 400</code>, <code>grid[i][j]</code> is 0 or 1, and the grid contains at least one thief.</li></ul>",
+ "by": "claude",
+ "at": "2026-11-06"
+}

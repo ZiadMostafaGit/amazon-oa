@@ -1,0 +1,16 @@
+{
+ "pattern": "prefix-sums",
+ "why": "It looks like a 2-D DP over (position, choice), but an exchange argument shows the best filling is always a split: the first k '!' all get the cheaper-to-put-first digit and the rest get the other. With prefix counts of 0s and 1s you price every split k in O(1), so it is prefix sums plus a scan over k.",
+ "hints": [
+  "Count the cost of a fixed string first: each '1' adds x times the zeros before it, each '0' adds y times the ones before it. Prefix counts make that O(n).",
+  "If x <= y, '01' pairs are cheaper than '10', so among the '!' positions you never want a 1 before a 0; the optimal filling is 0...0 then 1...1 over the '!' (reverse when x > y). Only the split point k is unknown.",
+  "For each '!' precompute its cost against the fixed characters if it became 0 and if it became 1; prefix-sum the 'first digit' costs, suffix-sum the 'second digit' costs, add k*(m-k)*min(x,y) for pairs among the '!' themselves, and take the minimum over k. O(n), then reduce mod 1e9+7 at the very end."
+ ],
+ "pitfalls": [
+  "Do not take the modulo before comparing candidate totals; compare exact values (Python ints) and reduce only the minimum.",
+  "Pairs between two '!' characters also cost x or y; forgetting the k*(m-k) term breaks the all-'!' case.",
+  "A string with no '!' still has a cost (the base), and x or y may be 0."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

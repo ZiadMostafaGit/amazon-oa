@@ -1,0 +1,16 @@
+{
+ "pattern": "dp-strings",
+ "why": "For each query you compare it against every candidate with the classic edit-distance DP (dp[i][j] = cost to turn a[:i] into b[:j]), then keep the closest candidate with a lexicographic tie-break. The outer loops are plain iteration; the work is the 2-D string DP.",
+ "hints": [
+  "Bounds are tiny (100 candidates, 50 queries, length 50), so computing every pairwise edit distance is fine.",
+  "Edit distance: dp[i][j] = dp[i-1][j-1] if the characters match, else 1 + min(replace dp[i-1][j-1], delete dp[i-1][j], insert dp[i][j-1]), with dp[i][0] = i and dp[0][j] = j.",
+  "For each query loop over candidates, compute the distance with a rolling row, and keep (distance, string) minimum. About 5000 pairs x 2500 cells."
+ ],
+ "pitfalls": [
+  "Ties go to the lexicographically smallest candidate, comparing exact characters (uppercase sorts before lowercase in ASCII).",
+  "Comparison is case-sensitive: 'Apple' and 'apple' differ by one replacement.",
+  "Return one string per query, in query order."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

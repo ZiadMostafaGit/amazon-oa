@@ -1,0 +1,17 @@
+{
+ "pattern": "binary-search",
+ "why": "After sorting the knots by x, evaluating LI(x_input) is just finding the segment that brackets x_input, a lower_bound binary search, then applying the line through its two endpoints. Duplicated x values and extrapolation are the only extra rules.",
+ "hints": [
+  "Sort the knots by x. Which two knots does x_input fall between?",
+  "Binary search the sorted distinct x's for the bracketing pair; outside the range use the first two or the last two knots. For a repeated x, that knot's y is its smallest y when x_input <= x and its largest y when x_input > x.",
+  "Collapse duplicates into (x, minY, maxY), sort, bisect, then y = y0 + (y1 - y0) * (x_input - x0) / (x1 - x0). O(n log n) for the sort, O(log n) for the lookup."
+ ],
+ "pitfalls": [
+  "Extrapolation uses the slope of the two nearest knots, not a flat value.",
+  "Duplicate x's would make a zero-length segment and a division by zero; collapse them first.",
+  "If x_input equals a knot's x exactly, return that knot's y (with the tie rule for duplicates).",
+  "The inputs need not be sorted."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

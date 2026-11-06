@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-1d",
+  "why": "Instead of checking 2 * window comparisons around every day, precompute two run lengths: down[i] = how many steps the forecast has been non-increasing ending at i, and up[i] = how many steps it stays non-decreasing starting at i. Day i is ideal when both are >= window. That is a one-pass recurrence (1-D DP), the efficient replacement for re-scanning each sliding window.",
+  "hints": [
+    "Checking each day's full window costs O(n * window), up to 4 * 10^10. What could you reuse from day i - 1 when looking at day i?",
+    "If forecast[i-1] >= forecast[i], the non-increasing streak ending at i is the streak ending at i-1 plus one; otherwise it resets to 0. A mirror-image pass from the right gives the non-decreasing streak starting at i.",
+    "Fill down[] left to right and up[] right to left, then collect i + 1 for every i with down[i] >= window and up[i] >= window. O(n) time and memory."
+  ],
+  "pitfalls": [
+    "Equal neighbours satisfy both conditions (>= and <=); do not use strict comparisons.",
+    "The day needs window full days on both sides; days near the edges cannot qualify, which the streak counts handle automatically.",
+    "Return 1-based day numbers, not 0-based indices."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

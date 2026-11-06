@@ -1,0 +1,16 @@
+{
+  "pattern": "trees",
+  "why": "The longest transfer between two servers is the tree's diameter in edges. Two BFS passes find it: the farthest node from any start is one end of a diameter, and the farthest node from that end gives the length.",
+  "hints": [
+    "The answer is the longest shortest path in the tree. Is there a trick faster than BFS from every node?",
+    "The farthest node from any starting server is an endpoint of some longest path.",
+    "BFS from server 1 to find the farthest node a, then BFS from a; the largest distance is the answer. O(n)."
+  ],
+  "pitfalls": [
+    "A single server means time 0 (no edges).",
+    "Servers are numbered from 1; size arrays g_nodes + 1.",
+    "Recursive DFS can overflow on a 5*10^4 chain; use BFS."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

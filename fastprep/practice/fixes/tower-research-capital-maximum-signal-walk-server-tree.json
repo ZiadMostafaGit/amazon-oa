@@ -1,0 +1,17 @@
+{
+  "pattern": "tree-dp",
+  "why": "Because a walk can revisit servers freely, the set of servers it touches can be any connected subtree, and Y = (+/-) 2^(sum of |signals|) with a plus sign iff that set has an even number of negative servers. So maximise the sum of |signals| over connected subtrees with even negative parity: a tree DP with a parity bit.",
+  "hints": [
+    "What sets of servers can a walk visit, given it may go back and forth? And how does Y depend on that set?",
+    "Any connected subset is reachable. |Y| is 2 to the sum of |signals|, and the sign is negative iff the count of negative servers is odd. Comparing powers of two means comparing exponents.",
+    "dp[v][p] = best |signal| sum of a connected set whose top is v and whose negative-count parity is p; merge each child by optionally attaching its dp (parities add). Answer = max dp[v][0], then pow(2, best, MOD). O(n) with an iterative post-order."
+  ],
+  "pitfalls": [
+    "Do not compare values modulo 998244353; compare the exponents (sums), which reach 10^14.",
+    "With n = 1 and a negative signal the only walk gives a negative Y; return (-2^|s|) mod p.",
+    "With n >= 2 a positive answer always exists (a positive node alone, or two adjacent negatives).",
+    "Recursion on a 10^5-deep chain overflows; process nodes in reverse BFS order."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "graphs",
+  "why": "Connecting all points with the cheapest set of links and exactly one path between any two is a minimum spanning tree on the complete graph with Manhattan-distance weights. With n <= 1000 the dense O(n^2) Prim is the right tool.",
+  "hints": [
+    "'Exactly one simple path between any two points' describes a tree. Which tree are you after?",
+    "This is a minimum spanning tree. On a complete graph with up to 10^6 edges, Prim's algorithm with an array of 'cheapest link to the tree so far' beats sorting all edges for Kruskal.",
+    "dist[i] = cost to attach i; repeat n times: pick the unattached point with the smallest dist, add it to the answer, update dist for all others with the Manhattan distance. O(n^2) time, O(n) memory."
+  ],
+  "pitfalls": [
+    "A single point costs 0.",
+    "Building and sorting all n^2/2 edges for Kruskal works but is slow and memory-heavy in Python at n = 1000.",
+    "Use Manhattan distance |dx| + |dy|, not Euclidean."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

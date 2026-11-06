@@ -1,0 +1,18 @@
+{
+  "pattern": "sliding-window",
+  "why": "Count subarrays that contain at least k disjoint equal-value pairs. The number of pairs in a window is the sum over values of floor(count/2), and it can only grow as the window grows. That monotonicity is what makes the 'count subarrays with at least k' two-pointer trick work, with a hash map holding the counts.",
+  "hints": [
+    "Pairs must use distinct indices, so a value seen c times contributes c // 2 pairs, not c*(c-1)/2.",
+    "If [l..r] has at least k pairs, every larger window [l'..r] with l' <= l does too. So for each right end there is a largest valid left end L, and all starts 0..L work.",
+    "Keep a count map and the running pair total. Extend r, then advance l while the window without bucket[l] still has at least k pairs. If the window is valid, add l+1. O(n)."
+  ],
+  "pitfalls": [
+    "Use floor(count/2), not 'number of equal pairs'. The second example in the original ([2,2,2,2,2,2], k=3) has exactly one valid subarray.",
+    "Removing an element lowers the pair count only when its value's count was even.",
+    "Only add to the answer when the current window actually reaches k pairs."
+  ],
+  "statement": "<p>You are given an integer array <code>bucket</code> (called <code>numbers</code> in the original) and a positive integer <code>n</code> (called <code>k</code> there). Count the <b>contiguous subarrays</b> <code>bucket[i..j]</code> that contain at least <code>n</code> pairs of equal values.</p><p>Formally, the subarray must contain <code>2n</code> elements at <b>pairwise distinct</b> indices <code>i1, j1, ..., in, jn</code> (all inside <code>[i, j]</code>) with <code>bucket[i1] = bucket[j1]</code>, ..., <code>bucket[in] = bucket[jn]</code>. In other words, a value appearing <code>c</code> times in the subarray gives <code>c // 2</code> pairs.</p><p><b>Example:</b> <code>bucket = [0, 1, 0, 1, 0]</code>, <code>n = 2</code> gives <b>3</b>.</p><ul><li><code>[0..3] = [0,1,0,1]</code>: one pair of 0s and one pair of 1s, so 2 pairs.</li><li><code>[1..4] = [1,0,1,0]</code>: 2 pairs.</li><li><code>[0..4] = [0,1,0,1,0]</code>: three 0s give 1 pair and two 1s give 1 pair, so 2 pairs.</li><li>Every shorter subarray has at most 1 pair.</li></ul><p>Another example: <code>[2,2,2,2,2,2]</code> with <code>n = 3</code> gives <b>1</b>, because only the whole array has three pairs.</p>",
+  "constraints": "<ul><li>Not stated in the source. Assume 1 &le; bucket.length &le; 10<sup>5</sup>, 1 &le; n &le; 10<sup>5</sup> and 0 &le; bucket[i] &le; 10<sup>9</sup>.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

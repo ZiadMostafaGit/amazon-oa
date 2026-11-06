@@ -1,0 +1,17 @@
+{
+  "pattern": "design-data-structure",
+  "why": "Each (key, field) keeps an append-only list of versions [start, end, value]. A SET closes the open version and appends a new one, and a DELETE closes it. GET_WHEN(at) is a binary search for the last version whose start is <= at, followed by a check that at < end. That combines the week's two themes, design and binary search.",
+  "hints": [
+    "Never overwrite history. Think of each field as a timeline of half-open intervals [start, end).",
+    "A version ends at the earliest of start+ttl (when ttl > 0), the next SET, or the next DELETE. On a SET or DELETE at time t, set the open version's end to min(end, t).",
+    "Store, per (key, field), parallel lists of starts, ends and values. Starts are increasing because timestamps are, so GET_WHEN uses bisect_right(starts, at) - 1 and then checks at < end. Each query costs O(log versions)."
+  ],
+  "pitfalls": [
+    "ttl = 0 means the value never expires, not that it expires at once.",
+    "End is exclusive: a value set at 5 with ttl 5 is gone at time 10.",
+    "Deleting an already-expired field must not extend or change its end.",
+    "Historical time 0 is a real timestamp. Do not treat it as 'now'."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "frequency-counting",
+  "why": "Trips only ever combine packages of one weight, so the weights are independent: count each weight's packages in a hash map and answer per count. A count c costs ceil(c/3) trips (any c >= 2 splits into 3s and 2s), and a count of 1 makes delivery impossible.",
+  "hints": [
+    "Packages of different weights never share a trip. What single number per weight decides everything?",
+    "For a weight that appears c times you want to cover c with as few 2s and 3s as possible. Use as many 3s as you can; when the remainder is 1, trade one 3 for two 2s. That works out to ceil(c/3) for every c >= 2.",
+    "Build a Counter of weights in O(n), return -1 if any count is 1, otherwise sum (c + 2) // 3 over the counts."
+  ],
+  "pitfalls": [
+    "A weight appearing exactly once makes the whole answer -1, not just that weight's contribution.",
+    "c = 4 is 2 trips (2+2), not 3+1; c = 7 is 3 trips (3+2+2). Check that your formula handles remainder 1.",
+    "Do not sort and scan greedily across weights; the counts are all that matter."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

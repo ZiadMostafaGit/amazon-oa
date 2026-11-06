@@ -1,0 +1,16 @@
+{
+ "pattern": "greedy-exchange",
+ "why": "Reading chapters in some order scores the sum of prefix sums, so the chapter read k-th is counted (n-k+1) times. Swapping two adjacent chapters shows the larger one should come first: sort descending and weight by n, n-1, ..., 1.",
+ "hints": [
+  "Write the total as a sum of prefix sums. How many times is the first chapter you read counted? The last?",
+  "The chapter in position k (1-based) contributes (n - k + 1) * value. An exchange argument says the biggest value should get the biggest multiplier.",
+  "Sort memory descending and return sum of (n - i) * memory[i] for 0-based i. O(n log n)."
+ ],
+ "pitfalls": [
+  "Values can be negative; descending order still holds, and negatives land where they are counted fewest times.",
+  "The total can exceed 32-bit; use 64-bit in other languages."
+ ],
+ "statement": "<p>A course has <code>n</code> chapters; reading chapter <code>i</code> is worth <code>memory[i]</code> points (it may be negative). You read every chapter exactly once, in an order you choose. When you read a chapter you also revisit all chapters read before it, so you score the <b>sum of all chapters read so far</b>, including the current one.</p><p>Return the maximum possible total score.</p><p><b>Worked example:</b> <code>memory = [3, 4, 5]</code>. Read in order 5, 4, 3:</p><ul><li>Read 5: score 5.</li><li>Read 4: score 5 + 4 = 9.</li><li>Read 3: score 5 + 4 + 3 = 12.</li><li>Total 5 + 9 + 12 = <b>26</b>. Any other order is lower; for example 3, 4, 5 gives 3 + 7 + 12 = 22.</li></ul>",
+ "constraints": "<ul><li>Not stated in the source; reasonable bounds: 1 &le; n &le; 10^5</li><li>-10^9 &le; memory[i] &le; 10^9</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

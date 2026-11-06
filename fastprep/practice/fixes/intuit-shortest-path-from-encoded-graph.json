@@ -1,0 +1,16 @@
+{
+  "pattern": "bfs",
+  "why": "After parsing the strings into an undirected unweighted graph, the shortest route from the first listed node to the last is a BFS from the first node; storing each node's parent when discovered lets you rebuild the route and join it with hyphens.",
+  "hints": [
+    "First turn the array into a graph: the count, then N names, then 'A-B' edges. Which traversal finds a fewest-edges path?",
+    "BFS from the first name. Record parent[v] when v is first discovered, then walk back from the last name to rebuild the path.",
+    "Adjacency dict keyed by name; BFS O(N + E); reverse the parent chain and join with '-'. Return \"-1\" if the last node was never reached."
+  ],
+  "pitfalls": [
+    "Names can contain spaces (\"Main Street\"); split edges on the hyphen, not on whitespace.",
+    "Edges work both ways.",
+    "The answer for no path is the string \"-1\"."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

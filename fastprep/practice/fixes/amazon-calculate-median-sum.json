@@ -1,0 +1,17 @@
+{
+ "pattern": "greedy",
+ "why": "You must split the packets into exactly n non-empty channels and maximise the sum of medians. Exchange argument: giving each of the n-1 largest packets its own channel makes each of those medians as large as possible, and the leftover packets form one channel whose median is fixed; sort, then sum.",
+ "hints": [
+  "A channel with one packet has that packet as its median. Which packets deserve a channel to themselves?",
+  "Put the n-1 largest packets in singleton channels; all remaining packets go in the last channel. Moving a big packet into a crowded channel can only pull its contribution down.",
+  "Sort ascending, add the top n-1 values, then add the median of the remaining prefix (average of the two middle values if its length is even). Work in doubled integers to keep the .5 exact, and round .5 up at the end. O(m log m)."
+ ],
+ "pitfalls": [
+  "The median of an even-sized channel is the average of the two middle values and can be x.5; the final sum is rounded half up (7.5 becomes 8).",
+  "Round only the final total, not each channel, or you can be off by one.",
+  "If n equals the number of packets, every packet is alone and the answer is the plain sum."
+ ],
+ "statement": "<p>You have <code>m</code> packets with sizes <code>packets[i]</code> and <code>n</code> channels. Assign every packet to exactly one channel so that every channel gets <b>at least one</b> packet.</p><p>The quality of a channel is the <b>median</b> of the packet sizes in it (for an even count, the average of the two middle sizes). The total quality is the sum of the channel qualities; if it is not an integer (it ends in .5), round it up. Return the maximum possible total quality.</p><p><b>Worked example:</b> <code>packets = [1, 2, 3, 4, 5]</code>, <code>n = 2</code>.</p><ul><li>Give the largest packet its own channel: <code>{5}</code>, median 5.</li><li>Everything else goes to the other channel: <code>{1, 2, 3, 4}</code>, median (2 + 3) / 2 = 2.5.</li><li>Total 5 + 2.5 = 7.5, rounded to <b>8</b>. No other split does better (for example <code>{1,2,3}</code>, <code>{4,5}</code> gives 2 + 4.5 = 6.5).</li></ul>",
+ "constraints": "<ul><li>Not stated in the source; reasonable bounds: 1 &le; n &le; m &le; 10^5</li><li>1 &le; packets[i] &le; 10^9</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+ "pattern": "heap",
+ "why": "'Lowest available locker number' is a min-heap of freed lockers plus a counter for lockers never used; a hash map from customer to locker tells whether a visit is an arrival or a release. That is the week's heap + hashing combination exactly.",
+ "hints": [
+  "Each visit is either an arrival (no locker yet) or a departure (has a locker). What do you need to look up to tell which?",
+  "Keep a dict name -> locker. On departure push the locker into a min-heap of free lockers; on arrival pop the smallest free locker, or use the next brand-new number if the heap is empty.",
+  "Track the last locker handed out. O(N log N) time."
+ ],
+ "pitfalls": [
+  "The answer is the last locker ASSIGNED, not the last visit's locker; a final release does not change it (Alice releasing at the end in the example).",
+  "A customer who released a locker and returns later gets a fresh assignment, so delete them from the dict on release.",
+  "Always prefer a freed lower number over a new one."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

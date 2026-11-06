@@ -1,0 +1,16 @@
+{
+  "pattern": "bst",
+  "why": "A sorted sequence becomes a height-balanced BST by making the middle element the root and recursing on the left and right halves. The linked-list twist is that you re-point the existing prev/next fields as left/right instead of allocating tree nodes.",
+  "hints": [
+    "In a balanced BST built from sorted values, which value is the root? The middle one, so half the values go each side.",
+    "Recurse on index ranges [lo, hi]: mid = (lo + hi) // 2 (the lower middle for even sizes), left = build(lo, mid - 1), right = build(mid + 1, hi), and set parent of both children to mid.",
+    "Use an explicit stack or rely on depth being only O(log n). Fill a [index, left, right, parent] row per node: O(n) time, O(n) for the output."
+  ],
+  "pitfalls": [
+    "Even-sized segments must use the lower middle, (lo + hi) // 2, or the table will not match.",
+    "Every link not set must be -1, including the root's parent.",
+    "Walking the list to find each middle costs O(n log n); index arithmetic on the array avoids that."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

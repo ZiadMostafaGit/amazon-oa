@@ -1,0 +1,15 @@
+{
+ "pattern": "simulation",
+ "why": "The rules describe exactly how inventory flows: sort bids by amount descending, and within an amount by (bidPlacedAt, customerId), then hand out one unit per bid per cycle. Simulating with a queue that re-appends a bid while it still needs units is direct and fits because total quantity is at most 2 * 10^5.",
+ "hints": [
+  "Group bids by bidAmount and handle groups from highest to lowest. Inside a group, what order do units go out in?",
+  "Within a group the allocation is round-robin: a queue ordered by (bidPlacedAt, customerId); pop a bid, give it one unit, push it back if it still needs more.",
+  "Simulate until the group is empty or inventory hits 0; any bid left in the queue, and every bid in later groups, is unfulfilled. Sort those ids. Time O(total quantity + n log n)."
+ ],
+ "pitfalls": [
+  "Once inventory is 0, every remaining bid in lower groups is unfulfilled (it received 0 units), not skipped.",
+  "Return ids sorted ascending, not in allocation order.",
+  "A partially filled bid counts as unfulfilled."
+ ],
+ "by": "claude", "at": "2026-11-06"
+}

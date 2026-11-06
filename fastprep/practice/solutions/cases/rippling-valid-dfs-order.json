@@ -1,0 +1,128 @@
+{
+ "problemId": "rippling-valid-dfs-order",
+ "generatedAt": "2026-11-06T15:18:36",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "11"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 5], [5, 4], [1, 8], [4, 9], [4, 7], [4, 2], [2, 3], [2, 6]]"
+    },
+    {
+     "name": "order",
+     "type": "int[]",
+     "rawValue": "[0, 5, 1, 8, 4, 7, 9, 2, 8]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 5], [5, 1], [5, 4], [1, 8], [4, 9], [2, 5], [4, 2], [2, 3], [2, 6]]"
+    },
+    {
+     "name": "order",
+     "type": "int[]",
+     "rawValue": "[8, 1, 5, 4, 7, 6, 9, 2, 3, 6]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 1], [0, 2], [0, 2], [1, 3], [2, 3]]"
+    },
+    {
+     "name": "order",
+     "type": "int[]",
+     "rawValue": "[2, 2]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "-6"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[-5], [2, -7, -1, -2], [1, -1]]"
+    },
+    {
+     "name": "order",
+     "type": "int[]",
+     "rawValue": "[7, 5, -7]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "0"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 5], [5, 1], [5, 4], [1, 8], [4, 9], [4, 7], [4, 2], [0, 5], [2, 3], [2, 6]]"
+    },
+    {
+     "name": "order",
+     "type": "int[]",
+     "rawValue": "[0, 8, 1, 5, 4, 7, 9, 2, 3, 9]"
+    }
+   ],
+   "expectedRaw": "false"
+  },
+  {
+   "inputs": [
+    {
+     "name": "n",
+     "type": "int",
+     "rawValue": "10"
+    },
+    {
+     "name": "edges",
+     "type": "int[][]",
+     "rawValue": "[[0, 5], [5, 1], [1, 8], [4, 9], [4, 7], [4, 2], [2, 3], [2, 6]]"
+    },
+    {
+     "name": "order",
+     "type": "int[]",
+     "rawValue": "[0, 8, 1, 4, 7, 12, 2, 3, 6]"
+    }
+   ],
+   "expectedRaw": "false"
+  }
+ ]
+}

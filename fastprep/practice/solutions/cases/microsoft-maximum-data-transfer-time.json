@@ -1,0 +1,128 @@
+{
+ "problemId": "microsoft-maximum-data-transfer-time",
+ "generatedAt": "2026-11-06T15:18:35",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 12,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "4"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[2]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[3, 3, 3]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[3, 2, 3, 3]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[1, 2]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[2, 3, 3]"
+    }
+   ],
+   "expectedRaw": "2"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[-2]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[3, 2, 0]"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[1, 1, 2]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[2]"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "g_nodes",
+     "type": "int",
+     "rawValue": "3"
+    },
+    {
+     "name": "g_from",
+     "type": "int[]",
+     "rawValue": "[1]"
+    },
+    {
+     "name": "g_to",
+     "type": "int[]",
+     "rawValue": "[3, 2]"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

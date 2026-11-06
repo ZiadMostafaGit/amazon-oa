@@ -1,0 +1,98 @@
+{
+ "problemId": "google-longest-subarray-sum-at-most-k",
+ "generatedAt": "2026-11-06T15:18:27",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-1]"
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[-2, 1, 4]"
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "4"
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[3, 0, 5]"
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, 2, -1, 2]"
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "-3"
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[1, -1, 2, 1]"
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "3"
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "nums",
+     "type": "int[]",
+     "rawValue": "[2, -1, 2, 2]"
+    },
+    {
+     "name": "k",
+     "type": "long",
+     "rawValue": "0"
+    }
+   ],
+   "expectedRaw": "1"
+  }
+ ]
+}

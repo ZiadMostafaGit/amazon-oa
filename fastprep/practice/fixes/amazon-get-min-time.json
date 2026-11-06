@@ -1,0 +1,16 @@
+{
+ "pattern": "sorting",
+ "why": "The servers sit on a ring, and visiting a set of points on a ring means walking an arc that covers them all. Sort the positions; the walk can skip exactly one gap between neighbouring targets (including the wrap-around gap), so skip the largest one: answer = total_servers - largest gap.",
+ "hints": [
+  "Draw the ring with the target servers marked. Any walk that touches them all covers one continuous arc. Which part of the ring does it leave out?",
+  "Walking in one direction from the right start point covers everything except one gap between two consecutive targets. Leave out the biggest gap.",
+  "Sort and dedupe servers, compute the gaps pts[i]-pts[i-1] and the wrap gap pts[0]+total_servers-pts[-1], and return total_servers minus the maximum. O(n log n), independent of total_servers."
+ ],
+ "pitfalls": [
+  "Do not forget the wrap-around gap from the last server back to the first (example 2: servers 1 and 5 on a ring of 5 are adjacent).",
+  "Duplicates or a single distinct server give answer 0.",
+  "total_servers can be 10^9, so never build an array over the ring."
+ ],
+ "constraints": "<ul><li>1 &le; total_servers &le; 10^9</li><li>1 &le; n &le; 10^5</li><li>1 &le; servers[i] &le; total_servers</li></ul>",
+ "by": "claude", "at": "2026-11-06"
+}

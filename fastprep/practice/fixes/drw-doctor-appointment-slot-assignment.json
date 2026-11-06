@@ -1,0 +1,16 @@
+{
+  "pattern": "union-find",
+  "why": "Treat slots as vertices and each patient as an edge between their two slots; assigning patients means orienting each edge to a distinct endpoint, which is possible iff every connected component has no more edges than vertices (a tree or a single cycle). Union-find tracks vertex and edge counts per component.",
+  "hints": [
+    "Draw slots as dots and each patient as a line between their two slots. Each line must claim one of its dots, and no dot can be claimed twice.",
+    "A connected group of V slots can host at most V patients, and V is always achievable (tree or one cycle). So the answer is false iff some component has edges > vertices.",
+    "Union-find over slots 1..S with per-root vertex and edge counts; on each patient union then increment edges, failing early if edges > vertices. O((N + S) alpha)."
+  ],
+  "pitfalls": [
+    "Two patients with the same pair of slots form a 2-vertex, 2-edge component, which is fine; a third one is not.",
+    "When merging, add both components' edge counts before counting the new edge.",
+    "Slots are 1-indexed up to S."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

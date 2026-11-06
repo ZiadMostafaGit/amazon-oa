@@ -1,0 +1,16 @@
+{
+  "pattern": "sliding-window",
+  "why": "Each query asks how many skills have zero requests inside a time window of fixed length. Sort the queries and the logs by time and slide one window forward, keeping a per-skill request count and the number of skills with a positive count; idle = numSkills - active. This is the binary-search week, but the clean solution is a two-pointer sliding window (binary search only helps the brute force).",
+  "hints": [
+    "Checking every skill for every query is O(numSkills * q), too slow. Notice that all windows have the same length timeWindow.",
+    "Answer the queries in increasing time order (remember their original indices). As the window [t - timeWindow, t] moves right, requests only enter at the right and leave at the left: two pointers over the logs sorted by timestamp.",
+    "Keep count[skill] and active = number of skills with count > 0; update active when a count goes 0 to 1 or 1 to 0. Sorting dominates: O((L + q) log(L + q)) time, O(numSkills + L + q) space."
+  ],
+  "pitfalls": [
+    "The window is inclusive at both ends: [t - timeWindow, t].",
+    "A skill with several requests in the window is still one active skill; count skills, not requests.",
+    "Restore the original query order in the output after processing sorted queries."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

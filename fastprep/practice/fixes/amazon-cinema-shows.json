@@ -1,0 +1,17 @@
+{
+  "pattern": "dynamic-programming",
+  "why": "Choosing non-overlapping screenings to maximise total audience is weighted interval scheduling: sort shows by end time, and for each show binary search the last show that ends strictly before it starts, then dp[i] = max(skip, take). The week's binary search is the lookup inside the DP.",
+  "hints": [
+    "Greedy by earliest end works only when every show is worth the same. Here volumes differ, so think about 'take it or skip it' for each show.",
+    "Sort shows by end = start + duration. dp[i] = best total using the first i shows; show i either is skipped (dp[i-1]) or taken (volume + dp[j], where j counts the shows ending strictly before its start).",
+    "Find j with bisect_left on the sorted end times. Sorting plus n binary searches: O(n log n) time, O(n) space."
+  ],
+  "pitfalls": [
+    "A show that ends at time t conflicts with one starting at t: use end < start (bisect_left), not end <= start.",
+    "The end time is start + duration, not start + duration - 1; example 2 only gives 4 with this convention.",
+    "Sort by end time, not start time, or the prefix dp is not valid."
+  ],
+  "statement": "<p>A media company is showing exclusive content in theaters. There are <code>n</code> scheduled screenings. Screening <code>i</code> starts at <code>start[i]</code>, lasts <code>duration[i]</code>, and is expected to draw <code>volume[i]</code> viewers.</p><p>Pick a set of screenings with no two overlapping and return the largest possible total volume.</p><ul><li>Screening <code>i</code> occupies the time from <code>start[i]</code> to <code>end[i] = start[i] + duration[i]</code>.</li><li>Two screenings are compatible only if one fully concludes before the other begins: <code>end[a] &lt; start[b]</code>. A screening ending at time 3 and another starting at time 3 overlap.</li></ul><p><b>Worked example.</b> <code>start = [1, 2, 4]</code>, <code>duration = [2, 2, 1]</code>, <code>volume = [1, 2, 3]</code>.</p><ul><li>Screening 0 runs 1 to 3, screening 1 runs 2 to 4, screening 2 runs 4 to 5.</li><li>Screenings 1 and 2 touch at time 4, so they overlap and cannot both be chosen (that would give 5).</li><li>Screening 0 ends at 3 &lt; 4, so screenings 0 and 2 are compatible: 1 + 3 = 4.</li><li>No compatible set does better, so the answer is <code>4</code>.</li></ul><p>In the first published example the best choice is the screening starting at 5 (ends 17, volume 51) plus the one starting at 18 (volume 25), for 76.</p>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

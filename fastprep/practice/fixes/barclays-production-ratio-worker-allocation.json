@@ -1,0 +1,16 @@
+{
+ "pattern": "math",
+ "why": "Pure ratio arithmetic: split total into firstRatio + secondRatio parts, giving quantities total*firstRatio/(parts) and total*secondRatio/(parts), then divide each by its per-worker rate.",
+ "hints": [
+  "Turn the ratio a:b into fractions of the total: a/(a+b) and b/(a+b).",
+  "Quantities are total*a/(a+b) and total*b/(a+b); workers are quantity / rate for each product.",
+  "Multiply before dividing and use integer division; everything is O(1)."
+ ],
+ "pitfalls": [
+  "Multiply before dividing: the guarantee is that total * firstRatio is divisible by firstRatio + secondRatio, not that total itself is, so total // parts first can truncate. Avoid floats.",
+  "Products like total * firstRatio reach 10^18; in Java or C++ use 64-bit integers.",
+  "Return the first-product workers first."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,16 @@
+{
+  "pattern": "dp-1d",
+  "why": "In a valid subsequence each element is the previous one XOR k, so the predecessor of x is forced to be x ^ k. That makes it an LIS-style DP where instead of scanning all earlier elements you look up the best chain ending in value x ^ k in a hash map.",
+  "hints": [
+    "If a ^ b = k, then b is determined by a (b = a ^ k). How many possible predecessors does each element really have?",
+    "Let best[v] = longest valid chain ending with value v among elements seen so far. Processing x left to right: the chain ending at x extends best[x ^ k] by 1, or starts fresh at length 1.",
+    "One pass with a dict: new = best.get(x ^ k, 0) + 1; best[x] = max(best.get(x, 0), new). Answer is the maximum best value if it is >= 2, else 0. O(n)."
+  ],
+  "pitfalls": [
+    "A single element is not valid: if no chain reaches length 2, return 0.",
+    "When k = 0 the predecessor of x is x itself; compute the new length from the old best[x] before overwriting it.",
+    "An O(n^2) LIS loop over all earlier elements is too slow for n = 10^5."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

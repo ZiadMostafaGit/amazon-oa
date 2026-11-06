@@ -1,0 +1,15 @@
+{
+ "pattern": "hash-tables",
+ "why": "Removing A[i] leaves P / A[i], where P is the product of everything. Since every value is positive, two removals give the same product exactly when they remove the same value, so the answer is the number of distinct values: a set, no multiplication at all.",
+ "hints": [
+  "Do you really need to compute any product? Write the remaining product in terms of the total product P and the removed element.",
+  "Remaining product = P / A[i]. Dividing the same P by two numbers gives the same result only when the numbers are equal (all values are positive).",
+  "Put the values in a set and return its size: O(n) time, O(n) space."
+ ],
+ "pitfalls": [
+  "Multiplying everything out: 100,000 values up to 10^9 make a number with about 900,000 digits.",
+  "Counting positions instead of values: duplicates of the same value give the same product."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

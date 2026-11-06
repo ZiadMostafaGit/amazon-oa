@@ -1,0 +1,16 @@
+{
+ "pattern": "sweep-line",
+ "why": "Each group adds +passengers at 'from' and -passengers at 'to'; the seats needed is the peak of the running sum of these events in position order. Coordinates up to 10^9 rule out a difference array, so sort the events (a sweep line, i.e. prefix sums over sorted points).",
+ "hints": [
+  "Only the points where people get in or out matter; occupancy is constant between them.",
+  "Turn each trip into two events (from, +p) and (to, -p). At equal positions, drop-offs must be processed before pick-ups.",
+  "Sort events by (position, delta) so negative deltas come first at ties, sweep with a running sum, and track the maximum. O(n log n)."
+ ],
+ "pitfalls": [
+  "Tie order: at a shared point, leaving before entering (example 2 answers 3, not 5). Sorting tuples (pos, delta) handles it because negative deltas sort first.",
+  "Positions reach 10^9, so do not allocate an array indexed by position.",
+  "The answer is the peak occupancy, not the total number of passengers."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

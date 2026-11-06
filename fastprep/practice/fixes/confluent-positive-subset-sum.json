@@ -1,0 +1,16 @@
+{
+ "pattern": "knapsack",
+ "why": "Each position is used at most once and you need an exact total: that is 0/1 knapsack with feasibility only, reach[s] = can some subset of the items seen so far sum to s. The 2-D table (items x sum) collapses to one row iterated from high sums to low.",
+ "hints": [
+  "You only need to know which sums are reachable, not which items made them (until the follow-up).",
+  "reach[s] after item v = reach[s] or reach[s - v]; iterate s downward so v is used at most once. A Python big-integer bitset does the same with reach |= reach << v.",
+  "O(n * target) = 4*10^6 booleans. For the follow-up, keep the 2-D table (or record for each sum which item first reached it) and walk back from target."
+ ],
+ "pitfalls": [
+  "Iterating sums upward turns this into unbounded knapsack (an item reused).",
+  "Values larger than target can be skipped; equal values at different positions are separate items.",
+  "Mask the bitset to target + 1 bits or it grows needlessly."
+ ],
+ "by": "claude",
+ "at": "2026-11-06"
+}

@@ -1,0 +1,17 @@
+{
+  "pattern": "bfs",
+  "why": "Both operations keep the array a rotation of the ascending or descending cycle, so there are only 2n reachable states. Model them as graph nodes (ascending with offset k, descending with offset m) and BFS for the fewest moves to the sorted state. The week label is Greedy; the clean argument is a shortest path on this tiny state graph (or a closed-form comparison of the two candidate routes).",
+  "hints": [
+    "Apply the operations to a sorted array a few times. What shapes can the array ever take?",
+    "Every reachable array is a rotation of 1..n going up or going down. Describe a state by (direction, rotation offset): that is 2n states.",
+    "Identify the input's state, then BFS where 'rotate' changes the offset by one and 'reverse' flips the direction (with a matching offset). O(n) to identify, O(n) BFS. A formula comparing 'rotate only' with 'reverse, rotate, reverse' also works."
+  ],
+  "pitfalls": [
+    "Simulating moves on the real array is O(n) per move; work with (direction, offset) instead.",
+    "Already sorted means 0; n = 1 is always 0.",
+    "Reversing a rotated ascending array gives a rotated descending one with a different offset; get the offset mapping right."
+  ],
+  "constraints": "<ul><li>Not stated in the source. Assume 1 &lt;= n &lt;= 10^5.</li><li><code>arr</code> is a permutation of 1..n that can be sorted with the two operations.</li></ul>",
+  "by": "claude",
+  "at": "2026-11-06"
+}

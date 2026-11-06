@@ -2,7 +2,7 @@
 import heapq
 
 
-def solve(s: str) -> str:
+def reorganizeString(s: str) -> str:
     counts = [0] * 26
     for ch in s:
         counts[ord(ch) - 97] += 1

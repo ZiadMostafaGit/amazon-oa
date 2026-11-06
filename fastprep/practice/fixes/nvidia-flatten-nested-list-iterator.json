@@ -1,0 +1,16 @@
+{
+  "pattern": "stack",
+  "why": "Walking a nested list lazily is a DFS you can pause: keep an explicit stack of (list, position) frames, and hasNext unwinds the stack until its top points at an integer without consuming it.",
+  "hints": [
+    "Flattening everything up front works for these sizes, but think about how to produce values on demand.",
+    "Keep a stack of (list, index). To find the next integer: pop finished lists, descend into sub-lists, stop when the top points at an integer.",
+    "hasNext runs that settle step and reports whether the stack is non-empty; next settles, returns the integer and bumps the index. Amortised O(1) per call, O(depth) memory."
+  ],
+  "pitfalls": [
+    "Empty inner lists (even nested ones like [[]]) contribute nothing; hasNext must skip them and may return false.",
+    "hasNext must not consume: calling it twice in a row sees the same value.",
+    "Parse the input with a JSON parser; output integers as decimal strings, keeping negatives and zero."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

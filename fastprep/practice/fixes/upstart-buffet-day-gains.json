@@ -1,0 +1,16 @@
+{
+  "pattern": "queue",
+  "why": "The waiting line is a FIFO queue, and the day is a simulation of arrivals and departures over seats plus that queue. The only wrinkle is that waiting guests can leave from the middle of the line, handled with lazy deletion (mark them gone and skip them when they reach the front).",
+  "hints": [
+    "Track for each guest whether they are currently out, seated or waiting, whether they have paid, and how many free seats remain.",
+    "Arrival: take a free seat or join the back of a deque. Departure while waiting: just mark the guest as gone; do not search the deque. Departure while seated: pay if not paid before, free the seat, then pop from the front of the deque, skipping guests marked gone, and seat the first real one.",
+    "Each guest enters and leaves the deque at most once per visit, so the whole day is O(movements) time and O(guests) space."
+  ],
+  "pitfalls": [
+    "Removing a waiting guest from the middle of a list with list.remove is O(n) per call and too slow; use lazy deletion with a per-visit marker so a guest who re-joins is not confused with a stale entry.",
+    "A guest pays at most once all day, even across several seated visits.",
+    "nbSeats can be 0: nobody is ever seated and the gain is 0."
+  ],
+  "by": "claude",
+  "at": "2026-11-06"
+}

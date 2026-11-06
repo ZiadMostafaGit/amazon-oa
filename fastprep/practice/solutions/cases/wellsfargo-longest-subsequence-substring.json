@@ -1,0 +1,98 @@
+{
+ "problemId": "wellsfargo-longest-subsequence-substring",
+ "generatedAt": "2026-11-06T15:18:38",
+ "from": "reference solution, verified 2026-11-06T15:17:56",
+ "rejected": 0,
+ "cases": [
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"abcd\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"abcd\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"abdc\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"abdc\""
+    }
+   ],
+   "expectedRaw": "4"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"10\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"blue\""
+    }
+   ],
+   "expectedRaw": "0"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"abdc\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"abcd\""
+    }
+   ],
+   "expectedRaw": "3"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"hackerranks\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"hackerranks\""
+    }
+   ],
+   "expectedRaw": "11"
+  },
+  {
+   "inputs": [
+    {
+     "name": "x",
+     "type": "String",
+     "rawValue": "\"hackers\""
+    },
+    {
+     "name": "y",
+     "type": "String",
+     "rawValue": "\"hackers\""
+    }
+   ],
+   "expectedRaw": "7"
+  }
+ ]
+}
